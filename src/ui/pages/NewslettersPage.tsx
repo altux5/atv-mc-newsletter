@@ -18,7 +18,6 @@ export default function NewslettersPage() {
   const location = useLocation()
   const [selectedChapter, setSelectedChapter] = useState<string | null>(null)
   const [sectionIndex, setSectionIndex] = useState<Record<string, ReturnType<typeof extractSectionSnippets>>>({})
-  const [htmlCache, setHtmlCache] = useState<Record<string, string>>({})
   const [searchIndex, setSearchIndex] = useState<Record<string, string>>({})
   const [textQuery, setTextQuery] = useState('')
   const [selectedMonth, setSelectedMonth] = useState<number | null>(null) // 0-11
@@ -34,7 +33,6 @@ export default function NewslettersPage() {
     let cancelled = false
     ;(async () => {
       const sectionsEntries: Record<string, ReturnType<typeof extractSectionSnippets>> = {}
-      const htmls: Record<string, string> = {}
       const searchEntries: Record<string, string> = {}
       for (const n of newsletters) {
         try {
@@ -45,14 +43,12 @@ export default function NewslettersPage() {
           const html = match?.html
           if (html) {
             sectionsEntries[n.id] = extractSectionSnippets(html)
-            htmls[n.id] = html
             searchEntries[n.id] = extractBodyText(html)
           }
         } catch {}
       }
       if (!cancelled) {
         setSectionIndex(sectionsEntries)
-        setHtmlCache(htmls)
         setSearchIndex(searchEntries)
       }
     })()

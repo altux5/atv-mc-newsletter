@@ -1,10 +1,9 @@
 import { useEffect, useMemo, useState } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { newsletters } from '../../data/newsletters'
 import { extractBodyText, findHtmlByMonthYearAsync, loadHtmlByPathAsync } from '../../utils/newsletterHtml'
 
 export default function NewslettersListPage() {
-  const location = useLocation()
   const [textQuery, setTextQuery] = useState('')
   const [searchIndex, setSearchIndex] = useState<Record<string, string>>({})
   const [selectedMonth, setSelectedMonth] = useState<number | null>(null)
