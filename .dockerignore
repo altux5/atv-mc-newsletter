@@ -1,0 +1,39 @@
+# Node and tool artifacts
+node_modules
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Build outputs
+/dist
+/build
+/.next
+/out
+
+# VCS and editor
+.git
+.gitignore
+.svn
+.hg
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Env and local configs
+.env*
+!.env.example
+
+# Docker
+Dockerfile*
+.dockerignore
+
+# Tests and coverage
+coverage
+*.lcov
+
+# Misc caches
+.cache
+.vite
+.eslintcache
