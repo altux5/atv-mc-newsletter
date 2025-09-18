@@ -2,10 +2,7 @@
 node_modules/
 .pnpm-store/
 
-# Build outputs
-/dist/
-dist-ssr/
-.vite/
+
 
 # Logs
 npm-debug.log*

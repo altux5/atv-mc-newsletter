@@ -5,8 +5,8 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
-# Build outputs
-/dist
+# Build outputs (keep dist for prebuilt deploys)
+# /dist
 /build
 /.next
 /out
