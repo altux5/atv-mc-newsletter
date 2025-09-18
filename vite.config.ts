@@ -11,12 +11,15 @@ export default defineConfig({
     sourcemap: false,
     // Keep minify off by default; terser/esbuild can spike memory in CI
     minify: false,
-    // In CI low-memory mode, disable HMR pre-bundling extras and chunking
+    // In CI low-memory mode, disable chunking and heavy rollup features
     rollupOptions: isCiBuild
       ? {
+          treeshake: false,
           output: {
+            inlineDynamicImports: true,
             // Fewer chunks can lower memory spikes
             manualChunks: undefined,
+            hoistTransitiveImports: false,
           },
         }
       : undefined,
@@ -24,6 +27,10 @@ export default defineConfig({
     target: isCiBuild ? 'es2019' : 'es2020',
     // Limit parallel transform workers in low-memory envs
     cssMinify: isCiBuild ? false : undefined,
+    // Avoid reporting compressed size (allocates buffers)
+    reportCompressedSize: false,
+    // Disable CSS code splitting to reduce graph
+    cssCodeSplit: isCiBuild ? false : undefined,
   },
 })
 

@@ -4,7 +4,8 @@ FROM node:22-bullseye AS builder
 WORKDIR /app
 
 # Allow overriding the V8 max-old-space size at build time
-ARG MAX_OLD_SPACE=4096
+# Lower default to reduce container-wide memory pressure on small builders
+ARG MAX_OLD_SPACE=2048
 ENV NODE_OPTIONS="--max-old-space-size=${MAX_OLD_SPACE}"
 # Enable low-memory CI mode in Vite during Docker build
 ENV VITE_CI_BUILD=1
