@@ -91595,26 +91595,11 @@ const derived = Object.keys(htmlFiles).map((path) => {
   };
 }).sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 const newsletters = derived;
-const photo1 = "/assets/lowres-Advanced%20Security.jpg-B_CRCcyj.png";
-const photo2 = "/assets/lowres-AI-Keyvisual_RGB-1080x1080.jpg-Gy4FEWW7.png";
-const photo3 = "/assets/lowres-Car_curving_road.jpg-NahWiT3V.png";
-const photo4 = "/assets/lowres-Man%20looks%20at%20the%20Quantum%20Chip.jpg-B2zzTU02.png";
-const photo5 = "/assets/lowres-Sky_world_water_day.jpg-Bk4W9uJo.png";
-const photo6 = "/assets/lowres-Wind%20turbines%20and%20solar%20panels.jpg-Dai4SX4y.png";
-const mcIcon = "/assets/MC-ICON-nvwapBBZ.png";
 const newsletterImage = "/assets/newsletter%20image-ByQ57XuM.png";
+const headerImage = "/assets/header-BjGliKGF.png";
 function HomePage() {
   const latest = newsletters[0];
   const [latestParagraphs, setLatestParagraphs] = reactExports.useState([]);
-  const slides = [
-    { src: photo1, alt: "Advanced Security", caption: "Advanced Security" },
-    { src: photo2, alt: "AI", caption: "AI" },
-    { src: photo3, alt: "Car on curving road", caption: "Automotive" },
-    { src: photo4, alt: "Quantum chip", caption: "Semiconductors" },
-    { src: photo5, alt: "World Water Day", caption: "Sustainability" },
-    { src: photo6, alt: "Wind turbines and solar panels", caption: "Renewables" }
-  ];
-  const [slideIndex, setSlideIndex] = reactExports.useState(0);
   reactExports.useEffect(() => {
     let cancelled = false;
     (async () => {
@@ -91650,74 +91635,161 @@ function HomePage() {
       cancelled = true;
     };
   }, [latest?.id]);
-  const go = (direction) => {
-    setSlideIndex((i) => {
-      const len = slides.length;
-      return direction === "next" ? (i + 1) % len : (i - 1 + len) % len;
-    });
-  };
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "home", children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "hero", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("h1", { style: { display: "flex", alignItems: "center", gap: 12 }, children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: mcIcon, alt: "MC Icon", style: { height: 36, width: 36 } }),
-        "Curate. Discover. Learn."
+    /* @__PURE__ */ jsxRuntimeExports.jsx(
+      "section",
+      {
+        className: "header-image",
+        style: {
+          width: "100vw",
+          position: "relative",
+          left: "50%",
+          right: "50%",
+          marginLeft: "-50vw",
+          marginRight: "-50vw",
+          marginTop: -32
+        },
+        children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+          "img",
+          {
+            src: headerImage,
+            alt: "Header",
+            style: { display: "block", width: "100%", height: "auto" }
+          }
+        )
+      }
+    ),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "hero", style: { borderTop: "none" }, children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { style: { textAlign: "center", width: "100%", color: "var(--brand)" }, children: "Welcome to the ATV MC Digital Newsletter" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { style: { textAlign: "center", width: "100%", maxWidth: "none", fontSize: "18px" }, children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("br", {}),
+        "This secure, internal portal is your single source of truth for the full Automotive Microcontroller portfolio. ",
+        /* @__PURE__ */ jsxRuntimeExports.jsx("br", {}),
+        " Each month we update six focused sections, no scrolling through threads, no hunting for links.",
+        /* @__PURE__ */ jsxRuntimeExports.jsx("br", {}),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("br", {})
       ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "Newsletter Hub is your centralized place to explore current and archived newsletters. Clean, fast, and organized for deep dives." })
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "chapters-grid", style: { marginTop: 16 }, children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs(Link, { to: "/newsletters?chapter=AURIX", className: "chapter-tile", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { children: "AURIX™" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "the safety & performance guardian" })
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs(Link, { to: "/newsletters?chapter=TRAVEO", className: "chapter-tile", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { children: "TRAVEO™ T2G" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "the graphics & body powerhouse" })
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs(Link, { to: "/newsletters?chapter=PSOC", className: "chapter-tile", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { children: "PSOC™ Automotive" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "the smart surface" })
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs(Link, { to: "/newsletters?chapter=BULLETIN", className: "chapter-tile", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { children: "Bulletin Board" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "design-win spotlights, team announcements regional highlights" })
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs(Link, { to: "/newsletters?chapter=EASE", className: "chapter-tile", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { children: "Ease of Use" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "one click access to collateral, samples, kits, training videos, price lists" })
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs(Link, { to: "/newsletters?chapter=MARKET", className: "chapter-tile", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { children: "Market News & Press Release" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "Every headline, note and quote on" })
+        ] })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { style: { textAlign: "center", width: "100%", maxWidth: "none", fontSize: "18px" }, children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("br", {}),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("br", {}),
+        "Bookmark the link, enable notifications, and check back on the first working day of every month.",
+        /* @__PURE__ */ jsxRuntimeExports.jsx("br", {}),
+        "Thank you for keeping the information strictly internal—let’s turn these updates into design-ins."
+      ] })
     ] }),
-    latest && /* @__PURE__ */ jsxRuntimeExports.jsx("section", { className: "latest-newsletter", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "latest-grid", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "left", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "media", children: /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: newsletterImage, alt: "Newsletter picture" }) }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { children: "Latest newsletter" }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { style: { margin: 0 }, children: new Date(latest.date).toLocaleDateString() }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: `/newsletters/${latest.slug}`, style: { display: "inline-block", marginTop: 8 }, children: /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: latest.title }) })
+    latest && /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "latest-newsletter", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { style: { marginTop: 0, color: "var(--brand)" }, children: "Latest newsletter" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "latest-grid", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "left", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "media", children: /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: newsletterImage, alt: "Newsletter picture" }) }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { style: { color: "#000" }, children: latest.title }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("p", { style: { margin: 0 }, children: new Date(latest.date).toLocaleDateString() })
+          ] })
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "latest-desc", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("h4", { style: { marginTop: 0, marginBottom: 8 }, children: "from this newsletter:" }),
+          latestParagraphs.length > 0 ? latestParagraphs.map((t, i) => /* @__PURE__ */ jsxRuntimeExports.jsx("p", { style: { marginTop: i === 0 ? 0 : 8 }, children: t }, i)) : /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "meta", style: { marginTop: 0 }, children: "Loading preview…" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: `/newsletters/${latest.slug}`, className: "cta", style: { display: "inline-block", marginTop: 12 }, children: "Go to the newsletter →" })
         ] })
-      ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "latest-desc", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx("h4", { style: { marginTop: 0, marginBottom: 8 }, children: "from this newsletter:" }),
-        latestParagraphs.length > 0 ? latestParagraphs.map((t, i) => /* @__PURE__ */ jsxRuntimeExports.jsx("p", { style: { marginTop: i === 0 ? 0 : 8 }, children: t }, i)) : /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "meta", style: { marginTop: 0 }, children: "Loading preview…" }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: `/newsletters/${latest.slug}`, className: "cta", style: { display: "inline-block", marginTop: 12 }, children: "Go to the newsletter →" })
       ] })
-    ] }) }),
+    ] }),
     /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "insights", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { children: "Explore topics" }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "insight-grid", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("article", { className: "topic-card", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: photo3, alt: "AURIX" }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "body", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { children: "AURIX™" }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "Microcontrollers and safety for automotive architectures." }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/newsletters?chapter=AURIX", className: "cta", children: "Go to Aurix news →" })
-          ] })
-        ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("article", { className: "topic-card", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: photo2, alt: "TRAVEO" }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "body", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { children: "TRAVEO™" }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "Body control, cluster, and lighting solutions." }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/newsletters?chapter=TRAVEO", className: "cta", children: "Go to Traveo news →" })
-          ] })
-        ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("article", { className: "topic-card", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: photo1, alt: "PSOC Automotive" }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "body", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { children: "PSOC™ Automotive" }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "Configurable MCUs enabling rapid feature delivery." }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/newsletters?chapter=PSOC", className: "cta", children: "Go to PSOC news →" })
-          ] })
-        ] })
-      ] })
+      /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { style: { color: "var(--brand)" }, children: "Explore News by Products" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("style", { children: `
+          .topic-bar { position: relative; }
+          .topic-bar .fill {
+            height: 100%;
+            background: var(--brand);
+            width: calc(var(--fill, 0) * 100%);
+            transition: width 240ms ease;
+          }
+          .topic-bar:hover .fill,
+          .topic-bar:focus-visible .fill {
+            width: calc((var(--fill, 0) + 0.05) * 100%);
+          }
+        ` }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "topic-bars", style: { display: "flex", flexDirection: "column", gap: 12 }, children: [
+        { to: "/newsletters?chapter=AURIX", label: "AURIX™", fraction: 0.15 },
+        { to: "/newsletters?chapter=TRAVEO", label: "TRAVEO™", fraction: 0.35 },
+        { to: "/newsletters?chapter=PSOC", label: "PSOC™ Automotive", fraction: 0.55 }
+      ].map((t, idx) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
+        Link,
+        {
+          to: t.to,
+          className: "topic-bar",
+          style: {
+            display: "flex",
+            alignItems: "stretch",
+            width: "100%",
+            height: 56,
+            borderRadius: 8,
+            overflow: "hidden",
+            border: "1px solid var(--border-color, #e0e0e0)",
+            textDecoration: "none",
+            color: "inherit",
+            background: "#fff",
+            ["--fill"]: t.fraction
+          },
+          "aria-label": `Go to ${t.label} news`,
+          children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "fill" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(
+              "div",
+              {
+                style: {
+                  flex: 1,
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "flex-start",
+                  padding: "0 16px",
+                  fontWeight: 700,
+                  color: "var(--brand)"
+                },
+                children: t.label
+              }
+            )
+          ]
+        },
+        idx
+      )) })
     ] }),
     /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "social-widget", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { children: "ATV MC social feed" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { style: { color: "var(--brand)" }, children: "ATV MC social feed" }),
       /* @__PURE__ */ jsxRuntimeExports.jsx(
         "div",
         {
           style: {
             position: "relative",
-            width: 730,
+            width: 1100,
             height: 720,
-            border: "1px solid var(--border-color, #e0e0e0)",
+            border: "0px solid var(--border-color, #e0e0e0)",
             borderRadius: 8,
             overflow: "hidden",
             background: "#fff"
@@ -91730,7 +91802,7 @@ function HomePage() {
               style: {
                 position: "absolute",
                 top: -750,
-                left: -730,
+                left: -550,
                 width: 1600,
                 height: 1600,
                 border: 0,
@@ -91744,16 +91816,88 @@ function HomePage() {
         }
       )
     ] }),
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "mission", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { children: "Gallery" }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "carousel", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "carousel-track", style: { transform: `translateX(-${slideIndex * 100}%)` }, children: slides.map((s, idx) => /* @__PURE__ */ jsxRuntimeExports.jsxs("figure", { className: "carousel-item photo-card", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: s.src, alt: s.alt }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("figcaption", { className: "caption", children: s.caption })
-        ] }, idx)) }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("button", { className: "carousel-btn prev", onClick: () => go("prev"), "aria-label": "Previous", children: "‹" }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("button", { className: "carousel-btn next", onClick: () => go("next"), "aria-label": "Next", children: "›" })
-      ] })
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "useful-links", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { style: { color: "var(--brand)" }, children: "Useful links" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("style", { children: `
+          .useful-links a { text-decoration: none; color: var(--brand); }
+          .useful-links a:hover, .useful-links a:focus-visible { text-decoration: underline; }
+        ` }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(
+        "div",
+        {
+          className: "useful-grid",
+          style: {
+            display: "grid",
+            gridTemplateColumns: "1fr 1fr",
+            gap: 16
+          },
+          children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "column products", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { style: { marginTop: 0 }, children: "Products" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx(
+                "div",
+                {
+                  className: "link-box",
+                  style: {
+                    background: "#fff",
+                    border: "1px solid var(--border-color, #e0e0e0)",
+                    borderRadius: 0,
+                    padding: 16
+                  },
+                  children: /* @__PURE__ */ jsxRuntimeExports.jsxs("ul", { style: { margin: 0 }, children: [
+                    /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: "https://www.infineon.com/products/microcontroller/32-bit-tricore", target: "_blank", rel: "noopener noreferrer", children: "32-bit AURIX™ TriCore™ Microcontroller" }) }),
+                    /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: "https://www.infineon.com/products/microcontroller/32-bit-psoc-arm-cortex/automotive-psoc-4-mcu", target: "_blank", rel: "noopener noreferrer", children: "32-bit PSOC™ 4 Automotive Arm® Cortex®-M0/M0+" }) }),
+                    /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: "https://www.infineon.com/products/microcontroller/32-bit-psoc-arm-cortex/psoc-4-hv-m0", target: "_blank", rel: "noopener noreferrer", children: "32-bit PSOC™ 4 HV Arm® Cortex®-M0+" }) }),
+                    /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: "https://www.infineon.com/products/microcontroller/32-bit-psoc-arm-cortex/fingerprint-m0-plus", target: "_blank", rel: "noopener noreferrer", children: "32-bit PSOC™ Fingerprint Arm® Cortex®-M0+" }) }),
+                    /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: "https://www.infineon.com/products/microcontroller/32-bit-psoc-arm-cortex/automotive-multitouch-m0", target: "_blank", rel: "noopener noreferrer", children: "32-bit PSOC™ Automotive Multitouch Arm® Cortex®-M0" }) }),
+                    /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: "https://www.infineon.com/products/microcontroller/32-bit-traveo-t2g-arm-cortex/for-body", target: "_blank", rel: "noopener noreferrer", children: "32-bit TRAVEO™ T2G Arm® Cortex® for Body" }) }),
+                    /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: "https://www.infineon.com/products/microcontroller/32-bit-traveo-t2g-arm-cortex/for-cluster", target: "_blank", rel: "noopener noreferrer", children: "32-bit TRAVEO™ T2G Arm® Cortex® for Cluster" }) })
+                  ] })
+                }
+              )
+            ] }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "column myicp", style: { display: "grid", gap: 16 }, children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { style: { marginTop: 0 }, children: "myICP" }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx(
+                  "div",
+                  {
+                    className: "link-box",
+                    style: {
+                      background: "#fff",
+                      border: "1px solid var(--border-color, #e0e0e0)",
+                      borderRadius: 0,
+                      padding: 16
+                    },
+                    children: /* @__PURE__ */ jsxRuntimeExports.jsxs("ul", { style: { margin: 0 }, children: [
+                      /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: "https://myicp.infineon.com/sites/microcontrollers-aurix_customer_doc/SitePages/default.aspx", target: "_blank", rel: "noopener noreferrer", children: "32-bit TriCore™ Microcontroller" }) }),
+                      /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: "https://myicp.infineon.com/sites/TRAVEODocumentation/SitePages/default.aspx", target: "_blank", rel: "noopener noreferrer", children: "TRAVEO™ Microcontroller" }) }),
+                      /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: "https://myicp.infineon.com/sites/PSoCDocumentation/SitePages/default.aspx", target: "_blank", rel: "noopener noreferrer", children: "PSOC™ Microcontroller" }) })
+                    ] })
+                  }
+                )
+              ] }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx(
+                "div",
+                {
+                  className: "link-box",
+                  style: {
+                    background: "#fff",
+                    border: "1px solid var(--border-color, #e0e0e0)",
+                    borderRadius: 0,
+                    padding: 16,
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    minHeight: 80
+                  },
+                  children: "TBD"
+                }
+              )
+            ] })
+          ]
+        }
+      )
     ] })
   ] });
 }
@@ -91813,6 +91957,9 @@ function NewslettersPage() {
     if (normalized.includes("AURIX")) setSelectedChapter("AURIX™");
     else if (normalized.includes("TRAVEO")) setSelectedChapter("TRAVEO™");
     else if (normalized.includes("PSOC")) setSelectedChapter("PSOC™ Automotive");
+    else if (normalized.includes("BULLETIN")) setSelectedChapter("Bulletin Board");
+    else if (normalized.includes("EASE")) setSelectedChapter("Ease of Use");
+    else if (normalized.includes("MARKET")) setSelectedChapter("Market News & Press Release");
   }, [location.search]);
   const filtered = reactExports.useMemo(() => {
     const q = textQuery.trim().toLowerCase();
@@ -91918,6 +92065,26 @@ function NewslettersPage() {
     setSelectedYear(null);
   };
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "newsletters-page", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx("style", { children: `
+        .newsletters-page .heading-row h1 { color: var(--brand); margin: 0; }
+        .newsletters-page .heading-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
+        .newsletters-page .heading-row .toggle { color: var(--brand); text-decoration: none; padding: 4px 8px; border-radius: 0; }
+        .newsletters-page .heading-row .toggle.active { background: rgba(0,0,0,0.04); }
+        .newsletters-page .layout-with-sidebar { gap: 16px; align-items: flex-start; }
+        .newsletters-page .filters.card { background: #fff; border: 1px solid var(--border-color, #e0e0e0); border-radius: 0; padding: 16px; }
+        .newsletters-page .filters .field { margin-bottom: 12px; }
+        .newsletters-page .filters label { font-weight: 600; }
+        .newsletters-page .content-grid .grid { gap: 16px; }
+        .newsletters-page .newsletter-card { background: #fff; border: 1px solid var(--border-color, #e0e0e0); border-radius: 0; padding: 16px; transition: transform 150ms ease, box-shadow 150ms ease, border-color 150ms ease; }
+        .newsletters-page .newsletter-card:hover { transform: translateY(-2px); box-shadow: 0 4px 16px rgba(0,0,0,0.06); border-color: var(--brand); }
+        .newsletters-page .newsletter-card h3 { margin-top: 0; }
+        .newsletters-page .newsletter-card:hover h3 { color: var(--brand); }
+        .newsletters-page .pill { color: var(--brand); border: 1px solid var(--brand); background: transparent; border-radius: 0; }
+        .newsletters-page .matches-section .match-title-link { color: var(--brand); }
+        .newsletters-page .loading .loading-bar { height: 8px; background: #f3f3f3; border-radius: 0; overflow: hidden; }
+        .newsletters-page .loading .loading-bar-inner { height: 100%; width: 40%; background: var(--brand); animation: nlblink 1.2s ease-in-out infinite alternate; }
+        @keyframes nlblink { from { width: 25%; } to { width: 55%; } }
+      ` }),
     /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "heading-row", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { children: "All Newsletters" }),
       /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "view-toggle", children: [
@@ -92122,6 +92289,18 @@ function NewslettersListPage() {
     setSelectedYear(null);
   };
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "newsletters-page", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx("style", { children: `
+        .newsletters-page .heading-row h1 { color: var(--brand); margin: 0; }
+        .newsletters-page .heading-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
+        .newsletters-page .heading-row .toggle { color: var(--brand); text-decoration: none; padding: 4px 8px; border-radius: 0; }
+        .newsletters-page .heading-row .toggle.active { background: rgba(0,0,0,0.04); }
+        .newsletters-page .inline-filters.card { background: #fff; border: 1px solid var(--border-color, #e0e0e0); border-radius: 0; padding: 16px; margin-bottom: 16px; }
+        .newsletters-page .inline-group label { font-weight: 600; }
+        .newsletters-page .list-row { background: #fff; border: 1px solid var(--border-color, #e0e0e0); border-radius: 0; padding: 12px 16px; margin-bottom: 8px; text-decoration: none; color: inherit; transition: border-color 150ms ease, background 150ms ease; }
+        .newsletters-page .list-row:hover { border-color: var(--brand); background: #fafafa; }
+        .newsletters-page .list-row-title strong { color: #000; }
+        .newsletters-page .list-row:hover .list-row-title strong { color: var(--brand); }
+      ` }),
     /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "heading-row", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { children: "All Newsletters" }),
       /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "view-toggle", children: [
