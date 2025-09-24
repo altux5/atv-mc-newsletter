@@ -137,6 +137,21 @@ a { color: var(--text); text-decoration: none; }
 /* Section dividers on home */
 .home section + section { border-top: 1px solid #e5e7eb; padding-top: 40px; margin-top: 24px; }
 
+/* Chapters section */
+.chapters h2 { margin-top: 0; }
+.chapters-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.chapter-tile { display: block; border: 1px solid #e5e7eb; background: #fff; padding: 16px; border-radius: 0; transition: border-color 160ms ease, transform 160ms ease; }
+.chapter-tile:hover { border-color: #c7ece7; transform: translateY(-2px); }
+.chapter-tile h3 { margin: 0 0 6px; color: var(--brand); }
+.chapter-tile p { margin: 0; color: var(--muted); }
+
+@media (max-width: 860px) {
+  .chapters-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 540px) {
+  .chapters-grid { grid-template-columns: 1fr; }
+}
+
 /* Newsletters page theme */
 .newsletters-page { background: #ffffff; }
 .heading-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }

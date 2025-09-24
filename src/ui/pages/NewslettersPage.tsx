@@ -66,6 +66,9 @@ export default function NewslettersPage() {
     if (normalized.includes('AURIX')) setSelectedChapter('AURIX™')
     else if (normalized.includes('TRAVEO')) setSelectedChapter('TRAVEO™')
     else if (normalized.includes('PSOC')) setSelectedChapter('PSOC™ Automotive')
+    else if (normalized.includes('BULLETIN')) setSelectedChapter('Bulletin Board')
+    else if (normalized.includes('EASE')) setSelectedChapter('Ease of Use')
+    else if (normalized.includes('MARKET')) setSelectedChapter('Market News & Press Release')
   }, [location.search])
 
   const filtered = useMemo(() => {
@@ -190,6 +193,26 @@ export default function NewslettersPage() {
 
   return (
     <div className="newsletters-page">
+      <style>{`
+        .newsletters-page .heading-row h1 { color: var(--brand); margin: 0; }
+        .newsletters-page .heading-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
+        .newsletters-page .heading-row .toggle { color: var(--brand); text-decoration: none; padding: 4px 8px; border-radius: 0; }
+        .newsletters-page .heading-row .toggle.active { background: rgba(0,0,0,0.04); }
+        .newsletters-page .layout-with-sidebar { gap: 16px; align-items: flex-start; }
+        .newsletters-page .filters.card { background: #fff; border: 1px solid var(--border-color, #e0e0e0); border-radius: 0; padding: 16px; }
+        .newsletters-page .filters .field { margin-bottom: 12px; }
+        .newsletters-page .filters label { font-weight: 600; }
+        .newsletters-page .content-grid .grid { gap: 16px; }
+        .newsletters-page .newsletter-card { background: #fff; border: 1px solid var(--border-color, #e0e0e0); border-radius: 0; padding: 16px; transition: transform 150ms ease, box-shadow 150ms ease, border-color 150ms ease; }
+        .newsletters-page .newsletter-card:hover { transform: translateY(-2px); box-shadow: 0 4px 16px rgba(0,0,0,0.06); border-color: var(--brand); }
+        .newsletters-page .newsletter-card h3 { margin-top: 0; }
+        .newsletters-page .newsletter-card:hover h3 { color: var(--brand); }
+        .newsletters-page .pill { color: var(--brand); border: 1px solid var(--brand); background: transparent; border-radius: 0; }
+        .newsletters-page .matches-section .match-title-link { color: var(--brand); }
+        .newsletters-page .loading .loading-bar { height: 8px; background: #f3f3f3; border-radius: 0; overflow: hidden; }
+        .newsletters-page .loading .loading-bar-inner { height: 100%; width: 40%; background: var(--brand); animation: nlblink 1.2s ease-in-out infinite alternate; }
+        @keyframes nlblink { from { width: 25%; } to { width: 55%; } }
+      `}</style>
       <div className="heading-row">
         <h1>All Newsletters</h1>
         <div className="view-toggle">

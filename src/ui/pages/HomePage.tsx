@@ -2,27 +2,13 @@ import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { newsletters } from '../../data/newsletters'
 import { extractAndSanitizeBodyHtml, findHtmlByMonthYearAsync, loadHtmlByPathAsync } from '../../utils/newsletterHtml'
-import photo1 from '../../photos/lowres-Advanced Security.jpg.png'
-import photo2 from '../../photos/lowres-AI-Keyvisual_RGB-1080x1080.jpg.png'
-import photo3 from '../../photos/lowres-Car_curving_road.jpg.png'
-import photo4 from '../../photos/lowres-Man looks at the Quantum Chip.jpg.png'
-import photo5 from '../../photos/lowres-Sky_world_water_day.jpg.png'
-import photo6 from '../../photos/lowres-Wind turbines and solar panels.jpg.png'
-import mcIcon from '../../logo/MC-ICON.png'
 import newsletterImage from '../../photos/newsletter image.png'
+import headerImage from '../../photos/header.png'
 
 export default function HomePage() {
   const latest = newsletters[0]
   const [latestParagraphs, setLatestParagraphs] = useState<string[]>([])
-  const slides = [
-    { src: photo1, alt: 'Advanced Security', caption: 'Advanced Security' },
-    { src: photo2, alt: 'AI', caption: 'AI' },
-    { src: photo3, alt: 'Car on curving road', caption: 'Automotive' },
-    { src: photo4, alt: 'Quantum chip', caption: 'Semiconductors' },
-    { src: photo5, alt: 'World Water Day', caption: 'Sustainability' },
-    { src: photo6, alt: 'Wind turbines and solar panels', caption: 'Renewables' },
-  ]
-  const [slideIndex, setSlideIndex] = useState(0)
+  
 
   useEffect(() => {
     let cancelled = false
@@ -56,38 +42,85 @@ export default function HomePage() {
     })()
     return () => { cancelled = true }
   }, [latest?.id])
-  const go = (direction: 'prev' | 'next') => {
-    setSlideIndex((i) => {
-      const len = slides.length
-      return direction === 'next' ? (i + 1) % len : (i - 1 + len) % len
-    })
-  }
+  
   return (
     <div className="home">
-      <section className="hero">
-        <h1 style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-          <img src={mcIcon} alt="MC Icon" style={{ height: 36, width: 36 }} />
-          Curate. Discover. Learn.
+      <section
+        className="header-image"
+        style={{
+          width: '100vw',
+          position: 'relative',
+          left: '50%',
+          right: '50%',
+          marginLeft: '-50vw',
+          marginRight: '-50vw',
+          marginTop: -32,
+        }}
+      >
+        <img
+          src={headerImage}
+          alt="Header"
+          style={{ display: 'block', width: '100%', height: 'auto' }}
+        />
+      </section>
+      <section className="hero" style={{ borderTop: 'none' }}>
+        <h1 style={{ textAlign: 'center', width: '100%', color: 'var(--brand)' }}>
+          Welcome to the ATV MC Digital Newsletter 
+        
         </h1>
-        <p>
-          Newsletter Hub is your centralized place to explore current and archived newsletters.
-          Clean, fast, and organized for deep dives.
+        <p style={{ textAlign: 'center', width: '100%', maxWidth: 'none', fontSize: '18px'  }}>
+        <br />This secure, internal portal is your single source of truth for the full Automotive Microcontroller portfolio. <br /> Each month we update six focused sections, no scrolling through threads, no hunting for links.
+        <br />
+        <br />
+        </p>
+        <div className="chapters-grid" style={{ marginTop: 16 }}>
+          <Link to="/newsletters?chapter=AURIX" className="chapter-tile">
+            <h3>AURIX™</h3>
+            <p>the safety & performance guardian</p>
+          </Link>
+          <Link to="/newsletters?chapter=TRAVEO" className="chapter-tile">
+            <h3>TRAVEO™ T2G</h3>
+            <p>the graphics & body powerhouse</p>
+          </Link>
+          <Link to="/newsletters?chapter=PSOC" className="chapter-tile">
+            <h3>PSOC™ Automotive</h3>
+            <p>the smart surface</p>
+          </Link>
+          <Link to="/newsletters?chapter=BULLETIN" className="chapter-tile">
+            <h3>Bulletin Board</h3>
+            <p>design-win spotlights, team announcements regional highlights</p>
+          </Link>
+          <Link to="/newsletters?chapter=EASE" className="chapter-tile">
+            <h3>Ease of Use</h3>
+            <p>one click access to collateral, samples, kits, training videos, price lists</p>
+          </Link>
+          <Link to="/newsletters?chapter=MARKET" className="chapter-tile">
+            <h3>Market News & Press Release</h3>
+            <p>Every headline, note and quote on</p>
+          </Link>
+        </div>
+        <p style={{ textAlign: 'center', width: '100%', maxWidth: 'none', fontSize: '18px' }}>
+          <br/>
+          <br />
+        Bookmark the link, enable notifications, and check back on the first working day of every month.
+<br />Thank you for keeping the information strictly internal—let’s turn these updates into design-ins.
+
         </p>
       </section>
 
+      
+
       {latest && (
         <section className="latest-newsletter">
+          <h2 style={{ marginTop: 0, color: 'var(--brand)' }}>Latest newsletter</h2>
           <div className="latest-grid">
             <div className="left">
               <div className="media">
                 <img src={newsletterImage} alt="Newsletter picture" />
               </div>
               <div>
-                <h3>Latest newsletter</h3>
+                <h3 style={{ color: '#000' }}>{latest.title}</h3>
                 <p style={{ margin: 0 }}>{new Date(latest.date).toLocaleDateString()}</p>
-                <Link to={`/newsletters/${latest.slug}`} style={{ display: 'inline-block', marginTop: 8 }}>
-                  <strong>{latest.title}</strong>
-                </Link>
               </div>
             </div>
             <div className="latest-desc">
@@ -105,45 +138,76 @@ export default function HomePage() {
         </section>
       )}
 
+      
+
       <section className="insights">
-        <h2>Explore topics</h2>
-        <div className="insight-grid">
-          <article className="topic-card">
-            <img src={photo3} alt="AURIX" />
-            <div className="body">
-              <h3>AURIX™</h3>
-              <p>Microcontrollers and safety for automotive architectures.</p>
-              <Link to="/newsletters?chapter=AURIX" className="cta">Go to Aurix news →</Link>
-            </div>
-          </article>
-          <article className="topic-card">
-            <img src={photo2} alt="TRAVEO" />
-            <div className="body">
-              <h3>TRAVEO™</h3>
-              <p>Body control, cluster, and lighting solutions.</p>
-              <Link to="/newsletters?chapter=TRAVEO" className="cta">Go to Traveo news →</Link>
-            </div>
-          </article>
-          <article className="topic-card">
-            <img src={photo1} alt="PSOC Automotive" />
-            <div className="body">
-              <h3>PSOC™ Automotive</h3>
-              <p>Configurable MCUs enabling rapid feature delivery.</p>
-              <Link to="/newsletters?chapter=PSOC" className="cta">Go to PSOC news →</Link>
-            </div>
-          </article>
+        <h2 style={{ color: 'var(--brand)' }}>Explore News by Products</h2>
+        <style>{`
+          .topic-bar { position: relative; }
+          .topic-bar .fill {
+            height: 100%;
+            background: var(--brand);
+            width: calc(var(--fill, 0) * 100%);
+            transition: width 240ms ease;
+          }
+          .topic-bar:hover .fill,
+          .topic-bar:focus-visible .fill {
+            width: calc((var(--fill, 0) + 0.05) * 100%);
+          }
+        `}</style>
+        <div className="topic-bars" style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+          {[
+            { to: '/newsletters?chapter=AURIX', label: 'AURIX™', fraction: 0.15 },
+            { to: '/newsletters?chapter=TRAVEO', label: 'TRAVEO™', fraction: 0.35 },
+            { to: '/newsletters?chapter=PSOC', label: 'PSOC™ Automotive', fraction: 0.55 },
+          ].map((t, idx) => (
+            <Link
+              key={idx}
+              to={t.to}
+              className="topic-bar"
+              style={{
+                display: 'flex',
+                alignItems: 'stretch',
+                width: '100%',
+                height: 56,
+                borderRadius: 8,
+                overflow: 'hidden',
+                border: '1px solid var(--border-color, #e0e0e0)',
+                textDecoration: 'none',
+                color: 'inherit',
+                background: '#fff',
+                ['--fill' as any]: t.fraction,
+              } as React.CSSProperties}
+              aria-label={`Go to ${t.label} news`}
+            >
+              <div className="fill" />
+              <div
+                style={{
+                  flex: 1,
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'flex-start',
+                  padding: '0 16px',
+                  fontWeight: 700,
+                  color: 'var(--brand)',
+                }}
+              >
+                {t.label}
+              </div>
+            </Link>
+          ))}
         </div>
       </section>
 
       <section className="social-widget">
-        <h2>ATV MC social feed</h2>
+        <h2 style={{ color: 'var(--brand)' }}>ATV MC social feed</h2>
         {/* Cropped iframe view focusing on the posts column */}
         <div
           style={{
             position: 'relative',
-            width: 730,
+            width: 1100,
             height: 720,
-            border: '1px solid var(--border-color, #e0e0e0)',
+            border: '0px solid var(--border-color, #e0e0e0)',
             borderRadius: 8,
             overflow: 'hidden',
             background: '#fff',
@@ -155,7 +219,7 @@ export default function HomePage() {
             style={{
               position: 'absolute',
               top: -750,
-              left: -730,
+              left: -550,
               width: 1600,
               height: 1600,
               border: 0,
@@ -168,21 +232,120 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="mission">
-        <h2>Gallery</h2>
-        <div className="carousel">
-          <div className="carousel-track" style={{ transform: `translateX(-${slideIndex * 100}%)` }}>
-            {slides.map((s, idx) => (
-              <figure key={idx} className="carousel-item photo-card">
-                <img src={s.src} alt={s.alt} />
-                <figcaption className="caption">{s.caption}</figcaption>
-              </figure>
-            ))}
+      <section className="useful-links">
+        <h2 style={{ color: 'var(--brand)' }}>Useful links</h2>
+        <style>{`
+          .useful-links a { text-decoration: none; color: var(--brand); }
+          .useful-links a:hover, .useful-links a:focus-visible { text-decoration: underline; }
+        `}</style>
+        <div
+          className="useful-grid"
+          style={{
+            display: 'grid',
+            gridTemplateColumns: '1fr 1fr',
+            gap: 16,
+          }}
+        >
+          <div className="column products">
+            <h3 style={{ marginTop: 0 }}>Products</h3>
+            <div
+              className="link-box"
+              style={{
+                background: '#fff',
+                border: '1px solid var(--border-color, #e0e0e0)',
+                borderRadius: 0,
+                padding: 16,
+              }}
+            >
+              <ul style={{ margin: 0 }}>
+                <li>
+                  <a href="https://www.infineon.com/products/microcontroller/32-bit-tricore" target="_blank" rel="noopener noreferrer">
+                    32-bit AURIX™ TriCore™ Microcontroller
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.infineon.com/products/microcontroller/32-bit-psoc-arm-cortex/automotive-psoc-4-mcu" target="_blank" rel="noopener noreferrer">
+                    32-bit PSOC™ 4 Automotive Arm® Cortex®-M0/M0+
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.infineon.com/products/microcontroller/32-bit-psoc-arm-cortex/psoc-4-hv-m0" target="_blank" rel="noopener noreferrer">
+                    32-bit PSOC™ 4 HV Arm® Cortex®-M0+
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.infineon.com/products/microcontroller/32-bit-psoc-arm-cortex/fingerprint-m0-plus" target="_blank" rel="noopener noreferrer">
+                    32-bit PSOC™ Fingerprint Arm® Cortex®-M0+
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.infineon.com/products/microcontroller/32-bit-psoc-arm-cortex/automotive-multitouch-m0" target="_blank" rel="noopener noreferrer">
+                    32-bit PSOC™ Automotive Multitouch Arm® Cortex®-M0
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.infineon.com/products/microcontroller/32-bit-traveo-t2g-arm-cortex/for-body" target="_blank" rel="noopener noreferrer">
+                    32-bit TRAVEO™ T2G Arm® Cortex® for Body
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.infineon.com/products/microcontroller/32-bit-traveo-t2g-arm-cortex/for-cluster" target="_blank" rel="noopener noreferrer">
+                    32-bit TRAVEO™ T2G Arm® Cortex® for Cluster
+                  </a>
+                </li>
+              </ul>
+            </div>
           </div>
-          <button className="carousel-btn prev" onClick={() => go('prev')} aria-label="Previous">‹</button>
-          <button className="carousel-btn next" onClick={() => go('next')} aria-label="Next">›</button>
+          <div className="column myicp" style={{ display: 'grid', gap: 16 }}>
+            <div>
+              <h3 style={{ marginTop: 0 }}>myICP</h3>
+              <div
+                className="link-box"
+                style={{
+                  background: '#fff',
+                  border: '1px solid var(--border-color, #e0e0e0)',
+                  borderRadius: 0,
+                  padding: 16,
+                }}
+              >
+                <ul style={{ margin: 0 }}>
+                  <li>
+                    <a href="https://myicp.infineon.com/sites/microcontrollers-aurix_customer_doc/SitePages/default.aspx" target="_blank" rel="noopener noreferrer">
+                      32-bit TriCore™ Microcontroller
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://myicp.infineon.com/sites/TRAVEODocumentation/SitePages/default.aspx" target="_blank" rel="noopener noreferrer">
+                      TRAVEO™ Microcontroller
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://myicp.infineon.com/sites/PSoCDocumentation/SitePages/default.aspx" target="_blank" rel="noopener noreferrer">
+                      PSOC™ Microcontroller
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div className="link-box"
+              style={{
+                background: '#fff',
+                border: '1px solid var(--border-color, #e0e0e0)',
+                borderRadius: 0,
+                padding: 16,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                minHeight: 80,
+              }}
+            >
+              TBD
+            </div>
+          </div>
         </div>
       </section>
+
+      
     </div>
   )
 }

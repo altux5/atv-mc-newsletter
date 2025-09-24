@@ -53,6 +53,18 @@ export default function NewslettersListPage() {
 
   return (
     <div className="newsletters-page">
+      <style>{`
+        .newsletters-page .heading-row h1 { color: var(--brand); margin: 0; }
+        .newsletters-page .heading-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
+        .newsletters-page .heading-row .toggle { color: var(--brand); text-decoration: none; padding: 4px 8px; border-radius: 0; }
+        .newsletters-page .heading-row .toggle.active { background: rgba(0,0,0,0.04); }
+        .newsletters-page .inline-filters.card { background: #fff; border: 1px solid var(--border-color, #e0e0e0); border-radius: 0; padding: 16px; margin-bottom: 16px; }
+        .newsletters-page .inline-group label { font-weight: 600; }
+        .newsletters-page .list-row { background: #fff; border: 1px solid var(--border-color, #e0e0e0); border-radius: 0; padding: 12px 16px; margin-bottom: 8px; text-decoration: none; color: inherit; transition: border-color 150ms ease, background 150ms ease; }
+        .newsletters-page .list-row:hover { border-color: var(--brand); background: #fafafa; }
+        .newsletters-page .list-row-title strong { color: #000; }
+        .newsletters-page .list-row:hover .list-row-title strong { color: var(--brand); }
+      `}</style>
       <div className="heading-row">
         <h1>All Newsletters</h1>
         <div className="view-toggle">
