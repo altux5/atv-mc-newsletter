@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { newsletters } from '../../data/newsletters'
 import { extractAndSanitizeBodyHtml, findHtmlByMonthYearAsync, loadHtmlByPathAsync } from '../../utils/newsletterHtml'
 import newsletterImage from '../../photos/newsletter image.png'
-import headerImage from '../../photos/header.png'
+import headerImage from '../../photos/new-header.jpg'
 
 export default function HomePage() {
   const latest = newsletters[0]
@@ -55,32 +55,45 @@ export default function HomePage() {
           marginLeft: '-50vw',
           marginRight: '-50vw',
           marginTop: -32,
+          height: 'clamp(240px, 22vw, 380px)',
+          overflow: 'hidden',
         }}
       >
         <img
           src={headerImage}
           alt="Header"
-          style={{ display: 'block', width: '100%', height: 'auto' }}
+          style={{ display: 'block', width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center' }}
         />
       </section>
       <div
-        className="home-two-col"
+        className="home-wide"
         style={{
-          display: 'grid',
-          gridTemplateColumns: '3fr 1fr',
-          gap: 24,
-          width: '50vw',
-          marginLeft: -80,
-          alignItems: 'start',
+          position: 'relative',
+          width: '100vw',
+          left: '50%',
+          right: '50%',
+          marginLeft: '-50vw',
+          marginRight: '-50vw',
         }}
       >
+        <div
+          className="home-two-col"
+          style={{
+            display: 'grid',
+            gridTemplateColumns: '12fr 5fr',
+            gap: 50,
+            width: 'min(95vw, 1400px)',
+            margin: '0 auto',
+            alignItems: 'start',
+          }}
+        >
         <div>
-          <section className="hero" style={{ borderTop: 'none' }}>
-            <h1 style={{ textAlign: 'center', width: '100%', color: 'var(--brand)' }}>
+          <section className="hero" style={{ borderTop: 'none', padding: '40px 0' }}>
+            <h1 style={{ textAlign: 'left', width: '100%', color: 'var(--brand)' }}>
               Welcome to the ATV MC Digital Newsletter 
             
             </h1>
-            <p style={{ textAlign: 'center', width: '100%', maxWidth: 'none', fontSize: '18px'  }}>
+            <p style={{ textAlign: 'left', width: '100%', maxWidth: 'none', fontSize: '18px'  }}>
             <br />This secure, internal portal is your single source of truth for the full Automotive Microcontroller portfolio. <br /> Each month we update six focused sections, no scrolling through threads, no hunting for links.
             <br />
             <br />
@@ -111,7 +124,7 @@ export default function HomePage() {
                 <p>Every headline, note and quote on</p>
               </Link>
             </div>
-            <p style={{ textAlign: 'center', width: '100%', maxWidth: 'none', fontSize: '18px' }}>
+            <p style={{ textAlign: 'left', width: '100%', maxWidth: 'none', fontSize: '18px' }}>
               <br/>
               <br />
             Bookmark the link, enable notifications, and check back on the first working day of every month.
@@ -121,7 +134,7 @@ export default function HomePage() {
           </section>
 
           {latest && (
-            <section className="latest-newsletter">
+            <section className="latest-newsletter" style={{ paddingLeft: 0, paddingRight: 0 }}>
               <h2 style={{ marginTop: 0, color: 'var(--brand)' }}>Latest newsletter</h2>
               <div className="latest-grid">
                 <div className="left">
@@ -321,8 +334,8 @@ export default function HomePage() {
           </section>
         </div>
         <aside>
-          <section className="social-widget">
-            <h4 style={{ }}>ATV MC social feed</h4>
+          <section className="social-widget" style={{ marginTop: 60 }}>
+            <h4 style={{ margin: '0 0 2px' }}>ATV MC social feed</h4>
             {/* Cropped iframe view focusing on the posts column */}
             <div
               style={{
@@ -359,8 +372,8 @@ export default function HomePage() {
             <div
               style={{
                 position: 'relative',
-                width: 360,
-                height: 620,
+                width: 370,
+                height: 600,
                 border: '0px solid var(--border-color, #e0e0e0)',
                 borderRadius: 8,
                 overflow: 'hidden',
@@ -373,7 +386,7 @@ export default function HomePage() {
                 style={{
                   position: 'absolute',
                   top: -740,
-                  left: -650,
+                  left: -630,
                   width: 1024,
                   height: 2400,
                   border: 0,
@@ -386,6 +399,7 @@ export default function HomePage() {
             </div>
           </section>
         </aside>
+        </div>
       </div>
 
     </div>
