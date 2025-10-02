@@ -91691,7 +91691,7 @@ function HomePage() {
                   /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { style: { textAlign: "left", width: "100%", color: "var(--brand)" }, children: "Welcome to the ATV MC Digital Newsletter" }),
                   /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { style: { textAlign: "left", width: "100%", maxWidth: "none", fontSize: "18px" }, children: [
                     /* @__PURE__ */ jsxRuntimeExports.jsx("br", {}),
-                    "This secure, internal portal is your single source of truth for the full Automotive Microcontroller portfolio. ",
+                    " Your secure, always-current dashboard for everything Automotive Microcontrollers. ",
                     /* @__PURE__ */ jsxRuntimeExports.jsx("br", {}),
                     " Each month we update six focused sections, no scrolling through threads, no hunting for links.",
                     /* @__PURE__ */ jsxRuntimeExports.jsx("br", {}),
@@ -91948,14 +91948,15 @@ function HomePage() {
                         title: "ATV MC events",
                         style: {
                           position: "absolute",
-                          top: -740,
-                          left: -630,
+                          top: -870,
+                          left: -650,
                           width: 1024,
                           height: 2400,
                           border: 0,
                           transform: "scale(1)",
                           transformOrigin: "top left"
                         },
+                        scrolling: "no",
                         loading: "lazy",
                         referrerPolicy: "no-referrer-when-downgrade"
                       }

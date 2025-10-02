@@ -94,7 +94,7 @@ export default function HomePage() {
             
             </h1>
             <p style={{ textAlign: 'left', width: '100%', maxWidth: 'none', fontSize: '18px'  }}>
-            <br />This secure, internal portal is your single source of truth for the full Automotive Microcontroller portfolio. <br /> Each month we update six focused sections, no scrolling through threads, no hunting for links.
+            <br /> Your secure, always-current dashboard for everything Automotive Microcontrollers. <br /> Each month we update six focused sections, no scrolling through threads, no hunting for links.
             <br />
             <br />
             </p>
@@ -378,6 +378,7 @@ export default function HomePage() {
                 borderRadius: 8,
                 overflow: 'hidden',
                 background: '#fff',
+                
               }}
             >
               <iframe
@@ -385,14 +386,15 @@ export default function HomePage() {
                 title="ATV MC events"
                 style={{
                   position: 'absolute',
-                  top: -740,
-                  left: -630,
+                  top: -870,
+                  left: -650,
                   width: 1024,
                   height: 2400,
                   border: 0,
                   transform: 'scale(1)',
                   transformOrigin: 'top left',
                 }}
+                scrolling="no"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
               />
