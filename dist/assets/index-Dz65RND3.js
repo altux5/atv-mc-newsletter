@@ -91659,246 +91659,299 @@ function HomePage() {
         )
       }
     ),
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "hero", style: { borderTop: "none" }, children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { style: { textAlign: "center", width: "100%", color: "var(--brand)" }, children: "Welcome to the ATV MC Digital Newsletter" }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { style: { textAlign: "center", width: "100%", maxWidth: "none", fontSize: "18px" }, children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx("br", {}),
-        "This secure, internal portal is your single source of truth for the full Automotive Microcontroller portfolio. ",
-        /* @__PURE__ */ jsxRuntimeExports.jsx("br", {}),
-        " Each month we update six focused sections, no scrolling through threads, no hunting for links.",
-        /* @__PURE__ */ jsxRuntimeExports.jsx("br", {}),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("br", {})
-      ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "chapters-grid", style: { marginTop: 16 }, children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsxs(Link, { to: "/newsletters?chapter=AURIX", className: "chapter-tile", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { children: "AURIX™" }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "the safety & performance guardian" })
-        ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs(Link, { to: "/newsletters?chapter=TRAVEO", className: "chapter-tile", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { children: "TRAVEO™ T2G" }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "the graphics & body powerhouse" })
-        ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs(Link, { to: "/newsletters?chapter=PSOC", className: "chapter-tile", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { children: "PSOC™ Automotive" }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "the smart surface" })
-        ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs(Link, { to: "/newsletters?chapter=BULLETIN", className: "chapter-tile", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { children: "Bulletin Board" }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "design-win spotlights, team announcements regional highlights" })
-        ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs(Link, { to: "/newsletters?chapter=EASE", className: "chapter-tile", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { children: "Ease of Use" }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "one click access to collateral, samples, kits, training videos, price lists" })
-        ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs(Link, { to: "/newsletters?chapter=MARKET", className: "chapter-tile", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { children: "Market News & Press Release" }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "Every headline, note and quote on" })
-        ] })
-      ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { style: { textAlign: "center", width: "100%", maxWidth: "none", fontSize: "18px" }, children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx("br", {}),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("br", {}),
-        "Bookmark the link, enable notifications, and check back on the first working day of every month.",
-        /* @__PURE__ */ jsxRuntimeExports.jsx("br", {}),
-        "Thank you for keeping the information strictly internal—let’s turn these updates into design-ins."
-      ] })
-    ] }),
-    latest && /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "latest-newsletter", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { style: { marginTop: 0, color: "var(--brand)" }, children: "Latest newsletter" }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "latest-grid", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "left", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "media", children: /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: newsletterImage, alt: "Newsletter picture" }) }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { style: { color: "#000" }, children: latest.title }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("p", { style: { margin: 0 }, children: new Date(latest.date).toLocaleDateString() })
-          ] })
-        ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "latest-desc", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx("h4", { style: { marginTop: 0, marginBottom: 8 }, children: "from this newsletter:" }),
-          latestParagraphs.length > 0 ? latestParagraphs.map((t, i) => /* @__PURE__ */ jsxRuntimeExports.jsx("p", { style: { marginTop: i === 0 ? 0 : 8 }, children: t }, i)) : /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "meta", style: { marginTop: 0 }, children: "Loading preview…" }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: `/newsletters/${latest.slug}`, className: "cta", style: { display: "inline-block", marginTop: 12 }, children: "Go to the newsletter →" })
-        ] })
-      ] })
-    ] }),
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "insights", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { style: { color: "var(--brand)" }, children: "Explore News by Products" }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("style", { children: `
-          .topic-bar { position: relative; }
-          .topic-bar .fill {
-            height: 100%;
-            background: var(--brand);
-            width: calc(var(--fill, 0) * 100%);
-            transition: width 240ms ease;
-          }
-          .topic-bar:hover .fill,
-          .topic-bar:focus-visible .fill {
-            width: calc((var(--fill, 0) + 0.05) * 100%);
-          }
-        ` }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "topic-bars", style: { display: "flex", flexDirection: "column", gap: 12 }, children: [
-        { to: "/newsletters?chapter=AURIX", label: "AURIX™", fraction: 0.15 },
-        { to: "/newsletters?chapter=TRAVEO", label: "TRAVEO™", fraction: 0.35 },
-        { to: "/newsletters?chapter=PSOC", label: "PSOC™ Automotive", fraction: 0.55 }
-      ].map((t, idx) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
-        Link,
-        {
-          to: t.to,
-          className: "topic-bar",
-          style: {
-            display: "flex",
-            alignItems: "stretch",
-            width: "100%",
-            height: 56,
-            borderRadius: 8,
-            overflow: "hidden",
-            border: "1px solid var(--border-color, #e0e0e0)",
-            textDecoration: "none",
-            color: "inherit",
-            background: "#fff",
-            ["--fill"]: t.fraction
-          },
-          "aria-label": `Go to ${t.label} news`,
-          children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "fill" }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx(
-              "div",
-              {
-                style: {
-                  flex: 1,
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "flex-start",
-                  padding: "0 16px",
-                  fontWeight: 700,
-                  color: "var(--brand)"
-                },
-                children: t.label
-              }
-            )
-          ]
+    /* @__PURE__ */ jsxRuntimeExports.jsxs(
+      "div",
+      {
+        className: "home-two-col",
+        style: {
+          display: "grid",
+          gridTemplateColumns: "3fr 1fr",
+          gap: 24,
+          width: "50vw",
+          marginLeft: -80,
+          alignItems: "start"
         },
-        idx
-      )) })
-    ] }),
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "social-widget", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { style: { color: "var(--brand)" }, children: "ATV MC social feed" }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx(
-        "div",
-        {
-          style: {
-            position: "relative",
-            width: 1100,
-            height: 720,
-            border: "0px solid var(--border-color, #e0e0e0)",
-            borderRadius: 8,
-            overflow: "hidden",
-            background: "#fff"
-          },
-          children: /* @__PURE__ */ jsxRuntimeExports.jsx(
-            "iframe",
-            {
-              src: "https://intranet.infineon.com/profile/public/ifxinternalcomm?accountname=INFINEON%5Cifxinternalcomm",
-              title: "ATV MC social media feed",
-              style: {
-                position: "absolute",
-                top: -750,
-                left: -550,
-                width: 1600,
-                height: 1600,
-                border: 0,
-                transform: "scale(1)",
-                transformOrigin: "top left"
-              },
-              loading: "lazy",
-              referrerPolicy: "no-referrer-when-downgrade"
-            }
-          )
-        }
-      )
-    ] }),
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "useful-links", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { style: { color: "var(--brand)" }, children: "Useful links" }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("style", { children: `
-          .useful-links a { text-decoration: none; color: var(--brand); }
-          .useful-links a:hover, .useful-links a:focus-visible { text-decoration: underline; }
-        ` }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs(
-        "div",
-        {
-          className: "useful-grid",
-          style: {
-            display: "grid",
-            gridTemplateColumns: "1fr 1fr",
-            gap: 16
-          },
-          children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "column products", children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { style: { marginTop: 0 }, children: "Products" }),
-              /* @__PURE__ */ jsxRuntimeExports.jsx(
-                "div",
-                {
-                  className: "link-box",
-                  style: {
-                    background: "#fff",
-                    border: "1px solid var(--border-color, #e0e0e0)",
-                    borderRadius: 0,
-                    padding: 16
-                  },
-                  children: /* @__PURE__ */ jsxRuntimeExports.jsxs("ul", { style: { margin: 0 }, children: [
-                    /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: "https://www.infineon.com/products/microcontroller/32-bit-tricore", target: "_blank", rel: "noopener noreferrer", children: "32-bit AURIX™ TriCore™ Microcontroller" }) }),
-                    /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: "https://www.infineon.com/products/microcontroller/32-bit-psoc-arm-cortex/automotive-psoc-4-mcu", target: "_blank", rel: "noopener noreferrer", children: "32-bit PSOC™ 4 Automotive Arm® Cortex®-M0/M0+" }) }),
-                    /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: "https://www.infineon.com/products/microcontroller/32-bit-psoc-arm-cortex/psoc-4-hv-m0", target: "_blank", rel: "noopener noreferrer", children: "32-bit PSOC™ 4 HV Arm® Cortex®-M0+" }) }),
-                    /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: "https://www.infineon.com/products/microcontroller/32-bit-psoc-arm-cortex/fingerprint-m0-plus", target: "_blank", rel: "noopener noreferrer", children: "32-bit PSOC™ Fingerprint Arm® Cortex®-M0+" }) }),
-                    /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: "https://www.infineon.com/products/microcontroller/32-bit-psoc-arm-cortex/automotive-multitouch-m0", target: "_blank", rel: "noopener noreferrer", children: "32-bit PSOC™ Automotive Multitouch Arm® Cortex®-M0" }) }),
-                    /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: "https://www.infineon.com/products/microcontroller/32-bit-traveo-t2g-arm-cortex/for-body", target: "_blank", rel: "noopener noreferrer", children: "32-bit TRAVEO™ T2G Arm® Cortex® for Body" }) }),
-                    /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: "https://www.infineon.com/products/microcontroller/32-bit-traveo-t2g-arm-cortex/for-cluster", target: "_blank", rel: "noopener noreferrer", children: "32-bit TRAVEO™ T2G Arm® Cortex® for Cluster" }) })
-                  ] })
-                }
-              )
-            ] }),
-            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "column myicp", style: { display: "grid", gap: 16 }, children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
-                /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { style: { marginTop: 0 }, children: "myICP" }),
-                /* @__PURE__ */ jsxRuntimeExports.jsx(
-                  "div",
-                  {
-                    className: "link-box",
-                    style: {
-                      background: "#fff",
-                      border: "1px solid var(--border-color, #e0e0e0)",
-                      borderRadius: 0,
-                      padding: 16
-                    },
-                    children: /* @__PURE__ */ jsxRuntimeExports.jsxs("ul", { style: { margin: 0 }, children: [
-                      /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: "https://myicp.infineon.com/sites/microcontrollers-aurix_customer_doc/SitePages/default.aspx", target: "_blank", rel: "noopener noreferrer", children: "32-bit TriCore™ Microcontroller" }) }),
-                      /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: "https://myicp.infineon.com/sites/TRAVEODocumentation/SitePages/default.aspx", target: "_blank", rel: "noopener noreferrer", children: "TRAVEO™ Microcontroller" }) }),
-                      /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: "https://myicp.infineon.com/sites/PSoCDocumentation/SitePages/default.aspx", target: "_blank", rel: "noopener noreferrer", children: "PSOC™ Microcontroller" }) })
-                    ] })
-                  }
-                )
+        children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "hero", style: { borderTop: "none" }, children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { style: { textAlign: "center", width: "100%", color: "var(--brand)" }, children: "Welcome to the ATV MC Digital Newsletter" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { style: { textAlign: "center", width: "100%", maxWidth: "none", fontSize: "18px" }, children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx("br", {}),
+                "This secure, internal portal is your single source of truth for the full Automotive Microcontroller portfolio. ",
+                /* @__PURE__ */ jsxRuntimeExports.jsx("br", {}),
+                " Each month we update six focused sections, no scrolling through threads, no hunting for links.",
+                /* @__PURE__ */ jsxRuntimeExports.jsx("br", {}),
+                /* @__PURE__ */ jsxRuntimeExports.jsx("br", {})
               ] }),
-              /* @__PURE__ */ jsxRuntimeExports.jsx(
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "chapters-grid", style: { marginTop: 16 }, children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsxs(Link, { to: "/newsletters?chapter=AURIX", className: "chapter-tile", children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { children: "AURIX™" }),
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "the safety & performance guardian" })
+                ] }),
+                /* @__PURE__ */ jsxRuntimeExports.jsxs(Link, { to: "/newsletters?chapter=TRAVEO", className: "chapter-tile", children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { children: "TRAVEO™ T2G" }),
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "the graphics & body powerhouse" })
+                ] }),
+                /* @__PURE__ */ jsxRuntimeExports.jsxs(Link, { to: "/newsletters?chapter=PSOC", className: "chapter-tile", children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { children: "PSOC™ Automotive" }),
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "the smart surface" })
+                ] }),
+                /* @__PURE__ */ jsxRuntimeExports.jsxs(Link, { to: "/newsletters?chapter=BULLETIN", className: "chapter-tile", children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { children: "Bulletin Board" }),
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "design-win spotlights, team announcements regional highlights" })
+                ] }),
+                /* @__PURE__ */ jsxRuntimeExports.jsxs(Link, { to: "/newsletters?chapter=EASE", className: "chapter-tile", children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { children: "Ease of Use" }),
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "one click access to collateral, samples, kits, training videos, price lists" })
+                ] }),
+                /* @__PURE__ */ jsxRuntimeExports.jsxs(Link, { to: "/newsletters?chapter=MARKET", className: "chapter-tile", children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { children: "Market News & Press Release" }),
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "Every headline, note and quote on" })
+                ] })
+              ] }),
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { style: { textAlign: "center", width: "100%", maxWidth: "none", fontSize: "18px" }, children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx("br", {}),
+                /* @__PURE__ */ jsxRuntimeExports.jsx("br", {}),
+                "Bookmark the link, enable notifications, and check back on the first working day of every month.",
+                /* @__PURE__ */ jsxRuntimeExports.jsx("br", {}),
+                "Thank you for keeping the information strictly internal—let’s turn these updates into design-ins."
+              ] })
+            ] }),
+            latest && /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "latest-newsletter", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { style: { marginTop: 0, color: "var(--brand)" }, children: "Latest newsletter" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "latest-grid", children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "left", children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "media", children: /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: newsletterImage, alt: "Newsletter picture" }) }),
+                  /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+                    /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { style: { color: "#000" }, children: latest.title }),
+                    /* @__PURE__ */ jsxRuntimeExports.jsx("p", { style: { margin: 0 }, children: new Date(latest.date).toLocaleDateString() })
+                  ] })
+                ] }),
+                /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "latest-desc", children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("h4", { style: { marginTop: 0, marginBottom: 8 }, children: "from this newsletter:" }),
+                  latestParagraphs.length > 0 ? latestParagraphs.map((t, i) => /* @__PURE__ */ jsxRuntimeExports.jsx("p", { style: { marginTop: i === 0 ? 0 : 8 }, children: t }, i)) : /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "meta", style: { marginTop: 0 }, children: "Loading preview…" }),
+                  /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: `/newsletters/${latest.slug}`, className: "cta", style: { display: "inline-block", marginTop: 12 }, children: "Go to the newsletter →" })
+                ] })
+              ] })
+            ] }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "insights", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { style: { color: "var(--brand)" }, children: "Explore News by Products" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("style", { children: `
+              .topic-bar { position: relative; }
+              .topic-bar .fill {
+                height: 100%;
+                background: var(--brand);
+                width: calc(var(--fill, 0) * 100%);
+                transition: width 240ms ease;
+              }
+              .topic-bar:hover .fill,
+              .topic-bar:focus-visible .fill {
+                width: calc((var(--fill, 0) + 0.05) * 100%);
+              }
+            ` }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "topic-bars", style: { display: "flex", flexDirection: "column", gap: 12 }, children: [
+                { to: "/newsletters?chapter=AURIX", label: "AURIX™", fraction: 0.15 },
+                { to: "/newsletters?chapter=TRAVEO", label: "TRAVEO™", fraction: 0.35 },
+                { to: "/newsletters?chapter=PSOC", label: "PSOC™ Automotive", fraction: 0.55 }
+              ].map((t, idx) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
+                Link,
+                {
+                  to: t.to,
+                  className: "topic-bar",
+                  style: {
+                    display: "flex",
+                    alignItems: "stretch",
+                    width: "100%",
+                    height: 56,
+                    borderRadius: 8,
+                    overflow: "hidden",
+                    border: "1px solid var(--border-color, #e0e0e0)",
+                    textDecoration: "none",
+                    color: "inherit",
+                    background: "#fff",
+                    ["--fill"]: t.fraction
+                  },
+                  "aria-label": `Go to ${t.label} news`,
+                  children: [
+                    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "fill" }),
+                    /* @__PURE__ */ jsxRuntimeExports.jsx(
+                      "div",
+                      {
+                        style: {
+                          flex: 1,
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "flex-start",
+                          padding: "0 16px",
+                          fontWeight: 700,
+                          color: "var(--brand)"
+                        },
+                        children: t.label
+                      }
+                    )
+                  ]
+                },
+                idx
+              )) })
+            ] }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "useful-links", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { style: { color: "var(--brand)" }, children: "Useful links" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("style", { children: `
+              .useful-links a { text-decoration: none; color: var(--brand); }
+              .useful-links a:hover, .useful-links a:focus-visible { text-decoration: underline; }
+            ` }),
+              /* @__PURE__ */ jsxRuntimeExports.jsxs(
                 "div",
                 {
-                  className: "link-box",
+                  className: "useful-grid",
                   style: {
-                    background: "#fff",
-                    border: "1px solid var(--border-color, #e0e0e0)",
-                    borderRadius: 0,
-                    padding: 16,
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    minHeight: 80
+                    display: "grid",
+                    gridTemplateColumns: "1fr 1fr",
+                    gap: 16
                   },
-                  children: "TBD"
+                  children: [
+                    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "column products", children: [
+                      /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { style: { marginTop: 0 }, children: "Products" }),
+                      /* @__PURE__ */ jsxRuntimeExports.jsx(
+                        "div",
+                        {
+                          className: "link-box",
+                          style: {
+                            background: "#fff",
+                            border: "1px solid var(--border-color, #e0e0e0)",
+                            borderRadius: 0,
+                            padding: 16
+                          },
+                          children: /* @__PURE__ */ jsxRuntimeExports.jsxs("ul", { style: { margin: 0 }, children: [
+                            /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: "https://www.infineon.com/products/microcontroller/32-bit-tricore", target: "_blank", rel: "noopener noreferrer", children: "32-bit AURIX™ TriCore™ Microcontroller" }) }),
+                            /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: "https://www.infineon.com/products/microcontroller/32-bit-psoc-arm-cortex/automotive-psoc-4-mcu", target: "_blank", rel: "noopener noreferrer", children: "32-bit PSOC™ 4 Automotive Arm® Cortex®-M0/M0+" }) }),
+                            /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: "https://www.infineon.com/products/microcontroller/32-bit-psoc-arm-cortex/psoc-4-hv-m0", target: "_blank", rel: "noopener noreferrer", children: "32-bit PSOC™ 4 HV Arm® Cortex®-M0+" }) }),
+                            /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: "https://www.infineon.com/products/microcontroller/32-bit-psoc-arm-cortex/fingerprint-m0-plus", target: "_blank", rel: "noopener noreferrer", children: "32-bit PSOC™ Fingerprint Arm® Cortex®-M0+" }) }),
+                            /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: "https://www.infineon.com/products/microcontroller/32-bit-psoc-arm-cortex/automotive-multitouch-m0", target: "_blank", rel: "noopener noreferrer", children: "32-bit PSOC™ Automotive Multitouch Arm® Cortex®-M0" }) }),
+                            /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: "https://www.infineon.com/products/microcontroller/32-bit-traveo-t2g-arm-cortex/for-body", target: "_blank", rel: "noopener noreferrer", children: "32-bit TRAVEO™ T2G Arm® Cortex® for Body" }) }),
+                            /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: "https://www.infineon.com/products/microcontroller/32-bit-traveo-t2g-arm-cortex/for-cluster", target: "_blank", rel: "noopener noreferrer", children: "32-bit TRAVEO™ T2G Arm® Cortex® for Cluster" }) })
+                          ] })
+                        }
+                      )
+                    ] }),
+                    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "column myicp", style: { display: "grid", gap: 16 }, children: [
+                      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+                        /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { style: { marginTop: 0 }, children: "myICP" }),
+                        /* @__PURE__ */ jsxRuntimeExports.jsx(
+                          "div",
+                          {
+                            className: "link-box",
+                            style: {
+                              background: "#fff",
+                              border: "1px solid var(--border-color, #e0e0e0)",
+                              borderRadius: 0,
+                              padding: 16
+                            },
+                            children: /* @__PURE__ */ jsxRuntimeExports.jsxs("ul", { style: { margin: 0 }, children: [
+                              /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: "https://myicp.infineon.com/sites/microcontrollers-aurix_customer_doc/SitePages/default.aspx", target: "_blank", rel: "noopener noreferrer", children: "32-bit TriCore™ Microcontroller" }) }),
+                              /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: "https://myicp.infineon.com/sites/TRAVEODocumentation/SitePages/default.aspx", target: "_blank", rel: "noopener noreferrer", children: "TRAVEO™ Microcontroller" }) }),
+                              /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: "https://myicp.infineon.com/sites/PSoCDocumentation/SitePages/default.aspx", target: "_blank", rel: "noopener noreferrer", children: "PSOC™ Microcontroller" }) })
+                            ] })
+                          }
+                        )
+                      ] }),
+                      /* @__PURE__ */ jsxRuntimeExports.jsx(
+                        "div",
+                        {
+                          className: "link-box",
+                          style: {
+                            background: "#fff",
+                            border: "1px solid var(--border-color, #e0e0e0)",
+                            borderRadius: 0,
+                            padding: 16,
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "center",
+                            minHeight: 80
+                          },
+                          children: "TBD"
+                        }
+                      )
+                    ] })
+                  ]
                 }
               )
             ] })
-          ]
-        }
-      )
-    ] })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("aside", { children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "social-widget", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("h4", { style: {}, children: "ATV MC social feed" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx(
+                "div",
+                {
+                  style: {
+                    position: "relative",
+                    width: 360,
+                    height: 600,
+                    border: "0px solid var(--border-color, #e0e0e0)",
+                    borderRadius: 8,
+                    overflow: "hidden",
+                    background: "#fff"
+                  },
+                  children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+                    "iframe",
+                    {
+                      src: "https://intranet.infineon.com/profile/public/ifxinternalcomm?accountname=INFINEON%5Cifxinternalcomm",
+                      title: "ATV MC social media feed",
+                      style: {
+                        position: "absolute",
+                        top: -1130,
+                        left: -10,
+                        width: 400,
+                        height: 1720,
+                        border: 0,
+                        transform: "scale(1)",
+                        transformOrigin: "top left"
+                      },
+                      loading: "lazy",
+                      referrerPolicy: "no-referrer-when-downgrade"
+                    }
+                  )
+                }
+              )
+            ] }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("section", { className: "events-widget", style: { marginTop: 24 }, children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+              "div",
+              {
+                style: {
+                  position: "relative",
+                  width: 360,
+                  height: 620,
+                  border: "0px solid var(--border-color, #e0e0e0)",
+                  borderRadius: 8,
+                  overflow: "hidden",
+                  background: "#fff"
+                },
+                children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+                  "iframe",
+                  {
+                    src: "https://intranet.infineon.com/",
+                    title: "ATV MC events",
+                    style: {
+                      position: "absolute",
+                      top: -740,
+                      left: -650,
+                      width: 1024,
+                      height: 2400,
+                      border: 0,
+                      transform: "scale(1)",
+                      transformOrigin: "top left"
+                    },
+                    loading: "lazy",
+                    referrerPolicy: "no-referrer-when-downgrade"
+                  }
+                )
+              }
+            ) })
+          ] })
+        ]
+      }
+    )
   ] });
 }
 const CHAPTERS = [
