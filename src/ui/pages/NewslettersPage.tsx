@@ -163,7 +163,7 @@ export default function NewslettersPage() {
       // Find section that is EXACTLY the chapter heading (not a subsection mentioning it)
       const found = snippets.find((s) => {
         const titleNorm = normalize(s.title)
-        const titleText = s.title.trim()
+        
         
         // Exact match for the chapter name only (no additional text after)
         if (titleNorm === wanted) return true
