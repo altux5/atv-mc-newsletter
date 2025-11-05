@@ -136,6 +136,7 @@ export default function NewslettersPage() {
   }, [textQuery, filtered, searchIndex])
 
   const normalize = (s: string): string => s.toLowerCase().replace(/™/g, '').replace(/&/g, 'and').replace(/[^a-z0-9]+/g, ' ').trim()
+  const tokens = (s: string): string[] => normalize(s).split(' ').filter(Boolean)
 
   // Compute chapter matches when a chapter is selected
   useEffect(() => {
@@ -147,10 +148,54 @@ export default function NewslettersPage() {
     }
     setIsLoading(true)
     const wanted = normalize(selectedChapter)
+    const wantedTokens = tokens(selectedChapter)
     const results: Array<{ newsletterId: string; newsletterSlug: string; newsletterDate: string; href: string; html: string }> = []
     for (const n of newsletters) {
       const snippets = sectionIndex[n.id] || []
-      const found = snippets.find((s) => normalize(s.title).includes(wanted))
+      
+      // DEBUG: Log all section titles for the first newsletter
+      if (n === newsletters[0]) {
+        console.log(`[DEBUG] Newsletter: ${n.title}`)
+        console.log(`[DEBUG] Looking for chapter: "${selectedChapter}" (normalized: "${wanted}")`)
+        console.log(`[DEBUG] All section titles:`, snippets.map(s => ({ title: s.title, normalized: normalize(s.title), id: s.id })))
+      }
+      
+      // Find section that is EXACTLY the chapter heading (not a subsection mentioning it)
+      const found = snippets.find((s) => {
+        const titleNorm = normalize(s.title)
+        const titleText = s.title.trim()
+        
+        // Exact match for the chapter name only (no additional text after)
+        if (titleNorm === wanted) return true
+        
+        // Check if this is a main chapter heading by looking for exact title match
+        // Chapter headings are typically standalone (e.g., just "AURIX™" or "TRAVEO™ T2G")
+        // not part of a longer title like "AURIX™ and TRAVEO™ updates"
+        
+        // For titles that are just the chapter name possibly with T2G suffix
+        const titleTokens = tokens(s.title)
+        
+        // AURIX™, TRAVEO™, PSOC™ Automotive should match exactly
+        // But "AURIX™ TC4Dx certification" should NOT match
+        // The chapter headers typically don't have additional descriptive text
+        
+        // Check if it's one of the known short chapter headers
+        const knownChapters = ['aurix', 'traveo', 'traveo t2g', 'psoc automotive', 'bulletin board', 'ease of use', 'market news press release']
+        if (knownChapters.includes(titleNorm)) return wantedTokens.every((wt) => titleTokens.includes(wt))
+        
+        // Only match if title is very short (indicating it's a chapter header, not an article title)
+        // Chapter headers are typically 1-3 words
+        if (titleTokens.length <= 3 && wantedTokens.every((wt) => titleTokens.includes(wt))) return true
+        
+        return false
+      })
+      
+      if (n === newsletters[0] && found) {
+        console.log(`[DEBUG] Found matching section:`, { title: found.title, id: found.id })
+      } else if (n === newsletters[0]) {
+        console.log(`[DEBUG] No matching section found`)
+      }
+      
       if (found) {
         results.push({
           newsletterId: n.id,

@@ -611,20 +611,36 @@ export function extractSectionSnippets(htmlDocumentString: string): SectionSnipp
     // Ensure ids (extractAndSanitizeBodyHtml already calls this, but safe to re-assert)
     assignStableHeadingIds(container)
 
-    // If the newsletter provides explicit chapter containers, use them as authoritative
+    // DEBUG: Check what the HTML looks like
+    if (htmlDocumentString.includes('March') && htmlDocumentString.includes('2025')) {
+      console.log('[DEBUG March 2025] Sanitized HTML length:', sanitizedBody.length)
+      console.log('[DEBUG March 2025] Sample HTML:', sanitizedBody.substring(0, 3000))
+      
+      // Check for all strong tags
+      const strongs = Array.from(container.querySelectorAll('strong')) as HTMLElement[]
+      console.log('[DEBUG March 2025] Strong tags found:', strongs.length)
+      console.log('[DEBUG March 2025] First 10 strong tags:', strongs.slice(0, 10).map(s => ({
+        text: (s.textContent || '').trim().substring(0, 50),
+        html: s.outerHTML.substring(0, 150)
+      })))
+    }
+
+    // DEBUG: Check what anchors exist before any processing
+    const allAnchorsDebug = Array.from(container.querySelectorAll('a[name]')) as HTMLAnchorElement[]
+    console.log('[DEBUG] All anchors with name attr:', allAnchorsDebug.map(a => ({ name: a.getAttribute('name'), html: a.outerHTML.substring(0, 100) })))
+
+    // Prefer explicit chapter divs if present (avoid counting nested anchors inside them)
     const chapterDivs = Array.from(container.querySelectorAll('div[id^="chapter_" i]')) as HTMLElement[]
+    console.log('[DEBUG] Chapter divs found:', chapterDivs.length)
     if (chapterDivs.length > 0) {
       const snippets: SectionSnippet[] = []
-      const guessTitle = (root: HTMLElement): string => {
-        // Prefer explicit anchor titles
+      const guessTitleFromDiv = (root: HTMLElement): string => {
         const aTitle = (root.querySelector('a[title]') as HTMLAnchorElement | null)?.getAttribute('title') || ''
         const cleanedATitle = (aTitle || '').replace(/\s+/g, ' ').trim()
         if (cleanedATitle) return cleanedATitle
-        // Prefer strong/b headings within the container
         const strong = (root.querySelector('strong, b, h1, h2, h3, h4') as HTMLElement | null)
         const strongText = (strong?.textContent || '').replace(/\s+/g, ' ').trim()
         if (strongText) return strongText
-        // Fallback to any visible text near the top
         const text = (root.textContent || '').replace(/\s+/g, ' ').trim()
         return text.split(/\s{2,}|\.|\!|\?/)[0] || 'Chapter'
       }
@@ -633,7 +649,7 @@ export function extractSectionSnippets(htmlDocumentString: string): SectionSnipp
         const cur = chapterDivs[i]
         const next = chapterDivs[i + 1] || null
         const id = cur.getAttribute('id') || `chapter-${i}`
-        const title = guessTitle(cur)
+        const title = guessTitleFromDiv(cur)
         const level = 2 as 1 | 2 | 3 | 4
 
         const range = document.createRange()
@@ -653,23 +669,135 @@ export function extractSectionSnippets(htmlDocumentString: string): SectionSnipp
       return snippets
     }
 
+    // Else, fall back to chapter anchors as boundaries
+    const chapterAnchors = Array.from(
+      container.querySelectorAll('a[name^="chapter_" i], a[name^="Chapter_" i]')
+    ) as HTMLAnchorElement[]
+    console.log('[DEBUG extractSectionSnippets] Found chapter anchors:', chapterAnchors.length)
+    if (chapterAnchors.length > 0) {
+      const snippets: SectionSnippet[] = []
+      const guessTitleFromAnchor = (a: HTMLAnchorElement): string => {
+        const t = (a.getAttribute('title') || '').replace(/\s+/g, ' ').trim()
+        if (t) return t
+        
+        // Look for strong/heading elements as siblings (they're often right after the anchor)
+        let nextSib = a.nextElementSibling
+        if (nextSib && (nextSib.tagName === 'STRONG' || nextSib.tagName === 'B' || nextSib.tagName.match(/^H[1-4]$/))) {
+          const text = (nextSib.textContent || '').replace(/\s+/g, ' ').trim()
+          console.log('[DEBUG guessTitleFromAnchor] Found sibling:', { name: a.getAttribute('name'), text, sibTag: nextSib.tagName })
+          if (text) return text
+        }
+        
+        // Look in parent element's children for strong/heading elements
+        const parent = a.parentElement
+        if (parent) {
+          const strong = parent.querySelector('strong, b, h1, h2, h3, h4') as HTMLElement | null
+          const strongText = (strong?.textContent || '').replace(/\s+/g, ' ').trim()
+          if (strongText) {
+            console.log('[DEBUG guessTitleFromAnchor] Found in parent:', { name: a.getAttribute('name'), strongText })
+            return strongText
+          }
+        }
+        
+        // Look in closest table row
+        const tr = a.closest('tr') as HTMLElement | null
+        if (tr) {
+          const strong = tr.querySelector('strong, b, h1, h2, h3, h4') as HTMLElement | null
+          const strongText = (strong?.textContent || '').replace(/\s+/g, ' ').trim()
+          if (strongText) {
+            console.log('[DEBUG guessTitleFromAnchor] Found in tr:', { name: a.getAttribute('name'), strongText })
+            return strongText
+          }
+        }
+        
+        const siblingText = ((a.nextElementSibling as HTMLElement | null)?.textContent || '').replace(/\s+/g, ' ').trim()
+        if (siblingText) return siblingText.split(/\s{2,}|\.|\!|\?/)[0]
+        console.log('[DEBUG guessTitleFromAnchor] No title found for:', a.getAttribute('name'))
+        return (a.textContent || '').replace(/\s+/g, ' ').trim() || 'Chapter'
+      }
+
+      const getStartBlock = (a: HTMLAnchorElement): HTMLElement => {
+        const tr = a.closest('tr') as HTMLElement | null
+        return tr || a
+      }
+
+      for (let i = 0; i < chapterAnchors.length; i++) {
+        const cur = chapterAnchors[i]
+        const next = chapterAnchors[i + 1] || null
+        const startBlock = getStartBlock(cur)
+        const endBlock = next ? getStartBlock(next) : null
+
+        let id = startBlock.getAttribute('id') || ''
+        if (!id) {
+          const fromName = (cur.getAttribute('name') || '')
+          const base = fromName || slugifyHeading(guessTitleFromAnchor(cur)) || `chapter-${i}`
+          let candidate = base
+          let ctr = 1
+          while (container.querySelector(`#${CSS.escape(candidate)}`)) {
+            ctr++
+            candidate = `${base}-${ctr}`
+          }
+          startBlock.setAttribute('id', candidate)
+          id = candidate
+        }
+
+        const level = 2 as 1 | 2 | 3 | 4
+        const title = guessTitleFromAnchor(cur)
+
+        const range = document.createRange()
+        range.setStartBefore(startBlock)
+        if (endBlock) {
+          range.setEndBefore(endBlock)
+        } else if (container.lastChild) {
+          range.setEndAfter(container.lastChild)
+        }
+        const frag = range.cloneContents()
+        const wrapper = document.createElement('div')
+        wrapper.appendChild(frag)
+        const html = wrapper.innerHTML
+        const text = wrapper.textContent ? wrapper.textContent.replace(/\s+/g, ' ').trim() : title
+        snippets.push({ id, title, level, html, text })
+      }
+      return snippets
+    }
+
     // Heuristic: many newsletters use colored span headers (e.g., #0A8276)
+    // Chapter headers are often <strong><span style="color:#0A8276">AURIX™</span></strong>
     const headerSelectors = [
       'h1',
       'h2',
       'h3',
       'h4',
-      'span[style*="color:#0a8276" i]',
-      'span[style*="#0a8276" i]',
-      'span[style*="font-size:13.5pt" i]'
+      'span[style*="color:#0a8276"]',
+      'span[style*="color:#0A8276"]',
+      'span[style*="COLOR:#0A8276"]',
+      'span[style*="font-size:13.5pt"]'
     ]
     const chapterSelectors = [
       'a[name^="chapter_" i], a[name^="Chapter_" i]',
       'div[id^="chapter_" i], div[id^="Chapter_" i]'
     ]
-    const headerCandidates = Array.from(
+    
+    let headerCandidates = Array.from(
       container.querySelectorAll([...chapterSelectors, ...headerSelectors].join(','))
     ) as HTMLElement[]
+    
+    // Also look for strong tags that contain colored spans (common pattern)
+    const strongTags = Array.from(container.querySelectorAll('strong')) as HTMLElement[]
+    for (const strong of strongTags) {
+      const span = strong.querySelector('span[style*="#0A8276"], span[style*="#0a8276"], span[style*="font-size:13.5pt"]')
+      if (span) {
+        headerCandidates.push(strong)
+      }
+    }
+    
+    console.log('[DEBUG] Heuristic header candidates found:', headerCandidates.length)
+    console.log('[DEBUG] Header candidate texts:', headerCandidates.map(h => ({
+      tag: h.tagName,
+      text: (h.textContent || '').trim().substring(0, 50),
+      color: h.style.color,
+      fontSize: h.style.fontSize
+    })))
 
     const snippets: SectionSnippet[] = []
 
@@ -680,32 +808,23 @@ export function extractSectionSnippets(htmlDocumentString: string): SectionSnipp
 
     // Build an array of anchors we treat as section starts. Prefer the row (tr) that contains the header
     const anchors = headerCandidates.map((el) => {
-      // Determine an appropriate block start to capture from
-      let startBlock: HTMLElement | null = null
-      if (el.tagName.toLowerCase() === 'a' && (el.getAttribute('name') || '').toLowerCase().startsWith('chapter_')) {
-        startBlock = (el.closest('table') as HTMLElement) || (el.closest('div[id^="chapter_" i]') as HTMLElement) || el
-      } else if (el.tagName.toLowerCase() === 'div' && (el.getAttribute('id') || '').toLowerCase().startsWith('chapter_')) {
-        startBlock = el
-      } else {
-        const tr = el.closest('tr') as HTMLElement | null
-        startBlock = tr ? (tr.closest('table') as HTMLElement) || tr : el
-      }
-
+      // Anchor on the actual header element so multiple headers in one row are split correctly
+      const startEl: HTMLElement = el
       const level = el.tagName.match(/^H[1-4]$/) ? (Number(el.tagName.substring(1)) as 1 | 2 | 3 | 4) : 2
       return {
         headerEl: el,
-        anchorEl: startBlock || el,
+        anchorEl: startEl,
         level,
         title: getTitle(el),
       }
     }).filter(a => a.title)
 
-    // De-duplicate anchors that map to the same row or element
+    // De-duplicate anchors that map to the same actual header element
     const uniqueAnchors: typeof anchors = []
     const seen = new Set<HTMLElement>()
     for (const a of anchors) {
-      if (seen.has(a.anchorEl)) continue
-      seen.add(a.anchorEl)
+      if (seen.has(a.headerEl)) continue
+      seen.add(a.headerEl)
       uniqueAnchors.push(a)
     }
 
@@ -730,11 +849,11 @@ export function extractSectionSnippets(htmlDocumentString: string): SectionSnipp
         id = candidate
       }
 
-      // Use a DOM Range to capture from the start block through to (but not including) the next start block
+      // Use a DOM Range to capture from the header element through to (but not including) the next header element
       const range = document.createRange()
-      range.setStartBefore(cur.anchorEl)
+      range.setStartBefore(cur.headerEl)
       if (next) {
-        range.setEndBefore(next.anchorEl)
+        range.setEndBefore(next.headerEl)
       } else {
         // To the end of container
         const last = container.lastChild
@@ -743,6 +862,42 @@ export function extractSectionSnippets(htmlDocumentString: string): SectionSnipp
       const frag = range.cloneContents()
       const wrapper = document.createElement('div')
       wrapper.appendChild(frag)
+      // Post-trim: if our heuristics missed the next chapter header, prune at the first subsequent chapter-like element
+      try {
+        const normalizeText = (s: string): string => s.toLowerCase().replace(/™/g, '').replace(/&/g, 'and').replace(/[^a-z0-9]+/g, ' ').trim()
+        const chapterTokens = ['aurix', 'traveo', 'psoc', 'bulletin', 'ease of use', 'market news', 'press release', 'success stories', 'team news']
+        const detectToken = (s: string): string | null => {
+          const n = ' ' + normalizeText(s) + ' '
+          for (const t of chapterTokens) {
+            const tt = ' ' + t + ' '
+            if (n.indexOf(tt) !== -1) return t
+          }
+          return null
+        }
+        const primary = detectToken(cur.title)
+        const candidates = Array.from(wrapper.querySelectorAll('h1, h2, h3, h4, strong, b, span, p, div, a')) as HTMLElement[]
+        let seenSelf = false
+        for (const el of candidates) {
+          const t = detectToken(el.textContent || '')
+          if (!t) continue
+          if (primary && !seenSelf && t === primary) {
+            seenSelf = true
+            continue
+          }
+          // Prune everything from this element onwards
+          const pruneRange = document.createRange()
+          if (wrapper.firstChild) {
+            pruneRange.setStartBefore(wrapper.firstChild)
+            pruneRange.setEndBefore(el)
+            const pruned = pruneRange.cloneContents()
+            const newWrapper = document.createElement('div')
+            newWrapper.appendChild(pruned)
+            wrapper.innerHTML = newWrapper.innerHTML
+          }
+          break
+        }
+      } catch {}
+
       const html = wrapper.innerHTML
       const text = wrapper.textContent ? wrapper.textContent.replace(/\s+/g, ' ').trim() : cur.title
       snippets.push({ id, title: cur.title, level: cur.level, html, text })

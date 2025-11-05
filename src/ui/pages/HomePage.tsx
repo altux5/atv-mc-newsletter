@@ -81,7 +81,7 @@ export default function HomePage() {
           style={{
             display: 'grid',
             gridTemplateColumns: '12fr 5fr',
-            gap: 50,
+            gap: 100,
             width: 'min(95vw, 1400px)',
             margin: '0 auto',
             alignItems: 'start',
@@ -94,7 +94,7 @@ export default function HomePage() {
             
             </h1>
             <p style={{ textAlign: 'left', width: '100%', maxWidth: 'none', fontSize: '18px'  }}>
-            <br /> Your secure, always-current dashboard for everything Automotive Microcontrollers. <br /> Each month we update six focused sections, no scrolling through threads, no hunting for links.
+            <br /> Your secure, always-current dashboard for everything Automotive Microcontrollers. Learn more about our products and solutions. Each month we update six focused sections, no scrolling through threads, no hunting for links.
             <br />
             <br />
             </p>
@@ -127,8 +127,8 @@ export default function HomePage() {
             <p style={{ textAlign: 'left', width: '100%', maxWidth: 'none', fontSize: '18px' }}>
               <br/>
               <br />
-            Bookmark the link, enable notifications, and check back on the first working day of every month.
-<br />Thank you for keeping the information strictly internal—let’s turn these updates into design-ins.
+            Bookmark the link, enable notifications, and check back on the first working day of every month. Always stay up to date with the latest news and information.
+<br /> <br /> Thank you for keeping the information strictly internal—let’s turn these updates into design-ins.
 
             </p>
           </section>
@@ -248,37 +248,37 @@ export default function HomePage() {
                   <ul style={{ margin: 0 }}>
                     <li>
                       <a href="https://www.infineon.com/products/microcontroller/32-bit-tricore" target="_blank" rel="noopener noreferrer">
-                        32-bit AURIX™ TriCore™ Microcontroller
+                        AURIX™ TriCore™ Microcontroller
                       </a>
                     </li>
                     <li>
                       <a href="https://www.infineon.com/products/microcontroller/32-bit-psoc-arm-cortex/automotive-psoc-4-mcu" target="_blank" rel="noopener noreferrer">
-                        32-bit PSOC™ 4 Automotive Arm® Cortex®-M0/M0+
+                        PSOC™ 4 Automotive Arm® Cortex®-M0/M0+
                       </a>
                     </li>
                     <li>
                       <a href="https://www.infineon.com/products/microcontroller/32-bit-psoc-arm-cortex/psoc-4-hv-m0" target="_blank" rel="noopener noreferrer">
-                        32-bit PSOC™ 4 HV Arm® Cortex®-M0+
+                        PSOC™ 4 HV Arm® Cortex®-M0+
                       </a>
                     </li>
                     <li>
                       <a href="https://www.infineon.com/products/microcontroller/32-bit-psoc-arm-cortex/fingerprint-m0-plus" target="_blank" rel="noopener noreferrer">
-                        32-bit PSOC™ Fingerprint Arm® Cortex®-M0+
+                        PSOC™ Fingerprint Arm® Cortex®-M0+
                       </a>
                     </li>
                     <li>
                       <a href="https://www.infineon.com/products/microcontroller/32-bit-psoc-arm-cortex/automotive-multitouch-m0" target="_blank" rel="noopener noreferrer">
-                        32-bit PSOC™ Automotive Multitouch Arm® Cortex®-M0
+                        PSOC™ Automotive Multitouch Arm® Cortex®-M0
                       </a>
                     </li>
                     <li>
                       <a href="https://www.infineon.com/products/microcontroller/32-bit-traveo-t2g-arm-cortex/for-body" target="_blank" rel="noopener noreferrer">
-                        32-bit TRAVEO™ T2G Arm® Cortex® for Body
+                        TRAVEO™ T2G Arm® Cortex® for Body
                       </a>
                     </li>
                     <li>
                       <a href="https://www.infineon.com/products/microcontroller/32-bit-traveo-t2g-arm-cortex/for-cluster" target="_blank" rel="noopener noreferrer">
-                        32-bit TRAVEO™ T2G Arm® Cortex® for Cluster
+                        TRAVEO™ T2G Arm® Cortex® for Cluster
                       </a>
                     </li>
                   </ul>
@@ -299,7 +299,7 @@ export default function HomePage() {
                     <ul style={{ margin: 0 }}>
                       <li>
                         <a href="https://myicp.infineon.com/sites/microcontrollers-aurix_customer_doc/SitePages/default.aspx" target="_blank" rel="noopener noreferrer">
-                          32-bit TriCore™ Microcontroller
+                          TriCore™ Microcontroller
                         </a>
                       </li>
                       <li>
@@ -335,7 +335,7 @@ export default function HomePage() {
         </div>
         <aside>
           <section className="social-widget" style={{ marginTop: 60 }}>
-            <h4 style={{ margin: '0 0 2px' }}>ATV MC social feed</h4>
+            <h4 style={{ margin: '0 0 2px', color: 'var(--brand)' }}>ATV MC social feed</h4>
             {/* Cropped iframe view focusing on the posts column */}
             <div
               style={{
@@ -367,13 +367,13 @@ export default function HomePage() {
             </div>
           </section>
           <section className="events-widget" style={{ marginTop: 24 }}>
-           
+          <h4 style={{ margin: '0 0 2px',color: 'var(--brand)' }}>Events</h4>
             {/* Cropped iframe view for events */}
             <div
               style={{
                 position: 'relative',
                 width: 370,
-                height: 600,
+                height: 530,
                 border: '0px solid var(--border-color, #e0e0e0)',
                 borderRadius: 8,
                 overflow: 'hidden',
@@ -386,7 +386,7 @@ export default function HomePage() {
                 title="ATV MC events"
                 style={{
                   position: 'absolute',
-                  top: -870,
+                  top: -890,
                   left: -650,
                   width: 1024,
                   height: 2400,
