@@ -91322,10 +91322,23 @@ function extractSectionSnippets(htmlDocumentString) {
     const container2 = document.createElement("div");
     container2.innerHTML = sanitizedBody;
     assignStableHeadingIds(container2);
+    if (htmlDocumentString.includes("March") && htmlDocumentString.includes("2025")) {
+      console.log("[DEBUG March 2025] Sanitized HTML length:", sanitizedBody.length);
+      console.log("[DEBUG March 2025] Sample HTML:", sanitizedBody.substring(0, 3e3));
+      const strongs = Array.from(container2.querySelectorAll("strong"));
+      console.log("[DEBUG March 2025] Strong tags found:", strongs.length);
+      console.log("[DEBUG March 2025] First 10 strong tags:", strongs.slice(0, 10).map((s) => ({
+        text: (s.textContent || "").trim().substring(0, 50),
+        html: s.outerHTML.substring(0, 150)
+      })));
+    }
+    const allAnchorsDebug = Array.from(container2.querySelectorAll("a[name]"));
+    console.log("[DEBUG] All anchors with name attr:", allAnchorsDebug.map((a) => ({ name: a.getAttribute("name"), html: a.outerHTML.substring(0, 100) })));
     const chapterDivs = Array.from(container2.querySelectorAll('div[id^="chapter_" i]'));
+    console.log("[DEBUG] Chapter divs found:", chapterDivs.length);
     if (chapterDivs.length > 0) {
       const snippets2 = [];
-      const guessTitle = (root) => {
+      const guessTitleFromDiv = (root) => {
         const aTitle = root.querySelector("a[title]")?.getAttribute("title") || "";
         const cleanedATitle = (aTitle || "").replace(/\s+/g, " ").trim();
         if (cleanedATitle) return cleanedATitle;
@@ -91339,7 +91352,7 @@ function extractSectionSnippets(htmlDocumentString) {
         const cur = chapterDivs[i];
         const next = chapterDivs[i + 1] || null;
         const id = cur.getAttribute("id") || `chapter-${i}`;
-        const title = guessTitle(cur);
+        const title = guessTitleFromDiv(cur);
         const level = 2;
         const range = document.createRange();
         range.setStartBefore(cur);
@@ -91357,41 +91370,126 @@ function extractSectionSnippets(htmlDocumentString) {
       }
       return snippets2;
     }
+    const chapterAnchors = Array.from(
+      container2.querySelectorAll('a[name^="chapter_" i], a[name^="Chapter_" i]')
+    );
+    console.log("[DEBUG extractSectionSnippets] Found chapter anchors:", chapterAnchors.length);
+    if (chapterAnchors.length > 0) {
+      const snippets2 = [];
+      const guessTitleFromAnchor = (a) => {
+        const t = (a.getAttribute("title") || "").replace(/\s+/g, " ").trim();
+        if (t) return t;
+        let nextSib = a.nextElementSibling;
+        if (nextSib && (nextSib.tagName === "STRONG" || nextSib.tagName === "B" || nextSib.tagName.match(/^H[1-4]$/))) {
+          const text2 = (nextSib.textContent || "").replace(/\s+/g, " ").trim();
+          console.log("[DEBUG guessTitleFromAnchor] Found sibling:", { name: a.getAttribute("name"), text: text2, sibTag: nextSib.tagName });
+          if (text2) return text2;
+        }
+        const parent = a.parentElement;
+        if (parent) {
+          const strong = parent.querySelector("strong, b, h1, h2, h3, h4");
+          const strongText = (strong?.textContent || "").replace(/\s+/g, " ").trim();
+          if (strongText) {
+            console.log("[DEBUG guessTitleFromAnchor] Found in parent:", { name: a.getAttribute("name"), strongText });
+            return strongText;
+          }
+        }
+        const tr = a.closest("tr");
+        if (tr) {
+          const strong = tr.querySelector("strong, b, h1, h2, h3, h4");
+          const strongText = (strong?.textContent || "").replace(/\s+/g, " ").trim();
+          if (strongText) {
+            console.log("[DEBUG guessTitleFromAnchor] Found in tr:", { name: a.getAttribute("name"), strongText });
+            return strongText;
+          }
+        }
+        const siblingText = (a.nextElementSibling?.textContent || "").replace(/\s+/g, " ").trim();
+        if (siblingText) return siblingText.split(/\s{2,}|\.|\!|\?/)[0];
+        console.log("[DEBUG guessTitleFromAnchor] No title found for:", a.getAttribute("name"));
+        return (a.textContent || "").replace(/\s+/g, " ").trim() || "Chapter";
+      };
+      const getStartBlock = (a) => {
+        const tr = a.closest("tr");
+        return tr || a;
+      };
+      for (let i = 0; i < chapterAnchors.length; i++) {
+        const cur = chapterAnchors[i];
+        const next = chapterAnchors[i + 1] || null;
+        const startBlock = getStartBlock(cur);
+        const endBlock = next ? getStartBlock(next) : null;
+        let id = startBlock.getAttribute("id") || "";
+        if (!id) {
+          const fromName = cur.getAttribute("name") || "";
+          const base = fromName || slugifyHeading(guessTitleFromAnchor(cur)) || `chapter-${i}`;
+          let candidate = base;
+          let ctr = 1;
+          while (container2.querySelector(`#${CSS.escape(candidate)}`)) {
+            ctr++;
+            candidate = `${base}-${ctr}`;
+          }
+          startBlock.setAttribute("id", candidate);
+          id = candidate;
+        }
+        const level = 2;
+        const title = guessTitleFromAnchor(cur);
+        const range = document.createRange();
+        range.setStartBefore(startBlock);
+        if (endBlock) {
+          range.setEndBefore(endBlock);
+        } else if (container2.lastChild) {
+          range.setEndAfter(container2.lastChild);
+        }
+        const frag = range.cloneContents();
+        const wrapper = document.createElement("div");
+        wrapper.appendChild(frag);
+        const html2 = wrapper.innerHTML;
+        const text2 = wrapper.textContent ? wrapper.textContent.replace(/\s+/g, " ").trim() : title;
+        snippets2.push({ id, title, level, html: html2, text: text2 });
+      }
+      return snippets2;
+    }
     const headerSelectors = [
       "h1",
       "h2",
       "h3",
       "h4",
-      'span[style*="color:#0a8276" i]',
-      'span[style*="#0a8276" i]',
-      'span[style*="font-size:13.5pt" i]'
+      'span[style*="color:#0a8276"]',
+      'span[style*="color:#0A8276"]',
+      'span[style*="COLOR:#0A8276"]',
+      'span[style*="font-size:13.5pt"]'
     ];
     const chapterSelectors = [
       'a[name^="chapter_" i], a[name^="Chapter_" i]',
       'div[id^="chapter_" i], div[id^="Chapter_" i]'
     ];
-    const headerCandidates = Array.from(
+    let headerCandidates = Array.from(
       container2.querySelectorAll([...chapterSelectors, ...headerSelectors].join(","))
     );
+    const strongTags = Array.from(container2.querySelectorAll("strong"));
+    for (const strong of strongTags) {
+      const span = strong.querySelector('span[style*="#0A8276"], span[style*="#0a8276"], span[style*="font-size:13.5pt"]');
+      if (span) {
+        headerCandidates.push(strong);
+      }
+    }
+    console.log("[DEBUG] Heuristic header candidates found:", headerCandidates.length);
+    console.log("[DEBUG] Header candidate texts:", headerCandidates.map((h) => ({
+      tag: h.tagName,
+      text: (h.textContent || "").trim().substring(0, 50),
+      color: h.style.color,
+      fontSize: h.style.fontSize
+    })));
     const snippets = [];
     const getTitle = (el) => {
       const text2 = (el.textContent || "").replace(/\s+/g, " ").trim();
       return text2;
     };
     const anchors = headerCandidates.map((el) => {
-      let startBlock = null;
-      if (el.tagName.toLowerCase() === "a" && (el.getAttribute("name") || "").toLowerCase().startsWith("chapter_")) {
-        startBlock = el.closest("table") || el.closest('div[id^="chapter_" i]') || el;
-      } else if (el.tagName.toLowerCase() === "div" && (el.getAttribute("id") || "").toLowerCase().startsWith("chapter_")) {
-        startBlock = el;
-      } else {
-        const tr = el.closest("tr");
-        startBlock = tr ? tr.closest("table") || tr : el;
-      }
+      const startEl = el;
       const level = el.tagName.match(/^H[1-4]$/) ? Number(el.tagName.substring(1)) : 2;
       return {
         headerEl: el,
-        anchorEl: startBlock || el,
+        anchorEl: startEl,
         level,
         title: getTitle(el)
       };
@@ -91399,8 +91497,8 @@ function extractSectionSnippets(htmlDocumentString) {
     const uniqueAnchors = [];
     const seen = /* @__PURE__ */ new Set();
     for (const a of anchors) {
-      if (seen.has(a.anchorEl)) continue;
-      seen.add(a.anchorEl);
+      if (seen.has(a.headerEl)) continue;
+      seen.add(a.headerEl);
       uniqueAnchors.push(a);
     }
     const ordered = uniqueAnchors;
@@ -91420,9 +91518,9 @@ function extractSectionSnippets(htmlDocumentString) {
         id = candidate;
       }
       const range = document.createRange();
-      range.setStartBefore(cur.anchorEl);
+      range.setStartBefore(cur.headerEl);
       if (next) {
-        range.setEndBefore(next.anchorEl);
+        range.setEndBefore(next.headerEl);
       } else {
         const last = container2.lastChild;
         if (last) range.setEndAfter(last);
@@ -91430,6 +91528,40 @@ function extractSectionSnippets(htmlDocumentString) {
       const frag = range.cloneContents();
       const wrapper = document.createElement("div");
       wrapper.appendChild(frag);
+      try {
+        const normalizeText = (s) => s.toLowerCase().replace(/™/g, "").replace(/&/g, "and").replace(/[^a-z0-9]+/g, " ").trim();
+        const chapterTokens = ["aurix", "traveo", "psoc", "bulletin", "ease of use", "market news", "press release", "success stories", "team news"];
+        const detectToken = (s) => {
+          const n = " " + normalizeText(s) + " ";
+          for (const t of chapterTokens) {
+            const tt = " " + t + " ";
+            if (n.indexOf(tt) !== -1) return t;
+          }
+          return null;
+        };
+        const primary = detectToken(cur.title);
+        const candidates = Array.from(wrapper.querySelectorAll("h1, h2, h3, h4, strong, b, span, p, div, a"));
+        let seenSelf = false;
+        for (const el of candidates) {
+          const t = detectToken(el.textContent || "");
+          if (!t) continue;
+          if (primary && !seenSelf && t === primary) {
+            seenSelf = true;
+            continue;
+          }
+          const pruneRange = document.createRange();
+          if (wrapper.firstChild) {
+            pruneRange.setStartBefore(wrapper.firstChild);
+            pruneRange.setEndBefore(el);
+            const pruned = pruneRange.cloneContents();
+            const newWrapper = document.createElement("div");
+            newWrapper.appendChild(pruned);
+            wrapper.innerHTML = newWrapper.innerHTML;
+          }
+          break;
+        }
+      } catch {
+      }
       const html2 = wrapper.innerHTML;
       const text2 = wrapper.textContent ? wrapper.textContent.replace(/\s+/g, " ").trim() : cur.title;
       snippets.push({ id, title: cur.title, level: cur.level, html: html2, text: text2 });
@@ -91680,7 +91812,7 @@ function HomePage() {
             style: {
               display: "grid",
               gridTemplateColumns: "12fr 5fr",
-              gap: 50,
+              gap: 100,
               width: "min(95vw, 1400px)",
               margin: "0 auto",
               alignItems: "start"
@@ -91691,9 +91823,7 @@ function HomePage() {
                   /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { style: { textAlign: "left", width: "100%", color: "var(--brand)" }, children: "Welcome to the ATV MC Digital Newsletter" }),
                   /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { style: { textAlign: "left", width: "100%", maxWidth: "none", fontSize: "18px" }, children: [
                     /* @__PURE__ */ jsxRuntimeExports.jsx("br", {}),
-                    " Your secure, always-current dashboard for everything Automotive Microcontrollers. ",
-                    /* @__PURE__ */ jsxRuntimeExports.jsx("br", {}),
-                    " Each month we update six focused sections, no scrolling through threads, no hunting for links.",
+                    " Your secure, always-current dashboard for everything Automotive Microcontrollers. Learn more about our products and solutions. Each month we update six focused sections, no scrolling through threads, no hunting for links.",
                     /* @__PURE__ */ jsxRuntimeExports.jsx("br", {}),
                     /* @__PURE__ */ jsxRuntimeExports.jsx("br", {})
                   ] }),
@@ -91726,9 +91856,11 @@ function HomePage() {
                   /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { style: { textAlign: "left", width: "100%", maxWidth: "none", fontSize: "18px" }, children: [
                     /* @__PURE__ */ jsxRuntimeExports.jsx("br", {}),
                     /* @__PURE__ */ jsxRuntimeExports.jsx("br", {}),
-                    "Bookmark the link, enable notifications, and check back on the first working day of every month.",
+                    "Bookmark the link, enable notifications, and check back on the first working day of every month. Always stay up to date with the latest news and information.",
                     /* @__PURE__ */ jsxRuntimeExports.jsx("br", {}),
-                    "Thank you for keeping the information strictly internal—let’s turn these updates into design-ins."
+                    " ",
+                    /* @__PURE__ */ jsxRuntimeExports.jsx("br", {}),
+                    " Thank you for keeping the information strictly internal—let’s turn these updates into design-ins."
                   ] })
                 ] }),
                 latest && /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "latest-newsletter", style: { paddingLeft: 0, paddingRight: 0 }, children: [
@@ -91837,13 +91969,13 @@ function HomePage() {
                                 padding: 16
                               },
                               children: /* @__PURE__ */ jsxRuntimeExports.jsxs("ul", { style: { margin: 0 }, children: [
-                                /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: "https://www.infineon.com/products/microcontroller/32-bit-tricore", target: "_blank", rel: "noopener noreferrer", children: "32-bit AURIX™ TriCore™ Microcontroller" }) }),
-                                /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: "https://www.infineon.com/products/microcontroller/32-bit-psoc-arm-cortex/automotive-psoc-4-mcu", target: "_blank", rel: "noopener noreferrer", children: "32-bit PSOC™ 4 Automotive Arm® Cortex®-M0/M0+" }) }),
-                                /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: "https://www.infineon.com/products/microcontroller/32-bit-psoc-arm-cortex/psoc-4-hv-m0", target: "_blank", rel: "noopener noreferrer", children: "32-bit PSOC™ 4 HV Arm® Cortex®-M0+" }) }),
-                                /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: "https://www.infineon.com/products/microcontroller/32-bit-psoc-arm-cortex/fingerprint-m0-plus", target: "_blank", rel: "noopener noreferrer", children: "32-bit PSOC™ Fingerprint Arm® Cortex®-M0+" }) }),
-                                /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: "https://www.infineon.com/products/microcontroller/32-bit-psoc-arm-cortex/automotive-multitouch-m0", target: "_blank", rel: "noopener noreferrer", children: "32-bit PSOC™ Automotive Multitouch Arm® Cortex®-M0" }) }),
-                                /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: "https://www.infineon.com/products/microcontroller/32-bit-traveo-t2g-arm-cortex/for-body", target: "_blank", rel: "noopener noreferrer", children: "32-bit TRAVEO™ T2G Arm® Cortex® for Body" }) }),
-                                /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: "https://www.infineon.com/products/microcontroller/32-bit-traveo-t2g-arm-cortex/for-cluster", target: "_blank", rel: "noopener noreferrer", children: "32-bit TRAVEO™ T2G Arm® Cortex® for Cluster" }) })
+                                /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: "https://www.infineon.com/products/microcontroller/32-bit-tricore", target: "_blank", rel: "noopener noreferrer", children: "AURIX™ TriCore™ Microcontroller" }) }),
+                                /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: "https://www.infineon.com/products/microcontroller/32-bit-psoc-arm-cortex/automotive-psoc-4-mcu", target: "_blank", rel: "noopener noreferrer", children: "PSOC™ 4 Automotive Arm® Cortex®-M0/M0+" }) }),
+                                /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: "https://www.infineon.com/products/microcontroller/32-bit-psoc-arm-cortex/psoc-4-hv-m0", target: "_blank", rel: "noopener noreferrer", children: "PSOC™ 4 HV Arm® Cortex®-M0+" }) }),
+                                /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: "https://www.infineon.com/products/microcontroller/32-bit-psoc-arm-cortex/fingerprint-m0-plus", target: "_blank", rel: "noopener noreferrer", children: "PSOC™ Fingerprint Arm® Cortex®-M0+" }) }),
+                                /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: "https://www.infineon.com/products/microcontroller/32-bit-psoc-arm-cortex/automotive-multitouch-m0", target: "_blank", rel: "noopener noreferrer", children: "PSOC™ Automotive Multitouch Arm® Cortex®-M0" }) }),
+                                /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: "https://www.infineon.com/products/microcontroller/32-bit-traveo-t2g-arm-cortex/for-body", target: "_blank", rel: "noopener noreferrer", children: "TRAVEO™ T2G Arm® Cortex® for Body" }) }),
+                                /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: "https://www.infineon.com/products/microcontroller/32-bit-traveo-t2g-arm-cortex/for-cluster", target: "_blank", rel: "noopener noreferrer", children: "TRAVEO™ T2G Arm® Cortex® for Cluster" }) })
                               ] })
                             }
                           )
@@ -91862,7 +91994,7 @@ function HomePage() {
                                   padding: 16
                                 },
                                 children: /* @__PURE__ */ jsxRuntimeExports.jsxs("ul", { style: { margin: 0 }, children: [
-                                  /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: "https://myicp.infineon.com/sites/microcontrollers-aurix_customer_doc/SitePages/default.aspx", target: "_blank", rel: "noopener noreferrer", children: "32-bit TriCore™ Microcontroller" }) }),
+                                  /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: "https://myicp.infineon.com/sites/microcontrollers-aurix_customer_doc/SitePages/default.aspx", target: "_blank", rel: "noopener noreferrer", children: "TriCore™ Microcontroller" }) }),
                                   /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: "https://myicp.infineon.com/sites/TRAVEODocumentation/SitePages/default.aspx", target: "_blank", rel: "noopener noreferrer", children: "TRAVEO™ Microcontroller" }) }),
                                   /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: "https://myicp.infineon.com/sites/PSoCDocumentation/SitePages/default.aspx", target: "_blank", rel: "noopener noreferrer", children: "PSOC™ Microcontroller" }) })
                                 ] })
@@ -91894,7 +92026,7 @@ function HomePage() {
               ] }),
               /* @__PURE__ */ jsxRuntimeExports.jsxs("aside", { children: [
                 /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "social-widget", style: { marginTop: 60 }, children: [
-                  /* @__PURE__ */ jsxRuntimeExports.jsx("h4", { style: { margin: "0 0 2px" }, children: "ATV MC social feed" }),
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("h4", { style: { margin: "0 0 2px", color: "var(--brand)" }, children: "ATV MC social feed" }),
                   /* @__PURE__ */ jsxRuntimeExports.jsx(
                     "div",
                     {
@@ -91929,40 +92061,43 @@ function HomePage() {
                     }
                   )
                 ] }),
-                /* @__PURE__ */ jsxRuntimeExports.jsx("section", { className: "events-widget", style: { marginTop: 24 }, children: /* @__PURE__ */ jsxRuntimeExports.jsx(
-                  "div",
-                  {
-                    style: {
-                      position: "relative",
-                      width: 370,
-                      height: 600,
-                      border: "0px solid var(--border-color, #e0e0e0)",
-                      borderRadius: 8,
-                      overflow: "hidden",
-                      background: "#fff"
-                    },
-                    children: /* @__PURE__ */ jsxRuntimeExports.jsx(
-                      "iframe",
-                      {
-                        src: "https://intranet.infineon.com/",
-                        title: "ATV MC events",
-                        style: {
-                          position: "absolute",
-                          top: -870,
-                          left: -650,
-                          width: 1024,
-                          height: 2400,
-                          border: 0,
-                          transform: "scale(1)",
-                          transformOrigin: "top left"
-                        },
-                        scrolling: "no",
-                        loading: "lazy",
-                        referrerPolicy: "no-referrer-when-downgrade"
-                      }
-                    )
-                  }
-                ) })
+                /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "events-widget", style: { marginTop: 24 }, children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("h4", { style: { margin: "0 0 2px", color: "var(--brand)" }, children: "Events" }),
+                  /* @__PURE__ */ jsxRuntimeExports.jsx(
+                    "div",
+                    {
+                      style: {
+                        position: "relative",
+                        width: 370,
+                        height: 530,
+                        border: "0px solid var(--border-color, #e0e0e0)",
+                        borderRadius: 8,
+                        overflow: "hidden",
+                        background: "#fff"
+                      },
+                      children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+                        "iframe",
+                        {
+                          src: "https://intranet.infineon.com/",
+                          title: "ATV MC events",
+                          style: {
+                            position: "absolute",
+                            top: -890,
+                            left: -650,
+                            width: 1024,
+                            height: 2400,
+                            border: 0,
+                            transform: "scale(1)",
+                            transformOrigin: "top left"
+                          },
+                          scrolling: "no",
+                          loading: "lazy",
+                          referrerPolicy: "no-referrer-when-downgrade"
+                        }
+                      )
+                    }
+                  )
+                ] })
               ] })
             ]
           }
@@ -92086,6 +92221,7 @@ function NewslettersPage() {
     return out;
   }, [textQuery, filtered, searchIndex]);
   const normalize = (s) => s.toLowerCase().replace(/™/g, "").replace(/&/g, "and").replace(/[^a-z0-9]+/g, " ").trim();
+  const tokens = (s) => normalize(s).split(" ").filter(Boolean);
   reactExports.useEffect(() => {
     let cancelled = false;
     if (!selectedChapter) {
@@ -92095,10 +92231,29 @@ function NewslettersPage() {
     }
     setIsLoading(true);
     const wanted = normalize(selectedChapter);
+    const wantedTokens = tokens(selectedChapter);
     const results = [];
     for (const n of newsletters) {
       const snippets = sectionIndex[n.id] || [];
-      const found = snippets.find((s) => normalize(s.title).includes(wanted));
+      if (n === newsletters[0]) {
+        console.log(`[DEBUG] Newsletter: ${n.title}`);
+        console.log(`[DEBUG] Looking for chapter: "${selectedChapter}" (normalized: "${wanted}")`);
+        console.log(`[DEBUG] All section titles:`, snippets.map((s) => ({ title: s.title, normalized: normalize(s.title), id: s.id })));
+      }
+      const found = snippets.find((s) => {
+        const titleNorm = normalize(s.title);
+        if (titleNorm === wanted) return true;
+        const titleTokens = tokens(s.title);
+        const knownChapters = ["aurix", "traveo", "traveo t2g", "psoc automotive", "bulletin board", "ease of use", "market news press release"];
+        if (knownChapters.includes(titleNorm)) return wantedTokens.every((wt) => titleTokens.includes(wt));
+        if (titleTokens.length <= 3 && wantedTokens.every((wt) => titleTokens.includes(wt))) return true;
+        return false;
+      });
+      if (n === newsletters[0] && found) {
+        console.log(`[DEBUG] Found matching section:`, { title: found.title, id: found.id });
+      } else if (n === newsletters[0]) {
+        console.log(`[DEBUG] No matching section found`);
+      }
       if (found) {
         results.push({
           newsletterId: n.id,
