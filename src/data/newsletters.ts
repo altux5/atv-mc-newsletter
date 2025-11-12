@@ -105,6 +105,7 @@ function baseName(p: string): string {
 }
 
 import { extractFirstMeaningfulParagraphText, extractMonthYearFromHtml, extractMonthYearFromRawText } from '../utils/newsletterHtml'
+import { getPublishedNewsletters } from '../utils/localNewsletters'
 
 const derived: Newsletter[] = Object.keys(htmlFiles)
   .map((path) => {
@@ -140,8 +141,17 @@ const derived: Newsletter[] = Object.keys(htmlFiles)
       sourcePath: path,
     }
   })
-  .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
 
-export const newsletters: Newsletter[] = derived
+// Function to get all newsletters (file-based + LocalStorage)
+// This is called dynamically to include newly published newsletters
+export function getNewsletters(): Newsletter[] {
+  const localNewsletters = getPublishedNewsletters()
+  const allNewsletters = [...derived, ...localNewsletters]
+    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+  return allNewsletters
+}
+
+// Export for backward compatibility - but components should use getNewsletters() for fresh data
+export const newsletters: Newsletter[] = getNewsletters()
 
 

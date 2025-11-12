@@ -18,6 +18,9 @@ export default function RootLayout() {
             <NavLink to="/newsletters" className={({ isActive }) => (isActive ? 'active' : '')}>
               Newsletters
             </NavLink>
+            <NavLink to="/newsletters/create" className={({ isActive }) => (isActive ? 'active' : '')}>
+              Create Newsletter
+            </NavLink>
           </nav>
         </div>
       </header>

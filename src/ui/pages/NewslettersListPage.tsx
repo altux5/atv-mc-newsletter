@@ -1,13 +1,30 @@
 import { useEffect, useMemo, useState } from 'react'
-import { Link } from 'react-router-dom'
-import { newsletters } from '../../data/newsletters'
+import { Link, useLocation } from 'react-router-dom'
+import { getNewsletters } from '../../data/newsletters'
 import { extractBodyText, findHtmlByMonthYearAsync, loadHtmlByPathAsync } from '../../utils/newsletterHtml'
+import { deleteDraft } from '../../utils/localNewsletters'
 
 export default function NewslettersListPage() {
+  const location = useLocation()
+  const [newsletters, setNewsletters] = useState(() => getNewsletters())
   const [textQuery, setTextQuery] = useState('')
   const [searchIndex, setSearchIndex] = useState<Record<string, string>>({})
   const [selectedMonth, setSelectedMonth] = useState<number | null>(null)
   const [selectedYear, setSelectedYear] = useState<number | null>(null)
+  
+  // Refresh newsletters when component mounts or location changes
+  useEffect(() => {
+    setNewsletters(getNewsletters())
+  }, [location.pathname])
+  
+  // Listen for newsletter publish events
+  useEffect(() => {
+    const handleNewsletterPublished = () => {
+      setNewsletters(getNewsletters())
+    }
+    window.addEventListener('newsletterPublished', handleNewsletterPublished)
+    return () => window.removeEventListener('newsletterPublished', handleNewsletterPublished)
+  }, [])
 
   useEffect(() => {
     let cancelled = false
@@ -113,15 +130,59 @@ export default function NewslettersListPage() {
       </div>
       <section className="content-grid">
         <div className="list full-width">
-          {filtered.map((n) => (
-            <Link key={n.id} to={`/newsletters/${n.slug}`} className="list-row">
-              <div className="list-row-title">
-                <strong>{n.title}</strong>
+          {filtered.map((n) => {
+            const isLocal = !n.sourcePath
+            
+            const handleDelete = (e: React.MouseEvent) => {
+              e.preventDefault()
+              e.stopPropagation()
+              const confirmed = window.confirm(
+                `Are you sure you want to delete "${n.title}"? This action cannot be undone.`
+              )
+              if (confirmed) {
+                deleteDraft(n.id)
+                window.dispatchEvent(new Event('newsletterPublished'))
+                setNewsletters(getNewsletters())
+              }
+            }
+            
+            return (
+              <div key={n.id} style={{ position: 'relative' }}>
+                <Link to={`/newsletters/${n.slug}`} className="list-row">
+                  <div className="list-row-title">
+                    <strong>{n.title}</strong>
+                    {isLocal && (
+                      <span style={{ marginLeft: 8, fontSize: 12, color: '#0A8276', background: '#e6f7f5', padding: '2px 6px', borderRadius: 4 }}>
+                        Custom
+                      </span>
+                    )}
+                  </div>
+                  <div className="list-row-meta">
+                    {new Date(n.date).toLocaleDateString()}
+                    {isLocal && (
+                      <button
+                        onClick={handleDelete}
+                        style={{
+                          marginLeft: 12,
+                          padding: '2px 8px',
+                          background: 'transparent',
+                          border: '1px solid #fecaca',
+                          borderRadius: '4px',
+                          cursor: 'pointer',
+                          fontSize: '12px',
+                          color: '#dc2626',
+                        }}
+                        title="Delete newsletter"
+                      >
+                        🗑️ Delete
+                      </button>
+                    )}
+                  </div>
+                  <div className="list-row-excerpt">{n.excerpt}</div>
+                </Link>
               </div>
-              <div className="list-row-meta">{new Date(n.date).toLocaleDateString()}</div>
-              <div className="list-row-excerpt">{n.excerpt}</div>
-            </Link>
-          ))}
+            )
+          })}
           {filtered.length === 0 && <p className="meta">No newsletters match your filters.</p>}
         </div>
       </section>

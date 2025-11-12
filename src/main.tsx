@@ -7,6 +7,7 @@ import HomePage from './ui/pages/HomePage'
 import NewslettersPage from './ui/pages/NewslettersPage'
 import NewsletterDetailPage from './ui/pages/NewsletterDetailPage'
 import NewslettersListPage from './ui/pages/NewslettersListPage'
+import CreateNewsletterPage from './ui/pages/CreateNewsletterPage'
 
 const router = createBrowserRouter([
   {
@@ -16,6 +17,8 @@ const router = createBrowserRouter([
       { index: true, element: <HomePage /> },
       { path: 'newsletters', element: <NewslettersPage /> },
       { path: 'newsletters/list', element: <NewslettersListPage /> },
+      { path: 'newsletters/create', element: <CreateNewsletterPage /> },
+      { path: 'newsletters/edit/:id', element: <CreateNewsletterPage /> },
       { path: 'newsletters/:slug', element: <NewsletterDetailPage /> },
     ],
   },

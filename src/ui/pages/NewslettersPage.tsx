@@ -1,7 +1,8 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { newsletters } from '../../data/newsletters'
+import { getNewsletters } from '../../data/newsletters'
 import { findHtmlByMonthYearAsync, loadHtmlByPathAsync, extractSectionSnippets, extractBodyText } from '../../utils/newsletterHtml'
+import { deleteDraft } from '../../utils/localNewsletters'
 
 const CHAPTERS = [
   'AURIX™',
@@ -16,6 +17,7 @@ const CHAPTERS = [
 
 export default function NewslettersPage() {
   const location = useLocation()
+  const [newsletters, setNewsletters] = useState(() => getNewsletters())
   const [selectedChapter, setSelectedChapter] = useState<string | null>(null)
   const [sectionIndex, setSectionIndex] = useState<Record<string, ReturnType<typeof extractSectionSnippets>>>({})
   const [searchIndex, setSearchIndex] = useState<Record<string, string>>({})
@@ -27,6 +29,20 @@ export default function NewslettersPage() {
   // Titles and excerpts are now derived synchronously in the data layer; no runtime overrides needed
   const [page, setPage] = useState(1)
   const pageSize = 9
+  
+  // Refresh newsletters when component mounts or location changes
+  useEffect(() => {
+    setNewsletters(getNewsletters())
+  }, [location.pathname])
+  
+  // Listen for newsletter publish events
+  useEffect(() => {
+    const handleNewsletterPublished = () => {
+      setNewsletters(getNewsletters())
+    }
+    window.addEventListener('newsletterPublished', handleNewsletterPublished)
+    return () => window.removeEventListener('newsletterPublished', handleNewsletterPublished)
+  }, [])
 
   // Build indexes used for section extraction
   useEffect(() => {
@@ -356,22 +372,63 @@ export default function NewslettersPage() {
             </div>
           )}
           <div className={`grid ${textQuery ? 'search-active' : ''}`}>
-            {paged.map((n) => (
-              <Link key={n.id} to={`/newsletters/${n.slug}`} className="card newsletter-card">
-                <h3>{n.title}</h3>
-                <p className="meta">{new Date(n.date).toLocaleDateString()}</p>
-                {textQuery && matchSnippets[n.id] ? (
-                  <p className="query-snippet" dangerouslySetInnerHTML={{ __html: matchSnippets[n.id] }} />
-                ) : (
-                  <p>{n.excerpt}</p>
-                )}
-                <div className="tag-row">
-                  {n.tags.map((t) => (
-                    <span key={t} className="pill">{t}</span>
-                  ))}
+            {paged.map((n) => {
+              const isLocal = !n.sourcePath
+              
+              const handleDelete = (e: React.MouseEvent) => {
+                e.preventDefault()
+                e.stopPropagation()
+                const confirmed = window.confirm(
+                  `Are you sure you want to delete "${n.title}"? This action cannot be undone.`
+                )
+                if (confirmed) {
+                  deleteDraft(n.id)
+                  window.dispatchEvent(new Event('newsletterPublished'))
+                  setNewsletters(getNewsletters())
+                }
+              }
+              
+              return (
+                <div key={n.id} className="newsletter-card-wrapper">
+                  <Link to={`/newsletters/${n.slug}`} className="card newsletter-card" style={{ display: 'block' }}>
+                    <h3>{n.title}</h3>
+                    <p className="meta">{new Date(n.date).toLocaleDateString()}</p>
+                    {textQuery && matchSnippets[n.id] ? (
+                      <p className="query-snippet" dangerouslySetInnerHTML={{ __html: matchSnippets[n.id] }} />
+                    ) : (
+                      <p>{n.excerpt}</p>
+                    )}
+                    <div className="tag-row">
+                      {n.tags.map((t) => (
+                        <span key={t} className="pill">{t}</span>
+                      ))}
+                    </div>
+                  </Link>
+                  {isLocal && (
+                    <button
+                      onClick={handleDelete}
+                      className="delete-newsletter-btn"
+                      title="Delete newsletter"
+                      style={{
+                        position: 'absolute',
+                        top: 8,
+                        right: 8,
+                        padding: '4px 8px',
+                        background: '#fff',
+                        border: '1px solid #fecaca',
+                        borderRadius: '4px',
+                        cursor: 'pointer',
+                        fontSize: '14px',
+                        color: '#dc2626',
+                        zIndex: 10,
+                      }}
+                    >
+                      🗑️
+                    </button>
+                  )}
                 </div>
-              </Link>
-            ))}
+              )
+            })}
             {filtered.length === 0 && <p className="meta">No newsletters match your search/filters.</p>}
           </div>
           {filtered.length > 0 && (

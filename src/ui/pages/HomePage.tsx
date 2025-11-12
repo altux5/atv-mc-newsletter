@@ -1,14 +1,92 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { newsletters } from '../../data/newsletters'
-import { extractAndSanitizeBodyHtml, findHtmlByMonthYearAsync, loadHtmlByPathAsync } from '../../utils/newsletterHtml'
+import { getNewsletters } from '../../data/newsletters'
+import { extractAndSanitizeBodyHtml, extractBodyText, findHtmlByMonthYearAsync, loadHtmlByPathAsync } from '../../utils/newsletterHtml'
 import newsletterImage from '../../photos/newsletter image.png'
 import headerImage from '../../photos/new-header.jpg'
 
 export default function HomePage() {
+  const [newsletters, setNewsletters] = useState(() => getNewsletters())
   const latest = newsletters[0]
   const [latestParagraphs, setLatestParagraphs] = useState<string[]>([])
   
+  // Search state
+  const [textQuery, setTextQuery] = useState('')
+  const [searchIndex, setSearchIndex] = useState<Record<string, string>>({})
+  const [selectedMonth, setSelectedMonth] = useState<number | null>(null)
+  const [selectedYear, setSelectedYear] = useState<number | null>(null)
+  const [currentPage, setCurrentPage] = useState(1)
+  
+  // Refresh newsletters on mount
+  useEffect(() => {
+    setNewsletters(getNewsletters())
+  }, [])
+  
+  // Listen for newsletter publish events
+  useEffect(() => {
+    const handleNewsletterPublished = () => {
+      setNewsletters(getNewsletters())
+    }
+    window.addEventListener('newsletterPublished', handleNewsletterPublished)
+    return () => window.removeEventListener('newsletterPublished', handleNewsletterPublished)
+  }, [])
+  
+  // Build search index
+  useEffect(() => {
+    let cancelled = false
+    ;(async () => {
+      const entries: Record<string, string> = {}
+      for (const n of newsletters) {
+        try {
+          const date = new Date(n.date)
+          const match = n.sourcePath
+            ? await loadHtmlByPathAsync(n.sourcePath)
+            : await findHtmlByMonthYearAsync(date.getUTCMonth(), date.getUTCFullYear())
+          const html = match?.html
+          if (html) entries[n.id] = extractBodyText(html)
+        } catch {}
+      }
+      if (!cancelled) setSearchIndex(entries)
+    })()
+    return () => { cancelled = true }
+  }, [newsletters])
+
+  // Filter newsletters based on search criteria
+  const filteredNewsletters = useMemo(() => {
+    const q = textQuery.trim().toLowerCase()
+    const byDate = newsletters.filter((n) => {
+      const d = new Date(n.date)
+      if (selectedYear != null && d.getUTCFullYear() !== selectedYear) return false
+      if (selectedMonth != null && d.getUTCMonth() !== selectedMonth) return false
+      return true
+    })
+    if (!q) return byDate
+    return byDate.filter((n) => {
+      const inTitle = n.title.toLowerCase().includes(q)
+      const inExcerpt = n.excerpt.toLowerCase().includes(q)
+      const inBody = (searchIndex[n.id] || '').toLowerCase().includes(q)
+      return inTitle || inExcerpt || inBody
+    })
+  }, [textQuery, selectedMonth, selectedYear, searchIndex, newsletters])
+
+  const clearAll = () => {
+    setTextQuery('')
+    setSelectedMonth(null)
+    setSelectedYear(null)
+    setCurrentPage(1)
+  }
+
+  // Reset to page 1 when filters change
+  useEffect(() => {
+    setCurrentPage(1)
+  }, [textQuery, selectedMonth, selectedYear])
+
+  // Pagination logic
+  const itemsPerPage = 3
+  const totalPages = Math.ceil(filteredNewsletters.length / itemsPerPage)
+  const startIndex = (currentPage - 1) * itemsPerPage
+  const endIndex = startIndex + itemsPerPage
+  const paginatedNewsletters = filteredNewsletters.slice(startIndex, endIndex)
 
   useEffect(() => {
     let cancelled = false
@@ -131,6 +209,200 @@ export default function HomePage() {
 <br /> <br /> Thank you for keeping the information strictly internal—let’s turn these updates into design-ins.
 
             </p>
+          </section>
+
+          <section className="search-section" style={{ paddingLeft: 0, paddingRight: 0 }}>
+            <h2 style={{ marginTop: 0, color: 'var(--brand)' }}>Search Newsletters</h2>
+            <div className="search-filters" style={{
+              background: '#fff',
+              border: '1px solid var(--border-color, #e0e0e0)',
+              borderRadius: 0,
+              padding: 16,
+              marginBottom: 16
+            }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+                  <label htmlFor="home-search" style={{ fontWeight: 600 }}>Search</label>
+                  <input
+                    id="home-search"
+                    value={textQuery}
+                    onChange={(e) => setTextQuery(e.target.value)}
+                    placeholder="Search by title or body text..."
+                    style={{
+                      padding: '8px 12px',
+                      border: '1px solid var(--border-color, #e0e0e0)',
+                      borderRadius: 4,
+                      fontSize: 14
+                    }}
+                  />
+                </div>
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr auto', gap: 12, alignItems: 'end' }}>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+                    <label style={{ fontWeight: 600 }}>Month</label>
+                    <select
+                      value={selectedMonth ?? ''}
+                      onChange={(e) => setSelectedMonth(e.target.value === '' ? null : Number(e.target.value))}
+                      style={{
+                        padding: '8px 12px',
+                        border: '1px solid var(--border-color, #e0e0e0)',
+                        borderRadius: 4,
+                        fontSize: 14
+                      }}
+                    >
+                      <option value="">All</option>
+                      <option value={0}>January</option>
+                      <option value={1}>February</option>
+                      <option value={2}>March</option>
+                      <option value={3}>April</option>
+                      <option value={4}>May</option>
+                      <option value={5}>June</option>
+                      <option value={6}>July</option>
+                      <option value={7}>August</option>
+                      <option value={8}>September</option>
+                      <option value={9}>October</option>
+                      <option value={10}>November</option>
+                      <option value={11}>December</option>
+                    </select>
+                  </div>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+                    <label style={{ fontWeight: 600 }}>Year</label>
+                    <select
+                      value={selectedYear ?? ''}
+                      onChange={(e) => setSelectedYear(e.target.value === '' ? null : Number(e.target.value))}
+                      style={{
+                        padding: '8px 12px',
+                        border: '1px solid var(--border-color, #e0e0e0)',
+                        borderRadius: 4,
+                        fontSize: 14
+                      }}
+                    >
+                      <option value="">All</option>
+                      {Array.from(new Set(newsletters.map((n) => new Date(n.date).getUTCFullYear())))
+                        .sort((a, b) => b - a)
+                        .map((y) => (
+                          <option key={y} value={y}>{y}</option>
+                        ))}
+                    </select>
+                  </div>
+                  {(textQuery || selectedMonth != null || selectedYear != null) && (
+                    <button
+                      onClick={clearAll}
+                      style={{
+                        padding: '8px 16px',
+                        background: 'var(--brand)',
+                        color: '#fff',
+                        border: 'none',
+                        borderRadius: 4,
+                        cursor: 'pointer',
+                        fontSize: 14,
+                        fontWeight: 600
+                      }}
+                    >
+                      Clear
+                    </button>
+                  )}
+                </div>
+              </div>
+            </div>
+            
+            {(textQuery || selectedMonth != null || selectedYear != null) && (
+              <div className="search-results">
+                {filteredNewsletters.length > 0 ? (
+                  <>
+                    <div
+                      style={{
+                        display: 'grid',
+                        gridTemplateColumns: 'repeat(3, 1fr)',
+                        gap: 16,
+                        marginBottom: 16
+                      }}
+                    >
+                      {paginatedNewsletters.map((n) => (
+                        <Link
+                          key={n.id}
+                          to={`/newsletters/${n.slug}`}
+                          style={{
+                            background: '#fff',
+                            border: '1px solid var(--border-color, #e0e0e0)',
+                            borderRadius: 0,
+                            padding: 16,
+                            textDecoration: 'none',
+                            color: 'inherit',
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: 8,
+                            transition: 'border-color 150ms ease, background 150ms ease'
+                          }}
+                          onMouseEnter={(e) => {
+                            e.currentTarget.style.borderColor = 'var(--brand)'
+                            e.currentTarget.style.background = '#fafafa'
+                          }}
+                          onMouseLeave={(e) => {
+                            e.currentTarget.style.borderColor = 'var(--border-color, #e0e0e0)'
+                            e.currentTarget.style.background = '#fff'
+                          }}
+                        >
+                          <h3 style={{ margin: 0, color: 'var(--brand)', fontSize: 18 }}>{n.title}</h3>
+                          <p style={{ margin: 0, fontSize: 14, color: '#666' }}>
+                            {new Date(n.date).toLocaleDateString()}
+                          </p>
+                          <p style={{ margin: 0, fontSize: 14, lineHeight: 1.5 }}>{n.excerpt}</p>
+                        </Link>
+                      ))}
+                    </div>
+                    {totalPages > 1 && (
+                      <div
+                        style={{
+                          display: 'flex',
+                          justifyContent: 'center',
+                          alignItems: 'center',
+                          gap: 12,
+                          marginTop: 8
+                        }}
+                      >
+                        <button
+                          onClick={() => setCurrentPage(prev => Math.max(1, prev - 1))}
+                          disabled={currentPage === 1}
+                          style={{
+                            padding: '8px 16px',
+                            background: currentPage === 1 ? '#e0e0e0' : 'var(--brand)',
+                            color: currentPage === 1 ? '#999' : '#fff',
+                            border: 'none',
+                            borderRadius: 4,
+                            cursor: currentPage === 1 ? 'not-allowed' : 'pointer',
+                            fontSize: 14,
+                            fontWeight: 600
+                          }}
+                        >
+                          ← Previous
+                        </button>
+                        <span style={{ fontSize: 14, color: '#666' }}>
+                          Page {currentPage} of {totalPages}
+                        </span>
+                        <button
+                          onClick={() => setCurrentPage(prev => Math.min(totalPages, prev + 1))}
+                          disabled={currentPage === totalPages}
+                          style={{
+                            padding: '8px 16px',
+                            background: currentPage === totalPages ? '#e0e0e0' : 'var(--brand)',
+                            color: currentPage === totalPages ? '#999' : '#fff',
+                            border: 'none',
+                            borderRadius: 4,
+                            cursor: currentPage === totalPages ? 'not-allowed' : 'pointer',
+                            fontSize: 14,
+                            fontWeight: 600
+                          }}
+                        >
+                          Next →
+                        </button>
+                      </div>
+                    )}
+                  </>
+                ) : (
+                  <p style={{ color: '#666', fontStyle: 'italic' }}>No newsletters match your search criteria.</p>
+                )}
+              </div>
+            )}
           </section>
 
           {latest && (
@@ -335,7 +607,7 @@ export default function HomePage() {
         </div>
         <aside>
           <section className="social-widget" style={{ marginTop: 60 }}>
-            <h4 style={{ margin: '0 0 2px', color: 'var(--brand)' }}>ATV MC social feed</h4>
+            <h4 style={{ margin: '0 0 2px', color: 'var(--brand)' }}>ATV social feed</h4>
             {/* Cropped iframe view focusing on the posts column */}
             <div
               style={{
