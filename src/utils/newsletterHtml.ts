@@ -611,6 +611,97 @@ export function extractSectionSnippets(htmlDocumentString: string): SectionSnipp
     // Ensure ids (extractAndSanitizeBodyHtml already calls this, but safe to re-assert)
     assignStableHeadingIds(container)
 
+    // PRIMARY METHOD: Green color detection for modern newsletters (2023+)
+    // Look for spans with color #0A8276 which mark section boundaries
+    const greenColorSelectors = [
+      'span[style*="color:#0A8276"]',
+      'span[style*="color:#0a8276"]',
+      'span[style*="COLOR:#0A8276"]',
+      'span[style*="color: #0A8276"]',
+      'span[style*="color: #0a8276"]',
+      'span[style*="COLOR: #0A8276"]'
+    ]
+    
+    const greenSpans = Array.from(
+      container.querySelectorAll(greenColorSelectors.join(','))
+    ) as HTMLElement[]
+    
+    // Filter to only include spans that are likely section headers (have reasonable text length, not bullet points)
+    const greenSectionHeaders = greenSpans.filter((span) => {
+      const text = (span.textContent || '').trim()
+      // Must have text, not be just a dash/bullet, and be reasonably short (section titles)
+      return text && text !== '-' && text.length > 2 && text.length < 100
+    })
+    
+    console.log('[DEBUG] Green section headers found:', greenSectionHeaders.length, greenSectionHeaders.map(s => (s.textContent || '').trim().substring(0, 50)))
+    
+    // If we found 2 or more green section headers, use them as primary section markers
+    if (greenSectionHeaders.length >= 2) {
+      const snippets: SectionSnippet[] = []
+      
+      // Helper to find the container element we should use as section boundary
+      const getSectionContainer = (greenSpan: HTMLElement): HTMLElement => {
+        // Look for parent elements that would be good section boundaries
+        // Typically the green span is inside <strong> inside <p> inside <td> inside <tr>
+        const tr = greenSpan.closest('tr')
+        if (tr) return tr as HTMLElement
+        
+        const p = greenSpan.closest('p')
+        if (p) return p as HTMLElement
+        
+        // Fallback to the span's parent
+        return greenSpan.parentElement || greenSpan
+      }
+      
+      for (let i = 0; i < greenSectionHeaders.length; i++) {
+        const currentGreenSpan = greenSectionHeaders[i]
+        const nextGreenSpan = greenSectionHeaders[i + 1] || null
+        
+        const title = (currentGreenSpan.textContent || '').replace(/\s+/g, ' ').trim()
+        const startContainer = getSectionContainer(currentGreenSpan)
+        const endContainer = nextGreenSpan ? getSectionContainer(nextGreenSpan) : null
+        
+        // Generate a stable ID for this section
+        const base = slugifyHeading(title) || `section-${i}`
+        let id = base
+        let ctr = 1
+        while (container.querySelector(`#${CSS.escape(id)}`)) {
+          ctr++
+          id = `${base}-${ctr}`
+        }
+        startContainer.setAttribute('id', id)
+        
+        // Extract content from this section to the next (or end of document)
+        const range = document.createRange()
+        range.setStartBefore(startContainer)
+        if (endContainer) {
+          range.setEndBefore(endContainer)
+        } else if (container.lastChild) {
+          range.setEndAfter(container.lastChild)
+        }
+        
+        const frag = range.cloneContents()
+        const wrapper = document.createElement('div')
+        wrapper.appendChild(frag)
+        const html = wrapper.innerHTML
+        const text = wrapper.textContent ? wrapper.textContent.replace(/\s+/g, ' ').trim() : title
+        
+        snippets.push({
+          id,
+          title,
+          level: 2 as 1 | 2 | 3 | 4,
+          html,
+          text
+        })
+      }
+      
+      console.log('[DEBUG] Successfully extracted sections using green color method:', snippets.length)
+      return snippets
+    }
+    
+    // FALLBACK: If green color detection didn't work, use the old logic below
+    console.log('[DEBUG] Green color detection found < 2 sections, falling back to legacy methods')
+
     // DEBUG: Check what the HTML looks like
     if (htmlDocumentString.includes('March') && htmlDocumentString.includes('2025')) {
       console.log('[DEBUG March 2025] Sanitized HTML length:', sanitizedBody.length)

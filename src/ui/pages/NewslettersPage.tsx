@@ -4,23 +4,13 @@ import { getNewsletters } from '../../data/newsletters'
 import { findHtmlByMonthYearAsync, loadHtmlByPathAsync, extractSectionSnippets, extractBodyText } from '../../utils/newsletterHtml'
 import { deleteDraft } from '../../utils/localNewsletters'
 
-const CHAPTERS = [
-  'AURIX™',
-  'TRAVEO™',
-  'PSOC™ Automotive',
-  'Bulletin Board',
-  'Ease of Use',
-  'Market News & Press Release',
-  'Success Stories',
-  'Team News',
-]
-
 export default function NewslettersPage() {
   const location = useLocation()
   const [newsletters, setNewsletters] = useState(() => getNewsletters())
   const [selectedChapter, setSelectedChapter] = useState<string | null>(null)
   const [sectionIndex, setSectionIndex] = useState<Record<string, ReturnType<typeof extractSectionSnippets>>>({})
   const [searchIndex, setSearchIndex] = useState<Record<string, string>>({})
+  const [availableChapters, setAvailableChapters] = useState<string[]>([])
   const [textQuery, setTextQuery] = useState('')
   const [selectedMonth, setSelectedMonth] = useState<number | null>(null) // 0-11
   const [selectedYear, setSelectedYear] = useState<number | null>(null)
@@ -66,6 +56,43 @@ export default function NewslettersPage() {
       if (!cancelled) {
         setSectionIndex(sectionsEntries)
         setSearchIndex(searchEntries)
+        
+        // Compute unique chapter titles from all extracted sections
+        const chapterTitlesSet = new Set<string>()
+        Object.values(sectionsEntries).forEach((sections) => {
+          sections.forEach((section) => {
+            chapterTitlesSet.add(section.title)
+          })
+        })
+        
+        // Define the main chapters we want to show
+        const mainChapterNames = [
+          'AURIX™',
+          'TRAVEO™', 
+          'PSOC™ Automotive',
+          'Bulletin Board',
+          'Ease of Use',
+          'Market News & Press Release',
+          'Success Stories',
+          'Team News'
+        ]
+        
+        // Helper to normalize chapter names for comparison
+        const normalizeForMatch = (s: string): string => 
+          s.toLowerCase().replace(/™/g, '').replace(/&/g, 'and').replace(/[^a-z0-9]+/g, ' ').trim()
+        
+        // Filter to only include main chapters that exist in the extracted sections
+        const filteredChapters = mainChapterNames.filter((mainChapter) => {
+          const mainNorm = normalizeForMatch(mainChapter)
+          return Array.from(chapterTitlesSet).some((extractedChapter) => {
+            const extractedNorm = normalizeForMatch(extractedChapter)
+            // Match if normalized versions are equal
+            return extractedNorm === mainNorm
+          })
+        })
+        
+        setAvailableChapters(filteredChapters)
+        console.log('[DEBUG] Available main chapters:', filteredChapters)
       }
     })()
     return () => {
@@ -77,15 +104,34 @@ export default function NewslettersPage() {
   useEffect(() => {
     const params = new URLSearchParams(location.search)
     const chapterParam = params.get('chapter')
-    if (!chapterParam) return
-    const normalized = chapterParam.trim().toUpperCase()
-    if (normalized.includes('AURIX')) setSelectedChapter('AURIX™')
-    else if (normalized.includes('TRAVEO')) setSelectedChapter('TRAVEO™')
-    else if (normalized.includes('PSOC')) setSelectedChapter('PSOC™ Automotive')
-    else if (normalized.includes('BULLETIN')) setSelectedChapter('Bulletin Board')
-    else if (normalized.includes('EASE')) setSelectedChapter('Ease of Use')
-    else if (normalized.includes('MARKET')) setSelectedChapter('Market News & Press Release')
-  }, [location.search])
+    if (!chapterParam || availableChapters.length === 0) return
+    
+    // Try to find exact match first
+    const exactMatch = availableChapters.find((ch) => 
+      ch.toLowerCase() === chapterParam.toLowerCase()
+    )
+    if (exactMatch) {
+      setSelectedChapter(exactMatch)
+      return
+    }
+    
+    // Fallback to partial match for backward compatibility
+    const normalized = chapterParam.trim().toLowerCase()
+    const partialMatch = availableChapters.find((ch) => {
+      const chLower = ch.toLowerCase()
+      return (
+        (normalized.includes('aurix') && chLower.includes('aurix')) ||
+        (normalized.includes('traveo') && chLower.includes('traveo')) ||
+        (normalized.includes('psoc') && chLower.includes('psoc')) ||
+        (normalized.includes('bulletin') && chLower.includes('bulletin')) ||
+        (normalized.includes('ease') && chLower.includes('ease')) ||
+        (normalized.includes('market') && chLower.includes('market'))
+      )
+    })
+    if (partialMatch) {
+      setSelectedChapter(partialMatch)
+    }
+  }, [location.search, availableChapters])
 
   const filtered = useMemo(() => {
     const q = textQuery.trim().toLowerCase()
@@ -166,49 +212,54 @@ export default function NewslettersPage() {
     const wanted = normalize(selectedChapter)
     const wantedTokens = tokens(selectedChapter)
     const results: Array<{ newsletterId: string; newsletterSlug: string; newsletterDate: string; href: string; html: string }> = []
-    for (const n of newsletters) {
+    
+    // Create normalized set of all available chapter titles for matching
+    const normalizedAvailableChapters = availableChapters.map(ch => normalize(ch))
+    
+    // Only search in newsletters that pass the month/year/search filters
+    const newslettersToSearch = filtered
+    
+    for (const n of newslettersToSearch) {
       const snippets = sectionIndex[n.id] || []
       
       // DEBUG: Log all section titles for the first newsletter
-      if (n === newsletters[0]) {
+      if (n === newslettersToSearch[0]) {
         console.log(`[DEBUG] Newsletter: ${n.title}`)
         console.log(`[DEBUG] Looking for chapter: "${selectedChapter}" (normalized: "${wanted}")`)
         console.log(`[DEBUG] All section titles:`, snippets.map(s => ({ title: s.title, normalized: normalize(s.title), id: s.id })))
       }
       
-      // Find section that is EXACTLY the chapter heading (not a subsection mentioning it)
+      // Find section that matches the selected chapter
       const found = snippets.find((s) => {
         const titleNorm = normalize(s.title)
         
-        
-        // Exact match for the chapter name only (no additional text after)
+        // Exact match for the chapter name (preferred)
         if (titleNorm === wanted) return true
         
-        // Check if this is a main chapter heading by looking for exact title match
-        // Chapter headings are typically standalone (e.g., just "AURIX™" or "TRAVEO™ T2G")
-        // not part of a longer title like "AURIX™ and TRAVEO™ updates"
+        // Check if this section title is in our available chapters list
+        // This means it's likely a main chapter heading, not a subsection
+        const isMainChapter = normalizedAvailableChapters.includes(titleNorm)
         
-        // For titles that are just the chapter name possibly with T2G suffix
+        if (isMainChapter) {
+          // For main chapters, check if all wanted tokens are present
+          const titleTokens = tokens(s.title)
+          return wantedTokens.every((wt) => titleTokens.includes(wt))
+        }
+        
+        // For sections not in the main chapter list, only match if:
+        // 1. Title is very short (1-3 words), indicating it's likely a chapter header
+        // 2. All wanted tokens are present
         const titleTokens = tokens(s.title)
-        
-        // AURIX™, TRAVEO™, PSOC™ Automotive should match exactly
-        // But "AURIX™ TC4Dx certification" should NOT match
-        // The chapter headers typically don't have additional descriptive text
-        
-        // Check if it's one of the known short chapter headers
-        const knownChapters = ['aurix', 'traveo', 'traveo t2g', 'psoc automotive', 'bulletin board', 'ease of use', 'market news press release']
-        if (knownChapters.includes(titleNorm)) return wantedTokens.every((wt) => titleTokens.includes(wt))
-        
-        // Only match if title is very short (indicating it's a chapter header, not an article title)
-        // Chapter headers are typically 1-3 words
-        if (titleTokens.length <= 3 && wantedTokens.every((wt) => titleTokens.includes(wt))) return true
+        if (titleTokens.length <= 3 && wantedTokens.every((wt) => titleTokens.includes(wt))) {
+          return true
+        }
         
         return false
       })
       
-      if (n === newsletters[0] && found) {
+      if (n === newslettersToSearch[0] && found) {
         console.log(`[DEBUG] Found matching section:`, { title: found.title, id: found.id })
-      } else if (n === newsletters[0]) {
+      } else if (n === newslettersToSearch[0]) {
         console.log(`[DEBUG] No matching section found`)
       }
       
@@ -229,7 +280,7 @@ export default function NewslettersPage() {
       setIsLoading(false)
     }
     return () => { cancelled = true }
-  }, [selectedChapter, sectionIndex])
+  }, [selectedChapter, sectionIndex, availableChapters, filtered])
 
   // no typed search effect anymore
 
@@ -296,7 +347,10 @@ export default function NewslettersPage() {
           <div className="field">
             <label>Chapters</label>
             <div className="tags">
-              {CHAPTERS.map((c) => (
+              {availableChapters.length === 0 && (
+                <p className="meta" style={{ fontSize: '12px', color: '#666' }}>Loading chapters...</p>
+              )}
+              {availableChapters.map((c) => (
                 <button
                   key={c}
                   className={`tag ${selectedChapter === c ? 'on' : ''}`}

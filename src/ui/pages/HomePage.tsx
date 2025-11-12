@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { getNewsletters } from '../../data/newsletters'
-import { extractAndSanitizeBodyHtml, extractBodyText, findHtmlByMonthYearAsync, loadHtmlByPathAsync } from '../../utils/newsletterHtml'
+import { extractAndSanitizeBodyHtml, extractBodyText, extractSectionSnippets, findHtmlByMonthYearAsync, loadHtmlByPathAsync } from '../../utils/newsletterHtml'
 import newsletterImage from '../../photos/newsletter image.png'
 import headerImage from '../../photos/new-header.jpg'
 
@@ -13,9 +13,15 @@ export default function HomePage() {
   // Search state
   const [textQuery, setTextQuery] = useState('')
   const [searchIndex, setSearchIndex] = useState<Record<string, string>>({})
+  const [sectionIndex, setSectionIndex] = useState<Record<string, ReturnType<typeof extractSectionSnippets>>>({})
+  const [availableChapters, setAvailableChapters] = useState<string[]>([])
+  const [selectedChapter, setSelectedChapter] = useState<string | null>(null)
   const [selectedMonth, setSelectedMonth] = useState<number | null>(null)
   const [selectedYear, setSelectedYear] = useState<number | null>(null)
   const [currentPage, setCurrentPage] = useState(1)
+  const [isLoading, setIsLoading] = useState(false)
+  const [matches, setMatches] = useState<Array<{ newsletterId: string; newsletterSlug: string; newsletterDate: string; href: string; html: string }>>([])
+
   
   // Refresh newsletters on mount
   useEffect(() => {
@@ -31,11 +37,12 @@ export default function HomePage() {
     return () => window.removeEventListener('newsletterPublished', handleNewsletterPublished)
   }, [])
   
-  // Build search index
+  // Build search index and section index
   useEffect(() => {
     let cancelled = false
     ;(async () => {
       const entries: Record<string, string> = {}
+      const sectionsEntries: Record<string, ReturnType<typeof extractSectionSnippets>> = {}
       for (const n of newsletters) {
         try {
           const date = new Date(n.date)
@@ -43,10 +50,52 @@ export default function HomePage() {
             ? await loadHtmlByPathAsync(n.sourcePath)
             : await findHtmlByMonthYearAsync(date.getUTCMonth(), date.getUTCFullYear())
           const html = match?.html
-          if (html) entries[n.id] = extractBodyText(html)
+          if (html) {
+            entries[n.id] = extractBodyText(html)
+            sectionsEntries[n.id] = extractSectionSnippets(html)
+          }
         } catch {}
       }
-      if (!cancelled) setSearchIndex(entries)
+      if (!cancelled) {
+        setSearchIndex(entries)
+        setSectionIndex(sectionsEntries)
+        
+        // Compute unique chapter titles from all extracted sections
+        const chapterTitlesSet = new Set<string>()
+        Object.values(sectionsEntries).forEach((sections) => {
+          sections.forEach((section) => {
+            chapterTitlesSet.add(section.title)
+          })
+        })
+        
+        // Define the main chapters we want to show
+        const mainChapterNames = [
+          'AURIX™',
+          'TRAVEO™', 
+          'PSOC™ Automotive',
+          'Bulletin Board',
+          'Ease of Use',
+          'Market News & Press Release',
+          'Success Stories',
+          'Team News'
+        ]
+        
+        // Helper to normalize chapter names for comparison
+        const normalizeForMatch = (s: string): string => 
+          s.toLowerCase().replace(/™/g, '').replace(/&/g, 'and').replace(/[^a-z0-9]+/g, ' ').trim()
+        
+        // Filter to only include main chapters that exist in the extracted sections
+        const filteredChapters = mainChapterNames.filter((mainChapter) => {
+          const mainNorm = normalizeForMatch(mainChapter)
+          return Array.from(chapterTitlesSet).some((extractedChapter) => {
+            const extractedNorm = normalizeForMatch(extractedChapter)
+            // Match if normalized versions are equal
+            return extractedNorm === mainNorm
+          })
+        })
+        
+        setAvailableChapters(filteredChapters)
+      }
     })()
     return () => { cancelled = true }
   }, [newsletters])
@@ -69,24 +118,153 @@ export default function HomePage() {
     })
   }, [textQuery, selectedMonth, selectedYear, searchIndex, newsletters])
 
+  const normalize = (s: string): string => s.toLowerCase().replace(/™/g, '').replace(/&/g, 'and').replace(/[^a-z0-9]+/g, ' ').trim()
+  const tokens = (s: string): string[] => normalize(s).split(' ').filter(Boolean)
+
   const clearAll = () => {
     setTextQuery('')
     setSelectedMonth(null)
     setSelectedYear(null)
+    setSelectedChapter(null)
     setCurrentPage(1)
   }
+  
+  // Compute chapter matches when a chapter is selected
+  useEffect(() => {
+    let cancelled = false
+    if (!selectedChapter) {
+      setMatches([])
+      setIsLoading(false)
+      return
+    }
+    setIsLoading(true)
+    const wanted = normalize(selectedChapter)
+    const wantedTokens = tokens(selectedChapter)
+    const results: Array<{ newsletterId: string; newsletterSlug: string; newsletterDate: string; href: string; html: string }> = []
+    
+    // Create normalized set of all available chapter titles for matching
+    const normalizedAvailableChapters = availableChapters.map(ch => normalize(ch))
+    
+    // Only search in newsletters that pass the month/year/search filters
+    const newslettersToSearch = filteredNewsletters
+    
+    for (const n of newslettersToSearch) {
+      const snippets = sectionIndex[n.id] || []
+      
+      // Find section that matches the selected chapter
+      const found = snippets.find((s) => {
+        const titleNorm = normalize(s.title)
+        
+        // Exact match for the chapter name (preferred)
+        if (titleNorm === wanted) return true
+        
+        // Check if this section title is in our available chapters list
+        const isMainChapter = normalizedAvailableChapters.includes(titleNorm)
+        
+        if (isMainChapter) {
+          // For main chapters, check if all wanted tokens are present
+          const titleTokens = tokens(s.title)
+          return wantedTokens.every((wt) => titleTokens.includes(wt))
+        }
+        
+        // For sections not in the main chapter list, only match if short titles
+        const titleTokens = tokens(s.title)
+        if (titleTokens.length <= 3 && wantedTokens.every((wt) => titleTokens.includes(wt))) {
+          return true
+        }
+        
+        return false
+      })
+      
+      if (found) {
+        results.push({
+          newsletterId: n.id,
+          newsletterSlug: n.slug,
+          newsletterDate: n.date,
+          href: `/newsletters/${n.slug}#${found.id}`,
+          html: found.html,
+        })
+      }
+    }
+    results.sort((a, b) => new Date(b.newsletterDate).getTime() - new Date(a.newsletterDate).getTime())
+    if (!cancelled) {
+      setMatches(results)
+      setIsLoading(false)
+    }
+    return () => { cancelled = true }
+  }, [selectedChapter, sectionIndex, availableChapters, filteredNewsletters])
 
   // Reset to page 1 when filters change
   useEffect(() => {
     setCurrentPage(1)
-  }, [textQuery, selectedMonth, selectedYear])
+  }, [textQuery, selectedMonth, selectedYear, selectedChapter])
 
-  // Pagination logic
+  // Pagination logic for regular search
   const itemsPerPage = 3
   const totalPages = Math.ceil(filteredNewsletters.length / itemsPerPage)
   const startIndex = (currentPage - 1) * itemsPerPage
   const endIndex = startIndex + itemsPerPage
   const paginatedNewsletters = filteredNewsletters.slice(startIndex, endIndex)
+  
+  // Pagination logic for chapter matches
+  const chapterItemsPerPage = 3
+  const chapterTotalPages = Math.ceil(matches.length / chapterItemsPerPage)
+  const chapterStartIndex = (currentPage - 1) * chapterItemsPerPage
+  const chapterEndIndex = chapterStartIndex + chapterItemsPerPage
+  const paginatedChapterMatches = matches.slice(chapterStartIndex, chapterEndIndex)
+  
+  // Helper to extract a brief excerpt from HTML content with optional search highlighting
+  const extractExcerpt = (html: string, maxLength: number = 200, searchQuery: string = ''): string => {
+    const temp = document.createElement('div')
+    temp.innerHTML = html
+    let text = (temp.textContent || '').replace(/\s+/g, ' ').trim()
+    
+    // If there's a search query, try to center the excerpt around the first match
+    const query = searchQuery.trim().toLowerCase()
+    if (query && text.toLowerCase().includes(query)) {
+      const lowerText = text.toLowerCase()
+      const matchIndex = lowerText.indexOf(query)
+      
+      // Calculate context around the match
+      const contextBefore = 80
+      const contextAfter = maxLength - query.length - contextBefore
+      
+      let start = Math.max(0, matchIndex - contextBefore)
+      let end = Math.min(text.length, matchIndex + query.length + contextAfter)
+      
+      // Adjust to word boundaries
+      if (start > 0) {
+        const spaceIndex = text.lastIndexOf(' ', start)
+        if (spaceIndex > 0) start = spaceIndex + 1
+      }
+      if (end < text.length) {
+        const spaceIndex = text.indexOf(' ', end)
+        if (spaceIndex > 0) end = spaceIndex
+      }
+      
+      const prefix = start > 0 ? '...' : ''
+      const suffix = end < text.length ? '...' : ''
+      text = prefix + text.slice(start, end).trim() + suffix
+    } else if (text.length > maxLength) {
+      text = text.slice(0, maxLength).trim() + '...'
+    }
+    
+    return text
+  }
+  
+  // Helper to highlight search terms in text
+  const highlightSearchTerm = (text: string, searchQuery: string): string => {
+    const query = searchQuery.trim()
+    if (!query) return text
+    
+    const escapeRegExp = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+    try {
+      const re = new RegExp(`(${escapeRegExp(query)})`, 'gi')
+      return text.replace(re, '<mark style="background: #fff3cd; padding: 2px 4px; border-radius: 2px;">$1</mark>')
+    } catch {
+      return text
+    }
+  }
 
   useEffect(() => {
     let cancelled = false
@@ -211,8 +389,54 @@ export default function HomePage() {
             </p>
           </section>
 
+          {latest && (
+            <section className="latest-newsletter" style={{ paddingLeft: 0, paddingRight: 0 }}>
+              <h2 style={{ marginTop: 0, color: 'var(--brand)' }}>Latest newsletter</h2>
+              <div className="latest-grid">
+                <div className="left">
+                  <div className="media">
+                    <img src={newsletterImage} alt="Newsletter picture" />
+                  </div>
+                  <div>
+                    <h3 style={{ color: '#000' }}>{latest.title}</h3>
+                    <p style={{ margin: 0 }}>{new Date(latest.date).toLocaleDateString()}</p>
+                  </div>
+                </div>
+                <div className="latest-desc">
+                  <h4 style={{ marginTop: 0, marginBottom: 8 }}>from this newsletter:</h4>
+                  {latestParagraphs.length > 0 ? (
+                    latestParagraphs.map((t, i) => (
+                      <p key={i} style={{ marginTop: i === 0 ? 0 : 8 }}>{t}</p>
+                    ))
+                  ) : (
+                    <p className="meta" style={{ marginTop: 0 }}>Loading preview…</p>
+                  )}
+                  <Link to={`/newsletters/${latest.slug}`} className="cta" style={{ display: 'inline-block', marginTop: 12 }}>Go to the newsletter →</Link>
+                </div>
+              </div>
+            </section>
+          )}
+
           <section className="search-section" style={{ paddingLeft: 0, paddingRight: 0 }}>
             <h2 style={{ marginTop: 0, color: 'var(--brand)' }}>Search Newsletters</h2>
+            <style>{`
+              .home .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+              .home .tag {
+                padding: 6px 12px;
+                border: 1px solid var(--border-color, #e0e0e0);
+                background: #fff;
+                cursor: pointer;
+                font-size: 13px;
+                border-radius: 4px;
+                transition: all 150ms ease;
+              }
+              .home .tag:hover { border-color: var(--brand); background: #fafafa; }
+              .home .tag.on {
+                background: var(--brand);
+                color: #fff;
+                border-color: var(--brand);
+              }
+            `}</style>
             <div className="search-filters" style={{
               background: '#fff',
               border: '1px solid var(--border-color, #e0e0e0)',
@@ -235,6 +459,23 @@ export default function HomePage() {
                       fontSize: 14
                     }}
                   />
+                </div>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+                  <label style={{ fontWeight: 600 }}>Chapters</label>
+                  <div className="tags">
+                    {availableChapters.length === 0 && (
+                      <p style={{ fontSize: '12px', color: '#666', margin: 0 }}>Loading chapters...</p>
+                    )}
+                    {availableChapters.map((c) => (
+                      <button
+                        key={c}
+                        className={`tag ${selectedChapter === c ? 'on' : ''}`}
+                        onClick={() => setSelectedChapter((prev) => (prev === c ? null : c))}
+                      >
+                        {c}
+                      </button>
+                    ))}
+                  </div>
                 </div>
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr auto', gap: 12, alignItems: 'end' }}>
                   <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
@@ -284,7 +525,7 @@ export default function HomePage() {
                         ))}
                     </select>
                   </div>
-                  {(textQuery || selectedMonth != null || selectedYear != null) && (
+                  {(textQuery || selectedMonth != null || selectedYear != null || selectedChapter) && (
                     <button
                       onClick={clearAll}
                       style={{
@@ -305,7 +546,133 @@ export default function HomePage() {
               </div>
             </div>
             
-            {(textQuery || selectedMonth != null || selectedYear != null) && (
+            {/* Show chapter matches when a chapter is selected */}
+            {selectedChapter && (
+              <div className="chapter-matches">
+                {isLoading && (
+                  <div style={{ padding: 16, background: '#f5f5f5', borderRadius: 4, marginBottom: 16 }}>
+                    <p style={{ margin: 0, color: '#666' }}>Loading "{selectedChapter}" sections...</p>
+                  </div>
+                )}
+                {!isLoading && matches.length === 0 && (
+                  <p style={{ color: '#666', fontStyle: 'italic' }}>No matching sections found.</p>
+                )}
+                {!isLoading && matches.length > 0 && (
+                  <>
+                    <div
+                      style={{
+                        display: 'grid',
+                        gridTemplateColumns: 'repeat(3, 1fr)',
+                        gap: 16,
+                        marginBottom: 16
+                      }}
+                    >
+                      {paginatedChapterMatches.map((m, idx) => {
+                        const newsletter = newsletters.find((x) => x.id === m.newsletterId)
+                        return (
+                          <Link
+                            key={`${m.newsletterId}-${idx}`}
+                            to={m.href}
+                            style={{
+                              background: '#fff',
+                              border: '1px solid var(--border-color, #e0e0e0)',
+                              borderRadius: 0,
+                              padding: 16,
+                              textDecoration: 'none',
+                              color: 'inherit',
+                              display: 'flex',
+                              flexDirection: 'column',
+                              gap: 8,
+                              transition: 'border-color 150ms ease, background 150ms ease'
+                            }}
+                            onMouseEnter={(e) => {
+                              e.currentTarget.style.borderColor = 'var(--brand)'
+                              e.currentTarget.style.background = '#fafafa'
+                            }}
+                            onMouseLeave={(e) => {
+                              e.currentTarget.style.borderColor = 'var(--border-color, #e0e0e0)'
+                              e.currentTarget.style.background = '#fff'
+                            }}
+                          >
+                            <h3 style={{ margin: 0, color: 'var(--brand)', fontSize: 18 }}>
+                              {newsletter?.title || 'Newsletter'}
+                            </h3>
+                            <p style={{ margin: 0, fontSize: 14, color: '#666' }}>
+                              {new Date(newsletter?.date || m.newsletterDate).toLocaleDateString()}
+                            </p>
+                            <div
+                              style={{
+                                margin: 0,
+                                fontSize: 14,
+                                lineHeight: 1.5,
+                                color: '#333',
+                                flex: 1
+                              }}
+                              dangerouslySetInnerHTML={{
+                                __html: highlightSearchTerm(extractExcerpt(m.html, 180, textQuery), textQuery)
+                              }}
+                            />
+                            <div style={{ fontSize: 13, color: 'var(--brand)', marginTop: 4 }}>
+                              Read {selectedChapter} section →
+                            </div>
+                          </Link>
+                        )
+                      })}
+                    </div>
+                    {chapterTotalPages > 1 && (
+                      <div
+                        style={{
+                          display: 'flex',
+                          justifyContent: 'center',
+                          alignItems: 'center',
+                          gap: 12,
+                          marginTop: 8
+                        }}
+                      >
+                        <button
+                          onClick={() => setCurrentPage(prev => Math.max(1, prev - 1))}
+                          disabled={currentPage === 1}
+                          style={{
+                            padding: '8px 16px',
+                            background: currentPage === 1 ? '#e0e0e0' : 'var(--brand)',
+                            color: currentPage === 1 ? '#999' : '#fff',
+                            border: 'none',
+                            borderRadius: 4,
+                            cursor: currentPage === 1 ? 'not-allowed' : 'pointer',
+                            fontSize: 14,
+                            fontWeight: 600
+                          }}
+                        >
+                          ← Previous
+                        </button>
+                        <span style={{ fontSize: 14, color: '#666' }}>
+                          Page {currentPage} of {chapterTotalPages}
+                        </span>
+                        <button
+                          onClick={() => setCurrentPage(prev => Math.min(chapterTotalPages, prev + 1))}
+                          disabled={currentPage === chapterTotalPages}
+                          style={{
+                            padding: '8px 16px',
+                            background: currentPage === chapterTotalPages ? '#e0e0e0' : 'var(--brand)',
+                            color: currentPage === chapterTotalPages ? '#999' : '#fff',
+                            border: 'none',
+                            borderRadius: 4,
+                            cursor: currentPage === chapterTotalPages ? 'not-allowed' : 'pointer',
+                            fontSize: 14,
+                            fontWeight: 600
+                          }}
+                        >
+                          Next →
+                        </button>
+                      </div>
+                    )}
+                  </>
+                )}
+              </div>
+            )}
+            
+            {/* Show regular search results when not using chapter filter */}
+            {!selectedChapter && (textQuery || selectedMonth != null || selectedYear != null) && (
               <div className="search-results">
                 {filteredNewsletters.length > 0 ? (
                   <>
@@ -346,7 +713,12 @@ export default function HomePage() {
                           <p style={{ margin: 0, fontSize: 14, color: '#666' }}>
                             {new Date(n.date).toLocaleDateString()}
                           </p>
-                          <p style={{ margin: 0, fontSize: 14, lineHeight: 1.5 }}>{n.excerpt}</p>
+                          <p
+                            style={{ margin: 0, fontSize: 14, lineHeight: 1.5 }}
+                            dangerouslySetInnerHTML={{
+                              __html: highlightSearchTerm(n.excerpt, textQuery)
+                            }}
+                          />
                         </Link>
                       ))}
                     </div>
@@ -404,34 +776,6 @@ export default function HomePage() {
               </div>
             )}
           </section>
-
-          {latest && (
-            <section className="latest-newsletter" style={{ paddingLeft: 0, paddingRight: 0 }}>
-              <h2 style={{ marginTop: 0, color: 'var(--brand)' }}>Latest newsletter</h2>
-              <div className="latest-grid">
-                <div className="left">
-                  <div className="media">
-                    <img src={newsletterImage} alt="Newsletter picture" />
-                  </div>
-                  <div>
-                    <h3 style={{ color: '#000' }}>{latest.title}</h3>
-                    <p style={{ margin: 0 }}>{new Date(latest.date).toLocaleDateString()}</p>
-                  </div>
-                </div>
-                <div className="latest-desc">
-                  <h4 style={{ marginTop: 0, marginBottom: 8 }}>from this newsletter:</h4>
-                  {latestParagraphs.length > 0 ? (
-                    latestParagraphs.map((t, i) => (
-                      <p key={i} style={{ marginTop: i === 0 ? 0 : 8 }}>{t}</p>
-                    ))
-                  ) : (
-                    <p className="meta" style={{ marginTop: 0 }}>Loading preview…</p>
-                  )}
-                  <Link to={`/newsletters/${latest.slug}`} className="cta" style={{ display: 'inline-block', marginTop: 12 }}>Go to the newsletter →</Link>
-                </div>
-              </div>
-            </section>
-          )}
 
           <section className="insights">
             <h2 style={{ color: 'var(--brand)' }}>Explore News by Products</h2>
@@ -586,20 +930,6 @@ export default function HomePage() {
                       </li>
                     </ul>
                   </div>
-                </div>
-                <div className="link-box"
-                  style={{
-                    background: '#fff',
-                    border: '1px solid var(--border-color, #e0e0e0)',
-                    borderRadius: 0,
-                    padding: 16,
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    minHeight: 80,
-                  }}
-                >
-                  TBD
                 </div>
               </div>
             </div>
