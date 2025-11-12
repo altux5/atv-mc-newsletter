@@ -92042,14 +92042,14 @@ function HomePage() {
                       children: /* @__PURE__ */ jsxRuntimeExports.jsx(
                         "iframe",
                         {
-                          src: "https://intranet.infineon.com/profile/public/ifxinternalcomm?accountname=INFINEON%5Cifxinternalcomm",
+                          src: "https://intranet.infineon.com/tagOverview/?tag=ATV",
                           title: "ATV MC social media feed",
                           style: {
                             position: "absolute",
-                            top: -1130,
+                            top: -200,
                             left: -10,
                             width: 400,
-                            height: 1720,
+                            height: 1920,
                             border: 0,
                             transform: "scale(1)",
                             transformOrigin: "top left"
