@@ -16824,6 +16824,38 @@ function DataRoutes({
 }) {
   return useRoutesImpl(routes, void 0, state, future);
 }
+function Navigate({
+  to,
+  replace: replace2,
+  state,
+  relative
+}) {
+  invariant(
+    useInRouterContext(),
+    // TODO: This error is probably because they somehow have 2 versions of
+    // the router loaded. We can help them understand how to avoid that.
+    `<Navigate> may be used only in the context of a <Router> component.`
+  );
+  let { static: isStatic } = reactExports$1.useContext(NavigationContext);
+  warning(
+    !isStatic,
+    `<Navigate> must not be used on the initial render in a <StaticRouter>. This is a no-op, but you should modify your code so the <Navigate> is only ever rendered in response to some user interaction or state change.`
+  );
+  let { matches: matches2 } = reactExports$1.useContext(RouteContext);
+  let { pathname: locationPathname } = useLocation();
+  let navigate = useNavigate();
+  let path = resolveTo(
+    to,
+    getResolveToMatches(matches2),
+    locationPathname,
+    relative === "path"
+  );
+  let jsonPath = JSON.stringify(path);
+  reactExports$1.useEffect(() => {
+    navigate(JSON.parse(jsonPath), { replace: replace2, state, relative });
+  }, [navigate, jsonPath, relative, replace2, state]);
+  return null;
+}
 function Outlet(props) {
   return useOutlet(props.context);
 }
@@ -17769,8 +17801,56 @@ const ReactDOM = /* @__PURE__ */ getDefaultExportFromCjs(reactDomExports);
 function RouterProvider2(props) {
   return /* @__PURE__ */ reactExports$1.createElement(RouterProvider, { flushSync: reactDomExports.flushSync, ...props });
 }
+const AUTH_STORAGE_KEY = "newsletter_auth";
+const ADMIN_USERNAME = "admin";
+const ADMIN_PASSWORD = "admin";
+function validateCredentials(credentials) {
+  return credentials.username === ADMIN_USERNAME && credentials.password === ADMIN_PASSWORD;
+}
+function saveAuthState() {
+  localStorage.setItem(AUTH_STORAGE_KEY, "authenticated");
+}
+function clearAuthState() {
+  localStorage.removeItem(AUTH_STORAGE_KEY);
+}
+function isAuthenticated() {
+  return localStorage.getItem(AUTH_STORAGE_KEY) === "authenticated";
+}
+const AuthContext = reactExports$1.createContext(void 0);
+function AuthProvider({ children }) {
+  const [authenticated, setAuthenticated] = reactExports$1.useState(() => isAuthenticated());
+  reactExports$1.useEffect(() => {
+    setAuthenticated(isAuthenticated());
+  }, []);
+  const login = async (credentials) => {
+    if (validateCredentials(credentials)) {
+      saveAuthState();
+      setAuthenticated(true);
+      return true;
+    }
+    return false;
+  };
+  const logout = () => {
+    clearAuthState();
+    setAuthenticated(false);
+  };
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(AuthContext.Provider, { value: { isAuthenticated: authenticated, login, logout }, children });
+}
+function useAuth() {
+  const context = reactExports$1.useContext(AuthContext);
+  if (context === void 0) {
+    throw new Error("useAuth must be used within an AuthProvider");
+  }
+  return context;
+}
 const logoUrl = "/assets/Agent-logo-BNWebEI8.svg";
 function RootLayout() {
+  const { isAuthenticated: isAuthenticated2, logout } = useAuth();
+  const navigate = useNavigate();
+  const handleLogout = () => {
+    logout();
+    navigate("/");
+  };
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "app-shell", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx("header", { className: "app-header", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "container header-inner", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsxs(Link$1, { to: "/", className: "brand", children: [
@@ -17780,7 +17860,12 @@ function RootLayout() {
       /* @__PURE__ */ jsxRuntimeExports.jsxs("nav", { className: "nav", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx(NavLink, { to: "/", end: true, className: ({ isActive: isActive2 }) => isActive2 ? "active" : "", children: "Home" }),
         /* @__PURE__ */ jsxRuntimeExports.jsx(NavLink, { to: "/newsletters", className: ({ isActive: isActive2 }) => isActive2 ? "active" : "", children: "Newsletters" }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(NavLink, { to: "/newsletters/create", className: ({ isActive: isActive2 }) => isActive2 ? "active" : "", children: "Create Newsletter" })
+        /* @__PURE__ */ jsxRuntimeExports.jsx(NavLink, { to: "/submit-article", className: ({ isActive: isActive2 }) => isActive2 ? "active" : "", children: "Submit Article" }),
+        isAuthenticated2 && /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(NavLink, { to: "/admin/articles", className: ({ isActive: isActive2 }) => isActive2 ? "active" : "", children: "Review Articles" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(NavLink, { to: "/newsletters/create", className: ({ isActive: isActive2 }) => isActive2 ? "active" : "", children: "Create Newsletter" })
+        ] }),
+        isAuthenticated2 ? /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: handleLogout, className: "auth-button logout-button", children: "Logout" }) : /* @__PURE__ */ jsxRuntimeExports.jsx(Link$1, { to: "/login", className: "auth-button login-button", children: "Login" })
       ] })
     ] }) }),
     /* @__PURE__ */ jsxRuntimeExports.jsx("main", { className: "container main-content", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Outlet, {}) }),
@@ -107623,7 +107708,7 @@ function extractSectionSnippets(htmlDocumentString) {
     return [];
   }
 }
-const STORAGE_KEY = "newsletter_drafts";
+const STORAGE_KEY$1 = "newsletter_drafts";
 function generateId() {
   return `draft_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
 }
@@ -107636,11 +107721,11 @@ function saveDraft(draft) {
   } else {
     drafts.push(draft);
   }
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(drafts));
+  localStorage.setItem(STORAGE_KEY$1, JSON.stringify(drafts));
 }
 function getAllDrafts() {
   try {
-    const stored = localStorage.getItem(STORAGE_KEY);
+    const stored = localStorage.getItem(STORAGE_KEY$1);
     if (!stored) return [];
     return JSON.parse(stored);
   } catch (error) {
@@ -107655,7 +107740,7 @@ function getDraftById(id) {
 function deleteDraft(id) {
   const drafts = getAllDrafts();
   const filtered = drafts.filter((d) => d.id !== id);
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(filtered));
+  localStorage.setItem(STORAGE_KEY$1, JSON.stringify(filtered));
 }
 function draftToNewsletter(draft) {
   const monthName = new Date(Date.UTC(draft.year, draft.month, 1)).toLocaleString(void 0, {
@@ -107716,13 +107801,6 @@ function createEmptyDraft() {
     createdAt: now.toISOString(),
     updatedAt: now.toISOString()
   };
-}
-function publishDraft(id) {
-  const draft = getDraftById(id);
-  if (draft) {
-    draft.status = "published";
-    saveDraft(draft);
-  }
 }
 const htmlFiles = /* @__PURE__ */ Object.assign({
   "../newsletters/Automotive MC Newsletter - April '25 edition.htm": __vite_glob_0_0,
@@ -108828,6 +108906,7 @@ function HomePage() {
 }
 function NewslettersPage() {
   const location = useLocation();
+  const { isAuthenticated: isAuthenticated2 } = useAuth();
   const [newsletters, setNewsletters] = reactExports$1.useState(() => getNewsletters());
   const [selectedChapter, setSelectedChapter] = reactExports$1.useState(null);
   const [sectionIndex, setSectionIndex] = reactExports$1.useState({});
@@ -109177,7 +109256,7 @@ function NewslettersPage() {
                 textQuery && matchSnippets[n.id] ? /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "query-snippet", dangerouslySetInnerHTML: { __html: matchSnippets[n.id] } }) : /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: n.excerpt }),
                 /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "tag-row", children: n.tags.map((t) => /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "pill", children: t }, t)) })
               ] }),
-              isLocal && /* @__PURE__ */ jsxRuntimeExports.jsx(
+              isLocal && isAuthenticated2 && /* @__PURE__ */ jsxRuntimeExports.jsx(
                 "button",
                 {
                   onClick: handleDelete2,
@@ -109270,6 +109349,7 @@ function generateNewsletterBodyHtml(draft) {
 function NewsletterDetailPage() {
   const { slug } = useParams();
   const navigate = useNavigate();
+  const { isAuthenticated: isAuthenticated2 } = useAuth();
   const [newsletters] = reactExports$1.useState(() => getNewsletters());
   const newsletter = reactExports$1.useMemo(() => newsletters.find((n) => n.slug === slug), [slug, newsletters]);
   if (!newsletter) {
@@ -109342,7 +109422,7 @@ function NewsletterDetailPage() {
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("article", { className: "newsletter-detail", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: { display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 16 }, children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx(Link$1, { to: "/newsletters", className: "back-link", children: "← Back to list" }),
-      isLocalNewsletter && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: { display: "flex", gap: 8 }, children: [
+      isLocalNewsletter && isAuthenticated2 && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: { display: "flex", gap: 8 }, children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx(Link$1, { to: `/newsletters/edit/${newsletter.id}`, className: "button", style: { textDecoration: "none" }, children: "✏️ Edit" }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: handleDelete2, className: "button", style: { color: "#dc2626", borderColor: "#fecaca" }, children: "🗑️ Delete" })
       ] })
@@ -109357,6 +109437,7 @@ function NewsletterDetailPage() {
 }
 function NewslettersListPage() {
   const location = useLocation();
+  const { isAuthenticated: isAuthenticated2 } = useAuth();
   const [newsletters, setNewsletters] = reactExports$1.useState(() => getNewsletters());
   const [textQuery, setTextQuery] = reactExports$1.useState("");
   const [searchIndex, setSearchIndex] = reactExports$1.useState({});
@@ -109487,7 +109568,7 @@ function NewslettersListPage() {
           ] }),
           /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "list-row-meta", children: [
             new Date(n.date).toLocaleDateString(),
-            isLocal && /* @__PURE__ */ jsxRuntimeExports.jsx(
+            isLocal && isAuthenticated2 && /* @__PURE__ */ jsxRuntimeExports.jsx(
               "button",
               {
                 onClick: handleDelete2,
@@ -132573,7 +132654,7 @@ var StarterKit = Extension.create({
 });
 var index_default$2 = StarterKit;
 var inputRegex = /(?:^|\s)(!\[(.+|:?)]\((\S+)(?:(?:\s+)["'](\S+)["'])?\))$/;
-var Image = Node3.create({
+var Image$1 = Node3.create({
   name: "image",
   addOptions() {
     return {
@@ -132719,7 +132800,7 @@ var Image = Node3.create({
     ];
   }
 });
-var index_default$1 = Image;
+var index_default$1 = Image$1;
 var index_default = Placeholder;
 function RichTextEditor({ content, onChange, placeholder }) {
   const imageInputRef = reactExports$1.useRef(null);
@@ -132933,6 +133014,68 @@ function NewsletterPreview({ draft }) {
     ] })
   ] });
 }
+const STORAGE_KEY = "submitted_articles";
+function generateArticleId() {
+  return `article_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+}
+function saveArticle(formData) {
+  try {
+    const article = {
+      id: generateArticleId(),
+      ...formData,
+      submittedAt: (/* @__PURE__ */ new Date()).toISOString(),
+      importedToNewsletter: false
+    };
+    const existingArticles = getArticles();
+    existingArticles.push(article);
+    const dataToStore = JSON.stringify(existingArticles);
+    const sizeInMB = new TextEncoder().encode(dataToStore).length / (1024 * 1024);
+    if (sizeInMB > 4) {
+      throw new Error("Article data is too large. Please use a smaller image or contact support.");
+    }
+    try {
+      localStorage.setItem(STORAGE_KEY, dataToStore);
+    } catch (storageError) {
+      if (storageError instanceof DOMException && storageError.name === "QuotaExceededError") {
+        throw new Error("Storage limit exceeded. Please clear some data or use a smaller image.");
+      }
+      throw storageError;
+    }
+    return article;
+  } catch (error) {
+    if (error instanceof Error) {
+      throw error;
+    }
+    if (error instanceof DOMException && error.name === "QuotaExceededError") {
+      throw new Error("Storage limit exceeded. Please clear some data or use a smaller image.");
+    }
+    throw new Error("Failed to save article. Please try again or contact support.");
+  }
+}
+function getArticles() {
+  try {
+    const stored = localStorage.getItem(STORAGE_KEY);
+    return stored ? JSON.parse(stored) : [];
+  } catch (error) {
+    console.error("Error reading articles from localStorage:", error);
+    return [];
+  }
+}
+function deleteArticle(id) {
+  const articles = getArticles();
+  const filtered = articles.filter((article) => article.id !== id);
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(filtered));
+}
+function markArticleAsImported(id) {
+  const articles = getArticles();
+  const updated = articles.map(
+    (article) => article.id === id ? { ...article, importedToNewsletter: true } : article
+  );
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(updated));
+}
+function getAvailableArticlesForImport() {
+  return getArticles();
+}
 function CreateNewsletterPage() {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -132940,6 +133083,8 @@ function CreateNewsletterPage() {
   const [showPreview, setShowPreview] = reactExports$1.useState(false);
   const [isSaving, setIsSaving] = reactExports$1.useState(false);
   const [lastSaved, setLastSaved] = reactExports$1.useState(null);
+  const [showArticleImport, setShowArticleImport] = reactExports$1.useState(false);
+  const [availableArticles, setAvailableArticles] = reactExports$1.useState([]);
   reactExports$1.useEffect(() => {
     if (id) {
       const existingDraft = getDraftById(id);
@@ -132987,8 +133132,9 @@ function CreateNewsletterPage() {
       "Are you sure you want to publish this newsletter? It will be visible to all users."
     );
     if (confirmed) {
-      saveDraft(draft);
-      publishDraft(draft.id);
+      const draftToPublish = { ...draft, status: "published" };
+      saveDraft(draftToPublish);
+      setDraft(draftToPublish);
       window.dispatchEvent(new Event("newsletterPublished"));
       alert("Newsletter published successfully!");
       navigate("/newsletters");
@@ -133067,6 +133213,54 @@ function CreateNewsletterPage() {
   };
   const removeHeaderImage = () => {
     updateDraft({ headerImage: void 0 });
+  };
+  const openArticleImport = () => {
+    const articles = getAvailableArticlesForImport();
+    setAvailableArticles(articles);
+    setShowArticleImport(true);
+  };
+  const closeArticleImport = () => {
+    setShowArticleImport(false);
+  };
+  const importArticle = (article) => {
+    let htmlContent = "";
+    if (article.template === "portrait") {
+      htmlContent = `
+        <div style="display: flex; gap: 16px; margin-bottom: 16px;">
+          <div style="flex: 0 0 200px;">
+            <img src="${article.imageDataUrl}" alt="${article.title}" style="width: 100%; height: auto; display: block;" />
+          </div>
+          <div style="flex: 1;">
+            <h3>${article.title}</h3>
+            <p>${article.content}</p>
+            <p style="margin-top: 12px; font-style: italic;"><strong>Contact:</strong> ${article.contact}</p>
+          </div>
+        </div>
+      `;
+    } else {
+      htmlContent = `
+        <div style="margin-bottom: 16px;">
+          <img src="${article.imageDataUrl}" alt="${article.title}" style="width: 100%; height: auto; display: block; margin-bottom: 12px;" />
+          <h3>${article.title}</h3>
+          <p>${article.content}</p>
+          <p style="margin-top: 12px; font-style: italic;"><strong>Contact:</strong> ${article.contact}</p>
+        </div>
+      `;
+    }
+    const newChapter = {
+      id: generateId(),
+      title: article.title,
+      content: htmlContent,
+      images: []
+    };
+    setDraft((prev) => ({
+      ...prev,
+      chapters: [...prev.chapters, newChapter]
+    }));
+    markArticleAsImported(article.id);
+    const updatedArticles = getAvailableArticlesForImport();
+    setAvailableArticles(updatedArticles);
+    alert("Article imported successfully!");
   };
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "create-newsletter-page", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "page-header", children: [
@@ -133198,7 +133392,10 @@ function CreateNewsletterPage() {
         /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "editor-section chapters-section", children: [
           /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "section-header", children: [
             /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { children: "Chapters" }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", onClick: addChapter, className: "button small", children: "+ Add Chapter" })
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: { display: "flex", gap: "8px" }, children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", onClick: openArticleImport, className: "button small secondary", children: "📥 Import from Articles" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", onClick: addChapter, className: "button small", children: "+ Add Chapter" })
+            ] })
           ] }),
           draft.chapters.map((chapter, index) => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "chapter-editor", children: [
             /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "chapter-header", children: [
@@ -133300,6 +133497,200 @@ function CreateNewsletterPage() {
               )
             ] }),
             /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "form-group", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("label", { children: "Content Type" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsxs(
+                "select",
+                {
+                  value: chapter.template ? "template" : "rich-text",
+                  onChange: (e) => {
+                    if (e.target.value === "template") {
+                      updateChapter(chapter.id, {
+                        template: "portrait",
+                        chapterImage: "",
+                        chapterText: "",
+                        chapterContact: "",
+                        content: ""
+                        // Clear rich text content when switching to template
+                      });
+                    } else {
+                      updateChapter(chapter.id, {
+                        template: void 0,
+                        chapterImage: void 0,
+                        chapterText: void 0,
+                        chapterContact: void 0
+                      });
+                    }
+                  },
+                  children: [
+                    /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "rich-text", children: "Rich Text Editor" }),
+                    /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "template", children: "Article Template" })
+                  ]
+                }
+              )
+            ] }),
+            chapter.template && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "chapter-template-editor", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "form-group", children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx("label", { children: "Template Layout" }),
+                /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "template-selection-small", children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsxs("label", { className: `template-card-small ${chapter.template === "portrait" ? "selected" : ""}`, children: [
+                    /* @__PURE__ */ jsxRuntimeExports.jsx(
+                      "input",
+                      {
+                        type: "radio",
+                        name: `template-${chapter.id}`,
+                        value: "portrait",
+                        checked: chapter.template === "portrait",
+                        onChange: (e) => updateChapter(chapter.id, { template: e.target.value })
+                      }
+                    ),
+                    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "template-preview-small portrait-preview", children: [
+                      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "template-image-small", children: "Image" }),
+                      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "template-text-small", children: "Text" })
+                    ] }),
+                    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "template-info-small", children: [
+                      /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: "Portrait" }),
+                      /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "H600×W200 (left)" })
+                    ] })
+                  ] }),
+                  /* @__PURE__ */ jsxRuntimeExports.jsxs("label", { className: `template-card-small ${chapter.template === "landscape" ? "selected" : ""}`, children: [
+                    /* @__PURE__ */ jsxRuntimeExports.jsx(
+                      "input",
+                      {
+                        type: "radio",
+                        name: `template-${chapter.id}`,
+                        value: "landscape",
+                        checked: chapter.template === "landscape",
+                        onChange: (e) => updateChapter(chapter.id, { template: e.target.value })
+                      }
+                    ),
+                    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "template-preview-small landscape-preview", children: [
+                      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "template-image-small", children: "Image" }),
+                      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "template-text-small", children: "Text" })
+                    ] }),
+                    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "template-info-small", children: [
+                      /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: "Landscape" }),
+                      /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "H200×W600 (top)" })
+                    ] })
+                  ] })
+                ] })
+              ] }),
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "form-group", children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx("label", { children: "Article Image" }),
+                chapter.chapterImage ? /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "image-preview-container", children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: chapter.chapterImage, alt: "Chapter preview", className: "article-image-preview" }),
+                  /* @__PURE__ */ jsxRuntimeExports.jsx(
+                    "button",
+                    {
+                      type: "button",
+                      onClick: () => updateChapter(chapter.id, { chapterImage: "" }),
+                      className: "button small danger",
+                      children: "Remove Image"
+                    }
+                  )
+                ] }) : /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "image-upload-area", children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsxs("label", { htmlFor: `chapter-image-${chapter.id}`, className: "upload-label", children: [
+                    /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "📷 Upload Image" }),
+                    /* @__PURE__ */ jsxRuntimeExports.jsx(
+                      "input",
+                      {
+                        id: `chapter-image-${chapter.id}`,
+                        type: "file",
+                        accept: "image/*",
+                        onChange: (e) => {
+                          const file = e.target.files?.[0];
+                          if (file) {
+                            if (file.size > 5 * 1024 * 1024) {
+                              alert("Image size must be less than 5MB");
+                              return;
+                            }
+                            const reader = new FileReader();
+                            reader.onload = (event) => {
+                              const dataUrl = event.target?.result;
+                              updateChapter(chapter.id, { chapterImage: dataUrl });
+                            };
+                            reader.readAsDataURL(file);
+                          }
+                        },
+                        style: { display: "none" }
+                      }
+                    )
+                  ] }),
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "meta", style: { marginTop: 8 }, children: chapter.template === "portrait" ? "Recommended: H600 × W200 pixels" : "Recommended: H200 × W600 pixels" })
+                ] })
+              ] }),
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "form-group", children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx("label", { children: "Article Content (3-4 sentences)" }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx(
+                  "textarea",
+                  {
+                    value: chapter.chapterText || "",
+                    onChange: (e) => updateChapter(chapter.id, { chapterText: e.target.value }),
+                    placeholder: "Write your article content here (3-4 sentences)...",
+                    rows: 6,
+                    maxLength: 500
+                  }
+                ),
+                /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "meta", style: { marginTop: 4 }, children: [
+                  (chapter.chapterText || "").trim().split(/\s+/).filter((w) => w).length,
+                  " words"
+                ] })
+              ] }),
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "form-group", children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx("label", { children: "Contact Information" }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx(
+                  "input",
+                  {
+                    type: "text",
+                    value: chapter.chapterContact || "",
+                    onChange: (e) => updateChapter(chapter.id, { chapterContact: e.target.value }),
+                    placeholder: "Contact: Your Name, Email, or Phone",
+                    maxLength: 200
+                  }
+                )
+              ] }),
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "form-group", children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx(
+                  "button",
+                  {
+                    type: "button",
+                    onClick: () => {
+                      let htmlContent = "";
+                      if (chapter.template === "portrait" && chapter.chapterImage && chapter.chapterText) {
+                        htmlContent = `
+                              <div style="display: flex; gap: 16px; margin-bottom: 16px;">
+                                <div style="flex: 0 0 200px;">
+                                  <img src="${chapter.chapterImage}" alt="${chapter.title}" style="width: 100%; height: auto; display: block;" />
+                                </div>
+                                <div style="flex: 1;">
+                                  <p>${chapter.chapterText}</p>
+                                  ${chapter.chapterContact ? `<p style="margin-top: 12px; font-style: italic;"><strong>Contact:</strong> ${chapter.chapterContact}</p>` : ""}
+                                </div>
+                              </div>
+                            `;
+                      } else if (chapter.template === "landscape" && chapter.chapterImage && chapter.chapterText) {
+                        htmlContent = `
+                              <div style="margin-bottom: 16px;">
+                                <img src="${chapter.chapterImage}" alt="${chapter.title}" style="width: 100%; height: auto; display: block; margin-bottom: 12px;" />
+                                <p>${chapter.chapterText}</p>
+                                ${chapter.chapterContact ? `<p style="margin-top: 12px; font-style: italic;"><strong>Contact:</strong> ${chapter.chapterContact}</p>` : ""}
+                              </div>
+                            `;
+                      }
+                      if (htmlContent) {
+                        updateChapter(chapter.id, { content: htmlContent });
+                        alert("Template content converted to HTML! You can now edit it in Rich Text mode if needed.");
+                      } else {
+                        alert("Please fill in the image and content fields first.");
+                      }
+                    },
+                    className: "button small primary",
+                    children: "Convert to HTML Content"
+                  }
+                ),
+                /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "meta", style: { marginTop: 4 }, children: "This will convert your template content to HTML format that can be edited further" })
+              ] })
+            ] }),
+            !chapter.template && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "form-group", children: [
               /* @__PURE__ */ jsxRuntimeExports.jsx("label", { children: "Chapter Content" }),
               /* @__PURE__ */ jsxRuntimeExports.jsx(
                 RichTextEditor,
@@ -133314,8 +133705,512 @@ function CreateNewsletterPage() {
         ] })
       ] }),
       showPreview && /* @__PURE__ */ jsxRuntimeExports.jsx("aside", { className: "preview-sidebar", children: /* @__PURE__ */ jsxRuntimeExports.jsx(NewsletterPreview, { draft }) })
+    ] }),
+    showArticleImport && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "modal-overlay", onClick: closeArticleImport, children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "modal-content", onClick: (e) => e.stopPropagation(), children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "modal-header", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { children: "Import Submitted Article" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(
+          "button",
+          {
+            type: "button",
+            onClick: closeArticleImport,
+            className: "modal-close",
+            children: "✕"
+          }
+        )
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "modal-body", children: availableArticles.length === 0 ? /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "empty-state-text", children: "No submitted articles available to import." }) : /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "articles-import-list", children: availableArticles.map((article) => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "import-article-card", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "import-article-header", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { children: article.title }),
+          article.importedToNewsletter && /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "imported-badge", children: "Already Imported" })
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: `import-article-preview ${article.template}`, children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "import-article-image", children: /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: article.imageDataUrl, alt: article.title }) }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "import-article-text", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: article.content }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "import-article-contact", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: "Contact:" }),
+              " ",
+              article.contact
+            ] })
+          ] })
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "import-article-actions", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "meta", children: article.template === "portrait" ? "Portrait Layout" : "Landscape Layout" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(
+            "button",
+            {
+              type: "button",
+              onClick: () => importArticle(article),
+              className: "button small primary",
+              children: "Import"
+            }
+          )
+        ] })
+      ] }, article.id)) }) })
+    ] }) })
+  ] });
+}
+function SubmitArticlePage() {
+  const navigate = useNavigate();
+  const [selectedTemplate, setSelectedTemplate] = reactExports$1.useState("portrait");
+  const [title, setTitle] = reactExports$1.useState("");
+  const [content, setContent2] = reactExports$1.useState("");
+  const [contact, setContact] = reactExports$1.useState("");
+  const [imageDataUrl, setImageDataUrl] = reactExports$1.useState("");
+  const [imagePreview, setImagePreview] = reactExports$1.useState(null);
+  const [isSubmitting, setIsSubmitting] = reactExports$1.useState(false);
+  const compressImage = (file, maxWidth, maxHeight, quality) => {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = (event) => {
+        const img = new Image();
+        img.onload = () => {
+          const canvas = document.createElement("canvas");
+          let width = img.width;
+          let height = img.height;
+          if (width > height) {
+            if (width > maxWidth) {
+              height = height * maxWidth / width;
+              width = maxWidth;
+            }
+          } else {
+            if (height > maxHeight) {
+              width = width * maxHeight / height;
+              height = maxHeight;
+            }
+          }
+          canvas.width = width;
+          canvas.height = height;
+          const ctx = canvas.getContext("2d");
+          if (!ctx) {
+            reject(new Error("Could not get canvas context"));
+            return;
+          }
+          ctx.drawImage(img, 0, 0, width, height);
+          const compressedDataUrl = canvas.toDataURL("image/jpeg", quality);
+          resolve(compressedDataUrl);
+        };
+        img.onerror = () => reject(new Error("Failed to load image"));
+        img.src = event.target?.result;
+      };
+      reader.onerror = () => reject(new Error("Failed to read file"));
+      reader.readAsDataURL(file);
+    });
+  };
+  const handleImageUpload = async (e) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      if (file.size > 10 * 1024 * 1024) {
+        alert("Image size must be less than 10MB. Please use a smaller image.");
+        return;
+      }
+      try {
+        const maxWidth = selectedTemplate === "portrait" ? 600 : 1200;
+        const maxHeight = selectedTemplate === "portrait" ? 800 : 400;
+        const compressedDataUrl = await compressImage(file, maxWidth, maxHeight, 0.8);
+        const base64Data = compressedDataUrl.split(",")[1] || "";
+        const sizeInMB = base64Data.length * 3 / 4 / (1024 * 1024);
+        if (sizeInMB > 2) {
+          const moreCompressed = await compressImage(file, maxWidth, maxHeight, 0.6);
+          setImageDataUrl(moreCompressed);
+          setImagePreview(moreCompressed);
+        } else {
+          setImageDataUrl(compressedDataUrl);
+          setImagePreview(compressedDataUrl);
+        }
+      } catch (error) {
+        console.error("Error compressing image:", error);
+        const reader = new FileReader();
+        reader.onload = (event) => {
+          const dataUrl = event.target?.result;
+          setImageDataUrl(dataUrl);
+          setImagePreview(dataUrl);
+        };
+        reader.readAsDataURL(file);
+      }
+    }
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!title.trim()) {
+      alert("Please enter a title for your article.");
+      return;
+    }
+    if (!content.trim()) {
+      alert("Please enter article content.");
+      return;
+    }
+    const wordCount = content.trim().split(/\s+/).length;
+    if (wordCount < 15 || wordCount > 100) {
+      alert("Article content should be 3-4 sentences (approximately 15-100 words).");
+      return;
+    }
+    if (!imageDataUrl) {
+      alert("Please upload an image for your article.");
+      return;
+    }
+    if (!contact.trim()) {
+      alert("Please provide your contact information.");
+      return;
+    }
+    setIsSubmitting(true);
+    try {
+      saveArticle({
+        template: selectedTemplate,
+        title: title.trim(),
+        content: content.trim(),
+        imageDataUrl,
+        contact: contact.trim()
+      });
+      alert("Article submitted successfully! Thank you for your contribution.");
+      setTitle("");
+      setContent2("");
+      setContact("");
+      setImageDataUrl("");
+      setImagePreview(null);
+      setSelectedTemplate("portrait");
+      navigate("/");
+    } catch (error) {
+      console.error("Error submitting article:", error);
+      const errorMessage = error instanceof Error ? error.message : "Failed to submit article. Please try again.";
+      alert(`Error: ${errorMessage}`);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+  const removeImage = () => {
+    setImageDataUrl("");
+    setImagePreview(null);
+  };
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "submit-article-page", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "page-header", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { style: { color: "var(--brand)", margin: 0 }, children: "Submit Your Article" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "meta", style: { marginTop: 8 }, children: "Share your content with our newsletter community" })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("form", { onSubmit: handleSubmit, className: "article-form", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "form-section", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { children: "Select Template" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "meta", style: { marginTop: 0, marginBottom: 16 }, children: "Choose the template that best fits your article type" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "template-selection", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("label", { className: `template-card ${selectedTemplate === "portrait" ? "selected" : ""}`, children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(
+              "input",
+              {
+                type: "radio",
+                name: "template",
+                value: "portrait",
+                checked: selectedTemplate === "portrait",
+                onChange: (e) => setSelectedTemplate(e.target.value)
+              }
+            ),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "template-preview portrait-preview", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "template-image", children: "Image" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "template-text", children: "Text Content" })
+            ] }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "template-info", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: "Portrait Layout" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "template-dimensions", children: "Image: H600 × W200 (left)" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "template-dimensions", children: "Text: H600 × W400 (right)" })
+            ] })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("label", { className: `template-card ${selectedTemplate === "landscape" ? "selected" : ""}`, children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(
+              "input",
+              {
+                type: "radio",
+                name: "template",
+                value: "landscape",
+                checked: selectedTemplate === "landscape",
+                onChange: (e) => setSelectedTemplate(e.target.value)
+              }
+            ),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "template-preview landscape-preview", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "template-image", children: "Image" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "template-text", children: "Text Content" })
+            ] }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "template-info", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: "Landscape Layout" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "template-dimensions", children: "Image: H200 × W600 (top)" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "template-dimensions", children: "Text: H400 × W600 (bottom)" })
+            ] })
+          ] })
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "template-recommendations", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { children: "Template Recommendations" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("ul", { children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("li", { children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: "Portrait (H600 × W200):" }),
+              " Best for Events, Product News, Applications, New Kits, Eval Boards, Samples, Team News"
+            ] }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("li", { children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: "Landscape (W600 × H200):" }),
+              " Best for Design Wins, Success Stories, Business Wins, Market News"
+            ] })
+          ] })
+        ] })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("section", { className: "form-section", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "form-group", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("label", { htmlFor: "title", children: "Article Title *" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(
+          "input",
+          {
+            id: "title",
+            type: "text",
+            value: title,
+            onChange: (e) => setTitle(e.target.value),
+            placeholder: "Enter your article title",
+            maxLength: 100,
+            required: true
+          }
+        )
+      ] }) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "form-section", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { children: "Article Image *" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "meta", style: { marginTop: 0, marginBottom: 12 }, children: selectedTemplate === "portrait" ? "Recommended dimensions: H600 × W200 pixels" : "Recommended dimensions: H200 × W600 pixels" }),
+        imagePreview ? /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "image-preview-container", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: imagePreview, alt: "Article preview", className: "article-image-preview" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(
+            "button",
+            {
+              type: "button",
+              onClick: removeImage,
+              className: "button small danger",
+              children: "Remove Image"
+            }
+          )
+        ] }) : /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "image-upload-area", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("label", { htmlFor: "article-image", className: "upload-label", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "📷 Upload Image" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(
+              "input",
+              {
+                id: "article-image",
+                type: "file",
+                accept: "image/*",
+                onChange: handleImageUpload,
+                style: { display: "none" }
+              }
+            )
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "meta", style: { marginTop: 8 }, children: "Max file size: 5MB" })
+        ] })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("section", { className: "form-section", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "form-group", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("label", { htmlFor: "content", children: "Article Content (3-4 sentences) *" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(
+          "textarea",
+          {
+            id: "content",
+            value: content,
+            onChange: (e) => setContent2(e.target.value),
+            placeholder: "Write your article content here (3-4 sentences)...",
+            rows: 6,
+            maxLength: 500,
+            required: true
+          }
+        ),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "meta", style: { marginTop: 4 }, children: [
+          content.trim().split(/\s+/).filter((w) => w).length,
+          " words"
+        ] })
+      ] }) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("section", { className: "form-section", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "form-group", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("label", { htmlFor: "contact", children: "Contact Information *" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(
+          "input",
+          {
+            id: "contact",
+            type: "text",
+            value: contact,
+            onChange: (e) => setContact(e.target.value),
+            placeholder: "Contact: Your Name, Email, or Phone",
+            maxLength: 200,
+            required: true
+          }
+        ),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "meta", style: { marginTop: 4 }, children: "This will appear at the bottom of your article" })
+      ] }) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "form-actions", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(
+          "button",
+          {
+            type: "button",
+            onClick: () => navigate(-1),
+            className: "button secondary",
+            children: "Cancel"
+          }
+        ),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(
+          "button",
+          {
+            type: "submit",
+            disabled: isSubmitting,
+            className: "button primary",
+            children: isSubmitting ? "Submitting..." : "Submit Article"
+          }
+        )
+      ] })
     ] })
   ] });
+}
+function AdminArticlesPage() {
+  const [articles, setArticles] = reactExports$1.useState([]);
+  const loadArticles = () => {
+    const allArticles = getArticles();
+    const sorted = allArticles.sort(
+      (a, b) => new Date(b.submittedAt).getTime() - new Date(a.submittedAt).getTime()
+    );
+    setArticles(sorted);
+  };
+  reactExports$1.useEffect(() => {
+    loadArticles();
+  }, []);
+  const handleDelete2 = (id) => {
+    const confirmed = window.confirm("Are you sure you want to delete this article? This action cannot be undone.");
+    if (confirmed) {
+      deleteArticle(id);
+      loadArticles();
+    }
+  };
+  const formatDate = (isoString) => {
+    const date = new Date(isoString);
+    return date.toLocaleDateString(void 0, {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+      hour: "2-digit",
+      minute: "2-digit"
+    });
+  };
+  if (articles.length === 0) {
+    return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "admin-articles-page", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "page-header", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { style: { color: "var(--brand)", margin: 0 }, children: "Review Submitted Articles" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "meta", style: { marginTop: 8 }, children: "Manage article submissions for newsletters" })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "empty-state", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { style: { fontSize: 18, color: "var(--muted)" }, children: "No articles have been submitted yet." }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "meta", children: "When users submit articles, they will appear here for review." })
+      ] })
+    ] });
+  }
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "admin-articles-page", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "page-header", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { style: { color: "var(--brand)", margin: 0 }, children: "Review Submitted Articles" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "meta", style: { marginTop: 8 }, children: [
+        articles.length,
+        " ",
+        articles.length === 1 ? "article" : "articles",
+        " submitted"
+      ] })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "articles-grid", children: articles.map((article) => /* @__PURE__ */ jsxRuntimeExports.jsxs("article", { className: "article-review-card", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "article-status-bar", children: [
+        article.importedToNewsletter && /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "status-badge imported", children: "Imported to Newsletter" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "submission-date", children: formatDate(article.submittedAt) })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "article-title", children: article.title }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: `article-preview-layout ${article.template}`, children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "article-image-container", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: article.imageDataUrl, alt: article.title }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "template-label", children: article.template === "portrait" ? "H600×W200" : "H200×W600" })
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "article-content-container", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "article-content", children: article.content }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "article-contact", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: "Contact:" }),
+            " ",
+            article.contact
+          ] })
+        ] })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "article-actions", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+        "button",
+        {
+          type: "button",
+          onClick: () => handleDelete2(article.id),
+          className: "button small danger",
+          children: "Delete"
+        }
+      ) })
+    ] }, article.id)) })
+  ] });
+}
+function LoginPage() {
+  const [username, setUsername] = reactExports$1.useState("");
+  const [password, setPassword] = reactExports$1.useState("");
+  const [error, setError] = reactExports$1.useState("");
+  const [isLoading, setIsLoading] = reactExports$1.useState(false);
+  const { login } = useAuth();
+  const navigate = useNavigate();
+  const location = useLocation();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError("");
+    setIsLoading(true);
+    try {
+      const success = await login({ username, password });
+      if (success) {
+        const from2 = location.state?.from || "/";
+        navigate(from2, { replace: true });
+      } else {
+        setError("Invalid username or password");
+      }
+    } catch (err) {
+      setError("An error occurred. Please try again.");
+    } finally {
+      setIsLoading(false);
+    }
+  };
+  return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "login-page", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "login-container", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "login-header", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { children: "Admin Login" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "meta", children: "Enter your credentials to access admin features" })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("form", { onSubmit: handleSubmit, className: "login-form", children: [
+      error && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "error-message", role: "alert", children: error }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "form-group", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("label", { htmlFor: "username", children: "Username" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(
+          "input",
+          {
+            id: "username",
+            type: "text",
+            value: username,
+            onChange: (e) => setUsername(e.target.value),
+            required: true,
+            autoComplete: "username",
+            disabled: isLoading
+          }
+        )
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "form-group", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("label", { htmlFor: "password", children: "Password" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(
+          "input",
+          {
+            id: "password",
+            type: "password",
+            value: password,
+            onChange: (e) => setPassword(e.target.value),
+            required: true,
+            autoComplete: "current-password",
+            disabled: isLoading
+          }
+        )
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "form-actions", children: /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "submit", className: "button primary", disabled: isLoading, children: isLoading ? "Logging in..." : "Login" }) })
+    ] })
+  ] }) });
+}
+function ProtectedRoute({ children }) {
+  const { isAuthenticated: isAuthenticated2 } = useAuth();
+  const location = useLocation();
+  if (!isAuthenticated2) {
+    return /* @__PURE__ */ jsxRuntimeExports.jsx(Navigate, { to: "/login", state: { from: location.pathname }, replace: true });
+  }
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(jsxRuntimeExports.Fragment, { children });
 }
 const router = createBrowserRouter([
   {
@@ -133325,13 +134220,28 @@ const router = createBrowserRouter([
       { index: true, element: /* @__PURE__ */ jsxRuntimeExports.jsx(HomePage, {}) },
       { path: "newsletters", element: /* @__PURE__ */ jsxRuntimeExports.jsx(NewslettersPage, {}) },
       { path: "newsletters/list", element: /* @__PURE__ */ jsxRuntimeExports.jsx(NewslettersListPage, {}) },
-      { path: "newsletters/create", element: /* @__PURE__ */ jsxRuntimeExports.jsx(CreateNewsletterPage, {}) },
-      { path: "newsletters/edit/:id", element: /* @__PURE__ */ jsxRuntimeExports.jsx(CreateNewsletterPage, {}) },
-      { path: "newsletters/:slug", element: /* @__PURE__ */ jsxRuntimeExports.jsx(NewsletterDetailPage, {}) }
+      {
+        path: "newsletters/create",
+        element: /* @__PURE__ */ jsxRuntimeExports.jsx(ProtectedRoute, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(CreateNewsletterPage, {}) })
+      },
+      {
+        path: "newsletters/edit/:id",
+        element: /* @__PURE__ */ jsxRuntimeExports.jsx(ProtectedRoute, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(CreateNewsletterPage, {}) })
+      },
+      { path: "newsletters/:slug", element: /* @__PURE__ */ jsxRuntimeExports.jsx(NewsletterDetailPage, {}) },
+      { path: "submit-article", element: /* @__PURE__ */ jsxRuntimeExports.jsx(SubmitArticlePage, {}) },
+      {
+        path: "admin/articles",
+        element: /* @__PURE__ */ jsxRuntimeExports.jsx(ProtectedRoute, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(AdminArticlesPage, {}) })
+      }
     ]
+  },
+  {
+    path: "/login",
+    element: /* @__PURE__ */ jsxRuntimeExports.jsx(LoginPage, {})
   }
 ]);
 const container = document.getElementById("root");
 clientExports.createRoot(container).render(
-  /* @__PURE__ */ jsxRuntimeExports.jsx(React.StrictMode, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(RouterProvider2, { router }) })
+  /* @__PURE__ */ jsxRuntimeExports.jsx(React.StrictMode, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(AuthProvider, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(RouterProvider2, { router }) }) })
 );

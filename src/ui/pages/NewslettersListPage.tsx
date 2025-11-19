@@ -3,9 +3,11 @@ import { Link, useLocation } from 'react-router-dom'
 import { getNewsletters } from '../../data/newsletters'
 import { extractBodyText, findHtmlByMonthYearAsync, loadHtmlByPathAsync } from '../../utils/newsletterHtml'
 import { deleteDraft } from '../../utils/localNewsletters'
+import { useAuth } from '../../contexts/AuthContext'
 
 export default function NewslettersListPage() {
   const location = useLocation()
+  const { isAuthenticated } = useAuth()
   const [newsletters, setNewsletters] = useState(() => getNewsletters())
   const [textQuery, setTextQuery] = useState('')
   const [searchIndex, setSearchIndex] = useState<Record<string, string>>({})
@@ -159,7 +161,7 @@ export default function NewslettersListPage() {
                   </div>
                   <div className="list-row-meta">
                     {new Date(n.date).toLocaleDateString()}
-                    {isLocal && (
+                    {isLocal && isAuthenticated && (
                       <button
                         onClick={handleDelete}
                         style={{

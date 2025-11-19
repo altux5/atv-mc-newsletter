@@ -4,10 +4,12 @@ import { getNewsletters } from '../../data/newsletters'
 import { extractAndSanitizeBodyHtml, extractMonthYearFromHtml, findHtmlByMonthYear, findHtmlByMonthYearAsync, loadHtmlByPathAsync, parseMonthYearFromPath } from '../../utils/newsletterHtml'
 import { getDraftById, deleteDraft } from '../../utils/localNewsletters'
 import { generateNewsletterBodyHtml } from '../../utils/generateNewsletterHtml'
+import { useAuth } from '../../contexts/AuthContext'
 
 export default function NewsletterDetailPage() {
   const { slug } = useParams()
   const navigate = useNavigate()
+  const { isAuthenticated } = useAuth()
   const [newsletters] = useState(() => getNewsletters())
   const newsletter = useMemo(() => newsletters.find((n) => n.slug === slug), [slug, newsletters])
 
@@ -105,7 +107,7 @@ export default function NewsletterDetailPage() {
         <Link to="/newsletters" className="back-link">
           ← Back to list
         </Link>
-        {isLocalNewsletter && (
+        {isLocalNewsletter && isAuthenticated && (
           <div style={{ display: 'flex', gap: 8 }}>
             <Link to={`/newsletters/edit/${newsletter.id}`} className="button" style={{ textDecoration: 'none' }}>
               ✏️ Edit

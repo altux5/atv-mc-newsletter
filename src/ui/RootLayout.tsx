@@ -1,8 +1,17 @@
-import { NavLink, Outlet } from 'react-router-dom'
+import { NavLink, Outlet, useNavigate } from 'react-router-dom'
 import logoUrl from '../logo/Agent-logo.svg'
 import { Link } from 'react-router-dom'
+import { useAuth } from '../contexts/AuthContext'
 
 export default function RootLayout() {
+  const { isAuthenticated, logout } = useAuth()
+  const navigate = useNavigate()
+
+  const handleLogout = () => {
+    logout()
+    navigate('/')
+  }
+
   return (
     <div className="app-shell">
       <header className="app-header">
@@ -18,9 +27,28 @@ export default function RootLayout() {
             <NavLink to="/newsletters" className={({ isActive }) => (isActive ? 'active' : '')}>
               Newsletters
             </NavLink>
-            <NavLink to="/newsletters/create" className={({ isActive }) => (isActive ? 'active' : '')}>
-              Create Newsletter
+            <NavLink to="/submit-article" className={({ isActive }) => (isActive ? 'active' : '')}>
+              Submit Article
             </NavLink>
+            {isAuthenticated && (
+              <>
+                <NavLink to="/admin/articles" className={({ isActive }) => (isActive ? 'active' : '')}>
+                  Review Articles
+                </NavLink>
+                <NavLink to="/newsletters/create" className={({ isActive }) => (isActive ? 'active' : '')}>
+                  Create Newsletter
+                </NavLink>
+              </>
+            )}
+            {isAuthenticated ? (
+              <button onClick={handleLogout} className="auth-button logout-button">
+                Logout
+              </button>
+            ) : (
+              <Link to="/login" className="auth-button login-button">
+                Login
+              </Link>
+            )}
           </nav>
         </div>
       </header>

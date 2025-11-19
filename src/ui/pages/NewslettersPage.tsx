@@ -3,9 +3,11 @@ import { Link, useLocation } from 'react-router-dom'
 import { getNewsletters } from '../../data/newsletters'
 import { findHtmlByMonthYearAsync, loadHtmlByPathAsync, extractSectionSnippets, extractBodyText } from '../../utils/newsletterHtml'
 import { deleteDraft } from '../../utils/localNewsletters'
+import { useAuth } from '../../contexts/AuthContext'
 
 export default function NewslettersPage() {
   const location = useLocation()
+  const { isAuthenticated } = useAuth()
   const [newsletters, setNewsletters] = useState(() => getNewsletters())
   const [selectedChapter, setSelectedChapter] = useState<string | null>(null)
   const [sectionIndex, setSectionIndex] = useState<Record<string, ReturnType<typeof extractSectionSnippets>>>({})
@@ -458,7 +460,7 @@ export default function NewslettersPage() {
                       ))}
                     </div>
                   </Link>
-                  {isLocal && (
+                  {isLocal && isAuthenticated && (
                     <button
                       onClick={handleDelete}
                       className="delete-newsletter-btn"

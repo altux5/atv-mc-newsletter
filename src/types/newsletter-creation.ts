@@ -5,6 +5,10 @@ export interface NewsletterChapter {
   title: string
   content: string // HTML content from rich text editor
   images: ChapterImage[]
+  template?: 'portrait' | 'landscape' // Optional template for article-style chapters
+  chapterImage?: string // base64 encoded image for template-based chapters
+  chapterText?: string // Plain text content for template-based chapters
+  chapterContact?: string // Contact info for template-based chapters
 }
 
 export interface ChapterImage {
