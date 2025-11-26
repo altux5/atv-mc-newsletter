@@ -460,23 +460,6 @@ export default function HomePage() {
                     }}
                   />
                 </div>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
-                  <label style={{ fontWeight: 600 }}>Chapters</label>
-                  <div className="tags">
-                    {availableChapters.length === 0 && (
-                      <p style={{ fontSize: '12px', color: '#666', margin: 0 }}>Loading chapters...</p>
-                    )}
-                    {availableChapters.map((c) => (
-                      <button
-                        key={c}
-                        className={`tag ${selectedChapter === c ? 'on' : ''}`}
-                        onClick={() => setSelectedChapter((prev) => (prev === c ? null : c))}
-                      >
-                        {c}
-                      </button>
-                    ))}
-                  </div>
-                </div>
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr auto', gap: 12, alignItems: 'end' }}>
                   <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
                     <label style={{ fontWeight: 600 }}>Month</label>
@@ -777,7 +760,7 @@ export default function HomePage() {
             )}
           </section>
 
-          <section className="insights">
+          {/* <section className="insights">
             <h2 style={{ color: 'var(--brand)' }}>Explore News by Products</h2>
             <style>{`
               .topic-bar { position: relative; }
@@ -834,7 +817,7 @@ export default function HomePage() {
                 </Link>
               ))}
             </div>
-          </section>
+          </section> */}
 
           <section className="useful-links">
             <h2 style={{ color: 'var(--brand)' }}>Useful links</h2>
