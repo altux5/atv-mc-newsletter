@@ -136526,8 +136526,25 @@ var Image$1 = Node3.create({
 });
 var index_default$1 = Image$1;
 var index_default = Placeholder;
-function RichTextEditor({ content, onChange, placeholder }) {
+const AI_LOADING_MESSAGES = [
+  "✨ Polishing your prose...",
+  "🎨 Adding a touch of magic...",
+  "🧠 AI is crafting perfection...",
+  "💫 Making your words shine...",
+  "🚀 Elevating your content...",
+  "📝 Refining with care..."
+];
+function RichTextEditor({
+  content,
+  onChange,
+  placeholder,
+  enableRefine,
+  onRefine,
+  refineLabel = "Refine with AI"
+}) {
   const imageInputRef = reactExports$1.useRef(null);
+  const [isRefining, setIsRefining] = reactExports$1.useState(false);
+  const [loadingMessage, setLoadingMessage] = reactExports$1.useState(AI_LOADING_MESSAGES[0]);
   const editor = useEditor({
     extensions: [
       index_default$2,
@@ -136565,6 +136582,26 @@ function RichTextEditor({ content, onChange, placeholder }) {
   if (!editor) {
     return null;
   }
+  const handleRefine = async () => {
+    if (!onRefine || isRefining) return;
+    setIsRefining(true);
+    setLoadingMessage(AI_LOADING_MESSAGES[Math.floor(Math.random() * AI_LOADING_MESSAGES.length)]);
+    const messageInterval = setInterval(() => {
+      setLoadingMessage(AI_LOADING_MESSAGES[Math.floor(Math.random() * AI_LOADING_MESSAGES.length)]);
+    }, 2e3);
+    try {
+      const refined = await onRefine(editor.getHTML());
+      if (refined) {
+        editor.commands.setContent(refined);
+      }
+    } catch (error) {
+      const message = error instanceof Error ? error.message : "Failed to refine content";
+      alert(message);
+    } finally {
+      clearInterval(messageInterval);
+      setIsRefining(false);
+    }
+  };
   const addLink = () => {
     const url = window.prompt("Enter URL:");
     if (url) {
@@ -136702,8 +136739,36 @@ function RichTextEditor({ content, onChange, placeholder }) {
           title: "Redo",
           children: "↷ Redo"
         }
-      )
+      ),
+      enableRefine && onRefine && /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "separator", children: "|" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs(
+          "button",
+          {
+            type: "button",
+            onClick: handleRefine,
+            disabled: isRefining,
+            title: refineLabel,
+            className: "ai-refine-button",
+            children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "ai-refine-icon", children: "✨" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "ai-refine-text", children: refineLabel }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "ai-refine-sparkle" })
+            ]
+          }
+        )
+      ] })
     ] }),
+    isRefining && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "ai-loading-overlay", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "ai-loading-content", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "ai-loading-orb", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "ai-orb-ring" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "ai-orb-ring" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "ai-orb-ring" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "ai-orb-core", children: "AI" })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "ai-loading-message", children: loadingMessage }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "ai-loading-subtext", children: "Please wait while we enhance your content..." })
+    ] }) }),
     /* @__PURE__ */ jsxRuntimeExports.jsx(EditorContent, { editor })
   ] });
 }
@@ -136800,6 +136865,27 @@ function markArticleAsImported(id) {
 function getAvailableArticlesForImport() {
   return getArticles();
 }
+async function refineContent(html2, options = {}) {
+  const response = await fetch("/api/refine", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      content: html2,
+      context: options.context
+    })
+  });
+  if (!response.ok) {
+    const errorText = await response.text();
+    throw new Error(errorText || "Failed to refine content");
+  }
+  const data = await response.json();
+  if (!data.refined) {
+    throw new Error("No refined content returned");
+  }
+  return data.refined;
+}
 function CreateNewsletterPage() {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -136809,6 +136895,12 @@ function CreateNewsletterPage() {
   const [lastSaved, setLastSaved] = reactExports$1.useState(null);
   const [showArticleImport, setShowArticleImport] = reactExports$1.useState(false);
   const [availableArticles, setAvailableArticles] = reactExports$1.useState([]);
+  const refineIntro = (html2) => refineContent(html2, {
+    context: `Newsletter intro for ${draft.title || "newsletter"}`
+  });
+  const refineChapterContent = (chapter, index) => (html2) => refineContent(html2, {
+    context: `Chapter ${index + 1}: ${chapter.title || "Untitled chapter"}`
+  });
   reactExports$1.useEffect(() => {
     if (id) {
       const existingDraft = getDraftById(id);
@@ -137108,7 +137200,9 @@ function CreateNewsletterPage() {
               {
                 content: draft.introContent,
                 onChange: (html2) => updateDraft({ introContent: html2 }),
-                placeholder: "Write your introduction or opening message..."
+                placeholder: "Write your introduction or opening message...",
+                enableRefine: true,
+                onRefine: refineIntro
               }
             )
           ] })
@@ -137421,7 +137515,9 @@ function CreateNewsletterPage() {
                 {
                   content: chapter.content,
                   onChange: (html2) => updateChapter(chapter.id, { content: html2 }),
-                  placeholder: "Write your chapter content here..."
+                  placeholder: "Write your chapter content here...",
+                  enableRefine: true,
+                  onRefine: refineChapterContent(chapter, index)
                 }
               )
             ] })
