@@ -3,16 +3,37 @@ import StarterKit from '@tiptap/starter-kit'
 import Link from '@tiptap/extension-link'
 import Image from '@tiptap/extension-image'
 import Placeholder from '@tiptap/extension-placeholder'
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
+
+const AI_LOADING_MESSAGES = [
+  "✨ Polishing your prose...",
+  "🎨 Adding a touch of magic...",
+  "🧠 AI is crafting perfection...",
+  "💫 Making your words shine...",
+  "🚀 Elevating your content...",
+  "📝 Refining with care...",
+]
 
 interface RichTextEditorProps {
   content: string
   onChange: (html: string) => void
   placeholder?: string
+  enableRefine?: boolean
+  onRefine?: (html: string) => Promise<string>
+  refineLabel?: string
 }
 
-export default function RichTextEditor({ content, onChange, placeholder }: RichTextEditorProps) {
+export default function RichTextEditor({
+  content,
+  onChange,
+  placeholder,
+  enableRefine,
+  onRefine,
+  refineLabel = 'Refine with AI',
+}: RichTextEditorProps) {
   const imageInputRef = useRef<HTMLInputElement>(null)
+  const [isRefining, setIsRefining] = useState(false)
+  const [loadingMessage, setLoadingMessage] = useState(AI_LOADING_MESSAGES[0])
   
   const editor = useEditor({
     extensions: [
@@ -53,6 +74,30 @@ export default function RichTextEditor({ content, onChange, placeholder }: RichT
 
   if (!editor) {
     return null
+  }
+
+  const handleRefine = async () => {
+    if (!onRefine || isRefining) return
+    setIsRefining(true)
+    setLoadingMessage(AI_LOADING_MESSAGES[Math.floor(Math.random() * AI_LOADING_MESSAGES.length)])
+    
+    // Cycle through messages while loading
+    const messageInterval = setInterval(() => {
+      setLoadingMessage(AI_LOADING_MESSAGES[Math.floor(Math.random() * AI_LOADING_MESSAGES.length)])
+    }, 2000)
+    
+    try {
+      const refined = await onRefine(editor.getHTML())
+      if (refined) {
+        editor.commands.setContent(refined)
+      }
+    } catch (error) {
+      const message = error instanceof Error ? error.message : 'Failed to refine content'
+      alert(message)
+    } finally {
+      clearInterval(messageInterval)
+      setIsRefining(false)
+    }
   }
 
   const addLink = () => {
@@ -190,7 +235,40 @@ export default function RichTextEditor({ content, onChange, placeholder }: RichT
         >
           ↷ Redo
         </button>
+        {enableRefine && onRefine && (
+          <>
+            <span className="separator">|</span>
+            <button
+              type="button"
+              onClick={handleRefine}
+              disabled={isRefining}
+              title={refineLabel}
+              className="ai-refine-button"
+            >
+              <span className="ai-refine-icon">✨</span>
+              <span className="ai-refine-text">{refineLabel}</span>
+              <span className="ai-refine-sparkle"></span>
+            </button>
+          </>
+        )}
       </div>
+      
+      {/* AI Loading Overlay */}
+      {isRefining && (
+        <div className="ai-loading-overlay">
+          <div className="ai-loading-content">
+            <div className="ai-loading-orb">
+              <div className="ai-orb-ring"></div>
+              <div className="ai-orb-ring"></div>
+              <div className="ai-orb-ring"></div>
+              <div className="ai-orb-core">AI</div>
+            </div>
+            <p className="ai-loading-message">{loadingMessage}</p>
+            <p className="ai-loading-subtext">Please wait while we enhance your content...</p>
+          </div>
+        </div>
+      )}
+      
       <EditorContent editor={editor} />
     </div>
   )

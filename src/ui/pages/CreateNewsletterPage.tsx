@@ -12,6 +12,7 @@ import NewsletterPreview from '../components/NewsletterPreview'
 import type { SubmittedArticle } from '../../types/article'
 import { getAvailableArticlesForImport, markArticleAsImported } from '../../utils/localArticles'
 import type { ArticleTemplate } from '../../types/article'
+import { refineContent } from '../../utils/aiRefine'
 
 export default function CreateNewsletterPage() {
   const { id } = useParams<{ id?: string }>()
@@ -22,6 +23,16 @@ export default function CreateNewsletterPage() {
   const [lastSaved, setLastSaved] = useState<Date | null>(null)
   const [showArticleImport, setShowArticleImport] = useState(false)
   const [availableArticles, setAvailableArticles] = useState<SubmittedArticle[]>([])
+
+  const refineIntro = (html: string) =>
+    refineContent(html, {
+      context: `Newsletter intro for ${draft.title || 'newsletter'}`,
+    })
+
+  const refineChapterContent = (chapter: NewsletterChapter, index: number) => (html: string) =>
+    refineContent(html, {
+      context: `Chapter ${index + 1}: ${chapter.title || 'Untitled chapter'}`,
+    })
 
   // Load existing draft if editing
   useEffect(() => {
@@ -365,6 +376,8 @@ export default function CreateNewsletterPage() {
                 content={draft.introContent}
                 onChange={(html) => updateDraft({ introContent: html })}
                 placeholder="Write your introduction or opening message..."
+                enableRefine
+                onRefine={refineIntro}
               />
             </div>
           </section>
@@ -678,6 +691,8 @@ export default function CreateNewsletterPage() {
                       content={chapter.content}
                       onChange={(html) => updateChapter(chapter.id, { content: html })}
                       placeholder="Write your chapter content here..."
+                      enableRefine
+                      onRefine={refineChapterContent(chapter, index)}
                     />
                   </div>
                 )}

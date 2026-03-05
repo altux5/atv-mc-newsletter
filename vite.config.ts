@@ -1,12 +1,24 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react-swc'
+import dotenv from 'dotenv'
+
+dotenv.config()
 
 // https://vitejs.dev/config/
 declare const process: { env: Record<string, string | undefined> }
 const isCiBuild = process.env.VITE_CI_BUILD === '1'
+const proxyPort = process.env.PROXY_PORT || '8788'
 
 export default defineConfig({
   plugins: [react()],
+  server: {
+    proxy: {
+      '/api': {
+        target: `http://localhost:${proxyPort}`,
+        changeOrigin: true,
+      },
+    },
+  },
   build: {
     sourcemap: false,
     // Keep minify off by default; terser/esbuild can spike memory in CI
