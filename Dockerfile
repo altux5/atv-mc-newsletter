@@ -1,4 +1,4 @@
-FROM nginxinc/nginx-unprivileged:stable-alpine
+FROM docker.io/nginxinc/nginx-unprivileged:stable-alpine
 
 # Copy prebuilt static site
 COPY dist /usr/share/nginx/html
