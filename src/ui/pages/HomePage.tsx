@@ -21,6 +21,7 @@ export default function HomePage() {
   const [currentPage, setCurrentPage] = useState(1)
   const [isLoading, setIsLoading] = useState(false)
   const [matches, setMatches] = useState<Array<{ newsletterId: string; newsletterSlug: string; newsletterDate: string; href: string; html: string }>>([])
+  const [isIndexBuilding, setIsIndexBuilding] = useState(true)
 
   
   // Refresh newsletters on mount
@@ -41,9 +42,11 @@ export default function HomePage() {
   useEffect(() => {
     let cancelled = false
     ;(async () => {
+      setIsIndexBuilding(true)
       const entries: Record<string, string> = {}
       const sectionsEntries: Record<string, ReturnType<typeof extractSectionSnippets>> = {}
-      for (const n of newsletters) {
+
+      const tasks = newsletters.map(async (n) => {
         try {
           const date = new Date(n.date)
           const match = n.sourcePath
@@ -54,8 +57,13 @@ export default function HomePage() {
             entries[n.id] = extractBodyText(html)
             sectionsEntries[n.id] = extractSectionSnippets(html)
           }
-        } catch {}
-      }
+        } catch {
+          // ignore individual newsletter failures to keep the rest fast
+        }
+      })
+
+      await Promise.all(tasks)
+
       if (!cancelled) {
         setSearchIndex(entries)
         setSectionIndex(sectionsEntries)
@@ -95,6 +103,7 @@ export default function HomePage() {
         })
         
         setAvailableChapters(filteredChapters)
+        setIsIndexBuilding(false)
       }
     })()
     return () => { cancelled = true }
@@ -436,6 +445,25 @@ export default function HomePage() {
                 color: #fff;
                 border-color: var(--brand);
               }
+              .home .index-loading-banner {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                font-size: 13px;
+                color: #555;
+                margin-bottom: 8px;
+              }
+              .home .index-loading-dot {
+                width: 10px;
+                height: 10px;
+                border-radius: 50%;
+                background: var(--brand);
+                animation: homeIndexPulse 0.9s ease-in-out infinite alternate;
+              }
+              @keyframes homeIndexPulse {
+                from { transform: scale(0.9); opacity: 0.6; }
+                to { transform: scale(1.1); opacity: 1; }
+              }
             `}</style>
             <div className="search-filters" style={{
               background: '#fff',
@@ -444,6 +472,12 @@ export default function HomePage() {
               padding: 16,
               marginBottom: 16
             }}>
+              {isIndexBuilding && (
+                <div className="index-loading-banner">
+                  <span className="index-loading-dot" />
+                  <span>Preparing chapters and search index…</span>
+                </div>
+              )}
               <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
                   <label htmlFor="home-search" style={{ fontWeight: 600 }}>Search</label>

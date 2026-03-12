@@ -18,6 +18,11 @@ export default function NewslettersPage() {
   const [selectedYear, setSelectedYear] = useState<number | null>(null)
   const [isLoading, setIsLoading] = useState(false)
   const [matches, setMatches] = useState<Array<{ newsletterId: string; newsletterSlug: string; newsletterDate: string; href: string; html: string }>>([])
+  const [isIndexBuilding, setIsIndexBuilding] = useState(true)
+  const [initialChapterParam] = useState<string | null>(() => {
+    const params = new URLSearchParams(window.location.search)
+    return params.get('chapter')
+  })
   // Titles and excerpts are now derived synchronously in the data layer; no runtime overrides needed
   const [page, setPage] = useState(1)
   const pageSize = 9
@@ -40,9 +45,10 @@ export default function NewslettersPage() {
   useEffect(() => {
     let cancelled = false
     ;(async () => {
+      setIsIndexBuilding(true)
       const sectionsEntries: Record<string, ReturnType<typeof extractSectionSnippets>> = {}
       const searchEntries: Record<string, string> = {}
-      for (const n of newsletters) {
+      const tasks = newsletters.map(async (n) => {
         try {
           const date = new Date(n.date)
           const match = n.sourcePath
@@ -53,8 +59,13 @@ export default function NewslettersPage() {
             sectionsEntries[n.id] = extractSectionSnippets(html)
             searchEntries[n.id] = extractBodyText(html)
           }
-        } catch {}
-      }
+        } catch {
+          // ignore individual failures so others can still load quickly
+        }
+      })
+
+      await Promise.all(tasks)
+
       if (!cancelled) {
         setSectionIndex(sectionsEntries)
         setSearchIndex(searchEntries)
@@ -95,12 +106,13 @@ export default function NewslettersPage() {
         
         setAvailableChapters(filteredChapters)
         console.log('[DEBUG] Available main chapters:', filteredChapters)
+        setIsIndexBuilding(false)
       }
     })()
     return () => {
       cancelled = true
     }
-  }, [])
+  }, [newsletters])
 
   // Read chapter from query param on mount and when it changes
   useEffect(() => {
@@ -296,6 +308,12 @@ export default function NewslettersPage() {
   const end = start + pageSize
   const paged = filtered.slice(start, end)
 
+  const shouldHideGridForInitialChapter =
+    !!initialChapterParam &&
+    (isIndexBuilding ||
+      !selectedChapter ||
+      (selectedChapter != null && isLoading && matches.length === 0))
+
   const clearAll = () => {
     setSelectedChapter(null)
     setMatches([])
@@ -326,6 +344,25 @@ export default function NewslettersPage() {
         .newsletters-page .loading .loading-bar { height: 8px; background: #f3f3f3; border-radius: 0; overflow: hidden; }
         .newsletters-page .loading .loading-bar-inner { height: 100%; width: 40%; background: var(--brand); animation: nlblink 1.2s ease-in-out infinite alternate; }
         @keyframes nlblink { from { width: 25%; } to { width: 55%; } }
+        .newsletters-page .index-banner {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          margin-bottom: 8px;
+          font-size: 13px;
+          color: #555;
+        }
+        .newsletters-page .index-dot {
+          width: 10px;
+          height: 10px;
+          border-radius: 50%;
+          background: var(--brand);
+          animation: nlindexpulse 0.9s ease-in-out infinite alternate;
+        }
+        @keyframes nlindexpulse {
+          from { transform: scale(0.9); opacity: 0.6; }
+          to { transform: scale(1.1); opacity: 1; }
+        }
       `}</style>
       <div className="heading-row">
         <h1>All Newsletters</h1>
@@ -337,6 +374,12 @@ export default function NewslettersPage() {
       </div>
       <div className="layout-with-sidebar">
         <aside className="filters card">
+          {isIndexBuilding && (
+            <div className="index-banner">
+              <span className="index-dot" />
+              <span>Preparing chapters and search index…</span>
+            </div>
+          )}
           <div className="field">
             <label htmlFor="nl-search">Search newsletters</label>
             <input
@@ -427,6 +470,17 @@ export default function NewslettersPage() {
               )}
             </div>
           )}
+          {shouldHideGridForInitialChapter && (
+            <div className="initial-chapter-loading card">
+              <p style={{ marginTop: 0, marginBottom: 8, fontWeight: 600 }}>
+                Taking you to “{initialChapterParam}” chapters…
+              </p>
+              <p className="meta" style={{ margin: 0 }}>
+                We’re preparing the chapter index for all newsletters. This usually takes just a moment.
+              </p>
+            </div>
+          )}
+          {!shouldHideGridForInitialChapter && (
           <div className={`grid ${textQuery ? 'search-active' : ''}`}>
             {paged.map((n) => {
               const isLocal = !n.sourcePath
@@ -487,6 +541,7 @@ export default function NewslettersPage() {
             })}
             {filtered.length === 0 && <p className="meta">No newsletters match your search/filters.</p>}
           </div>
+          )}
           {filtered.length > 0 && (
             <div className="pagination">
               <button className="button" disabled={page <= 1} onClick={() => setPage((p) => Math.max(1, p - 1))}>Previous</button>

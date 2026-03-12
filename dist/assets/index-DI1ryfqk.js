@@ -111790,6 +111790,7 @@ function HomePage() {
   const [currentPage, setCurrentPage] = reactExports$1.useState(1);
   const [isLoading, setIsLoading] = reactExports$1.useState(false);
   const [matches2, setMatches] = reactExports$1.useState([]);
+  const [isIndexBuilding, setIsIndexBuilding] = reactExports$1.useState(true);
   reactExports$1.useEffect(() => {
     setNewsletters(getNewsletters());
   }, []);
@@ -111803,9 +111804,10 @@ function HomePage() {
   reactExports$1.useEffect(() => {
     let cancelled = false;
     (async () => {
+      setIsIndexBuilding(true);
       const entries2 = {};
       const sectionsEntries = {};
-      for (const n of newsletters) {
+      const tasks = newsletters.map(async (n) => {
         try {
           const date = new Date(n.date);
           const match = n.sourcePath ? await loadHtmlByPathAsync(n.sourcePath) : await findHtmlByMonthYearAsync(date.getUTCMonth(), date.getUTCFullYear());
@@ -111816,7 +111818,8 @@ function HomePage() {
           }
         } catch {
         }
-      }
+      });
+      await Promise.all(tasks);
       if (!cancelled) {
         setSearchIndex(entries2);
         setSectionIndex(sectionsEntries);
@@ -111845,6 +111848,7 @@ function HomePage() {
           });
         });
         setAvailableChapters(filteredChapters);
+        setIsIndexBuilding(false);
       }
     })();
     return () => {
@@ -112143,103 +112147,128 @@ function HomePage() {
                 color: #fff;
                 border-color: var(--brand);
               }
+              .home .index-loading-banner {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                font-size: 13px;
+                color: #555;
+                margin-bottom: 8px;
+              }
+              .home .index-loading-dot {
+                width: 10px;
+                height: 10px;
+                border-radius: 50%;
+                background: var(--brand);
+                animation: homeIndexPulse 0.9s ease-in-out infinite alternate;
+              }
+              @keyframes homeIndexPulse {
+                from { transform: scale(0.9); opacity: 0.6; }
+                to { transform: scale(1.1); opacity: 1; }
+              }
             ` }),
-                  /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "search-filters", style: {
+                  /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "search-filters", style: {
                     background: "#fff",
                     border: "1px solid var(--border-color, #e0e0e0)",
                     borderRadius: 0,
                     padding: 16,
                     marginBottom: 16
-                  }, children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: { display: "flex", flexDirection: "column", gap: 12 }, children: [
-                    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: { display: "flex", flexDirection: "column", gap: 4 }, children: [
-                      /* @__PURE__ */ jsxRuntimeExports.jsx("label", { htmlFor: "home-search", style: { fontWeight: 600 }, children: "Search" }),
-                      /* @__PURE__ */ jsxRuntimeExports.jsx(
-                        "input",
-                        {
-                          id: "home-search",
-                          value: textQuery,
-                          onChange: (e) => setTextQuery(e.target.value),
-                          placeholder: "Search by title or body text...",
-                          style: {
-                            padding: "8px 12px",
-                            border: "1px solid var(--border-color, #e0e0e0)",
-                            borderRadius: 4,
-                            fontSize: 14
-                          }
-                        }
-                      )
+                  }, children: [
+                    isIndexBuilding && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "index-loading-banner", children: [
+                      /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "index-loading-dot" }),
+                      /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "Preparing chapters and search index…" })
                     ] }),
-                    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: { display: "grid", gridTemplateColumns: "1fr 1fr auto", gap: 12, alignItems: "end" }, children: [
+                    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: { display: "flex", flexDirection: "column", gap: 12 }, children: [
                       /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: { display: "flex", flexDirection: "column", gap: 4 }, children: [
-                        /* @__PURE__ */ jsxRuntimeExports.jsx("label", { style: { fontWeight: 600 }, children: "Month" }),
-                        /* @__PURE__ */ jsxRuntimeExports.jsxs(
-                          "select",
+                        /* @__PURE__ */ jsxRuntimeExports.jsx("label", { htmlFor: "home-search", style: { fontWeight: 600 }, children: "Search" }),
+                        /* @__PURE__ */ jsxRuntimeExports.jsx(
+                          "input",
                           {
-                            value: selectedMonth ?? "",
-                            onChange: (e) => setSelectedMonth(e.target.value === "" ? null : Number(e.target.value)),
+                            id: "home-search",
+                            value: textQuery,
+                            onChange: (e) => setTextQuery(e.target.value),
+                            placeholder: "Search by title or body text...",
                             style: {
                               padding: "8px 12px",
                               border: "1px solid var(--border-color, #e0e0e0)",
                               borderRadius: 4,
                               fontSize: 14
-                            },
-                            children: [
-                              /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "", children: "All" }),
-                              /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: 0, children: "January" }),
-                              /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: 1, children: "February" }),
-                              /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: 2, children: "March" }),
-                              /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: 3, children: "April" }),
-                              /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: 4, children: "May" }),
-                              /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: 5, children: "June" }),
-                              /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: 6, children: "July" }),
-                              /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: 7, children: "August" }),
-                              /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: 8, children: "September" }),
-                              /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: 9, children: "October" }),
-                              /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: 10, children: "November" }),
-                              /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: 11, children: "December" })
-                            ]
+                            }
                           }
                         )
                       ] }),
-                      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: { display: "flex", flexDirection: "column", gap: 4 }, children: [
-                        /* @__PURE__ */ jsxRuntimeExports.jsx("label", { style: { fontWeight: 600 }, children: "Year" }),
-                        /* @__PURE__ */ jsxRuntimeExports.jsxs(
-                          "select",
+                      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: { display: "grid", gridTemplateColumns: "1fr 1fr auto", gap: 12, alignItems: "end" }, children: [
+                        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: { display: "flex", flexDirection: "column", gap: 4 }, children: [
+                          /* @__PURE__ */ jsxRuntimeExports.jsx("label", { style: { fontWeight: 600 }, children: "Month" }),
+                          /* @__PURE__ */ jsxRuntimeExports.jsxs(
+                            "select",
+                            {
+                              value: selectedMonth ?? "",
+                              onChange: (e) => setSelectedMonth(e.target.value === "" ? null : Number(e.target.value)),
+                              style: {
+                                padding: "8px 12px",
+                                border: "1px solid var(--border-color, #e0e0e0)",
+                                borderRadius: 4,
+                                fontSize: 14
+                              },
+                              children: [
+                                /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "", children: "All" }),
+                                /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: 0, children: "January" }),
+                                /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: 1, children: "February" }),
+                                /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: 2, children: "March" }),
+                                /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: 3, children: "April" }),
+                                /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: 4, children: "May" }),
+                                /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: 5, children: "June" }),
+                                /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: 6, children: "July" }),
+                                /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: 7, children: "August" }),
+                                /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: 8, children: "September" }),
+                                /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: 9, children: "October" }),
+                                /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: 10, children: "November" }),
+                                /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: 11, children: "December" })
+                              ]
+                            }
+                          )
+                        ] }),
+                        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: { display: "flex", flexDirection: "column", gap: 4 }, children: [
+                          /* @__PURE__ */ jsxRuntimeExports.jsx("label", { style: { fontWeight: 600 }, children: "Year" }),
+                          /* @__PURE__ */ jsxRuntimeExports.jsxs(
+                            "select",
+                            {
+                              value: selectedYear ?? "",
+                              onChange: (e) => setSelectedYear(e.target.value === "" ? null : Number(e.target.value)),
+                              style: {
+                                padding: "8px 12px",
+                                border: "1px solid var(--border-color, #e0e0e0)",
+                                borderRadius: 4,
+                                fontSize: 14
+                              },
+                              children: [
+                                /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "", children: "All" }),
+                                Array.from(new Set(newsletters.map((n) => new Date(n.date).getUTCFullYear()))).sort((a, b) => b - a).map((y) => /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: y, children: y }, y))
+                              ]
+                            }
+                          )
+                        ] }),
+                        (textQuery || selectedMonth != null || selectedYear != null || selectedChapter) && /* @__PURE__ */ jsxRuntimeExports.jsx(
+                          "button",
                           {
-                            value: selectedYear ?? "",
-                            onChange: (e) => setSelectedYear(e.target.value === "" ? null : Number(e.target.value)),
+                            onClick: clearAll,
                             style: {
-                              padding: "8px 12px",
-                              border: "1px solid var(--border-color, #e0e0e0)",
+                              padding: "8px 16px",
+                              background: "var(--brand)",
+                              color: "#fff",
+                              border: "none",
                               borderRadius: 4,
-                              fontSize: 14
+                              cursor: "pointer",
+                              fontSize: 14,
+                              fontWeight: 600
                             },
-                            children: [
-                              /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "", children: "All" }),
-                              Array.from(new Set(newsletters.map((n) => new Date(n.date).getUTCFullYear()))).sort((a, b) => b - a).map((y) => /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: y, children: y }, y))
-                            ]
+                            children: "Clear"
                           }
                         )
-                      ] }),
-                      (textQuery || selectedMonth != null || selectedYear != null || selectedChapter) && /* @__PURE__ */ jsxRuntimeExports.jsx(
-                        "button",
-                        {
-                          onClick: clearAll,
-                          style: {
-                            padding: "8px 16px",
-                            background: "var(--brand)",
-                            color: "#fff",
-                            border: "none",
-                            borderRadius: 4,
-                            cursor: "pointer",
-                            fontSize: 14,
-                            fontWeight: 600
-                          },
-                          children: "Clear"
-                        }
-                      )
+                      ] })
                     ] })
-                  ] }) }),
+                  ] }),
                   selectedChapter && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "chapter-matches", children: [
                     isLoading && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { style: { padding: 16, background: "#f5f5f5", borderRadius: 4, marginBottom: 16 }, children: /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { style: { margin: 0, color: "#666" }, children: [
                       'Loading "',
@@ -112641,6 +112670,11 @@ function NewslettersPage() {
   const [selectedYear, setSelectedYear] = reactExports$1.useState(null);
   const [isLoading, setIsLoading] = reactExports$1.useState(false);
   const [matches2, setMatches] = reactExports$1.useState([]);
+  const [isIndexBuilding, setIsIndexBuilding] = reactExports$1.useState(true);
+  const [initialChapterParam] = reactExports$1.useState(() => {
+    const params = new URLSearchParams(window.location.search);
+    return params.get("chapter");
+  });
   const [page, setPage] = reactExports$1.useState(1);
   const pageSize = 9;
   reactExports$1.useEffect(() => {
@@ -112656,9 +112690,10 @@ function NewslettersPage() {
   reactExports$1.useEffect(() => {
     let cancelled = false;
     (async () => {
+      setIsIndexBuilding(true);
       const sectionsEntries = {};
       const searchEntries = {};
-      for (const n of newsletters) {
+      const tasks = newsletters.map(async (n) => {
         try {
           const date = new Date(n.date);
           const match = n.sourcePath ? await loadHtmlByPathAsync(n.sourcePath) : await findHtmlByMonthYearAsync(date.getUTCMonth(), date.getUTCFullYear());
@@ -112669,7 +112704,8 @@ function NewslettersPage() {
           }
         } catch {
         }
-      }
+      });
+      await Promise.all(tasks);
       if (!cancelled) {
         setSectionIndex(sectionsEntries);
         setSearchIndex(searchEntries);
@@ -112699,12 +112735,13 @@ function NewslettersPage() {
         });
         setAvailableChapters(filteredChapters);
         console.log("[DEBUG] Available main chapters:", filteredChapters);
+        setIsIndexBuilding(false);
       }
     })();
     return () => {
       cancelled = true;
     };
-  }, []);
+  }, [newsletters]);
   reactExports$1.useEffect(() => {
     const params = new URLSearchParams(location.search);
     const chapterParam = params.get("chapter");
@@ -112847,6 +112884,7 @@ function NewslettersPage() {
   const start = (page - 1) * pageSize;
   const end = start + pageSize;
   const paged = filtered.slice(start, end);
+  const shouldHideGridForInitialChapter = !!initialChapterParam && (isIndexBuilding || !selectedChapter || selectedChapter != null && isLoading && matches2.length === 0);
   const clearAll = () => {
     setSelectedChapter(null);
     setMatches([]);
@@ -112875,6 +112913,25 @@ function NewslettersPage() {
         .newsletters-page .loading .loading-bar { height: 8px; background: #f3f3f3; border-radius: 0; overflow: hidden; }
         .newsletters-page .loading .loading-bar-inner { height: 100%; width: 40%; background: var(--brand); animation: nlblink 1.2s ease-in-out infinite alternate; }
         @keyframes nlblink { from { width: 25%; } to { width: 55%; } }
+        .newsletters-page .index-banner {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          margin-bottom: 8px;
+          font-size: 13px;
+          color: #555;
+        }
+        .newsletters-page .index-dot {
+          width: 10px;
+          height: 10px;
+          border-radius: 50%;
+          background: var(--brand);
+          animation: nlindexpulse 0.9s ease-in-out infinite alternate;
+        }
+        @keyframes nlindexpulse {
+          from { transform: scale(0.9); opacity: 0.6; }
+          to { transform: scale(1.1); opacity: 1; }
+        }
       ` }),
     /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "heading-row", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { children: "All Newsletters" }),
@@ -112886,6 +112943,10 @@ function NewslettersPage() {
     ] }),
     /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "layout-with-sidebar", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsxs("aside", { className: "filters card", children: [
+        isIndexBuilding && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "index-banner", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "index-dot" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "Preparing chapters and search index…" })
+        ] }),
         /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "field", children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx("label", { htmlFor: "nl-search", children: "Search newsletters" }),
           /* @__PURE__ */ jsxRuntimeExports.jsx(
@@ -112958,7 +113019,15 @@ function NewslettersPage() {
             /* @__PURE__ */ jsxRuntimeExports.jsx("div", { dangerouslySetInnerHTML: { __html: m.html } })
           ] }, `${m.newsletterId}-${idx}`)) })
         ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: `grid ${textQuery ? "search-active" : ""}`, children: [
+        shouldHideGridForInitialChapter && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "initial-chapter-loading card", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { style: { marginTop: 0, marginBottom: 8, fontWeight: 600 }, children: [
+            "Taking you to “",
+            initialChapterParam,
+            "” chapters…"
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "meta", style: { margin: 0 }, children: "We’re preparing the chapter index for all newsletters. This usually takes just a moment." })
+        ] }),
+        !shouldHideGridForInitialChapter && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: `grid ${textQuery ? "search-active" : ""}`, children: [
           paged.map((n) => {
             const isLocal = !n.sourcePath;
             const handleDelete2 = (e) => {
