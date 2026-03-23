@@ -17886,32 +17886,33 @@ const __vite_glob_0_6 = "/assets/Automotive%20MC%20Newsletter%20-%20July%20'24%2
 const __vite_glob_0_7 = "/assets/Automotive%20MC%20Newsletter%20-%20July%20'25%20edition-3sxCBysx.htm";
 const __vite_glob_0_8 = "/assets/Automotive%20MC%20Newsletter%20-%20June%20'25%20edition-DWm9tXeU.htm";
 const __vite_glob_0_9 = "/assets/Automotive%20MC%20Newsletter%20-%20March%20'25%20edition-Dmn69MbE.htm";
-const __vite_glob_0_10 = "/assets/Automotive%20MC%20Newsletter%20-%20March%202024%20edition!-DoIja57u.htm";
-const __vite_glob_0_11 = "/assets/Automotive%20MC%20Newsletter%20-%20May%20'25%20edition-Dp2wkUkD.htm";
-const __vite_glob_0_12 = "/assets/Automotive%20MC%20Newsletter%20-%20May%202024%20edition!-bIz7vwvT.htm";
-const __vite_glob_0_13 = "/assets/Automotive%20MC%20Newsletter%20-%20November%20'25%20edition-WbzFkeej.htm";
-const __vite_glob_0_14 = "/assets/Automotive%20MC%20Newsletter%20-%20September%202025-DfBJx4pe.htm";
-const __vite_glob_0_15 = "/assets/FW%20Automotive%20MC%20Newsletter%20-%20Nov%20'24%20edition-DAivH2NT.htm";
-const __vite_glob_0_16 = "/assets/FW%20Your%20Automotive%20Microcontroller%20Newsletter%20February%202019-CBf7mwVC.htm";
-const __vite_glob_0_17 = "/assets/RE%20Your%20Monthly%20Automotive%20MC%20Newsletter%20June%202021-CqZQ6N-T.htm";
-const __vite_glob_0_18 = "/assets/Your%20Automotive%20Microcontroller%20Newsletter%20December%202020-CtODfxBS.htm";
-const __vite_glob_0_19 = "/assets/Your%20Automotive%20Microcontroller%20Newsletter%20January%202021-DklKV4zP.htm";
-const __vite_glob_0_20 = "/assets/Your%20Automotive%20Microcontroller%20Newsletter%20November%202020-DRP4L7vn.htm";
-const __vite_glob_0_21 = "/assets/Your%20Monthly%20Automotive%20MC%20Newsletter%20-%2023%20cozy%20November!%20-hHxM8pd8.htm";
-const __vite_glob_0_22 = "/assets/Your%20Monthly%20Automotive%20MC%20Newsletter%20-%20Festive%20December%20issue!-p38B3TQv.htm";
-const __vite_glob_0_23 = "/assets/Your%20Monthly%20Automotive%20MC%20Newsletter%20April%202021-CuaDov6L.htm";
-const __vite_glob_0_24 = "/assets/Your%20Monthly%20Automotive%20MC%20Newsletter%20April%202022-Czba-TA9.htm";
-const __vite_glob_0_25 = "/assets/Your%20Monthly%20Automotive%20MC%20Newsletter%20August%202021%20-CyMQrwQx.htm";
-const __vite_glob_0_26 = "/assets/Your%20Monthly%20Automotive%20MC%20Newsletter%20February%202021-BYzOaWmB.htm";
-const __vite_glob_0_27 = "/assets/Your%20Monthly%20Automotive%20MC%20Newsletter%20July%202021-CCbaP8Pp.htm";
-const __vite_glob_0_28 = "/assets/Your%20Monthly%20Automotive%20MC%20Newsletter%20March%202021-CojiJkou.htm";
-const __vite_glob_0_29 = "/assets/Your%20Monthly%20Automotive%20MC%20Newsletter%20March%202022-CxrDAUNq.htm";
-const __vite_glob_0_30 = "/assets/Your%20Monthly%20Automotive%20MC%20Newsletter%20May%202021-D6lS1ohr.htm";
-const __vite_glob_0_31 = "/assets/Your%20Monthly%20Automotive%20MC%20Newsletter%20November%202021-CG2dS_bd.htm";
-const __vite_glob_0_32 = "/assets/Your%20Monthly%20Automotive%20MC%20Newsletter%20October%202021-D8U9JKye.htm";
-const __vite_glob_0_33 = "/assets/Your%20Monthly%20Automotive%20MC%20Newsletter%20September%202021-BSV2WMWF.htm";
-const __vite_glob_0_34 = "/assets/Your%20Monthly%20Automotive%20MC%20Newsletter%20may22%20-WpKEFOBF.htm";
-const __vite_glob_0_35 = "/assets/Your%20Monthly%20Automotive%20MC%20newsletter%20sep22-Bbzy8cGK.htm";
+const __vite_glob_0_10 = "/assets/Automotive%20MC%20Newsletter%20-%20March%20'26%20edition-BivQ2xYS.htm";
+const __vite_glob_0_11 = "/assets/Automotive%20MC%20Newsletter%20-%20March%202024%20edition!-DoIja57u.htm";
+const __vite_glob_0_12 = "/assets/Automotive%20MC%20Newsletter%20-%20May%20'25%20edition-Dp2wkUkD.htm";
+const __vite_glob_0_13 = "/assets/Automotive%20MC%20Newsletter%20-%20May%202024%20edition!-bIz7vwvT.htm";
+const __vite_glob_0_14 = "/assets/Automotive%20MC%20Newsletter%20-%20November%20'25%20edition-WbzFkeej.htm";
+const __vite_glob_0_15 = "/assets/Automotive%20MC%20Newsletter%20-%20September%202025-DfBJx4pe.htm";
+const __vite_glob_0_16 = "/assets/FW%20Automotive%20MC%20Newsletter%20-%20Nov%20'24%20edition-DAivH2NT.htm";
+const __vite_glob_0_17 = "/assets/FW%20Your%20Automotive%20Microcontroller%20Newsletter%20February%202019-CBf7mwVC.htm";
+const __vite_glob_0_18 = "/assets/RE%20Your%20Monthly%20Automotive%20MC%20Newsletter%20June%202021-CqZQ6N-T.htm";
+const __vite_glob_0_19 = "/assets/Your%20Automotive%20Microcontroller%20Newsletter%20December%202020-CtODfxBS.htm";
+const __vite_glob_0_20 = "/assets/Your%20Automotive%20Microcontroller%20Newsletter%20January%202021-DklKV4zP.htm";
+const __vite_glob_0_21 = "/assets/Your%20Automotive%20Microcontroller%20Newsletter%20November%202020-DRP4L7vn.htm";
+const __vite_glob_0_22 = "/assets/Your%20Monthly%20Automotive%20MC%20Newsletter%20-%2023%20cozy%20November!%20-hHxM8pd8.htm";
+const __vite_glob_0_23 = "/assets/Your%20Monthly%20Automotive%20MC%20Newsletter%20-%20Festive%20December%20issue!-p38B3TQv.htm";
+const __vite_glob_0_24 = "/assets/Your%20Monthly%20Automotive%20MC%20Newsletter%20April%202021-CuaDov6L.htm";
+const __vite_glob_0_25 = "/assets/Your%20Monthly%20Automotive%20MC%20Newsletter%20April%202022-Czba-TA9.htm";
+const __vite_glob_0_26 = "/assets/Your%20Monthly%20Automotive%20MC%20Newsletter%20August%202021%20-CyMQrwQx.htm";
+const __vite_glob_0_27 = "/assets/Your%20Monthly%20Automotive%20MC%20Newsletter%20February%202021-BYzOaWmB.htm";
+const __vite_glob_0_28 = "/assets/Your%20Monthly%20Automotive%20MC%20Newsletter%20July%202021-CCbaP8Pp.htm";
+const __vite_glob_0_29 = "/assets/Your%20Monthly%20Automotive%20MC%20Newsletter%20March%202021-CojiJkou.htm";
+const __vite_glob_0_30 = "/assets/Your%20Monthly%20Automotive%20MC%20Newsletter%20March%202022-CxrDAUNq.htm";
+const __vite_glob_0_31 = "/assets/Your%20Monthly%20Automotive%20MC%20Newsletter%20May%202021-D6lS1ohr.htm";
+const __vite_glob_0_32 = "/assets/Your%20Monthly%20Automotive%20MC%20Newsletter%20November%202021-CG2dS_bd.htm";
+const __vite_glob_0_33 = "/assets/Your%20Monthly%20Automotive%20MC%20Newsletter%20October%202021-D8U9JKye.htm";
+const __vite_glob_0_34 = "/assets/Your%20Monthly%20Automotive%20MC%20Newsletter%20September%202021-BSV2WMWF.htm";
+const __vite_glob_0_35 = "/assets/Your%20Monthly%20Automotive%20MC%20Newsletter%20may22%20-WpKEFOBF.htm";
+const __vite_glob_0_36 = "/assets/Your%20Monthly%20Automotive%20MC%20newsletter%20sep22-Bbzy8cGK.htm";
 const __vite_glob_1_0 = `��<\0h\0t\0m\0l\0 \0x\0m\0l\0n\0s\0:\0v\0=\0"\0u\0r\0n\0:\0s\0c\0h\0e\0m\0a\0s\0-\0m\0i\0c\0r\0o\0s\0o\0f\0t\0-\0c\0o\0m\0:\0v\0m\0l\0"\0\r\0
 \0x\0m\0l\0n\0s\0:\0o\0=\0"\0u\0r\0n\0:\0s\0c\0h\0e\0m\0a\0s\0-\0m\0i\0c\0r\0o\0s\0o\0f\0t\0-\0c\0o\0m\0:\0o\0f\0f\0i\0c\0e\0:\0o\0f\0f\0i\0c\0e\0"\0\r\0
 \0x\0m\0l\0n\0s\0:\0w\0=\0"\0u\0r\0n\0:\0s\0c\0h\0e\0m\0a\0s\0-\0m\0i\0c\0r\0o\0s\0o\0f\0t\0-\0c\0o\0m\0:\0o\0f\0f\0i\0c\0e\0:\0w\0o\0r\0d\0"\0\r\0
@@ -44945,6 +44946,2887 @@ const __vite_glob_1_10 = `��<\0h\0t\0m\0l\0 \0x\0m\0l\0n\0s\0:\0v\0=\0"\0u\0
 \0<\0m\0e\0t\0a\0 \0n\0a\0m\0e\0=\0G\0e\0n\0e\0r\0a\0t\0o\0r\0 \0c\0o\0n\0t\0e\0n\0t\0=\0"\0M\0i\0c\0r\0o\0s\0o\0f\0t\0 \0W\0o\0r\0d\0 \x001\x005\0"\0>\0\r\0
 \0<\0m\0e\0t\0a\0 \0n\0a\0m\0e\0=\0O\0r\0i\0g\0i\0n\0a\0t\0o\0r\0 \0c\0o\0n\0t\0e\0n\0t\0=\0"\0M\0i\0c\0r\0o\0s\0o\0f\0t\0 \0W\0o\0r\0d\0 \x001\x005\0"\0>\0\r\0
 \0<\0l\0i\0n\0k\0 \0r\0e\0l\0=\0F\0i\0l\0e\0-\0L\0i\0s\0t\0\r\0
+\0h\0r\0e\0f\0=\0"\0A\0u\0t\0o\0m\0o\0t\0i\0v\0e\0%\x002\x000\0M\0C\0%\x002\x000\0N\0e\0w\0s\0l\0e\0t\0t\0e\0r\0%\x002\x000\0-\0%\x002\x000\0M\0a\0r\0c\0h\0%\x002\x000\0'\x002\x006\0%\x002\x000\0e\0d\0i\0t\0i\0o\0n\0_\0f\0i\0l\0e\0s\0/\0f\0i\0l\0e\0l\0i\0s\0t\0.\0x\0m\0l\0"\0>\0\r\0
+\0<\0l\0i\0n\0k\0 \0r\0e\0l\0=\0E\0d\0i\0t\0-\0T\0i\0m\0e\0-\0D\0a\0t\0a\0\r\0
+\0h\0r\0e\0f\0=\0"\0A\0u\0t\0o\0m\0o\0t\0i\0v\0e\0%\x002\x000\0M\0C\0%\x002\x000\0N\0e\0w\0s\0l\0e\0t\0t\0e\0r\0%\x002\x000\0-\0%\x002\x000\0M\0a\0r\0c\0h\0%\x002\x000\0'\x002\x006\0%\x002\x000\0e\0d\0i\0t\0i\0o\0n\0_\0f\0i\0l\0e\0s\0/\0e\0d\0i\0t\0d\0a\0t\0a\0.\0m\0s\0o\0"\0>\0\r\0
+\0<\0!\0-\0-\0[\0i\0f\0 \0!\0m\0s\0o\0]\0>\0\r\0
+\0<\0s\0t\0y\0l\0e\0>\0\r\0
+\0v\0\\\0:\0*\0 \0{\0b\0e\0h\0a\0v\0i\0o\0r\0:\0u\0r\0l\0(\0#\0d\0e\0f\0a\0u\0l\0t\0#\0V\0M\0L\0)\0;\0}\0\r\0
+\0o\0\\\0:\0*\0 \0{\0b\0e\0h\0a\0v\0i\0o\0r\0:\0u\0r\0l\0(\0#\0d\0e\0f\0a\0u\0l\0t\0#\0V\0M\0L\0)\0;\0}\0\r\0
+\0w\0\\\0:\0*\0 \0{\0b\0e\0h\0a\0v\0i\0o\0r\0:\0u\0r\0l\0(\0#\0d\0e\0f\0a\0u\0l\0t\0#\0V\0M\0L\0)\0;\0}\0\r\0
+\0.\0s\0h\0a\0p\0e\0 \0{\0b\0e\0h\0a\0v\0i\0o\0r\0:\0u\0r\0l\0(\0#\0d\0e\0f\0a\0u\0l\0t\0#\0V\0M\0L\0)\0;\0}\0\r\0
+\0<\0/\0s\0t\0y\0l\0e\0>\0\r\0
+\0<\0!\0[\0e\0n\0d\0i\0f\0]\0-\0-\0>\0\r\0
+\0<\0l\0i\0n\0k\0 \0r\0e\0l\0=\0t\0h\0e\0m\0e\0D\0a\0t\0a\0\r\0
+\0h\0r\0e\0f\0=\0"\0A\0u\0t\0o\0m\0o\0t\0i\0v\0e\0%\x002\x000\0M\0C\0%\x002\x000\0N\0e\0w\0s\0l\0e\0t\0t\0e\0r\0%\x002\x000\0-\0%\x002\x000\0M\0a\0r\0c\0h\0%\x002\x000\0'\x002\x006\0%\x002\x000\0e\0d\0i\0t\0i\0o\0n\0_\0f\0i\0l\0e\0s\0/\0t\0h\0e\0m\0e\0d\0a\0t\0a\0.\0t\0h\0m\0x\0"\0>\0\r\0
+\0<\0l\0i\0n\0k\0 \0r\0e\0l\0=\0c\0o\0l\0o\0r\0S\0c\0h\0e\0m\0e\0M\0a\0p\0p\0i\0n\0g\0\r\0
+\0h\0r\0e\0f\0=\0"\0A\0u\0t\0o\0m\0o\0t\0i\0v\0e\0%\x002\x000\0M\0C\0%\x002\x000\0N\0e\0w\0s\0l\0e\0t\0t\0e\0r\0%\x002\x000\0-\0%\x002\x000\0M\0a\0r\0c\0h\0%\x002\x000\0'\x002\x006\0%\x002\x000\0e\0d\0i\0t\0i\0o\0n\0_\0f\0i\0l\0e\0s\0/\0c\0o\0l\0o\0r\0s\0c\0h\0e\0m\0e\0m\0a\0p\0p\0i\0n\0g\0.\0x\0m\0l\0"\0>\0\r\0
+\0<\0!\0-\0-\0[\0i\0f\0 \0g\0t\0e\0 \0m\0s\0o\0 \x009\0]\0>\0<\0x\0m\0l\0>\0\r\0
+\0 \0<\0w\0:\0W\0o\0r\0d\0D\0o\0c\0u\0m\0e\0n\0t\0>\0\r\0
+\0 \0 \0<\0w\0:\0Z\0o\0o\0m\0>\x000\0<\0/\0w\0:\0Z\0o\0o\0m\0>\0\r\0
+\0 \0 \0<\0w\0:\0D\0o\0c\0u\0m\0e\0n\0t\0K\0i\0n\0d\0>\0D\0o\0c\0u\0m\0e\0n\0t\0E\0m\0a\0i\0l\0<\0/\0w\0:\0D\0o\0c\0u\0m\0e\0n\0t\0K\0i\0n\0d\0>\0\r\0
+\0 \0 \0<\0w\0:\0T\0r\0a\0c\0k\0M\0o\0v\0e\0s\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0T\0r\0a\0c\0k\0F\0o\0r\0m\0a\0t\0t\0i\0n\0g\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0H\0y\0p\0h\0e\0n\0a\0t\0i\0o\0n\0Z\0o\0n\0e\0>\x002\x001\0<\0/\0w\0:\0H\0y\0p\0h\0e\0n\0a\0t\0i\0o\0n\0Z\0o\0n\0e\0>\0\r\0
+\0 \0 \0<\0w\0:\0V\0a\0l\0i\0d\0a\0t\0e\0A\0g\0a\0i\0n\0s\0t\0S\0c\0h\0e\0m\0a\0s\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0S\0a\0v\0e\0I\0f\0X\0M\0L\0I\0n\0v\0a\0l\0i\0d\0>\0f\0a\0l\0s\0e\0<\0/\0w\0:\0S\0a\0v\0e\0I\0f\0X\0M\0L\0I\0n\0v\0a\0l\0i\0d\0>\0\r\0
+\0 \0 \0<\0w\0:\0I\0g\0n\0o\0r\0e\0M\0i\0x\0e\0d\0C\0o\0n\0t\0e\0n\0t\0>\0f\0a\0l\0s\0e\0<\0/\0w\0:\0I\0g\0n\0o\0r\0e\0M\0i\0x\0e\0d\0C\0o\0n\0t\0e\0n\0t\0>\0\r\0
+\0 \0 \0<\0w\0:\0A\0l\0w\0a\0y\0s\0S\0h\0o\0w\0P\0l\0a\0c\0e\0h\0o\0l\0d\0e\0r\0T\0e\0x\0t\0>\0f\0a\0l\0s\0e\0<\0/\0w\0:\0A\0l\0w\0a\0y\0s\0S\0h\0o\0w\0P\0l\0a\0c\0e\0h\0o\0l\0d\0e\0r\0T\0e\0x\0t\0>\0\r\0
+\0 \0 \0<\0w\0:\0D\0o\0N\0o\0t\0P\0r\0o\0m\0o\0t\0e\0Q\0F\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0i\0d\0T\0h\0e\0m\0e\0O\0t\0h\0e\0r\0>\0D\0E\0<\0/\0w\0:\0L\0i\0d\0T\0h\0e\0m\0e\0O\0t\0h\0e\0r\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0i\0d\0T\0h\0e\0m\0e\0A\0s\0i\0a\0n\0>\0X\0-\0N\0O\0N\0E\0<\0/\0w\0:\0L\0i\0d\0T\0h\0e\0m\0e\0A\0s\0i\0a\0n\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0i\0d\0T\0h\0e\0m\0e\0C\0o\0m\0p\0l\0e\0x\0S\0c\0r\0i\0p\0t\0>\0X\0-\0N\0O\0N\0E\0<\0/\0w\0:\0L\0i\0d\0T\0h\0e\0m\0e\0C\0o\0m\0p\0l\0e\0x\0S\0c\0r\0i\0p\0t\0>\0\r\0
+\0 \0 \0<\0w\0:\0C\0o\0m\0p\0a\0t\0i\0b\0i\0l\0i\0t\0y\0>\0\r\0
+\0 \0 \0 \0<\0w\0:\0D\0o\0N\0o\0t\0E\0x\0p\0a\0n\0d\0S\0h\0i\0f\0t\0R\0e\0t\0u\0r\0n\0/\0>\0\r\0
+\0 \0 \0 \0<\0w\0:\0B\0r\0e\0a\0k\0W\0r\0a\0p\0p\0e\0d\0T\0a\0b\0l\0e\0s\0/\0>\0\r\0
+\0 \0 \0 \0<\0w\0:\0S\0p\0l\0i\0t\0P\0g\0B\0r\0e\0a\0k\0A\0n\0d\0P\0a\0r\0a\0M\0a\0r\0k\0/\0>\0\r\0
+\0 \0 \0 \0<\0w\0:\0E\0n\0a\0b\0l\0e\0O\0p\0e\0n\0T\0y\0p\0e\0K\0e\0r\0n\0i\0n\0g\0/\0>\0\r\0
+\0 \0 \0<\0/\0w\0:\0C\0o\0m\0p\0a\0t\0i\0b\0i\0l\0i\0t\0y\0>\0\r\0
+\0 \0 \0<\0w\0:\0B\0r\0o\0w\0s\0e\0r\0L\0e\0v\0e\0l\0>\0M\0i\0c\0r\0o\0s\0o\0f\0t\0I\0n\0t\0e\0r\0n\0e\0t\0E\0x\0p\0l\0o\0r\0e\0r\x004\0<\0/\0w\0:\0B\0r\0o\0w\0s\0e\0r\0L\0e\0v\0e\0l\0>\0\r\0
+\0 \0 \0<\0m\0:\0m\0a\0t\0h\0P\0r\0>\0\r\0
+\0 \0 \0 \0<\0m\0:\0m\0a\0t\0h\0F\0o\0n\0t\0 \0m\0:\0v\0a\0l\0=\0"\0C\0a\0m\0b\0r\0i\0a\0 \0M\0a\0t\0h\0"\0/\0>\0\r\0
+\0 \0 \0 \0<\0m\0:\0b\0r\0k\0B\0i\0n\0 \0m\0:\0v\0a\0l\0=\0"\0b\0e\0f\0o\0r\0e\0"\0/\0>\0\r\0
+\0 \0 \0 \0<\0m\0:\0b\0r\0k\0B\0i\0n\0S\0u\0b\0 \0m\0:\0v\0a\0l\0=\0"\0&\0#\x004\x005\0;\0-\0"\0/\0>\0\r\0
+\0 \0 \0 \0<\0m\0:\0s\0m\0a\0l\0l\0F\0r\0a\0c\0 \0m\0:\0v\0a\0l\0=\0"\0o\0f\0f\0"\0/\0>\0\r\0
+\0 \0 \0 \0<\0m\0:\0d\0i\0s\0p\0D\0e\0f\0/\0>\0\r\0
+\0 \0 \0 \0<\0m\0:\0l\0M\0a\0r\0g\0i\0n\0 \0m\0:\0v\0a\0l\0=\0"\x000\0"\0/\0>\0\r\0
+\0 \0 \0 \0<\0m\0:\0r\0M\0a\0r\0g\0i\0n\0 \0m\0:\0v\0a\0l\0=\0"\x000\0"\0/\0>\0\r\0
+\0 \0 \0 \0<\0m\0:\0d\0e\0f\0J\0c\0 \0m\0:\0v\0a\0l\0=\0"\0c\0e\0n\0t\0e\0r\0G\0r\0o\0u\0p\0"\0/\0>\0\r\0
+\0 \0 \0 \0<\0m\0:\0w\0r\0a\0p\0I\0n\0d\0e\0n\0t\0 \0m\0:\0v\0a\0l\0=\0"\x001\x004\x004\x000\0"\0/\0>\0\r\0
+\0 \0 \0 \0<\0m\0:\0i\0n\0t\0L\0i\0m\0 \0m\0:\0v\0a\0l\0=\0"\0s\0u\0b\0S\0u\0p\0"\0/\0>\0\r\0
+\0 \0 \0 \0<\0m\0:\0n\0a\0r\0y\0L\0i\0m\0 \0m\0:\0v\0a\0l\0=\0"\0u\0n\0d\0O\0v\0r\0"\0/\0>\0\r\0
+\0 \0 \0<\0/\0m\0:\0m\0a\0t\0h\0P\0r\0>\0<\0/\0w\0:\0W\0o\0r\0d\0D\0o\0c\0u\0m\0e\0n\0t\0>\0\r\0
+\0<\0/\0x\0m\0l\0>\0<\0!\0[\0e\0n\0d\0i\0f\0]\0-\0-\0>\0<\0!\0-\0-\0[\0i\0f\0 \0g\0t\0e\0 \0m\0s\0o\0 \x009\0]\0>\0<\0x\0m\0l\0>\0\r\0
+\0 \0<\0w\0:\0L\0a\0t\0e\0n\0t\0S\0t\0y\0l\0e\0s\0 \0D\0e\0f\0L\0o\0c\0k\0e\0d\0S\0t\0a\0t\0e\0=\0"\0f\0a\0l\0s\0e\0"\0 \0D\0e\0f\0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0\r\0
+\0 \0 \0D\0e\0f\0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0f\0a\0l\0s\0e\0"\0 \0D\0e\0f\0Q\0F\0o\0r\0m\0a\0t\0=\0"\0f\0a\0l\0s\0e\0"\0 \0D\0e\0f\0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x009\x009\0"\0\r\0
+\0 \0 \0L\0a\0t\0e\0n\0t\0S\0t\0y\0l\0e\0C\0o\0u\0n\0t\0=\0"\x003\x007\x005\0"\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x000\0"\0 \0Q\0F\0o\0r\0m\0a\0t\0=\0"\0t\0r\0u\0e\0"\0 \0N\0a\0m\0e\0=\0"\0N\0o\0r\0m\0a\0l\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x009\0"\0 \0Q\0F\0o\0r\0m\0a\0t\0=\0"\0t\0r\0u\0e\0"\0 \0N\0a\0m\0e\0=\0"\0h\0e\0a\0d\0i\0n\0g\0 \x001\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x009\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0 \0Q\0F\0o\0r\0m\0a\0t\0=\0"\0t\0r\0u\0e\0"\0 \0N\0a\0m\0e\0=\0"\0h\0e\0a\0d\0i\0n\0g\0 \x002\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x009\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0 \0Q\0F\0o\0r\0m\0a\0t\0=\0"\0t\0r\0u\0e\0"\0 \0N\0a\0m\0e\0=\0"\0h\0e\0a\0d\0i\0n\0g\0 \x003\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x009\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0 \0Q\0F\0o\0r\0m\0a\0t\0=\0"\0t\0r\0u\0e\0"\0 \0N\0a\0m\0e\0=\0"\0h\0e\0a\0d\0i\0n\0g\0 \x004\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x009\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0 \0Q\0F\0o\0r\0m\0a\0t\0=\0"\0t\0r\0u\0e\0"\0 \0N\0a\0m\0e\0=\0"\0h\0e\0a\0d\0i\0n\0g\0 \x005\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x009\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0 \0Q\0F\0o\0r\0m\0a\0t\0=\0"\0t\0r\0u\0e\0"\0 \0N\0a\0m\0e\0=\0"\0h\0e\0a\0d\0i\0n\0g\0 \x006\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x009\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0 \0Q\0F\0o\0r\0m\0a\0t\0=\0"\0t\0r\0u\0e\0"\0 \0N\0a\0m\0e\0=\0"\0h\0e\0a\0d\0i\0n\0g\0 \x007\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x009\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0 \0Q\0F\0o\0r\0m\0a\0t\0=\0"\0t\0r\0u\0e\0"\0 \0N\0a\0m\0e\0=\0"\0h\0e\0a\0d\0i\0n\0g\0 \x008\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x009\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0 \0Q\0F\0o\0r\0m\0a\0t\0=\0"\0t\0r\0u\0e\0"\0 \0N\0a\0m\0e\0=\0"\0h\0e\0a\0d\0i\0n\0g\0 \x009\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0i\0n\0d\0e\0x\0 \x001\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0i\0n\0d\0e\0x\0 \x002\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0i\0n\0d\0e\0x\0 \x003\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0i\0n\0d\0e\0x\0 \x004\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0i\0n\0d\0e\0x\0 \x005\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0i\0n\0d\0e\0x\0 \x006\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0i\0n\0d\0e\0x\0 \x007\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0i\0n\0d\0e\0x\0 \x008\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0i\0n\0d\0e\0x\0 \x009\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x003\x009\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0 \0N\0a\0m\0e\0=\0"\0t\0o\0c\0 \x001\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x003\x009\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0 \0N\0a\0m\0e\0=\0"\0t\0o\0c\0 \x002\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x003\x009\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0 \0N\0a\0m\0e\0=\0"\0t\0o\0c\0 \x003\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x003\x009\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0 \0N\0a\0m\0e\0=\0"\0t\0o\0c\0 \x004\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x003\x009\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0 \0N\0a\0m\0e\0=\0"\0t\0o\0c\0 \x005\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x003\x009\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0 \0N\0a\0m\0e\0=\0"\0t\0o\0c\0 \x006\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x003\x009\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0 \0N\0a\0m\0e\0=\0"\0t\0o\0c\0 \x007\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x003\x009\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0 \0N\0a\0m\0e\0=\0"\0t\0o\0c\0 \x008\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x003\x009\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0 \0N\0a\0m\0e\0=\0"\0t\0o\0c\0 \x009\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0N\0o\0r\0m\0a\0l\0 \0I\0n\0d\0e\0n\0t\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0f\0o\0o\0t\0n\0o\0t\0e\0 \0t\0e\0x\0t\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0a\0n\0n\0o\0t\0a\0t\0i\0o\0n\0 \0t\0e\0x\0t\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0h\0e\0a\0d\0e\0r\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0f\0o\0o\0t\0e\0r\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0i\0n\0d\0e\0x\0 \0h\0e\0a\0d\0i\0n\0g\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x003\x005\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0 \0Q\0F\0o\0r\0m\0a\0t\0=\0"\0t\0r\0u\0e\0"\0 \0N\0a\0m\0e\0=\0"\0c\0a\0p\0t\0i\0o\0n\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0t\0a\0b\0l\0e\0 \0o\0f\0 \0f\0i\0g\0u\0r\0e\0s\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0e\0n\0v\0e\0l\0o\0p\0e\0 \0a\0d\0d\0r\0e\0s\0s\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0e\0n\0v\0e\0l\0o\0p\0e\0 \0r\0e\0t\0u\0r\0n\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0f\0o\0o\0t\0n\0o\0t\0e\0 \0r\0e\0f\0e\0r\0e\0n\0c\0e\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0a\0n\0n\0o\0t\0a\0t\0i\0o\0n\0 \0r\0e\0f\0e\0r\0e\0n\0c\0e\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0l\0i\0n\0e\0 \0n\0u\0m\0b\0e\0r\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0p\0a\0g\0e\0 \0n\0u\0m\0b\0e\0r\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0e\0n\0d\0n\0o\0t\0e\0 \0r\0e\0f\0e\0r\0e\0n\0c\0e\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0e\0n\0d\0n\0o\0t\0e\0 \0t\0e\0x\0t\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0t\0a\0b\0l\0e\0 \0o\0f\0 \0a\0u\0t\0h\0o\0r\0i\0t\0i\0e\0s\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0m\0a\0c\0r\0o\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0t\0o\0a\0 \0h\0e\0a\0d\0i\0n\0g\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0L\0i\0s\0t\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0L\0i\0s\0t\0 \0B\0u\0l\0l\0e\0t\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0L\0i\0s\0t\0 \0N\0u\0m\0b\0e\0r\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0L\0i\0s\0t\0 \x002\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0L\0i\0s\0t\0 \x003\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0L\0i\0s\0t\0 \x004\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0L\0i\0s\0t\0 \x005\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0L\0i\0s\0t\0 \0B\0u\0l\0l\0e\0t\0 \x002\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0L\0i\0s\0t\0 \0B\0u\0l\0l\0e\0t\0 \x003\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0L\0i\0s\0t\0 \0B\0u\0l\0l\0e\0t\0 \x004\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0L\0i\0s\0t\0 \0B\0u\0l\0l\0e\0t\0 \x005\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0L\0i\0s\0t\0 \0N\0u\0m\0b\0e\0r\0 \x002\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0L\0i\0s\0t\0 \0N\0u\0m\0b\0e\0r\0 \x003\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0L\0i\0s\0t\0 \0N\0u\0m\0b\0e\0r\0 \x004\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0L\0i\0s\0t\0 \0N\0u\0m\0b\0e\0r\0 \x005\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x001\x000\0"\0 \0Q\0F\0o\0r\0m\0a\0t\0=\0"\0t\0r\0u\0e\0"\0 \0N\0a\0m\0e\0=\0"\0T\0i\0t\0l\0e\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0C\0l\0o\0s\0i\0n\0g\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0S\0i\0g\0n\0a\0t\0u\0r\0e\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x001\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0 \0N\0a\0m\0e\0=\0"\0D\0e\0f\0a\0u\0l\0t\0 \0P\0a\0r\0a\0g\0r\0a\0p\0h\0 \0F\0o\0n\0t\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0B\0o\0d\0y\0 \0T\0e\0x\0t\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0B\0o\0d\0y\0 \0T\0e\0x\0t\0 \0I\0n\0d\0e\0n\0t\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0L\0i\0s\0t\0 \0C\0o\0n\0t\0i\0n\0u\0e\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0L\0i\0s\0t\0 \0C\0o\0n\0t\0i\0n\0u\0e\0 \x002\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0L\0i\0s\0t\0 \0C\0o\0n\0t\0i\0n\0u\0e\0 \x003\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0L\0i\0s\0t\0 \0C\0o\0n\0t\0i\0n\0u\0e\0 \x004\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0L\0i\0s\0t\0 \0C\0o\0n\0t\0i\0n\0u\0e\0 \x005\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0M\0e\0s\0s\0a\0g\0e\0 \0H\0e\0a\0d\0e\0r\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x001\x001\0"\0 \0Q\0F\0o\0r\0m\0a\0t\0=\0"\0t\0r\0u\0e\0"\0 \0N\0a\0m\0e\0=\0"\0S\0u\0b\0t\0i\0t\0l\0e\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0S\0a\0l\0u\0t\0a\0t\0i\0o\0n\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0D\0a\0t\0e\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0B\0o\0d\0y\0 \0T\0e\0x\0t\0 \0F\0i\0r\0s\0t\0 \0I\0n\0d\0e\0n\0t\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0B\0o\0d\0y\0 \0T\0e\0x\0t\0 \0F\0i\0r\0s\0t\0 \0I\0n\0d\0e\0n\0t\0 \x002\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0N\0o\0t\0e\0 \0H\0e\0a\0d\0i\0n\0g\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0B\0o\0d\0y\0 \0T\0e\0x\0t\0 \x002\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0B\0o\0d\0y\0 \0T\0e\0x\0t\0 \x003\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0B\0o\0d\0y\0 \0T\0e\0x\0t\0 \0I\0n\0d\0e\0n\0t\0 \x002\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0B\0o\0d\0y\0 \0T\0e\0x\0t\0 \0I\0n\0d\0e\0n\0t\0 \x003\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0B\0l\0o\0c\0k\0 \0T\0e\0x\0t\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0H\0y\0p\0e\0r\0l\0i\0n\0k\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0F\0o\0l\0l\0o\0w\0e\0d\0H\0y\0p\0e\0r\0l\0i\0n\0k\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x002\x002\0"\0 \0Q\0F\0o\0r\0m\0a\0t\0=\0"\0t\0r\0u\0e\0"\0 \0N\0a\0m\0e\0=\0"\0S\0t\0r\0o\0n\0g\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x002\x000\0"\0 \0Q\0F\0o\0r\0m\0a\0t\0=\0"\0t\0r\0u\0e\0"\0 \0N\0a\0m\0e\0=\0"\0E\0m\0p\0h\0a\0s\0i\0s\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0D\0o\0c\0u\0m\0e\0n\0t\0 \0M\0a\0p\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0P\0l\0a\0i\0n\0 \0T\0e\0x\0t\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0E\0-\0m\0a\0i\0l\0 \0S\0i\0g\0n\0a\0t\0u\0r\0e\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0H\0T\0M\0L\0 \0T\0o\0p\0 \0o\0f\0 \0F\0o\0r\0m\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0H\0T\0M\0L\0 \0B\0o\0t\0t\0o\0m\0 \0o\0f\0 \0F\0o\0r\0m\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0N\0o\0r\0m\0a\0l\0 \0(\0W\0e\0b\0)\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0H\0T\0M\0L\0 \0A\0c\0r\0o\0n\0y\0m\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0H\0T\0M\0L\0 \0A\0d\0d\0r\0e\0s\0s\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0H\0T\0M\0L\0 \0C\0i\0t\0e\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0H\0T\0M\0L\0 \0C\0o\0d\0e\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0H\0T\0M\0L\0 \0D\0e\0f\0i\0n\0i\0t\0i\0o\0n\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0H\0T\0M\0L\0 \0K\0e\0y\0b\0o\0a\0r\0d\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0H\0T\0M\0L\0 \0P\0r\0e\0f\0o\0r\0m\0a\0t\0t\0e\0d\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0H\0T\0M\0L\0 \0S\0a\0m\0p\0l\0e\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0H\0T\0M\0L\0 \0T\0y\0p\0e\0w\0r\0i\0t\0e\0r\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0H\0T\0M\0L\0 \0V\0a\0r\0i\0a\0b\0l\0e\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0N\0o\0r\0m\0a\0l\0 \0T\0a\0b\0l\0e\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0a\0n\0n\0o\0t\0a\0t\0i\0o\0n\0 \0s\0u\0b\0j\0e\0c\0t\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0N\0o\0 \0L\0i\0s\0t\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0O\0u\0t\0l\0i\0n\0e\0 \0L\0i\0s\0t\0 \x001\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0O\0u\0t\0l\0i\0n\0e\0 \0L\0i\0s\0t\0 \x002\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0O\0u\0t\0l\0i\0n\0e\0 \0L\0i\0s\0t\0 \x003\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0T\0a\0b\0l\0e\0 \0S\0i\0m\0p\0l\0e\0 \x001\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0T\0a\0b\0l\0e\0 \0S\0i\0m\0p\0l\0e\0 \x002\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0T\0a\0b\0l\0e\0 \0S\0i\0m\0p\0l\0e\0 \x003\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0T\0a\0b\0l\0e\0 \0C\0l\0a\0s\0s\0i\0c\0 \x001\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0T\0a\0b\0l\0e\0 \0C\0l\0a\0s\0s\0i\0c\0 \x002\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0T\0a\0b\0l\0e\0 \0C\0l\0a\0s\0s\0i\0c\0 \x003\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0T\0a\0b\0l\0e\0 \0C\0l\0a\0s\0s\0i\0c\0 \x004\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0T\0a\0b\0l\0e\0 \0C\0o\0l\0o\0r\0f\0u\0l\0 \x001\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0T\0a\0b\0l\0e\0 \0C\0o\0l\0o\0r\0f\0u\0l\0 \x002\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0T\0a\0b\0l\0e\0 \0C\0o\0l\0o\0r\0f\0u\0l\0 \x003\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0T\0a\0b\0l\0e\0 \0C\0o\0l\0u\0m\0n\0s\0 \x001\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0T\0a\0b\0l\0e\0 \0C\0o\0l\0u\0m\0n\0s\0 \x002\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0T\0a\0b\0l\0e\0 \0C\0o\0l\0u\0m\0n\0s\0 \x003\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0T\0a\0b\0l\0e\0 \0C\0o\0l\0u\0m\0n\0s\0 \x004\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0T\0a\0b\0l\0e\0 \0C\0o\0l\0u\0m\0n\0s\0 \x005\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0T\0a\0b\0l\0e\0 \0G\0r\0i\0d\0 \x001\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0T\0a\0b\0l\0e\0 \0G\0r\0i\0d\0 \x002\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0T\0a\0b\0l\0e\0 \0G\0r\0i\0d\0 \x003\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0T\0a\0b\0l\0e\0 \0G\0r\0i\0d\0 \x004\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0T\0a\0b\0l\0e\0 \0G\0r\0i\0d\0 \x005\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0T\0a\0b\0l\0e\0 \0G\0r\0i\0d\0 \x006\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0T\0a\0b\0l\0e\0 \0G\0r\0i\0d\0 \x007\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0T\0a\0b\0l\0e\0 \0G\0r\0i\0d\0 \x008\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0T\0a\0b\0l\0e\0 \0L\0i\0s\0t\0 \x001\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0T\0a\0b\0l\0e\0 \0L\0i\0s\0t\0 \x002\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0T\0a\0b\0l\0e\0 \0L\0i\0s\0t\0 \x003\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0T\0a\0b\0l\0e\0 \0L\0i\0s\0t\0 \x004\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0T\0a\0b\0l\0e\0 \0L\0i\0s\0t\0 \x005\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0T\0a\0b\0l\0e\0 \0L\0i\0s\0t\0 \x006\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0T\0a\0b\0l\0e\0 \0L\0i\0s\0t\0 \x007\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0T\0a\0b\0l\0e\0 \0L\0i\0s\0t\0 \x008\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0T\0a\0b\0l\0e\0 \x003\0D\0 \0e\0f\0f\0e\0c\0t\0s\0 \x001\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0T\0a\0b\0l\0e\0 \x003\0D\0 \0e\0f\0f\0e\0c\0t\0s\0 \x002\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0T\0a\0b\0l\0e\0 \x003\0D\0 \0e\0f\0f\0e\0c\0t\0s\0 \x003\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0T\0a\0b\0l\0e\0 \0C\0o\0n\0t\0e\0m\0p\0o\0r\0a\0r\0y\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0T\0a\0b\0l\0e\0 \0E\0l\0e\0g\0a\0n\0t\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0T\0a\0b\0l\0e\0 \0P\0r\0o\0f\0e\0s\0s\0i\0o\0n\0a\0l\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0T\0a\0b\0l\0e\0 \0S\0u\0b\0t\0l\0e\0 \x001\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0T\0a\0b\0l\0e\0 \0S\0u\0b\0t\0l\0e\0 \x002\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0T\0a\0b\0l\0e\0 \0W\0e\0b\0 \x001\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0T\0a\0b\0l\0e\0 \0W\0e\0b\0 \x002\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0T\0a\0b\0l\0e\0 \0W\0e\0b\0 \x003\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0B\0a\0l\0l\0o\0o\0n\0 \0T\0e\0x\0t\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x003\x009\0"\0 \0N\0a\0m\0e\0=\0"\0T\0a\0b\0l\0e\0 \0G\0r\0i\0d\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0T\0a\0b\0l\0e\0 \0T\0h\0e\0m\0e\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0N\0a\0m\0e\0=\0"\0P\0l\0a\0c\0e\0h\0o\0l\0d\0e\0r\0 \0T\0e\0x\0t\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x001\0"\0 \0Q\0F\0o\0r\0m\0a\0t\0=\0"\0t\0r\0u\0e\0"\0 \0N\0a\0m\0e\0=\0"\0N\0o\0 \0S\0p\0a\0c\0i\0n\0g\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x006\x000\0"\0 \0N\0a\0m\0e\0=\0"\0L\0i\0g\0h\0t\0 \0S\0h\0a\0d\0i\0n\0g\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x006\x001\0"\0 \0N\0a\0m\0e\0=\0"\0L\0i\0g\0h\0t\0 \0L\0i\0s\0t\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x006\x002\0"\0 \0N\0a\0m\0e\0=\0"\0L\0i\0g\0h\0t\0 \0G\0r\0i\0d\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x006\x003\0"\0 \0N\0a\0m\0e\0=\0"\0M\0e\0d\0i\0u\0m\0 \0S\0h\0a\0d\0i\0n\0g\0 \x001\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x006\x004\0"\0 \0N\0a\0m\0e\0=\0"\0M\0e\0d\0i\0u\0m\0 \0S\0h\0a\0d\0i\0n\0g\0 \x002\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x006\x005\0"\0 \0N\0a\0m\0e\0=\0"\0M\0e\0d\0i\0u\0m\0 \0L\0i\0s\0t\0 \x001\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x006\x006\0"\0 \0N\0a\0m\0e\0=\0"\0M\0e\0d\0i\0u\0m\0 \0L\0i\0s\0t\0 \x002\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x006\x007\0"\0 \0N\0a\0m\0e\0=\0"\0M\0e\0d\0i\0u\0m\0 \0G\0r\0i\0d\0 \x001\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x006\x008\0"\0 \0N\0a\0m\0e\0=\0"\0M\0e\0d\0i\0u\0m\0 \0G\0r\0i\0d\0 \x002\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x006\x009\0"\0 \0N\0a\0m\0e\0=\0"\0M\0e\0d\0i\0u\0m\0 \0G\0r\0i\0d\0 \x003\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x007\x000\0"\0 \0N\0a\0m\0e\0=\0"\0D\0a\0r\0k\0 \0L\0i\0s\0t\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x007\x001\0"\0 \0N\0a\0m\0e\0=\0"\0C\0o\0l\0o\0r\0f\0u\0l\0 \0S\0h\0a\0d\0i\0n\0g\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x007\x002\0"\0 \0N\0a\0m\0e\0=\0"\0C\0o\0l\0o\0r\0f\0u\0l\0 \0L\0i\0s\0t\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x007\x003\0"\0 \0N\0a\0m\0e\0=\0"\0C\0o\0l\0o\0r\0f\0u\0l\0 \0G\0r\0i\0d\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x006\x000\0"\0 \0N\0a\0m\0e\0=\0"\0L\0i\0g\0h\0t\0 \0S\0h\0a\0d\0i\0n\0g\0 \0A\0c\0c\0e\0n\0t\0 \x001\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x006\x001\0"\0 \0N\0a\0m\0e\0=\0"\0L\0i\0g\0h\0t\0 \0L\0i\0s\0t\0 \0A\0c\0c\0e\0n\0t\0 \x001\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x006\x002\0"\0 \0N\0a\0m\0e\0=\0"\0L\0i\0g\0h\0t\0 \0G\0r\0i\0d\0 \0A\0c\0c\0e\0n\0t\0 \x001\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x006\x003\0"\0 \0N\0a\0m\0e\0=\0"\0M\0e\0d\0i\0u\0m\0 \0S\0h\0a\0d\0i\0n\0g\0 \x001\0 \0A\0c\0c\0e\0n\0t\0 \x001\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x006\x004\0"\0 \0N\0a\0m\0e\0=\0"\0M\0e\0d\0i\0u\0m\0 \0S\0h\0a\0d\0i\0n\0g\0 \x002\0 \0A\0c\0c\0e\0n\0t\0 \x001\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x006\x005\0"\0 \0N\0a\0m\0e\0=\0"\0M\0e\0d\0i\0u\0m\0 \0L\0i\0s\0t\0 \x001\0 \0A\0c\0c\0e\0n\0t\0 \x001\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0N\0a\0m\0e\0=\0"\0R\0e\0v\0i\0s\0i\0o\0n\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x003\x004\0"\0 \0Q\0F\0o\0r\0m\0a\0t\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0L\0i\0s\0t\0 \0P\0a\0r\0a\0g\0r\0a\0p\0h\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x002\x009\0"\0 \0Q\0F\0o\0r\0m\0a\0t\0=\0"\0t\0r\0u\0e\0"\0 \0N\0a\0m\0e\0=\0"\0Q\0u\0o\0t\0e\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x003\x000\0"\0 \0Q\0F\0o\0r\0m\0a\0t\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0I\0n\0t\0e\0n\0s\0e\0 \0Q\0u\0o\0t\0e\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x006\x006\0"\0 \0N\0a\0m\0e\0=\0"\0M\0e\0d\0i\0u\0m\0 \0L\0i\0s\0t\0 \x002\0 \0A\0c\0c\0e\0n\0t\0 \x001\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x006\x007\0"\0 \0N\0a\0m\0e\0=\0"\0M\0e\0d\0i\0u\0m\0 \0G\0r\0i\0d\0 \x001\0 \0A\0c\0c\0e\0n\0t\0 \x001\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x006\x008\0"\0 \0N\0a\0m\0e\0=\0"\0M\0e\0d\0i\0u\0m\0 \0G\0r\0i\0d\0 \x002\0 \0A\0c\0c\0e\0n\0t\0 \x001\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x006\x009\0"\0 \0N\0a\0m\0e\0=\0"\0M\0e\0d\0i\0u\0m\0 \0G\0r\0i\0d\0 \x003\0 \0A\0c\0c\0e\0n\0t\0 \x001\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x007\x000\0"\0 \0N\0a\0m\0e\0=\0"\0D\0a\0r\0k\0 \0L\0i\0s\0t\0 \0A\0c\0c\0e\0n\0t\0 \x001\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x007\x001\0"\0 \0N\0a\0m\0e\0=\0"\0C\0o\0l\0o\0r\0f\0u\0l\0 \0S\0h\0a\0d\0i\0n\0g\0 \0A\0c\0c\0e\0n\0t\0 \x001\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x007\x002\0"\0 \0N\0a\0m\0e\0=\0"\0C\0o\0l\0o\0r\0f\0u\0l\0 \0L\0i\0s\0t\0 \0A\0c\0c\0e\0n\0t\0 \x001\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x007\x003\0"\0 \0N\0a\0m\0e\0=\0"\0C\0o\0l\0o\0r\0f\0u\0l\0 \0G\0r\0i\0d\0 \0A\0c\0c\0e\0n\0t\0 \x001\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x006\x000\0"\0 \0N\0a\0m\0e\0=\0"\0L\0i\0g\0h\0t\0 \0S\0h\0a\0d\0i\0n\0g\0 \0A\0c\0c\0e\0n\0t\0 \x002\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x006\x001\0"\0 \0N\0a\0m\0e\0=\0"\0L\0i\0g\0h\0t\0 \0L\0i\0s\0t\0 \0A\0c\0c\0e\0n\0t\0 \x002\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x006\x002\0"\0 \0N\0a\0m\0e\0=\0"\0L\0i\0g\0h\0t\0 \0G\0r\0i\0d\0 \0A\0c\0c\0e\0n\0t\0 \x002\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x006\x003\0"\0 \0N\0a\0m\0e\0=\0"\0M\0e\0d\0i\0u\0m\0 \0S\0h\0a\0d\0i\0n\0g\0 \x001\0 \0A\0c\0c\0e\0n\0t\0 \x002\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x006\x004\0"\0 \0N\0a\0m\0e\0=\0"\0M\0e\0d\0i\0u\0m\0 \0S\0h\0a\0d\0i\0n\0g\0 \x002\0 \0A\0c\0c\0e\0n\0t\0 \x002\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x006\x005\0"\0 \0N\0a\0m\0e\0=\0"\0M\0e\0d\0i\0u\0m\0 \0L\0i\0s\0t\0 \x001\0 \0A\0c\0c\0e\0n\0t\0 \x002\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x006\x006\0"\0 \0N\0a\0m\0e\0=\0"\0M\0e\0d\0i\0u\0m\0 \0L\0i\0s\0t\0 \x002\0 \0A\0c\0c\0e\0n\0t\0 \x002\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x006\x007\0"\0 \0N\0a\0m\0e\0=\0"\0M\0e\0d\0i\0u\0m\0 \0G\0r\0i\0d\0 \x001\0 \0A\0c\0c\0e\0n\0t\0 \x002\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x006\x008\0"\0 \0N\0a\0m\0e\0=\0"\0M\0e\0d\0i\0u\0m\0 \0G\0r\0i\0d\0 \x002\0 \0A\0c\0c\0e\0n\0t\0 \x002\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x006\x009\0"\0 \0N\0a\0m\0e\0=\0"\0M\0e\0d\0i\0u\0m\0 \0G\0r\0i\0d\0 \x003\0 \0A\0c\0c\0e\0n\0t\0 \x002\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x007\x000\0"\0 \0N\0a\0m\0e\0=\0"\0D\0a\0r\0k\0 \0L\0i\0s\0t\0 \0A\0c\0c\0e\0n\0t\0 \x002\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x007\x001\0"\0 \0N\0a\0m\0e\0=\0"\0C\0o\0l\0o\0r\0f\0u\0l\0 \0S\0h\0a\0d\0i\0n\0g\0 \0A\0c\0c\0e\0n\0t\0 \x002\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x007\x002\0"\0 \0N\0a\0m\0e\0=\0"\0C\0o\0l\0o\0r\0f\0u\0l\0 \0L\0i\0s\0t\0 \0A\0c\0c\0e\0n\0t\0 \x002\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x007\x003\0"\0 \0N\0a\0m\0e\0=\0"\0C\0o\0l\0o\0r\0f\0u\0l\0 \0G\0r\0i\0d\0 \0A\0c\0c\0e\0n\0t\0 \x002\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x006\x000\0"\0 \0N\0a\0m\0e\0=\0"\0L\0i\0g\0h\0t\0 \0S\0h\0a\0d\0i\0n\0g\0 \0A\0c\0c\0e\0n\0t\0 \x003\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x006\x001\0"\0 \0N\0a\0m\0e\0=\0"\0L\0i\0g\0h\0t\0 \0L\0i\0s\0t\0 \0A\0c\0c\0e\0n\0t\0 \x003\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x006\x002\0"\0 \0N\0a\0m\0e\0=\0"\0L\0i\0g\0h\0t\0 \0G\0r\0i\0d\0 \0A\0c\0c\0e\0n\0t\0 \x003\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x006\x003\0"\0 \0N\0a\0m\0e\0=\0"\0M\0e\0d\0i\0u\0m\0 \0S\0h\0a\0d\0i\0n\0g\0 \x001\0 \0A\0c\0c\0e\0n\0t\0 \x003\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x006\x004\0"\0 \0N\0a\0m\0e\0=\0"\0M\0e\0d\0i\0u\0m\0 \0S\0h\0a\0d\0i\0n\0g\0 \x002\0 \0A\0c\0c\0e\0n\0t\0 \x003\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x006\x005\0"\0 \0N\0a\0m\0e\0=\0"\0M\0e\0d\0i\0u\0m\0 \0L\0i\0s\0t\0 \x001\0 \0A\0c\0c\0e\0n\0t\0 \x003\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x006\x006\0"\0 \0N\0a\0m\0e\0=\0"\0M\0e\0d\0i\0u\0m\0 \0L\0i\0s\0t\0 \x002\0 \0A\0c\0c\0e\0n\0t\0 \x003\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x006\x007\0"\0 \0N\0a\0m\0e\0=\0"\0M\0e\0d\0i\0u\0m\0 \0G\0r\0i\0d\0 \x001\0 \0A\0c\0c\0e\0n\0t\0 \x003\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x006\x008\0"\0 \0N\0a\0m\0e\0=\0"\0M\0e\0d\0i\0u\0m\0 \0G\0r\0i\0d\0 \x002\0 \0A\0c\0c\0e\0n\0t\0 \x003\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x006\x009\0"\0 \0N\0a\0m\0e\0=\0"\0M\0e\0d\0i\0u\0m\0 \0G\0r\0i\0d\0 \x003\0 \0A\0c\0c\0e\0n\0t\0 \x003\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x007\x000\0"\0 \0N\0a\0m\0e\0=\0"\0D\0a\0r\0k\0 \0L\0i\0s\0t\0 \0A\0c\0c\0e\0n\0t\0 \x003\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x007\x001\0"\0 \0N\0a\0m\0e\0=\0"\0C\0o\0l\0o\0r\0f\0u\0l\0 \0S\0h\0a\0d\0i\0n\0g\0 \0A\0c\0c\0e\0n\0t\0 \x003\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x007\x002\0"\0 \0N\0a\0m\0e\0=\0"\0C\0o\0l\0o\0r\0f\0u\0l\0 \0L\0i\0s\0t\0 \0A\0c\0c\0e\0n\0t\0 \x003\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x007\x003\0"\0 \0N\0a\0m\0e\0=\0"\0C\0o\0l\0o\0r\0f\0u\0l\0 \0G\0r\0i\0d\0 \0A\0c\0c\0e\0n\0t\0 \x003\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x006\x000\0"\0 \0N\0a\0m\0e\0=\0"\0L\0i\0g\0h\0t\0 \0S\0h\0a\0d\0i\0n\0g\0 \0A\0c\0c\0e\0n\0t\0 \x004\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x006\x001\0"\0 \0N\0a\0m\0e\0=\0"\0L\0i\0g\0h\0t\0 \0L\0i\0s\0t\0 \0A\0c\0c\0e\0n\0t\0 \x004\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x006\x002\0"\0 \0N\0a\0m\0e\0=\0"\0L\0i\0g\0h\0t\0 \0G\0r\0i\0d\0 \0A\0c\0c\0e\0n\0t\0 \x004\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x006\x003\0"\0 \0N\0a\0m\0e\0=\0"\0M\0e\0d\0i\0u\0m\0 \0S\0h\0a\0d\0i\0n\0g\0 \x001\0 \0A\0c\0c\0e\0n\0t\0 \x004\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x006\x004\0"\0 \0N\0a\0m\0e\0=\0"\0M\0e\0d\0i\0u\0m\0 \0S\0h\0a\0d\0i\0n\0g\0 \x002\0 \0A\0c\0c\0e\0n\0t\0 \x004\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x006\x005\0"\0 \0N\0a\0m\0e\0=\0"\0M\0e\0d\0i\0u\0m\0 \0L\0i\0s\0t\0 \x001\0 \0A\0c\0c\0e\0n\0t\0 \x004\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x006\x006\0"\0 \0N\0a\0m\0e\0=\0"\0M\0e\0d\0i\0u\0m\0 \0L\0i\0s\0t\0 \x002\0 \0A\0c\0c\0e\0n\0t\0 \x004\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x006\x007\0"\0 \0N\0a\0m\0e\0=\0"\0M\0e\0d\0i\0u\0m\0 \0G\0r\0i\0d\0 \x001\0 \0A\0c\0c\0e\0n\0t\0 \x004\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x006\x008\0"\0 \0N\0a\0m\0e\0=\0"\0M\0e\0d\0i\0u\0m\0 \0G\0r\0i\0d\0 \x002\0 \0A\0c\0c\0e\0n\0t\0 \x004\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x006\x009\0"\0 \0N\0a\0m\0e\0=\0"\0M\0e\0d\0i\0u\0m\0 \0G\0r\0i\0d\0 \x003\0 \0A\0c\0c\0e\0n\0t\0 \x004\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x007\x000\0"\0 \0N\0a\0m\0e\0=\0"\0D\0a\0r\0k\0 \0L\0i\0s\0t\0 \0A\0c\0c\0e\0n\0t\0 \x004\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x007\x001\0"\0 \0N\0a\0m\0e\0=\0"\0C\0o\0l\0o\0r\0f\0u\0l\0 \0S\0h\0a\0d\0i\0n\0g\0 \0A\0c\0c\0e\0n\0t\0 \x004\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x007\x002\0"\0 \0N\0a\0m\0e\0=\0"\0C\0o\0l\0o\0r\0f\0u\0l\0 \0L\0i\0s\0t\0 \0A\0c\0c\0e\0n\0t\0 \x004\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x007\x003\0"\0 \0N\0a\0m\0e\0=\0"\0C\0o\0l\0o\0r\0f\0u\0l\0 \0G\0r\0i\0d\0 \0A\0c\0c\0e\0n\0t\0 \x004\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x006\x000\0"\0 \0N\0a\0m\0e\0=\0"\0L\0i\0g\0h\0t\0 \0S\0h\0a\0d\0i\0n\0g\0 \0A\0c\0c\0e\0n\0t\0 \x005\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x006\x001\0"\0 \0N\0a\0m\0e\0=\0"\0L\0i\0g\0h\0t\0 \0L\0i\0s\0t\0 \0A\0c\0c\0e\0n\0t\0 \x005\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x006\x002\0"\0 \0N\0a\0m\0e\0=\0"\0L\0i\0g\0h\0t\0 \0G\0r\0i\0d\0 \0A\0c\0c\0e\0n\0t\0 \x005\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x006\x003\0"\0 \0N\0a\0m\0e\0=\0"\0M\0e\0d\0i\0u\0m\0 \0S\0h\0a\0d\0i\0n\0g\0 \x001\0 \0A\0c\0c\0e\0n\0t\0 \x005\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x006\x004\0"\0 \0N\0a\0m\0e\0=\0"\0M\0e\0d\0i\0u\0m\0 \0S\0h\0a\0d\0i\0n\0g\0 \x002\0 \0A\0c\0c\0e\0n\0t\0 \x005\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x006\x005\0"\0 \0N\0a\0m\0e\0=\0"\0M\0e\0d\0i\0u\0m\0 \0L\0i\0s\0t\0 \x001\0 \0A\0c\0c\0e\0n\0t\0 \x005\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x006\x006\0"\0 \0N\0a\0m\0e\0=\0"\0M\0e\0d\0i\0u\0m\0 \0L\0i\0s\0t\0 \x002\0 \0A\0c\0c\0e\0n\0t\0 \x005\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x006\x007\0"\0 \0N\0a\0m\0e\0=\0"\0M\0e\0d\0i\0u\0m\0 \0G\0r\0i\0d\0 \x001\0 \0A\0c\0c\0e\0n\0t\0 \x005\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x006\x008\0"\0 \0N\0a\0m\0e\0=\0"\0M\0e\0d\0i\0u\0m\0 \0G\0r\0i\0d\0 \x002\0 \0A\0c\0c\0e\0n\0t\0 \x005\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x006\x009\0"\0 \0N\0a\0m\0e\0=\0"\0M\0e\0d\0i\0u\0m\0 \0G\0r\0i\0d\0 \x003\0 \0A\0c\0c\0e\0n\0t\0 \x005\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x007\x000\0"\0 \0N\0a\0m\0e\0=\0"\0D\0a\0r\0k\0 \0L\0i\0s\0t\0 \0A\0c\0c\0e\0n\0t\0 \x005\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x007\x001\0"\0 \0N\0a\0m\0e\0=\0"\0C\0o\0l\0o\0r\0f\0u\0l\0 \0S\0h\0a\0d\0i\0n\0g\0 \0A\0c\0c\0e\0n\0t\0 \x005\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x007\x002\0"\0 \0N\0a\0m\0e\0=\0"\0C\0o\0l\0o\0r\0f\0u\0l\0 \0L\0i\0s\0t\0 \0A\0c\0c\0e\0n\0t\0 \x005\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x007\x003\0"\0 \0N\0a\0m\0e\0=\0"\0C\0o\0l\0o\0r\0f\0u\0l\0 \0G\0r\0i\0d\0 \0A\0c\0c\0e\0n\0t\0 \x005\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x006\x000\0"\0 \0N\0a\0m\0e\0=\0"\0L\0i\0g\0h\0t\0 \0S\0h\0a\0d\0i\0n\0g\0 \0A\0c\0c\0e\0n\0t\0 \x006\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x006\x001\0"\0 \0N\0a\0m\0e\0=\0"\0L\0i\0g\0h\0t\0 \0L\0i\0s\0t\0 \0A\0c\0c\0e\0n\0t\0 \x006\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x006\x002\0"\0 \0N\0a\0m\0e\0=\0"\0L\0i\0g\0h\0t\0 \0G\0r\0i\0d\0 \0A\0c\0c\0e\0n\0t\0 \x006\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x006\x003\0"\0 \0N\0a\0m\0e\0=\0"\0M\0e\0d\0i\0u\0m\0 \0S\0h\0a\0d\0i\0n\0g\0 \x001\0 \0A\0c\0c\0e\0n\0t\0 \x006\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x006\x004\0"\0 \0N\0a\0m\0e\0=\0"\0M\0e\0d\0i\0u\0m\0 \0S\0h\0a\0d\0i\0n\0g\0 \x002\0 \0A\0c\0c\0e\0n\0t\0 \x006\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x006\x005\0"\0 \0N\0a\0m\0e\0=\0"\0M\0e\0d\0i\0u\0m\0 \0L\0i\0s\0t\0 \x001\0 \0A\0c\0c\0e\0n\0t\0 \x006\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x006\x006\0"\0 \0N\0a\0m\0e\0=\0"\0M\0e\0d\0i\0u\0m\0 \0L\0i\0s\0t\0 \x002\0 \0A\0c\0c\0e\0n\0t\0 \x006\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x006\x007\0"\0 \0N\0a\0m\0e\0=\0"\0M\0e\0d\0i\0u\0m\0 \0G\0r\0i\0d\0 \x001\0 \0A\0c\0c\0e\0n\0t\0 \x006\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x006\x008\0"\0 \0N\0a\0m\0e\0=\0"\0M\0e\0d\0i\0u\0m\0 \0G\0r\0i\0d\0 \x002\0 \0A\0c\0c\0e\0n\0t\0 \x006\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x006\x009\0"\0 \0N\0a\0m\0e\0=\0"\0M\0e\0d\0i\0u\0m\0 \0G\0r\0i\0d\0 \x003\0 \0A\0c\0c\0e\0n\0t\0 \x006\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x007\x000\0"\0 \0N\0a\0m\0e\0=\0"\0D\0a\0r\0k\0 \0L\0i\0s\0t\0 \0A\0c\0c\0e\0n\0t\0 \x006\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x007\x001\0"\0 \0N\0a\0m\0e\0=\0"\0C\0o\0l\0o\0r\0f\0u\0l\0 \0S\0h\0a\0d\0i\0n\0g\0 \0A\0c\0c\0e\0n\0t\0 \x006\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x007\x002\0"\0 \0N\0a\0m\0e\0=\0"\0C\0o\0l\0o\0r\0f\0u\0l\0 \0L\0i\0s\0t\0 \0A\0c\0c\0e\0n\0t\0 \x006\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x007\x003\0"\0 \0N\0a\0m\0e\0=\0"\0C\0o\0l\0o\0r\0f\0u\0l\0 \0G\0r\0i\0d\0 \0A\0c\0c\0e\0n\0t\0 \x006\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x001\x009\0"\0 \0Q\0F\0o\0r\0m\0a\0t\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0S\0u\0b\0t\0l\0e\0 \0E\0m\0p\0h\0a\0s\0i\0s\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x002\x001\0"\0 \0Q\0F\0o\0r\0m\0a\0t\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0I\0n\0t\0e\0n\0s\0e\0 \0E\0m\0p\0h\0a\0s\0i\0s\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x003\x001\0"\0 \0Q\0F\0o\0r\0m\0a\0t\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0S\0u\0b\0t\0l\0e\0 \0R\0e\0f\0e\0r\0e\0n\0c\0e\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x003\x002\0"\0 \0Q\0F\0o\0r\0m\0a\0t\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0I\0n\0t\0e\0n\0s\0e\0 \0R\0e\0f\0e\0r\0e\0n\0c\0e\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x003\x003\0"\0 \0Q\0F\0o\0r\0m\0a\0t\0=\0"\0t\0r\0u\0e\0"\0 \0N\0a\0m\0e\0=\0"\0B\0o\0o\0k\0 \0T\0i\0t\0l\0e\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x003\x007\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0 \0N\0a\0m\0e\0=\0"\0B\0i\0b\0l\0i\0o\0g\0r\0a\0p\0h\0y\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x003\x009\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0 \0Q\0F\0o\0r\0m\0a\0t\0=\0"\0t\0r\0u\0e\0"\0 \0N\0a\0m\0e\0=\0"\0T\0O\0C\0 \0H\0e\0a\0d\0i\0n\0g\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x004\x001\0"\0 \0N\0a\0m\0e\0=\0"\0P\0l\0a\0i\0n\0 \0T\0a\0b\0l\0e\0 \x001\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x004\x002\0"\0 \0N\0a\0m\0e\0=\0"\0P\0l\0a\0i\0n\0 \0T\0a\0b\0l\0e\0 \x002\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x004\x003\0"\0 \0N\0a\0m\0e\0=\0"\0P\0l\0a\0i\0n\0 \0T\0a\0b\0l\0e\0 \x003\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x004\x004\0"\0 \0N\0a\0m\0e\0=\0"\0P\0l\0a\0i\0n\0 \0T\0a\0b\0l\0e\0 \x004\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x004\x005\0"\0 \0N\0a\0m\0e\0=\0"\0P\0l\0a\0i\0n\0 \0T\0a\0b\0l\0e\0 \x005\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x004\x000\0"\0 \0N\0a\0m\0e\0=\0"\0G\0r\0i\0d\0 \0T\0a\0b\0l\0e\0 \0L\0i\0g\0h\0t\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x004\x006\0"\0 \0N\0a\0m\0e\0=\0"\0G\0r\0i\0d\0 \0T\0a\0b\0l\0e\0 \x001\0 \0L\0i\0g\0h\0t\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x004\x007\0"\0 \0N\0a\0m\0e\0=\0"\0G\0r\0i\0d\0 \0T\0a\0b\0l\0e\0 \x002\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x004\x008\0"\0 \0N\0a\0m\0e\0=\0"\0G\0r\0i\0d\0 \0T\0a\0b\0l\0e\0 \x003\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x004\x009\0"\0 \0N\0a\0m\0e\0=\0"\0G\0r\0i\0d\0 \0T\0a\0b\0l\0e\0 \x004\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x005\x000\0"\0 \0N\0a\0m\0e\0=\0"\0G\0r\0i\0d\0 \0T\0a\0b\0l\0e\0 \x005\0 \0D\0a\0r\0k\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x005\x001\0"\0 \0N\0a\0m\0e\0=\0"\0G\0r\0i\0d\0 \0T\0a\0b\0l\0e\0 \x006\0 \0C\0o\0l\0o\0r\0f\0u\0l\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x005\x002\0"\0 \0N\0a\0m\0e\0=\0"\0G\0r\0i\0d\0 \0T\0a\0b\0l\0e\0 \x007\0 \0C\0o\0l\0o\0r\0f\0u\0l\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x004\x006\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0G\0r\0i\0d\0 \0T\0a\0b\0l\0e\0 \x001\0 \0L\0i\0g\0h\0t\0 \0A\0c\0c\0e\0n\0t\0 \x001\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x004\x007\0"\0 \0N\0a\0m\0e\0=\0"\0G\0r\0i\0d\0 \0T\0a\0b\0l\0e\0 \x002\0 \0A\0c\0c\0e\0n\0t\0 \x001\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x004\x008\0"\0 \0N\0a\0m\0e\0=\0"\0G\0r\0i\0d\0 \0T\0a\0b\0l\0e\0 \x003\0 \0A\0c\0c\0e\0n\0t\0 \x001\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x004\x009\0"\0 \0N\0a\0m\0e\0=\0"\0G\0r\0i\0d\0 \0T\0a\0b\0l\0e\0 \x004\0 \0A\0c\0c\0e\0n\0t\0 \x001\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x005\x000\0"\0 \0N\0a\0m\0e\0=\0"\0G\0r\0i\0d\0 \0T\0a\0b\0l\0e\0 \x005\0 \0D\0a\0r\0k\0 \0A\0c\0c\0e\0n\0t\0 \x001\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x005\x001\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0G\0r\0i\0d\0 \0T\0a\0b\0l\0e\0 \x006\0 \0C\0o\0l\0o\0r\0f\0u\0l\0 \0A\0c\0c\0e\0n\0t\0 \x001\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x005\x002\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0G\0r\0i\0d\0 \0T\0a\0b\0l\0e\0 \x007\0 \0C\0o\0l\0o\0r\0f\0u\0l\0 \0A\0c\0c\0e\0n\0t\0 \x001\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x004\x006\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0G\0r\0i\0d\0 \0T\0a\0b\0l\0e\0 \x001\0 \0L\0i\0g\0h\0t\0 \0A\0c\0c\0e\0n\0t\0 \x002\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x004\x007\0"\0 \0N\0a\0m\0e\0=\0"\0G\0r\0i\0d\0 \0T\0a\0b\0l\0e\0 \x002\0 \0A\0c\0c\0e\0n\0t\0 \x002\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x004\x008\0"\0 \0N\0a\0m\0e\0=\0"\0G\0r\0i\0d\0 \0T\0a\0b\0l\0e\0 \x003\0 \0A\0c\0c\0e\0n\0t\0 \x002\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x004\x009\0"\0 \0N\0a\0m\0e\0=\0"\0G\0r\0i\0d\0 \0T\0a\0b\0l\0e\0 \x004\0 \0A\0c\0c\0e\0n\0t\0 \x002\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x005\x000\0"\0 \0N\0a\0m\0e\0=\0"\0G\0r\0i\0d\0 \0T\0a\0b\0l\0e\0 \x005\0 \0D\0a\0r\0k\0 \0A\0c\0c\0e\0n\0t\0 \x002\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x005\x001\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0G\0r\0i\0d\0 \0T\0a\0b\0l\0e\0 \x006\0 \0C\0o\0l\0o\0r\0f\0u\0l\0 \0A\0c\0c\0e\0n\0t\0 \x002\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x005\x002\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0G\0r\0i\0d\0 \0T\0a\0b\0l\0e\0 \x007\0 \0C\0o\0l\0o\0r\0f\0u\0l\0 \0A\0c\0c\0e\0n\0t\0 \x002\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x004\x006\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0G\0r\0i\0d\0 \0T\0a\0b\0l\0e\0 \x001\0 \0L\0i\0g\0h\0t\0 \0A\0c\0c\0e\0n\0t\0 \x003\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x004\x007\0"\0 \0N\0a\0m\0e\0=\0"\0G\0r\0i\0d\0 \0T\0a\0b\0l\0e\0 \x002\0 \0A\0c\0c\0e\0n\0t\0 \x003\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x004\x008\0"\0 \0N\0a\0m\0e\0=\0"\0G\0r\0i\0d\0 \0T\0a\0b\0l\0e\0 \x003\0 \0A\0c\0c\0e\0n\0t\0 \x003\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x004\x009\0"\0 \0N\0a\0m\0e\0=\0"\0G\0r\0i\0d\0 \0T\0a\0b\0l\0e\0 \x004\0 \0A\0c\0c\0e\0n\0t\0 \x003\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x005\x000\0"\0 \0N\0a\0m\0e\0=\0"\0G\0r\0i\0d\0 \0T\0a\0b\0l\0e\0 \x005\0 \0D\0a\0r\0k\0 \0A\0c\0c\0e\0n\0t\0 \x003\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x005\x001\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0G\0r\0i\0d\0 \0T\0a\0b\0l\0e\0 \x006\0 \0C\0o\0l\0o\0r\0f\0u\0l\0 \0A\0c\0c\0e\0n\0t\0 \x003\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x005\x002\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0G\0r\0i\0d\0 \0T\0a\0b\0l\0e\0 \x007\0 \0C\0o\0l\0o\0r\0f\0u\0l\0 \0A\0c\0c\0e\0n\0t\0 \x003\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x004\x006\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0G\0r\0i\0d\0 \0T\0a\0b\0l\0e\0 \x001\0 \0L\0i\0g\0h\0t\0 \0A\0c\0c\0e\0n\0t\0 \x004\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x004\x007\0"\0 \0N\0a\0m\0e\0=\0"\0G\0r\0i\0d\0 \0T\0a\0b\0l\0e\0 \x002\0 \0A\0c\0c\0e\0n\0t\0 \x004\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x004\x008\0"\0 \0N\0a\0m\0e\0=\0"\0G\0r\0i\0d\0 \0T\0a\0b\0l\0e\0 \x003\0 \0A\0c\0c\0e\0n\0t\0 \x004\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x004\x009\0"\0 \0N\0a\0m\0e\0=\0"\0G\0r\0i\0d\0 \0T\0a\0b\0l\0e\0 \x004\0 \0A\0c\0c\0e\0n\0t\0 \x004\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x005\x000\0"\0 \0N\0a\0m\0e\0=\0"\0G\0r\0i\0d\0 \0T\0a\0b\0l\0e\0 \x005\0 \0D\0a\0r\0k\0 \0A\0c\0c\0e\0n\0t\0 \x004\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x005\x001\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0G\0r\0i\0d\0 \0T\0a\0b\0l\0e\0 \x006\0 \0C\0o\0l\0o\0r\0f\0u\0l\0 \0A\0c\0c\0e\0n\0t\0 \x004\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x005\x002\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0G\0r\0i\0d\0 \0T\0a\0b\0l\0e\0 \x007\0 \0C\0o\0l\0o\0r\0f\0u\0l\0 \0A\0c\0c\0e\0n\0t\0 \x004\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x004\x006\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0G\0r\0i\0d\0 \0T\0a\0b\0l\0e\0 \x001\0 \0L\0i\0g\0h\0t\0 \0A\0c\0c\0e\0n\0t\0 \x005\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x004\x007\0"\0 \0N\0a\0m\0e\0=\0"\0G\0r\0i\0d\0 \0T\0a\0b\0l\0e\0 \x002\0 \0A\0c\0c\0e\0n\0t\0 \x005\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x004\x008\0"\0 \0N\0a\0m\0e\0=\0"\0G\0r\0i\0d\0 \0T\0a\0b\0l\0e\0 \x003\0 \0A\0c\0c\0e\0n\0t\0 \x005\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x004\x009\0"\0 \0N\0a\0m\0e\0=\0"\0G\0r\0i\0d\0 \0T\0a\0b\0l\0e\0 \x004\0 \0A\0c\0c\0e\0n\0t\0 \x005\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x005\x000\0"\0 \0N\0a\0m\0e\0=\0"\0G\0r\0i\0d\0 \0T\0a\0b\0l\0e\0 \x005\0 \0D\0a\0r\0k\0 \0A\0c\0c\0e\0n\0t\0 \x005\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x005\x001\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0G\0r\0i\0d\0 \0T\0a\0b\0l\0e\0 \x006\0 \0C\0o\0l\0o\0r\0f\0u\0l\0 \0A\0c\0c\0e\0n\0t\0 \x005\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x005\x002\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0G\0r\0i\0d\0 \0T\0a\0b\0l\0e\0 \x007\0 \0C\0o\0l\0o\0r\0f\0u\0l\0 \0A\0c\0c\0e\0n\0t\0 \x005\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x004\x006\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0G\0r\0i\0d\0 \0T\0a\0b\0l\0e\0 \x001\0 \0L\0i\0g\0h\0t\0 \0A\0c\0c\0e\0n\0t\0 \x006\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x004\x007\0"\0 \0N\0a\0m\0e\0=\0"\0G\0r\0i\0d\0 \0T\0a\0b\0l\0e\0 \x002\0 \0A\0c\0c\0e\0n\0t\0 \x006\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x004\x008\0"\0 \0N\0a\0m\0e\0=\0"\0G\0r\0i\0d\0 \0T\0a\0b\0l\0e\0 \x003\0 \0A\0c\0c\0e\0n\0t\0 \x006\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x004\x009\0"\0 \0N\0a\0m\0e\0=\0"\0G\0r\0i\0d\0 \0T\0a\0b\0l\0e\0 \x004\0 \0A\0c\0c\0e\0n\0t\0 \x006\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x005\x000\0"\0 \0N\0a\0m\0e\0=\0"\0G\0r\0i\0d\0 \0T\0a\0b\0l\0e\0 \x005\0 \0D\0a\0r\0k\0 \0A\0c\0c\0e\0n\0t\0 \x006\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x005\x001\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0G\0r\0i\0d\0 \0T\0a\0b\0l\0e\0 \x006\0 \0C\0o\0l\0o\0r\0f\0u\0l\0 \0A\0c\0c\0e\0n\0t\0 \x006\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x005\x002\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0G\0r\0i\0d\0 \0T\0a\0b\0l\0e\0 \x007\0 \0C\0o\0l\0o\0r\0f\0u\0l\0 \0A\0c\0c\0e\0n\0t\0 \x006\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x004\x006\0"\0 \0N\0a\0m\0e\0=\0"\0L\0i\0s\0t\0 \0T\0a\0b\0l\0e\0 \x001\0 \0L\0i\0g\0h\0t\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x004\x007\0"\0 \0N\0a\0m\0e\0=\0"\0L\0i\0s\0t\0 \0T\0a\0b\0l\0e\0 \x002\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x004\x008\0"\0 \0N\0a\0m\0e\0=\0"\0L\0i\0s\0t\0 \0T\0a\0b\0l\0e\0 \x003\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x004\x009\0"\0 \0N\0a\0m\0e\0=\0"\0L\0i\0s\0t\0 \0T\0a\0b\0l\0e\0 \x004\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x005\x000\0"\0 \0N\0a\0m\0e\0=\0"\0L\0i\0s\0t\0 \0T\0a\0b\0l\0e\0 \x005\0 \0D\0a\0r\0k\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x005\x001\0"\0 \0N\0a\0m\0e\0=\0"\0L\0i\0s\0t\0 \0T\0a\0b\0l\0e\0 \x006\0 \0C\0o\0l\0o\0r\0f\0u\0l\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x005\x002\0"\0 \0N\0a\0m\0e\0=\0"\0L\0i\0s\0t\0 \0T\0a\0b\0l\0e\0 \x007\0 \0C\0o\0l\0o\0r\0f\0u\0l\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x004\x006\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0L\0i\0s\0t\0 \0T\0a\0b\0l\0e\0 \x001\0 \0L\0i\0g\0h\0t\0 \0A\0c\0c\0e\0n\0t\0 \x001\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x004\x007\0"\0 \0N\0a\0m\0e\0=\0"\0L\0i\0s\0t\0 \0T\0a\0b\0l\0e\0 \x002\0 \0A\0c\0c\0e\0n\0t\0 \x001\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x004\x008\0"\0 \0N\0a\0m\0e\0=\0"\0L\0i\0s\0t\0 \0T\0a\0b\0l\0e\0 \x003\0 \0A\0c\0c\0e\0n\0t\0 \x001\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x004\x009\0"\0 \0N\0a\0m\0e\0=\0"\0L\0i\0s\0t\0 \0T\0a\0b\0l\0e\0 \x004\0 \0A\0c\0c\0e\0n\0t\0 \x001\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x005\x000\0"\0 \0N\0a\0m\0e\0=\0"\0L\0i\0s\0t\0 \0T\0a\0b\0l\0e\0 \x005\0 \0D\0a\0r\0k\0 \0A\0c\0c\0e\0n\0t\0 \x001\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x005\x001\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0L\0i\0s\0t\0 \0T\0a\0b\0l\0e\0 \x006\0 \0C\0o\0l\0o\0r\0f\0u\0l\0 \0A\0c\0c\0e\0n\0t\0 \x001\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x005\x002\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0L\0i\0s\0t\0 \0T\0a\0b\0l\0e\0 \x007\0 \0C\0o\0l\0o\0r\0f\0u\0l\0 \0A\0c\0c\0e\0n\0t\0 \x001\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x004\x006\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0L\0i\0s\0t\0 \0T\0a\0b\0l\0e\0 \x001\0 \0L\0i\0g\0h\0t\0 \0A\0c\0c\0e\0n\0t\0 \x002\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x004\x007\0"\0 \0N\0a\0m\0e\0=\0"\0L\0i\0s\0t\0 \0T\0a\0b\0l\0e\0 \x002\0 \0A\0c\0c\0e\0n\0t\0 \x002\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x004\x008\0"\0 \0N\0a\0m\0e\0=\0"\0L\0i\0s\0t\0 \0T\0a\0b\0l\0e\0 \x003\0 \0A\0c\0c\0e\0n\0t\0 \x002\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x004\x009\0"\0 \0N\0a\0m\0e\0=\0"\0L\0i\0s\0t\0 \0T\0a\0b\0l\0e\0 \x004\0 \0A\0c\0c\0e\0n\0t\0 \x002\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x005\x000\0"\0 \0N\0a\0m\0e\0=\0"\0L\0i\0s\0t\0 \0T\0a\0b\0l\0e\0 \x005\0 \0D\0a\0r\0k\0 \0A\0c\0c\0e\0n\0t\0 \x002\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x005\x001\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0L\0i\0s\0t\0 \0T\0a\0b\0l\0e\0 \x006\0 \0C\0o\0l\0o\0r\0f\0u\0l\0 \0A\0c\0c\0e\0n\0t\0 \x002\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x005\x002\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0L\0i\0s\0t\0 \0T\0a\0b\0l\0e\0 \x007\0 \0C\0o\0l\0o\0r\0f\0u\0l\0 \0A\0c\0c\0e\0n\0t\0 \x002\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x004\x006\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0L\0i\0s\0t\0 \0T\0a\0b\0l\0e\0 \x001\0 \0L\0i\0g\0h\0t\0 \0A\0c\0c\0e\0n\0t\0 \x003\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x004\x007\0"\0 \0N\0a\0m\0e\0=\0"\0L\0i\0s\0t\0 \0T\0a\0b\0l\0e\0 \x002\0 \0A\0c\0c\0e\0n\0t\0 \x003\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x004\x008\0"\0 \0N\0a\0m\0e\0=\0"\0L\0i\0s\0t\0 \0T\0a\0b\0l\0e\0 \x003\0 \0A\0c\0c\0e\0n\0t\0 \x003\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x004\x009\0"\0 \0N\0a\0m\0e\0=\0"\0L\0i\0s\0t\0 \0T\0a\0b\0l\0e\0 \x004\0 \0A\0c\0c\0e\0n\0t\0 \x003\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x005\x000\0"\0 \0N\0a\0m\0e\0=\0"\0L\0i\0s\0t\0 \0T\0a\0b\0l\0e\0 \x005\0 \0D\0a\0r\0k\0 \0A\0c\0c\0e\0n\0t\0 \x003\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x005\x001\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0L\0i\0s\0t\0 \0T\0a\0b\0l\0e\0 \x006\0 \0C\0o\0l\0o\0r\0f\0u\0l\0 \0A\0c\0c\0e\0n\0t\0 \x003\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x005\x002\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0L\0i\0s\0t\0 \0T\0a\0b\0l\0e\0 \x007\0 \0C\0o\0l\0o\0r\0f\0u\0l\0 \0A\0c\0c\0e\0n\0t\0 \x003\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x004\x006\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0L\0i\0s\0t\0 \0T\0a\0b\0l\0e\0 \x001\0 \0L\0i\0g\0h\0t\0 \0A\0c\0c\0e\0n\0t\0 \x004\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x004\x007\0"\0 \0N\0a\0m\0e\0=\0"\0L\0i\0s\0t\0 \0T\0a\0b\0l\0e\0 \x002\0 \0A\0c\0c\0e\0n\0t\0 \x004\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x004\x008\0"\0 \0N\0a\0m\0e\0=\0"\0L\0i\0s\0t\0 \0T\0a\0b\0l\0e\0 \x003\0 \0A\0c\0c\0e\0n\0t\0 \x004\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x004\x009\0"\0 \0N\0a\0m\0e\0=\0"\0L\0i\0s\0t\0 \0T\0a\0b\0l\0e\0 \x004\0 \0A\0c\0c\0e\0n\0t\0 \x004\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x005\x000\0"\0 \0N\0a\0m\0e\0=\0"\0L\0i\0s\0t\0 \0T\0a\0b\0l\0e\0 \x005\0 \0D\0a\0r\0k\0 \0A\0c\0c\0e\0n\0t\0 \x004\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x005\x001\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0L\0i\0s\0t\0 \0T\0a\0b\0l\0e\0 \x006\0 \0C\0o\0l\0o\0r\0f\0u\0l\0 \0A\0c\0c\0e\0n\0t\0 \x004\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x005\x002\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0L\0i\0s\0t\0 \0T\0a\0b\0l\0e\0 \x007\0 \0C\0o\0l\0o\0r\0f\0u\0l\0 \0A\0c\0c\0e\0n\0t\0 \x004\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x004\x006\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0L\0i\0s\0t\0 \0T\0a\0b\0l\0e\0 \x001\0 \0L\0i\0g\0h\0t\0 \0A\0c\0c\0e\0n\0t\0 \x005\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x004\x007\0"\0 \0N\0a\0m\0e\0=\0"\0L\0i\0s\0t\0 \0T\0a\0b\0l\0e\0 \x002\0 \0A\0c\0c\0e\0n\0t\0 \x005\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x004\x008\0"\0 \0N\0a\0m\0e\0=\0"\0L\0i\0s\0t\0 \0T\0a\0b\0l\0e\0 \x003\0 \0A\0c\0c\0e\0n\0t\0 \x005\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x004\x009\0"\0 \0N\0a\0m\0e\0=\0"\0L\0i\0s\0t\0 \0T\0a\0b\0l\0e\0 \x004\0 \0A\0c\0c\0e\0n\0t\0 \x005\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x005\x000\0"\0 \0N\0a\0m\0e\0=\0"\0L\0i\0s\0t\0 \0T\0a\0b\0l\0e\0 \x005\0 \0D\0a\0r\0k\0 \0A\0c\0c\0e\0n\0t\0 \x005\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x005\x001\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0L\0i\0s\0t\0 \0T\0a\0b\0l\0e\0 \x006\0 \0C\0o\0l\0o\0r\0f\0u\0l\0 \0A\0c\0c\0e\0n\0t\0 \x005\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x005\x002\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0L\0i\0s\0t\0 \0T\0a\0b\0l\0e\0 \x007\0 \0C\0o\0l\0o\0r\0f\0u\0l\0 \0A\0c\0c\0e\0n\0t\0 \x005\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x004\x006\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0L\0i\0s\0t\0 \0T\0a\0b\0l\0e\0 \x001\0 \0L\0i\0g\0h\0t\0 \0A\0c\0c\0e\0n\0t\0 \x006\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x004\x007\0"\0 \0N\0a\0m\0e\0=\0"\0L\0i\0s\0t\0 \0T\0a\0b\0l\0e\0 \x002\0 \0A\0c\0c\0e\0n\0t\0 \x006\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x004\x008\0"\0 \0N\0a\0m\0e\0=\0"\0L\0i\0s\0t\0 \0T\0a\0b\0l\0e\0 \x003\0 \0A\0c\0c\0e\0n\0t\0 \x006\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x004\x009\0"\0 \0N\0a\0m\0e\0=\0"\0L\0i\0s\0t\0 \0T\0a\0b\0l\0e\0 \x004\0 \0A\0c\0c\0e\0n\0t\0 \x006\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x005\x000\0"\0 \0N\0a\0m\0e\0=\0"\0L\0i\0s\0t\0 \0T\0a\0b\0l\0e\0 \x005\0 \0D\0a\0r\0k\0 \0A\0c\0c\0e\0n\0t\0 \x006\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x005\x001\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0L\0i\0s\0t\0 \0T\0a\0b\0l\0e\0 \x006\0 \0C\0o\0l\0o\0r\0f\0u\0l\0 \0A\0c\0c\0e\0n\0t\0 \x006\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0P\0r\0i\0o\0r\0i\0t\0y\0=\0"\x005\x002\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0L\0i\0s\0t\0 \0T\0a\0b\0l\0e\0 \x007\0 \0C\0o\0l\0o\0r\0f\0u\0l\0 \0A\0c\0c\0e\0n\0t\0 \x006\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0M\0e\0n\0t\0i\0o\0n\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0S\0m\0a\0r\0t\0 \0H\0y\0p\0e\0r\0l\0i\0n\0k\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0H\0a\0s\0h\0t\0a\0g\0"\0/\0>\0\r\0
+\0 \0 \0<\0w\0:\0L\0s\0d\0E\0x\0c\0e\0p\0t\0i\0o\0n\0 \0L\0o\0c\0k\0e\0d\0=\0"\0f\0a\0l\0s\0e\0"\0 \0S\0e\0m\0i\0H\0i\0d\0d\0e\0n\0=\0"\0t\0r\0u\0e\0"\0 \0U\0n\0h\0i\0d\0e\0W\0h\0e\0n\0U\0s\0e\0d\0=\0"\0t\0r\0u\0e\0"\0\r\0
+\0 \0 \0 \0N\0a\0m\0e\0=\0"\0U\0n\0r\0e\0s\0o\0l\0v\0e\0d\0 \0M\0e\0n\0t\0i\0o\0n\0"\0/\0>\0\r\0
+\0 \0<\0/\0w\0:\0L\0a\0t\0e\0n\0t\0S\0t\0y\0l\0e\0s\0>\0\r\0
+\0<\0/\0x\0m\0l\0>\0<\0!\0[\0e\0n\0d\0i\0f\0]\0-\0-\0>\0\r\0
+\0<\0s\0t\0y\0l\0e\0>\0\r\0
+\0<\0!\0-\0-\0\r\0
+\0 \0/\0*\0 \0F\0o\0n\0t\0 \0D\0e\0f\0i\0n\0i\0t\0i\0o\0n\0s\0 \0*\0/\0\r\0
+\0 \0@\0f\0o\0n\0t\0-\0f\0a\0c\0e\0\r\0
+\0	\0{\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0C\0a\0m\0b\0r\0i\0a\0 \0M\0a\0t\0h\0"\0;\0\r\0
+\0	\0p\0a\0n\0o\0s\0e\0-\x001\0:\x002\0 \x004\0 \x005\0 \x003\0 \x005\0 \x004\0 \x006\0 \x003\0 \x002\0 \x004\0;\0\r\0
+\0	\0m\0s\0o\0-\0f\0o\0n\0t\0-\0c\0h\0a\0r\0s\0e\0t\0:\x000\0;\0\r\0
+\0	\0m\0s\0o\0-\0g\0e\0n\0e\0r\0i\0c\0-\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0r\0o\0m\0a\0n\0;\0\r\0
+\0	\0m\0s\0o\0-\0f\0o\0n\0t\0-\0p\0i\0t\0c\0h\0:\0v\0a\0r\0i\0a\0b\0l\0e\0;\0\r\0
+\0	\0m\0s\0o\0-\0f\0o\0n\0t\0-\0s\0i\0g\0n\0a\0t\0u\0r\0e\0:\0-\x005\x003\x006\x008\x006\x009\x001\x002\x001\0 \x001\x001\x000\x007\x003\x000\x005\x007\x002\x007\0 \x003\x003\x005\x005\x004\x004\x003\x002\0 \x000\0 \x004\x001\x005\0 \x000\0;\0}\0\r\0
+\0@\0f\0o\0n\0t\0-\0f\0a\0c\0e\0\r\0
+\0	\0{\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0C\0a\0l\0i\0b\0r\0i\0;\0\r\0
+\0	\0p\0a\0n\0o\0s\0e\0-\x001\0:\x002\0 \x001\x005\0 \x005\0 \x002\0 \x002\0 \x002\0 \x004\0 \x003\0 \x002\0 \x004\0;\0\r\0
+\0	\0m\0s\0o\0-\0f\0o\0n\0t\0-\0c\0h\0a\0r\0s\0e\0t\0:\x000\0;\0\r\0
+\0	\0m\0s\0o\0-\0g\0e\0n\0e\0r\0i\0c\0-\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0s\0w\0i\0s\0s\0;\0\r\0
+\0	\0m\0s\0o\0-\0f\0o\0n\0t\0-\0p\0i\0t\0c\0h\0:\0v\0a\0r\0i\0a\0b\0l\0e\0;\0\r\0
+\0	\0m\0s\0o\0-\0f\0o\0n\0t\0-\0s\0i\0g\0n\0a\0t\0u\0r\0e\0:\0-\x004\x006\x009\x007\x005\x000\x000\x001\x007\0 \0-\x001\x000\x004\x000\x001\x007\x008\x000\x005\x003\0 \x009\0 \x000\0 \x005\x001\x001\0 \x000\0;\0}\0\r\0
+\0@\0f\0o\0n\0t\0-\0f\0a\0c\0e\0\r\0
+\0	\0{\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0A\0p\0t\0o\0s\0;\0\r\0
+\0	\0m\0s\0o\0-\0f\0o\0n\0t\0-\0a\0l\0t\0:\0C\0a\0l\0i\0b\0r\0i\0;\0\r\0
+\0	\0m\0s\0o\0-\0f\0o\0n\0t\0-\0c\0h\0a\0r\0s\0e\0t\0:\x000\0;\0\r\0
+\0	\0m\0s\0o\0-\0g\0e\0n\0e\0r\0i\0c\0-\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0a\0u\0t\0o\0;\0\r\0
+\0	\0m\0s\0o\0-\0f\0o\0n\0t\0-\0p\0i\0t\0c\0h\0:\0a\0u\0t\0o\0;\0\r\0
+\0	\0m\0s\0o\0-\0f\0o\0n\0t\0-\0s\0i\0g\0n\0a\0t\0u\0r\0e\0:\x000\0 \x000\0 \x000\0 \x000\0 \x000\0 \x000\0;\0}\0\r\0
+\0 \0/\0*\0 \0S\0t\0y\0l\0e\0 \0D\0e\0f\0i\0n\0i\0t\0i\0o\0n\0s\0 \0*\0/\0\r\0
+\0 \0p\0.\0M\0s\0o\0N\0o\0r\0m\0a\0l\0,\0 \0l\0i\0.\0M\0s\0o\0N\0o\0r\0m\0a\0l\0,\0 \0d\0i\0v\0.\0M\0s\0o\0N\0o\0r\0m\0a\0l\0\r\0
+\0	\0{\0m\0s\0o\0-\0s\0t\0y\0l\0e\0-\0u\0n\0h\0i\0d\0e\0:\0n\0o\0;\0\r\0
+\0	\0m\0s\0o\0-\0s\0t\0y\0l\0e\0-\0q\0f\0o\0r\0m\0a\0t\0:\0y\0e\0s\0;\0\r\0
+\0	\0m\0s\0o\0-\0s\0t\0y\0l\0e\0-\0p\0a\0r\0e\0n\0t\0:\0"\0"\0;\0\r\0
+\0	\0m\0a\0r\0g\0i\0n\0:\x000\0i\0n\0;\0\r\0
+\0	\0m\0a\0r\0g\0i\0n\0-\0b\0o\0t\0t\0o\0m\0:\0.\x000\x000\x000\x001\0p\0t\0;\0\r\0
+\0	\0m\0s\0o\0-\0p\0a\0g\0i\0n\0a\0t\0i\0o\0n\0:\0w\0i\0d\0o\0w\0-\0o\0r\0p\0h\0a\0n\0;\0\r\0
+\0	\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x001\x002\0.\x000\0p\0t\0;\0\r\0
+\0	\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0A\0p\0t\0o\0s\0;\0\r\0
+\0	\0m\0s\0o\0-\0f\0a\0r\0e\0a\0s\0t\0-\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0C\0a\0l\0i\0b\0r\0i\0;\0\r\0
+\0	\0m\0s\0o\0-\0f\0a\0r\0e\0a\0s\0t\0-\0t\0h\0e\0m\0e\0-\0f\0o\0n\0t\0:\0m\0i\0n\0o\0r\0-\0l\0a\0t\0i\0n\0;\0\r\0
+\0	\0m\0s\0o\0-\0b\0i\0d\0i\0-\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0C\0a\0l\0i\0b\0r\0i\0;\0}\0\r\0
+\0a\0:\0l\0i\0n\0k\0,\0 \0s\0p\0a\0n\0.\0M\0s\0o\0H\0y\0p\0e\0r\0l\0i\0n\0k\0\r\0
+\0	\0{\0m\0s\0o\0-\0s\0t\0y\0l\0e\0-\0n\0o\0s\0h\0o\0w\0:\0y\0e\0s\0;\0\r\0
+\0	\0m\0s\0o\0-\0s\0t\0y\0l\0e\0-\0p\0r\0i\0o\0r\0i\0t\0y\0:\x009\x009\0;\0\r\0
+\0	\0c\0o\0l\0o\0r\0:\0#\x000\x000\x007\0D\x006\0F\0;\0\r\0
+\0	\0t\0e\0x\0t\0-\0d\0e\0c\0o\0r\0a\0t\0i\0o\0n\0:\0u\0n\0d\0e\0r\0l\0i\0n\0e\0;\0\r\0
+\0	\0t\0e\0x\0t\0-\0u\0n\0d\0e\0r\0l\0i\0n\0e\0:\0s\0i\0n\0g\0l\0e\0;\0}\0\r\0
+\0a\0:\0v\0i\0s\0i\0t\0e\0d\0,\0 \0s\0p\0a\0n\0.\0M\0s\0o\0H\0y\0p\0e\0r\0l\0i\0n\0k\0F\0o\0l\0l\0o\0w\0e\0d\0\r\0
+\0	\0{\0m\0s\0o\0-\0s\0t\0y\0l\0e\0-\0n\0o\0s\0h\0o\0w\0:\0y\0e\0s\0;\0\r\0
+\0	\0m\0s\0o\0-\0s\0t\0y\0l\0e\0-\0p\0r\0i\0o\0r\0i\0t\0y\0:\x009\x009\0;\0\r\0
+\0	\0c\0o\0l\0o\0r\0:\0#\x000\x000\x007\0D\x006\0F\0;\0\r\0
+\0	\0t\0e\0x\0t\0-\0d\0e\0c\0o\0r\0a\0t\0i\0o\0n\0:\0u\0n\0d\0e\0r\0l\0i\0n\0e\0;\0\r\0
+\0	\0t\0e\0x\0t\0-\0u\0n\0d\0e\0r\0l\0i\0n\0e\0:\0s\0i\0n\0g\0l\0e\0;\0}\0\r\0
+\0p\0.\0m\0s\0o\0n\0o\0r\0m\0a\0l\x000\0,\0 \0l\0i\0.\0m\0s\0o\0n\0o\0r\0m\0a\0l\x000\0,\0 \0d\0i\0v\0.\0m\0s\0o\0n\0o\0r\0m\0a\0l\x000\0\r\0
+\0	\0{\0m\0s\0o\0-\0s\0t\0y\0l\0e\0-\0n\0a\0m\0e\0:\0m\0s\0o\0n\0o\0r\0m\0a\0l\0;\0\r\0
+\0	\0m\0s\0o\0-\0s\0t\0y\0l\0e\0-\0u\0n\0h\0i\0d\0e\0:\0n\0o\0;\0\r\0
+\0	\0m\0s\0o\0-\0m\0a\0r\0g\0i\0n\0-\0t\0o\0p\0-\0a\0l\0t\0:\0a\0u\0t\0o\0;\0\r\0
+\0	\0m\0a\0r\0g\0i\0n\0-\0r\0i\0g\0h\0t\0:\x000\0i\0n\0;\0\r\0
+\0	\0m\0s\0o\0-\0m\0a\0r\0g\0i\0n\0-\0b\0o\0t\0t\0o\0m\0-\0a\0l\0t\0:\0a\0u\0t\0o\0;\0\r\0
+\0	\0m\0a\0r\0g\0i\0n\0-\0l\0e\0f\0t\0:\x000\0i\0n\0;\0\r\0
+\0	\0m\0s\0o\0-\0p\0a\0g\0i\0n\0a\0t\0i\0o\0n\0:\0w\0i\0d\0o\0w\0-\0o\0r\0p\0h\0a\0n\0;\0\r\0
+\0	\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x001\x001\0.\x000\0p\0t\0;\0\r\0
+\0	\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0C\0a\0l\0i\0b\0r\0i\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0\r\0
+\0	\0m\0s\0o\0-\0f\0a\0r\0e\0a\0s\0t\0-\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0C\0a\0l\0i\0b\0r\0i\0;\0\r\0
+\0	\0m\0s\0o\0-\0f\0a\0r\0e\0a\0s\0t\0-\0t\0h\0e\0m\0e\0-\0f\0o\0n\0t\0:\0m\0i\0n\0o\0r\0-\0l\0a\0t\0i\0n\0;\0}\0\r\0
+\0.\0M\0s\0o\0C\0h\0p\0D\0e\0f\0a\0u\0l\0t\0\r\0
+\0	\0{\0m\0s\0o\0-\0s\0t\0y\0l\0e\0-\0t\0y\0p\0e\0:\0e\0x\0p\0o\0r\0t\0-\0o\0n\0l\0y\0;\0\r\0
+\0	\0m\0s\0o\0-\0d\0e\0f\0a\0u\0l\0t\0-\0p\0r\0o\0p\0s\0:\0y\0e\0s\0;\0\r\0
+\0	\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x001\x000\0.\x000\0p\0t\0;\0\r\0
+\0	\0m\0s\0o\0-\0a\0n\0s\0i\0-\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x001\x000\0.\x000\0p\0t\0;\0\r\0
+\0	\0m\0s\0o\0-\0b\0i\0d\0i\0-\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x001\x000\0.\x000\0p\0t\0;\0}\0\r\0
+\0@\0p\0a\0g\0e\0 \0W\0o\0r\0d\0S\0e\0c\0t\0i\0o\0n\x001\0\r\0
+\0	\0{\0s\0i\0z\0e\0:\x008\0.\x005\0i\0n\0 \x001\x001\0.\x000\0i\0n\0;\0\r\0
+\0	\0m\0a\0r\0g\0i\0n\0:\x001\0.\x000\0i\0n\0 \x001\0.\x000\0i\0n\0 \x001\0.\x000\0i\0n\0 \x001\0.\x000\0i\0n\0;\0\r\0
+\0	\0m\0s\0o\0-\0h\0e\0a\0d\0e\0r\0-\0m\0a\0r\0g\0i\0n\0:\0.\x005\0i\0n\0;\0\r\0
+\0	\0m\0s\0o\0-\0f\0o\0o\0t\0e\0r\0-\0m\0a\0r\0g\0i\0n\0:\0.\x005\0i\0n\0;\0\r\0
+\0	\0m\0s\0o\0-\0p\0a\0p\0e\0r\0-\0s\0o\0u\0r\0c\0e\0:\x000\0;\0}\0\r\0
+\0d\0i\0v\0.\0W\0o\0r\0d\0S\0e\0c\0t\0i\0o\0n\x001\0\r\0
+\0	\0{\0p\0a\0g\0e\0:\0W\0o\0r\0d\0S\0e\0c\0t\0i\0o\0n\x001\0;\0}\0\r\0
+\0-\0-\0>\0\r\0
+\0<\0/\0s\0t\0y\0l\0e\0>\0\r\0
+\0<\0!\0-\0-\0[\0i\0f\0 \0g\0t\0e\0 \0m\0s\0o\0 \x001\x000\0]\0>\0\r\0
+\0<\0s\0t\0y\0l\0e\0>\0\r\0
+\0 \0/\0*\0 \0S\0t\0y\0l\0e\0 \0D\0e\0f\0i\0n\0i\0t\0i\0o\0n\0s\0 \0*\0/\0\r\0
+\0 \0t\0a\0b\0l\0e\0.\0M\0s\0o\0N\0o\0r\0m\0a\0l\0T\0a\0b\0l\0e\0\r\0
+\0	\0{\0m\0s\0o\0-\0s\0t\0y\0l\0e\0-\0n\0a\0m\0e\0:\0"\0T\0a\0b\0l\0e\0 \0N\0o\0r\0m\0a\0l\0"\0;\0\r\0
+\0	\0m\0s\0o\0-\0t\0s\0t\0y\0l\0e\0-\0r\0o\0w\0b\0a\0n\0d\0-\0s\0i\0z\0e\0:\x000\0;\0\r\0
+\0	\0m\0s\0o\0-\0t\0s\0t\0y\0l\0e\0-\0c\0o\0l\0b\0a\0n\0d\0-\0s\0i\0z\0e\0:\x000\0;\0\r\0
+\0	\0m\0s\0o\0-\0s\0t\0y\0l\0e\0-\0n\0o\0s\0h\0o\0w\0:\0y\0e\0s\0;\0\r\0
+\0	\0m\0s\0o\0-\0s\0t\0y\0l\0e\0-\0p\0r\0i\0o\0r\0i\0t\0y\0:\x009\x009\0;\0\r\0
+\0	\0m\0s\0o\0-\0s\0t\0y\0l\0e\0-\0p\0a\0r\0e\0n\0t\0:\0"\0"\0;\0\r\0
+\0	\0m\0s\0o\0-\0p\0a\0d\0d\0i\0n\0g\0-\0a\0l\0t\0:\x000\0i\0n\0 \x005\0.\x004\0p\0t\0 \x000\0i\0n\0 \x005\0.\x004\0p\0t\0;\0\r\0
+\0	\0m\0s\0o\0-\0p\0a\0r\0a\0-\0m\0a\0r\0g\0i\0n\0:\x000\0i\0n\0;\0\r\0
+\0	\0m\0s\0o\0-\0p\0a\0r\0a\0-\0m\0a\0r\0g\0i\0n\0-\0b\0o\0t\0t\0o\0m\0:\0.\x000\x000\x000\x001\0p\0t\0;\0\r\0
+\0	\0m\0s\0o\0-\0p\0a\0g\0i\0n\0a\0t\0i\0o\0n\0:\0w\0i\0d\0o\0w\0-\0o\0r\0p\0h\0a\0n\0;\0\r\0
+\0	\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x001\x000\0.\x000\0p\0t\0;\0\r\0
+\0	\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0T\0i\0m\0e\0s\0 \0N\0e\0w\0 \0R\0o\0m\0a\0n\0"\0,\0s\0e\0r\0i\0f\0;\0}\0\r\0
+\0<\0/\0s\0t\0y\0l\0e\0>\0\r\0
+\0<\0!\0[\0e\0n\0d\0i\0f\0]\0-\0-\0>\0<\0!\0-\0-\0[\0i\0f\0 \0g\0t\0e\0 \0m\0s\0o\0 \x009\0]\0>\0<\0x\0m\0l\0>\0\r\0
+\0 \0<\0o\0:\0s\0h\0a\0p\0e\0d\0e\0f\0a\0u\0l\0t\0s\0 \0v\0:\0e\0x\0t\0=\0"\0e\0d\0i\0t\0"\0 \0s\0p\0i\0d\0m\0a\0x\0=\0"\x001\x000\x002\x007\0"\0/\0>\0\r\0
+\0<\0/\0x\0m\0l\0>\0<\0!\0[\0e\0n\0d\0i\0f\0]\0-\0-\0>\0<\0!\0-\0-\0[\0i\0f\0 \0g\0t\0e\0 \0m\0s\0o\0 \x009\0]\0>\0<\0x\0m\0l\0>\0\r\0
+\0 \0<\0o\0:\0s\0h\0a\0p\0e\0l\0a\0y\0o\0u\0t\0 \0v\0:\0e\0x\0t\0=\0"\0e\0d\0i\0t\0"\0>\0\r\0
+\0 \0 \0<\0o\0:\0i\0d\0m\0a\0p\0 \0v\0:\0e\0x\0t\0=\0"\0e\0d\0i\0t\0"\0 \0d\0a\0t\0a\0=\0"\x001\0"\0/\0>\0\r\0
+\0 \0<\0/\0o\0:\0s\0h\0a\0p\0e\0l\0a\0y\0o\0u\0t\0>\0<\0/\0x\0m\0l\0>\0<\0!\0[\0e\0n\0d\0i\0f\0]\0-\0-\0>\0\r\0
+\0<\0/\0h\0e\0a\0d\0>\0\r\0
+\0\r\0
+\0<\0b\0o\0d\0y\0 \0b\0g\0c\0o\0l\0o\0r\0=\0w\0h\0i\0t\0e\0s\0m\0o\0k\0e\0 \0l\0a\0n\0g\0=\0D\0E\0 \0l\0i\0n\0k\0=\0"\0#\x000\x000\x007\0D\x006\0F\0"\0 \0v\0l\0i\0n\0k\0=\0"\0#\x000\x000\x007\0D\x006\0F\0"\0\r\0
+\0s\0t\0y\0l\0e\0=\0'\0t\0a\0b\0-\0i\0n\0t\0e\0r\0v\0a\0l\0:\x003\x005\0.\x004\0p\0t\0'\0>\0\r\0
+\0\r\0
+\0<\0d\0i\0v\0 \0c\0l\0a\0s\0s\0=\0W\0o\0r\0d\0S\0e\0c\0t\0i\0o\0n\x001\0>\0\r\0
+\0\r\0
+\0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0m\0a\0r\0g\0i\0n\0-\0l\0e\0f\0t\0:\x001\x003\x005\0.\x000\0p\0t\0;\0t\0e\0x\0t\0-\0i\0n\0d\0e\0n\0t\0:\0-\x001\x003\x005\0.\x000\0p\0t\0;\0t\0a\0b\0-\0s\0t\0o\0p\0s\0:\0\r\0
+\x001\x003\x005\0.\x000\0p\0t\0;\0m\0s\0o\0-\0l\0a\0y\0o\0u\0t\0-\0g\0r\0i\0d\0-\0a\0l\0i\0g\0n\0:\0n\0o\0n\0e\0;\0t\0e\0x\0t\0-\0a\0u\0t\0o\0s\0p\0a\0c\0e\0:\0n\0o\0n\0e\0'\0>\0<\0b\0>\0<\0s\0p\0a\0n\0\r\0
+\0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0C\0a\0l\0i\0b\0r\0i\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0'\0>\0F\0r\0o\0m\0:\0<\0s\0p\0a\0n\0\r\0
+\0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0t\0a\0b\0-\0c\0o\0u\0n\0t\0:\x001\0'\0>\0�\0�\0�\0�\0�\0�\0�\0�\0�\0�\0�\0�\0�\0�\0�\0�\0�\0�\0�\0�\0�\0�\0�\0�\0�\0�\0�\0�\0�\0�\0�\0�\0�\0�\0 \0<\0/\0s\0p\0a\0n\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0b\0>\0<\0s\0p\0a\0n\0\r\0
+\0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0C\0a\0l\0i\0b\0r\0i\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0'\0>\0A\0T\0V\0 \0M\0C\0 \0n\0e\0w\0s\0l\0e\0t\0t\0e\0r\0<\0o\0:\0p\0>\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0\r\0
+\0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0m\0a\0r\0g\0i\0n\0-\0l\0e\0f\0t\0:\x001\x003\x005\0.\x000\0p\0t\0;\0t\0e\0x\0t\0-\0i\0n\0d\0e\0n\0t\0:\0-\x001\x003\x005\0.\x000\0p\0t\0;\0t\0a\0b\0-\0s\0t\0o\0p\0s\0:\0\r\0
+\x001\x003\x005\0.\x000\0p\0t\0;\0m\0s\0o\0-\0l\0a\0y\0o\0u\0t\0-\0g\0r\0i\0d\0-\0a\0l\0i\0g\0n\0:\0n\0o\0n\0e\0;\0t\0e\0x\0t\0-\0a\0u\0t\0o\0s\0p\0a\0c\0e\0:\0n\0o\0n\0e\0'\0>\0<\0b\0>\0<\0s\0p\0a\0n\0\r\0
+\0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0C\0a\0l\0i\0b\0r\0i\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0'\0>\0S\0e\0n\0t\0:\0<\0s\0p\0a\0n\0\r\0
+\0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0t\0a\0b\0-\0c\0o\0u\0n\0t\0:\x001\0'\0>\0�\0�\0�\0�\0�\0�\0�\0�\0�\0�\0�\0�\0�\0�\0�\0�\0�\0�\0�\0�\0�\0�\0�\0�\0�\0�\0�\0�\0�\0�\0�\0�\0�\0�\0�\0 \0<\0/\0s\0p\0a\0n\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0b\0>\0<\0s\0p\0a\0n\0\r\0
+\0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0C\0a\0l\0i\0b\0r\0i\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0'\0>\0M\0o\0n\0d\0a\0y\0,\0 \0M\0a\0r\0c\0h\0 \x002\x003\0,\0 \x002\x000\x002\x006\0\r\0
+\x001\0:\x003\x009\0 \0P\0M\0<\0o\0:\0p\0>\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0\r\0
+\0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0m\0a\0r\0g\0i\0n\0-\0l\0e\0f\0t\0:\x001\x003\x005\0.\x000\0p\0t\0;\0t\0e\0x\0t\0-\0i\0n\0d\0e\0n\0t\0:\0-\x001\x003\x005\0.\x000\0p\0t\0;\0t\0a\0b\0-\0s\0t\0o\0p\0s\0:\0\r\0
+\x001\x003\x005\0.\x000\0p\0t\0;\0m\0s\0o\0-\0l\0a\0y\0o\0u\0t\0-\0g\0r\0i\0d\0-\0a\0l\0i\0g\0n\0:\0n\0o\0n\0e\0;\0t\0e\0x\0t\0-\0a\0u\0t\0o\0s\0p\0a\0c\0e\0:\0n\0o\0n\0e\0'\0>\0<\0b\0>\0<\0s\0p\0a\0n\0\r\0
+\0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0C\0a\0l\0i\0b\0r\0i\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0'\0>\0T\0o\0:\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0t\0a\0b\0-\0c\0o\0u\0n\0t\0:\0\r\0
+\x001\0'\0>\0�\0�\0�\0�\0�\0�\0�\0�\0�\0�\0�\0�\0�\0�\0�\0�\0�\0�\0�\0�\0�\0�\0�\0�\0�\0�\0�\0�\0�\0�\0�\0�\0�\0�\0�\0�\0�\0�\0�\0 \0<\0/\0s\0p\0a\0n\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0b\0>\0<\0s\0p\0a\0n\0\r\0
+\0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0C\0a\0l\0i\0b\0r\0i\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0'\0>\0A\0T\0V\0 \0M\0C\0 \0n\0e\0w\0s\0l\0e\0t\0t\0e\0r\0<\0o\0:\0p\0>\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0\r\0
+\0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0m\0a\0r\0g\0i\0n\0-\0l\0e\0f\0t\0:\x001\x003\x005\0.\x000\0p\0t\0;\0t\0e\0x\0t\0-\0i\0n\0d\0e\0n\0t\0:\0-\x001\x003\x005\0.\x000\0p\0t\0;\0t\0a\0b\0-\0s\0t\0o\0p\0s\0:\0\r\0
+\x001\x003\x005\0.\x000\0p\0t\0;\0m\0s\0o\0-\0l\0a\0y\0o\0u\0t\0-\0g\0r\0i\0d\0-\0a\0l\0i\0g\0n\0:\0n\0o\0n\0e\0;\0t\0e\0x\0t\0-\0a\0u\0t\0o\0s\0p\0a\0c\0e\0:\0n\0o\0n\0e\0'\0>\0<\0b\0>\0<\0s\0p\0a\0n\0\r\0
+\0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0C\0a\0l\0i\0b\0r\0i\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0'\0>\0S\0u\0b\0j\0e\0c\0t\0:\0<\0s\0p\0a\0n\0\r\0
+\0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0t\0a\0b\0-\0c\0o\0u\0n\0t\0:\x001\0'\0>\0�\0�\0�\0�\0�\0�\0�\0�\0�\0�\0�\0�\0�\0�\0�\0�\0�\0�\0�\0�\0�\0�\0�\0�\0�\0�\0�\0�\0�\0�\0�\0 \0<\0/\0s\0p\0a\0n\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0b\0>\0<\0s\0p\0a\0n\0\r\0
+\0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0C\0a\0l\0i\0b\0r\0i\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0'\0>\0A\0u\0t\0o\0m\0o\0t\0i\0v\0e\0 \0M\0C\0 \0N\0e\0w\0s\0l\0e\0t\0t\0e\0r\0 \0-\0\r\0
+\0M\0a\0r\0c\0h\0 \0'\x002\x006\0 \0e\0d\0i\0t\0i\0o\0n\0<\0o\0:\0p\0>\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0\r\0
+\0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0>\0<\0o\0:\0p\0>\0&\0n\0b\0s\0p\0;\0<\0/\0o\0:\0p\0>\0<\0/\0p\0>\0\r\0
+\0\r\0
+\0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0>\0<\0o\0:\0p\0>\0&\0n\0b\0s\0p\0;\0<\0/\0o\0:\0p\0>\0<\0/\0p\0>\0\r\0
+\0\r\0
+\0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x004\0.\x002\x005\0p\0t\0'\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x009\0.\x000\0p\0t\0;\0\r\0
+\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0#\x002\x002\x002\x002\x002\x002\0'\0>\0<\0o\0:\0p\0>\0&\0n\0b\0s\0p\0;\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0\r\0
+\0<\0d\0i\0v\0 \0a\0l\0i\0g\0n\0=\0c\0e\0n\0t\0e\0r\0>\0\r\0
+\0\r\0
+\0<\0t\0a\0b\0l\0e\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0T\0a\0b\0l\0e\0 \0b\0o\0r\0d\0e\0r\0=\x000\0 \0c\0e\0l\0l\0s\0p\0a\0c\0i\0n\0g\0=\x000\0 \0c\0e\0l\0l\0p\0a\0d\0d\0i\0n\0g\0=\x000\0 \0w\0i\0d\0t\0h\0=\x006\x000\x000\0\r\0
+\0 \0s\0t\0y\0l\0e\0=\0'\0w\0i\0d\0t\0h\0:\x006\0.\x002\x005\0i\0n\0;\0b\0o\0r\0d\0e\0r\0-\0c\0o\0l\0l\0a\0p\0s\0e\0:\0c\0o\0l\0l\0a\0p\0s\0e\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0t\0b\0l\0l\0o\0o\0k\0:\x001\x001\x008\x004\0;\0m\0s\0o\0-\0p\0a\0d\0d\0i\0n\0g\0-\0a\0l\0t\0:\0\r\0
+\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0;\0b\0o\0r\0d\0e\0r\0-\0s\0p\0a\0c\0i\0n\0g\0:\0 \x000\0'\0>\0\r\0
+\0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x000\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0f\0i\0r\0s\0t\0r\0o\0w\0:\0y\0e\0s\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0l\0a\0s\0t\0r\0o\0w\0:\0y\0e\0s\0'\0>\0\r\0
+\0 \0 \0<\0t\0d\0 \0w\0i\0d\0t\0h\0=\0"\x001\x000\x000\0%\0"\0 \0s\0t\0y\0l\0e\0=\0'\0w\0i\0d\0t\0h\0:\x001\x000\x000\0.\x000\0%\0;\0p\0a\0d\0d\0i\0n\0g\0:\x001\x008\0.\x007\x005\0p\0t\0 \x007\0.\x005\0p\0t\0 \x001\x008\0.\x007\x005\0p\0t\0 \x001\x001\0.\x002\x005\0p\0t\0;\0\r\0
+\0 \0 \0w\0o\0r\0d\0-\0b\0r\0e\0a\0k\0:\0b\0r\0e\0a\0k\0-\0w\0o\0r\0d\0;\0-\0w\0e\0b\0k\0i\0t\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0-\0m\0o\0z\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0\r\0
+\0 \0 \0m\0i\0n\0-\0w\0i\0d\0t\0h\0:\0 \x000\0p\0x\0'\0>\0\r\0
+\0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0a\0l\0i\0g\0n\0=\0c\0e\0n\0t\0e\0r\0 \0s\0t\0y\0l\0e\0=\0'\0t\0e\0x\0t\0-\0a\0l\0i\0g\0n\0:\0c\0e\0n\0t\0e\0r\0;\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x004\0.\x002\x005\0p\0t\0'\0>\0<\0s\0p\0a\0n\0\r\0
+\0 \0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x009\0.\x000\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0#\x007\0D\x006\0F\x007\x002\0'\0>\0I\0f\0 \0y\0o\0u\0\r\0
+\0 \0 \0h\0a\0v\0e\0 \0t\0r\0o\0u\0b\0l\0e\0 \0r\0e\0a\0d\0i\0n\0g\0 \0t\0h\0i\0s\0 \0e\0m\0a\0i\0l\0 \0p\0l\0e\0a\0s\0e\0 \0<\0a\0\r\0
+\0 \0 \0h\0r\0e\0f\0=\0"\0h\0t\0t\0p\0s\0:\0/\0/\0n\0e\0w\0s\0l\0e\0t\0t\0e\0r\0f\0i\0l\0e\0s\0.\0i\0n\0f\0i\0n\0e\0o\0n\0.\0c\0o\0m\0/\0f\0i\0l\0e\0s\0/\0i\0f\0x\0n\0e\0w\0s\0l\0e\0t\0t\0e\0r\0s\0-\0n\0e\0w\0s\0l\0e\0t\0t\0e\0r\x001\x002\x001\x007\x000\0/\0N\0e\0w\0s\0l\0e\0t\0t\0e\0r\0_\x001\x002\x001\x007\x000\0.\0h\0t\0m\0"\0>\0<\0s\0p\0a\0n\0\r\0
+\0 \0 \0s\0t\0y\0l\0e\0=\0'\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0'\0>\0c\0l\0i\0c\0k\0 \0h\0e\0r\0e\0 \0<\0/\0s\0p\0a\0n\0>\0<\0/\0a\0>\0<\0o\0:\0p\0>\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0<\0t\0d\0 \0w\0i\0d\0t\0h\0=\x000\0 \0v\0a\0l\0i\0g\0n\0=\0t\0o\0p\0 \0s\0t\0y\0l\0e\0=\0'\0w\0i\0d\0t\0h\0:\0.\x003\0p\0t\0;\0p\0a\0d\0d\0i\0n\0g\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0;\0w\0o\0r\0d\0-\0b\0r\0e\0a\0k\0:\0\r\0
+\0 \0 \0b\0r\0e\0a\0k\0-\0w\0o\0r\0d\0;\0-\0w\0e\0b\0k\0i\0t\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0-\0m\0o\0z\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0v\0i\0s\0i\0b\0i\0l\0i\0t\0y\0:\0\r\0
+\0 \0 \0h\0i\0d\0d\0e\0n\0'\0>\0<\0/\0t\0d\0>\0\r\0
+\0 \0<\0/\0t\0r\0>\0\r\0
+\0<\0/\0t\0a\0b\0l\0e\0>\0\r\0
+\0\r\0
+\0<\0/\0d\0i\0v\0>\0\r\0
+\0\r\0
+\0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x004\0.\x002\x005\0p\0t\0'\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x009\0.\x000\0p\0t\0;\0\r\0
+\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0#\x002\x002\x002\x002\x002\x002\0'\0>\0<\0o\0:\0p\0>\0&\0n\0b\0s\0p\0;\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0\r\0
+\0<\0t\0a\0b\0l\0e\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0T\0a\0b\0l\0e\0 \0b\0o\0r\0d\0e\0r\0=\x000\0 \0c\0e\0l\0l\0s\0p\0a\0c\0i\0n\0g\0=\x000\0 \0c\0e\0l\0l\0p\0a\0d\0d\0i\0n\0g\0=\x000\0 \0w\0i\0d\0t\0h\0=\0"\x001\x000\x000\0%\0"\0\r\0
+\0 \0s\0t\0y\0l\0e\0=\0'\0w\0i\0d\0t\0h\0:\x001\x000\x000\0.\x000\0%\0;\0b\0a\0c\0k\0g\0r\0o\0u\0n\0d\0:\0w\0h\0i\0t\0e\0s\0m\0o\0k\0e\0;\0b\0o\0r\0d\0e\0r\0-\0c\0o\0l\0l\0a\0p\0s\0e\0:\0c\0o\0l\0l\0a\0p\0s\0e\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0t\0b\0l\0l\0o\0o\0k\0:\0\r\0
+\0 \x001\x001\x008\x004\0;\0m\0s\0o\0-\0p\0a\0d\0d\0i\0n\0g\0-\0a\0l\0t\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0;\0b\0o\0r\0d\0e\0r\0-\0s\0p\0a\0c\0i\0n\0g\0:\0 \x000\0'\0>\0\r\0
+\0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x000\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0f\0i\0r\0s\0t\0r\0o\0w\0:\0y\0e\0s\0'\0 \0i\0d\0=\0"\0i\0d\0H\0e\0a\0d\0e\0r\0_\0A\0d\0d\0i\0t\0i\0o\0n\0a\0l\0"\0>\0\r\0
+\0 \0 \0<\0t\0d\0 \0v\0a\0l\0i\0g\0n\0=\0t\0o\0p\0 \0s\0t\0y\0l\0e\0=\0'\0p\0a\0d\0d\0i\0n\0g\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0;\0w\0o\0r\0d\0-\0b\0r\0e\0a\0k\0:\0b\0r\0e\0a\0k\0-\0w\0o\0r\0d\0;\0\r\0
+\0 \0 \0-\0w\0e\0b\0k\0i\0t\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0-\0m\0o\0z\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0'\0>\0\r\0
+\0 \0 \0<\0d\0i\0v\0 \0a\0l\0i\0g\0n\0=\0c\0e\0n\0t\0e\0r\0>\0\r\0
+\0 \0 \0<\0t\0a\0b\0l\0e\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0T\0a\0b\0l\0e\0 \0b\0o\0r\0d\0e\0r\0=\x000\0 \0c\0e\0l\0l\0s\0p\0a\0c\0i\0n\0g\0=\x000\0 \0c\0e\0l\0l\0p\0a\0d\0d\0i\0n\0g\0=\x000\0 \0w\0i\0d\0t\0h\0=\x006\x005\x000\0\r\0
+\0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0w\0i\0d\0t\0h\0:\x004\x008\x007\0.\x005\0p\0t\0;\0b\0a\0c\0k\0g\0r\0o\0u\0n\0d\0:\0w\0h\0i\0t\0e\0;\0b\0o\0r\0d\0e\0r\0-\0c\0o\0l\0l\0a\0p\0s\0e\0:\0c\0o\0l\0l\0a\0p\0s\0e\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0t\0b\0l\0l\0o\0o\0k\0:\0\r\0
+\0 \0 \0 \x001\x001\x008\x004\0;\0m\0s\0o\0-\0p\0a\0d\0d\0i\0n\0g\0-\0a\0l\0t\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0'\0>\0\r\0
+\0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x000\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0f\0i\0r\0s\0t\0r\0o\0w\0:\0y\0e\0s\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0l\0a\0s\0t\0r\0o\0w\0:\0y\0e\0s\0;\0\r\0
+\0 \0 \0 \0 \0w\0o\0r\0d\0-\0b\0r\0e\0a\0k\0:\0b\0r\0e\0a\0k\0-\0w\0o\0r\0d\0;\0-\0w\0e\0b\0k\0i\0t\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0-\0m\0o\0z\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0'\0>\0\r\0
+\0 \0 \0 \0 \0<\0t\0d\0 \0v\0a\0l\0i\0g\0n\0=\0t\0o\0p\0 \0s\0t\0y\0l\0e\0=\0'\0p\0a\0d\0d\0i\0n\0g\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0;\0b\0o\0r\0d\0e\0r\0-\0s\0p\0a\0c\0i\0n\0g\0:\0 \x000\0;\0t\0e\0x\0t\0-\0a\0l\0i\0g\0n\0:\0\r\0
+\0 \0 \0 \0 \0i\0n\0h\0e\0r\0i\0t\0'\0>\0\r\0
+\0 \0 \0 \0 \0<\0d\0i\0v\0 \0i\0d\0=\0i\0d\0S\0o\0r\0t\0a\0b\0l\0e\0>\0\r\0
+\0 \0 \0 \0 \0<\0d\0i\0v\0 \0i\0d\0=\0n\0l\0H\0e\0a\0d\0e\0r\0>\0\r\0
+\0 \0 \0 \0 \0<\0d\0i\0v\0 \0i\0d\0=\0"\0a\0r\0t\0i\0c\0l\0e\0_\x001\x007\x008\x002\x001\x006\0"\0>\0\r\0
+\0 \0 \0 \0 \0<\0d\0i\0v\0 \0i\0d\0=\0"\0a\0r\0t\0i\0c\0l\0e\0_\x001\x007\x008\x002\x001\x006\0"\0>\0\r\0
+\0 \0 \0 \0 \0<\0t\0a\0b\0l\0e\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0T\0a\0b\0l\0e\0 \0b\0o\0r\0d\0e\0r\0=\x000\0 \0c\0e\0l\0l\0s\0p\0a\0c\0i\0n\0g\0=\x000\0 \0c\0e\0l\0l\0p\0a\0d\0d\0i\0n\0g\0=\x000\0\r\0
+\0 \0 \0 \0 \0 \0w\0i\0d\0t\0h\0=\0"\x001\x000\x000\0%\0"\0 \0s\0t\0y\0l\0e\0=\0'\0w\0i\0d\0t\0h\0:\x001\x000\x000\0.\x000\0%\0;\0b\0o\0r\0d\0e\0r\0-\0c\0o\0l\0l\0a\0p\0s\0e\0:\0c\0o\0l\0l\0a\0p\0s\0e\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0t\0b\0l\0l\0o\0o\0k\0:\0\r\0
+\0 \0 \0 \0 \0 \x001\x001\x008\x004\0;\0m\0s\0o\0-\0p\0a\0d\0d\0i\0n\0g\0-\0a\0l\0t\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x000\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0f\0i\0r\0s\0t\0r\0o\0w\0:\0y\0e\0s\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0w\0i\0d\0t\0h\0=\x006\x005\x000\0 \0v\0a\0l\0i\0g\0n\0=\0t\0o\0p\0 \0s\0t\0y\0l\0e\0=\0'\0w\0i\0d\0t\0h\0:\x004\x008\x007\0.\x005\0p\0t\0;\0p\0a\0d\0d\0i\0n\0g\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0'\0>\0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x001\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0l\0a\0s\0t\0r\0o\0w\0:\0y\0e\0s\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0v\0a\0l\0i\0g\0n\0=\0t\0o\0p\0 \0s\0t\0y\0l\0e\0=\0'\0p\0a\0d\0d\0i\0n\0g\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0;\0w\0o\0r\0d\0-\0b\0r\0e\0a\0k\0:\0b\0r\0e\0a\0k\0-\0w\0o\0r\0d\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0-\0w\0e\0b\0k\0i\0t\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0-\0m\0o\0z\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0t\0a\0b\0l\0e\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0T\0a\0b\0l\0e\0 \0b\0o\0r\0d\0e\0r\0=\x000\0 \0c\0e\0l\0l\0s\0p\0a\0c\0i\0n\0g\0=\x000\0 \0c\0e\0l\0l\0p\0a\0d\0d\0i\0n\0g\0=\x000\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0w\0i\0d\0t\0h\0=\x006\x005\x000\0 \0s\0t\0y\0l\0e\0=\0'\0w\0i\0d\0t\0h\0:\x004\x008\x007\0.\x005\0p\0t\0;\0b\0o\0r\0d\0e\0r\0-\0c\0o\0l\0l\0a\0p\0s\0e\0:\0c\0o\0l\0l\0a\0p\0s\0e\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0t\0b\0l\0l\0o\0o\0k\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \x001\x001\x008\x004\0;\0m\0s\0o\0-\0p\0a\0d\0d\0i\0n\0g\0-\0a\0l\0t\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0;\0b\0o\0r\0d\0e\0r\0-\0s\0p\0a\0c\0i\0n\0g\0:\0 \x000\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x000\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0f\0i\0r\0s\0t\0r\0o\0w\0:\0y\0e\0s\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0l\0a\0s\0t\0r\0o\0w\0:\0y\0e\0s\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0w\0i\0d\0t\0h\0=\0"\x007\x005\0%\0"\0 \0s\0t\0y\0l\0e\0=\0'\0w\0i\0d\0t\0h\0:\x007\x005\0.\x000\0%\0;\0p\0a\0d\0d\0i\0n\0g\0:\x001\x001\0.\x002\x005\0p\0t\0 \x000\0i\0n\0 \x007\0.\x005\0p\0t\0 \x003\x000\0.\x000\0p\0t\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0b\0o\0r\0d\0e\0r\0-\0s\0p\0a\0c\0i\0n\0g\0:\0 \x000\0'\0>\0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0w\0i\0d\0t\0h\0=\0"\x002\x005\0%\0"\0 \0s\0t\0y\0l\0e\0=\0'\0w\0i\0d\0t\0h\0:\x002\x005\0.\x000\0%\0;\0p\0a\0d\0d\0i\0n\0g\0:\x001\x005\0.\x000\0p\0t\0 \x003\x000\0.\x000\0p\0t\0 \x000\0i\0n\0 \x000\0i\0n\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0w\0o\0r\0d\0-\0b\0r\0e\0a\0k\0:\0b\0r\0e\0a\0k\0-\0w\0o\0r\0d\0;\0-\0w\0e\0b\0k\0i\0t\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0-\0m\0o\0z\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0m\0i\0n\0-\0w\0i\0d\0t\0h\0:\0 \x000\0p\0x\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x002\0.\x000\0p\0t\0'\0>\0<\0!\0-\0-\0[\0i\0f\0 \0g\0t\0e\0 \0v\0m\0l\0 \x001\0]\0>\0<\0v\0:\0s\0h\0a\0p\0e\0t\0y\0p\0e\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0i\0d\0=\0"\0_\0x\x000\x000\x000\x000\0_\0t\x007\x005\0"\0 \0c\0o\0o\0r\0d\0s\0i\0z\0e\0=\0"\x002\x001\x006\x000\x000\0,\x002\x001\x006\x000\x000\0"\0 \0o\0:\0s\0p\0t\0=\0"\x007\x005\0"\0 \0o\0:\0p\0r\0e\0f\0e\0r\0r\0e\0l\0a\0t\0i\0v\0e\0=\0"\0t\0"\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0p\0a\0t\0h\0=\0"\0m\0@\x004\0@\x005\0l\0@\x004\0@\x001\x001\0@\x009\0@\x001\x001\0@\x009\0@\x005\0x\0e\0"\0 \0f\0i\0l\0l\0e\0d\0=\0"\0f\0"\0 \0s\0t\0r\0o\0k\0e\0d\0=\0"\0f\0"\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0<\0v\0:\0s\0t\0r\0o\0k\0e\0 \0j\0o\0i\0n\0s\0t\0y\0l\0e\0=\0"\0m\0i\0t\0e\0r\0"\0/\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0<\0v\0:\0f\0o\0r\0m\0u\0l\0a\0s\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0 \0<\0v\0:\0f\0 \0e\0q\0n\0=\0"\0i\0f\0 \0l\0i\0n\0e\0D\0r\0a\0w\0n\0 \0p\0i\0x\0e\0l\0L\0i\0n\0e\0W\0i\0d\0t\0h\0 \x000\0"\0/\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0 \0<\0v\0:\0f\0 \0e\0q\0n\0=\0"\0s\0u\0m\0 \0@\x000\0 \x001\0 \x000\0"\0/\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0 \0<\0v\0:\0f\0 \0e\0q\0n\0=\0"\0s\0u\0m\0 \x000\0 \x000\0 \0@\x001\0"\0/\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0 \0<\0v\0:\0f\0 \0e\0q\0n\0=\0"\0p\0r\0o\0d\0 \0@\x002\0 \x001\0 \x002\0"\0/\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0 \0<\0v\0:\0f\0 \0e\0q\0n\0=\0"\0p\0r\0o\0d\0 \0@\x003\0 \x002\x001\x006\x000\x000\0 \0p\0i\0x\0e\0l\0W\0i\0d\0t\0h\0"\0/\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0 \0<\0v\0:\0f\0 \0e\0q\0n\0=\0"\0p\0r\0o\0d\0 \0@\x003\0 \x002\x001\x006\x000\x000\0 \0p\0i\0x\0e\0l\0H\0e\0i\0g\0h\0t\0"\0/\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0 \0<\0v\0:\0f\0 \0e\0q\0n\0=\0"\0s\0u\0m\0 \0@\x000\0 \x000\0 \x001\0"\0/\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0 \0<\0v\0:\0f\0 \0e\0q\0n\0=\0"\0p\0r\0o\0d\0 \0@\x006\0 \x001\0 \x002\0"\0/\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0 \0<\0v\0:\0f\0 \0e\0q\0n\0=\0"\0p\0r\0o\0d\0 \0@\x007\0 \x002\x001\x006\x000\x000\0 \0p\0i\0x\0e\0l\0W\0i\0d\0t\0h\0"\0/\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0 \0<\0v\0:\0f\0 \0e\0q\0n\0=\0"\0s\0u\0m\0 \0@\x008\0 \x002\x001\x006\x000\x000\0 \x000\0"\0/\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0 \0<\0v\0:\0f\0 \0e\0q\0n\0=\0"\0p\0r\0o\0d\0 \0@\x007\0 \x002\x001\x006\x000\x000\0 \0p\0i\0x\0e\0l\0H\0e\0i\0g\0h\0t\0"\0/\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0 \0<\0v\0:\0f\0 \0e\0q\0n\0=\0"\0s\0u\0m\0 \0@\x001\x000\0 \x002\x001\x006\x000\x000\0 \x000\0"\0/\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0<\0/\0v\0:\0f\0o\0r\0m\0u\0l\0a\0s\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0<\0v\0:\0p\0a\0t\0h\0 \0o\0:\0e\0x\0t\0r\0u\0s\0i\0o\0n\0o\0k\0=\0"\0f\0"\0 \0g\0r\0a\0d\0i\0e\0n\0t\0s\0h\0a\0p\0e\0o\0k\0=\0"\0t\0"\0 \0o\0:\0c\0o\0n\0n\0e\0c\0t\0t\0y\0p\0e\0=\0"\0r\0e\0c\0t\0"\0/\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0<\0o\0:\0l\0o\0c\0k\0 \0v\0:\0e\0x\0t\0=\0"\0e\0d\0i\0t\0"\0 \0a\0s\0p\0e\0c\0t\0r\0a\0t\0i\0o\0=\0"\0t\0"\0/\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0/\0v\0:\0s\0h\0a\0p\0e\0t\0y\0p\0e\0>\0<\0v\0:\0s\0h\0a\0p\0e\0 \0i\0d\0=\0"\0P\0i\0c\0t\0u\0r\0e\0_\0x\x000\x000\x002\x000\0_\x002\0"\0 \0o\0:\0s\0p\0i\0d\0=\0"\0_\0x\x000\x000\x000\x000\0_\0s\x001\x000\x002\x006\0"\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0t\0y\0p\0e\0=\0"\0#\0_\0x\x000\x000\x000\x000\0_\0t\x007\x005\0"\0 \0a\0l\0t\0=\0"\0I\0n\0f\0i\0n\0e\0o\0n\0 \0L\0o\0g\0o\0"\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0h\0r\0e\0f\0=\0"\0h\0t\0t\0p\0:\0/\0/\0w\0w\0w\0.\0i\0n\0f\0i\0n\0e\0o\0n\0.\0c\0o\0m\0/\0"\0 \0t\0a\0r\0g\0e\0t\0=\0"\0&\0q\0u\0o\0t\0;\0_\0b\0l\0a\0n\0k\0&\0q\0u\0o\0t\0;\0"\0 \0t\0i\0t\0l\0e\0=\0"\0&\0q\0u\0o\0t\0;\0I\0n\0f\0i\0n\0e\0o\0n\0 \0l\0o\0g\0o\0 \0l\0i\0n\0k\0&\0q\0u\0o\0t\0;\0"\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0p\0o\0s\0i\0t\0i\0o\0n\0:\0a\0b\0s\0o\0l\0u\0t\0e\0;\0m\0a\0r\0g\0i\0n\0-\0l\0e\0f\0t\0:\x001\x003\x006\0.\x001\0p\0t\0;\0m\0a\0r\0g\0i\0n\0-\0t\0o\0p\0:\x000\0;\0w\0i\0d\0t\0h\0:\x001\x001\x009\0.\x002\x005\0p\0t\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0h\0e\0i\0g\0h\0t\0:\x006\x008\0.\x002\x005\0p\0t\0;\0z\0-\0i\0n\0d\0e\0x\0:\x002\x005\x001\x006\x005\x008\x002\x004\x000\0;\0v\0i\0s\0i\0b\0i\0l\0i\0t\0y\0:\0v\0i\0s\0i\0b\0l\0e\0;\0m\0s\0o\0-\0w\0r\0a\0p\0-\0s\0t\0y\0l\0e\0:\0s\0q\0u\0a\0r\0e\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0m\0s\0o\0-\0w\0i\0d\0t\0h\0-\0p\0e\0r\0c\0e\0n\0t\0:\x000\0;\0m\0s\0o\0-\0h\0e\0i\0g\0h\0t\0-\0p\0e\0r\0c\0e\0n\0t\0:\x000\0;\0m\0s\0o\0-\0w\0r\0a\0p\0-\0d\0i\0s\0t\0a\0n\0c\0e\0-\0l\0e\0f\0t\0:\x000\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0m\0s\0o\0-\0w\0r\0a\0p\0-\0d\0i\0s\0t\0a\0n\0c\0e\0-\0t\0o\0p\0:\x000\0;\0m\0s\0o\0-\0w\0r\0a\0p\0-\0d\0i\0s\0t\0a\0n\0c\0e\0-\0r\0i\0g\0h\0t\0:\x000\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0m\0s\0o\0-\0w\0r\0a\0p\0-\0d\0i\0s\0t\0a\0n\0c\0e\0-\0b\0o\0t\0t\0o\0m\0:\x000\0;\0m\0s\0o\0-\0p\0o\0s\0i\0t\0i\0o\0n\0-\0h\0o\0r\0i\0z\0o\0n\0t\0a\0l\0:\0r\0i\0g\0h\0t\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0m\0s\0o\0-\0p\0o\0s\0i\0t\0i\0o\0n\0-\0h\0o\0r\0i\0z\0o\0n\0t\0a\0l\0-\0r\0e\0l\0a\0t\0i\0v\0e\0:\0t\0e\0x\0t\0;\0m\0s\0o\0-\0p\0o\0s\0i\0t\0i\0o\0n\0-\0v\0e\0r\0t\0i\0c\0a\0l\0:\0a\0b\0s\0o\0l\0u\0t\0e\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0m\0s\0o\0-\0p\0o\0s\0i\0t\0i\0o\0n\0-\0v\0e\0r\0t\0i\0c\0a\0l\0-\0r\0e\0l\0a\0t\0i\0v\0e\0:\0l\0i\0n\0e\0;\0m\0s\0o\0-\0w\0i\0d\0t\0h\0-\0p\0e\0r\0c\0e\0n\0t\0:\x000\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0m\0s\0o\0-\0h\0e\0i\0g\0h\0t\0-\0p\0e\0r\0c\0e\0n\0t\0:\x000\0;\0m\0s\0o\0-\0w\0i\0d\0t\0h\0-\0r\0e\0l\0a\0t\0i\0v\0e\0:\0p\0a\0g\0e\0;\0m\0s\0o\0-\0h\0e\0i\0g\0h\0t\0-\0r\0e\0l\0a\0t\0i\0v\0e\0:\0p\0a\0g\0e\0'\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0o\0:\0a\0l\0l\0o\0w\0o\0v\0e\0r\0l\0a\0p\0=\0"\0f\0"\0 \0o\0:\0b\0u\0t\0t\0o\0n\0=\0"\0t\0"\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0<\0v\0:\0i\0m\0a\0g\0e\0d\0a\0t\0a\0 \0s\0r\0c\0=\0"\0h\0t\0t\0p\0s\0:\0/\0/\0i\0s\0h\0a\0r\0e\0a\0p\0p\0s\0.\0i\0n\0f\0i\0n\0e\0o\0n\0.\0c\0o\0m\0/\0s\0i\0t\0e\0s\0/\0N\0e\0w\0s\0l\0e\0t\0t\0e\0r\0-\0v\0N\0e\0x\0t\0/\0I\0F\0X\0_\0L\0o\0g\0o\0s\0/\0h\0e\0a\0d\0e\0r\0_\0l\0o\0g\0o\0.\0p\0n\0g\0"\0/\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0<\0w\0:\0w\0r\0a\0p\0 \0t\0y\0p\0e\0=\0"\0s\0q\0u\0a\0r\0e\0"\0/\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0/\0v\0:\0s\0h\0a\0p\0e\0>\0<\0!\0[\0e\0n\0d\0i\0f\0]\0-\0-\0>\0<\0!\0[\0i\0f\0 \0!\0v\0m\0l\0]\0>\0<\0a\0 \0h\0r\0e\0f\0=\0"\0h\0t\0t\0p\0:\0/\0/\0w\0w\0w\0.\0i\0n\0f\0i\0n\0e\0o\0n\0.\0c\0o\0m\0/\0"\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0t\0a\0r\0g\0e\0t\0=\0"\0&\0q\0u\0o\0t\0;\0_\0b\0l\0a\0n\0k\0&\0q\0u\0o\0t\0;\0"\0>\0<\0i\0m\0g\0 \0b\0o\0r\0d\0e\0r\0=\x000\0 \0w\0i\0d\0t\0h\0=\x001\x005\x009\0 \0h\0e\0i\0g\0h\0t\0=\x009\x001\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0s\0r\0c\0=\0"\0h\0t\0t\0p\0s\0:\0/\0/\0i\0s\0h\0a\0r\0e\0a\0p\0p\0s\0.\0i\0n\0f\0i\0n\0e\0o\0n\0.\0c\0o\0m\0/\0s\0i\0t\0e\0s\0/\0N\0e\0w\0s\0l\0e\0t\0t\0e\0r\0-\0v\0N\0e\0x\0t\0/\0I\0F\0X\0_\0L\0o\0g\0o\0s\0/\0h\0e\0a\0d\0e\0r\0_\0l\0o\0g\0o\0.\0p\0n\0g\0"\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0a\0l\0i\0g\0n\0=\0r\0i\0g\0h\0t\0 \0s\0t\0y\0l\0e\0=\0'\0h\0e\0i\0g\0h\0t\0:\0.\x009\x005\0i\0n\0;\0w\0i\0d\0t\0h\0:\x001\0.\x006\x005\x008\0i\0n\0'\0'\0 \0a\0l\0t\0=\0"\0I\0n\0f\0i\0n\0e\0o\0n\0 \0L\0o\0g\0o\0"\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0t\0i\0t\0l\0e\0=\0"\0&\0q\0u\0o\0t\0;\0I\0n\0f\0i\0n\0e\0o\0n\0 \0l\0o\0g\0o\0 \0l\0i\0n\0k\0&\0q\0u\0o\0t\0;\0"\0 \0v\0:\0s\0h\0a\0p\0e\0s\0=\0"\0P\0i\0c\0t\0u\0r\0e\0_\0x\x000\x000\x002\x000\0_\x002\0"\0>\0<\0/\0a\0>\0<\0!\0[\0e\0n\0d\0i\0f\0]\0>\0<\0s\0p\0a\0n\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x009\0.\x000\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0#\x002\x002\x002\x002\x002\x002\0'\0>\0<\0o\0:\0p\0>\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0w\0i\0d\0t\0h\0=\x000\0 \0v\0a\0l\0i\0g\0n\0=\0t\0o\0p\0 \0s\0t\0y\0l\0e\0=\0'\0w\0i\0d\0t\0h\0:\0.\x003\0p\0t\0;\0p\0a\0d\0d\0i\0n\0g\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0w\0o\0r\0d\0-\0b\0r\0e\0a\0k\0:\0b\0r\0e\0a\0k\0-\0w\0o\0r\0d\0;\0-\0w\0e\0b\0k\0i\0t\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0-\0m\0o\0z\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0v\0i\0s\0i\0b\0i\0l\0i\0t\0y\0:\0h\0i\0d\0d\0e\0n\0'\0>\0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0/\0t\0a\0b\0l\0e\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x004\0.\x002\x005\0p\0t\0'\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \x009\0.\x000\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0#\x002\x002\x002\x002\x002\x002\0;\0d\0i\0s\0p\0l\0a\0y\0:\0n\0o\0n\0e\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0m\0s\0o\0-\0h\0i\0d\0e\0:\0a\0l\0l\0'\0>\0<\0o\0:\0p\0>\0&\0n\0b\0s\0p\0;\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0t\0a\0b\0l\0e\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0T\0a\0b\0l\0e\0 \0b\0o\0r\0d\0e\0r\0=\x000\0 \0c\0e\0l\0l\0s\0p\0a\0c\0i\0n\0g\0=\x000\0 \0c\0e\0l\0l\0p\0a\0d\0d\0i\0n\0g\0=\x000\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0w\0i\0d\0t\0h\0=\x006\x005\x000\0 \0s\0t\0y\0l\0e\0=\0'\0w\0i\0d\0t\0h\0:\x004\x008\x007\0.\x005\0p\0t\0;\0b\0o\0r\0d\0e\0r\0-\0c\0o\0l\0l\0a\0p\0s\0e\0:\0c\0o\0l\0l\0a\0p\0s\0e\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0t\0b\0l\0l\0o\0o\0k\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \x001\x001\x008\x004\0;\0m\0s\0o\0-\0p\0a\0d\0d\0i\0n\0g\0-\0a\0l\0t\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0;\0b\0o\0r\0d\0e\0r\0-\0s\0p\0a\0c\0i\0n\0g\0:\0 \x000\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x000\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0f\0i\0r\0s\0t\0r\0o\0w\0:\0y\0e\0s\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0w\0i\0d\0t\0h\0=\x006\x000\x000\0 \0s\0t\0y\0l\0e\0=\0'\0w\0i\0d\0t\0h\0:\x006\0.\x002\x005\0i\0n\0;\0p\0a\0d\0d\0i\0n\0g\0:\x004\0.\x005\0p\0t\0 \x003\x000\0.\x000\0p\0t\0 \x004\0.\x005\0p\0t\0 \x003\x000\0.\x000\0p\0t\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0w\0o\0r\0d\0-\0b\0r\0e\0a\0k\0:\0b\0r\0e\0a\0k\0-\0w\0o\0r\0d\0;\0-\0w\0e\0b\0k\0i\0t\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0-\0m\0o\0z\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0m\0i\0n\0-\0w\0i\0d\0t\0h\0:\0 \x000\0p\0x\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0>\0<\0b\0>\0<\0s\0p\0a\0n\0 \0l\0a\0n\0g\0=\0E\0N\0-\0U\0S\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x002\x001\0.\x000\0p\0t\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0#\x000\x000\x007\0D\x006\0F\0;\0m\0s\0o\0-\0a\0n\0s\0i\0-\0l\0a\0n\0g\0u\0a\0g\0e\0:\0E\0N\0-\0U\0S\0'\0>\0A\0T\0V\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0M\0C\0 \0M\0o\0n\0t\0h\0l\0y\0 \0U\0p\0d\0a\0t\0e\0 \0-\0 \0M\0a\0r\0c\0h\0<\0/\0s\0p\0a\0n\0>\0<\0/\0b\0>\0<\0b\0>\0<\0s\0p\0a\0n\0 \0l\0a\0n\0g\0=\0E\0N\0-\0U\0S\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x002\x001\0.\x000\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0m\0s\0o\0-\0a\0n\0s\0i\0-\0l\0a\0n\0g\0u\0a\0g\0e\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0E\0N\0-\0U\0S\0'\0>\0 \0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0c\0o\0l\0o\0r\0:\0#\x000\x000\x007\0D\x006\0F\0'\0>\0'\x002\x006\0 \0<\0/\0s\0p\0a\0n\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0b\0>\0<\0s\0p\0a\0n\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0l\0a\0n\0g\0=\0E\0N\0-\0U\0S\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x001\x003\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0;\0m\0s\0o\0-\0a\0n\0s\0i\0-\0l\0a\0n\0g\0u\0a\0g\0e\0:\0E\0N\0-\0U\0S\0'\0>\0<\0o\0:\0p\0>\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x001\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0l\0a\0s\0t\0r\0o\0w\0:\0y\0e\0s\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0w\0i\0d\0t\0h\0=\x006\x000\x000\0 \0s\0t\0y\0l\0e\0=\0'\0w\0i\0d\0t\0h\0:\x006\0.\x002\x005\0i\0n\0;\0p\0a\0d\0d\0i\0n\0g\0:\x000\0i\0n\0 \x003\x000\0.\x000\0p\0t\0 \x001\x008\0.\x007\x005\0p\0t\0 \x003\x003\0.\x000\0p\0t\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0w\0o\0r\0d\0-\0b\0r\0e\0a\0k\0:\0b\0r\0e\0a\0k\0-\0w\0o\0r\0d\0;\0-\0w\0e\0b\0k\0i\0t\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0-\0m\0o\0z\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0m\0i\0n\0-\0w\0i\0d\0t\0h\0:\0 \x000\0p\0x\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x004\0.\x002\x005\0p\0t\0'\0>\0<\0b\0>\0<\0s\0p\0a\0n\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0#\x000\x000\x007\0D\x006\0F\0'\0>\0W\0e\0 \0m\0a\0k\0e\0 \0g\0r\0e\0e\0n\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0m\0o\0b\0i\0l\0i\0t\0y\0 \0s\0m\0a\0r\0t\0!\0 \0<\0/\0s\0p\0a\0n\0>\0<\0/\0b\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0'\0>\0<\0o\0:\0p\0>\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0/\0t\0a\0b\0l\0e\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0>\0<\0o\0:\0p\0>\0<\0/\0o\0:\0p\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0<\0/\0t\0a\0b\0l\0e\0>\0\r\0
+\0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x004\0.\x002\x005\0p\0t\0'\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x009\0.\x000\0p\0t\0;\0\r\0
+\0 \0 \0 \0 \0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0#\x002\x002\x002\x002\x002\x002\0;\0d\0i\0s\0p\0l\0a\0y\0:\0n\0o\0n\0e\0;\0m\0s\0o\0-\0h\0i\0d\0e\0:\0a\0l\0l\0'\0>\0<\0o\0:\0p\0>\0&\0n\0b\0s\0p\0;\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0<\0t\0a\0b\0l\0e\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0T\0a\0b\0l\0e\0 \0b\0o\0r\0d\0e\0r\0=\x000\0 \0c\0e\0l\0l\0s\0p\0a\0c\0i\0n\0g\0=\x000\0 \0c\0e\0l\0l\0p\0a\0d\0d\0i\0n\0g\0=\x000\0\r\0
+\0 \0 \0 \0 \0 \0w\0i\0d\0t\0h\0=\0"\x001\x000\x000\0%\0"\0 \0s\0t\0y\0l\0e\0=\0'\0w\0i\0d\0t\0h\0:\x001\x000\x000\0.\x000\0%\0;\0b\0o\0r\0d\0e\0r\0-\0c\0o\0l\0l\0a\0p\0s\0e\0:\0c\0o\0l\0l\0a\0p\0s\0e\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0t\0b\0l\0l\0o\0o\0k\0:\0\r\0
+\0 \0 \0 \0 \0 \x001\x001\x008\x004\0;\0m\0s\0o\0-\0p\0a\0d\0d\0i\0n\0g\0-\0a\0l\0t\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0;\0b\0o\0r\0d\0e\0r\0-\0s\0p\0a\0c\0i\0n\0g\0:\0 \x000\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x000\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0f\0i\0r\0s\0t\0r\0o\0w\0:\0y\0e\0s\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0l\0a\0s\0t\0r\0o\0w\0:\0y\0e\0s\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0v\0a\0l\0i\0g\0n\0=\0t\0o\0p\0 \0s\0t\0y\0l\0e\0=\0'\0p\0a\0d\0d\0i\0n\0g\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0;\0w\0o\0r\0d\0-\0b\0r\0e\0a\0k\0:\0b\0r\0e\0a\0k\0-\0w\0o\0r\0d\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0-\0w\0e\0b\0k\0i\0t\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0-\0m\0o\0z\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x004\0.\x002\x005\0p\0t\0'\0>\0<\0a\0\r\0
+\0 \0 \0 \0 \0 \0 \0h\0r\0e\0f\0=\0"\0h\0t\0t\0p\0s\0:\0/\0/\0w\0w\0w\0.\0i\0n\0f\0i\0n\0e\0o\0n\0.\0c\0o\0m\0/\0"\0 \0t\0a\0r\0g\0e\0t\0=\0"\0_\0b\0l\0a\0n\0k\0"\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \x009\0.\x000\0p\0t\0;\0t\0e\0x\0t\0-\0d\0e\0c\0o\0r\0a\0t\0i\0o\0n\0:\0n\0o\0n\0e\0;\0t\0e\0x\0t\0-\0u\0n\0d\0e\0r\0l\0i\0n\0e\0:\0n\0o\0n\0e\0'\0>\0<\0i\0m\0g\0 \0b\0o\0r\0d\0e\0r\0=\x000\0 \0w\0i\0d\0t\0h\0=\x006\x005\x000\0\r\0
+\0 \0 \0 \0 \0 \0 \0h\0e\0i\0g\0h\0t\0=\x002\x002\x005\0 \0i\0d\0=\0"\0_\0x\x000\x000\x000\x000\0_\0i\x001\x000\x002\x005\0"\0\r\0
+\0 \0 \0 \0 \0 \0 \0s\0r\0c\0=\0"\0h\0t\0t\0p\0s\0:\0/\0/\0n\0e\0w\0s\0l\0e\0t\0t\0e\0r\0f\0i\0l\0e\0s\0.\0i\0n\0f\0i\0n\0e\0o\0n\0.\0c\0o\0m\0/\0f\0i\0l\0e\0s\0/\0i\0f\0x\0n\0e\0w\0s\0l\0e\0t\0t\0e\0r\0s\0-\0p\0i\0c\0t\0u\0r\0e\0s\0/\0l\0o\0w\0r\0e\0s\0-\0I\0l\0l\0u\0s\0t\0r\0a\0t\0i\0o\0n\0_\0Z\0o\0o\0m\0_\0R\0G\0B\0_\0E\0x\0a\0m\0p\0l\0e\0_\x000\x002\0e\0p\0s\0_\x000\x006\0-\x000\x002\0-\x002\x000\x002\x004\0-\x000\x003\0-\x004\x002\0-\x004\x002\0.\0p\0n\0g\0"\0\r\0
+\0 \0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0h\0e\0i\0g\0h\0t\0:\x002\0.\x003\x004\x001\0i\0n\0;\0w\0i\0d\0t\0h\0:\x006\0.\x007\x007\x005\0i\0n\0'\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0a\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \x009\0.\x000\0p\0t\0;\0c\0o\0l\0o\0r\0:\0#\x002\x002\x002\x002\x002\x002\0'\0>\0<\0o\0:\0p\0>\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0<\0/\0t\0a\0b\0l\0e\0>\0\r\0
+\0 \0 \0 \0 \0<\0/\0d\0i\0v\0>\0\r\0
+\0 \0 \0 \0 \0<\0/\0d\0i\0v\0>\0\r\0
+\0 \0 \0 \0 \0<\0/\0d\0i\0v\0>\0\r\0
+\0 \0 \0 \0 \0<\0t\0a\0b\0l\0e\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0T\0a\0b\0l\0e\0 \0b\0o\0r\0d\0e\0r\0=\x000\0 \0c\0e\0l\0l\0s\0p\0a\0c\0i\0n\0g\0=\x000\0 \0c\0e\0l\0l\0p\0a\0d\0d\0i\0n\0g\0=\x000\0\r\0
+\0 \0 \0 \0 \0 \0w\0i\0d\0t\0h\0=\0"\x001\x000\x000\0%\0"\0 \0s\0t\0y\0l\0e\0=\0'\0w\0i\0d\0t\0h\0:\x001\x000\x000\0.\x000\0%\0;\0b\0o\0r\0d\0e\0r\0-\0c\0o\0l\0l\0a\0p\0s\0e\0:\0c\0o\0l\0l\0a\0p\0s\0e\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0t\0b\0l\0l\0o\0o\0k\0:\0\r\0
+\0 \0 \0 \0 \0 \x001\x001\x008\x004\0;\0m\0s\0o\0-\0p\0a\0d\0d\0i\0n\0g\0-\0a\0l\0t\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x000\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0f\0i\0r\0s\0t\0r\0o\0w\0:\0y\0e\0s\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0l\0a\0s\0t\0r\0o\0w\0:\0y\0e\0s\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0v\0a\0l\0i\0g\0n\0=\0t\0o\0p\0 \0s\0t\0y\0l\0e\0=\0'\0p\0a\0d\0d\0i\0n\0g\0:\x000\0i\0n\0 \x003\x000\0.\x000\0p\0t\0 \x003\x000\0.\x000\0p\0t\0 \x003\x000\0.\x000\0p\0t\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0m\0a\0r\0g\0i\0n\0-\0b\0o\0t\0t\0o\0m\0:\x001\x002\0.\x000\0p\0t\0;\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x002\0.\x007\x005\0p\0t\0'\0>\0<\0s\0p\0a\0n\0\r\0
+\0 \0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0'\0>\0<\0b\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0b\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0s\0t\0r\0o\0n\0g\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0'\0>\0D\0e\0a\0r\0 \0A\0T\0V\0 \0M\0C\0\r\0
+\0 \0 \0 \0 \0 \0 \0E\0n\0t\0h\0u\0s\0i\0a\0s\0t\0s\0,\0<\0/\0s\0p\0a\0n\0>\0<\0/\0s\0t\0r\0o\0n\0g\0>\0 \0<\0o\0:\0p\0>\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0t\0e\0x\0t\0-\0a\0l\0i\0g\0n\0:\0j\0u\0s\0t\0i\0f\0y\0;\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x002\0.\x007\x005\0p\0t\0'\0>\0<\0s\0p\0a\0n\0\r\0
+\0 \0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0'\0>\0W\0e\0l\0c\0o\0m\0e\0\r\0
+\0 \0 \0 \0 \0 \0 \0t\0o\0 \0t\0h\0e\0 \0M\0a\0r\0c\0h\0 \x002\x000\x002\x006\0&\0n\0b\0s\0p\0;\0e\0d\0i\0t\0i\0o\0n\0 \0o\0f\0&\0n\0b\0s\0p\0;\0A\0T\0V\0 \0M\0C\0'\0s\0 \0N\0e\0w\0s\0l\0e\0t\0t\0e\0r\0.\0 \0T\0h\0i\0s\0 \0u\0p\0d\0a\0t\0e\0\r\0
+\0 \0 \0 \0 \0 \0 \0c\0o\0v\0e\0r\0s\0 \0t\0h\0e\0 \0e\0n\0t\0i\0r\0e\0 \0A\0u\0t\0o\0m\0o\0t\0i\0v\0e\0 \0M\0C\0U\0 \0p\0o\0r\0t\0f\0o\0l\0i\0o\0,\0&\0n\0b\0s\0p\0;\0f\0e\0a\0t\0u\0r\0i\0n\0g\0 \0t\0h\0e\0 \0l\0a\0t\0e\0s\0t\0 \0<\0s\0t\0r\0o\0n\0g\0>\0<\0s\0p\0a\0n\0\r\0
+\0 \0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0'\0>\0A\0U\0R\0I\0X\0"!<\0/\0s\0p\0a\0n\0>\0<\0/\0s\0t\0r\0o\0n\0g\0>\0&\0n\0b\0s\0p\0;\0r\0e\0l\0e\0a\0s\0e\0s\0,\0\r\0
+\0 \0 \0 \0 \0 \0 \0n\0e\0x\0t\0 \0g\0e\0n\0e\0r\0a\0t\0i\0o\0n\0 \0u\0p\0d\0a\0t\0e\0s\0 \0a\0n\0d\0 \0n\0e\0w\0s\0 \0a\0b\0o\0u\0t\0 \0<\0s\0t\0r\0o\0n\0g\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0'\0>\0T\0R\0A\0V\0E\0O\0"!&\0n\0b\0s\0p\0;\0<\0/\0s\0p\0a\0n\0>\0<\0/\0s\0t\0r\0o\0n\0g\0>\0a\0n\0d\0&\0n\0b\0s\0p\0;\0<\0s\0t\0r\0o\0n\0g\0>\0<\0s\0p\0a\0n\0\r\0
+\0 \0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0'\0>\0P\0S\0O\0C\0"! \0A\0u\0t\0o\0m\0o\0t\0i\0v\0e\0<\0/\0s\0p\0a\0n\0>\0<\0/\0s\0t\0r\0o\0n\0g\0>\0.\0<\0s\0t\0r\0o\0n\0g\0>\0<\0s\0p\0a\0n\0\r\0
+\0 \0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0'\0>\0&\0n\0b\0s\0p\0;\0<\0/\0s\0p\0a\0n\0>\0<\0/\0s\0t\0r\0o\0n\0g\0>\0I\0t\0 \0a\0l\0s\0o\0\r\0
+\0 \0 \0 \0 \0 \0 \0h\0i\0g\0h\0l\0i\0g\0h\0t\0s\0 \0t\0h\0e\0 \0l\0a\0t\0e\0s\0t\0 \0i\0n\0d\0u\0s\0t\0r\0y\0 \0n\0e\0w\0s\0 \0a\0n\0d\0&\0n\0b\0s\0p\0;\0t\0e\0a\0m\0 \0n\0e\0w\0s\0 \0u\0n\0d\0e\0r\0 \0B\0u\0l\0l\0e\0t\0i\0n\0\r\0
+\0 \0 \0 \0 \0 \0 \0B\0o\0a\0r\0d\0 \0a\0n\0d\0 \0p\0r\0o\0v\0i\0d\0e\0s\0 \0a\0 \0h\0o\0s\0t\0 \0o\0f\0 \0u\0s\0e\0f\0u\0l\0 \0l\0i\0n\0k\0s\0 \0u\0n\0d\0e\0r\0 \0t\0h\0e\0 \0s\0e\0c\0t\0i\0o\0n\0 \0E\0a\0s\0e\0 \0o\0f\0 \0U\0s\0e\0\r\0
+\0 \0 \0 \0 \0 \0 \0a\0n\0d\0 \0M\0a\0r\0k\0e\0t\0 \0N\0e\0w\0s\0 \0&\0a\0m\0p\0;\0 \0P\0r\0e\0s\0s\0 \0R\0e\0l\0e\0a\0s\0e\0.\0 \0R\0e\0c\0e\0n\0t\0l\0y\0,\0 \0a\0 \0n\0e\0w\0 \0P\0D\0H\0 \0&\0a\0m\0p\0;\0 \0P\0a\0r\0t\0n\0e\0r\0s\0\r\0
+\0 \0 \0 \0 \0 \0 \0c\0h\0a\0p\0t\0e\0r\0 \0i\0s\0 \0a\0d\0d\0e\0d\0,\0 \0s\0u\0c\0h\0 \0t\0h\0a\0t\0 \0w\0e\0 \0a\0r\0e\0 \0a\0l\0l\0 \0u\0p\0-\0t\0o\0-\0d\0a\0t\0e\0 \0w\0i\0t\0h\0 \0o\0u\0r\0 \0P\0D\0H\0 \0&\0a\0m\0p\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0P\0a\0r\0t\0n\0e\0r\0 \0n\0e\0t\0w\0o\0r\0k\0.\0<\0b\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0b\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0s\0t\0r\0o\0n\0g\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0'\0>\0P\0l\0e\0a\0s\0e\0\r\0
+\0 \0 \0 \0 \0 \0 \0n\0o\0t\0e\0:\0&\0n\0b\0s\0p\0;\0t\0h\0i\0s\0 \0n\0e\0w\0s\0l\0e\0t\0t\0e\0r\0 \0i\0s\0 \0s\0t\0r\0i\0c\0t\0l\0y\0 \0f\0o\0r\0 \0i\0n\0t\0e\0r\0n\0a\0l\0 \0u\0s\0e\0 \0a\0n\0d\0 \0c\0i\0r\0c\0u\0l\0a\0t\0i\0o\0n\0.\0<\0/\0s\0p\0a\0n\0>\0<\0/\0s\0t\0r\0o\0n\0g\0>\0<\0o\0:\0p\0>\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0<\0/\0t\0a\0b\0l\0e\0>\0\r\0
+\0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x004\0.\x002\x005\0p\0t\0'\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x009\0.\x000\0p\0t\0;\0\r\0
+\0 \0 \0 \0 \0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0#\x002\x002\x002\x002\x002\x002\0;\0d\0i\0s\0p\0l\0a\0y\0:\0n\0o\0n\0e\0;\0m\0s\0o\0-\0h\0i\0d\0e\0:\0a\0l\0l\0'\0>\0<\0o\0:\0p\0>\0&\0n\0b\0s\0p\0;\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0<\0t\0a\0b\0l\0e\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0T\0a\0b\0l\0e\0 \0b\0o\0r\0d\0e\0r\0=\x000\0 \0c\0e\0l\0l\0s\0p\0a\0c\0i\0n\0g\0=\x000\0 \0c\0e\0l\0l\0p\0a\0d\0d\0i\0n\0g\0=\x000\0\r\0
+\0 \0 \0 \0 \0 \0w\0i\0d\0t\0h\0=\0"\x001\x000\x000\0%\0"\0 \0s\0t\0y\0l\0e\0=\0'\0w\0i\0d\0t\0h\0:\x001\x000\x000\0.\x000\0%\0;\0b\0a\0c\0k\0g\0r\0o\0u\0n\0d\0:\0#\x000\x000\x007\0D\x006\0F\0;\0b\0o\0r\0d\0e\0r\0-\0c\0o\0l\0l\0a\0p\0s\0e\0:\0c\0o\0l\0l\0a\0p\0s\0e\0;\0\r\0
+\0 \0 \0 \0 \0 \0m\0s\0o\0-\0y\0f\0t\0i\0-\0t\0b\0l\0l\0o\0o\0k\0:\x001\x001\x008\x004\0;\0m\0s\0o\0-\0p\0a\0d\0d\0i\0n\0g\0-\0a\0l\0t\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0;\0b\0o\0r\0d\0e\0r\0-\0s\0p\0a\0c\0i\0n\0g\0:\0 \x000\0p\0x\0'\0\r\0
+\0 \0 \0 \0 \0 \0i\0d\0=\0i\0d\0T\0b\0l\0C\0h\0a\0p\0H\0e\0a\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x000\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0f\0i\0r\0s\0t\0r\0o\0w\0:\0y\0e\0s\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0l\0a\0s\0t\0r\0o\0w\0:\0y\0e\0s\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0v\0a\0l\0i\0g\0n\0=\0t\0o\0p\0 \0s\0t\0y\0l\0e\0=\0'\0p\0a\0d\0d\0i\0n\0g\0:\x001\x001\0.\x002\x005\0p\0t\0 \x003\x000\0.\x000\0p\0t\0 \x001\x001\0.\x002\x005\0p\0t\0 \x003\x000\0.\x000\0p\0t\0;\0w\0o\0r\0d\0-\0b\0r\0e\0a\0k\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0a\0u\0t\0o\0-\0p\0h\0r\0a\0s\0e\0'\0 \0i\0d\0=\0i\0d\0C\0h\0a\0p\0t\0e\0r\0H\0e\0a\0d\0e\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0a\0l\0i\0g\0n\0=\0c\0e\0n\0t\0e\0r\0 \0s\0t\0y\0l\0e\0=\0'\0t\0e\0x\0t\0-\0a\0l\0i\0g\0n\0:\0c\0e\0n\0t\0e\0r\0;\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \x002\x004\0.\x000\0p\0t\0'\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0w\0h\0i\0t\0e\0'\0>\0<\0a\0\r\0
+\0 \0 \0 \0 \0 \0 \0h\0r\0e\0f\0=\0"\0#\0C\0h\0a\0p\0t\0e\0r\0_\x001\x007\x008\x002\x003\x002\0"\0 \0t\0i\0t\0l\0e\0=\0"\0A\0U\0R\0I\0X\0"!"\0>\0<\0s\0t\0r\0o\0n\0g\0>\0<\0s\0p\0a\0n\0 \0l\0a\0n\0g\0=\0E\0N\0-\0U\0S\0\r\0
+\0 \0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0w\0h\0i\0t\0e\0;\0m\0s\0o\0-\0a\0n\0s\0i\0-\0l\0a\0n\0g\0u\0a\0g\0e\0:\0E\0N\0-\0U\0S\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0t\0e\0x\0t\0-\0d\0e\0c\0o\0r\0a\0t\0i\0o\0n\0:\0n\0o\0n\0e\0;\0t\0e\0x\0t\0-\0u\0n\0d\0e\0r\0l\0i\0n\0e\0:\0n\0o\0n\0e\0'\0>\0A\0U\0R\0I\0X\0"!<\0/\0s\0p\0a\0n\0>\0<\0/\0s\0t\0r\0o\0n\0g\0>\0<\0/\0a\0>\0<\0/\0s\0p\0a\0n\0>\0<\0s\0p\0a\0n\0\r\0
+\0 \0 \0 \0 \0 \0 \0l\0a\0n\0g\0=\0E\0N\0-\0U\0S\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0w\0h\0i\0t\0e\0;\0m\0s\0o\0-\0a\0n\0s\0i\0-\0l\0a\0n\0g\0u\0a\0g\0e\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0E\0N\0-\0U\0S\0'\0>\0&\0n\0b\0s\0p\0;\0&\0n\0b\0s\0p\0;\0|\0&\0n\0b\0s\0p\0;\0&\0n\0b\0s\0p\0;\0<\0/\0s\0p\0a\0n\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0c\0o\0l\0o\0r\0:\0w\0h\0i\0t\0e\0'\0>\0<\0a\0 \0h\0r\0e\0f\0=\0"\0#\0C\0h\0a\0p\0t\0e\0r\0_\x001\x007\x008\x002\x004\x001\0"\0 \0t\0i\0t\0l\0e\0=\0"\0T\0R\0A\0V\0E\0O\0"!"\0>\0<\0s\0t\0r\0o\0n\0g\0>\0<\0s\0p\0a\0n\0\r\0
+\0 \0 \0 \0 \0 \0 \0l\0a\0n\0g\0=\0E\0N\0-\0U\0S\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0w\0h\0i\0t\0e\0;\0m\0s\0o\0-\0a\0n\0s\0i\0-\0l\0a\0n\0g\0u\0a\0g\0e\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0E\0N\0-\0U\0S\0;\0t\0e\0x\0t\0-\0d\0e\0c\0o\0r\0a\0t\0i\0o\0n\0:\0n\0o\0n\0e\0;\0t\0e\0x\0t\0-\0u\0n\0d\0e\0r\0l\0i\0n\0e\0:\0n\0o\0n\0e\0'\0>\0T\0R\0A\0V\0E\0O\0"!<\0/\0s\0p\0a\0n\0>\0<\0/\0s\0t\0r\0o\0n\0g\0>\0<\0/\0a\0>\0<\0/\0s\0p\0a\0n\0>\0<\0s\0p\0a\0n\0\r\0
+\0 \0 \0 \0 \0 \0 \0l\0a\0n\0g\0=\0E\0N\0-\0U\0S\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0w\0h\0i\0t\0e\0;\0m\0s\0o\0-\0a\0n\0s\0i\0-\0l\0a\0n\0g\0u\0a\0g\0e\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0E\0N\0-\0U\0S\0'\0>\0&\0n\0b\0s\0p\0;\0&\0n\0b\0s\0p\0;\0|\0&\0n\0b\0s\0p\0;\0&\0n\0b\0s\0p\0;\0<\0/\0s\0p\0a\0n\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0c\0o\0l\0o\0r\0:\0w\0h\0i\0t\0e\0'\0>\0<\0a\0 \0h\0r\0e\0f\0=\0"\0#\0C\0h\0a\0p\0t\0e\0r\0_\x002\x000\x002\x002\x009\x001\0"\0 \0t\0i\0t\0l\0e\0=\0"\0P\0S\0O\0C\0"!"\0>\0<\0s\0t\0r\0o\0n\0g\0>\0<\0s\0p\0a\0n\0\r\0
+\0 \0 \0 \0 \0 \0 \0l\0a\0n\0g\0=\0E\0N\0-\0U\0S\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0w\0h\0i\0t\0e\0;\0m\0s\0o\0-\0a\0n\0s\0i\0-\0l\0a\0n\0g\0u\0a\0g\0e\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0E\0N\0-\0U\0S\0;\0t\0e\0x\0t\0-\0d\0e\0c\0o\0r\0a\0t\0i\0o\0n\0:\0n\0o\0n\0e\0;\0t\0e\0x\0t\0-\0u\0n\0d\0e\0r\0l\0i\0n\0e\0:\0n\0o\0n\0e\0'\0>\0P\0S\0O\0C\0"! \0A\0u\0t\0o\0m\0o\0t\0i\0v\0e\0<\0/\0s\0p\0a\0n\0>\0<\0/\0s\0t\0r\0o\0n\0g\0>\0<\0/\0a\0>\0<\0/\0s\0p\0a\0n\0>\0<\0s\0p\0a\0n\0\r\0
+\0 \0 \0 \0 \0 \0 \0l\0a\0n\0g\0=\0E\0N\0-\0U\0S\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0w\0h\0i\0t\0e\0;\0m\0s\0o\0-\0a\0n\0s\0i\0-\0l\0a\0n\0g\0u\0a\0g\0e\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0E\0N\0-\0U\0S\0'\0>\0&\0n\0b\0s\0p\0;\0&\0n\0b\0s\0p\0;\0|\0&\0n\0b\0s\0p\0;\0&\0n\0b\0s\0p\0;\0<\0/\0s\0p\0a\0n\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0c\0o\0l\0o\0r\0:\0w\0h\0i\0t\0e\0'\0>\0<\0a\0 \0h\0r\0e\0f\0=\0"\0#\0C\0h\0a\0p\0t\0e\0r\0_\x003\x002\x008\x007\x004\x001\0"\0 \0t\0i\0t\0l\0e\0=\0P\0D\0H\0>\0<\0s\0t\0r\0o\0n\0g\0>\0<\0s\0p\0a\0n\0\r\0
+\0 \0 \0 \0 \0 \0 \0l\0a\0n\0g\0=\0E\0N\0-\0U\0S\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0w\0h\0i\0t\0e\0;\0m\0s\0o\0-\0a\0n\0s\0i\0-\0l\0a\0n\0g\0u\0a\0g\0e\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0E\0N\0-\0U\0S\0;\0t\0e\0x\0t\0-\0d\0e\0c\0o\0r\0a\0t\0i\0o\0n\0:\0n\0o\0n\0e\0;\0t\0e\0x\0t\0-\0u\0n\0d\0e\0r\0l\0i\0n\0e\0:\0n\0o\0n\0e\0'\0>\0P\0D\0H\0 \0&\0a\0m\0p\0;\0 \0P\0a\0r\0t\0n\0e\0r\0s\0<\0/\0s\0p\0a\0n\0>\0<\0/\0s\0t\0r\0o\0n\0g\0>\0<\0/\0a\0>\0<\0/\0s\0p\0a\0n\0>\0<\0s\0p\0a\0n\0\r\0
+\0 \0 \0 \0 \0 \0 \0l\0a\0n\0g\0=\0E\0N\0-\0U\0S\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0;\0m\0s\0o\0-\0a\0n\0s\0i\0-\0l\0a\0n\0g\0u\0a\0g\0e\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0E\0N\0-\0U\0S\0'\0>\0<\0b\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0/\0s\0p\0a\0n\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0w\0h\0i\0t\0e\0'\0>\0<\0a\0\r\0
+\0 \0 \0 \0 \0 \0 \0h\0r\0e\0f\0=\0"\0#\0C\0h\0a\0p\0t\0e\0r\0_\x002\x000\x002\x002\x000\x009\0"\0 \0t\0i\0t\0l\0e\0=\0B\0u\0l\0l\0e\0t\0i\0n\0>\0<\0s\0t\0r\0o\0n\0g\0>\0<\0s\0p\0a\0n\0 \0l\0a\0n\0g\0=\0E\0N\0-\0U\0S\0\r\0
+\0 \0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0w\0h\0i\0t\0e\0;\0m\0s\0o\0-\0a\0n\0s\0i\0-\0l\0a\0n\0g\0u\0a\0g\0e\0:\0E\0N\0-\0U\0S\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0t\0e\0x\0t\0-\0d\0e\0c\0o\0r\0a\0t\0i\0o\0n\0:\0n\0o\0n\0e\0;\0t\0e\0x\0t\0-\0u\0n\0d\0e\0r\0l\0i\0n\0e\0:\0n\0o\0n\0e\0'\0>\0B\0u\0l\0l\0e\0t\0i\0n\0 \0B\0o\0a\0r\0d\0<\0/\0s\0p\0a\0n\0>\0<\0/\0s\0t\0r\0o\0n\0g\0>\0<\0/\0a\0>\0<\0/\0s\0p\0a\0n\0>\0<\0s\0p\0a\0n\0\r\0
+\0 \0 \0 \0 \0 \0 \0l\0a\0n\0g\0=\0E\0N\0-\0U\0S\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0w\0h\0i\0t\0e\0;\0m\0s\0o\0-\0a\0n\0s\0i\0-\0l\0a\0n\0g\0u\0a\0g\0e\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0E\0N\0-\0U\0S\0'\0>\0&\0n\0b\0s\0p\0;\0&\0n\0b\0s\0p\0;\0|\0&\0n\0b\0s\0p\0;\0&\0n\0b\0s\0p\0;\0<\0/\0s\0p\0a\0n\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0c\0o\0l\0o\0r\0:\0w\0h\0i\0t\0e\0'\0>\0<\0a\0 \0h\0r\0e\0f\0=\0"\0#\0C\0h\0a\0p\0t\0e\0r\0_\x001\x007\x008\x002\x007\x001\0"\0 \0t\0i\0t\0l\0e\0=\0E\0a\0s\0e\0>\0<\0s\0t\0r\0o\0n\0g\0>\0<\0s\0p\0a\0n\0\r\0
+\0 \0 \0 \0 \0 \0 \0l\0a\0n\0g\0=\0E\0N\0-\0U\0S\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0w\0h\0i\0t\0e\0;\0m\0s\0o\0-\0a\0n\0s\0i\0-\0l\0a\0n\0g\0u\0a\0g\0e\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0E\0N\0-\0U\0S\0;\0t\0e\0x\0t\0-\0d\0e\0c\0o\0r\0a\0t\0i\0o\0n\0:\0n\0o\0n\0e\0;\0t\0e\0x\0t\0-\0u\0n\0d\0e\0r\0l\0i\0n\0e\0:\0n\0o\0n\0e\0'\0>\0E\0a\0s\0e\0 \0o\0f\0 \0U\0s\0e\0<\0/\0s\0p\0a\0n\0>\0<\0/\0s\0t\0r\0o\0n\0g\0>\0<\0/\0a\0>\0<\0/\0s\0p\0a\0n\0>\0<\0s\0p\0a\0n\0\r\0
+\0 \0 \0 \0 \0 \0 \0l\0a\0n\0g\0=\0E\0N\0-\0U\0S\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0w\0h\0i\0t\0e\0;\0m\0s\0o\0-\0a\0n\0s\0i\0-\0l\0a\0n\0g\0u\0a\0g\0e\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0E\0N\0-\0U\0S\0'\0>\0&\0n\0b\0s\0p\0;\0&\0n\0b\0s\0p\0;\0|\0&\0n\0b\0s\0p\0;\0&\0n\0b\0s\0p\0;\0<\0/\0s\0p\0a\0n\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0c\0o\0l\0o\0r\0:\0w\0h\0i\0t\0e\0'\0>\0<\0a\0 \0h\0r\0e\0f\0=\0"\0#\0C\0h\0a\0p\0t\0e\0r\0_\x002\x002\x007\x006\x007\x007\0"\0 \0t\0i\0t\0l\0e\0=\0M\0a\0r\0k\0e\0t\0>\0<\0s\0t\0r\0o\0n\0g\0>\0<\0s\0p\0a\0n\0\r\0
+\0 \0 \0 \0 \0 \0 \0l\0a\0n\0g\0=\0E\0N\0-\0U\0S\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0w\0h\0i\0t\0e\0;\0m\0s\0o\0-\0a\0n\0s\0i\0-\0l\0a\0n\0g\0u\0a\0g\0e\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0E\0N\0-\0U\0S\0;\0t\0e\0x\0t\0-\0d\0e\0c\0o\0r\0a\0t\0i\0o\0n\0:\0n\0o\0n\0e\0;\0t\0e\0x\0t\0-\0u\0n\0d\0e\0r\0l\0i\0n\0e\0:\0n\0o\0n\0e\0'\0>\0M\0a\0r\0k\0e\0t\0 \0N\0e\0w\0s\0 \0&\0a\0m\0p\0;\0 \0P\0r\0e\0s\0s\0\r\0
+\0 \0 \0 \0 \0 \0 \0R\0e\0l\0e\0a\0s\0e\0<\0/\0s\0p\0a\0n\0>\0<\0/\0s\0t\0r\0o\0n\0g\0>\0<\0/\0a\0>\0<\0/\0s\0p\0a\0n\0>\0<\0s\0p\0a\0n\0 \0l\0a\0n\0g\0=\0E\0N\0-\0U\0S\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0w\0h\0i\0t\0e\0;\0m\0s\0o\0-\0a\0n\0s\0i\0-\0l\0a\0n\0g\0u\0a\0g\0e\0:\0E\0N\0-\0U\0S\0'\0>\0<\0o\0:\0p\0>\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0<\0/\0t\0a\0b\0l\0e\0>\0\r\0
+\0 \0 \0 \0 \0<\0d\0i\0v\0 \0i\0d\0=\0"\0c\0h\0a\0p\0t\0e\0r\0_\x001\x007\x008\x002\x003\x002\0"\0>\0\r\0
+\0 \0 \0 \0 \0<\0d\0i\0v\0>\0\r\0
+\0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x004\0.\x002\x005\0p\0t\0'\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x009\0.\x000\0p\0t\0;\0\r\0
+\0 \0 \0 \0 \0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0#\x002\x002\x002\x002\x002\x002\0;\0d\0i\0s\0p\0l\0a\0y\0:\0n\0o\0n\0e\0;\0m\0s\0o\0-\0h\0i\0d\0e\0:\0a\0l\0l\0'\0>\0<\0o\0:\0p\0>\0&\0n\0b\0s\0p\0;\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0<\0d\0i\0v\0 \0a\0l\0i\0g\0n\0=\0c\0e\0n\0t\0e\0r\0>\0\r\0
+\0 \0 \0 \0 \0<\0t\0a\0b\0l\0e\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0T\0a\0b\0l\0e\0 \0b\0o\0r\0d\0e\0r\0=\x000\0 \0c\0e\0l\0l\0s\0p\0a\0c\0i\0n\0g\0=\x000\0 \0c\0e\0l\0l\0p\0a\0d\0d\0i\0n\0g\0=\x000\0 \0w\0i\0d\0t\0h\0=\x006\x005\x000\0\r\0
+\0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0w\0i\0d\0t\0h\0:\x004\x008\x007\0.\x005\0p\0t\0;\0b\0o\0r\0d\0e\0r\0-\0c\0o\0l\0l\0a\0p\0s\0e\0:\0c\0o\0l\0l\0a\0p\0s\0e\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0t\0b\0l\0l\0o\0o\0k\0:\x001\x001\x008\x004\0;\0\r\0
+\0 \0 \0 \0 \0 \0m\0s\0o\0-\0p\0a\0d\0d\0i\0n\0g\0-\0a\0l\0t\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x000\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0f\0i\0r\0s\0t\0r\0o\0w\0:\0y\0e\0s\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0l\0a\0s\0t\0r\0o\0w\0:\0y\0e\0s\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0v\0a\0l\0i\0g\0n\0=\0t\0o\0p\0 \0s\0t\0y\0l\0e\0=\0'\0p\0a\0d\0d\0i\0n\0g\0:\x001\x001\0.\x002\x005\0p\0t\0 \x003\x000\0.\x000\0p\0t\0 \x001\x001\0.\x002\x005\0p\0t\0 \x003\x000\0.\x000\0p\0t\0;\0-\0w\0e\0b\0k\0i\0t\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0-\0m\0o\0z\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0-\0a\0l\0t\0:\x001\x002\0.\x007\x005\0p\0t\0'\0>\0<\0a\0\r\0
+\0 \0 \0 \0 \0 \0 \0n\0a\0m\0e\0=\0"\0C\0h\0a\0p\0t\0e\0r\0_\x001\x007\x008\x002\x003\x002\0"\0>\0<\0/\0a\0>\0<\0s\0t\0r\0o\0n\0g\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x001\x003\0.\x005\0p\0t\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0#\x000\0A\x008\x002\x007\x006\0'\0>\0A\0U\0R\0I\0X\0"!<\0/\0s\0p\0a\0n\0>\0<\0/\0s\0t\0r\0o\0n\0g\0>\0<\0s\0p\0a\0n\0\r\0
+\0 \0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x001\x003\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0#\x000\0A\x008\x002\x007\x006\0'\0>\0 \0<\0o\0:\0p\0>\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0<\0/\0t\0a\0b\0l\0e\0>\0\r\0
+\0 \0 \0 \0 \0<\0/\0d\0i\0v\0>\0\r\0
+\0 \0 \0 \0 \0<\0/\0d\0i\0v\0>\0\r\0
+\0 \0 \0 \0 \0<\0/\0d\0i\0v\0>\0\r\0
+\0 \0 \0 \0 \0<\0t\0a\0b\0l\0e\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0T\0a\0b\0l\0e\0 \0b\0o\0r\0d\0e\0r\0=\x000\0 \0c\0e\0l\0l\0s\0p\0a\0c\0i\0n\0g\0=\x000\0 \0c\0e\0l\0l\0p\0a\0d\0d\0i\0n\0g\0=\x000\0\r\0
+\0 \0 \0 \0 \0 \0w\0i\0d\0t\0h\0=\0"\x001\x000\x000\0%\0"\0 \0s\0t\0y\0l\0e\0=\0'\0w\0i\0d\0t\0h\0:\x001\x000\x000\0.\x000\0%\0;\0b\0o\0r\0d\0e\0r\0-\0c\0o\0l\0l\0a\0p\0s\0e\0:\0c\0o\0l\0l\0a\0p\0s\0e\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0t\0b\0l\0l\0o\0o\0k\0:\0\r\0
+\0 \0 \0 \0 \0 \x001\x001\x008\x004\0;\0m\0s\0o\0-\0p\0a\0d\0d\0i\0n\0g\0-\0a\0l\0t\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x000\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0f\0i\0r\0s\0t\0r\0o\0w\0:\0y\0e\0s\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0l\0a\0s\0t\0r\0o\0w\0:\0y\0e\0s\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0w\0i\0d\0t\0h\0=\x003\x002\x005\0 \0v\0a\0l\0i\0g\0n\0=\0t\0o\0p\0 \0s\0t\0y\0l\0e\0=\0'\0w\0i\0d\0t\0h\0:\x002\x004\x003\0.\x007\x005\0p\0t\0;\0p\0a\0d\0d\0i\0n\0g\0:\x000\0i\0n\0 \x003\0.\x007\x005\0p\0t\0 \x000\0i\0n\0 \x000\0i\0n\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x002\0.\x007\x005\0p\0t\0'\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0'\0>\0<\0i\0m\0g\0 \0b\0o\0r\0d\0e\0r\0=\x000\0\r\0
+\0 \0 \0 \0 \0 \0 \0w\0i\0d\0t\0h\0=\x003\x002\x000\0 \0h\0e\0i\0g\0h\0t\0=\x002\x004\x006\0 \0i\0d\0=\0"\0_\0x\x000\x000\x000\x000\0_\0i\x001\x000\x002\x006\0"\0\r\0
+\0 \0 \0 \0 \0 \0 \0s\0r\0c\0=\0"\0h\0t\0t\0p\0s\0:\0/\0/\0n\0e\0w\0s\0l\0e\0t\0t\0e\0r\0f\0i\0l\0e\0s\0.\0i\0n\0f\0i\0n\0e\0o\0n\0.\0c\0o\0m\0/\0f\0i\0l\0e\0s\0/\0i\0f\0x\0n\0e\0w\0s\0l\0e\0t\0t\0e\0r\0s\0-\0p\0i\0c\0t\0u\0r\0e\0s\0/\0T\0h\0o\0m\0a\0s\0%\x002\x000\0-\0%\x002\x000\0a\0p\0r\x001\0_\x000\x003\0-\x001\x001\0-\x002\x000\x002\x005\0-\x000\x002\0-\x005\x002\0-\x005\x006\0.\0j\0p\0g\0"\0\r\0
+\0 \0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0h\0e\0i\0g\0h\0t\0:\x002\0.\x005\x005\x008\0i\0n\0;\0w\0i\0d\0t\0h\0:\x003\0.\x003\x003\x003\0i\0n\0'\0>\0<\0o\0:\0p\0>\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0v\0a\0l\0i\0g\0n\0=\0t\0o\0p\0 \0s\0t\0y\0l\0e\0=\0'\0p\0a\0d\0d\0i\0n\0g\0:\x003\0.\x007\x005\0p\0t\0 \x003\x000\0.\x000\0p\0t\0 \x000\0i\0n\0 \x003\0.\x007\x005\0p\0t\0;\0-\0w\0e\0b\0k\0i\0t\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0-\0m\0o\0z\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0t\0a\0b\0l\0e\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0T\0a\0b\0l\0e\0 \0b\0o\0r\0d\0e\0r\0=\x000\0 \0c\0e\0l\0l\0s\0p\0a\0c\0i\0n\0g\0=\x000\0 \0c\0e\0l\0l\0p\0a\0d\0d\0i\0n\0g\0=\x000\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0w\0i\0d\0t\0h\0=\0"\x001\x000\x000\0%\0"\0 \0s\0t\0y\0l\0e\0=\0'\0w\0i\0d\0t\0h\0:\x001\x000\x000\0.\x000\0%\0;\0b\0o\0r\0d\0e\0r\0-\0c\0o\0l\0l\0a\0p\0s\0e\0:\0c\0o\0l\0l\0a\0p\0s\0e\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0t\0b\0l\0l\0o\0o\0k\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \x001\x001\x008\x004\0;\0m\0s\0o\0-\0p\0a\0d\0d\0i\0n\0g\0-\0a\0l\0t\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x000\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0f\0i\0r\0s\0t\0r\0o\0w\0:\0y\0e\0s\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0l\0a\0s\0t\0r\0o\0w\0:\0y\0e\0s\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0v\0a\0l\0i\0g\0n\0=\0t\0o\0p\0 \0s\0t\0y\0l\0e\0=\0'\0p\0a\0d\0d\0i\0n\0g\0:\x000\0i\0n\0 \x000\0i\0n\0 \x001\x007\0.\x002\x005\0p\0t\0 \x000\0i\0n\0;\0-\0w\0e\0b\0k\0i\0t\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0-\0m\0o\0z\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x002\0.\x007\x005\0p\0t\0'\0>\0<\0b\0>\0<\0s\0p\0a\0n\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0'\0>\0A\0U\0R\0I\0X\0"! \0H\0i\0t\0e\0x\0 \0T\0C\x003\0x\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0S\0a\0f\0e\0T\0p\0a\0c\0k\0 \0i\0s\0 \0n\0o\0w\0 \0a\0v\0a\0i\0l\0a\0b\0l\0e\0 \0v\0i\0a\0 \0I\0n\0f\0i\0n\0e\0o\0n\0<\0/\0s\0p\0a\0n\0>\0<\0/\0b\0>\0<\0s\0p\0a\0n\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0'\0>\0 \0<\0o\0:\0p\0>\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0/\0t\0a\0b\0l\0e\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x002\0.\x007\x005\0p\0t\0'\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0;\0d\0i\0s\0p\0l\0a\0y\0:\0n\0o\0n\0e\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0m\0s\0o\0-\0h\0i\0d\0e\0:\0a\0l\0l\0'\0>\0<\0o\0:\0p\0>\0&\0n\0b\0s\0p\0;\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0t\0a\0b\0l\0e\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0T\0a\0b\0l\0e\0 \0b\0o\0r\0d\0e\0r\0=\x000\0 \0c\0e\0l\0l\0s\0p\0a\0c\0i\0n\0g\0=\x000\0 \0c\0e\0l\0l\0p\0a\0d\0d\0i\0n\0g\0=\x000\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0w\0i\0d\0t\0h\0=\0"\x001\x000\x000\0%\0"\0 \0s\0t\0y\0l\0e\0=\0'\0w\0i\0d\0t\0h\0:\x001\x000\x000\0.\x000\0%\0;\0b\0o\0r\0d\0e\0r\0-\0c\0o\0l\0l\0a\0p\0s\0e\0:\0c\0o\0l\0l\0a\0p\0s\0e\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0t\0b\0l\0l\0o\0o\0k\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \x001\x001\x008\x004\0;\0m\0s\0o\0-\0p\0a\0d\0d\0i\0n\0g\0-\0a\0l\0t\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x000\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0f\0i\0r\0s\0t\0r\0o\0w\0:\0y\0e\0s\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0l\0a\0s\0t\0r\0o\0w\0:\0y\0e\0s\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0v\0a\0l\0i\0g\0n\0=\0t\0o\0p\0 \0s\0t\0y\0l\0e\0=\0'\0p\0a\0d\0d\0i\0n\0g\0:\x003\0.\x007\x005\0p\0t\0 \x003\x000\0.\x000\0p\0t\0 \x000\0i\0n\0 \x003\0.\x007\x005\0p\0t\0;\0-\0w\0e\0b\0k\0i\0t\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0-\0m\0o\0z\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x002\0.\x007\x005\0p\0t\0'\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0#\x001\0D\x001\0D\x001\0D\0'\0>\0B\0y\0 \0t\0h\0i\0s\0 \0t\0h\0e\0&\0n\0b\0s\0p\0;\0A\0U\0R\0I\0X\0"!\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0T\0C\x003\0x\0 \0s\0o\0f\0t\0w\0a\0r\0e\0 \0o\0f\0f\0e\0r\0i\0n\0g\0 \0i\0s\0 \0e\0x\0t\0e\0n\0d\0e\0d\0 \0w\0i\0t\0h\0 \0a\0n\0 \0c\0o\0m\0p\0r\0e\0h\0e\0n\0s\0i\0v\0e\0 \0s\0a\0f\0e\0t\0y\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0s\0o\0f\0t\0w\0a\0r\0e\0 \0e\0a\0s\0i\0n\0g\0 \0t\0h\0e\0 \0i\0n\0t\0e\0g\0r\0a\0t\0i\0o\0n\0 \0i\0n\0t\0o\0 \0s\0a\0f\0e\0t\0y\0 \0a\0p\0p\0l\0i\0c\0a\0t\0i\0o\0n\0s\0 \0a\0n\0d\0 \0s\0p\0e\0e\0d\0i\0n\0g\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0u\0p\0 \0t\0i\0m\0e\0 \0t\0o\0 \0m\0a\0r\0k\0e\0t\0.\0 \0A\0U\0R\0I\0X\0"! \0T\0C\x003\0x\0 \0S\0a\0f\0e\0T\0p\0a\0c\0k\0 \0s\0u\0p\0p\0o\0r\0t\0s\0 \0S\0a\0f\0e\0t\0y\0 \0M\0e\0c\0h\0a\0n\0i\0s\0m\0s\0 \0o\0f\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0t\0h\0e\0 \0A\0U\0R\0I\0X\0"!&\0n\0b\0s\0p\0;\0T\0C\x003\0x\0 \0s\0a\0f\0e\0t\0y\0 \0m\0a\0n\0u\0a\0l\0,\0 \0p\0r\0o\0v\0i\0d\0e\0s\0 \0c\0y\0c\0l\0i\0c\0 \0a\0n\0d\0 \0s\0t\0a\0r\0t\0u\0p\0 \0t\0e\0s\0t\0s\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0a\0n\0d\0 \0m\0a\0n\0a\0g\0e\0s\0 \0t\0h\0e\0 \0w\0a\0t\0c\0h\0d\0o\0g\0 \0s\0y\0s\0t\0e\0m\0 \0a\0l\0s\0o\0 \0w\0i\0t\0h\0 \0t\0h\0e\0 \0e\0x\0t\0e\0r\0n\0a\0l\0 \0w\0a\0t\0c\0h\0d\0o\0g\0 \0a\0n\0d\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0P\0o\0w\0e\0r\0 \0M\0a\0n\0a\0g\0e\0m\0e\0n\0t\0 \0I\0C\0 \0P\0M\0I\0C\0 \0T\0L\0F\x003\x005\x005\x008\x004\0/\x005\0.\0 \0T\0h\0e\0 \0c\0o\0m\0p\0l\0e\0t\0e\0 \0s\0o\0f\0t\0w\0a\0r\0e\0 \0o\0v\0e\0r\0v\0i\0e\0w\0 \0c\0a\0n\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0b\0e\0 \0f\0o\0u\0n\0d\0 \0<\0a\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0h\0r\0e\0f\0=\0"\0h\0t\0t\0p\0s\0:\0/\0/\0i\0s\0h\0a\0r\0e\0.\0i\0n\0f\0i\0n\0e\0o\0n\0.\0c\0o\0m\0/\0s\0i\0t\0e\0s\0/\0A\0U\0R\0I\0X\0-\0P\0L\0U\0S\0-\0M\0a\0r\0k\0e\0t\0i\0n\0g\0/\0S\0h\0a\0r\0e\0d\0%\x002\x000\0D\0o\0c\0u\0m\0e\0n\0t\0s\0/\x000\x003\0_\0S\0o\0f\0t\0w\0a\0r\0e\0"\0>\0h\0e\0r\0e\0<\0/\0a\0>\0<\0/\0s\0p\0a\0n\0>\0<\0s\0p\0a\0n\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0'\0>\0<\0b\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0b\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0/\0s\0p\0a\0n\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0c\0o\0l\0o\0r\0:\0#\x001\0D\x001\0D\x001\0D\0'\0>\0I\0f\0 \0y\0o\0u\0 \0h\0a\0v\0e\0 \0q\0u\0e\0s\0t\0i\0o\0n\0s\0 \0p\0l\0e\0a\0s\0e\0 \0f\0e\0e\0l\0 \0f\0r\0e\0e\0 \0t\0o\0 \0r\0e\0a\0c\0h\0 \0o\0u\0t\0 \0t\0o\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0T\0h\0o\0m\0a\0s\0 \0H\0a\0f\0n\0e\0r\0<\0/\0s\0p\0a\0n\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0'\0>\0<\0b\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0b\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0b\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0/\0s\0p\0a\0n\0>\0<\0s\0t\0r\0o\0n\0g\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0c\0o\0l\0o\0r\0:\0#\x001\0D\x001\0D\x001\0D\0'\0>\0C\0o\0n\0t\0a\0c\0t\0:\0 \0T\0h\0o\0m\0a\0s\0 \0H\0a\0f\0n\0e\0r\0<\0/\0s\0p\0a\0n\0>\0<\0/\0s\0t\0r\0o\0n\0g\0>\0<\0s\0p\0a\0n\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0'\0>\0<\0b\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0&\0n\0b\0s\0p\0;\0 \0<\0o\0:\0p\0>\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0t\0a\0b\0l\0e\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0T\0a\0b\0l\0e\0 \0b\0o\0r\0d\0e\0r\0=\x000\0 \0c\0e\0l\0l\0s\0p\0a\0c\0i\0n\0g\0=\x000\0 \0c\0e\0l\0l\0p\0a\0d\0d\0i\0n\0g\0=\x000\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0b\0o\0r\0d\0e\0r\0-\0c\0o\0l\0l\0a\0p\0s\0e\0:\0c\0o\0l\0l\0a\0p\0s\0e\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0t\0b\0l\0l\0o\0o\0k\0:\x001\x001\x008\x004\0;\0m\0s\0o\0-\0p\0a\0d\0d\0i\0n\0g\0-\0a\0l\0t\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x000\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0f\0i\0r\0s\0t\0r\0o\0w\0:\0y\0e\0s\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0l\0a\0s\0t\0r\0o\0w\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0 \0y\0e\0s\0;\0h\0e\0i\0g\0h\0t\0:\x007\0.\x005\0p\0t\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0s\0t\0y\0l\0e\0=\0'\0p\0a\0d\0d\0i\0n\0g\0:\0.\x007\x005\0p\0t\0 \0.\x007\x005\0p\0t\0 \0.\x007\x005\0p\0t\0 \0.\x007\x005\0p\0t\0;\0h\0e\0i\0g\0h\0t\0:\x007\0.\x005\0p\0t\0'\0>\0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0/\0t\0a\0b\0l\0e\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x002\0.\x007\x005\0p\0t\0'\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0;\0d\0i\0s\0p\0l\0a\0y\0:\0n\0o\0n\0e\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0m\0s\0o\0-\0h\0i\0d\0e\0:\0a\0l\0l\0'\0>\0<\0o\0:\0p\0>\0&\0n\0b\0s\0p\0;\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0t\0a\0b\0l\0e\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0T\0a\0b\0l\0e\0 \0b\0o\0r\0d\0e\0r\0=\x000\0 \0c\0e\0l\0l\0s\0p\0a\0c\0i\0n\0g\0=\x000\0 \0c\0e\0l\0l\0p\0a\0d\0d\0i\0n\0g\0=\x000\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0b\0o\0r\0d\0e\0r\0-\0c\0o\0l\0l\0a\0p\0s\0e\0:\0c\0o\0l\0l\0a\0p\0s\0e\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0t\0b\0l\0l\0o\0o\0k\0:\x001\x001\x008\x004\0;\0m\0s\0o\0-\0p\0a\0d\0d\0i\0n\0g\0-\0a\0l\0t\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x000\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0f\0i\0r\0s\0t\0r\0o\0w\0:\0y\0e\0s\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0l\0a\0s\0t\0r\0o\0w\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0 \0y\0e\0s\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0s\0t\0y\0l\0e\0=\0'\0p\0a\0d\0d\0i\0n\0g\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0'\0>\0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0/\0t\0a\0b\0l\0e\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0>\0<\0o\0:\0p\0>\0<\0/\0o\0:\0p\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0/\0t\0a\0b\0l\0e\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0>\0<\0o\0:\0p\0>\0<\0/\0o\0:\0p\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0<\0/\0t\0a\0b\0l\0e\0>\0\r\0
+\0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x004\0.\x002\x005\0p\0t\0'\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x009\0.\x000\0p\0t\0;\0\r\0
+\0 \0 \0 \0 \0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0#\x002\x002\x002\x002\x002\x002\0;\0d\0i\0s\0p\0l\0a\0y\0:\0n\0o\0n\0e\0;\0m\0s\0o\0-\0h\0i\0d\0e\0:\0a\0l\0l\0'\0>\0<\0o\0:\0p\0>\0&\0n\0b\0s\0p\0;\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0<\0t\0a\0b\0l\0e\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0T\0a\0b\0l\0e\0 \0b\0o\0r\0d\0e\0r\0=\x000\0 \0c\0e\0l\0l\0s\0p\0a\0c\0i\0n\0g\0=\x000\0 \0c\0e\0l\0l\0p\0a\0d\0d\0i\0n\0g\0=\x000\0 \0w\0i\0d\0t\0h\0=\x001\x000\0\r\0
+\0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0w\0i\0d\0t\0h\0:\x007\0.\x005\0p\0t\0;\0b\0o\0r\0d\0e\0r\0-\0c\0o\0l\0l\0a\0p\0s\0e\0:\0c\0o\0l\0l\0a\0p\0s\0e\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0t\0b\0l\0l\0o\0o\0k\0:\x001\x001\x008\x004\0;\0\r\0
+\0 \0 \0 \0 \0 \0m\0s\0o\0-\0p\0a\0d\0d\0i\0n\0g\0-\0a\0l\0t\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0;\0b\0o\0r\0d\0e\0r\0-\0s\0p\0a\0c\0i\0n\0g\0:\0 \x000\0;\0w\0h\0i\0t\0e\0 \0!\0i\0m\0p\0o\0r\0t\0a\0n\0t\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x000\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0f\0i\0r\0s\0t\0r\0o\0w\0:\0y\0e\0s\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0l\0a\0s\0t\0r\0o\0w\0:\0y\0e\0s\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0h\0e\0i\0g\0h\0t\0:\x002\x006\0.\x002\x005\0p\0t\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0v\0a\0l\0i\0g\0n\0=\0t\0o\0p\0 \0s\0t\0y\0l\0e\0=\0'\0p\0a\0d\0d\0i\0n\0g\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0;\0h\0e\0i\0g\0h\0t\0:\x002\x006\0.\x002\x005\0p\0t\0;\0w\0o\0r\0d\0-\0b\0r\0e\0a\0k\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0b\0r\0e\0a\0k\0-\0w\0o\0r\0d\0;\0-\0w\0e\0b\0k\0i\0t\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0-\0m\0o\0z\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0'\0>\0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0<\0/\0t\0a\0b\0l\0e\0>\0\r\0
+\0 \0 \0 \0 \0<\0d\0i\0v\0 \0i\0d\0=\0"\0a\0r\0t\0i\0c\0l\0e\0_\x003\x002\x008\x008\x004\x002\0"\0>\0\r\0
+\0 \0 \0 \0 \0<\0d\0i\0v\0>\0\r\0
+\0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x004\0.\x002\x005\0p\0t\0'\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x009\0.\x000\0p\0t\0;\0\r\0
+\0 \0 \0 \0 \0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0#\x002\x002\x002\x002\x002\x002\0;\0d\0i\0s\0p\0l\0a\0y\0:\0n\0o\0n\0e\0;\0m\0s\0o\0-\0h\0i\0d\0e\0:\0a\0l\0l\0'\0>\0<\0o\0:\0p\0>\0&\0n\0b\0s\0p\0;\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0<\0t\0a\0b\0l\0e\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0T\0a\0b\0l\0e\0 \0b\0o\0r\0d\0e\0r\0=\x000\0 \0c\0e\0l\0l\0s\0p\0a\0c\0i\0n\0g\0=\x000\0 \0c\0e\0l\0l\0p\0a\0d\0d\0i\0n\0g\0=\x000\0\r\0
+\0 \0 \0 \0 \0 \0w\0i\0d\0t\0h\0=\0"\x001\x000\x000\0%\0"\0 \0s\0t\0y\0l\0e\0=\0'\0w\0i\0d\0t\0h\0:\x001\x000\x000\0.\x000\0%\0;\0b\0o\0r\0d\0e\0r\0-\0c\0o\0l\0l\0a\0p\0s\0e\0:\0c\0o\0l\0l\0a\0p\0s\0e\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0t\0b\0l\0l\0o\0o\0k\0:\0\r\0
+\0 \0 \0 \0 \0 \x001\x001\x008\x004\0;\0m\0s\0o\0-\0p\0a\0d\0d\0i\0n\0g\0-\0a\0l\0t\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0;\0b\0o\0r\0d\0e\0r\0-\0s\0p\0a\0c\0i\0n\0g\0:\0 \x000\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x000\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0f\0i\0r\0s\0t\0r\0o\0w\0:\0y\0e\0s\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0v\0a\0l\0i\0g\0n\0=\0t\0o\0p\0 \0s\0t\0y\0l\0e\0=\0'\0p\0a\0d\0d\0i\0n\0g\0:\x000\0i\0n\0 \x003\x000\0.\x000\0p\0t\0 \x001\x007\0.\x002\x005\0p\0t\0 \x003\x000\0.\x000\0p\0t\0;\0-\0w\0e\0b\0k\0i\0t\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0-\0m\0o\0z\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x002\0.\x007\x005\0p\0t\0'\0>\0<\0b\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0'\0>\0A\0U\0R\0I\0X\0"! \0T\0C\x004\0x\0 \0M\0C\0A\0L\0 \0P\0r\0o\0d\0u\0c\0t\0i\0o\0n\0 \0R\0e\0l\0e\0a\0s\0e\0\r\0
+\0 \0 \0 \0 \0 \0 \0A\0v\0a\0i\0l\0a\0b\0l\0e\0 \0<\0/\0s\0p\0a\0n\0>\0<\0/\0b\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0'\0>\0<\0o\0:\0p\0>\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x001\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0v\0a\0l\0i\0g\0n\0=\0t\0o\0p\0 \0s\0t\0y\0l\0e\0=\0'\0p\0a\0d\0d\0i\0n\0g\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0;\0-\0w\0e\0b\0k\0i\0t\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0-\0m\0o\0z\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x002\0.\x007\x005\0p\0t\0'\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0'\0>\0<\0i\0m\0g\0 \0b\0o\0r\0d\0e\0r\0=\x000\0\r\0
+\0 \0 \0 \0 \0 \0 \0w\0i\0d\0t\0h\0=\x006\x005\x000\0 \0h\0e\0i\0g\0h\0t\0=\x002\x000\x000\0 \0i\0d\0=\0"\0_\0x\x000\x000\x000\x000\0_\0i\x001\x000\x002\x007\0"\0\r\0
+\0 \0 \0 \0 \0 \0 \0s\0r\0c\0=\0"\0h\0t\0t\0p\0s\0:\0/\0/\0n\0e\0w\0s\0l\0e\0t\0t\0e\0r\0f\0i\0l\0e\0s\0.\0i\0n\0f\0i\0n\0e\0o\0n\0.\0c\0o\0m\0/\0f\0i\0l\0e\0s\0/\0i\0f\0x\0n\0e\0w\0s\0l\0e\0t\0t\0e\0r\0s\0-\0p\0i\0c\0t\0u\0r\0e\0s\0/\0S\0c\0r\0e\0e\0n\0s\0h\0o\0t\0%\x002\x000\x002\x000\x002\x006\0-\x000\x003\0-\x001\x009\0%\x002\x000\x001\x003\x005\x004\x003\x006\0_\x001\x009\0-\x000\x003\0-\x002\x000\x002\x006\0-\x000\x001\0-\x005\x004\0-\x005\x001\0.\0p\0n\0g\0"\0\r\0
+\0 \0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0h\0e\0i\0g\0h\0t\0:\x002\0.\x000\x008\x003\0i\0n\0;\0w\0i\0d\0t\0h\0:\x006\0.\x007\x007\x005\0i\0n\0'\0>\0<\0o\0:\0p\0>\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x002\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0l\0a\0s\0t\0r\0o\0w\0:\0y\0e\0s\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0v\0a\0l\0i\0g\0n\0=\0t\0o\0p\0 \0s\0t\0y\0l\0e\0=\0'\0p\0a\0d\0d\0i\0n\0g\0:\x001\x001\0.\x002\x005\0p\0t\0 \x003\x000\0.\x000\0p\0t\0 \x000\0i\0n\0 \x003\x000\0.\x000\0p\0t\0;\0-\0w\0e\0b\0k\0i\0t\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0-\0m\0o\0z\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x002\0.\x007\x005\0p\0t\0'\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0'\0>\0T\0h\0e\0 \0A\0U\0R\0I\0X\0"! \0T\0C\x004\0x\0 \0M\0C\0A\0L\0 \0p\0r\0o\0d\0u\0c\0t\0i\0o\0n\0\r\0
+\0 \0 \0 \0 \0 \0 \0r\0e\0l\0e\0a\0s\0e\0 \x002\0.\x002\x000\0.\x000\0-\0P\0R\x003\0 \0i\0s\0 \0a\0v\0a\0i\0l\0a\0b\0l\0e\0,\0 \0s\0u\0p\0p\0o\0r\0t\0i\0n\0g\0 \0A\0U\0R\0I\0X\0"! \0T\0C\x004\0D\0,\0 \0T\0C\x004\x009\0,\0 \0T\0C\x004\x008\0,\0 \0a\0n\0d\0\r\0
+\0 \0 \0 \0 \0 \0 \0T\0C\x004\x005\0.\0 \0I\0t\0 \0p\0r\0o\0v\0i\0d\0e\0s\0 \0a\0 \0c\0o\0m\0p\0r\0e\0h\0e\0n\0s\0i\0v\0e\0 \0s\0u\0i\0t\0e\0 \0o\0f\0 \x003\x007\0 \0d\0r\0i\0v\0e\0r\0s\0 \0b\0a\0s\0e\0d\0 \0o\0n\0 \0A\0U\0T\0O\0S\0A\0R\0\r\0
+\0 \0 \0 \0 \0 \0 \0a\0n\0d\0 \0c\0o\0m\0p\0l\0e\0x\0 \0d\0e\0v\0i\0c\0e\0 \0d\0r\0i\0v\0e\0r\0s\0.\0 \0A\0S\0I\0L\0 \0D\0 \0s\0u\0p\0p\0o\0r\0t\0,\0 \0e\0n\0h\0a\0n\0c\0e\0d\0 \0f\0e\0a\0t\0u\0r\0e\0s\0 \0f\0o\0r\0\r\0
+\0 \0 \0 \0 \0 \0 \0m\0u\0l\0t\0i\0c\0o\0r\0e\0 \0a\0n\0d\0 \0v\0i\0r\0t\0u\0a\0l\0i\0z\0a\0t\0i\0o\0n\0,\0 \0e\0a\0s\0e\0 \0c\0u\0s\0t\0o\0m\0e\0r\0s\0'\0 \0i\0n\0t\0e\0g\0r\0a\0t\0i\0o\0n\0 \0a\0n\0d\0 \0s\0y\0s\0t\0e\0m\0\r\0
+\0 \0 \0 \0 \0 \0 \0q\0u\0a\0l\0i\0f\0i\0c\0a\0t\0i\0o\0n\0.\0 \0T\0h\0e\0 \0c\0o\0m\0p\0l\0e\0t\0e\0 \0s\0o\0f\0t\0w\0a\0r\0e\0 \0o\0v\0e\0r\0v\0i\0e\0w\0 \0a\0n\0d\0 \0r\0o\0a\0d\0m\0a\0p\0 \0c\0a\0n\0 \0b\0e\0 \0f\0o\0u\0n\0d\0 \0<\0/\0s\0p\0a\0n\0>\0<\0s\0p\0a\0n\0\r\0
+\0 \0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0#\x001\0D\x001\0D\x001\0D\0'\0>\0<\0a\0\r\0
+\0 \0 \0 \0 \0 \0 \0h\0r\0e\0f\0=\0"\0h\0t\0t\0p\0s\0:\0/\0/\0c\0o\0n\0f\0l\0u\0e\0n\0c\0e\0w\0i\0k\0i\0p\0r\0o\0d\0.\0i\0n\0t\0r\0a\0.\0i\0n\0f\0i\0n\0e\0o\0n\0.\0c\0o\0m\0/\0d\0i\0s\0p\0l\0a\0y\0/\0a\0t\0v\0m\0c\0s\0p\0e\0/\0T\0C\x004\0x\0+\0O\0f\0f\0e\0r\0i\0n\0g\0"\0>\0h\0e\0r\0e\0<\0/\0a\0>\0<\0/\0s\0p\0a\0n\0>\0<\0s\0p\0a\0n\0\r\0
+\0 \0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0'\0>\0.\0<\0b\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0I\0f\0 \0y\0o\0u\0 \0h\0a\0v\0e\0 \0q\0u\0e\0s\0t\0i\0o\0n\0s\0,\0 \0p\0l\0e\0a\0s\0e\0 \0f\0e\0e\0l\0 \0f\0r\0e\0e\0 \0t\0o\0 \0r\0e\0a\0c\0h\0 \0o\0u\0t\0 \0t\0o\0 \0T\0h\0o\0m\0a\0s\0 \0H\0a\0f\0n\0e\0r\0.\0<\0b\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0b\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0s\0t\0r\0o\0n\0g\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0'\0>\0C\0o\0n\0t\0a\0c\0t\0:\0 \0T\0h\0o\0m\0a\0s\0\r\0
+\0 \0 \0 \0 \0 \0 \0H\0a\0f\0n\0e\0r\0&\0n\0b\0s\0p\0;\0<\0/\0s\0p\0a\0n\0>\0<\0/\0s\0t\0r\0o\0n\0g\0>\0 \0<\0o\0:\0p\0>\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0t\0a\0b\0l\0e\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0T\0a\0b\0l\0e\0 \0b\0o\0r\0d\0e\0r\0=\x000\0 \0c\0e\0l\0l\0s\0p\0a\0c\0i\0n\0g\0=\x000\0 \0c\0e\0l\0l\0p\0a\0d\0d\0i\0n\0g\0=\x000\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0b\0o\0r\0d\0e\0r\0-\0c\0o\0l\0l\0a\0p\0s\0e\0:\0c\0o\0l\0l\0a\0p\0s\0e\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0t\0b\0l\0l\0o\0o\0k\0:\x001\x001\x008\x004\0;\0m\0s\0o\0-\0p\0a\0d\0d\0i\0n\0g\0-\0a\0l\0t\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x000\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0f\0i\0r\0s\0t\0r\0o\0w\0:\0y\0e\0s\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0l\0a\0s\0t\0r\0o\0w\0:\0y\0e\0s\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0h\0e\0i\0g\0h\0t\0:\x007\0.\x005\0p\0t\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0s\0t\0y\0l\0e\0=\0'\0p\0a\0d\0d\0i\0n\0g\0:\0.\x007\x005\0p\0t\0 \0.\x007\x005\0p\0t\0 \0.\x007\x005\0p\0t\0 \0.\x007\x005\0p\0t\0;\0h\0e\0i\0g\0h\0t\0:\x007\0.\x005\0p\0t\0'\0>\0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0/\0t\0a\0b\0l\0e\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x002\0.\x007\x005\0p\0t\0'\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0;\0d\0i\0s\0p\0l\0a\0y\0:\0n\0o\0n\0e\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0m\0s\0o\0-\0h\0i\0d\0e\0:\0a\0l\0l\0'\0>\0<\0o\0:\0p\0>\0&\0n\0b\0s\0p\0;\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0t\0a\0b\0l\0e\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0T\0a\0b\0l\0e\0 \0b\0o\0r\0d\0e\0r\0=\x000\0 \0c\0e\0l\0l\0s\0p\0a\0c\0i\0n\0g\0=\x000\0 \0c\0e\0l\0l\0p\0a\0d\0d\0i\0n\0g\0=\x000\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0b\0o\0r\0d\0e\0r\0-\0c\0o\0l\0l\0a\0p\0s\0e\0:\0c\0o\0l\0l\0a\0p\0s\0e\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0t\0b\0l\0l\0o\0o\0k\0:\x001\x001\x008\x004\0;\0m\0s\0o\0-\0p\0a\0d\0d\0i\0n\0g\0-\0a\0l\0t\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x000\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0f\0i\0r\0s\0t\0r\0o\0w\0:\0y\0e\0s\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0l\0a\0s\0t\0r\0o\0w\0:\0y\0e\0s\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0s\0t\0y\0l\0e\0=\0'\0p\0a\0d\0d\0i\0n\0g\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0'\0>\0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0/\0t\0a\0b\0l\0e\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0>\0<\0o\0:\0p\0>\0<\0/\0o\0:\0p\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0<\0/\0t\0a\0b\0l\0e\0>\0\r\0
+\0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x004\0.\x002\x005\0p\0t\0'\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x009\0.\x000\0p\0t\0;\0\r\0
+\0 \0 \0 \0 \0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0#\x002\x002\x002\x002\x002\x002\0;\0d\0i\0s\0p\0l\0a\0y\0:\0n\0o\0n\0e\0;\0m\0s\0o\0-\0h\0i\0d\0e\0:\0a\0l\0l\0'\0>\0<\0o\0:\0p\0>\0&\0n\0b\0s\0p\0;\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0<\0t\0a\0b\0l\0e\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0T\0a\0b\0l\0e\0 \0b\0o\0r\0d\0e\0r\0=\x000\0 \0c\0e\0l\0l\0s\0p\0a\0c\0i\0n\0g\0=\x000\0 \0c\0e\0l\0l\0p\0a\0d\0d\0i\0n\0g\0=\x000\0\r\0
+\0 \0 \0 \0 \0 \0w\0i\0d\0t\0h\0=\0"\x001\x000\x000\0%\0"\0 \0s\0t\0y\0l\0e\0=\0'\0w\0i\0d\0t\0h\0:\x001\x000\x000\0.\x000\0%\0;\0b\0o\0r\0d\0e\0r\0-\0c\0o\0l\0l\0a\0p\0s\0e\0:\0c\0o\0l\0l\0a\0p\0s\0e\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0t\0b\0l\0l\0o\0o\0k\0:\0\r\0
+\0 \0 \0 \0 \0 \x001\x001\x008\x004\0;\0m\0s\0o\0-\0p\0a\0d\0d\0i\0n\0g\0-\0a\0l\0t\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0;\0b\0o\0r\0d\0e\0r\0-\0s\0p\0a\0c\0i\0n\0g\0:\0 \x000\0;\0w\0h\0i\0t\0e\0 \0!\0i\0m\0p\0o\0r\0t\0a\0n\0t\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x000\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0f\0i\0r\0s\0t\0r\0o\0w\0:\0y\0e\0s\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0l\0a\0s\0t\0r\0o\0w\0:\0y\0e\0s\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0h\0e\0i\0g\0h\0t\0:\x002\x006\0.\x002\x005\0p\0t\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0v\0a\0l\0i\0g\0n\0=\0t\0o\0p\0 \0s\0t\0y\0l\0e\0=\0'\0p\0a\0d\0d\0i\0n\0g\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0;\0h\0e\0i\0g\0h\0t\0:\x002\x006\0.\x002\x005\0p\0t\0;\0w\0o\0r\0d\0-\0b\0r\0e\0a\0k\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0b\0r\0e\0a\0k\0-\0w\0o\0r\0d\0;\0-\0w\0e\0b\0k\0i\0t\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0-\0m\0o\0z\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0'\0>\0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0<\0/\0t\0a\0b\0l\0e\0>\0\r\0
+\0 \0 \0 \0 \0<\0/\0d\0i\0v\0>\0\r\0
+\0 \0 \0 \0 \0<\0/\0d\0i\0v\0>\0\r\0
+\0 \0 \0 \0 \0<\0t\0a\0b\0l\0e\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0T\0a\0b\0l\0e\0 \0b\0o\0r\0d\0e\0r\0=\x000\0 \0c\0e\0l\0l\0s\0p\0a\0c\0i\0n\0g\0=\x000\0 \0c\0e\0l\0l\0p\0a\0d\0d\0i\0n\0g\0=\x000\0\r\0
+\0 \0 \0 \0 \0 \0w\0i\0d\0t\0h\0=\0"\x001\x000\x000\0%\0"\0 \0s\0t\0y\0l\0e\0=\0'\0w\0i\0d\0t\0h\0:\x001\x000\x000\0.\x000\0%\0;\0b\0o\0r\0d\0e\0r\0-\0c\0o\0l\0l\0a\0p\0s\0e\0:\0c\0o\0l\0l\0a\0p\0s\0e\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0t\0b\0l\0l\0o\0o\0k\0:\0\r\0
+\0 \0 \0 \0 \0 \x001\x001\x008\x004\0;\0m\0s\0o\0-\0p\0a\0d\0d\0i\0n\0g\0-\0a\0l\0t\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x000\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0f\0i\0r\0s\0t\0r\0o\0w\0:\0y\0e\0s\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0l\0a\0s\0t\0r\0o\0w\0:\0y\0e\0s\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0w\0i\0d\0t\0h\0=\x003\x002\x005\0 \0v\0a\0l\0i\0g\0n\0=\0t\0o\0p\0 \0s\0t\0y\0l\0e\0=\0'\0w\0i\0d\0t\0h\0:\x002\x004\x003\0.\x007\x005\0p\0t\0;\0p\0a\0d\0d\0i\0n\0g\0:\x000\0i\0n\0 \x003\0.\x007\x005\0p\0t\0 \x000\0i\0n\0 \x000\0i\0n\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x002\0.\x007\x005\0p\0t\0'\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0'\0>\0<\0i\0m\0g\0 \0b\0o\0r\0d\0e\0r\0=\x000\0\r\0
+\0 \0 \0 \0 \0 \0 \0w\0i\0d\0t\0h\0=\x003\x002\x000\0 \0h\0e\0i\0g\0h\0t\0=\x002\x004\x006\0 \0i\0d\0=\0"\0_\0x\x000\x000\x000\x000\0_\0i\x001\x000\x002\x008\0"\0\r\0
+\0 \0 \0 \0 \0 \0 \0s\0r\0c\0=\0"\0h\0t\0t\0p\0s\0:\0/\0/\0n\0e\0w\0s\0l\0e\0t\0t\0e\0r\0f\0i\0l\0e\0s\0.\0i\0n\0f\0i\0n\0e\0o\0n\0.\0c\0o\0m\0/\0f\0i\0l\0e\0s\0/\0i\0f\0x\0n\0e\0w\0s\0l\0e\0t\0t\0e\0r\0s\0-\0p\0i\0c\0t\0u\0r\0e\0s\0/\0S\0c\0r\0e\0e\0n\0s\0h\0o\0t\0%\x002\x000\x002\x000\x002\x006\0-\x000\x003\0-\x001\x009\0%\x002\x000\x001\x003\x002\x005\x005\x003\0_\x001\x009\0-\x000\x003\0-\x002\x000\x002\x006\0-\x000\x002\0-\x000\x005\0-\x000\x003\0.\0p\0n\0g\0"\0\r\0
+\0 \0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0h\0e\0i\0g\0h\0t\0:\x002\0.\x005\x005\x008\0i\0n\0;\0w\0i\0d\0t\0h\0:\x003\0.\x003\x003\x003\0i\0n\0'\0>\0<\0o\0:\0p\0>\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0v\0a\0l\0i\0g\0n\0=\0t\0o\0p\0 \0s\0t\0y\0l\0e\0=\0'\0p\0a\0d\0d\0i\0n\0g\0:\x003\0.\x007\x005\0p\0t\0 \x003\x000\0.\x000\0p\0t\0 \x000\0i\0n\0 \x003\0.\x007\x005\0p\0t\0;\0-\0w\0e\0b\0k\0i\0t\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0-\0m\0o\0z\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0t\0a\0b\0l\0e\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0T\0a\0b\0l\0e\0 \0b\0o\0r\0d\0e\0r\0=\x000\0 \0c\0e\0l\0l\0s\0p\0a\0c\0i\0n\0g\0=\x000\0 \0c\0e\0l\0l\0p\0a\0d\0d\0i\0n\0g\0=\x000\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0w\0i\0d\0t\0h\0=\0"\x001\x000\x000\0%\0"\0 \0s\0t\0y\0l\0e\0=\0'\0w\0i\0d\0t\0h\0:\x001\x000\x000\0.\x000\0%\0;\0b\0o\0r\0d\0e\0r\0-\0c\0o\0l\0l\0a\0p\0s\0e\0:\0c\0o\0l\0l\0a\0p\0s\0e\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0t\0b\0l\0l\0o\0o\0k\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \x001\x001\x008\x004\0;\0m\0s\0o\0-\0p\0a\0d\0d\0i\0n\0g\0-\0a\0l\0t\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x000\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0f\0i\0r\0s\0t\0r\0o\0w\0:\0y\0e\0s\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0l\0a\0s\0t\0r\0o\0w\0:\0y\0e\0s\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0v\0a\0l\0i\0g\0n\0=\0t\0o\0p\0 \0s\0t\0y\0l\0e\0=\0'\0p\0a\0d\0d\0i\0n\0g\0:\x000\0i\0n\0 \x000\0i\0n\0 \x001\x007\0.\x002\x005\0p\0t\0 \x000\0i\0n\0;\0-\0w\0e\0b\0k\0i\0t\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0-\0m\0o\0z\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x002\0.\x007\x005\0p\0t\0'\0>\0<\0b\0>\0<\0s\0p\0a\0n\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0'\0>\0A\0p\0t\0i\0v\0 \0s\0o\0u\0r\0c\0e\0d\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0M\0C\0-\0I\0S\0A\0R\0 \0a\0n\0d\0 \0S\0a\0f\0e\0T\0l\0i\0b\0 \0A\0U\0R\0I\0X\0"! \0T\0C\x004\0D\0x\0 \0f\0o\0r\0 \0A\0D\0A\0S\0 \0a\0p\0p\0l\0i\0c\0a\0t\0i\0o\0n\0s\0 \0a\0t\0 \0F\0o\0r\0d\0 \0a\0n\0d\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0S\0T\0L\0A\0<\0/\0s\0p\0a\0n\0>\0<\0/\0b\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0o\0:\0p\0>\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0/\0t\0a\0b\0l\0e\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x002\0.\x007\x005\0p\0t\0'\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0;\0d\0i\0s\0p\0l\0a\0y\0:\0n\0o\0n\0e\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0m\0s\0o\0-\0h\0i\0d\0e\0:\0a\0l\0l\0'\0>\0<\0o\0:\0p\0>\0&\0n\0b\0s\0p\0;\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0t\0a\0b\0l\0e\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0T\0a\0b\0l\0e\0 \0b\0o\0r\0d\0e\0r\0=\x000\0 \0c\0e\0l\0l\0s\0p\0a\0c\0i\0n\0g\0=\x000\0 \0c\0e\0l\0l\0p\0a\0d\0d\0i\0n\0g\0=\x000\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0w\0i\0d\0t\0h\0=\0"\x001\x000\x000\0%\0"\0 \0s\0t\0y\0l\0e\0=\0'\0w\0i\0d\0t\0h\0:\x001\x000\x000\0.\x000\0%\0;\0b\0o\0r\0d\0e\0r\0-\0c\0o\0l\0l\0a\0p\0s\0e\0:\0c\0o\0l\0l\0a\0p\0s\0e\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0t\0b\0l\0l\0o\0o\0k\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \x001\x001\x008\x004\0;\0m\0s\0o\0-\0p\0a\0d\0d\0i\0n\0g\0-\0a\0l\0t\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x000\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0f\0i\0r\0s\0t\0r\0o\0w\0:\0y\0e\0s\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0l\0a\0s\0t\0r\0o\0w\0:\0y\0e\0s\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0v\0a\0l\0i\0g\0n\0=\0t\0o\0p\0 \0s\0t\0y\0l\0e\0=\0'\0p\0a\0d\0d\0i\0n\0g\0:\x003\0.\x007\x005\0p\0t\0 \x003\x000\0.\x000\0p\0t\0 \x000\0i\0n\0 \x003\0.\x007\x005\0p\0t\0;\0-\0w\0e\0b\0k\0i\0t\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0-\0m\0o\0z\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x002\0.\x007\x005\0p\0t\0'\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0#\x001\0D\x001\0D\x001\0D\0'\0>\0A\0U\0R\0I\0X\0"!&\0n\0b\0s\0p\0;\0T\0C\x004\0D\0x\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0w\0i\0l\0l\0 \0b\0e\0 \0u\0s\0e\0d\0 \0a\0s\0 \0a\0 \0H\0o\0s\0t\0 \0M\0i\0c\0r\0o\0c\0o\0n\0t\0r\0o\0l\0l\0e\0r\0 \0a\0n\0d\0 \0S\0a\0f\0e\0t\0y\0 \0C\0o\0m\0p\0a\0n\0i\0o\0n\0 \0I\0C\0 \0f\0o\0r\0 \0A\0D\0A\0S\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0a\0n\0d\0 \0v\0i\0s\0i\0o\0n\0 \0c\0h\0i\0p\0s\0e\0t\0s\0.\0 \0S\0T\0L\0A\0 \0w\0i\0l\0l\0 \0s\0t\0a\0r\0t\0 \0w\0i\0t\0h\0 \0t\0h\0e\0 \0J\0e\0e\0p\0 \0W\0a\0g\0o\0n\0e\0e\0r\0 \0i\0n\0 \x002\x000\x002\x008\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0w\0h\0i\0l\0e\0 \0F\0o\0r\0d\0 \0B\0r\0o\0n\0c\0o\0 \0S\0p\0o\0r\0t\0 \0a\0l\0r\0e\0a\0d\0y\0 \0s\0t\0a\0r\0t\0s\0 \x002\x000\x002\x007\0.\0 \0I\0F\0X\0 s\0 \0c\0o\0l\0l\0a\0b\0o\0r\0a\0t\0i\0o\0n\0 \0o\0n\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0A\0U\0R\0I\0X\0"! \0w\0i\0t\0h\0 \0A\0p\0t\0i\0v\0 \0s\0t\0a\0r\0t\0e\0d\0 \0w\0i\0t\0h\0 \0A\0U\0R\0I\0X\0"!&\0n\0b\0s\0p\0;\0T\0C\x003\0x\0 \0f\0o\0r\0 \0A\0d\0v\0a\0n\0c\0e\0d\0 \0D\0r\0i\0v\0e\0r\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0A\0s\0s\0i\0s\0t\0a\0n\0c\0e\0 \0S\0y\0s\0t\0e\0m\0s\0 \0a\0n\0d\0 \0i\0s\0 \0n\0o\0w\0 \0c\0o\0n\0t\0i\0n\0u\0i\0n\0g\0 \0i\0n\0t\0o\0 \0t\0h\0e\0 \0n\0e\0x\0t\0 \0g\0e\0n\0e\0r\0a\0t\0i\0o\0n\0 \0o\0f\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0E\0C\0U\0s\0 \0w\0i\0t\0h\0 \0A\0U\0R\0I\0X\0"!&\0n\0b\0s\0p\0;\0T\0C\x004\0x\0.\0&\0n\0b\0s\0p\0;\0&\0n\0b\0s\0p\0;\0&\0n\0b\0s\0p\0;\0 \0<\0/\0s\0p\0a\0n\0>\0<\0s\0p\0a\0n\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0'\0>\0<\0b\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0b\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0/\0s\0p\0a\0n\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0c\0o\0l\0o\0r\0:\0#\x001\0D\x001\0D\x001\0D\0'\0>\0I\0f\0 \0y\0o\0u\0 \0h\0a\0v\0e\0 \0q\0u\0e\0s\0t\0i\0o\0n\0s\0 \0o\0n\0 \0A\0U\0R\0I\0X\0"!&\0n\0b\0s\0p\0;\0T\0C\x004\0x\0 \0S\0W\0,\0 \0p\0l\0e\0a\0s\0e\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0f\0e\0e\0l\0 \0f\0r\0e\0e\0 \0t\0o\0 \0r\0e\0a\0c\0h\0 \0o\0u\0t\0 \0t\0o\0 \0A\0n\0d\0r\0e\0s\0 \0Z\0a\0v\0a\0l\0a\0 \0/\0 \0T\0h\0o\0m\0a\0s\0 \0H\0a\0f\0n\0e\0r\0<\0/\0s\0p\0a\0n\0>\0<\0s\0p\0a\0n\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0'\0>\0<\0b\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0b\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0/\0s\0p\0a\0n\0>\0<\0s\0t\0r\0o\0n\0g\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0c\0o\0l\0o\0r\0:\0#\x001\0D\x001\0D\x001\0D\0'\0>\0C\0o\0n\0t\0a\0c\0t\0:\0&\0n\0b\0s\0p\0;\0A\0n\0d\0r\0e\0s\0 \0Z\0a\0v\0a\0l\0a\0 \0/\0 \0T\0h\0o\0m\0a\0s\0 \0H\0a\0f\0n\0e\0r\0<\0/\0s\0p\0a\0n\0>\0<\0/\0s\0t\0r\0o\0n\0g\0>\0<\0s\0p\0a\0n\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0'\0>\0<\0b\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0&\0n\0b\0s\0p\0;\0 \0<\0o\0:\0p\0>\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0t\0a\0b\0l\0e\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0T\0a\0b\0l\0e\0 \0b\0o\0r\0d\0e\0r\0=\x000\0 \0c\0e\0l\0l\0s\0p\0a\0c\0i\0n\0g\0=\x000\0 \0c\0e\0l\0l\0p\0a\0d\0d\0i\0n\0g\0=\x000\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0b\0o\0r\0d\0e\0r\0-\0c\0o\0l\0l\0a\0p\0s\0e\0:\0c\0o\0l\0l\0a\0p\0s\0e\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0t\0b\0l\0l\0o\0o\0k\0:\x001\x001\x008\x004\0;\0m\0s\0o\0-\0p\0a\0d\0d\0i\0n\0g\0-\0a\0l\0t\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x000\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0f\0i\0r\0s\0t\0r\0o\0w\0:\0y\0e\0s\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0l\0a\0s\0t\0r\0o\0w\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0 \0y\0e\0s\0;\0h\0e\0i\0g\0h\0t\0:\x007\0.\x005\0p\0t\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0s\0t\0y\0l\0e\0=\0'\0p\0a\0d\0d\0i\0n\0g\0:\0.\x007\x005\0p\0t\0 \0.\x007\x005\0p\0t\0 \0.\x007\x005\0p\0t\0 \0.\x007\x005\0p\0t\0;\0h\0e\0i\0g\0h\0t\0:\x007\0.\x005\0p\0t\0'\0>\0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0/\0t\0a\0b\0l\0e\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x002\0.\x007\x005\0p\0t\0'\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0;\0d\0i\0s\0p\0l\0a\0y\0:\0n\0o\0n\0e\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0m\0s\0o\0-\0h\0i\0d\0e\0:\0a\0l\0l\0'\0>\0<\0o\0:\0p\0>\0&\0n\0b\0s\0p\0;\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0t\0a\0b\0l\0e\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0T\0a\0b\0l\0e\0 \0b\0o\0r\0d\0e\0r\0=\x000\0 \0c\0e\0l\0l\0s\0p\0a\0c\0i\0n\0g\0=\x000\0 \0c\0e\0l\0l\0p\0a\0d\0d\0i\0n\0g\0=\x000\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0b\0o\0r\0d\0e\0r\0-\0c\0o\0l\0l\0a\0p\0s\0e\0:\0c\0o\0l\0l\0a\0p\0s\0e\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0t\0b\0l\0l\0o\0o\0k\0:\x001\x001\x008\x004\0;\0m\0s\0o\0-\0p\0a\0d\0d\0i\0n\0g\0-\0a\0l\0t\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x000\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0f\0i\0r\0s\0t\0r\0o\0w\0:\0y\0e\0s\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0l\0a\0s\0t\0r\0o\0w\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0 \0y\0e\0s\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0s\0t\0y\0l\0e\0=\0'\0p\0a\0d\0d\0i\0n\0g\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0'\0>\0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0/\0t\0a\0b\0l\0e\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0>\0<\0o\0:\0p\0>\0<\0/\0o\0:\0p\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0/\0t\0a\0b\0l\0e\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0>\0<\0o\0:\0p\0>\0<\0/\0o\0:\0p\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0<\0/\0t\0a\0b\0l\0e\0>\0\r\0
+\0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x004\0.\x002\x005\0p\0t\0'\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x009\0.\x000\0p\0t\0;\0\r\0
+\0 \0 \0 \0 \0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0#\x002\x002\x002\x002\x002\x002\0;\0d\0i\0s\0p\0l\0a\0y\0:\0n\0o\0n\0e\0;\0m\0s\0o\0-\0h\0i\0d\0e\0:\0a\0l\0l\0'\0>\0<\0o\0:\0p\0>\0&\0n\0b\0s\0p\0;\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0<\0t\0a\0b\0l\0e\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0T\0a\0b\0l\0e\0 \0b\0o\0r\0d\0e\0r\0=\x000\0 \0c\0e\0l\0l\0s\0p\0a\0c\0i\0n\0g\0=\x000\0 \0c\0e\0l\0l\0p\0a\0d\0d\0i\0n\0g\0=\x000\0 \0w\0i\0d\0t\0h\0=\x001\x000\0\r\0
+\0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0w\0i\0d\0t\0h\0:\x007\0.\x005\0p\0t\0;\0b\0o\0r\0d\0e\0r\0-\0c\0o\0l\0l\0a\0p\0s\0e\0:\0c\0o\0l\0l\0a\0p\0s\0e\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0t\0b\0l\0l\0o\0o\0k\0:\x001\x001\x008\x004\0;\0\r\0
+\0 \0 \0 \0 \0 \0m\0s\0o\0-\0p\0a\0d\0d\0i\0n\0g\0-\0a\0l\0t\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0;\0b\0o\0r\0d\0e\0r\0-\0s\0p\0a\0c\0i\0n\0g\0:\0 \x000\0;\0w\0h\0i\0t\0e\0 \0!\0i\0m\0p\0o\0r\0t\0a\0n\0t\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x000\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0f\0i\0r\0s\0t\0r\0o\0w\0:\0y\0e\0s\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0l\0a\0s\0t\0r\0o\0w\0:\0y\0e\0s\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0h\0e\0i\0g\0h\0t\0:\x002\x006\0.\x002\x005\0p\0t\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0v\0a\0l\0i\0g\0n\0=\0t\0o\0p\0 \0s\0t\0y\0l\0e\0=\0'\0p\0a\0d\0d\0i\0n\0g\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0;\0h\0e\0i\0g\0h\0t\0:\x002\x006\0.\x002\x005\0p\0t\0;\0w\0o\0r\0d\0-\0b\0r\0e\0a\0k\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0b\0r\0e\0a\0k\0-\0w\0o\0r\0d\0;\0-\0w\0e\0b\0k\0i\0t\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0-\0m\0o\0z\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0'\0>\0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0<\0/\0t\0a\0b\0l\0e\0>\0\r\0
+\0 \0 \0 \0 \0<\0d\0i\0v\0 \0i\0d\0=\0"\0c\0h\0a\0p\0t\0e\0r\0_\x001\x007\x008\x002\x004\x001\0"\0>\0\r\0
+\0 \0 \0 \0 \0<\0d\0i\0v\0>\0\r\0
+\0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x004\0.\x002\x005\0p\0t\0'\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x009\0.\x000\0p\0t\0;\0\r\0
+\0 \0 \0 \0 \0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0#\x002\x002\x002\x002\x002\x002\0;\0d\0i\0s\0p\0l\0a\0y\0:\0n\0o\0n\0e\0;\0m\0s\0o\0-\0h\0i\0d\0e\0:\0a\0l\0l\0'\0>\0<\0o\0:\0p\0>\0&\0n\0b\0s\0p\0;\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0<\0d\0i\0v\0 \0a\0l\0i\0g\0n\0=\0c\0e\0n\0t\0e\0r\0>\0\r\0
+\0 \0 \0 \0 \0<\0t\0a\0b\0l\0e\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0T\0a\0b\0l\0e\0 \0b\0o\0r\0d\0e\0r\0=\x000\0 \0c\0e\0l\0l\0s\0p\0a\0c\0i\0n\0g\0=\x000\0 \0c\0e\0l\0l\0p\0a\0d\0d\0i\0n\0g\0=\x000\0 \0w\0i\0d\0t\0h\0=\x005\x007\x000\0\r\0
+\0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0w\0i\0d\0t\0h\0:\x004\x002\x007\0.\x005\0p\0t\0;\0b\0o\0r\0d\0e\0r\0-\0c\0o\0l\0l\0a\0p\0s\0e\0:\0c\0o\0l\0l\0a\0p\0s\0e\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0t\0b\0l\0l\0o\0o\0k\0:\x001\x001\x008\x004\0;\0\r\0
+\0 \0 \0 \0 \0 \0m\0s\0o\0-\0p\0a\0d\0d\0i\0n\0g\0-\0a\0l\0t\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x000\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0f\0i\0r\0s\0t\0r\0o\0w\0:\0y\0e\0s\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0l\0a\0s\0t\0r\0o\0w\0:\0y\0e\0s\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0w\0i\0d\0t\0h\0=\x005\x007\x000\0 \0s\0t\0y\0l\0e\0=\0'\0w\0i\0d\0t\0h\0:\x004\x002\x007\0.\x005\0p\0t\0;\0b\0o\0r\0d\0e\0r\0:\0n\0o\0n\0e\0;\0b\0o\0r\0d\0e\0r\0-\0b\0o\0t\0t\0o\0m\0:\0s\0o\0l\0i\0d\0 \0#\0E\x001\0E\x006\0E\0A\0 \x001\0.\x005\0p\0t\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0p\0a\0d\0d\0i\0n\0g\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0'\0>\0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0<\0/\0t\0a\0b\0l\0e\0>\0\r\0
+\0 \0 \0 \0 \0<\0/\0d\0i\0v\0>\0\r\0
+\0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x004\0.\x002\x005\0p\0t\0'\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x009\0.\x000\0p\0t\0;\0\r\0
+\0 \0 \0 \0 \0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0#\x002\x002\x002\x002\x002\x002\0;\0d\0i\0s\0p\0l\0a\0y\0:\0n\0o\0n\0e\0;\0m\0s\0o\0-\0h\0i\0d\0e\0:\0a\0l\0l\0'\0>\0<\0o\0:\0p\0>\0&\0n\0b\0s\0p\0;\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0<\0d\0i\0v\0 \0a\0l\0i\0g\0n\0=\0c\0e\0n\0t\0e\0r\0>\0\r\0
+\0 \0 \0 \0 \0<\0t\0a\0b\0l\0e\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0T\0a\0b\0l\0e\0 \0b\0o\0r\0d\0e\0r\0=\x000\0 \0c\0e\0l\0l\0s\0p\0a\0c\0i\0n\0g\0=\x000\0 \0c\0e\0l\0l\0p\0a\0d\0d\0i\0n\0g\0=\x000\0 \0w\0i\0d\0t\0h\0=\x006\x005\x000\0\r\0
+\0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0w\0i\0d\0t\0h\0:\x004\x008\x007\0.\x005\0p\0t\0;\0b\0o\0r\0d\0e\0r\0-\0c\0o\0l\0l\0a\0p\0s\0e\0:\0c\0o\0l\0l\0a\0p\0s\0e\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0t\0b\0l\0l\0o\0o\0k\0:\x001\x001\x008\x004\0;\0\r\0
+\0 \0 \0 \0 \0 \0m\0s\0o\0-\0p\0a\0d\0d\0i\0n\0g\0-\0a\0l\0t\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x000\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0f\0i\0r\0s\0t\0r\0o\0w\0:\0y\0e\0s\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0l\0a\0s\0t\0r\0o\0w\0:\0y\0e\0s\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0v\0a\0l\0i\0g\0n\0=\0t\0o\0p\0 \0s\0t\0y\0l\0e\0=\0'\0p\0a\0d\0d\0i\0n\0g\0:\x001\x001\0.\x002\x005\0p\0t\0 \x003\x000\0.\x000\0p\0t\0 \x001\x001\0.\x002\x005\0p\0t\0 \x003\x000\0.\x000\0p\0t\0;\0-\0w\0e\0b\0k\0i\0t\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0-\0m\0o\0z\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0-\0a\0l\0t\0:\x001\x002\0.\x007\x005\0p\0t\0'\0>\0<\0a\0\r\0
+\0 \0 \0 \0 \0 \0 \0n\0a\0m\0e\0=\0"\0C\0h\0a\0p\0t\0e\0r\0_\x001\x007\x008\x002\x004\x001\0"\0>\0<\0/\0a\0>\0<\0s\0t\0r\0o\0n\0g\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x001\x003\0.\x005\0p\0t\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0#\x000\0A\x008\x002\x007\x006\0'\0>\0T\0R\0A\0V\0E\0O\0"!<\0/\0s\0p\0a\0n\0>\0<\0/\0s\0t\0r\0o\0n\0g\0>\0<\0s\0p\0a\0n\0\r\0
+\0 \0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x001\x003\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0#\x000\0A\x008\x002\x007\x006\0'\0>\0 \0<\0o\0:\0p\0>\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0<\0/\0t\0a\0b\0l\0e\0>\0\r\0
+\0 \0 \0 \0 \0<\0/\0d\0i\0v\0>\0\r\0
+\0 \0 \0 \0 \0<\0/\0d\0i\0v\0>\0\r\0
+\0 \0 \0 \0 \0<\0/\0d\0i\0v\0>\0\r\0
+\0 \0 \0 \0 \0<\0t\0a\0b\0l\0e\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0T\0a\0b\0l\0e\0 \0b\0o\0r\0d\0e\0r\0=\x000\0 \0c\0e\0l\0l\0s\0p\0a\0c\0i\0n\0g\0=\x000\0 \0c\0e\0l\0l\0p\0a\0d\0d\0i\0n\0g\0=\x000\0\r\0
+\0 \0 \0 \0 \0 \0w\0i\0d\0t\0h\0=\0"\x001\x000\x000\0%\0"\0 \0s\0t\0y\0l\0e\0=\0'\0w\0i\0d\0t\0h\0:\x001\x000\x000\0.\x000\0%\0;\0b\0o\0r\0d\0e\0r\0-\0c\0o\0l\0l\0a\0p\0s\0e\0:\0c\0o\0l\0l\0a\0p\0s\0e\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0t\0b\0l\0l\0o\0o\0k\0:\0\r\0
+\0 \0 \0 \0 \0 \x001\x001\x008\x004\0;\0m\0s\0o\0-\0p\0a\0d\0d\0i\0n\0g\0-\0a\0l\0t\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x000\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0f\0i\0r\0s\0t\0r\0o\0w\0:\0y\0e\0s\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0v\0a\0l\0i\0g\0n\0=\0t\0o\0p\0 \0s\0t\0y\0l\0e\0=\0'\0p\0a\0d\0d\0i\0n\0g\0:\x000\0i\0n\0 \x003\x000\0.\x000\0p\0t\0 \x001\x007\0.\x002\x005\0p\0t\0 \x003\x000\0.\x000\0p\0t\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x002\0.\x007\x005\0p\0t\0'\0>\0<\0b\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0'\0>\0T\0R\0A\0V\0E\0O\0"! \0T\x002\0G\0-\0C\0-\x002\0D\0-\x004\0M\0 \0M\0o\0d\0u\0s\0T\0o\0o\0l\0b\0o\0x\0"! \0R\0e\0l\0e\0a\0s\0e\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0/\0s\0p\0a\0n\0>\0<\0/\0b\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0'\0>\0<\0o\0:\0p\0>\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x001\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0v\0a\0l\0i\0g\0n\0=\0t\0o\0p\0 \0s\0t\0y\0l\0e\0=\0'\0p\0a\0d\0d\0i\0n\0g\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0;\0-\0w\0e\0b\0k\0i\0t\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0-\0m\0o\0z\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x002\0.\x007\x005\0p\0t\0'\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0'\0>\0<\0i\0m\0g\0 \0b\0o\0r\0d\0e\0r\0=\x000\0\r\0
+\0 \0 \0 \0 \0 \0 \0w\0i\0d\0t\0h\0=\x006\x005\x000\0 \0h\0e\0i\0g\0h\0t\0=\x002\x000\x000\0 \0i\0d\0=\0"\0_\0x\x000\x000\x000\x000\0_\0i\x001\x000\x002\x009\0"\0\r\0
+\0 \0 \0 \0 \0 \0 \0s\0r\0c\0=\0"\0h\0t\0t\0p\0s\0:\0/\0/\0n\0e\0w\0s\0l\0e\0t\0t\0e\0r\0f\0i\0l\0e\0s\0.\0i\0n\0f\0i\0n\0e\0o\0n\0.\0c\0o\0m\0/\0f\0i\0l\0e\0s\0/\0i\0f\0x\0n\0e\0w\0s\0l\0e\0t\0t\0e\0r\0s\0-\0p\0i\0c\0t\0u\0r\0e\0s\0/\0S\0c\0r\0e\0e\0n\0s\0h\0o\0t\0%\x002\x000\x002\x000\x002\x006\0-\x000\x003\0-\x001\x009\0%\x002\x000\x001\x003\x000\x008\x005\x007\0_\x001\x009\0-\x000\x003\0-\x002\x000\x002\x006\0-\x000\x001\0-\x000\x009\0-\x001\x008\0.\0p\0n\0g\0"\0\r\0
+\0 \0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0h\0e\0i\0g\0h\0t\0:\x002\0.\x000\x008\x003\0i\0n\0;\0w\0i\0d\0t\0h\0:\x006\0.\x007\x007\x005\0i\0n\0'\0>\0<\0o\0:\0p\0>\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x002\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0l\0a\0s\0t\0r\0o\0w\0:\0y\0e\0s\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0v\0a\0l\0i\0g\0n\0=\0t\0o\0p\0 \0s\0t\0y\0l\0e\0=\0'\0p\0a\0d\0d\0i\0n\0g\0:\x001\x001\0.\x002\x005\0p\0t\0 \x003\x000\0.\x000\0p\0t\0 \x000\0i\0n\0 \x003\x000\0.\x000\0p\0t\0;\0-\0w\0e\0b\0k\0i\0t\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0-\0m\0o\0z\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x002\0.\x007\x005\0p\0t\0'\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0'\0>\0W\0e\0 \0a\0r\0e\0 \0p\0l\0e\0a\0s\0e\0d\0 \0t\0o\0\r\0
+\0 \0 \0 \0 \0 \0 \0i\0n\0f\0o\0r\0m\0 \0y\0o\0u\0 \0t\0h\0a\0t\0 \0w\0e\0 \0h\0a\0v\0e\0 \0s\0u\0c\0c\0e\0s\0s\0f\0u\0l\0l\0y\0 \0p\0u\0b\0l\0i\0s\0h\0e\0d\0 \0t\0h\0e\0 \0T\0R\0A\0V\0E\0O\0"! \0T\x002\0G\0-\0C\0-\x002\0D\0-\x004\0M\0\r\0
+\0 \0 \0 \0 \0 \0 \0M\0T\0B\0 \0w\0i\0t\0h\0 \0G\0F\0X\0 \0C\0o\0d\0e\0 \0E\0x\0a\0m\0p\0l\0e\0 \0a\0n\0d\0 \0a\0p\0p\0l\0i\0c\0a\0t\0i\0o\0n\0 \0n\0o\0t\0e\0 \0(\0G\0e\0t\0t\0i\0n\0g\0 \0S\0t\0a\0r\0t\0e\0d\0)\0 \0o\0n\0\r\0
+\0 \0 \0 \0 \0 \0 \0G\0i\0t\0H\0u\0b\0 \0<\0/\0s\0p\0a\0n\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0c\0o\0l\0o\0r\0:\0#\x001\0D\x001\0D\x001\0D\0'\0>\0<\0a\0\r\0
+\0 \0 \0 \0 \0 \0 \0h\0r\0e\0f\0=\0"\0h\0t\0t\0p\0s\0:\0/\0/\0g\0i\0t\0h\0u\0b\0.\0c\0o\0m\0/\0I\0n\0f\0i\0n\0e\0o\0n\0/\0T\0R\0A\0V\0E\0O\0_\0T\x002\0G\0_\0c\0o\0d\0e\0_\0e\0x\0a\0m\0p\0l\0e\0s\0"\0>\0h\0e\0r\0<\0/\0a\0>\0<\0a\0\r\0
+\0 \0 \0 \0 \0 \0 \0h\0r\0e\0f\0=\0"\0h\0t\0t\0p\0s\0:\0/\0/\0g\0i\0t\0h\0u\0b\0.\0c\0o\0m\0/\0I\0n\0f\0i\0n\0e\0o\0n\0/\0T\0R\0A\0V\0E\0O\0_\0T\x002\0G\0_\0c\0o\0d\0e\0_\0e\0x\0a\0m\0p\0l\0e\0s\0"\0>\0e\0<\0/\0a\0>\0<\0/\0s\0p\0a\0n\0>\0<\0s\0p\0a\0n\0\r\0
+\0 \0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0'\0>\0.\0\r\0
+\0 \0 \0 \0 \0 \0 \0T\0h\0i\0s\0 \0r\0e\0l\0e\0a\0s\0e\0 \0a\0i\0m\0s\0 \0t\0o\0 \0s\0i\0m\0p\0l\0i\0f\0y\0 \0t\0h\0e\0 \0d\0e\0v\0e\0l\0o\0p\0m\0e\0n\0t\0 \0p\0r\0o\0c\0e\0s\0s\0 \0f\0o\0r\0 \0c\0u\0s\0t\0o\0m\0e\0r\0s\0,\0\r\0
+\0 \0 \0 \0 \0 \0 \0m\0a\0k\0i\0n\0g\0 \0i\0t\0 \0e\0a\0s\0i\0e\0r\0 \0t\0o\0 \0c\0r\0e\0a\0t\0e\0 \0H\0M\0I\0 \0p\0r\0o\0j\0e\0c\0t\0s\0 \0f\0o\0r\0 \0a\0 \0v\0a\0r\0i\0e\0t\0y\0 \0o\0f\0 \0a\0p\0p\0l\0i\0c\0a\0t\0i\0o\0n\0s\0,\0\r\0
+\0 \0 \0 \0 \0 \0 \0i\0n\0c\0l\0u\0d\0i\0n\0g\0 \0p\0a\0s\0s\0e\0n\0g\0e\0r\0 \0v\0e\0h\0i\0c\0l\0e\0s\0,\0 \0l\0i\0g\0h\0t\0 \0e\0l\0e\0c\0t\0r\0i\0c\0 \0v\0e\0h\0i\0c\0l\0e\0s\0 \0(\0L\0E\0V\0s\0)\0,\0 \0f\0o\0r\0k\0l\0i\0f\0t\0s\0,\0\r\0
+\0 \0 \0 \0 \0 \0 \0a\0n\0d\0 \0m\0o\0r\0e\0.\0<\0b\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0b\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0/\0s\0p\0a\0n\0>\0<\0s\0t\0r\0o\0n\0g\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0c\0o\0l\0o\0r\0:\0#\x001\0D\x001\0D\x001\0D\0'\0>\0C\0o\0n\0t\0a\0c\0t\0:\0&\0n\0b\0s\0p\0;\0Y\0o\0s\0h\0i\0d\0a\0 \0T\0e\0t\0s\0u\0y\0a\0 \0/\0 \0K\0o\0s\0u\0k\0e\0 \0Y\0a\0m\0a\0d\0e\0<\0/\0s\0p\0a\0n\0>\0<\0/\0s\0t\0r\0o\0n\0g\0>\0<\0s\0p\0a\0n\0\r\0
+\0 \0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0'\0>\0<\0o\0:\0p\0>\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0t\0a\0b\0l\0e\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0T\0a\0b\0l\0e\0 \0b\0o\0r\0d\0e\0r\0=\x000\0 \0c\0e\0l\0l\0s\0p\0a\0c\0i\0n\0g\0=\x000\0 \0c\0e\0l\0l\0p\0a\0d\0d\0i\0n\0g\0=\x000\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0b\0o\0r\0d\0e\0r\0-\0c\0o\0l\0l\0a\0p\0s\0e\0:\0c\0o\0l\0l\0a\0p\0s\0e\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0t\0b\0l\0l\0o\0o\0k\0:\x001\x001\x008\x004\0;\0m\0s\0o\0-\0p\0a\0d\0d\0i\0n\0g\0-\0a\0l\0t\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x000\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0f\0i\0r\0s\0t\0r\0o\0w\0:\0y\0e\0s\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0l\0a\0s\0t\0r\0o\0w\0:\0y\0e\0s\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0h\0e\0i\0g\0h\0t\0:\x007\0.\x005\0p\0t\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0s\0t\0y\0l\0e\0=\0'\0p\0a\0d\0d\0i\0n\0g\0:\0.\x007\x005\0p\0t\0 \0.\x007\x005\0p\0t\0 \0.\x007\x005\0p\0t\0 \0.\x007\x005\0p\0t\0;\0h\0e\0i\0g\0h\0t\0:\x007\0.\x005\0p\0t\0'\0>\0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0/\0t\0a\0b\0l\0e\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x002\0.\x007\x005\0p\0t\0'\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0;\0d\0i\0s\0p\0l\0a\0y\0:\0n\0o\0n\0e\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0m\0s\0o\0-\0h\0i\0d\0e\0:\0a\0l\0l\0'\0>\0<\0o\0:\0p\0>\0&\0n\0b\0s\0p\0;\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0t\0a\0b\0l\0e\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0T\0a\0b\0l\0e\0 \0b\0o\0r\0d\0e\0r\0=\x000\0 \0c\0e\0l\0l\0s\0p\0a\0c\0i\0n\0g\0=\x000\0 \0c\0e\0l\0l\0p\0a\0d\0d\0i\0n\0g\0=\x000\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0b\0o\0r\0d\0e\0r\0-\0c\0o\0l\0l\0a\0p\0s\0e\0:\0c\0o\0l\0l\0a\0p\0s\0e\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0t\0b\0l\0l\0o\0o\0k\0:\x001\x001\x008\x004\0;\0m\0s\0o\0-\0p\0a\0d\0d\0i\0n\0g\0-\0a\0l\0t\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x000\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0f\0i\0r\0s\0t\0r\0o\0w\0:\0y\0e\0s\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0l\0a\0s\0t\0r\0o\0w\0:\0y\0e\0s\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0s\0t\0y\0l\0e\0=\0'\0p\0a\0d\0d\0i\0n\0g\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0'\0>\0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0/\0t\0a\0b\0l\0e\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0>\0<\0o\0:\0p\0>\0<\0/\0o\0:\0p\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0<\0/\0t\0a\0b\0l\0e\0>\0\r\0
+\0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x004\0.\x002\x005\0p\0t\0'\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x009\0.\x000\0p\0t\0;\0\r\0
+\0 \0 \0 \0 \0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0#\x002\x002\x002\x002\x002\x002\0;\0d\0i\0s\0p\0l\0a\0y\0:\0n\0o\0n\0e\0;\0m\0s\0o\0-\0h\0i\0d\0e\0:\0a\0l\0l\0'\0>\0<\0o\0:\0p\0>\0&\0n\0b\0s\0p\0;\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0<\0t\0a\0b\0l\0e\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0T\0a\0b\0l\0e\0 \0b\0o\0r\0d\0e\0r\0=\x000\0 \0c\0e\0l\0l\0s\0p\0a\0c\0i\0n\0g\0=\x000\0 \0c\0e\0l\0l\0p\0a\0d\0d\0i\0n\0g\0=\x000\0\r\0
+\0 \0 \0 \0 \0 \0w\0i\0d\0t\0h\0=\0"\x001\x000\x000\0%\0"\0 \0s\0t\0y\0l\0e\0=\0'\0w\0i\0d\0t\0h\0:\x001\x000\x000\0.\x000\0%\0;\0b\0o\0r\0d\0e\0r\0-\0c\0o\0l\0l\0a\0p\0s\0e\0:\0c\0o\0l\0l\0a\0p\0s\0e\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0t\0b\0l\0l\0o\0o\0k\0:\0\r\0
+\0 \0 \0 \0 \0 \x001\x001\x008\x004\0;\0m\0s\0o\0-\0p\0a\0d\0d\0i\0n\0g\0-\0a\0l\0t\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0;\0b\0o\0r\0d\0e\0r\0-\0s\0p\0a\0c\0i\0n\0g\0:\0 \x000\0;\0w\0h\0i\0t\0e\0 \0!\0i\0m\0p\0o\0r\0t\0a\0n\0t\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x000\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0f\0i\0r\0s\0t\0r\0o\0w\0:\0y\0e\0s\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0l\0a\0s\0t\0r\0o\0w\0:\0y\0e\0s\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0h\0e\0i\0g\0h\0t\0:\x002\x006\0.\x002\x005\0p\0t\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0v\0a\0l\0i\0g\0n\0=\0t\0o\0p\0 \0s\0t\0y\0l\0e\0=\0'\0p\0a\0d\0d\0i\0n\0g\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0;\0h\0e\0i\0g\0h\0t\0:\x002\x006\0.\x002\x005\0p\0t\0;\0w\0o\0r\0d\0-\0b\0r\0e\0a\0k\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0b\0r\0e\0a\0k\0-\0w\0o\0r\0d\0;\0-\0w\0e\0b\0k\0i\0t\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0-\0m\0o\0z\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0'\0>\0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0<\0/\0t\0a\0b\0l\0e\0>\0\r\0
+\0 \0 \0 \0 \0<\0d\0i\0v\0 \0i\0d\0=\0"\0a\0r\0t\0i\0c\0l\0e\0_\x003\x002\x008\x009\x001\x005\0"\0>\0\r\0
+\0 \0 \0 \0 \0<\0d\0i\0v\0>\0\r\0
+\0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x004\0.\x002\x005\0p\0t\0'\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x009\0.\x000\0p\0t\0;\0\r\0
+\0 \0 \0 \0 \0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0#\x002\x002\x002\x002\x002\x002\0;\0d\0i\0s\0p\0l\0a\0y\0:\0n\0o\0n\0e\0;\0m\0s\0o\0-\0h\0i\0d\0e\0:\0a\0l\0l\0'\0>\0<\0o\0:\0p\0>\0&\0n\0b\0s\0p\0;\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0<\0t\0a\0b\0l\0e\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0T\0a\0b\0l\0e\0 \0b\0o\0r\0d\0e\0r\0=\x000\0 \0c\0e\0l\0l\0s\0p\0a\0c\0i\0n\0g\0=\x000\0 \0c\0e\0l\0l\0p\0a\0d\0d\0i\0n\0g\0=\x000\0\r\0
+\0 \0 \0 \0 \0 \0w\0i\0d\0t\0h\0=\0"\x001\x000\x000\0%\0"\0 \0s\0t\0y\0l\0e\0=\0'\0w\0i\0d\0t\0h\0:\x001\x000\x000\0.\x000\0%\0;\0b\0o\0r\0d\0e\0r\0-\0c\0o\0l\0l\0a\0p\0s\0e\0:\0c\0o\0l\0l\0a\0p\0s\0e\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0t\0b\0l\0l\0o\0o\0k\0:\0\r\0
+\0 \0 \0 \0 \0 \x001\x001\x008\x004\0;\0m\0s\0o\0-\0p\0a\0d\0d\0i\0n\0g\0-\0a\0l\0t\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0;\0b\0o\0r\0d\0e\0r\0-\0s\0p\0a\0c\0i\0n\0g\0:\0 \x000\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x000\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0f\0i\0r\0s\0t\0r\0o\0w\0:\0y\0e\0s\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0l\0a\0s\0t\0r\0o\0w\0:\0y\0e\0s\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0w\0i\0d\0t\0h\0=\x003\x002\x005\0 \0v\0a\0l\0i\0g\0n\0=\0t\0o\0p\0 \0s\0t\0y\0l\0e\0=\0'\0w\0i\0d\0t\0h\0:\x002\x004\x003\0.\x007\x005\0p\0t\0;\0p\0a\0d\0d\0i\0n\0g\0:\x000\0i\0n\0 \x003\0.\x007\x005\0p\0t\0 \x000\0i\0n\0 \x000\0i\0n\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0-\0w\0e\0b\0k\0i\0t\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0-\0m\0o\0z\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x002\0.\x007\x005\0p\0t\0'\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0'\0>\0<\0i\0m\0g\0 \0b\0o\0r\0d\0e\0r\0=\x000\0\r\0
+\0 \0 \0 \0 \0 \0 \0w\0i\0d\0t\0h\0=\x003\x002\x000\0 \0h\0e\0i\0g\0h\0t\0=\x002\x004\x006\0 \0i\0d\0=\0"\0_\0x\x000\x000\x000\x000\0_\0i\x001\x000\x003\x000\0"\0\r\0
+\0 \0 \0 \0 \0 \0 \0s\0r\0c\0=\0"\0h\0t\0t\0p\0s\0:\0/\0/\0n\0e\0w\0s\0l\0e\0t\0t\0e\0r\0f\0i\0l\0e\0s\0.\0i\0n\0f\0i\0n\0e\0o\0n\0.\0c\0o\0m\0/\0f\0i\0l\0e\0s\0/\0i\0f\0x\0n\0e\0w\0s\0l\0e\0t\0t\0e\0r\0s\0-\0p\0i\0c\0t\0u\0r\0e\0s\0/\0S\0c\0r\0e\0e\0n\0s\0h\0o\0t\0%\x002\x000\x002\x000\x002\x006\0-\x000\x003\0-\x001\x009\0%\x002\x000\x001\x003\x000\x001\x005\x002\0_\x001\x009\0-\x000\x003\0-\x002\x000\x002\x006\0-\x000\x001\0-\x000\x002\0-\x001\x001\0.\0p\0n\0g\0"\0\r\0
+\0 \0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0h\0e\0i\0g\0h\0t\0:\x002\0.\x005\x005\x008\0i\0n\0;\0w\0i\0d\0t\0h\0:\x003\0.\x003\x003\x003\0i\0n\0'\0>\0<\0o\0:\0p\0>\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0v\0a\0l\0i\0g\0n\0=\0t\0o\0p\0 \0s\0t\0y\0l\0e\0=\0'\0p\0a\0d\0d\0i\0n\0g\0:\x003\0.\x007\x005\0p\0t\0 \x003\x000\0.\x000\0p\0t\0 \x000\0i\0n\0 \x003\0.\x007\x005\0p\0t\0;\0-\0w\0e\0b\0k\0i\0t\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0-\0m\0o\0z\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0t\0a\0b\0l\0e\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0T\0a\0b\0l\0e\0 \0b\0o\0r\0d\0e\0r\0=\x000\0 \0c\0e\0l\0l\0s\0p\0a\0c\0i\0n\0g\0=\x000\0 \0c\0e\0l\0l\0p\0a\0d\0d\0i\0n\0g\0=\x000\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0w\0i\0d\0t\0h\0=\0"\x001\x000\x000\0%\0"\0 \0s\0t\0y\0l\0e\0=\0'\0w\0i\0d\0t\0h\0:\x001\x000\x000\0.\x000\0%\0;\0b\0o\0r\0d\0e\0r\0-\0c\0o\0l\0l\0a\0p\0s\0e\0:\0c\0o\0l\0l\0a\0p\0s\0e\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0t\0b\0l\0l\0o\0o\0k\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \x001\x001\x008\x004\0;\0m\0s\0o\0-\0p\0a\0d\0d\0i\0n\0g\0-\0a\0l\0t\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x000\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0f\0i\0r\0s\0t\0r\0o\0w\0:\0y\0e\0s\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0l\0a\0s\0t\0r\0o\0w\0:\0y\0e\0s\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0v\0a\0l\0i\0g\0n\0=\0t\0o\0p\0 \0s\0t\0y\0l\0e\0=\0'\0p\0a\0d\0d\0i\0n\0g\0:\x000\0i\0n\0 \x000\0i\0n\0 \x001\x007\0.\x002\x005\0p\0t\0 \x000\0i\0n\0;\0-\0w\0e\0b\0k\0i\0t\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0-\0m\0o\0z\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x002\0.\x007\x005\0p\0t\0'\0>\0<\0b\0>\0<\0s\0p\0a\0n\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0'\0>\0S\0u\0c\0c\0e\0s\0s\0f\0u\0l\0 \0I\0n\0t\0e\0r\0n\0a\0l\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0W\0e\0b\0i\0n\0a\0r\0:\0 \0V\0a\0l\0u\0e\0 \0S\0e\0l\0l\0i\0n\0g\0 \0I\0n\0f\0i\0n\0e\0o\0n\0 \0M\0C\0U\0s\0 \0f\0o\0r\0 \0A\0S\0I\0L\0-\0B\0 \0Z\0o\0n\0e\0s\0 \0S\0u\0p\0p\0o\0r\0t\0e\0d\0 \0b\0y\0 \0A\0T\0V\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0S\0Y\0S\0 \0T\0e\0a\0m\0<\0/\0s\0p\0a\0n\0>\0<\0/\0b\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0'\0>\0 \0<\0o\0:\0p\0>\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0/\0t\0a\0b\0l\0e\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x002\0.\x007\x005\0p\0t\0'\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0;\0d\0i\0s\0p\0l\0a\0y\0:\0n\0o\0n\0e\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0m\0s\0o\0-\0h\0i\0d\0e\0:\0a\0l\0l\0'\0>\0<\0o\0:\0p\0>\0&\0n\0b\0s\0p\0;\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0t\0a\0b\0l\0e\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0T\0a\0b\0l\0e\0 \0b\0o\0r\0d\0e\0r\0=\x000\0 \0c\0e\0l\0l\0s\0p\0a\0c\0i\0n\0g\0=\x000\0 \0c\0e\0l\0l\0p\0a\0d\0d\0i\0n\0g\0=\x000\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0w\0i\0d\0t\0h\0=\0"\x001\x000\x000\0%\0"\0 \0s\0t\0y\0l\0e\0=\0'\0w\0i\0d\0t\0h\0:\x001\x000\x000\0.\x000\0%\0;\0b\0o\0r\0d\0e\0r\0-\0c\0o\0l\0l\0a\0p\0s\0e\0:\0c\0o\0l\0l\0a\0p\0s\0e\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0t\0b\0l\0l\0o\0o\0k\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \x001\x001\x008\x004\0;\0m\0s\0o\0-\0p\0a\0d\0d\0i\0n\0g\0-\0a\0l\0t\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x000\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0f\0i\0r\0s\0t\0r\0o\0w\0:\0y\0e\0s\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0l\0a\0s\0t\0r\0o\0w\0:\0y\0e\0s\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0v\0a\0l\0i\0g\0n\0=\0t\0o\0p\0 \0s\0t\0y\0l\0e\0=\0'\0p\0a\0d\0d\0i\0n\0g\0:\x003\0.\x007\x005\0p\0t\0 \x003\x000\0.\x000\0p\0t\0 \x000\0i\0n\0 \x003\0.\x007\x005\0p\0t\0;\0-\0w\0e\0b\0k\0i\0t\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0-\0m\0o\0z\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x002\0.\x007\x005\0p\0t\0'\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0#\x001\0D\x001\0D\x001\0D\0'\0>\0T\0h\0e\0 \0w\0e\0b\0i\0n\0a\0r\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0s\0h\0o\0w\0c\0a\0s\0e\0d\0 \0t\0h\0e\0 \0T\0R\0A\0V\0E\0O\0"! \0T\x002\0G\0 \0M\0C\0U\0 \0f\0a\0m\0i\0l\0y\0,\0 \0a\0n\0d\0 \0i\0t\0s\0 \0o\0p\0t\0i\0m\0a\0l\0 \0f\0i\0t\0 \0f\0o\0r\0 \0A\0S\0I\0L\0-\0B\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0z\0o\0n\0e\0 \0c\0o\0n\0t\0r\0o\0l\0l\0e\0r\0s\0 \0i\0n\0 \0e\0m\0e\0r\0g\0i\0n\0g\0 \0z\0o\0n\0a\0l\0 \0a\0r\0c\0h\0i\0t\0e\0c\0t\0u\0r\0e\0s\0.\0<\0/\0s\0p\0a\0n\0>\0<\0s\0p\0a\0n\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0'\0>\0&\0n\0b\0s\0p\0;\0&\0n\0b\0s\0p\0;\0&\0n\0b\0s\0p\0;\0&\0n\0b\0s\0p\0;\0<\0b\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0b\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0/\0s\0p\0a\0n\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0c\0o\0l\0o\0r\0:\0#\x001\0D\x001\0D\x001\0D\0'\0>\0Y\0o\0u\0 \0c\0a\0n\0 \0f\0i\0n\0d\0 \0t\0h\0e\0 \0<\0s\0t\0r\0o\0n\0g\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0'\0>\0r\0e\0c\0o\0r\0d\0i\0n\0g\0<\0/\0s\0p\0a\0n\0>\0<\0/\0s\0t\0r\0o\0n\0g\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0a\0n\0d\0 \0<\0s\0t\0r\0o\0n\0g\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0'\0>\0h\0a\0n\0d\0o\0u\0t\0 \0<\0u\0>\0<\0a\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0h\0r\0e\0f\0=\0"\0h\0t\0t\0p\0s\0:\0/\0/\0i\0n\0f\0i\0n\0e\0o\0n\0-\0a\0c\0a\0d\0e\0m\0y\0.\0c\0s\0o\0d\0.\0c\0o\0m\0/\0u\0i\0/\0l\0m\0s\0-\0l\0e\0a\0r\0n\0i\0n\0g\0-\0d\0e\0t\0a\0i\0l\0s\0/\0a\0p\0p\0/\0v\0i\0d\0e\0o\0/\x009\x002\0b\0e\0b\x004\0f\0e\0-\x000\0f\x005\x000\0-\x004\x001\x009\0c\0-\x009\x008\x003\0b\0-\x005\0b\x005\0c\0f\x004\x008\0e\x006\0d\0f\x004\0"\0>\0h\0e\0r\0e\0<\0/\0a\0>\0<\0/\0u\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0s\0t\0r\0o\0n\0g\0>\0.\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0/\0s\0p\0a\0n\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0'\0>\0&\0n\0b\0s\0p\0;\0&\0n\0b\0s\0p\0;\0&\0n\0b\0s\0p\0;\0&\0n\0b\0s\0p\0;\0&\0n\0b\0s\0p\0;\0&\0n\0b\0s\0p\0;\0&\0n\0b\0s\0p\0;\0&\0n\0b\0s\0p\0;\0&\0n\0b\0s\0p\0;\0&\0n\0b\0s\0p\0;\0<\0b\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0b\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0/\0s\0p\0a\0n\0>\0<\0s\0t\0r\0o\0n\0g\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0c\0o\0l\0o\0r\0:\0#\x001\0D\x001\0D\x001\0D\0'\0>\0C\0o\0n\0t\0a\0c\0t\0:\0 \0A\0b\0i\0l\0a\0s\0h\0 \0R\0e\0d\0d\0y\0 \0G\0a\0d\0d\0a\0m\0/\0&\0n\0b\0s\0p\0;\0M\0a\0n\0o\0j\0 \0K\0u\0m\0a\0r\0 \0H\0a\0r\0i\0h\0a\0r\0<\0/\0s\0p\0a\0n\0>\0<\0/\0s\0t\0r\0o\0n\0g\0>\0<\0s\0p\0a\0n\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0'\0>\0 \0<\0o\0:\0p\0>\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0t\0a\0b\0l\0e\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0T\0a\0b\0l\0e\0 \0b\0o\0r\0d\0e\0r\0=\x000\0 \0c\0e\0l\0l\0s\0p\0a\0c\0i\0n\0g\0=\x000\0 \0c\0e\0l\0l\0p\0a\0d\0d\0i\0n\0g\0=\x000\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0b\0o\0r\0d\0e\0r\0-\0c\0o\0l\0l\0a\0p\0s\0e\0:\0c\0o\0l\0l\0a\0p\0s\0e\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0t\0b\0l\0l\0o\0o\0k\0:\x001\x001\x008\x004\0;\0m\0s\0o\0-\0p\0a\0d\0d\0i\0n\0g\0-\0a\0l\0t\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x000\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0f\0i\0r\0s\0t\0r\0o\0w\0:\0y\0e\0s\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0l\0a\0s\0t\0r\0o\0w\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0 \0y\0e\0s\0;\0h\0e\0i\0g\0h\0t\0:\x007\0.\x005\0p\0t\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0s\0t\0y\0l\0e\0=\0'\0p\0a\0d\0d\0i\0n\0g\0:\0.\x007\x005\0p\0t\0 \0.\x007\x005\0p\0t\0 \0.\x007\x005\0p\0t\0 \0.\x007\x005\0p\0t\0;\0h\0e\0i\0g\0h\0t\0:\x007\0.\x005\0p\0t\0'\0>\0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0/\0t\0a\0b\0l\0e\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x002\0.\x007\x005\0p\0t\0'\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0;\0d\0i\0s\0p\0l\0a\0y\0:\0n\0o\0n\0e\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0m\0s\0o\0-\0h\0i\0d\0e\0:\0a\0l\0l\0'\0>\0<\0o\0:\0p\0>\0&\0n\0b\0s\0p\0;\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0t\0a\0b\0l\0e\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0T\0a\0b\0l\0e\0 \0b\0o\0r\0d\0e\0r\0=\x000\0 \0c\0e\0l\0l\0s\0p\0a\0c\0i\0n\0g\0=\x000\0 \0c\0e\0l\0l\0p\0a\0d\0d\0i\0n\0g\0=\x000\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0b\0o\0r\0d\0e\0r\0-\0c\0o\0l\0l\0a\0p\0s\0e\0:\0c\0o\0l\0l\0a\0p\0s\0e\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0t\0b\0l\0l\0o\0o\0k\0:\x001\x001\x008\x004\0;\0m\0s\0o\0-\0p\0a\0d\0d\0i\0n\0g\0-\0a\0l\0t\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x000\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0f\0i\0r\0s\0t\0r\0o\0w\0:\0y\0e\0s\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0l\0a\0s\0t\0r\0o\0w\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0 \0y\0e\0s\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0s\0t\0y\0l\0e\0=\0'\0p\0a\0d\0d\0i\0n\0g\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0'\0>\0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0/\0t\0a\0b\0l\0e\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0>\0<\0o\0:\0p\0>\0<\0/\0o\0:\0p\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0/\0t\0a\0b\0l\0e\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0>\0<\0o\0:\0p\0>\0<\0/\0o\0:\0p\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0<\0/\0t\0a\0b\0l\0e\0>\0\r\0
+\0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x004\0.\x002\x005\0p\0t\0'\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x009\0.\x000\0p\0t\0;\0\r\0
+\0 \0 \0 \0 \0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0#\x002\x002\x002\x002\x002\x002\0;\0d\0i\0s\0p\0l\0a\0y\0:\0n\0o\0n\0e\0;\0m\0s\0o\0-\0h\0i\0d\0e\0:\0a\0l\0l\0'\0>\0<\0o\0:\0p\0>\0&\0n\0b\0s\0p\0;\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0<\0t\0a\0b\0l\0e\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0T\0a\0b\0l\0e\0 \0b\0o\0r\0d\0e\0r\0=\x000\0 \0c\0e\0l\0l\0s\0p\0a\0c\0i\0n\0g\0=\x000\0 \0c\0e\0l\0l\0p\0a\0d\0d\0i\0n\0g\0=\x000\0 \0w\0i\0d\0t\0h\0=\x001\x000\0\r\0
+\0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0w\0i\0d\0t\0h\0:\x007\0.\x005\0p\0t\0;\0b\0o\0r\0d\0e\0r\0-\0c\0o\0l\0l\0a\0p\0s\0e\0:\0c\0o\0l\0l\0a\0p\0s\0e\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0t\0b\0l\0l\0o\0o\0k\0:\x001\x001\x008\x004\0;\0\r\0
+\0 \0 \0 \0 \0 \0m\0s\0o\0-\0p\0a\0d\0d\0i\0n\0g\0-\0a\0l\0t\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0;\0b\0o\0r\0d\0e\0r\0-\0s\0p\0a\0c\0i\0n\0g\0:\0 \x000\0;\0w\0h\0i\0t\0e\0 \0!\0i\0m\0p\0o\0r\0t\0a\0n\0t\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x000\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0f\0i\0r\0s\0t\0r\0o\0w\0:\0y\0e\0s\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0l\0a\0s\0t\0r\0o\0w\0:\0y\0e\0s\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0h\0e\0i\0g\0h\0t\0:\x002\x006\0.\x002\x005\0p\0t\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0v\0a\0l\0i\0g\0n\0=\0t\0o\0p\0 \0s\0t\0y\0l\0e\0=\0'\0p\0a\0d\0d\0i\0n\0g\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0;\0h\0e\0i\0g\0h\0t\0:\x002\x006\0.\x002\x005\0p\0t\0;\0w\0o\0r\0d\0-\0b\0r\0e\0a\0k\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0b\0r\0e\0a\0k\0-\0w\0o\0r\0d\0;\0-\0w\0e\0b\0k\0i\0t\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0-\0m\0o\0z\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0'\0>\0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0<\0/\0t\0a\0b\0l\0e\0>\0\r\0
+\0 \0 \0 \0 \0<\0/\0d\0i\0v\0>\0\r\0
+\0 \0 \0 \0 \0<\0/\0d\0i\0v\0>\0\r\0
+\0 \0 \0 \0 \0<\0d\0i\0v\0 \0a\0l\0i\0g\0n\0=\0c\0e\0n\0t\0e\0r\0>\0\r\0
+\0 \0 \0 \0 \0<\0t\0a\0b\0l\0e\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0T\0a\0b\0l\0e\0 \0b\0o\0r\0d\0e\0r\0=\x000\0 \0c\0e\0l\0l\0s\0p\0a\0c\0i\0n\0g\0=\x000\0 \0c\0e\0l\0l\0p\0a\0d\0d\0i\0n\0g\0=\x000\0 \0w\0i\0d\0t\0h\0=\x005\x007\x000\0\r\0
+\0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0w\0i\0d\0t\0h\0:\x004\x002\x007\0.\x005\0p\0t\0;\0b\0o\0r\0d\0e\0r\0-\0c\0o\0l\0l\0a\0p\0s\0e\0:\0c\0o\0l\0l\0a\0p\0s\0e\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0t\0b\0l\0l\0o\0o\0k\0:\x001\x001\x008\x004\0;\0\r\0
+\0 \0 \0 \0 \0 \0m\0s\0o\0-\0p\0a\0d\0d\0i\0n\0g\0-\0a\0l\0t\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x000\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0f\0i\0r\0s\0t\0r\0o\0w\0:\0y\0e\0s\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0l\0a\0s\0t\0r\0o\0w\0:\0y\0e\0s\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0w\0i\0d\0t\0h\0=\x005\x007\x000\0 \0s\0t\0y\0l\0e\0=\0'\0w\0i\0d\0t\0h\0:\x004\x002\x007\0.\x005\0p\0t\0;\0b\0o\0r\0d\0e\0r\0:\0n\0o\0n\0e\0;\0b\0o\0r\0d\0e\0r\0-\0b\0o\0t\0t\0o\0m\0:\0s\0o\0l\0i\0d\0 \0#\0E\x001\0E\x006\0E\0A\0 \x001\0.\x005\0p\0t\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0p\0a\0d\0d\0i\0n\0g\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0'\0>\0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0<\0/\0t\0a\0b\0l\0e\0>\0\r\0
+\0 \0 \0 \0 \0<\0/\0d\0i\0v\0>\0\r\0
+\0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x004\0.\x002\x005\0p\0t\0'\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x009\0.\x000\0p\0t\0;\0\r\0
+\0 \0 \0 \0 \0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0#\x002\x002\x002\x002\x002\x002\0;\0d\0i\0s\0p\0l\0a\0y\0:\0n\0o\0n\0e\0;\0m\0s\0o\0-\0h\0i\0d\0e\0:\0a\0l\0l\0'\0>\0<\0o\0:\0p\0>\0&\0n\0b\0s\0p\0;\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0<\0d\0i\0v\0 \0a\0l\0i\0g\0n\0=\0c\0e\0n\0t\0e\0r\0>\0\r\0
+\0 \0 \0 \0 \0<\0t\0a\0b\0l\0e\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0T\0a\0b\0l\0e\0 \0b\0o\0r\0d\0e\0r\0=\x000\0 \0c\0e\0l\0l\0s\0p\0a\0c\0i\0n\0g\0=\x000\0 \0c\0e\0l\0l\0p\0a\0d\0d\0i\0n\0g\0=\x000\0 \0w\0i\0d\0t\0h\0=\x006\x005\x000\0\r\0
+\0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0w\0i\0d\0t\0h\0:\x004\x008\x007\0.\x005\0p\0t\0;\0b\0o\0r\0d\0e\0r\0-\0c\0o\0l\0l\0a\0p\0s\0e\0:\0c\0o\0l\0l\0a\0p\0s\0e\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0t\0b\0l\0l\0o\0o\0k\0:\x001\x001\x008\x004\0;\0\r\0
+\0 \0 \0 \0 \0 \0m\0s\0o\0-\0p\0a\0d\0d\0i\0n\0g\0-\0a\0l\0t\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x000\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0f\0i\0r\0s\0t\0r\0o\0w\0:\0y\0e\0s\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0l\0a\0s\0t\0r\0o\0w\0:\0y\0e\0s\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0v\0a\0l\0i\0g\0n\0=\0t\0o\0p\0 \0s\0t\0y\0l\0e\0=\0'\0p\0a\0d\0d\0i\0n\0g\0:\x001\x001\0.\x002\x005\0p\0t\0 \x003\x000\0.\x000\0p\0t\0 \x001\x001\0.\x002\x005\0p\0t\0 \x003\x000\0.\x000\0p\0t\0;\0-\0w\0e\0b\0k\0i\0t\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0-\0m\0o\0z\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0-\0a\0l\0t\0:\x001\x002\0.\x007\x005\0p\0t\0'\0>\0<\0a\0\r\0
+\0 \0 \0 \0 \0 \0 \0n\0a\0m\0e\0=\0"\0C\0h\0a\0p\0t\0e\0r\0_\x002\x000\x002\x002\x009\x001\0"\0>\0<\0/\0a\0>\0<\0s\0t\0r\0o\0n\0g\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x001\x003\0.\x005\0p\0t\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0#\x000\0A\x008\x002\x007\x006\0'\0>\0P\0S\0O\0C\0"! \0A\0u\0t\0o\0m\0o\0t\0i\0v\0e\0<\0/\0s\0p\0a\0n\0>\0<\0/\0s\0t\0r\0o\0n\0g\0>\0<\0s\0p\0a\0n\0\r\0
+\0 \0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x001\x003\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0#\x000\0A\x008\x002\x007\x006\0'\0>\0 \0<\0o\0:\0p\0>\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0<\0/\0t\0a\0b\0l\0e\0>\0\r\0
+\0 \0 \0 \0 \0<\0/\0d\0i\0v\0>\0\r\0
+\0 \0 \0 \0 \0<\0d\0i\0v\0 \0i\0d\0=\0"\0a\0r\0t\0i\0c\0l\0e\0_\x003\x001\x009\x008\x007\x007\0"\0>\0\r\0
+\0 \0 \0 \0 \0<\0d\0i\0v\0>\0\r\0
+\0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x004\0.\x002\x005\0p\0t\0'\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x009\0.\x000\0p\0t\0;\0\r\0
+\0 \0 \0 \0 \0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0#\x002\x002\x002\x002\x002\x002\0;\0d\0i\0s\0p\0l\0a\0y\0:\0n\0o\0n\0e\0;\0m\0s\0o\0-\0h\0i\0d\0e\0:\0a\0l\0l\0'\0>\0<\0o\0:\0p\0>\0&\0n\0b\0s\0p\0;\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0<\0t\0a\0b\0l\0e\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0T\0a\0b\0l\0e\0 \0b\0o\0r\0d\0e\0r\0=\x000\0 \0c\0e\0l\0l\0s\0p\0a\0c\0i\0n\0g\0=\x000\0 \0c\0e\0l\0l\0p\0a\0d\0d\0i\0n\0g\0=\x000\0\r\0
+\0 \0 \0 \0 \0 \0w\0i\0d\0t\0h\0=\0"\x001\x000\x000\0%\0"\0 \0s\0t\0y\0l\0e\0=\0'\0w\0i\0d\0t\0h\0:\x001\x000\x000\0.\x000\0%\0;\0b\0o\0r\0d\0e\0r\0-\0c\0o\0l\0l\0a\0p\0s\0e\0:\0c\0o\0l\0l\0a\0p\0s\0e\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0t\0b\0l\0l\0o\0o\0k\0:\0\r\0
+\0 \0 \0 \0 \0 \x001\x001\x008\x004\0;\0m\0s\0o\0-\0p\0a\0d\0d\0i\0n\0g\0-\0a\0l\0t\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0;\0b\0o\0r\0d\0e\0r\0-\0s\0p\0a\0c\0i\0n\0g\0:\0 \x000\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x000\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0f\0i\0r\0s\0t\0r\0o\0w\0:\0y\0e\0s\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0v\0a\0l\0i\0g\0n\0=\0t\0o\0p\0 \0s\0t\0y\0l\0e\0=\0'\0p\0a\0d\0d\0i\0n\0g\0:\x000\0i\0n\0 \x003\x000\0.\x000\0p\0t\0 \x001\x007\0.\x002\x005\0p\0t\0 \x003\x000\0.\x000\0p\0t\0;\0-\0w\0e\0b\0k\0i\0t\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0-\0m\0o\0z\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x002\0.\x007\x005\0p\0t\0'\0>\0<\0b\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0'\0>\0P\0S\0O\0C\0"! \0C\x003\0 \0A\0u\0t\0o\0m\0o\0t\0i\0v\0e\0 \0l\0e\0a\0d\0-\0c\0u\0s\0t\0o\0m\0e\0r\0 \0T\0I\0C\0O\0 \0D\0W\0\r\0
+\0 \0 \0 \0 \0 \0 \0  \0S\0u\0c\0c\0e\0s\0s\0 \0S\0t\0o\0r\0y\0 \0<\0/\0s\0p\0a\0n\0>\0<\0/\0b\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0'\0>\0<\0o\0:\0p\0>\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x001\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0v\0a\0l\0i\0g\0n\0=\0t\0o\0p\0 \0s\0t\0y\0l\0e\0=\0'\0p\0a\0d\0d\0i\0n\0g\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0;\0-\0w\0e\0b\0k\0i\0t\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0-\0m\0o\0z\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x002\0.\x007\x005\0p\0t\0'\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0'\0>\0<\0i\0m\0g\0 \0b\0o\0r\0d\0e\0r\0=\x000\0\r\0
+\0 \0 \0 \0 \0 \0 \0w\0i\0d\0t\0h\0=\x006\x005\x000\0 \0h\0e\0i\0g\0h\0t\0=\x002\x000\x000\0 \0i\0d\0=\0"\0_\0x\x000\x000\x000\x000\0_\0i\x001\x000\x003\x001\0"\0\r\0
+\0 \0 \0 \0 \0 \0 \0s\0r\0c\0=\0"\0h\0t\0t\0p\0s\0:\0/\0/\0n\0e\0w\0s\0l\0e\0t\0t\0e\0r\0f\0i\0l\0e\0s\0.\0i\0n\0f\0i\0n\0e\0o\0n\0.\0c\0o\0m\0/\0f\0i\0l\0e\0s\0/\0i\0f\0x\0n\0e\0w\0s\0l\0e\0t\0t\0e\0r\0s\0-\0p\0i\0c\0t\0u\0r\0e\0s\0/\0S\0c\0r\0e\0e\0n\0s\0h\0o\0t\0%\x002\x000\x002\x000\x002\x006\0-\x000\x003\0-\x001\x009\0%\x002\x000\x001\x002\x005\x004\x001\x001\0_\x001\x009\0-\x000\x003\0-\x002\x000\x002\x006\0-\x001\x002\0-\x005\x004\0-\x002\x006\0.\0p\0n\0g\0"\0\r\0
+\0 \0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0h\0e\0i\0g\0h\0t\0:\x002\0.\x000\x008\x003\0i\0n\0;\0w\0i\0d\0t\0h\0:\x006\0.\x007\x007\x005\0i\0n\0'\0>\0<\0o\0:\0p\0>\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x002\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0l\0a\0s\0t\0r\0o\0w\0:\0y\0e\0s\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0v\0a\0l\0i\0g\0n\0=\0t\0o\0p\0 \0s\0t\0y\0l\0e\0=\0'\0p\0a\0d\0d\0i\0n\0g\0:\x001\x001\0.\x002\x005\0p\0t\0 \x003\x000\0.\x000\0p\0t\0 \x000\0i\0n\0 \x003\x000\0.\x000\0p\0t\0;\0-\0w\0e\0b\0k\0i\0t\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0-\0m\0o\0z\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x002\0.\x007\x005\0p\0t\0'\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0#\x001\0D\x001\0D\x001\0D\0'\0>\0W\0e\0 \0a\0r\0e\0 \0e\0x\0c\0i\0t\0e\0d\0 \0t\0o\0\r\0
+\0 \0 \0 \0 \0 \0 \0s\0h\0a\0r\0e\0 \0t\0h\0a\0t\0 \0w\0e\0 \0f\0i\0n\0a\0l\0l\0y\0 \0s\0e\0c\0u\0r\0e\0d\0 \0D\0W\0 \0f\0o\0r\0 \0T\0I\0C\0O\0 \0D\0C\0D\0C\0 \0c\0o\0n\0v\0e\0r\0t\0e\0r\0 \0G\0e\0n\0 \x007\0.\0 \0T\0h\0i\0s\0\r\0
+\0 \0 \0 \0 \0 \0 \0f\0a\0n\0t\0a\0s\0t\0i\0c\0 \0n\0e\0w\0s\0 \0h\0a\0s\0 \0m\0a\0r\0k\0e\0d\0 \0t\0h\0e\0 \0m\0i\0l\0e\0s\0t\0o\0n\0e\0 \0i\0n\0 \0t\0w\0o\0 \0w\0a\0y\0s\0:\0 \0o\0n\0e\0 \0p\0o\0i\0n\0t\0 \0i\0s\0 \0t\0h\0a\0t\0 \0w\0e\0\r\0
+\0 \0 \0 \0 \0 \0 \0s\0u\0c\0c\0e\0s\0s\0f\0u\0l\0l\0y\0 \0e\0n\0g\0a\0g\0e\0d\0 \0w\0i\0t\0h\0 \0t\0h\0e\0 \x001\0s\0t\0 \0l\0e\0a\0d\0 \0c\0u\0s\0t\0o\0m\0e\0r\0 \0f\0o\0r\0 \0P\0S\0O\0C\0"! \0C\x003\0 \0u\0s\0i\0n\0g\0\r\0
+\0 \0 \0 \0 \0 \0 \0i\0n\0d\0u\0s\0t\0r\0i\0a\0l\0 \0p\0r\0o\0d\0u\0c\0t\0 \0f\0o\0r\0 \0e\0a\0r\0l\0y\0 \0e\0n\0g\0a\0g\0e\0m\0e\0n\0t\0 \0a\0n\0d\0 \0t\0u\0r\0n\0e\0d\0 \0i\0t\0 \0i\0n\0t\0o\0 \0a\0 \0D\0W\0,\0 \0a\0n\0d\0 \0t\0h\0e\0\r\0
+\0 \0 \0 \0 \0 \0 \0o\0t\0h\0e\0r\0 \0w\0a\0y\0 \0i\0s\0 \0t\0h\0a\0t\0 \0T\0I\0C\0O\0 \0f\0i\0n\0a\0l\0l\0y\0 \0o\0p\0e\0n\0e\0d\0 \0t\0h\0e\0 \0d\0o\0o\0r\0 \0f\0o\0r\0 \0I\0F\0X\0 \0r\0e\0g\0a\0r\0d\0i\0n\0g\0 \0t\0h\0e\0 \0v\0e\0r\0y\0\r\0
+\0 \0 \0 \0 \0 \0 \0f\0i\0r\0s\0t\0 \0t\0i\0m\0e\0 \0o\0f\0 \0e\0n\0t\0r\0y\0 \0i\0n\0t\0o\0 \0a\0u\0t\0o\0m\0o\0t\0i\0v\0e\0 \0M\0C\0U\0 \0s\0e\0l\0e\0c\0t\0i\0o\0n\0.\0 \0S\0t\0a\0y\0 \0t\0u\0n\0e\0d\0 \0o\0n\0 \0w\0h\0a\0t\0 s\0\r\0
+\0 \0 \0 \0 \0 \0 \0c\0o\0m\0i\0n\0g\0 \0n\0e\0x\0t\0!\0<\0/\0s\0p\0a\0n\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0'\0>\0<\0b\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0b\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0/\0s\0p\0a\0n\0>\0<\0s\0t\0r\0o\0n\0g\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0c\0o\0l\0o\0r\0:\0#\x001\0D\x001\0D\x001\0D\0'\0>\0C\0o\0n\0t\0a\0c\0t\0:\0<\0/\0s\0p\0a\0n\0>\0<\0/\0s\0t\0r\0o\0n\0g\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x001\x000\0.\x005\0p\0t\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0'\0>\0 \0<\0/\0s\0p\0a\0n\0>\0<\0s\0t\0r\0o\0n\0g\0>\0<\0s\0p\0a\0n\0\r\0
+\0 \0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0#\x001\0D\x001\0D\x001\0D\0'\0>\0S\0i\0v\0a\0k\0u\0m\0a\0r\0\r\0
+\0 \0 \0 \0 \0 \0 \0S\0.\0 \0N\0o\0o\0p\0u\0r\0a\0n\0/\0 \0T\0h\0o\0m\0a\0s\0 \0S\0a\0n\0d\0e\0r\0/\0 \0D\0i\0o\0g\0o\0 \0M\0e\0n\0d\0o\0n\0c\0a\0/\0 \0K\0o\0t\0a\0 \0F\0u\0j\0i\0w\0a\0r\0a\0<\0/\0s\0p\0a\0n\0>\0<\0/\0s\0t\0r\0o\0n\0g\0>\0<\0s\0p\0a\0n\0\r\0
+\0 \0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0'\0>\0 \0<\0o\0:\0p\0>\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0t\0a\0b\0l\0e\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0T\0a\0b\0l\0e\0 \0b\0o\0r\0d\0e\0r\0=\x000\0 \0c\0e\0l\0l\0s\0p\0a\0c\0i\0n\0g\0=\x000\0 \0c\0e\0l\0l\0p\0a\0d\0d\0i\0n\0g\0=\x000\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0b\0o\0r\0d\0e\0r\0-\0c\0o\0l\0l\0a\0p\0s\0e\0:\0c\0o\0l\0l\0a\0p\0s\0e\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0t\0b\0l\0l\0o\0o\0k\0:\x001\x001\x008\x004\0;\0m\0s\0o\0-\0p\0a\0d\0d\0i\0n\0g\0-\0a\0l\0t\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x000\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0f\0i\0r\0s\0t\0r\0o\0w\0:\0y\0e\0s\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0l\0a\0s\0t\0r\0o\0w\0:\0y\0e\0s\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0h\0e\0i\0g\0h\0t\0:\x007\0.\x005\0p\0t\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0s\0t\0y\0l\0e\0=\0'\0p\0a\0d\0d\0i\0n\0g\0:\0.\x007\x005\0p\0t\0 \0.\x007\x005\0p\0t\0 \0.\x007\x005\0p\0t\0 \0.\x007\x005\0p\0t\0;\0h\0e\0i\0g\0h\0t\0:\x007\0.\x005\0p\0t\0'\0>\0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0/\0t\0a\0b\0l\0e\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x002\0.\x007\x005\0p\0t\0'\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0;\0d\0i\0s\0p\0l\0a\0y\0:\0n\0o\0n\0e\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0m\0s\0o\0-\0h\0i\0d\0e\0:\0a\0l\0l\0'\0>\0<\0o\0:\0p\0>\0&\0n\0b\0s\0p\0;\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0t\0a\0b\0l\0e\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0T\0a\0b\0l\0e\0 \0b\0o\0r\0d\0e\0r\0=\x000\0 \0c\0e\0l\0l\0s\0p\0a\0c\0i\0n\0g\0=\x000\0 \0c\0e\0l\0l\0p\0a\0d\0d\0i\0n\0g\0=\x000\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0b\0o\0r\0d\0e\0r\0-\0c\0o\0l\0l\0a\0p\0s\0e\0:\0c\0o\0l\0l\0a\0p\0s\0e\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0t\0b\0l\0l\0o\0o\0k\0:\x001\x001\x008\x004\0;\0m\0s\0o\0-\0p\0a\0d\0d\0i\0n\0g\0-\0a\0l\0t\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x000\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0f\0i\0r\0s\0t\0r\0o\0w\0:\0y\0e\0s\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0l\0a\0s\0t\0r\0o\0w\0:\0y\0e\0s\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0s\0t\0y\0l\0e\0=\0'\0p\0a\0d\0d\0i\0n\0g\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0'\0>\0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0/\0t\0a\0b\0l\0e\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0>\0<\0o\0:\0p\0>\0<\0/\0o\0:\0p\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0<\0/\0t\0a\0b\0l\0e\0>\0\r\0
+\0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x004\0.\x002\x005\0p\0t\0'\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x009\0.\x000\0p\0t\0;\0\r\0
+\0 \0 \0 \0 \0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0#\x002\x002\x002\x002\x002\x002\0;\0d\0i\0s\0p\0l\0a\0y\0:\0n\0o\0n\0e\0;\0m\0s\0o\0-\0h\0i\0d\0e\0:\0a\0l\0l\0'\0>\0<\0o\0:\0p\0>\0&\0n\0b\0s\0p\0;\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0<\0t\0a\0b\0l\0e\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0T\0a\0b\0l\0e\0 \0b\0o\0r\0d\0e\0r\0=\x000\0 \0c\0e\0l\0l\0s\0p\0a\0c\0i\0n\0g\0=\x000\0 \0c\0e\0l\0l\0p\0a\0d\0d\0i\0n\0g\0=\x000\0\r\0
+\0 \0 \0 \0 \0 \0w\0i\0d\0t\0h\0=\0"\x001\x000\x000\0%\0"\0 \0s\0t\0y\0l\0e\0=\0'\0w\0i\0d\0t\0h\0:\x001\x000\x000\0.\x000\0%\0;\0b\0o\0r\0d\0e\0r\0-\0c\0o\0l\0l\0a\0p\0s\0e\0:\0c\0o\0l\0l\0a\0p\0s\0e\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0t\0b\0l\0l\0o\0o\0k\0:\0\r\0
+\0 \0 \0 \0 \0 \x001\x001\x008\x004\0;\0m\0s\0o\0-\0p\0a\0d\0d\0i\0n\0g\0-\0a\0l\0t\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0;\0b\0o\0r\0d\0e\0r\0-\0s\0p\0a\0c\0i\0n\0g\0:\0 \x000\0;\0w\0h\0i\0t\0e\0 \0!\0i\0m\0p\0o\0r\0t\0a\0n\0t\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x000\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0f\0i\0r\0s\0t\0r\0o\0w\0:\0y\0e\0s\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0l\0a\0s\0t\0r\0o\0w\0:\0y\0e\0s\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0h\0e\0i\0g\0h\0t\0:\x002\x006\0.\x002\x005\0p\0t\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0v\0a\0l\0i\0g\0n\0=\0t\0o\0p\0 \0s\0t\0y\0l\0e\0=\0'\0p\0a\0d\0d\0i\0n\0g\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0;\0h\0e\0i\0g\0h\0t\0:\x002\x006\0.\x002\x005\0p\0t\0;\0w\0o\0r\0d\0-\0b\0r\0e\0a\0k\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0b\0r\0e\0a\0k\0-\0w\0o\0r\0d\0;\0-\0w\0e\0b\0k\0i\0t\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0-\0m\0o\0z\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0'\0>\0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0<\0/\0t\0a\0b\0l\0e\0>\0\r\0
+\0 \0 \0 \0 \0<\0/\0d\0i\0v\0>\0\r\0
+\0 \0 \0 \0 \0<\0/\0d\0i\0v\0>\0\r\0
+\0 \0 \0 \0 \0<\0t\0a\0b\0l\0e\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0T\0a\0b\0l\0e\0 \0b\0o\0r\0d\0e\0r\0=\x000\0 \0c\0e\0l\0l\0s\0p\0a\0c\0i\0n\0g\0=\x000\0 \0c\0e\0l\0l\0p\0a\0d\0d\0i\0n\0g\0=\x000\0\r\0
+\0 \0 \0 \0 \0 \0w\0i\0d\0t\0h\0=\0"\x001\x000\x000\0%\0"\0 \0s\0t\0y\0l\0e\0=\0'\0w\0i\0d\0t\0h\0:\x001\x000\x000\0.\x000\0%\0;\0b\0o\0r\0d\0e\0r\0-\0c\0o\0l\0l\0a\0p\0s\0e\0:\0c\0o\0l\0l\0a\0p\0s\0e\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0t\0b\0l\0l\0o\0o\0k\0:\0\r\0
+\0 \0 \0 \0 \0 \x001\x001\x008\x004\0;\0m\0s\0o\0-\0p\0a\0d\0d\0i\0n\0g\0-\0a\0l\0t\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x000\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0f\0i\0r\0s\0t\0r\0o\0w\0:\0y\0e\0s\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0v\0a\0l\0i\0g\0n\0=\0t\0o\0p\0 \0s\0t\0y\0l\0e\0=\0'\0p\0a\0d\0d\0i\0n\0g\0:\x000\0i\0n\0 \x003\x000\0.\x000\0p\0t\0 \x001\x007\0.\x002\x005\0p\0t\0 \x003\x000\0.\x000\0p\0t\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x002\0.\x007\x005\0p\0t\0'\0>\0<\0b\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0'\0>\0N\0e\0w\0 \0D\0R\0I\0V\0E\0C\0O\0R\0E\0 \0f\0o\0r\0 \0P\0S\0O\0C\0"! \0A\0u\0t\0o\0m\0o\0t\0i\0v\0e\0\r\0
+\0 \0 \0 \0 \0 \0 \0A\0v\0a\0i\0l\0a\0b\0l\0e\0!\0 \0<\0/\0s\0p\0a\0n\0>\0<\0/\0b\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0'\0>\0<\0o\0:\0p\0>\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x001\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0v\0a\0l\0i\0g\0n\0=\0t\0o\0p\0 \0s\0t\0y\0l\0e\0=\0'\0p\0a\0d\0d\0i\0n\0g\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0;\0-\0w\0e\0b\0k\0i\0t\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0-\0m\0o\0z\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x002\0.\x007\x005\0p\0t\0'\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0'\0>\0<\0i\0m\0g\0 \0b\0o\0r\0d\0e\0r\0=\x000\0\r\0
+\0 \0 \0 \0 \0 \0 \0w\0i\0d\0t\0h\0=\x006\x005\x000\0 \0h\0e\0i\0g\0h\0t\0=\x002\x000\x000\0 \0i\0d\0=\0"\0_\0x\x000\x000\x000\x000\0_\0i\x001\x000\x003\x002\0"\0\r\0
+\0 \0 \0 \0 \0 \0 \0s\0r\0c\0=\0"\0h\0t\0t\0p\0s\0:\0/\0/\0n\0e\0w\0s\0l\0e\0t\0t\0e\0r\0f\0i\0l\0e\0s\0.\0i\0n\0f\0i\0n\0e\0o\0n\0.\0c\0o\0m\0/\0f\0i\0l\0e\0s\0/\0i\0f\0x\0n\0e\0w\0s\0l\0e\0t\0t\0e\0r\0s\0-\0p\0i\0c\0t\0u\0r\0e\0s\0/\0S\0c\0r\0e\0e\0n\0s\0h\0o\0t\0%\x002\x000\x002\x000\x002\x006\0-\x000\x003\0-\x001\x009\0%\x002\x000\x001\x004\x000\x007\x004\x001\0_\x001\x009\0-\x000\x003\0-\x002\x000\x002\x006\0-\x000\x003\0-\x001\x000\0-\x001\x004\0.\0p\0n\0g\0"\0\r\0
+\0 \0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0h\0e\0i\0g\0h\0t\0:\x002\0.\x000\x008\x003\0i\0n\0;\0w\0i\0d\0t\0h\0:\x006\0.\x007\x007\x005\0i\0n\0'\0>\0<\0o\0:\0p\0>\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x002\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0l\0a\0s\0t\0r\0o\0w\0:\0y\0e\0s\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0v\0a\0l\0i\0g\0n\0=\0t\0o\0p\0 \0s\0t\0y\0l\0e\0=\0'\0p\0a\0d\0d\0i\0n\0g\0:\x001\x001\0.\x002\x005\0p\0t\0 \x003\x000\0.\x000\0p\0t\0 \x000\0i\0n\0 \x003\x000\0.\x000\0p\0t\0;\0-\0w\0e\0b\0k\0i\0t\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0-\0m\0o\0z\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x002\0.\x007\x005\0p\0t\0'\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0'\0>\0T\0h\0e\0 \0P\0S\0O\0C\0"! \0A\0u\0t\0o\0m\0o\0t\0i\0v\0e\0\r\0
+\0 \0 \0 \0 \0 \0 \0D\0R\0I\0V\0E\0C\0O\0R\0E\0"! \0S\0m\0a\0r\0t\0 \0E\0n\0d\0 \0P\0o\0i\0n\0t\0,\0 \0d\0e\0v\0e\0l\0o\0p\0e\0d\0 \0w\0i\0t\0h\0 \0E\0l\0e\0k\0t\0r\0o\0b\0i\0t\0 \0a\0n\0d\0 \0I\0A\0R\0,\0\r\0
+\0 \0 \0 \0 \0 \0 \0a\0c\0c\0e\0l\0e\0r\0a\0t\0e\0s\0 \0t\0h\0e\0 \0d\0e\0v\0e\0l\0o\0p\0m\0e\0n\0t\0 \0o\0f\0 \0e\0d\0g\0e\0 \0c\0o\0n\0t\0r\0o\0l\0l\0e\0r\0s\0 \0a\0n\0d\0 \0s\0m\0a\0l\0l\0,\0\r\0
+\0 \0 \0 \0 \0 \0 \0s\0a\0f\0e\0t\0y\0-\0c\0r\0i\0t\0i\0c\0a\0l\0 \0E\0C\0U\0s\0.\0 \0C\0o\0m\0b\0i\0n\0i\0n\0g\0 \0I\0n\0f\0i\0n\0e\0o\0n\0'\0s\0 \0P\0S\0O\0C\0"! \0A\0u\0t\0o\0m\0o\0t\0i\0v\0e\0 \x004\0 \0H\0V\0\r\0
+\0 \0 \0 \0 \0 \0 \0m\0i\0c\0r\0o\0c\0o\0n\0t\0r\0o\0l\0l\0e\0r\0 \0a\0n\0d\0 \0E\0B\0 \0t\0r\0e\0s\0o\0s\0 \0A\0u\0t\0o\0C\0o\0r\0e\0 \0L\0i\0g\0h\0t\0,\0 \0i\0t\0 \0e\0n\0s\0u\0r\0e\0s\0 \0o\0p\0t\0i\0m\0i\0z\0e\0d\0\r\0
+\0 \0 \0 \0 \0 \0 \0p\0e\0r\0f\0o\0r\0m\0a\0n\0c\0e\0 \0f\0o\0r\0 \0a\0p\0p\0l\0i\0c\0a\0t\0i\0o\0n\0s\0 \0l\0i\0k\0e\0 \0s\0m\0a\0r\0t\0 \0s\0e\0n\0s\0o\0r\0s\0 \0a\0n\0d\0 \0m\0o\0t\0o\0r\0 \0c\0o\0n\0t\0r\0o\0l\0s\0.\0 \0W\0i\0t\0h\0\r\0
+\0 \0 \0 \0 \0 \0 \0I\0A\0R\0'\0s\0 \0c\0e\0r\0t\0i\0f\0i\0e\0d\0 \0t\0o\0o\0l\0c\0h\0a\0i\0n\0,\0 \0i\0t\0 \0s\0t\0r\0e\0a\0m\0l\0i\0n\0e\0s\0 \0w\0o\0r\0k\0f\0l\0o\0w\0s\0 \0a\0n\0d\0 \0s\0u\0p\0p\0o\0r\0t\0s\0 \0f\0a\0s\0t\0,\0\r\0
+\0 \0 \0 \0 \0 \0 \0s\0c\0a\0l\0a\0b\0l\0e\0 \0a\0u\0t\0o\0m\0o\0t\0i\0v\0e\0 \0i\0n\0n\0o\0v\0a\0t\0i\0o\0n\0s\0.\0<\0b\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0T\0r\0y\0&\0n\0b\0s\0p\0;\0i\0t\0&\0n\0b\0s\0p\0;\0o\0u\0t\0!\0&\0n\0b\0s\0p\0;\0&\0n\0b\0s\0p\0;\0<\0u\0>\0<\0a\0\r\0
+\0 \0 \0 \0 \0 \0 \0h\0r\0e\0f\0=\0"\0h\0t\0t\0p\0s\0:\0/\0/\0s\0o\0f\0t\0w\0a\0r\0e\0t\0o\0o\0l\0s\0.\0i\0n\0f\0i\0n\0e\0o\0n\0.\0c\0o\0m\0/\0t\0o\0o\0l\0s\0/\0c\0o\0m\0.\0i\0f\0x\0.\0t\0b\0.\0t\0o\0o\0l\0.\0p\0s\0o\0c\0d\0r\0i\0v\0e\0c\0o\0r\0e\0s\0m\0a\0r\0t\0e\0n\0d\0p\0o\0i\0n\0t\0i\0n\0f\0i\0n\0e\0o\0n\0e\0l\0e\0k\0t\0r\0o\0b\0i\0t\0i\0a\0r\0"\0>\0D\0o\0w\0n\0l\0o\0a\0d\0&\0n\0b\0s\0p\0;\0<\0/\0a\0>\0<\0a\0\r\0
+\0 \0 \0 \0 \0 \0 \0h\0r\0e\0f\0=\0"\0h\0t\0t\0p\0s\0:\0/\0/\0s\0o\0f\0t\0w\0a\0r\0e\0t\0o\0o\0l\0s\0.\0i\0n\0f\0i\0n\0e\0o\0n\0.\0c\0o\0m\0/\0t\0o\0o\0l\0s\0/\0c\0o\0m\0.\0i\0f\0x\0.\0t\0b\0.\0t\0o\0o\0l\0.\0p\0s\0o\0c\0d\0r\0i\0v\0e\0c\0o\0r\0e\0s\0m\0a\0r\0t\0e\0n\0d\0p\0o\0i\0n\0t\0i\0n\0f\0i\0n\0e\0o\0n\0e\0l\0e\0k\0t\0r\0o\0b\0i\0t\0i\0a\0r\0"\0>\0t\0h\0e\0<\0/\0a\0>\0<\0a\0\r\0
+\0 \0 \0 \0 \0 \0 \0h\0r\0e\0f\0=\0"\0h\0t\0t\0p\0s\0:\0/\0/\0s\0o\0f\0t\0w\0a\0r\0e\0t\0o\0o\0l\0s\0.\0i\0n\0f\0i\0n\0e\0o\0n\0.\0c\0o\0m\0/\0t\0o\0o\0l\0s\0/\0c\0o\0m\0.\0i\0f\0x\0.\0t\0b\0.\0t\0o\0o\0l\0.\0p\0s\0o\0c\0d\0r\0i\0v\0e\0c\0o\0r\0e\0s\0m\0a\0r\0t\0e\0n\0d\0p\0o\0i\0n\0t\0i\0n\0f\0i\0n\0e\0o\0n\0e\0l\0e\0k\0t\0r\0o\0b\0i\0t\0i\0a\0r\0"\0>\0&\0n\0b\0s\0p\0;\0B\0u\0n\0d\0l\0e\0<\0/\0a\0>\0<\0/\0u\0>\0<\0b\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0I\0n\0f\0o\0s\0 \0&\0a\0m\0p\0;\0&\0n\0b\0s\0p\0;\0c\0o\0l\0l\0a\0t\0e\0r\0a\0l\0s\0&\0n\0b\0s\0p\0;\0&\0n\0b\0s\0p\0;\0<\0u\0>\0<\0a\0\r\0
+\0 \0 \0 \0 \0 \0 \0h\0r\0e\0f\0=\0"\0h\0t\0t\0p\0s\0:\0/\0/\0w\0w\0w\0.\0i\0n\0f\0i\0n\0e\0o\0n\0.\0c\0o\0m\0/\0p\0r\0o\0m\0o\0/\0d\0r\0i\0v\0e\0-\0c\0o\0r\0e\0-\0s\0o\0f\0t\0w\0a\0r\0e\0-\0b\0u\0n\0d\0l\0e\0-\0a\0u\0t\0o\0m\0o\0t\0i\0v\0e\0-\0m\0i\0c\0r\0o\0c\0o\0n\0t\0r\0o\0l\0l\0e\0r\0"\0>\0D\0R\0I\0V\0E\0C\0O\0R\0E\0\r\0
+\0 \0 \0 \0 \0 \0 \0P\0r\0o\0m\0o\0 \0P\0a\0g\0e\0<\0/\0a\0>\0<\0/\0u\0>\0;\0&\0n\0b\0s\0p\0;\0<\0u\0>\0<\0a\0\r\0
+\0 \0 \0 \0 \0 \0 \0h\0r\0e\0f\0=\0"\0h\0t\0t\0p\0s\0:\0/\0/\0c\0o\0n\0f\0l\0u\0e\0n\0c\0e\0w\0i\0k\0i\0p\0r\0o\0d\0.\0i\0n\0t\0r\0a\0.\0i\0n\0f\0i\0n\0e\0o\0n\0.\0c\0o\0m\0/\0s\0p\0a\0c\0e\0s\0/\0a\0t\0v\0m\0c\0s\0p\0e\0/\0p\0a\0g\0e\0s\0/\x001\x007\x001\x004\x004\x009\x004\x000\x008\x009\0/\0D\0R\0I\0V\0E\0C\0O\0R\0E\0+\0-\0+\0S\0o\0f\0t\0w\0a\0r\0e\0+\0b\0u\0n\0d\0l\0e\0s\0"\0>\0C\0o\0n\0f\0l\0u\0e\0n\0c\0e\0\r\0
+\0 \0 \0 \0 \0 \0 \0P\0a\0g\0e\0<\0/\0a\0>\0<\0/\0u\0>\0<\0b\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0&\0n\0b\0s\0p\0;\0<\0b\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0s\0t\0r\0o\0n\0g\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0'\0>\0C\0o\0n\0t\0a\0c\0t\0:\0 \0L\0a\0u\0r\0a\0\r\0
+\0 \0 \0 \0 \0 \0 \0I\0n\0d\0r\0a\0c\0c\0o\0l\0o\0<\0/\0s\0p\0a\0n\0>\0<\0/\0s\0t\0r\0o\0n\0g\0>\0<\0b\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0&\0n\0b\0s\0p\0;\0 \0<\0o\0:\0p\0>\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0t\0a\0b\0l\0e\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0T\0a\0b\0l\0e\0 \0b\0o\0r\0d\0e\0r\0=\x000\0 \0c\0e\0l\0l\0s\0p\0a\0c\0i\0n\0g\0=\x000\0 \0c\0e\0l\0l\0p\0a\0d\0d\0i\0n\0g\0=\x000\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0b\0o\0r\0d\0e\0r\0-\0c\0o\0l\0l\0a\0p\0s\0e\0:\0c\0o\0l\0l\0a\0p\0s\0e\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0t\0b\0l\0l\0o\0o\0k\0:\x001\x001\x008\x004\0;\0m\0s\0o\0-\0p\0a\0d\0d\0i\0n\0g\0-\0a\0l\0t\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x000\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0f\0i\0r\0s\0t\0r\0o\0w\0:\0y\0e\0s\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0l\0a\0s\0t\0r\0o\0w\0:\0y\0e\0s\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0h\0e\0i\0g\0h\0t\0:\x007\0.\x005\0p\0t\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0s\0t\0y\0l\0e\0=\0'\0p\0a\0d\0d\0i\0n\0g\0:\0.\x007\x005\0p\0t\0 \0.\x007\x005\0p\0t\0 \0.\x007\x005\0p\0t\0 \0.\x007\x005\0p\0t\0;\0h\0e\0i\0g\0h\0t\0:\x007\0.\x005\0p\0t\0'\0>\0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0/\0t\0a\0b\0l\0e\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x002\0.\x007\x005\0p\0t\0'\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0;\0d\0i\0s\0p\0l\0a\0y\0:\0n\0o\0n\0e\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0m\0s\0o\0-\0h\0i\0d\0e\0:\0a\0l\0l\0'\0>\0<\0o\0:\0p\0>\0&\0n\0b\0s\0p\0;\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0t\0a\0b\0l\0e\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0T\0a\0b\0l\0e\0 \0b\0o\0r\0d\0e\0r\0=\x000\0 \0c\0e\0l\0l\0s\0p\0a\0c\0i\0n\0g\0=\x000\0 \0c\0e\0l\0l\0p\0a\0d\0d\0i\0n\0g\0=\x000\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0b\0o\0r\0d\0e\0r\0-\0c\0o\0l\0l\0a\0p\0s\0e\0:\0c\0o\0l\0l\0a\0p\0s\0e\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0t\0b\0l\0l\0o\0o\0k\0:\x001\x001\x008\x004\0;\0m\0s\0o\0-\0p\0a\0d\0d\0i\0n\0g\0-\0a\0l\0t\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x000\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0f\0i\0r\0s\0t\0r\0o\0w\0:\0y\0e\0s\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0l\0a\0s\0t\0r\0o\0w\0:\0y\0e\0s\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0s\0t\0y\0l\0e\0=\0'\0p\0a\0d\0d\0i\0n\0g\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0'\0>\0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0/\0t\0a\0b\0l\0e\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0>\0<\0o\0:\0p\0>\0<\0/\0o\0:\0p\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0<\0/\0t\0a\0b\0l\0e\0>\0\r\0
+\0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x004\0.\x002\x005\0p\0t\0'\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x009\0.\x000\0p\0t\0;\0\r\0
+\0 \0 \0 \0 \0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0#\x002\x002\x002\x002\x002\x002\0;\0d\0i\0s\0p\0l\0a\0y\0:\0n\0o\0n\0e\0;\0m\0s\0o\0-\0h\0i\0d\0e\0:\0a\0l\0l\0'\0>\0<\0o\0:\0p\0>\0&\0n\0b\0s\0p\0;\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0<\0t\0a\0b\0l\0e\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0T\0a\0b\0l\0e\0 \0b\0o\0r\0d\0e\0r\0=\x000\0 \0c\0e\0l\0l\0s\0p\0a\0c\0i\0n\0g\0=\x000\0 \0c\0e\0l\0l\0p\0a\0d\0d\0i\0n\0g\0=\x000\0\r\0
+\0 \0 \0 \0 \0 \0w\0i\0d\0t\0h\0=\0"\x001\x000\x000\0%\0"\0 \0s\0t\0y\0l\0e\0=\0'\0w\0i\0d\0t\0h\0:\x001\x000\x000\0.\x000\0%\0;\0b\0o\0r\0d\0e\0r\0-\0c\0o\0l\0l\0a\0p\0s\0e\0:\0c\0o\0l\0l\0a\0p\0s\0e\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0t\0b\0l\0l\0o\0o\0k\0:\0\r\0
+\0 \0 \0 \0 \0 \x001\x001\x008\x004\0;\0m\0s\0o\0-\0p\0a\0d\0d\0i\0n\0g\0-\0a\0l\0t\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0;\0b\0o\0r\0d\0e\0r\0-\0s\0p\0a\0c\0i\0n\0g\0:\0 \x000\0;\0w\0h\0i\0t\0e\0 \0!\0i\0m\0p\0o\0r\0t\0a\0n\0t\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x000\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0f\0i\0r\0s\0t\0r\0o\0w\0:\0y\0e\0s\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0l\0a\0s\0t\0r\0o\0w\0:\0y\0e\0s\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0h\0e\0i\0g\0h\0t\0:\x002\x006\0.\x002\x005\0p\0t\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0v\0a\0l\0i\0g\0n\0=\0t\0o\0p\0 \0s\0t\0y\0l\0e\0=\0'\0p\0a\0d\0d\0i\0n\0g\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0;\0h\0e\0i\0g\0h\0t\0:\x002\x006\0.\x002\x005\0p\0t\0;\0w\0o\0r\0d\0-\0b\0r\0e\0a\0k\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0b\0r\0e\0a\0k\0-\0w\0o\0r\0d\0;\0-\0w\0e\0b\0k\0i\0t\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0-\0m\0o\0z\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0'\0>\0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0<\0/\0t\0a\0b\0l\0e\0>\0\r\0
+\0 \0 \0 \0 \0<\0d\0i\0v\0 \0i\0d\0=\0"\0c\0h\0a\0p\0t\0e\0r\0_\x003\x002\x008\x007\x004\x001\0"\0>\0\r\0
+\0 \0 \0 \0 \0<\0d\0i\0v\0>\0\r\0
+\0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x004\0.\x002\x005\0p\0t\0'\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x009\0.\x000\0p\0t\0;\0\r\0
+\0 \0 \0 \0 \0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0#\x002\x002\x002\x002\x002\x002\0;\0d\0i\0s\0p\0l\0a\0y\0:\0n\0o\0n\0e\0;\0m\0s\0o\0-\0h\0i\0d\0e\0:\0a\0l\0l\0'\0>\0<\0o\0:\0p\0>\0&\0n\0b\0s\0p\0;\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0<\0d\0i\0v\0 \0a\0l\0i\0g\0n\0=\0c\0e\0n\0t\0e\0r\0>\0\r\0
+\0 \0 \0 \0 \0<\0t\0a\0b\0l\0e\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0T\0a\0b\0l\0e\0 \0b\0o\0r\0d\0e\0r\0=\x000\0 \0c\0e\0l\0l\0s\0p\0a\0c\0i\0n\0g\0=\x000\0 \0c\0e\0l\0l\0p\0a\0d\0d\0i\0n\0g\0=\x000\0 \0w\0i\0d\0t\0h\0=\x005\x007\x000\0\r\0
+\0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0w\0i\0d\0t\0h\0:\x004\x002\x007\0.\x005\0p\0t\0;\0b\0o\0r\0d\0e\0r\0-\0c\0o\0l\0l\0a\0p\0s\0e\0:\0c\0o\0l\0l\0a\0p\0s\0e\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0t\0b\0l\0l\0o\0o\0k\0:\x001\x001\x008\x004\0;\0\r\0
+\0 \0 \0 \0 \0 \0m\0s\0o\0-\0p\0a\0d\0d\0i\0n\0g\0-\0a\0l\0t\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x000\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0f\0i\0r\0s\0t\0r\0o\0w\0:\0y\0e\0s\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0l\0a\0s\0t\0r\0o\0w\0:\0y\0e\0s\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0w\0i\0d\0t\0h\0=\x005\x007\x000\0 \0s\0t\0y\0l\0e\0=\0'\0w\0i\0d\0t\0h\0:\x004\x002\x007\0.\x005\0p\0t\0;\0b\0o\0r\0d\0e\0r\0:\0n\0o\0n\0e\0;\0b\0o\0r\0d\0e\0r\0-\0b\0o\0t\0t\0o\0m\0:\0s\0o\0l\0i\0d\0 \0#\0E\x001\0E\x006\0E\0A\0 \x001\0.\x005\0p\0t\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0p\0a\0d\0d\0i\0n\0g\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0'\0>\0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0<\0/\0t\0a\0b\0l\0e\0>\0\r\0
+\0 \0 \0 \0 \0<\0/\0d\0i\0v\0>\0\r\0
+\0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x004\0.\x002\x005\0p\0t\0'\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x009\0.\x000\0p\0t\0;\0\r\0
+\0 \0 \0 \0 \0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0#\x002\x002\x002\x002\x002\x002\0;\0d\0i\0s\0p\0l\0a\0y\0:\0n\0o\0n\0e\0;\0m\0s\0o\0-\0h\0i\0d\0e\0:\0a\0l\0l\0'\0>\0<\0o\0:\0p\0>\0&\0n\0b\0s\0p\0;\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0<\0d\0i\0v\0 \0a\0l\0i\0g\0n\0=\0c\0e\0n\0t\0e\0r\0>\0\r\0
+\0 \0 \0 \0 \0<\0t\0a\0b\0l\0e\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0T\0a\0b\0l\0e\0 \0b\0o\0r\0d\0e\0r\0=\x000\0 \0c\0e\0l\0l\0s\0p\0a\0c\0i\0n\0g\0=\x000\0 \0c\0e\0l\0l\0p\0a\0d\0d\0i\0n\0g\0=\x000\0 \0w\0i\0d\0t\0h\0=\x006\x005\x000\0\r\0
+\0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0w\0i\0d\0t\0h\0:\x004\x008\x007\0.\x005\0p\0t\0;\0b\0o\0r\0d\0e\0r\0-\0c\0o\0l\0l\0a\0p\0s\0e\0:\0c\0o\0l\0l\0a\0p\0s\0e\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0t\0b\0l\0l\0o\0o\0k\0:\x001\x001\x008\x004\0;\0\r\0
+\0 \0 \0 \0 \0 \0m\0s\0o\0-\0p\0a\0d\0d\0i\0n\0g\0-\0a\0l\0t\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x000\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0f\0i\0r\0s\0t\0r\0o\0w\0:\0y\0e\0s\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0l\0a\0s\0t\0r\0o\0w\0:\0y\0e\0s\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0v\0a\0l\0i\0g\0n\0=\0t\0o\0p\0 \0s\0t\0y\0l\0e\0=\0'\0p\0a\0d\0d\0i\0n\0g\0:\x001\x001\0.\x002\x005\0p\0t\0 \x003\x000\0.\x000\0p\0t\0 \x001\x001\0.\x002\x005\0p\0t\0 \x003\x000\0.\x000\0p\0t\0;\0-\0w\0e\0b\0k\0i\0t\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0-\0m\0o\0z\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x002\x004\0.\x000\0p\0t\0'\0>\0<\0a\0 \0n\0a\0m\0e\0=\0"\0C\0h\0a\0p\0t\0e\0r\0_\x003\x002\x008\x007\x004\x001\0"\0>\0<\0/\0a\0>\0<\0s\0t\0r\0o\0n\0g\0>\0<\0s\0p\0a\0n\0\r\0
+\0 \0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x001\x006\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0#\x000\0A\x008\x002\x007\x006\0'\0>\0P\0D\0H\0\r\0
+\0 \0 \0 \0 \0 \0 \0&\0a\0m\0p\0;\0 \0P\0a\0r\0t\0n\0e\0r\0s\0<\0/\0s\0p\0a\0n\0>\0<\0/\0s\0t\0r\0o\0n\0g\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x001\x006\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0#\x000\0A\x008\x002\x007\x006\0'\0>\0 \0<\0o\0:\0p\0>\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0<\0/\0t\0a\0b\0l\0e\0>\0\r\0
+\0 \0 \0 \0 \0<\0/\0d\0i\0v\0>\0\r\0
+\0 \0 \0 \0 \0<\0/\0d\0i\0v\0>\0\r\0
+\0 \0 \0 \0 \0<\0/\0d\0i\0v\0>\0\r\0
+\0 \0 \0 \0 \0<\0t\0a\0b\0l\0e\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0T\0a\0b\0l\0e\0 \0b\0o\0r\0d\0e\0r\0=\x000\0 \0c\0e\0l\0l\0s\0p\0a\0c\0i\0n\0g\0=\x000\0 \0c\0e\0l\0l\0p\0a\0d\0d\0i\0n\0g\0=\x000\0\r\0
+\0 \0 \0 \0 \0 \0w\0i\0d\0t\0h\0=\0"\x001\x000\x000\0%\0"\0 \0s\0t\0y\0l\0e\0=\0'\0w\0i\0d\0t\0h\0:\x001\x000\x000\0.\x000\0%\0;\0b\0o\0r\0d\0e\0r\0-\0c\0o\0l\0l\0a\0p\0s\0e\0:\0c\0o\0l\0l\0a\0p\0s\0e\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0t\0b\0l\0l\0o\0o\0k\0:\0\r\0
+\0 \0 \0 \0 \0 \x001\x001\x008\x004\0;\0m\0s\0o\0-\0p\0a\0d\0d\0i\0n\0g\0-\0a\0l\0t\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x000\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0f\0i\0r\0s\0t\0r\0o\0w\0:\0y\0e\0s\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0v\0a\0l\0i\0g\0n\0=\0t\0o\0p\0 \0s\0t\0y\0l\0e\0=\0'\0p\0a\0d\0d\0i\0n\0g\0:\x000\0i\0n\0 \x003\x000\0.\x000\0p\0t\0 \x001\x007\0.\x002\x005\0p\0t\0 \x003\x000\0.\x000\0p\0t\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x002\0.\x007\x005\0p\0t\0'\0>\0<\0b\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0'\0>\0R\0i\0g\0h\0t\0w\0a\0r\0e\0 \0P\0D\0H\0 \0P\0a\0r\0t\0n\0e\0r\0s\0h\0i\0p\0 \0A\0c\0c\0e\0l\0e\0r\0a\0t\0e\0s\0\r\0
+\0 \0 \0 \0 \0 \0 \0S\0m\0a\0r\0t\0e\0r\0 \0I\0n\0 V\0e\0h\0i\0c\0l\0e\0 \0E\0x\0p\0e\0r\0i\0e\0n\0c\0e\0s\0 \0<\0/\0s\0p\0a\0n\0>\0<\0/\0b\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x001\x000\0.\x005\0p\0t\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0'\0>\0<\0o\0:\0p\0>\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x001\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0v\0a\0l\0i\0g\0n\0=\0t\0o\0p\0 \0s\0t\0y\0l\0e\0=\0'\0p\0a\0d\0d\0i\0n\0g\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0;\0-\0w\0e\0b\0k\0i\0t\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0-\0m\0o\0z\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x002\0.\x007\x005\0p\0t\0'\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0'\0>\0<\0i\0m\0g\0 \0b\0o\0r\0d\0e\0r\0=\x000\0\r\0
+\0 \0 \0 \0 \0 \0 \0w\0i\0d\0t\0h\0=\x006\x005\x000\0 \0h\0e\0i\0g\0h\0t\0=\x002\x000\x000\0 \0i\0d\0=\0"\0_\0x\x000\x000\x000\x000\0_\0i\x001\x000\x003\x003\0"\0\r\0
+\0 \0 \0 \0 \0 \0 \0s\0r\0c\0=\0"\0h\0t\0t\0p\0s\0:\0/\0/\0n\0e\0w\0s\0l\0e\0t\0t\0e\0r\0f\0i\0l\0e\0s\0.\0i\0n\0f\0i\0n\0e\0o\0n\0.\0c\0o\0m\0/\0f\0i\0l\0e\0s\0/\0i\0f\0x\0n\0e\0w\0s\0l\0e\0t\0t\0e\0r\0s\0-\0p\0i\0c\0t\0u\0r\0e\0s\0/\0S\0c\0r\0e\0e\0n\0s\0h\0o\0t\0%\x002\x000\x002\x000\x002\x006\0-\x000\x003\0-\x001\x009\0%\x002\x000\x001\x003\x003\x004\x005\x001\0_\x001\x009\0-\x000\x003\0-\x002\x000\x002\x006\0-\x000\x001\0-\x003\x005\0-\x000\x008\0.\0p\0n\0g\0"\0\r\0
+\0 \0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0h\0e\0i\0g\0h\0t\0:\x002\0.\x000\x008\x003\0i\0n\0;\0w\0i\0d\0t\0h\0:\x006\0.\x007\x007\x005\0i\0n\0'\0>\0<\0o\0:\0p\0>\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x002\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0l\0a\0s\0t\0r\0o\0w\0:\0y\0e\0s\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0v\0a\0l\0i\0g\0n\0=\0t\0o\0p\0 \0s\0t\0y\0l\0e\0=\0'\0p\0a\0d\0d\0i\0n\0g\0:\x001\x001\0.\x002\x005\0p\0t\0 \x003\x000\0.\x000\0p\0t\0 \x000\0i\0n\0 \x003\x000\0.\x000\0p\0t\0;\0-\0w\0e\0b\0k\0i\0t\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0-\0m\0o\0z\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x002\0.\x007\x005\0p\0t\0'\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0#\x001\0D\x001\0D\x001\0D\0'\0>\0<\0a\0\r\0
+\0 \0 \0 \0 \0 \0 \0h\0r\0e\0f\0=\0"\0h\0t\0t\0p\0s\0:\0/\0/\0r\0i\0g\0h\0t\0w\0a\0r\0e\0.\0c\0o\0m\0/\0b\0l\0o\0g\0/\0k\0a\0n\0z\0i\0-\0m\0i\0c\0r\0o\0-\0i\0n\0f\0i\0n\0e\0o\0n\0/\0"\0>\0K\0a\0n\0z\0i\0 \0M\0i\0c\0r\0o\0<\0/\0a\0>\0,\0\r\0
+\0 \0 \0 \0 \0 \0 \0a\0 \0p\0r\0o\0f\0e\0s\0s\0i\0o\0n\0a\0l\0 \0H\0M\0I\0 \0d\0e\0v\0e\0l\0o\0p\0m\0e\0n\0t\0 \0t\0o\0o\0l\0c\0h\0a\0i\0n\0 \0d\0e\0v\0e\0l\0o\0p\0e\0d\0 \0b\0y\0 \0R\0i\0g\0h\0t\0w\0a\0r\0e\0,\0\r\0
+\0 \0 \0 \0 \0 \0 \0s\0u\0c\0c\0e\0s\0s\0f\0u\0l\0l\0y\0 \0o\0b\0t\0a\0i\0n\0e\0d\0 \0t\0h\0e\0 \0t\0e\0c\0h\0n\0i\0c\0a\0l\0 \0c\0e\0r\0t\0i\0f\0i\0c\0a\0t\0i\0o\0n\0 \0f\0o\0r\0 \0I\0n\0f\0i\0n\0e\0o\0n\0 s\0 \0T\0R\0A\0V\0E\0O\0<\0/\0s\0p\0a\0n\0>\0<\0s\0p\0a\0n\0\r\0
+\0 \0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0'\0>\0"! \0T\x002\0G\0<\0/\0s\0p\0a\0n\0>\0<\0s\0p\0a\0n\0\r\0
+\0 \0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0#\x001\0D\x001\0D\x001\0D\0'\0>\0&\0n\0b\0s\0p\0;\0I\0I\0\r\0
+\0 \0 \0 \0 \0 \0 \0s\0e\0r\0i\0e\0s\0 \0o\0f\0 \0c\0h\0i\0p\0s\0 \0i\0n\0 \x002\x000\x002\x005\0,\0 \0w\0h\0i\0c\0h\0 \0h\0a\0s\0 \0f\0u\0l\0f\0i\0l\0l\0e\0d\0 \0t\0h\0e\0 \0c\0o\0r\0e\0 \0p\0r\0e\0r\0e\0q\0u\0i\0s\0i\0t\0e\0 \0f\0o\0r\0\r\0
+\0 \0 \0 \0 \0 \0 \0t\0e\0c\0h\0n\0i\0c\0a\0l\0 \0c\0o\0m\0p\0a\0t\0i\0b\0i\0l\0i\0t\0y\0 \0b\0e\0t\0w\0e\0e\0n\0 \0I\0n\0f\0i\0n\0e\0o\0n\0 \0a\0n\0d\0 \0R\0i\0g\0h\0t\0w\0a\0r\0e\0.\0 \0<\0/\0s\0p\0a\0n\0>\0<\0s\0p\0a\0n\0\r\0
+\0 \0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0'\0>\0<\0b\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0/\0s\0p\0a\0n\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0c\0o\0l\0o\0r\0:\0#\x001\0D\x001\0D\x001\0D\0'\0>\0O\0u\0r\0 \0P\0D\0H\0 \0p\0r\0o\0g\0r\0a\0m\0 \0p\0a\0r\0t\0n\0e\0r\0s\0h\0i\0p\0 \0i\0s\0 \0p\0o\0w\0e\0r\0i\0n\0g\0 \0s\0m\0a\0r\0t\0e\0r\0,\0 \0f\0a\0s\0t\0e\0r\0,\0\r\0
+\0 \0 \0 \0 \0 \0 \0a\0n\0d\0 \0m\0o\0r\0e\0 \0d\0i\0f\0f\0e\0r\0e\0n\0t\0i\0a\0t\0e\0d\0 \0i\0n\0-\0v\0e\0h\0i\0c\0l\0e\0 \0e\0x\0p\0e\0r\0i\0e\0n\0c\0e\0s\0 \0t\0h\0a\0t\0 \0e\0l\0e\0v\0a\0t\0e\0 \0I\0n\0f\0i\0n\0e\0o\0n\0'\0s\0\r\0
+\0 \0 \0 \0 \0 \0 \0l\0e\0a\0d\0e\0r\0s\0h\0i\0p\0 \0i\0n\0 \0t\0h\0e\0 \0g\0l\0o\0b\0a\0l\0 \0a\0u\0t\0o\0m\0o\0t\0i\0v\0e\0 \0m\0a\0r\0k\0e\0t\0.\0<\0/\0s\0p\0a\0n\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0'\0>\0<\0b\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0b\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0/\0s\0p\0a\0n\0>\0<\0s\0t\0r\0o\0n\0g\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0c\0o\0l\0o\0r\0:\0#\x001\0D\x001\0D\x001\0D\0'\0>\0C\0o\0n\0t\0a\0c\0t\0:\0 \0E\0c\0e\0m\0 \0N\0u\0r\0 \0K\0a\0r\0a\0g\0�\0z\0<\0/\0s\0p\0a\0n\0>\0<\0/\0s\0t\0r\0o\0n\0g\0>\0<\0s\0p\0a\0n\0\r\0
+\0 \0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0'\0>\0 \0<\0o\0:\0p\0>\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0t\0a\0b\0l\0e\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0T\0a\0b\0l\0e\0 \0b\0o\0r\0d\0e\0r\0=\x000\0 \0c\0e\0l\0l\0s\0p\0a\0c\0i\0n\0g\0=\x000\0 \0c\0e\0l\0l\0p\0a\0d\0d\0i\0n\0g\0=\x000\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0b\0o\0r\0d\0e\0r\0-\0c\0o\0l\0l\0a\0p\0s\0e\0:\0c\0o\0l\0l\0a\0p\0s\0e\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0t\0b\0l\0l\0o\0o\0k\0:\x001\x001\x008\x004\0;\0m\0s\0o\0-\0p\0a\0d\0d\0i\0n\0g\0-\0a\0l\0t\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x000\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0f\0i\0r\0s\0t\0r\0o\0w\0:\0y\0e\0s\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0l\0a\0s\0t\0r\0o\0w\0:\0y\0e\0s\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0h\0e\0i\0g\0h\0t\0:\x007\0.\x005\0p\0t\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0s\0t\0y\0l\0e\0=\0'\0p\0a\0d\0d\0i\0n\0g\0:\0.\x007\x005\0p\0t\0 \0.\x007\x005\0p\0t\0 \0.\x007\x005\0p\0t\0 \0.\x007\x005\0p\0t\0;\0h\0e\0i\0g\0h\0t\0:\x007\0.\x005\0p\0t\0'\0>\0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0/\0t\0a\0b\0l\0e\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x002\0.\x007\x005\0p\0t\0'\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0;\0d\0i\0s\0p\0l\0a\0y\0:\0n\0o\0n\0e\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0m\0s\0o\0-\0h\0i\0d\0e\0:\0a\0l\0l\0'\0>\0<\0o\0:\0p\0>\0&\0n\0b\0s\0p\0;\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0t\0a\0b\0l\0e\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0T\0a\0b\0l\0e\0 \0b\0o\0r\0d\0e\0r\0=\x000\0 \0c\0e\0l\0l\0s\0p\0a\0c\0i\0n\0g\0=\x000\0 \0c\0e\0l\0l\0p\0a\0d\0d\0i\0n\0g\0=\x000\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0b\0o\0r\0d\0e\0r\0-\0c\0o\0l\0l\0a\0p\0s\0e\0:\0c\0o\0l\0l\0a\0p\0s\0e\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0t\0b\0l\0l\0o\0o\0k\0:\x001\x001\x008\x004\0;\0m\0s\0o\0-\0p\0a\0d\0d\0i\0n\0g\0-\0a\0l\0t\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x000\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0f\0i\0r\0s\0t\0r\0o\0w\0:\0y\0e\0s\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0l\0a\0s\0t\0r\0o\0w\0:\0y\0e\0s\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0s\0t\0y\0l\0e\0=\0'\0p\0a\0d\0d\0i\0n\0g\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0'\0>\0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0/\0t\0a\0b\0l\0e\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0>\0<\0o\0:\0p\0>\0<\0/\0o\0:\0p\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0<\0/\0t\0a\0b\0l\0e\0>\0\r\0
+\0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x004\0.\x002\x005\0p\0t\0'\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x009\0.\x000\0p\0t\0;\0\r\0
+\0 \0 \0 \0 \0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0#\x002\x002\x002\x002\x002\x002\0;\0d\0i\0s\0p\0l\0a\0y\0:\0n\0o\0n\0e\0;\0m\0s\0o\0-\0h\0i\0d\0e\0:\0a\0l\0l\0'\0>\0<\0o\0:\0p\0>\0&\0n\0b\0s\0p\0;\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0<\0t\0a\0b\0l\0e\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0T\0a\0b\0l\0e\0 \0b\0o\0r\0d\0e\0r\0=\x000\0 \0c\0e\0l\0l\0s\0p\0a\0c\0i\0n\0g\0=\x000\0 \0c\0e\0l\0l\0p\0a\0d\0d\0i\0n\0g\0=\x000\0\r\0
+\0 \0 \0 \0 \0 \0w\0i\0d\0t\0h\0=\0"\x001\x000\x000\0%\0"\0 \0s\0t\0y\0l\0e\0=\0'\0w\0i\0d\0t\0h\0:\x001\x000\x000\0.\x000\0%\0;\0b\0o\0r\0d\0e\0r\0-\0c\0o\0l\0l\0a\0p\0s\0e\0:\0c\0o\0l\0l\0a\0p\0s\0e\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0t\0b\0l\0l\0o\0o\0k\0:\0\r\0
+\0 \0 \0 \0 \0 \x001\x001\x008\x004\0;\0m\0s\0o\0-\0p\0a\0d\0d\0i\0n\0g\0-\0a\0l\0t\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0;\0b\0o\0r\0d\0e\0r\0-\0s\0p\0a\0c\0i\0n\0g\0:\0 \x000\0;\0w\0h\0i\0t\0e\0 \0!\0i\0m\0p\0o\0r\0t\0a\0n\0t\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x000\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0f\0i\0r\0s\0t\0r\0o\0w\0:\0y\0e\0s\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0l\0a\0s\0t\0r\0o\0w\0:\0y\0e\0s\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0h\0e\0i\0g\0h\0t\0:\x002\x006\0.\x002\x005\0p\0t\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0v\0a\0l\0i\0g\0n\0=\0t\0o\0p\0 \0s\0t\0y\0l\0e\0=\0'\0p\0a\0d\0d\0i\0n\0g\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0;\0h\0e\0i\0g\0h\0t\0:\x002\x006\0.\x002\x005\0p\0t\0;\0w\0o\0r\0d\0-\0b\0r\0e\0a\0k\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0b\0r\0e\0a\0k\0-\0w\0o\0r\0d\0;\0-\0w\0e\0b\0k\0i\0t\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0-\0m\0o\0z\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0'\0>\0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0<\0/\0t\0a\0b\0l\0e\0>\0\r\0
+\0 \0 \0 \0 \0<\0d\0i\0v\0 \0i\0d\0=\0"\0a\0r\0t\0i\0c\0l\0e\0_\x003\x002\x008\x007\x004\x005\0"\0>\0\r\0
+\0 \0 \0 \0 \0<\0d\0i\0v\0>\0\r\0
+\0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x004\0.\x002\x005\0p\0t\0'\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x009\0.\x000\0p\0t\0;\0\r\0
+\0 \0 \0 \0 \0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0#\x002\x002\x002\x002\x002\x002\0;\0d\0i\0s\0p\0l\0a\0y\0:\0n\0o\0n\0e\0;\0m\0s\0o\0-\0h\0i\0d\0e\0:\0a\0l\0l\0'\0>\0<\0o\0:\0p\0>\0&\0n\0b\0s\0p\0;\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0<\0t\0a\0b\0l\0e\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0T\0a\0b\0l\0e\0 \0b\0o\0r\0d\0e\0r\0=\x000\0 \0c\0e\0l\0l\0s\0p\0a\0c\0i\0n\0g\0=\x000\0 \0c\0e\0l\0l\0p\0a\0d\0d\0i\0n\0g\0=\x000\0\r\0
+\0 \0 \0 \0 \0 \0w\0i\0d\0t\0h\0=\0"\x001\x000\x000\0%\0"\0 \0s\0t\0y\0l\0e\0=\0'\0w\0i\0d\0t\0h\0:\x001\x000\x000\0.\x000\0%\0;\0b\0o\0r\0d\0e\0r\0-\0c\0o\0l\0l\0a\0p\0s\0e\0:\0c\0o\0l\0l\0a\0p\0s\0e\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0t\0b\0l\0l\0o\0o\0k\0:\0\r\0
+\0 \0 \0 \0 \0 \x001\x001\x008\x004\0;\0m\0s\0o\0-\0p\0a\0d\0d\0i\0n\0g\0-\0a\0l\0t\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0;\0b\0o\0r\0d\0e\0r\0-\0s\0p\0a\0c\0i\0n\0g\0:\0 \x000\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x000\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0f\0i\0r\0s\0t\0r\0o\0w\0:\0y\0e\0s\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0v\0a\0l\0i\0g\0n\0=\0t\0o\0p\0 \0s\0t\0y\0l\0e\0=\0'\0p\0a\0d\0d\0i\0n\0g\0:\x000\0i\0n\0 \x003\x000\0.\x000\0p\0t\0 \x001\x007\0.\x002\x005\0p\0t\0 \x003\x000\0.\x000\0p\0t\0;\0-\0w\0e\0b\0k\0i\0t\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0-\0m\0o\0z\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x002\0.\x007\x005\0p\0t\0'\0>\0<\0b\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0'\0>\0I\0n\0t\0e\0l\0l\0i\0a\0s\0 \0P\0o\0w\0e\0r\0s\0 \0F\0a\0s\0t\0e\0r\0 \0D\0e\0v\0e\0l\0o\0p\0m\0e\0n\0t\0 \0w\0i\0t\0h\0\r\0
+\0 \0 \0 \0 \0 \0 \0I\0n\0f\0i\0n\0e\0o\0n\0 \0M\0C\0U\0s\0 \0<\0/\0s\0p\0a\0n\0>\0<\0/\0b\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0'\0>\0<\0o\0:\0p\0>\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x001\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0v\0a\0l\0i\0g\0n\0=\0t\0o\0p\0 \0s\0t\0y\0l\0e\0=\0'\0p\0a\0d\0d\0i\0n\0g\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0;\0-\0w\0e\0b\0k\0i\0t\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0-\0m\0o\0z\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x002\0.\x007\x005\0p\0t\0'\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0'\0>\0<\0i\0m\0g\0 \0b\0o\0r\0d\0e\0r\0=\x000\0\r\0
+\0 \0 \0 \0 \0 \0 \0w\0i\0d\0t\0h\0=\x006\x005\x000\0 \0h\0e\0i\0g\0h\0t\0=\x002\x000\x000\0 \0i\0d\0=\0"\0_\0x\x000\x000\x000\x000\0_\0i\x001\x000\x003\x004\0"\0\r\0
+\0 \0 \0 \0 \0 \0 \0s\0r\0c\0=\0"\0h\0t\0t\0p\0s\0:\0/\0/\0n\0e\0w\0s\0l\0e\0t\0t\0e\0r\0f\0i\0l\0e\0s\0.\0i\0n\0f\0i\0n\0e\0o\0n\0.\0c\0o\0m\0/\0f\0i\0l\0e\0s\0/\0i\0f\0x\0n\0e\0w\0s\0l\0e\0t\0t\0e\0r\0s\0-\0p\0i\0c\0t\0u\0r\0e\0s\0/\0S\0c\0r\0e\0e\0n\0s\0h\0o\0t\0%\x002\x000\x002\x000\x002\x006\0-\x000\x003\0-\x001\x009\0%\x002\x000\x001\x003\x003\x007\x005\x009\0_\x001\x009\0-\x000\x003\0-\x002\x000\x002\x006\0-\x000\x001\0-\x003\x008\0-\x001\x001\0.\0p\0n\0g\0"\0\r\0
+\0 \0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0h\0e\0i\0g\0h\0t\0:\x002\0.\x000\x008\x003\0i\0n\0;\0w\0i\0d\0t\0h\0:\x006\0.\x007\x007\x005\0i\0n\0'\0>\0<\0o\0:\0p\0>\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x002\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0l\0a\0s\0t\0r\0o\0w\0:\0y\0e\0s\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0v\0a\0l\0i\0g\0n\0=\0t\0o\0p\0 \0s\0t\0y\0l\0e\0=\0'\0p\0a\0d\0d\0i\0n\0g\0:\x001\x001\0.\x002\x005\0p\0t\0 \x003\x000\0.\x000\0p\0t\0 \x000\0i\0n\0 \x003\x000\0.\x000\0p\0t\0;\0-\0w\0e\0b\0k\0i\0t\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0-\0m\0o\0z\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x002\0.\x007\x005\0p\0t\0'\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0#\x001\0D\x001\0D\x001\0D\0'\0>\0A\0s\0 \0a\0 \0P\0a\0r\0t\0n\0e\0r\0 \0i\0n\0\r\0
+\0 \0 \0 \0 \0 \0 \0I\0n\0f\0i\0n\0e\0o\0n\0 s\0 \0P\0r\0e\0f\0e\0r\0r\0e\0d\0 \0D\0e\0s\0i\0g\0n\0 \0H\0o\0u\0s\0e\0 \0P\0r\0o\0g\0r\0a\0m\0,\0 \0<\0a\0\r\0
+\0 \0 \0 \0 \0 \0 \0h\0r\0e\0f\0=\0"\0h\0t\0t\0p\0s\0:\0/\0/\0w\0w\0w\0.\0i\0n\0f\0i\0n\0e\0o\0n\0.\0c\0o\0m\0/\0p\0a\0r\0t\0n\0e\0r\0s\0/\0d\0e\0s\0i\0g\0n\0-\0p\0a\0r\0t\0n\0e\0r\0/\0i\0n\0t\0e\0l\0l\0i\0a\0s\0-\0g\0m\0b\0h\0"\0>\0I\0n\0t\0e\0l\0l\0i\0a\0s\0<\0/\0a\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0w\0i\0l\0l\0 \0c\0o\0n\0t\0r\0i\0b\0u\0t\0e\0 \0i\0t\0s\0 \0e\0x\0p\0e\0r\0t\0i\0s\0e\0 \0t\0o\0 \0a\0c\0c\0e\0l\0e\0r\0a\0t\0e\0 \0t\0h\0e\0 \0d\0e\0v\0e\0l\0o\0p\0m\0e\0n\0t\0 \0o\0f\0 \0a\0u\0t\0o\0m\0o\0t\0i\0v\0e\0\r\0
+\0 \0 \0 \0 \0 \0 \0s\0o\0l\0u\0t\0i\0o\0n\0s\0 \0b\0a\0s\0e\0d\0 \0o\0n\0 \0I\0n\0f\0i\0n\0e\0o\0n\0 s\0 \0A\0U\0R\0I\0X\0"! \0a\0n\0d\0&\0n\0b\0s\0p\0;\0<\0/\0s\0p\0a\0n\0>\0<\0s\0p\0a\0n\0\r\0
+\0 \0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0'\0>\0T\0R\0A\0V\0E\0O\0"!\r\0
+\0 \0 \0 \0 \0 \0 \0T\x002\0G\0<\0/\0s\0p\0a\0n\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0c\0o\0l\0o\0r\0:\0#\x001\0D\x001\0D\x001\0D\0'\0>\0 \0m\0i\0c\0r\0o\0c\0o\0n\0t\0r\0o\0l\0l\0e\0r\0 \0f\0a\0m\0i\0l\0i\0e\0s\0.\0 \0<\0/\0s\0p\0a\0n\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0'\0>\0<\0b\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0b\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0/\0s\0p\0a\0n\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0c\0o\0l\0o\0r\0:\0#\x001\0D\x001\0D\x001\0D\0'\0>\0I\0n\0t\0e\0l\0l\0i\0a\0s\0 \0a\0c\0h\0i\0e\0v\0e\0d\0 \0t\0h\0e\0 \0P\0r\0e\0f\0e\0r\0r\0e\0d\0 \0P\0a\0r\0t\0n\0e\0r\0 \0s\0t\0a\0t\0u\0s\0 \0b\0a\0s\0e\0d\0 \0o\0n\0\r\0
+\0 \0 \0 \0 \0 \0 \0i\0t\0s\0 \0l\0o\0n\0g\0-\0s\0t\0a\0n\0d\0i\0n\0g\0 \0c\0o\0l\0l\0a\0b\0o\0r\0a\0t\0i\0o\0n\0 \0w\0i\0t\0h\0 \0I\0n\0f\0i\0n\0e\0o\0n\0 \0a\0n\0d\0 \0i\0t\0s\0 \0p\0r\0o\0v\0e\0n\0 \0e\0x\0p\0e\0r\0i\0e\0n\0c\0e\0\r\0
+\0 \0 \0 \0 \0 \0 \0i\0n\0 \0a\0p\0p\0l\0y\0i\0n\0g\0 \0I\0n\0f\0i\0n\0e\0o\0n\0 \0A\0U\0R\0I\0X\0"! \0m\0i\0c\0r\0o\0c\0o\0n\0t\0r\0o\0l\0l\0e\0r\0s\0 \0i\0n\0 \0r\0e\0a\0l\0-\0w\0o\0r\0l\0d\0 \0a\0u\0t\0o\0m\0o\0t\0i\0v\0e\0\r\0
+\0 \0 \0 \0 \0 \0 \0s\0o\0l\0u\0t\0i\0o\0n\0s\0 \0f\0o\0r\0 \0g\0l\0o\0b\0a\0l\0 \0O\0E\0M\0s\0.\0<\0/\0s\0p\0a\0n\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x001\x000\0.\x005\0p\0t\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0'\0>\0<\0b\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0b\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0/\0s\0p\0a\0n\0>\0<\0s\0t\0r\0o\0n\0g\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0c\0o\0l\0o\0r\0:\0#\x001\0D\x001\0D\x001\0D\0'\0>\0C\0o\0n\0t\0a\0c\0t\0:\0 \0E\0c\0e\0m\0 \0N\0u\0r\0 \0K\0a\0r\0a\0g\0�\0z\0 \0&\0a\0m\0p\0;\0 \0B\0�\0r\0g\0e\0 \0S\0c\0h\0m\0e\0l\0z\0<\0/\0s\0p\0a\0n\0>\0<\0/\0s\0t\0r\0o\0n\0g\0>\0<\0s\0p\0a\0n\0\r\0
+\0 \0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0'\0>\0 \0<\0o\0:\0p\0>\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0t\0a\0b\0l\0e\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0T\0a\0b\0l\0e\0 \0b\0o\0r\0d\0e\0r\0=\x000\0 \0c\0e\0l\0l\0s\0p\0a\0c\0i\0n\0g\0=\x000\0 \0c\0e\0l\0l\0p\0a\0d\0d\0i\0n\0g\0=\x000\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0b\0o\0r\0d\0e\0r\0-\0c\0o\0l\0l\0a\0p\0s\0e\0:\0c\0o\0l\0l\0a\0p\0s\0e\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0t\0b\0l\0l\0o\0o\0k\0:\x001\x001\x008\x004\0;\0m\0s\0o\0-\0p\0a\0d\0d\0i\0n\0g\0-\0a\0l\0t\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x000\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0f\0i\0r\0s\0t\0r\0o\0w\0:\0y\0e\0s\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0l\0a\0s\0t\0r\0o\0w\0:\0y\0e\0s\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0h\0e\0i\0g\0h\0t\0:\x007\0.\x005\0p\0t\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0s\0t\0y\0l\0e\0=\0'\0p\0a\0d\0d\0i\0n\0g\0:\0.\x007\x005\0p\0t\0 \0.\x007\x005\0p\0t\0 \0.\x007\x005\0p\0t\0 \0.\x007\x005\0p\0t\0;\0h\0e\0i\0g\0h\0t\0:\x007\0.\x005\0p\0t\0'\0>\0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0/\0t\0a\0b\0l\0e\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x002\0.\x007\x005\0p\0t\0'\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0;\0d\0i\0s\0p\0l\0a\0y\0:\0n\0o\0n\0e\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0m\0s\0o\0-\0h\0i\0d\0e\0:\0a\0l\0l\0'\0>\0<\0o\0:\0p\0>\0&\0n\0b\0s\0p\0;\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0t\0a\0b\0l\0e\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0T\0a\0b\0l\0e\0 \0b\0o\0r\0d\0e\0r\0=\x000\0 \0c\0e\0l\0l\0s\0p\0a\0c\0i\0n\0g\0=\x000\0 \0c\0e\0l\0l\0p\0a\0d\0d\0i\0n\0g\0=\x000\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0b\0o\0r\0d\0e\0r\0-\0c\0o\0l\0l\0a\0p\0s\0e\0:\0c\0o\0l\0l\0a\0p\0s\0e\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0t\0b\0l\0l\0o\0o\0k\0:\x001\x001\x008\x004\0;\0m\0s\0o\0-\0p\0a\0d\0d\0i\0n\0g\0-\0a\0l\0t\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x000\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0f\0i\0r\0s\0t\0r\0o\0w\0:\0y\0e\0s\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0l\0a\0s\0t\0r\0o\0w\0:\0y\0e\0s\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0s\0t\0y\0l\0e\0=\0'\0p\0a\0d\0d\0i\0n\0g\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0'\0>\0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0/\0t\0a\0b\0l\0e\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0>\0<\0o\0:\0p\0>\0<\0/\0o\0:\0p\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0<\0/\0t\0a\0b\0l\0e\0>\0\r\0
+\0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x004\0.\x002\x005\0p\0t\0'\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x009\0.\x000\0p\0t\0;\0\r\0
+\0 \0 \0 \0 \0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0#\x002\x002\x002\x002\x002\x002\0;\0d\0i\0s\0p\0l\0a\0y\0:\0n\0o\0n\0e\0;\0m\0s\0o\0-\0h\0i\0d\0e\0:\0a\0l\0l\0'\0>\0<\0o\0:\0p\0>\0&\0n\0b\0s\0p\0;\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0<\0t\0a\0b\0l\0e\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0T\0a\0b\0l\0e\0 \0b\0o\0r\0d\0e\0r\0=\x000\0 \0c\0e\0l\0l\0s\0p\0a\0c\0i\0n\0g\0=\x000\0 \0c\0e\0l\0l\0p\0a\0d\0d\0i\0n\0g\0=\x000\0\r\0
+\0 \0 \0 \0 \0 \0w\0i\0d\0t\0h\0=\0"\x001\x000\x000\0%\0"\0 \0s\0t\0y\0l\0e\0=\0'\0w\0i\0d\0t\0h\0:\x001\x000\x000\0.\x000\0%\0;\0b\0o\0r\0d\0e\0r\0-\0c\0o\0l\0l\0a\0p\0s\0e\0:\0c\0o\0l\0l\0a\0p\0s\0e\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0t\0b\0l\0l\0o\0o\0k\0:\0\r\0
+\0 \0 \0 \0 \0 \x001\x001\x008\x004\0;\0m\0s\0o\0-\0p\0a\0d\0d\0i\0n\0g\0-\0a\0l\0t\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0;\0b\0o\0r\0d\0e\0r\0-\0s\0p\0a\0c\0i\0n\0g\0:\0 \x000\0;\0w\0h\0i\0t\0e\0 \0!\0i\0m\0p\0o\0r\0t\0a\0n\0t\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x000\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0f\0i\0r\0s\0t\0r\0o\0w\0:\0y\0e\0s\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0l\0a\0s\0t\0r\0o\0w\0:\0y\0e\0s\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0h\0e\0i\0g\0h\0t\0:\x002\x006\0.\x002\x005\0p\0t\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0v\0a\0l\0i\0g\0n\0=\0t\0o\0p\0 \0s\0t\0y\0l\0e\0=\0'\0p\0a\0d\0d\0i\0n\0g\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0;\0h\0e\0i\0g\0h\0t\0:\x002\x006\0.\x002\x005\0p\0t\0;\0w\0o\0r\0d\0-\0b\0r\0e\0a\0k\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0b\0r\0e\0a\0k\0-\0w\0o\0r\0d\0;\0-\0w\0e\0b\0k\0i\0t\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0-\0m\0o\0z\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0'\0>\0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0<\0/\0t\0a\0b\0l\0e\0>\0\r\0
+\0 \0 \0 \0 \0<\0/\0d\0i\0v\0>\0\r\0
+\0 \0 \0 \0 \0<\0/\0d\0i\0v\0>\0\r\0
+\0 \0 \0 \0 \0<\0t\0a\0b\0l\0e\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0T\0a\0b\0l\0e\0 \0b\0o\0r\0d\0e\0r\0=\x000\0 \0c\0e\0l\0l\0s\0p\0a\0c\0i\0n\0g\0=\x000\0 \0c\0e\0l\0l\0p\0a\0d\0d\0i\0n\0g\0=\x000\0\r\0
+\0 \0 \0 \0 \0 \0w\0i\0d\0t\0h\0=\0"\x001\x000\x000\0%\0"\0 \0s\0t\0y\0l\0e\0=\0'\0w\0i\0d\0t\0h\0:\x001\x000\x000\0.\x000\0%\0;\0b\0o\0r\0d\0e\0r\0-\0c\0o\0l\0l\0a\0p\0s\0e\0:\0c\0o\0l\0l\0a\0p\0s\0e\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0t\0b\0l\0l\0o\0o\0k\0:\0\r\0
+\0 \0 \0 \0 \0 \x001\x001\x008\x004\0;\0m\0s\0o\0-\0p\0a\0d\0d\0i\0n\0g\0-\0a\0l\0t\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x000\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0f\0i\0r\0s\0t\0r\0o\0w\0:\0y\0e\0s\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0l\0a\0s\0t\0r\0o\0w\0:\0y\0e\0s\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0w\0i\0d\0t\0h\0=\x003\x002\x005\0 \0v\0a\0l\0i\0g\0n\0=\0t\0o\0p\0 \0s\0t\0y\0l\0e\0=\0'\0w\0i\0d\0t\0h\0:\x002\x004\x003\0.\x007\x005\0p\0t\0;\0p\0a\0d\0d\0i\0n\0g\0:\x000\0i\0n\0 \x003\0.\x007\x005\0p\0t\0 \x000\0i\0n\0 \x000\0i\0n\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x002\0.\x007\x005\0p\0t\0'\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0'\0>\0<\0i\0m\0g\0 \0b\0o\0r\0d\0e\0r\0=\x000\0\r\0
+\0 \0 \0 \0 \0 \0 \0w\0i\0d\0t\0h\0=\x003\x002\x000\0 \0h\0e\0i\0g\0h\0t\0=\x002\x004\x006\0 \0i\0d\0=\0"\0_\0x\x000\x000\x000\x000\0_\0i\x001\x000\x003\x005\0"\0\r\0
+\0 \0 \0 \0 \0 \0 \0s\0r\0c\0=\0"\0h\0t\0t\0p\0s\0:\0/\0/\0n\0e\0w\0s\0l\0e\0t\0t\0e\0r\0f\0i\0l\0e\0s\0.\0i\0n\0f\0i\0n\0e\0o\0n\0.\0c\0o\0m\0/\0f\0i\0l\0e\0s\0/\0i\0f\0x\0n\0e\0w\0s\0l\0e\0t\0t\0e\0r\0s\0-\0p\0i\0c\0t\0u\0r\0e\0s\0/\0S\0c\0r\0e\0e\0n\0s\0h\0o\0t\0%\x002\x000\x002\x000\x002\x006\0-\x000\x003\0-\x001\x009\0%\x002\x000\x001\x003\x004\x002\x005\x009\0_\x001\x009\0-\x000\x003\0-\x002\x000\x002\x006\0-\x000\x001\0-\x004\x003\0-\x002\x009\0.\0p\0n\0g\0"\0\r\0
+\0 \0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0h\0e\0i\0g\0h\0t\0:\x002\0.\x005\x005\x008\0i\0n\0;\0w\0i\0d\0t\0h\0:\x003\0.\x003\x003\x003\0i\0n\0'\0>\0<\0o\0:\0p\0>\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0v\0a\0l\0i\0g\0n\0=\0t\0o\0p\0 \0s\0t\0y\0l\0e\0=\0'\0p\0a\0d\0d\0i\0n\0g\0:\x003\0.\x007\x005\0p\0t\0 \x003\x000\0.\x000\0p\0t\0 \x000\0i\0n\0 \x003\0.\x007\x005\0p\0t\0;\0-\0w\0e\0b\0k\0i\0t\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0-\0m\0o\0z\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0t\0a\0b\0l\0e\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0T\0a\0b\0l\0e\0 \0b\0o\0r\0d\0e\0r\0=\x000\0 \0c\0e\0l\0l\0s\0p\0a\0c\0i\0n\0g\0=\x000\0 \0c\0e\0l\0l\0p\0a\0d\0d\0i\0n\0g\0=\x000\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0w\0i\0d\0t\0h\0=\0"\x001\x000\x000\0%\0"\0 \0s\0t\0y\0l\0e\0=\0'\0w\0i\0d\0t\0h\0:\x001\x000\x000\0.\x000\0%\0;\0b\0o\0r\0d\0e\0r\0-\0c\0o\0l\0l\0a\0p\0s\0e\0:\0c\0o\0l\0l\0a\0p\0s\0e\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0t\0b\0l\0l\0o\0o\0k\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \x001\x001\x008\x004\0;\0m\0s\0o\0-\0p\0a\0d\0d\0i\0n\0g\0-\0a\0l\0t\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x000\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0f\0i\0r\0s\0t\0r\0o\0w\0:\0y\0e\0s\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0l\0a\0s\0t\0r\0o\0w\0:\0y\0e\0s\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0v\0a\0l\0i\0g\0n\0=\0t\0o\0p\0 \0s\0t\0y\0l\0e\0=\0'\0p\0a\0d\0d\0i\0n\0g\0:\x000\0i\0n\0 \x000\0i\0n\0 \x001\x007\0.\x002\x005\0p\0t\0 \x000\0i\0n\0;\0-\0w\0e\0b\0k\0i\0t\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0-\0m\0o\0z\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x002\0.\x007\x005\0p\0t\0'\0>\0<\0b\0>\0<\0s\0p\0a\0n\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0'\0>\0V\0a\0l\0i\0a\0d\0a\0s\0 \0S\0t\0r\0e\0n\0g\0t\0h\0e\0n\0s\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0F\0u\0n\0c\0t\0i\0o\0n\0a\0l\0 \0S\0a\0f\0e\0t\0y\0 \0L\0e\0a\0d\0e\0r\0s\0h\0i\0p\0 \0A\0c\0r\0o\0s\0s\0 \0E\0M\0E\0A\0<\0/\0s\0p\0a\0n\0>\0<\0/\0b\0>\0<\0s\0p\0a\0n\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0'\0>\0 \0<\0o\0:\0p\0>\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0/\0t\0a\0b\0l\0e\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x002\0.\x007\x005\0p\0t\0'\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0;\0d\0i\0s\0p\0l\0a\0y\0:\0n\0o\0n\0e\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0m\0s\0o\0-\0h\0i\0d\0e\0:\0a\0l\0l\0'\0>\0<\0o\0:\0p\0>\0&\0n\0b\0s\0p\0;\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0t\0a\0b\0l\0e\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0T\0a\0b\0l\0e\0 \0b\0o\0r\0d\0e\0r\0=\x000\0 \0c\0e\0l\0l\0s\0p\0a\0c\0i\0n\0g\0=\x000\0 \0c\0e\0l\0l\0p\0a\0d\0d\0i\0n\0g\0=\x000\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0w\0i\0d\0t\0h\0=\0"\x001\x000\x000\0%\0"\0 \0s\0t\0y\0l\0e\0=\0'\0w\0i\0d\0t\0h\0:\x001\x000\x000\0.\x000\0%\0;\0b\0o\0r\0d\0e\0r\0-\0c\0o\0l\0l\0a\0p\0s\0e\0:\0c\0o\0l\0l\0a\0p\0s\0e\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0t\0b\0l\0l\0o\0o\0k\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \x001\x001\x008\x004\0;\0m\0s\0o\0-\0p\0a\0d\0d\0i\0n\0g\0-\0a\0l\0t\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x000\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0f\0i\0r\0s\0t\0r\0o\0w\0:\0y\0e\0s\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0l\0a\0s\0t\0r\0o\0w\0:\0y\0e\0s\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0v\0a\0l\0i\0g\0n\0=\0t\0o\0p\0 \0s\0t\0y\0l\0e\0=\0'\0p\0a\0d\0d\0i\0n\0g\0:\x003\0.\x007\x005\0p\0t\0 \x003\x000\0.\x000\0p\0t\0 \x000\0i\0n\0 \x003\0.\x007\x005\0p\0t\0;\0-\0w\0e\0b\0k\0i\0t\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0-\0m\0o\0z\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x002\0.\x007\x005\0p\0t\0'\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0#\x001\0D\x001\0D\x001\0D\0'\0>\0<\0a\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0h\0r\0e\0f\0=\0"\0h\0t\0t\0p\0s\0:\0/\0/\0w\0w\0w\0.\0v\0a\0l\0i\0d\0a\0s\0.\0d\0e\0/\0"\0>\0V\0a\0l\0i\0d\0a\0s\0<\0/\0a\0>\0 \0l\0e\0v\0e\0r\0a\0g\0e\0s\0 \0m\0o\0r\0e\0 \0t\0h\0a\0n\0 \x002\x005\0 \0y\0e\0a\0r\0s\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0o\0f\0 \0d\0e\0e\0p\0 \0i\0n\0d\0u\0s\0t\0r\0y\0 \0e\0x\0p\0e\0r\0i\0e\0n\0c\0e\0 \0t\0o\0 \0d\0r\0i\0v\0e\0 \0c\0u\0t\0t\0i\0n\0g\0 e\0d\0g\0e\0 \0a\0u\0t\0o\0m\0o\0t\0i\0v\0e\0 \0a\0n\0d\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0e\0m\0b\0e\0d\0d\0e\0d\0 \0d\0e\0v\0e\0l\0o\0p\0m\0e\0n\0t\0.\0 \0I\0t\0s\0 \0g\0l\0o\0b\0a\0l\0 \0t\0e\0a\0m\0 \0p\0l\0a\0y\0s\0 \0a\0n\0 \0a\0c\0t\0i\0v\0e\0 \0r\0o\0l\0e\0 \0i\0n\0 \0s\0h\0a\0p\0i\0n\0g\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0I\0S\0O\0/ 2\x006\x002\x006\x002\0 \0s\0t\0a\0n\0d\0a\0r\0d\0s\0,\0 \0e\0n\0s\0u\0r\0i\0n\0g\0 \0c\0u\0s\0t\0o\0m\0e\0r\0s\0 \0b\0e\0n\0e\0f\0i\0t\0 \0f\0r\0o\0m\0 \0s\0t\0a\0t\0e\0 o\0f\0 t\0h\0e\0 a\0r\0t\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0f\0u\0n\0c\0t\0i\0o\0n\0a\0l\0 \0s\0a\0f\0e\0t\0y\0 \0p\0r\0a\0c\0t\0i\0c\0e\0s\0.\0 \0B\0a\0c\0k\0e\0d\0 \0b\0y\0 \0s\0t\0r\0o\0n\0g\0 \0i\0n\0d\0u\0s\0t\0r\0y\0 \0p\0a\0r\0t\0n\0e\0r\0s\0h\0i\0p\0s\0 \0a\0n\0d\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0p\0r\0o\0v\0e\0n\0 \0t\0e\0c\0h\0n\0i\0c\0a\0l\0 \0e\0x\0c\0e\0l\0l\0e\0n\0c\0e\0,\0 \0V\0a\0l\0i\0d\0a\0s\0 \0s\0t\0a\0n\0d\0s\0 \0o\0u\0t\0 \0a\0s\0 \0a\0 \0r\0e\0l\0i\0a\0b\0l\0e\0 \0a\0n\0d\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0i\0n\0f\0l\0u\0e\0n\0t\0i\0a\0l\0 \0s\0a\0f\0e\0t\0y\0 \0P\0D\0H\0 \0p\0r\0o\0g\0r\0a\0m\0 \0p\0a\0r\0t\0n\0e\0r\0 \0a\0c\0r\0o\0s\0s\0 \0t\0h\0e\0 \0E\0M\0E\0A\0 \0r\0e\0g\0i\0o\0n\0.\0<\0/\0s\0p\0a\0n\0>\0<\0s\0p\0a\0n\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0'\0>\0<\0b\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0b\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0/\0s\0p\0a\0n\0>\0<\0s\0t\0r\0o\0n\0g\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0c\0o\0l\0o\0r\0:\0#\x001\0D\x001\0D\x001\0D\0'\0>\0C\0o\0n\0t\0a\0c\0t\0:\0 \0E\0c\0e\0m\0 \0N\0u\0r\0 \0K\0a\0r\0a\0g\0�\0z\0<\0/\0s\0p\0a\0n\0>\0<\0/\0s\0t\0r\0o\0n\0g\0>\0<\0s\0p\0a\0n\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0'\0>\0 \0<\0o\0:\0p\0>\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0t\0a\0b\0l\0e\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0T\0a\0b\0l\0e\0 \0b\0o\0r\0d\0e\0r\0=\x000\0 \0c\0e\0l\0l\0s\0p\0a\0c\0i\0n\0g\0=\x000\0 \0c\0e\0l\0l\0p\0a\0d\0d\0i\0n\0g\0=\x000\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0b\0o\0r\0d\0e\0r\0-\0c\0o\0l\0l\0a\0p\0s\0e\0:\0c\0o\0l\0l\0a\0p\0s\0e\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0t\0b\0l\0l\0o\0o\0k\0:\x001\x001\x008\x004\0;\0m\0s\0o\0-\0p\0a\0d\0d\0i\0n\0g\0-\0a\0l\0t\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x000\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0f\0i\0r\0s\0t\0r\0o\0w\0:\0y\0e\0s\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0l\0a\0s\0t\0r\0o\0w\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0 \0y\0e\0s\0;\0h\0e\0i\0g\0h\0t\0:\x007\0.\x005\0p\0t\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0s\0t\0y\0l\0e\0=\0'\0p\0a\0d\0d\0i\0n\0g\0:\0.\x007\x005\0p\0t\0 \0.\x007\x005\0p\0t\0 \0.\x007\x005\0p\0t\0 \0.\x007\x005\0p\0t\0;\0h\0e\0i\0g\0h\0t\0:\x007\0.\x005\0p\0t\0'\0>\0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0/\0t\0a\0b\0l\0e\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x002\0.\x007\x005\0p\0t\0'\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0;\0d\0i\0s\0p\0l\0a\0y\0:\0n\0o\0n\0e\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0m\0s\0o\0-\0h\0i\0d\0e\0:\0a\0l\0l\0'\0>\0<\0o\0:\0p\0>\0&\0n\0b\0s\0p\0;\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0t\0a\0b\0l\0e\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0T\0a\0b\0l\0e\0 \0b\0o\0r\0d\0e\0r\0=\x000\0 \0c\0e\0l\0l\0s\0p\0a\0c\0i\0n\0g\0=\x000\0 \0c\0e\0l\0l\0p\0a\0d\0d\0i\0n\0g\0=\x000\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0b\0o\0r\0d\0e\0r\0-\0c\0o\0l\0l\0a\0p\0s\0e\0:\0c\0o\0l\0l\0a\0p\0s\0e\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0t\0b\0l\0l\0o\0o\0k\0:\x001\x001\x008\x004\0;\0m\0s\0o\0-\0p\0a\0d\0d\0i\0n\0g\0-\0a\0l\0t\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x000\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0f\0i\0r\0s\0t\0r\0o\0w\0:\0y\0e\0s\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0l\0a\0s\0t\0r\0o\0w\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0 \0y\0e\0s\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0s\0t\0y\0l\0e\0=\0'\0p\0a\0d\0d\0i\0n\0g\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0'\0>\0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0/\0t\0a\0b\0l\0e\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0>\0<\0o\0:\0p\0>\0<\0/\0o\0:\0p\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0/\0t\0a\0b\0l\0e\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0>\0<\0o\0:\0p\0>\0<\0/\0o\0:\0p\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0<\0/\0t\0a\0b\0l\0e\0>\0\r\0
+\0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x004\0.\x002\x005\0p\0t\0'\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x009\0.\x000\0p\0t\0;\0\r\0
+\0 \0 \0 \0 \0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0#\x002\x002\x002\x002\x002\x002\0;\0d\0i\0s\0p\0l\0a\0y\0:\0n\0o\0n\0e\0;\0m\0s\0o\0-\0h\0i\0d\0e\0:\0a\0l\0l\0'\0>\0<\0o\0:\0p\0>\0&\0n\0b\0s\0p\0;\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0<\0t\0a\0b\0l\0e\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0T\0a\0b\0l\0e\0 \0b\0o\0r\0d\0e\0r\0=\x000\0 \0c\0e\0l\0l\0s\0p\0a\0c\0i\0n\0g\0=\x000\0 \0c\0e\0l\0l\0p\0a\0d\0d\0i\0n\0g\0=\x000\0 \0w\0i\0d\0t\0h\0=\x001\x000\0\r\0
+\0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0w\0i\0d\0t\0h\0:\x007\0.\x005\0p\0t\0;\0b\0o\0r\0d\0e\0r\0-\0c\0o\0l\0l\0a\0p\0s\0e\0:\0c\0o\0l\0l\0a\0p\0s\0e\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0t\0b\0l\0l\0o\0o\0k\0:\x001\x001\x008\x004\0;\0\r\0
+\0 \0 \0 \0 \0 \0m\0s\0o\0-\0p\0a\0d\0d\0i\0n\0g\0-\0a\0l\0t\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0;\0b\0o\0r\0d\0e\0r\0-\0s\0p\0a\0c\0i\0n\0g\0:\0 \x000\0;\0w\0h\0i\0t\0e\0 \0!\0i\0m\0p\0o\0r\0t\0a\0n\0t\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x000\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0f\0i\0r\0s\0t\0r\0o\0w\0:\0y\0e\0s\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0l\0a\0s\0t\0r\0o\0w\0:\0y\0e\0s\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0h\0e\0i\0g\0h\0t\0:\x002\x006\0.\x002\x005\0p\0t\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0v\0a\0l\0i\0g\0n\0=\0t\0o\0p\0 \0s\0t\0y\0l\0e\0=\0'\0p\0a\0d\0d\0i\0n\0g\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0;\0h\0e\0i\0g\0h\0t\0:\x002\x006\0.\x002\x005\0p\0t\0;\0w\0o\0r\0d\0-\0b\0r\0e\0a\0k\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0b\0r\0e\0a\0k\0-\0w\0o\0r\0d\0;\0-\0w\0e\0b\0k\0i\0t\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0-\0m\0o\0z\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0'\0>\0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0<\0/\0t\0a\0b\0l\0e\0>\0\r\0
+\0 \0 \0 \0 \0<\0d\0i\0v\0 \0i\0d\0=\0"\0a\0r\0t\0i\0c\0l\0e\0_\x003\x003\x009\x004\x006\x002\0"\0>\0\r\0
+\0 \0 \0 \0 \0<\0d\0i\0v\0>\0\r\0
+\0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x004\0.\x002\x005\0p\0t\0'\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x009\0.\x000\0p\0t\0;\0\r\0
+\0 \0 \0 \0 \0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0#\x002\x002\x002\x002\x002\x002\0;\0d\0i\0s\0p\0l\0a\0y\0:\0n\0o\0n\0e\0;\0m\0s\0o\0-\0h\0i\0d\0e\0:\0a\0l\0l\0'\0>\0<\0o\0:\0p\0>\0&\0n\0b\0s\0p\0;\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0<\0t\0a\0b\0l\0e\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0T\0a\0b\0l\0e\0 \0b\0o\0r\0d\0e\0r\0=\x000\0 \0c\0e\0l\0l\0s\0p\0a\0c\0i\0n\0g\0=\x000\0 \0c\0e\0l\0l\0p\0a\0d\0d\0i\0n\0g\0=\x000\0\r\0
+\0 \0 \0 \0 \0 \0w\0i\0d\0t\0h\0=\0"\x001\x000\x000\0%\0"\0 \0s\0t\0y\0l\0e\0=\0'\0w\0i\0d\0t\0h\0:\x001\x000\x000\0.\x000\0%\0;\0b\0o\0r\0d\0e\0r\0-\0c\0o\0l\0l\0a\0p\0s\0e\0:\0c\0o\0l\0l\0a\0p\0s\0e\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0t\0b\0l\0l\0o\0o\0k\0:\0\r\0
+\0 \0 \0 \0 \0 \x001\x001\x008\x004\0;\0m\0s\0o\0-\0p\0a\0d\0d\0i\0n\0g\0-\0a\0l\0t\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0;\0b\0o\0r\0d\0e\0r\0-\0s\0p\0a\0c\0i\0n\0g\0:\0 \x000\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x000\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0f\0i\0r\0s\0t\0r\0o\0w\0:\0y\0e\0s\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0l\0a\0s\0t\0r\0o\0w\0:\0y\0e\0s\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0w\0i\0d\0t\0h\0=\x003\x002\x005\0 \0v\0a\0l\0i\0g\0n\0=\0t\0o\0p\0 \0s\0t\0y\0l\0e\0=\0'\0w\0i\0d\0t\0h\0:\x002\x004\x003\0.\x007\x005\0p\0t\0;\0p\0a\0d\0d\0i\0n\0g\0:\x000\0i\0n\0 \x003\0.\x007\x005\0p\0t\0 \x000\0i\0n\0 \x000\0i\0n\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0-\0w\0e\0b\0k\0i\0t\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0-\0m\0o\0z\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x002\0.\x007\x005\0p\0t\0'\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0'\0>\0<\0i\0m\0g\0 \0b\0o\0r\0d\0e\0r\0=\x000\0\r\0
+\0 \0 \0 \0 \0 \0 \0w\0i\0d\0t\0h\0=\x003\x002\x001\0 \0h\0e\0i\0g\0h\0t\0=\x002\x004\x006\0 \0i\0d\0=\0"\0_\0x\x000\x000\x000\x000\0_\0i\x001\x000\x003\x006\0"\0\r\0
+\0 \0 \0 \0 \0 \0 \0s\0r\0c\0=\0"\0h\0t\0t\0p\0s\0:\0/\0/\0n\0e\0w\0s\0l\0e\0t\0t\0e\0r\0f\0i\0l\0e\0s\0.\0i\0n\0f\0i\0n\0e\0o\0n\0.\0c\0o\0m\0/\0f\0i\0l\0e\0s\0/\0i\0f\0x\0n\0e\0w\0s\0l\0e\0t\0t\0e\0r\0s\0-\0p\0i\0c\0t\0u\0r\0e\0s\0/\0S\0c\0r\0e\0e\0n\0s\0h\0o\0t\0%\x002\x000\x002\x000\x002\x006\0-\x000\x003\0-\x001\x009\0%\x002\x000\x001\x003\x004\x005\x004\x009\0_\x001\x009\0-\x000\x003\0-\x002\x000\x002\x006\0-\x000\x001\0-\x004\x006\0-\x002\x001\0.\0p\0n\0g\0"\0\r\0
+\0 \0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0h\0e\0i\0g\0h\0t\0:\x002\0.\x005\x005\x008\0i\0n\0;\0w\0i\0d\0t\0h\0:\x003\0.\x003\x003\x003\0i\0n\0'\0>\0<\0o\0:\0p\0>\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0v\0a\0l\0i\0g\0n\0=\0t\0o\0p\0 \0s\0t\0y\0l\0e\0=\0'\0p\0a\0d\0d\0i\0n\0g\0:\x003\0.\x007\x005\0p\0t\0 \x003\x000\0.\x000\0p\0t\0 \x000\0i\0n\0 \x003\0.\x007\x005\0p\0t\0;\0-\0w\0e\0b\0k\0i\0t\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0-\0m\0o\0z\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0t\0a\0b\0l\0e\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0T\0a\0b\0l\0e\0 \0b\0o\0r\0d\0e\0r\0=\x000\0 \0c\0e\0l\0l\0s\0p\0a\0c\0i\0n\0g\0=\x000\0 \0c\0e\0l\0l\0p\0a\0d\0d\0i\0n\0g\0=\x000\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0w\0i\0d\0t\0h\0=\0"\x001\x000\x000\0%\0"\0 \0s\0t\0y\0l\0e\0=\0'\0w\0i\0d\0t\0h\0:\x001\x000\x000\0.\x000\0%\0;\0b\0o\0r\0d\0e\0r\0-\0c\0o\0l\0l\0a\0p\0s\0e\0:\0c\0o\0l\0l\0a\0p\0s\0e\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0t\0b\0l\0l\0o\0o\0k\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \x001\x001\x008\x004\0;\0m\0s\0o\0-\0p\0a\0d\0d\0i\0n\0g\0-\0a\0l\0t\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x000\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0f\0i\0r\0s\0t\0r\0o\0w\0:\0y\0e\0s\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0l\0a\0s\0t\0r\0o\0w\0:\0y\0e\0s\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0v\0a\0l\0i\0g\0n\0=\0t\0o\0p\0 \0s\0t\0y\0l\0e\0=\0'\0p\0a\0d\0d\0i\0n\0g\0:\x000\0i\0n\0 \x000\0i\0n\0 \x001\x007\0.\x002\x005\0p\0t\0 \x000\0i\0n\0;\0-\0w\0e\0b\0k\0i\0t\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0-\0m\0o\0z\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x002\0.\x007\x005\0p\0t\0'\0>\0<\0b\0>\0<\0s\0p\0a\0n\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0'\0>\0P\0r\0e\0f\0e\0r\0r\0e\0d\0 \0D\0e\0s\0i\0g\0n\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0H\0o\0u\0s\0e\0 \0P\0r\0o\0g\0r\0a\0m\0 \0  \0N\0e\0w\0 \0P\0a\0r\0t\0n\0e\0r\0s\0 \0A\0n\0n\0o\0u\0n\0c\0e\0d\0<\0/\0s\0p\0a\0n\0>\0<\0/\0b\0>\0<\0s\0p\0a\0n\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0'\0>\0 \0<\0o\0:\0p\0>\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0/\0t\0a\0b\0l\0e\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x002\0.\x007\x005\0p\0t\0'\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0;\0d\0i\0s\0p\0l\0a\0y\0:\0n\0o\0n\0e\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0m\0s\0o\0-\0h\0i\0d\0e\0:\0a\0l\0l\0'\0>\0<\0o\0:\0p\0>\0&\0n\0b\0s\0p\0;\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0t\0a\0b\0l\0e\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0T\0a\0b\0l\0e\0 \0b\0o\0r\0d\0e\0r\0=\x000\0 \0c\0e\0l\0l\0s\0p\0a\0c\0i\0n\0g\0=\x000\0 \0c\0e\0l\0l\0p\0a\0d\0d\0i\0n\0g\0=\x000\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0w\0i\0d\0t\0h\0=\0"\x001\x000\x000\0%\0"\0 \0s\0t\0y\0l\0e\0=\0'\0w\0i\0d\0t\0h\0:\x001\x000\x000\0.\x000\0%\0;\0b\0o\0r\0d\0e\0r\0-\0c\0o\0l\0l\0a\0p\0s\0e\0:\0c\0o\0l\0l\0a\0p\0s\0e\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0t\0b\0l\0l\0o\0o\0k\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \x001\x001\x008\x004\0;\0m\0s\0o\0-\0p\0a\0d\0d\0i\0n\0g\0-\0a\0l\0t\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x000\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0f\0i\0r\0s\0t\0r\0o\0w\0:\0y\0e\0s\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0l\0a\0s\0t\0r\0o\0w\0:\0y\0e\0s\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0v\0a\0l\0i\0g\0n\0=\0t\0o\0p\0 \0s\0t\0y\0l\0e\0=\0'\0p\0a\0d\0d\0i\0n\0g\0:\x003\0.\x007\x005\0p\0t\0 \x003\x000\0.\x000\0p\0t\0 \x000\0i\0n\0 \x003\0.\x007\x005\0p\0t\0;\0-\0w\0e\0b\0k\0i\0t\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0-\0m\0o\0z\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x002\0.\x007\x005\0p\0t\0'\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0#\x001\0D\x001\0D\x001\0D\0'\0>\0P\0r\0e\0f\0e\0r\0r\0e\0d\0 \0D\0e\0s\0i\0g\0n\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0H\0o\0u\0s\0e\0 \0P\0r\0o\0g\0r\0a\0m\0 \0c\0o\0n\0n\0e\0c\0t\0s\0 \0I\0n\0f\0i\0n\0e\0o\0n\0 \0c\0u\0s\0t\0o\0m\0e\0r\0s\0 \0w\0i\0t\0h\0 \0c\0e\0r\0t\0i\0f\0i\0e\0d\0 \0e\0n\0g\0i\0n\0e\0e\0r\0i\0n\0g\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0p\0a\0r\0t\0n\0e\0r\0s\0 \0t\0o\0 \0a\0c\0c\0e\0l\0e\0r\0a\0t\0e\0 \0d\0e\0v\0e\0l\0o\0p\0m\0e\0n\0t\0 \0u\0s\0i\0n\0g\0 \0I\0n\0f\0i\0n\0e\0o\0n\0 \0m\0i\0c\0r\0o\0c\0o\0n\0t\0r\0o\0l\0l\0e\0r\0s\0.\0<\0/\0s\0p\0a\0n\0>\0<\0s\0p\0a\0n\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0'\0>\0<\0b\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0b\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0/\0s\0p\0a\0n\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0c\0o\0l\0o\0r\0:\0#\x001\0D\x001\0D\x001\0D\0'\0>\0W\0e\0 \0a\0r\0e\0 \0e\0x\0c\0i\0t\0e\0d\0 \0t\0o\0 \0w\0e\0l\0c\0o\0m\0e\0 \0I\0n\0t\0e\0l\0l\0i\0a\0s\0,\0 \0R\0i\0g\0h\0t\0w\0a\0r\0e\0,\0 \0a\0n\0d\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0V\0a\0l\0i\0d\0a\0s\0 \0a\0s\0 \0o\0u\0r\0 \0n\0e\0w\0e\0s\0t\0 \0P\0D\0H\0 \0P\0r\0o\0g\0r\0a\0m\0 \0p\0a\0r\0t\0n\0e\0r\0s\0.\0 \0W\0i\0t\0h\0 \0t\0h\0e\0s\0e\0 \0a\0d\0d\0i\0t\0i\0o\0n\0s\0,\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0c\0u\0s\0t\0o\0m\0e\0r\0s\0 \0g\0a\0i\0n\0 \0b\0r\0o\0a\0d\0e\0r\0 \0a\0c\0c\0e\0s\0s\0 \0t\0o\0 \0h\0i\0g\0h\0 q\0u\0a\0l\0i\0t\0y\0 \0d\0e\0s\0i\0g\0n\0 \0s\0u\0p\0p\0o\0r\0t\0 \0a\0n\0d\0 \0f\0a\0s\0t\0e\0r\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0d\0e\0v\0e\0l\0o\0p\0m\0e\0n\0t\0 \0c\0y\0c\0l\0e\0s\0 \0f\0o\0r\0 \0t\0h\0e\0i\0r\0 \0e\0m\0b\0e\0d\0d\0e\0d\0 \0p\0r\0o\0j\0e\0c\0t\0s\0.\0<\0/\0s\0p\0a\0n\0>\0<\0s\0p\0a\0n\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0'\0>\0<\0b\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0b\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0/\0s\0p\0a\0n\0>\0<\0s\0t\0r\0o\0n\0g\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0c\0o\0l\0o\0r\0:\0#\x001\0D\x001\0D\x001\0D\0'\0>\0C\0o\0n\0t\0a\0c\0t\0:\0 \0E\0c\0e\0m\0 \0N\0u\0r\0 \0K\0a\0r\0a\0g\0�\0z\0<\0/\0s\0p\0a\0n\0>\0<\0/\0s\0t\0r\0o\0n\0g\0>\0<\0s\0p\0a\0n\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0'\0>\0 \0<\0o\0:\0p\0>\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0t\0a\0b\0l\0e\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0T\0a\0b\0l\0e\0 \0b\0o\0r\0d\0e\0r\0=\x000\0 \0c\0e\0l\0l\0s\0p\0a\0c\0i\0n\0g\0=\x000\0 \0c\0e\0l\0l\0p\0a\0d\0d\0i\0n\0g\0=\x000\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0b\0o\0r\0d\0e\0r\0-\0c\0o\0l\0l\0a\0p\0s\0e\0:\0c\0o\0l\0l\0a\0p\0s\0e\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0t\0b\0l\0l\0o\0o\0k\0:\x001\x001\x008\x004\0;\0m\0s\0o\0-\0p\0a\0d\0d\0i\0n\0g\0-\0a\0l\0t\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x000\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0f\0i\0r\0s\0t\0r\0o\0w\0:\0y\0e\0s\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0l\0a\0s\0t\0r\0o\0w\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0 \0y\0e\0s\0;\0h\0e\0i\0g\0h\0t\0:\x007\0.\x005\0p\0t\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0s\0t\0y\0l\0e\0=\0'\0p\0a\0d\0d\0i\0n\0g\0:\0.\x007\x005\0p\0t\0 \0.\x007\x005\0p\0t\0 \0.\x007\x005\0p\0t\0 \0.\x007\x005\0p\0t\0;\0h\0e\0i\0g\0h\0t\0:\x007\0.\x005\0p\0t\0'\0>\0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0/\0t\0a\0b\0l\0e\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x002\0.\x007\x005\0p\0t\0'\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0;\0d\0i\0s\0p\0l\0a\0y\0:\0n\0o\0n\0e\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0m\0s\0o\0-\0h\0i\0d\0e\0:\0a\0l\0l\0'\0>\0<\0o\0:\0p\0>\0&\0n\0b\0s\0p\0;\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0t\0a\0b\0l\0e\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0T\0a\0b\0l\0e\0 \0b\0o\0r\0d\0e\0r\0=\x000\0 \0c\0e\0l\0l\0s\0p\0a\0c\0i\0n\0g\0=\x000\0 \0c\0e\0l\0l\0p\0a\0d\0d\0i\0n\0g\0=\x000\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0b\0o\0r\0d\0e\0r\0-\0c\0o\0l\0l\0a\0p\0s\0e\0:\0c\0o\0l\0l\0a\0p\0s\0e\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0t\0b\0l\0l\0o\0o\0k\0:\x001\x001\x008\x004\0;\0m\0s\0o\0-\0p\0a\0d\0d\0i\0n\0g\0-\0a\0l\0t\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x000\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0f\0i\0r\0s\0t\0r\0o\0w\0:\0y\0e\0s\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0l\0a\0s\0t\0r\0o\0w\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0 \0y\0e\0s\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0s\0t\0y\0l\0e\0=\0'\0p\0a\0d\0d\0i\0n\0g\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0'\0>\0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0/\0t\0a\0b\0l\0e\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0>\0<\0o\0:\0p\0>\0<\0/\0o\0:\0p\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0/\0t\0a\0b\0l\0e\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0>\0<\0o\0:\0p\0>\0<\0/\0o\0:\0p\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0<\0/\0t\0a\0b\0l\0e\0>\0\r\0
+\0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x004\0.\x002\x005\0p\0t\0'\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x009\0.\x000\0p\0t\0;\0\r\0
+\0 \0 \0 \0 \0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0#\x002\x002\x002\x002\x002\x002\0;\0d\0i\0s\0p\0l\0a\0y\0:\0n\0o\0n\0e\0;\0m\0s\0o\0-\0h\0i\0d\0e\0:\0a\0l\0l\0'\0>\0<\0o\0:\0p\0>\0&\0n\0b\0s\0p\0;\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0<\0t\0a\0b\0l\0e\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0T\0a\0b\0l\0e\0 \0b\0o\0r\0d\0e\0r\0=\x000\0 \0c\0e\0l\0l\0s\0p\0a\0c\0i\0n\0g\0=\x000\0 \0c\0e\0l\0l\0p\0a\0d\0d\0i\0n\0g\0=\x000\0 \0w\0i\0d\0t\0h\0=\x001\x000\0\r\0
+\0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0w\0i\0d\0t\0h\0:\x007\0.\x005\0p\0t\0;\0b\0o\0r\0d\0e\0r\0-\0c\0o\0l\0l\0a\0p\0s\0e\0:\0c\0o\0l\0l\0a\0p\0s\0e\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0t\0b\0l\0l\0o\0o\0k\0:\x001\x001\x008\x004\0;\0\r\0
+\0 \0 \0 \0 \0 \0m\0s\0o\0-\0p\0a\0d\0d\0i\0n\0g\0-\0a\0l\0t\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0;\0b\0o\0r\0d\0e\0r\0-\0s\0p\0a\0c\0i\0n\0g\0:\0 \x000\0;\0w\0h\0i\0t\0e\0 \0!\0i\0m\0p\0o\0r\0t\0a\0n\0t\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x000\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0f\0i\0r\0s\0t\0r\0o\0w\0:\0y\0e\0s\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0l\0a\0s\0t\0r\0o\0w\0:\0y\0e\0s\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0h\0e\0i\0g\0h\0t\0:\x002\x006\0.\x002\x005\0p\0t\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0v\0a\0l\0i\0g\0n\0=\0t\0o\0p\0 \0s\0t\0y\0l\0e\0=\0'\0p\0a\0d\0d\0i\0n\0g\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0;\0h\0e\0i\0g\0h\0t\0:\x002\x006\0.\x002\x005\0p\0t\0;\0w\0o\0r\0d\0-\0b\0r\0e\0a\0k\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0b\0r\0e\0a\0k\0-\0w\0o\0r\0d\0;\0-\0w\0e\0b\0k\0i\0t\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0-\0m\0o\0z\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0'\0>\0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0<\0/\0t\0a\0b\0l\0e\0>\0\r\0
+\0 \0 \0 \0 \0<\0/\0d\0i\0v\0>\0\r\0
+\0 \0 \0 \0 \0<\0/\0d\0i\0v\0>\0\r\0
+\0 \0 \0 \0 \0<\0d\0i\0v\0 \0a\0l\0i\0g\0n\0=\0c\0e\0n\0t\0e\0r\0>\0\r\0
+\0 \0 \0 \0 \0<\0t\0a\0b\0l\0e\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0T\0a\0b\0l\0e\0 \0b\0o\0r\0d\0e\0r\0=\x000\0 \0c\0e\0l\0l\0s\0p\0a\0c\0i\0n\0g\0=\x000\0 \0c\0e\0l\0l\0p\0a\0d\0d\0i\0n\0g\0=\x000\0 \0w\0i\0d\0t\0h\0=\x005\x007\x000\0\r\0
+\0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0w\0i\0d\0t\0h\0:\x004\x002\x007\0.\x005\0p\0t\0;\0b\0o\0r\0d\0e\0r\0-\0c\0o\0l\0l\0a\0p\0s\0e\0:\0c\0o\0l\0l\0a\0p\0s\0e\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0t\0b\0l\0l\0o\0o\0k\0:\x001\x001\x008\x004\0;\0\r\0
+\0 \0 \0 \0 \0 \0m\0s\0o\0-\0p\0a\0d\0d\0i\0n\0g\0-\0a\0l\0t\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x000\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0f\0i\0r\0s\0t\0r\0o\0w\0:\0y\0e\0s\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0l\0a\0s\0t\0r\0o\0w\0:\0y\0e\0s\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0w\0i\0d\0t\0h\0=\x005\x007\x000\0 \0s\0t\0y\0l\0e\0=\0'\0w\0i\0d\0t\0h\0:\x004\x002\x007\0.\x005\0p\0t\0;\0b\0o\0r\0d\0e\0r\0:\0n\0o\0n\0e\0;\0b\0o\0r\0d\0e\0r\0-\0b\0o\0t\0t\0o\0m\0:\0s\0o\0l\0i\0d\0 \0#\0E\x001\0E\x006\0E\0A\0 \x001\0.\x005\0p\0t\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0p\0a\0d\0d\0i\0n\0g\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0'\0>\0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0<\0/\0t\0a\0b\0l\0e\0>\0\r\0
+\0 \0 \0 \0 \0<\0/\0d\0i\0v\0>\0\r\0
+\0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x004\0.\x002\x005\0p\0t\0'\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x009\0.\x000\0p\0t\0;\0\r\0
+\0 \0 \0 \0 \0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0#\x002\x002\x002\x002\x002\x002\0;\0d\0i\0s\0p\0l\0a\0y\0:\0n\0o\0n\0e\0;\0m\0s\0o\0-\0h\0i\0d\0e\0:\0a\0l\0l\0'\0>\0<\0o\0:\0p\0>\0&\0n\0b\0s\0p\0;\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0<\0d\0i\0v\0 \0a\0l\0i\0g\0n\0=\0c\0e\0n\0t\0e\0r\0>\0\r\0
+\0 \0 \0 \0 \0<\0t\0a\0b\0l\0e\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0T\0a\0b\0l\0e\0 \0b\0o\0r\0d\0e\0r\0=\x000\0 \0c\0e\0l\0l\0s\0p\0a\0c\0i\0n\0g\0=\x000\0 \0c\0e\0l\0l\0p\0a\0d\0d\0i\0n\0g\0=\x000\0 \0w\0i\0d\0t\0h\0=\x006\x005\x000\0\r\0
+\0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0w\0i\0d\0t\0h\0:\x004\x008\x007\0.\x005\0p\0t\0;\0b\0o\0r\0d\0e\0r\0-\0c\0o\0l\0l\0a\0p\0s\0e\0:\0c\0o\0l\0l\0a\0p\0s\0e\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0t\0b\0l\0l\0o\0o\0k\0:\x001\x001\x008\x004\0;\0\r\0
+\0 \0 \0 \0 \0 \0m\0s\0o\0-\0p\0a\0d\0d\0i\0n\0g\0-\0a\0l\0t\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x000\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0f\0i\0r\0s\0t\0r\0o\0w\0:\0y\0e\0s\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0l\0a\0s\0t\0r\0o\0w\0:\0y\0e\0s\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0v\0a\0l\0i\0g\0n\0=\0t\0o\0p\0 \0s\0t\0y\0l\0e\0=\0'\0p\0a\0d\0d\0i\0n\0g\0:\x001\x001\0.\x002\x005\0p\0t\0 \x003\x000\0.\x000\0p\0t\0 \x001\x001\0.\x002\x005\0p\0t\0 \x003\x000\0.\x000\0p\0t\0;\0-\0w\0e\0b\0k\0i\0t\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0-\0m\0o\0z\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0-\0a\0l\0t\0:\x001\x002\0.\x007\x005\0p\0t\0'\0>\0<\0a\0\r\0
+\0 \0 \0 \0 \0 \0 \0n\0a\0m\0e\0=\0"\0C\0h\0a\0p\0t\0e\0r\0_\x002\x000\x002\x002\x000\x009\0"\0>\0<\0/\0a\0>\0<\0s\0t\0r\0o\0n\0g\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x001\x003\0.\x005\0p\0t\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0#\x000\0A\x008\x002\x007\x006\0'\0>\0B\0u\0l\0l\0e\0t\0i\0n\0 \0B\0o\0a\0r\0d\0<\0/\0s\0p\0a\0n\0>\0<\0/\0s\0t\0r\0o\0n\0g\0>\0<\0s\0p\0a\0n\0\r\0
+\0 \0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x001\x003\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0#\x000\0A\x008\x002\x007\x006\0'\0>\0 \0<\0o\0:\0p\0>\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0<\0/\0t\0a\0b\0l\0e\0>\0\r\0
+\0 \0 \0 \0 \0<\0/\0d\0i\0v\0>\0\r\0
+\0 \0 \0 \0 \0<\0d\0i\0v\0 \0i\0d\0=\0"\0a\0r\0t\0i\0c\0l\0e\0_\x002\x007\x003\x007\x006\x003\0"\0>\0\r\0
+\0 \0 \0 \0 \0<\0d\0i\0v\0>\0\r\0
+\0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x004\0.\x002\x005\0p\0t\0'\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x009\0.\x000\0p\0t\0;\0\r\0
+\0 \0 \0 \0 \0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0#\x002\x002\x002\x002\x002\x002\0;\0d\0i\0s\0p\0l\0a\0y\0:\0n\0o\0n\0e\0;\0m\0s\0o\0-\0h\0i\0d\0e\0:\0a\0l\0l\0'\0>\0<\0o\0:\0p\0>\0&\0n\0b\0s\0p\0;\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0<\0t\0a\0b\0l\0e\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0T\0a\0b\0l\0e\0 \0b\0o\0r\0d\0e\0r\0=\x000\0 \0c\0e\0l\0l\0s\0p\0a\0c\0i\0n\0g\0=\x000\0 \0c\0e\0l\0l\0p\0a\0d\0d\0i\0n\0g\0=\x000\0\r\0
+\0 \0 \0 \0 \0 \0w\0i\0d\0t\0h\0=\0"\x001\x000\x000\0%\0"\0 \0s\0t\0y\0l\0e\0=\0'\0w\0i\0d\0t\0h\0:\x001\x000\x000\0.\x000\0%\0;\0b\0o\0r\0d\0e\0r\0-\0c\0o\0l\0l\0a\0p\0s\0e\0:\0c\0o\0l\0l\0a\0p\0s\0e\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0t\0b\0l\0l\0o\0o\0k\0:\0\r\0
+\0 \0 \0 \0 \0 \x001\x001\x008\x004\0;\0m\0s\0o\0-\0p\0a\0d\0d\0i\0n\0g\0-\0a\0l\0t\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0;\0b\0o\0r\0d\0e\0r\0-\0s\0p\0a\0c\0i\0n\0g\0:\0 \x000\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x000\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0f\0i\0r\0s\0t\0r\0o\0w\0:\0y\0e\0s\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0v\0a\0l\0i\0g\0n\0=\0t\0o\0p\0 \0s\0t\0y\0l\0e\0=\0'\0p\0a\0d\0d\0i\0n\0g\0:\x000\0i\0n\0 \x003\x000\0.\x000\0p\0t\0 \x001\x007\0.\x002\x005\0p\0t\0 \x003\x000\0.\x000\0p\0t\0;\0-\0w\0e\0b\0k\0i\0t\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0-\0m\0o\0z\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x002\0.\x007\x005\0p\0t\0'\0>\0<\0b\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0'\0>\0T\0o\0p\0i\0c\0 \0s\0p\0o\0t\0l\0i\0g\0h\0t\0 \0v\0o\0l\0.\0 \x006\0:\0 \0E\0m\0b\0e\0d\0d\0e\0d\0 \0W\0o\0r\0l\0d\0\r\0
+\0 \0 \0 \0 \0 \0 \x002\x000\x002\x006\0 \0<\0/\0s\0p\0a\0n\0>\0<\0/\0b\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0'\0>\0<\0o\0:\0p\0>\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x001\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0v\0a\0l\0i\0g\0n\0=\0t\0o\0p\0 \0s\0t\0y\0l\0e\0=\0'\0p\0a\0d\0d\0i\0n\0g\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0;\0-\0w\0e\0b\0k\0i\0t\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0-\0m\0o\0z\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x002\0.\x007\x005\0p\0t\0'\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0'\0>\0<\0i\0m\0g\0 \0b\0o\0r\0d\0e\0r\0=\x000\0\r\0
+\0 \0 \0 \0 \0 \0 \0w\0i\0d\0t\0h\0=\x006\x005\x000\0 \0h\0e\0i\0g\0h\0t\0=\x002\x000\x000\0 \0i\0d\0=\0"\0_\0x\x000\x000\x000\x000\0_\0i\x001\x000\x003\x007\0"\0\r\0
+\0 \0 \0 \0 \0 \0 \0s\0r\0c\0=\0"\0h\0t\0t\0p\0s\0:\0/\0/\0n\0e\0w\0s\0l\0e\0t\0t\0e\0r\0f\0i\0l\0e\0s\0.\0i\0n\0f\0i\0n\0e\0o\0n\0.\0c\0o\0m\0/\0f\0i\0l\0e\0s\0/\0i\0f\0x\0n\0e\0w\0s\0l\0e\0t\0t\0e\0r\0s\0-\0p\0i\0c\0t\0u\0r\0e\0s\0/\0E\0W\x002\x006\0_\x001\x009\0-\x000\x003\0-\x002\x000\x002\x006\0-\x000\x006\0-\x005\x001\0-\x004\x001\0.\0j\0p\0g\0"\0\r\0
+\0 \0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0h\0e\0i\0g\0h\0t\0:\x002\0.\x000\x008\x003\0i\0n\0;\0w\0i\0d\0t\0h\0:\x006\0.\x007\x007\x005\0i\0n\0'\0>\0<\0o\0:\0p\0>\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x002\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0l\0a\0s\0t\0r\0o\0w\0:\0y\0e\0s\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0v\0a\0l\0i\0g\0n\0=\0t\0o\0p\0 \0s\0t\0y\0l\0e\0=\0'\0p\0a\0d\0d\0i\0n\0g\0:\x001\x001\0.\x002\x005\0p\0t\0 \x003\x000\0.\x000\0p\0t\0 \x000\0i\0n\0 \x003\x000\0.\x000\0p\0t\0;\0-\0w\0e\0b\0k\0i\0t\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0-\0m\0o\0z\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x002\0.\x007\x005\0p\0t\0'\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0'\0>\0W\0e\0'\0r\0e\0 \0e\0x\0c\0i\0t\0e\0d\0 \0t\0o\0 \0s\0h\0a\0r\0e\0\r\0
+\0 \0 \0 \0 \0 \0 \0t\0h\0e\0 \0h\0i\0g\0h\0l\0i\0g\0h\0t\0s\0 \0f\0r\0o\0m\0 \0E\0m\0b\0e\0d\0d\0e\0d\0 \0W\0o\0r\0l\0d\0 \x002\x000\x002\x006\0 \0o\0n\0 \0M\0a\0r\0c\0h\0 \x001\x000\0-\x001\x002\0 \0i\0n\0 \0N\0�\0r\0n\0b\0e\0r\0g\0,\0 \0w\0h\0e\0r\0e\0\r\0
+\0 \0 \0 \0 \0 \0 \0w\0e\0 \0s\0o\0l\0i\0d\0i\0f\0i\0e\0d\0 \0o\0u\0r\0 \0p\0o\0s\0i\0t\0i\0o\0n\0 \0a\0s\0 \0a\0 \0g\0l\0o\0b\0a\0l\0 \0l\0e\0a\0d\0e\0r\0.\0 \0<\0a\0\r\0
+\0 \0 \0 \0 \0 \0 \0h\0r\0e\0f\0=\0"\0h\0t\0t\0p\0s\0:\0/\0/\0w\0w\0w\0.\0l\0i\0n\0k\0e\0d\0i\0n\0.\0c\0o\0m\0/\0p\0o\0s\0t\0s\0/\0i\0n\0f\0i\0n\0e\0o\0n\0-\0t\0e\0c\0h\0n\0o\0l\0o\0g\0i\0e\0s\0_\0n\0u\0m\0b\0e\0r\0-\0o\0n\0e\0-\0i\0s\0-\0m\0c\0u\0-\0m\0a\0r\0k\0e\0t\0-\0a\0c\0t\0i\0v\0i\0t\0y\0-\x007\x004\x003\x007\x000\x009\x004\x004\x005\x005\x002\x008\x000\x008\x002\x000\x002\x002\x004\0-\x006\0z\0w\0x\0?\0u\0t\0m\0_\0s\0o\0u\0r\0c\0e\0=\0s\0h\0a\0r\0e\0&\0a\0m\0p\0;\0u\0t\0m\0_\0m\0e\0d\0i\0u\0m\0=\0m\0e\0m\0b\0e\0r\0_\0d\0e\0s\0k\0t\0o\0p\0&\0a\0m\0p\0;\0r\0c\0m\0=\0A\0C\0o\0A\0A\0D\0R\0b\0U\0m\0k\0B\0j\0G\0w\0-\0Y\0G\0P\0G\x002\0j\0S\0W\0E\0N\0_\0k\0P\0m\0P\0z\0g\0Q\0C\0w\0J\x001\0I\0"\0>\0O\0u\0r\0\r\0
+\0 \0 \0 \0 \0 \0 \0N\0o\0.\0 \x001\0 \0p\0o\0s\0i\0t\0i\0o\0n\0 \0i\0n\0 \0M\0C\0U\0<\0/\0a\0>\0 \0w\0a\0s\0 \0r\0e\0i\0n\0f\0o\0r\0c\0e\0d\0,\0 \0w\0i\0t\0h\0 \0a\0 \0s\0t\0r\0e\0n\0g\0t\0h\0e\0n\0e\0d\0 \0s\0t\0a\0n\0c\0e\0 \0a\0n\0d\0\r\0
+\0 \0 \0 \0 \0 \0 \0a\0 \0m\0a\0r\0k\0e\0t\0 \0s\0h\0a\0r\0e\0 \0i\0n\0c\0r\0e\0a\0s\0e\0 \0t\0o\0 \x002\x003\0.\x002\0%\0 \0i\0n\0 \x002\x000\x002\x005\0.\0<\0b\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0W\0e\0,\0 \0A\0T\0V\0 \0M\0C\0,\0 \0m\0a\0d\0e\0 \0s\0i\0g\0n\0i\0f\0i\0c\0a\0n\0t\0 \0c\0o\0n\0t\0r\0i\0b\0u\0t\0i\0o\0n\0s\0,\0 \0s\0h\0o\0w\0c\0a\0s\0i\0n\0g\0 \0o\0v\0e\0r\0 \x001\x005\0 \0d\0e\0m\0o\0s\0 \0a\0n\0d\0\r\0
+\0 \0 \0 \0 \0 \0 \0s\0t\0o\0r\0i\0e\0s\0 \0i\0n\0 \0S\0D\0V\0,\0 \0A\0I\0,\0 \0I\0o\0T\0,\0 \0S\0e\0c\0u\0r\0i\0t\0y\0,\0 \0a\0n\0d\0 \0E\0c\0o\0s\0y\0s\0t\0e\0m\0,\0 \0a\0n\0d\0 \0d\0e\0l\0i\0v\0e\0r\0i\0n\0g\0 \x001\x003\0\r\0
+\0 \0 \0 \0 \0 \0 \0s\0p\0e\0e\0c\0h\0e\0s\0 \0t\0h\0a\0t\0 \0h\0i\0g\0h\0l\0i\0g\0h\0t\0e\0d\0 \0o\0u\0r\0 \0i\0n\0n\0o\0v\0a\0t\0i\0v\0e\0 \0e\0x\0p\0e\0r\0t\0i\0s\0e\0 \0i\0n\0 \0M\0i\0c\0r\0o\0c\0o\0n\0t\0r\0o\0l\0l\0e\0r\0s\0\r\0
+\0 \0 \0 \0 \0 \0 \0f\0o\0r\0 \0A\0u\0t\0o\0m\0o\0t\0i\0v\0e\0 \0a\0n\0d\0 \0b\0e\0y\0o\0n\0d\0.\0<\0b\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0G\0r\0e\0a\0t\0 \0c\0o\0l\0l\0a\0b\0o\0r\0a\0t\0i\0o\0n\0 \0w\0i\0t\0h\0 \0C\0P\0,\0 \0C\0S\0S\0,\0 \0a\0n\0d\0 \0P\0S\0S\0 \0e\0n\0a\0b\0l\0e\0d\0 \0u\0s\0 \0t\0o\0 \0a\0c\0h\0i\0e\0v\0e\0 \0o\0u\0r\0 \0M\0Q\0L\0\r\0
+\0 \0 \0 \0 \0 \0 \0a\0n\0d\0 \0c\0u\0s\0t\0o\0m\0e\0r\0 \0m\0e\0e\0t\0i\0n\0g\0 \0t\0a\0r\0g\0e\0t\0s\0.\0 \0K\0u\0d\0o\0s\0 \0t\0o\0 \0a\0l\0l\0 \0c\0o\0l\0l\0e\0a\0g\0u\0e\0s\0 \0w\0h\0o\0 \0c\0o\0n\0t\0r\0i\0b\0u\0t\0e\0d\0 \0t\0o\0\r\0
+\0 \0 \0 \0 \0 \0 \0t\0h\0i\0s\0 \0g\0r\0e\0a\0t\0 \0s\0u\0c\0c\0e\0s\0s\0!\0<\0b\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0F\0o\0r\0 \0a\0 \0s\0n\0e\0a\0k\0 \0p\0e\0e\0k\0,\0 \0c\0h\0e\0c\0k\0 \0o\0u\0t\0 \0<\0a\0\r\0
+\0 \0 \0 \0 \0 \0 \0h\0r\0e\0f\0=\0"\0h\0t\0t\0p\0:\0/\0/\0w\0w\0w\0.\0l\0i\0n\0k\0e\0d\0i\0n\0.\0c\0o\0m\0/\0p\0o\0s\0t\0s\0/\0i\0n\0f\0i\0n\0e\0o\0n\0-\0t\0e\0c\0h\0n\0o\0l\0o\0g\0i\0e\0s\0_\0e\0m\0b\0e\0d\0d\0e\0d\0w\0o\0r\0l\0d\0-\0e\0w\x002\x006\0-\0i\0n\0n\0o\0v\0a\0t\0i\0o\0n\0-\0a\0c\0t\0i\0v\0i\0t\0y\0-\x007\x004\x003\x007\x008\x007\x005\x001\x002\x006\x002\x009\x000\x008\x007\x004\x003\x007\x000\0-\0D\0s\0A\0M\0?\0u\0t\0m\0_\0s\0o\0u\0r\0c\0e\0=\0s\0h\0a\0r\0e\0&\0a\0m\0p\0;\0u\0t\0m\0_\0m\0e\0d\0i\0u\0m\0=\0m\0e\0m\0b\0e\0r\0_\0d\0e\0s\0k\0t\0o\0p\0&\0a\0m\0p\0;\0r\0c\0m\0=\0A\0C\0o\0A\0A\0D\0R\0b\0U\0m\0k\0B\0j\0G\0w\0-\0Y\0G\0P\0G\x002\0j\0S\0W\0E\0N\0_\0k\0P\0m\0P\0z\0g\0Q\0C\0w\0J\x001\0I\0&\0n\0b\0s\0p\0;\0"\0>\0I\0n\0f\0i\0n\0e\0o\0n\0'\0s\0\r\0
+\0 \0 \0 \0 \0 \0 \0s\0u\0m\0m\0a\0r\0y\0 \0p\0o\0s\0t\0 \0o\0n\0 \0L\0i\0n\0k\0e\0d\0I\0n\0<\0/\0a\0>\0.\0 \0.\0 \0M\0o\0r\0e\0 \0d\0e\0t\0a\0i\0l\0s\0 \0w\0i\0l\0l\0 \0f\0o\0l\0l\0o\0w\0,\0 \0s\0o\0 \0s\0t\0a\0y\0 \0t\0u\0n\0e\0d\0\r\0
+\0 \0 \0 \0 \0 \0 \0f\0o\0r\0 \0f\0u\0r\0t\0h\0e\0r\0 \0u\0p\0d\0a\0t\0e\0s\0!\0<\0b\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0b\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0s\0t\0r\0o\0n\0g\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0'\0>\0C\0o\0n\0t\0a\0c\0t\0:\0 \0K\0i\0k\0o\0\r\0
+\0 \0 \0 \0 \0 \0 \0S\0c\0h\0l\0i\0p\0f\0-\0I\0s\0h\0i\0i\0<\0/\0s\0p\0a\0n\0>\0<\0/\0s\0t\0r\0o\0n\0g\0>\0 \0<\0o\0:\0p\0>\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0t\0a\0b\0l\0e\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0T\0a\0b\0l\0e\0 \0b\0o\0r\0d\0e\0r\0=\x000\0 \0c\0e\0l\0l\0s\0p\0a\0c\0i\0n\0g\0=\x000\0 \0c\0e\0l\0l\0p\0a\0d\0d\0i\0n\0g\0=\x000\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0b\0o\0r\0d\0e\0r\0-\0c\0o\0l\0l\0a\0p\0s\0e\0:\0c\0o\0l\0l\0a\0p\0s\0e\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0t\0b\0l\0l\0o\0o\0k\0:\x001\x001\x008\x004\0;\0m\0s\0o\0-\0p\0a\0d\0d\0i\0n\0g\0-\0a\0l\0t\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x000\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0f\0i\0r\0s\0t\0r\0o\0w\0:\0y\0e\0s\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0l\0a\0s\0t\0r\0o\0w\0:\0y\0e\0s\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0h\0e\0i\0g\0h\0t\0:\x007\0.\x005\0p\0t\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0s\0t\0y\0l\0e\0=\0'\0p\0a\0d\0d\0i\0n\0g\0:\0.\x007\x005\0p\0t\0 \0.\x007\x005\0p\0t\0 \0.\x007\x005\0p\0t\0 \0.\x007\x005\0p\0t\0;\0h\0e\0i\0g\0h\0t\0:\x007\0.\x005\0p\0t\0'\0>\0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0/\0t\0a\0b\0l\0e\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x002\0.\x007\x005\0p\0t\0'\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0;\0d\0i\0s\0p\0l\0a\0y\0:\0n\0o\0n\0e\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0m\0s\0o\0-\0h\0i\0d\0e\0:\0a\0l\0l\0'\0>\0<\0o\0:\0p\0>\0&\0n\0b\0s\0p\0;\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0t\0a\0b\0l\0e\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0T\0a\0b\0l\0e\0 \0b\0o\0r\0d\0e\0r\0=\x000\0 \0c\0e\0l\0l\0s\0p\0a\0c\0i\0n\0g\0=\x000\0 \0c\0e\0l\0l\0p\0a\0d\0d\0i\0n\0g\0=\x000\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0b\0o\0r\0d\0e\0r\0-\0c\0o\0l\0l\0a\0p\0s\0e\0:\0c\0o\0l\0l\0a\0p\0s\0e\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0t\0b\0l\0l\0o\0o\0k\0:\x001\x001\x008\x004\0;\0m\0s\0o\0-\0p\0a\0d\0d\0i\0n\0g\0-\0a\0l\0t\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x000\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0f\0i\0r\0s\0t\0r\0o\0w\0:\0y\0e\0s\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0l\0a\0s\0t\0r\0o\0w\0:\0y\0e\0s\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0s\0t\0y\0l\0e\0=\0'\0p\0a\0d\0d\0i\0n\0g\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0'\0>\0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0/\0t\0a\0b\0l\0e\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0>\0<\0o\0:\0p\0>\0<\0/\0o\0:\0p\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0<\0/\0t\0a\0b\0l\0e\0>\0\r\0
+\0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x004\0.\x002\x005\0p\0t\0'\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x009\0.\x000\0p\0t\0;\0\r\0
+\0 \0 \0 \0 \0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0#\x002\x002\x002\x002\x002\x002\0;\0d\0i\0s\0p\0l\0a\0y\0:\0n\0o\0n\0e\0;\0m\0s\0o\0-\0h\0i\0d\0e\0:\0a\0l\0l\0'\0>\0<\0o\0:\0p\0>\0&\0n\0b\0s\0p\0;\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0<\0t\0a\0b\0l\0e\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0T\0a\0b\0l\0e\0 \0b\0o\0r\0d\0e\0r\0=\x000\0 \0c\0e\0l\0l\0s\0p\0a\0c\0i\0n\0g\0=\x000\0 \0c\0e\0l\0l\0p\0a\0d\0d\0i\0n\0g\0=\x000\0\r\0
+\0 \0 \0 \0 \0 \0w\0i\0d\0t\0h\0=\0"\x001\x000\x000\0%\0"\0 \0s\0t\0y\0l\0e\0=\0'\0w\0i\0d\0t\0h\0:\x001\x000\x000\0.\x000\0%\0;\0b\0o\0r\0d\0e\0r\0-\0c\0o\0l\0l\0a\0p\0s\0e\0:\0c\0o\0l\0l\0a\0p\0s\0e\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0t\0b\0l\0l\0o\0o\0k\0:\0\r\0
+\0 \0 \0 \0 \0 \x001\x001\x008\x004\0;\0m\0s\0o\0-\0p\0a\0d\0d\0i\0n\0g\0-\0a\0l\0t\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0;\0b\0o\0r\0d\0e\0r\0-\0s\0p\0a\0c\0i\0n\0g\0:\0 \x000\0;\0w\0h\0i\0t\0e\0 \0!\0i\0m\0p\0o\0r\0t\0a\0n\0t\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x000\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0f\0i\0r\0s\0t\0r\0o\0w\0:\0y\0e\0s\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0l\0a\0s\0t\0r\0o\0w\0:\0y\0e\0s\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0h\0e\0i\0g\0h\0t\0:\x002\x006\0.\x002\x005\0p\0t\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0v\0a\0l\0i\0g\0n\0=\0t\0o\0p\0 \0s\0t\0y\0l\0e\0=\0'\0p\0a\0d\0d\0i\0n\0g\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0;\0h\0e\0i\0g\0h\0t\0:\x002\x006\0.\x002\x005\0p\0t\0;\0w\0o\0r\0d\0-\0b\0r\0e\0a\0k\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0b\0r\0e\0a\0k\0-\0w\0o\0r\0d\0;\0-\0w\0e\0b\0k\0i\0t\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0-\0m\0o\0z\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0'\0>\0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0<\0/\0t\0a\0b\0l\0e\0>\0\r\0
+\0 \0 \0 \0 \0<\0/\0d\0i\0v\0>\0\r\0
+\0 \0 \0 \0 \0<\0/\0d\0i\0v\0>\0\r\0
+\0 \0 \0 \0 \0<\0t\0a\0b\0l\0e\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0T\0a\0b\0l\0e\0 \0b\0o\0r\0d\0e\0r\0=\x000\0 \0c\0e\0l\0l\0s\0p\0a\0c\0i\0n\0g\0=\x000\0 \0c\0e\0l\0l\0p\0a\0d\0d\0i\0n\0g\0=\x000\0\r\0
+\0 \0 \0 \0 \0 \0w\0i\0d\0t\0h\0=\0"\x001\x000\x000\0%\0"\0 \0s\0t\0y\0l\0e\0=\0'\0w\0i\0d\0t\0h\0:\x001\x000\x000\0.\x000\0%\0;\0b\0o\0r\0d\0e\0r\0-\0c\0o\0l\0l\0a\0p\0s\0e\0:\0c\0o\0l\0l\0a\0p\0s\0e\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0t\0b\0l\0l\0o\0o\0k\0:\0\r\0
+\0 \0 \0 \0 \0 \x001\x001\x008\x004\0;\0m\0s\0o\0-\0p\0a\0d\0d\0i\0n\0g\0-\0a\0l\0t\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x000\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0f\0i\0r\0s\0t\0r\0o\0w\0:\0y\0e\0s\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0v\0a\0l\0i\0g\0n\0=\0t\0o\0p\0 \0s\0t\0y\0l\0e\0=\0'\0p\0a\0d\0d\0i\0n\0g\0:\x000\0i\0n\0 \x003\x000\0.\x000\0p\0t\0 \x001\x007\0.\x002\x005\0p\0t\0 \x003\x000\0.\x000\0p\0t\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x002\0.\x007\x005\0p\0t\0'\0>\0<\0b\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0'\0>\0T\0h\0r\0e\0e\0 \0N\0e\0w\0 \0D\0R\0I\0V\0E\0C\0O\0R\0E\0 \0S\0o\0f\0t\0w\0a\0r\0e\0 \0B\0u\0n\0d\0l\0e\0s\0\r\0
+\0 \0 \0 \0 \0 \0 \0R\0e\0l\0e\0a\0s\0e\0d\0 \0a\0t\0 \0E\0m\0b\0e\0d\0d\0e\0d\0 \0W\0o\0r\0l\0d\0!\0 \0<\0/\0s\0p\0a\0n\0>\0<\0/\0b\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x001\x000\0.\x005\0p\0t\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0'\0>\0<\0o\0:\0p\0>\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x001\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0v\0a\0l\0i\0g\0n\0=\0t\0o\0p\0 \0s\0t\0y\0l\0e\0=\0'\0p\0a\0d\0d\0i\0n\0g\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0;\0-\0w\0e\0b\0k\0i\0t\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0-\0m\0o\0z\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x002\0.\x007\x005\0p\0t\0'\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0'\0>\0<\0i\0m\0g\0 \0b\0o\0r\0d\0e\0r\0=\x000\0\r\0
+\0 \0 \0 \0 \0 \0 \0w\0i\0d\0t\0h\0=\x006\x005\x000\0 \0h\0e\0i\0g\0h\0t\0=\x002\x000\x000\0 \0i\0d\0=\0"\0_\0x\x000\x000\x000\x000\0_\0i\x001\x000\x003\x008\0"\0\r\0
+\0 \0 \0 \0 \0 \0 \0s\0r\0c\0=\0"\0h\0t\0t\0p\0s\0:\0/\0/\0n\0e\0w\0s\0l\0e\0t\0t\0e\0r\0f\0i\0l\0e\0s\0.\0i\0n\0f\0i\0n\0e\0o\0n\0.\0c\0o\0m\0/\0f\0i\0l\0e\0s\0/\0i\0f\0x\0n\0e\0w\0s\0l\0e\0t\0t\0e\0r\0s\0-\0p\0i\0c\0t\0u\0r\0e\0s\0/\0S\0c\0r\0e\0e\0n\0s\0h\0o\0t\0%\x002\x000\x002\x000\x002\x006\0-\x000\x003\0-\x001\x009\0%\x002\x000\x001\x004\x000\x007\x004\x001\0_\x001\x009\0-\x000\x003\0-\x002\x000\x002\x006\0-\x000\x003\0-\x000\x008\0-\x003\x003\0.\0p\0n\0g\0"\0\r\0
+\0 \0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0h\0e\0i\0g\0h\0t\0:\x002\0.\x000\x008\x003\0i\0n\0;\0w\0i\0d\0t\0h\0:\x006\0.\x007\x007\x005\0i\0n\0'\0>\0<\0o\0:\0p\0>\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x002\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0l\0a\0s\0t\0r\0o\0w\0:\0y\0e\0s\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0v\0a\0l\0i\0g\0n\0=\0t\0o\0p\0 \0s\0t\0y\0l\0e\0=\0'\0p\0a\0d\0d\0i\0n\0g\0:\x001\x001\0.\x002\x005\0p\0t\0 \x003\x000\0.\x000\0p\0t\0 \x000\0i\0n\0 \x003\x000\0.\x000\0p\0t\0;\0-\0w\0e\0b\0k\0i\0t\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0-\0m\0o\0z\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x002\0.\x007\x005\0p\0t\0'\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0'\0>\0<\0b\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0P\0S\0O\0C\0"! \0A\0u\0t\0o\0m\0o\0t\0i\0v\0e\0 \0D\0R\0I\0V\0E\0C\0O\0R\0E\0 \0S\0m\0a\0r\0t\0 \0E\0n\0d\0 \0P\0o\0i\0n\0t\0 \0[\0I\0n\0f\0i\0n\0e\0o\0n\0,\0 \0E\0l\0e\0k\0t\0r\0o\0b\0i\0t\0,\0 \0I\0A\0R\0]\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0W\0i\0t\0h\0 \0E\0l\0e\0k\0t\0r\0o\0b\0i\0t\0 s\0 \0E\0B\0 \0t\0r\0e\0s\0o\0s\0 \0A\0u\0t\0o\0C\0o\0r\0e\0 \0L\0i\0g\0h\0t\0 \0a\0n\0d\0 \0I\0A\0R\0 s\0 \0c\0e\0r\0t\0i\0f\0i\0e\0d\0 \0A\0r\0m\0\r\0
+\0 \0 \0 \0 \0 \0 \0t\0o\0o\0l\0c\0h\0a\0i\0n\0,\0 \0i\0t\0 \0a\0c\0c\0e\0l\0e\0r\0a\0t\0e\0s\0 \0t\0h\0e\0 \0d\0e\0v\0e\0l\0o\0p\0m\0e\0n\0t\0 \0o\0f\0 \0e\0d\0g\0e\0 \0c\0o\0n\0t\0r\0o\0l\0l\0e\0r\0s\0 \0a\0n\0d\0 \0s\0m\0a\0l\0l\0,\0\r\0
+\0 \0 \0 \0 \0 \0 \0s\0a\0f\0e\0t\0y\0-\0c\0r\0i\0t\0i\0c\0a\0l\0 \0E\0C\0U\0s\0.\0<\0b\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0A\0U\0R\0I\0X\0"! \0D\0R\0I\0V\0E\0C\0O\0R\0E\0 \0A\0U\0T\0O\0S\0A\0R\0 \0[\0I\0n\0f\0i\0n\0e\0o\0n\0,\0 \0E\0l\0e\0k\0t\0r\0o\0b\0i\0t\0,\0 \0T\0A\0S\0K\0I\0N\0G\0]\0:\0 \0I\0n\0t\0e\0g\0r\0a\0t\0i\0n\0g\0\r\0
+\0 \0 \0 \0 \0 \0 \0I\0n\0f\0i\0n\0e\0o\0n\0 s\0 \0M\0C\0A\0L\0 \0d\0r\0i\0v\0e\0r\0s\0,\0 \0E\0B\0 \0z\0o\0n\0e\0o\0 \0d\0r\0i\0v\0e\0r\0s\0,\0 \0E\0B\0 \0t\0r\0e\0s\0o\0s\0 \0A\0u\0t\0o\0C\0o\0r\0e\0 \0B\0S\0W\0,\0 \0a\0n\0d\0\r\0
+\0 \0 \0 \0 \0 \0 \0T\0A\0S\0K\0I\0N\0G\0 s\0 \0c\0e\0r\0t\0i\0f\0i\0e\0d\0 \0C\0o\0m\0p\0i\0l\0e\0r\0 \0T\0o\0o\0l\0 \0C\0h\0a\0i\0n\0,\0 \0i\0t\0 \0i\0n\0c\0l\0u\0d\0e\0s\0 \0a\0n\0 \0A\0U\0T\0O\0S\0A\0R\0 \0g\0a\0t\0e\0w\0a\0y\0\r\0
+\0 \0 \0 \0 \0 \0 \0d\0e\0m\0o\0 \0t\0o\0 \0s\0h\0o\0w\0c\0a\0s\0e\0 \0o\0p\0t\0i\0m\0i\0z\0e\0d\0 \0z\0o\0n\0a\0l\0 \0E\0C\0U\0 \0c\0o\0m\0m\0u\0n\0i\0c\0a\0t\0i\0o\0n\0.\0<\0b\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0A\0U\0R\0I\0X\0"! \0D\0R\0I\0V\0E\0C\0O\0R\0E\0 \0R\0I\0S\0C\0-\0V\0 \0V\0i\0r\0t\0u\0a\0l\0 \0P\0r\0o\0t\0o\0t\0y\0p\0e\0 \0[\0I\0n\0f\0i\0n\0e\0o\0n\0,\0 \0S\0y\0n\0o\0p\0s\0y\0s\0,\0 \0H\0i\0g\0h\0T\0e\0c\0,\0\r\0
+\0 \0 \0 \0 \0 \0 \0L\0a\0u\0t\0e\0r\0b\0a\0c\0h\0]\0 \0p\0r\0o\0v\0i\0d\0e\0s\0 \0a\0n\0 \0e\0a\0s\0y\0 \0e\0n\0t\0r\0y\0 \0t\0o\0 \0q\0u\0i\0c\0k\0l\0y\0 \0e\0x\0p\0l\0o\0r\0e\0 \0I\0n\0f\0i\0n\0e\0o\0n\0 s\0\r\0
+\0 \0 \0 \0 \0 \0 \0n\0e\0x\0t\0-\0g\0e\0n\0e\0r\0a\0t\0i\0o\0n\0 \0R\0I\0S\0C\0-\0V\0 \0a\0u\0t\0o\0m\0o\0t\0i\0v\0e\0 \0m\0i\0c\0r\0o\0c\0o\0n\0t\0r\0o\0l\0l\0e\0r\0.\0<\0b\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0b\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0I\0n\0f\0o\0s\0 \0&\0a\0m\0p\0;\0 \0c\0o\0l\0l\0a\0t\0e\0r\0a\0l\0s\0&\0n\0b\0s\0p\0;\0<\0u\0>\0<\0a\0\r\0
+\0 \0 \0 \0 \0 \0 \0h\0r\0e\0f\0=\0"\0h\0t\0t\0p\0s\0:\0/\0/\0w\0w\0w\0.\0i\0n\0f\0i\0n\0e\0o\0n\0.\0c\0o\0m\0/\0p\0r\0o\0m\0o\0/\0d\0r\0i\0v\0e\0-\0c\0o\0r\0e\0-\0s\0o\0f\0t\0w\0a\0r\0e\0-\0b\0u\0n\0d\0l\0e\0-\0a\0u\0t\0o\0m\0o\0t\0i\0v\0e\0-\0m\0i\0c\0r\0o\0c\0o\0n\0t\0r\0o\0l\0l\0e\0r\0"\0>\0D\0R\0I\0V\0E\0C\0O\0R\0E\0\r\0
+\0 \0 \0 \0 \0 \0 \0P\0r\0o\0m\0o\0 \0P\0a\0g\0e\0<\0/\0a\0>\0<\0/\0u\0>\0;\0&\0n\0b\0s\0p\0;\0<\0u\0>\0<\0a\0\r\0
+\0 \0 \0 \0 \0 \0 \0h\0r\0e\0f\0=\0"\0h\0t\0t\0p\0s\0:\0/\0/\0c\0o\0n\0f\0l\0u\0e\0n\0c\0e\0w\0i\0k\0i\0p\0r\0o\0d\0.\0i\0n\0t\0r\0a\0.\0i\0n\0f\0i\0n\0e\0o\0n\0.\0c\0o\0m\0/\0s\0p\0a\0c\0e\0s\0/\0a\0t\0v\0m\0c\0s\0p\0e\0/\0p\0a\0g\0e\0s\0/\x001\x007\x001\x004\x004\x009\x004\x000\x008\x009\0/\0D\0R\0I\0V\0E\0C\0O\0R\0E\0+\0-\0+\0S\0o\0f\0t\0w\0a\0r\0e\0+\0b\0u\0n\0d\0l\0e\0s\0"\0>\0C\0o\0n\0f\0l\0u\0e\0n\0c\0e\0\r\0
+\0 \0 \0 \0 \0 \0 \0P\0a\0g\0e\0<\0/\0a\0>\0<\0/\0u\0>\0<\0b\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0b\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0&\0n\0b\0s\0p\0;\0<\0b\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0s\0t\0r\0o\0n\0g\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0'\0>\0C\0o\0n\0t\0a\0c\0t\0:\0 \0L\0a\0u\0r\0a\0\r\0
+\0 \0 \0 \0 \0 \0 \0I\0n\0d\0r\0a\0c\0c\0o\0l\0o\0<\0/\0s\0p\0a\0n\0>\0<\0/\0s\0t\0r\0o\0n\0g\0>\0<\0b\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0&\0n\0b\0s\0p\0;\0 \0<\0o\0:\0p\0>\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0t\0a\0b\0l\0e\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0T\0a\0b\0l\0e\0 \0b\0o\0r\0d\0e\0r\0=\x000\0 \0c\0e\0l\0l\0s\0p\0a\0c\0i\0n\0g\0=\x000\0 \0c\0e\0l\0l\0p\0a\0d\0d\0i\0n\0g\0=\x000\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0b\0o\0r\0d\0e\0r\0-\0c\0o\0l\0l\0a\0p\0s\0e\0:\0c\0o\0l\0l\0a\0p\0s\0e\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0t\0b\0l\0l\0o\0o\0k\0:\x001\x001\x008\x004\0;\0m\0s\0o\0-\0p\0a\0d\0d\0i\0n\0g\0-\0a\0l\0t\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x000\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0f\0i\0r\0s\0t\0r\0o\0w\0:\0y\0e\0s\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0l\0a\0s\0t\0r\0o\0w\0:\0y\0e\0s\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0h\0e\0i\0g\0h\0t\0:\x007\0.\x005\0p\0t\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0s\0t\0y\0l\0e\0=\0'\0p\0a\0d\0d\0i\0n\0g\0:\0.\x007\x005\0p\0t\0 \0.\x007\x005\0p\0t\0 \0.\x007\x005\0p\0t\0 \0.\x007\x005\0p\0t\0;\0h\0e\0i\0g\0h\0t\0:\x007\0.\x005\0p\0t\0'\0>\0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0/\0t\0a\0b\0l\0e\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x002\0.\x007\x005\0p\0t\0'\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0;\0d\0i\0s\0p\0l\0a\0y\0:\0n\0o\0n\0e\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0m\0s\0o\0-\0h\0i\0d\0e\0:\0a\0l\0l\0'\0>\0<\0o\0:\0p\0>\0&\0n\0b\0s\0p\0;\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0t\0a\0b\0l\0e\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0T\0a\0b\0l\0e\0 \0b\0o\0r\0d\0e\0r\0=\x000\0 \0c\0e\0l\0l\0s\0p\0a\0c\0i\0n\0g\0=\x000\0 \0c\0e\0l\0l\0p\0a\0d\0d\0i\0n\0g\0=\x000\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0b\0o\0r\0d\0e\0r\0-\0c\0o\0l\0l\0a\0p\0s\0e\0:\0c\0o\0l\0l\0a\0p\0s\0e\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0t\0b\0l\0l\0o\0o\0k\0:\x001\x001\x008\x004\0;\0m\0s\0o\0-\0p\0a\0d\0d\0i\0n\0g\0-\0a\0l\0t\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x000\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0f\0i\0r\0s\0t\0r\0o\0w\0:\0y\0e\0s\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0l\0a\0s\0t\0r\0o\0w\0:\0y\0e\0s\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0s\0t\0y\0l\0e\0=\0'\0p\0a\0d\0d\0i\0n\0g\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0'\0>\0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0/\0t\0a\0b\0l\0e\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0>\0<\0o\0:\0p\0>\0<\0/\0o\0:\0p\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0<\0/\0t\0a\0b\0l\0e\0>\0\r\0
+\0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x004\0.\x002\x005\0p\0t\0'\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x009\0.\x000\0p\0t\0;\0\r\0
+\0 \0 \0 \0 \0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0#\x002\x002\x002\x002\x002\x002\0;\0d\0i\0s\0p\0l\0a\0y\0:\0n\0o\0n\0e\0;\0m\0s\0o\0-\0h\0i\0d\0e\0:\0a\0l\0l\0'\0>\0<\0o\0:\0p\0>\0&\0n\0b\0s\0p\0;\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0<\0t\0a\0b\0l\0e\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0T\0a\0b\0l\0e\0 \0b\0o\0r\0d\0e\0r\0=\x000\0 \0c\0e\0l\0l\0s\0p\0a\0c\0i\0n\0g\0=\x000\0 \0c\0e\0l\0l\0p\0a\0d\0d\0i\0n\0g\0=\x000\0\r\0
+\0 \0 \0 \0 \0 \0w\0i\0d\0t\0h\0=\0"\x001\x000\x000\0%\0"\0 \0s\0t\0y\0l\0e\0=\0'\0w\0i\0d\0t\0h\0:\x001\x000\x000\0.\x000\0%\0;\0b\0o\0r\0d\0e\0r\0-\0c\0o\0l\0l\0a\0p\0s\0e\0:\0c\0o\0l\0l\0a\0p\0s\0e\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0t\0b\0l\0l\0o\0o\0k\0:\0\r\0
+\0 \0 \0 \0 \0 \x001\x001\x008\x004\0;\0m\0s\0o\0-\0p\0a\0d\0d\0i\0n\0g\0-\0a\0l\0t\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0;\0b\0o\0r\0d\0e\0r\0-\0s\0p\0a\0c\0i\0n\0g\0:\0 \x000\0;\0w\0h\0i\0t\0e\0 \0!\0i\0m\0p\0o\0r\0t\0a\0n\0t\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x000\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0f\0i\0r\0s\0t\0r\0o\0w\0:\0y\0e\0s\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0l\0a\0s\0t\0r\0o\0w\0:\0y\0e\0s\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0h\0e\0i\0g\0h\0t\0:\x002\x006\0.\x002\x005\0p\0t\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0v\0a\0l\0i\0g\0n\0=\0t\0o\0p\0 \0s\0t\0y\0l\0e\0=\0'\0p\0a\0d\0d\0i\0n\0g\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0;\0h\0e\0i\0g\0h\0t\0:\x002\x006\0.\x002\x005\0p\0t\0;\0w\0o\0r\0d\0-\0b\0r\0e\0a\0k\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0b\0r\0e\0a\0k\0-\0w\0o\0r\0d\0;\0-\0w\0e\0b\0k\0i\0t\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0-\0m\0o\0z\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0'\0>\0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0<\0/\0t\0a\0b\0l\0e\0>\0\r\0
+\0 \0 \0 \0 \0<\0d\0i\0v\0 \0i\0d\0=\0"\0a\0r\0t\0i\0c\0l\0e\0_\x003\x003\x009\x006\x001\x006\0"\0>\0\r\0
+\0 \0 \0 \0 \0<\0d\0i\0v\0>\0\r\0
+\0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x004\0.\x002\x005\0p\0t\0'\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x009\0.\x000\0p\0t\0;\0\r\0
+\0 \0 \0 \0 \0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0#\x002\x002\x002\x002\x002\x002\0;\0d\0i\0s\0p\0l\0a\0y\0:\0n\0o\0n\0e\0;\0m\0s\0o\0-\0h\0i\0d\0e\0:\0a\0l\0l\0'\0>\0<\0o\0:\0p\0>\0&\0n\0b\0s\0p\0;\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0<\0t\0a\0b\0l\0e\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0T\0a\0b\0l\0e\0 \0b\0o\0r\0d\0e\0r\0=\x000\0 \0c\0e\0l\0l\0s\0p\0a\0c\0i\0n\0g\0=\x000\0 \0c\0e\0l\0l\0p\0a\0d\0d\0i\0n\0g\0=\x000\0\r\0
+\0 \0 \0 \0 \0 \0w\0i\0d\0t\0h\0=\0"\x001\x000\x000\0%\0"\0 \0s\0t\0y\0l\0e\0=\0'\0w\0i\0d\0t\0h\0:\x001\x000\x000\0.\x000\0%\0;\0b\0o\0r\0d\0e\0r\0-\0c\0o\0l\0l\0a\0p\0s\0e\0:\0c\0o\0l\0l\0a\0p\0s\0e\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0t\0b\0l\0l\0o\0o\0k\0:\0\r\0
+\0 \0 \0 \0 \0 \x001\x001\x008\x004\0;\0m\0s\0o\0-\0p\0a\0d\0d\0i\0n\0g\0-\0a\0l\0t\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0;\0b\0o\0r\0d\0e\0r\0-\0s\0p\0a\0c\0i\0n\0g\0:\0 \x000\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x000\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0f\0i\0r\0s\0t\0r\0o\0w\0:\0y\0e\0s\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0l\0a\0s\0t\0r\0o\0w\0:\0y\0e\0s\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0w\0i\0d\0t\0h\0=\x003\x002\x005\0 \0v\0a\0l\0i\0g\0n\0=\0t\0o\0p\0 \0s\0t\0y\0l\0e\0=\0'\0w\0i\0d\0t\0h\0:\x002\x004\x003\0.\x007\x005\0p\0t\0;\0p\0a\0d\0d\0i\0n\0g\0:\x000\0i\0n\0 \x003\0.\x007\x005\0p\0t\0 \x000\0i\0n\0 \x000\0i\0n\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0-\0w\0e\0b\0k\0i\0t\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0-\0m\0o\0z\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x002\0.\x007\x005\0p\0t\0'\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0'\0>\0<\0i\0m\0g\0 \0b\0o\0r\0d\0e\0r\0=\x000\0\r\0
+\0 \0 \0 \0 \0 \0 \0w\0i\0d\0t\0h\0=\x003\x002\x000\0 \0h\0e\0i\0g\0h\0t\0=\x002\x004\x006\0 \0i\0d\0=\0"\0_\0x\x000\x000\x000\x000\0_\0i\x001\x000\x003\x009\0"\0\r\0
+\0 \0 \0 \0 \0 \0 \0s\0r\0c\0=\0"\0h\0t\0t\0p\0s\0:\0/\0/\0n\0e\0w\0s\0l\0e\0t\0t\0e\0r\0f\0i\0l\0e\0s\0.\0i\0n\0f\0i\0n\0e\0o\0n\0.\0c\0o\0m\0/\0f\0i\0l\0e\0s\0/\0i\0f\0x\0n\0e\0w\0s\0l\0e\0t\0t\0e\0r\0s\0-\0p\0i\0c\0t\0u\0r\0e\0s\0/\0S\0c\0r\0e\0e\0n\0s\0h\0o\0t\0%\x002\x000\x002\x000\x002\x006\0-\x000\x003\0-\x001\x009\0%\x002\x000\x001\x005\x001\x008\x002\x007\0_\x001\x009\0-\x000\x003\0-\x002\x000\x002\x006\0-\x000\x003\0-\x001\x009\0-\x000\x002\0.\0p\0n\0g\0"\0\r\0
+\0 \0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0h\0e\0i\0g\0h\0t\0:\x002\0.\x005\x005\x008\0i\0n\0;\0w\0i\0d\0t\0h\0:\x003\0.\x003\x003\x003\0i\0n\0'\0>\0<\0o\0:\0p\0>\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0v\0a\0l\0i\0g\0n\0=\0t\0o\0p\0 \0s\0t\0y\0l\0e\0=\0'\0p\0a\0d\0d\0i\0n\0g\0:\x003\0.\x007\x005\0p\0t\0 \x003\x000\0.\x000\0p\0t\0 \x000\0i\0n\0 \x003\0.\x007\x005\0p\0t\0;\0-\0w\0e\0b\0k\0i\0t\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0-\0m\0o\0z\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0t\0a\0b\0l\0e\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0T\0a\0b\0l\0e\0 \0b\0o\0r\0d\0e\0r\0=\x000\0 \0c\0e\0l\0l\0s\0p\0a\0c\0i\0n\0g\0=\x000\0 \0c\0e\0l\0l\0p\0a\0d\0d\0i\0n\0g\0=\x000\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0w\0i\0d\0t\0h\0=\0"\x001\x000\x000\0%\0"\0 \0s\0t\0y\0l\0e\0=\0'\0w\0i\0d\0t\0h\0:\x001\x000\x000\0.\x000\0%\0;\0b\0o\0r\0d\0e\0r\0-\0c\0o\0l\0l\0a\0p\0s\0e\0:\0c\0o\0l\0l\0a\0p\0s\0e\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0t\0b\0l\0l\0o\0o\0k\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \x001\x001\x008\x004\0;\0m\0s\0o\0-\0p\0a\0d\0d\0i\0n\0g\0-\0a\0l\0t\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x000\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0f\0i\0r\0s\0t\0r\0o\0w\0:\0y\0e\0s\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0l\0a\0s\0t\0r\0o\0w\0:\0y\0e\0s\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0v\0a\0l\0i\0g\0n\0=\0t\0o\0p\0 \0s\0t\0y\0l\0e\0=\0'\0p\0a\0d\0d\0i\0n\0g\0:\x000\0i\0n\0 \x000\0i\0n\0 \x001\x007\0.\x002\x005\0p\0t\0 \x000\0i\0n\0;\0-\0w\0e\0b\0k\0i\0t\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0-\0m\0o\0z\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x002\0.\x007\x005\0p\0t\0'\0>\0<\0b\0>\0<\0s\0p\0a\0n\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0'\0>\0B\0M\0W\0'\0s\0 \0N\0e\0u\0e\0 \0K\0l\0a\0s\0s\0e\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0I\0n\0f\0i\0n\0e\0o\0n\0 \0S\0h\0a\0p\0i\0n\0g\0 \0t\0h\0e\0 \0S\0o\0f\0t\0w\0a\0r\0e\0-\0D\0e\0f\0i\0n\0e\0d\0 \0V\0e\0h\0i\0c\0l\0e\0 \0E\0r\0a\0<\0/\0s\0p\0a\0n\0>\0<\0/\0b\0>\0<\0s\0p\0a\0n\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0'\0>\0 \0<\0o\0:\0p\0>\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0/\0t\0a\0b\0l\0e\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x002\0.\x007\x005\0p\0t\0'\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0;\0d\0i\0s\0p\0l\0a\0y\0:\0n\0o\0n\0e\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0m\0s\0o\0-\0h\0i\0d\0e\0:\0a\0l\0l\0'\0>\0<\0o\0:\0p\0>\0&\0n\0b\0s\0p\0;\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0t\0a\0b\0l\0e\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0T\0a\0b\0l\0e\0 \0b\0o\0r\0d\0e\0r\0=\x000\0 \0c\0e\0l\0l\0s\0p\0a\0c\0i\0n\0g\0=\x000\0 \0c\0e\0l\0l\0p\0a\0d\0d\0i\0n\0g\0=\x000\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0w\0i\0d\0t\0h\0=\0"\x001\x000\x000\0%\0"\0 \0s\0t\0y\0l\0e\0=\0'\0w\0i\0d\0t\0h\0:\x001\x000\x000\0.\x000\0%\0;\0b\0o\0r\0d\0e\0r\0-\0c\0o\0l\0l\0a\0p\0s\0e\0:\0c\0o\0l\0l\0a\0p\0s\0e\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0t\0b\0l\0l\0o\0o\0k\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \x001\x001\x008\x004\0;\0m\0s\0o\0-\0p\0a\0d\0d\0i\0n\0g\0-\0a\0l\0t\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x000\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0f\0i\0r\0s\0t\0r\0o\0w\0:\0y\0e\0s\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0l\0a\0s\0t\0r\0o\0w\0:\0y\0e\0s\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0v\0a\0l\0i\0g\0n\0=\0t\0o\0p\0 \0s\0t\0y\0l\0e\0=\0'\0p\0a\0d\0d\0i\0n\0g\0:\x003\0.\x007\x005\0p\0t\0 \x003\x000\0.\x000\0p\0t\0 \x000\0i\0n\0 \x003\0.\x007\x005\0p\0t\0;\0-\0w\0e\0b\0k\0i\0t\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0-\0m\0o\0z\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x002\0.\x007\x005\0p\0t\0'\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0'\0>\0I\0n\0f\0i\0n\0e\0o\0n\0 \0i\0s\0 \0s\0h\0a\0p\0i\0n\0g\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0t\0h\0e\0 \0e\0r\0a\0 \0o\0f\0 \0s\0o\0f\0t\0w\0a\0r\0e\0-\0d\0e\0f\0i\0n\0e\0d\0 \0v\0e\0h\0i\0c\0l\0e\0s\0,\0 \0a\0s\0 \0e\0v\0i\0d\0e\0n\0t\0 \0i\0n\0 \0i\0t\0s\0 \0c\0o\0l\0l\0a\0b\0o\0r\0a\0t\0i\0o\0n\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0w\0i\0t\0h\0 \0t\0h\0e\0 \0B\0M\0W\0 \0G\0r\0o\0u\0p\0 \0o\0n\0 \0t\0h\0e\0 \0N\0e\0u\0e\0 \0K\0l\0a\0s\0s\0e\0 \0p\0l\0a\0t\0f\0o\0r\0m\0.\0 \0T\0h\0i\0s\0 \0i\0n\0n\0o\0v\0a\0t\0i\0v\0e\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0a\0r\0c\0h\0i\0t\0e\0c\0t\0u\0r\0e\0 \0c\0o\0m\0b\0i\0n\0e\0s\0 \0e\0l\0e\0c\0t\0r\0i\0f\0i\0c\0a\0t\0i\0o\0n\0,\0 \0d\0i\0g\0i\0t\0a\0l\0i\0z\0a\0t\0i\0o\0n\0,\0 \0a\0n\0d\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0s\0u\0s\0t\0a\0i\0n\0a\0b\0i\0l\0i\0t\0y\0,\0 \0e\0n\0a\0b\0l\0i\0n\0g\0 \0s\0a\0f\0e\0r\0,\0 \0s\0m\0a\0r\0t\0e\0r\0,\0 \0a\0n\0d\0 \0m\0o\0r\0e\0 \0s\0u\0s\0t\0a\0i\0n\0a\0b\0l\0e\0 \0m\0o\0b\0i\0l\0i\0t\0y\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0s\0o\0l\0u\0t\0i\0o\0n\0s\0.\0 \0I\0n\0f\0i\0n\0e\0o\0n\0'\0s\0 \0s\0e\0m\0i\0c\0o\0n\0d\0u\0c\0t\0o\0r\0s\0,\0 \0i\0n\0c\0l\0u\0d\0i\0n\0g\0 \0A\0U\0R\0I\0X\0"!&\0n\0b\0s\0p\0;\0a\0n\0d\0 \0T\0R\0A\0V\0E\0O\0"!\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0T\x002\0G\0 \0m\0i\0c\0r\0o\0c\0o\0n\0t\0r\0o\0l\0l\0e\0r\0s\0,\0 \0p\0l\0a\0y\0 \0a\0n\0 \0i\0m\0p\0o\0r\0t\0a\0n\0t\0 \0r\0o\0l\0e\0 \0i\0n\0 \0e\0n\0a\0b\0l\0i\0n\0g\0 \0t\0h\0i\0s\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0t\0e\0c\0h\0n\0o\0l\0o\0g\0y\0.\0 \0W\0i\0t\0h\0 \0i\0t\0s\0 \0c\0e\0n\0t\0r\0a\0l\0i\0z\0e\0d\0 \0c\0o\0m\0p\0u\0t\0i\0n\0g\0 \0a\0r\0c\0h\0i\0t\0e\0c\0t\0u\0r\0e\0,\0 \0t\0h\0e\0 \0N\0e\0u\0e\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0K\0l\0a\0s\0s\0e\0 \0p\0l\0a\0t\0f\0o\0r\0m\0 \0i\0m\0p\0r\0o\0v\0e\0s\0 \0p\0e\0r\0f\0o\0r\0m\0a\0n\0c\0e\0,\0 \0e\0n\0h\0a\0n\0c\0e\0s\0 \0s\0a\0f\0e\0t\0y\0 \0f\0e\0a\0t\0u\0r\0e\0s\0,\0 \0a\0n\0d\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0r\0e\0d\0u\0c\0e\0s\0 \0e\0m\0i\0s\0s\0i\0o\0n\0s\0.\0 \0V\0i\0s\0i\0t\0 \0o\0u\0r\0 \0p\0a\0g\0e\0 \0t\0o\0 \0<\0a\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0h\0r\0e\0f\0=\0"\0h\0t\0t\0p\0s\0:\0/\0/\0i\0n\0t\0r\0a\0n\0e\0t\0-\0c\0o\0n\0t\0e\0n\0t\0.\0i\0n\0f\0i\0n\0e\0o\0n\0.\0c\0o\0m\0/\0e\0m\0a\0g\0/\0e\0M\0a\0g\0a\0r\0t\0i\0c\0l\0e\0s\0/\0G\0l\0o\0b\0a\0l\0/\x002\x000\x002\x006\0/\0S\0i\0t\0e\0P\0a\0g\0e\0s\0/\0I\0n\0f\0i\0n\0e\0o\0n\0x\0B\0M\0W\0G\0r\0o\0u\0p\0P\0a\0r\0t\0n\0e\0r\0_\0e\0n\0.\0a\0s\0p\0x\0"\0>\0f\0i\0n\0d\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0o\0u\0t\0 \0m\0o\0r\0e\0!\0&\0n\0b\0s\0p\0;\0<\0/\0a\0>\0 \0<\0o\0:\0p\0>\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0t\0a\0b\0l\0e\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0T\0a\0b\0l\0e\0 \0b\0o\0r\0d\0e\0r\0=\x000\0 \0c\0e\0l\0l\0s\0p\0a\0c\0i\0n\0g\0=\x000\0 \0c\0e\0l\0l\0p\0a\0d\0d\0i\0n\0g\0=\x000\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0b\0o\0r\0d\0e\0r\0-\0c\0o\0l\0l\0a\0p\0s\0e\0:\0c\0o\0l\0l\0a\0p\0s\0e\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0t\0b\0l\0l\0o\0o\0k\0:\x001\x001\x008\x004\0;\0m\0s\0o\0-\0p\0a\0d\0d\0i\0n\0g\0-\0a\0l\0t\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x000\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0f\0i\0r\0s\0t\0r\0o\0w\0:\0y\0e\0s\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0l\0a\0s\0t\0r\0o\0w\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0 \0y\0e\0s\0;\0h\0e\0i\0g\0h\0t\0:\x007\0.\x005\0p\0t\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0s\0t\0y\0l\0e\0=\0'\0p\0a\0d\0d\0i\0n\0g\0:\0.\x007\x005\0p\0t\0 \0.\x007\x005\0p\0t\0 \0.\x007\x005\0p\0t\0 \0.\x007\x005\0p\0t\0;\0h\0e\0i\0g\0h\0t\0:\x007\0.\x005\0p\0t\0'\0>\0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0/\0t\0a\0b\0l\0e\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x002\0.\x007\x005\0p\0t\0'\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0;\0d\0i\0s\0p\0l\0a\0y\0:\0n\0o\0n\0e\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0m\0s\0o\0-\0h\0i\0d\0e\0:\0a\0l\0l\0'\0>\0<\0o\0:\0p\0>\0&\0n\0b\0s\0p\0;\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0t\0a\0b\0l\0e\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0T\0a\0b\0l\0e\0 \0b\0o\0r\0d\0e\0r\0=\x000\0 \0c\0e\0l\0l\0s\0p\0a\0c\0i\0n\0g\0=\x000\0 \0c\0e\0l\0l\0p\0a\0d\0d\0i\0n\0g\0=\x000\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0b\0o\0r\0d\0e\0r\0-\0c\0o\0l\0l\0a\0p\0s\0e\0:\0c\0o\0l\0l\0a\0p\0s\0e\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0t\0b\0l\0l\0o\0o\0k\0:\x001\x001\x008\x004\0;\0m\0s\0o\0-\0p\0a\0d\0d\0i\0n\0g\0-\0a\0l\0t\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x000\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0f\0i\0r\0s\0t\0r\0o\0w\0:\0y\0e\0s\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0l\0a\0s\0t\0r\0o\0w\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0 \0y\0e\0s\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0s\0t\0y\0l\0e\0=\0'\0p\0a\0d\0d\0i\0n\0g\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0'\0>\0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0/\0t\0a\0b\0l\0e\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0>\0<\0o\0:\0p\0>\0<\0/\0o\0:\0p\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0/\0t\0a\0b\0l\0e\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0>\0<\0o\0:\0p\0>\0<\0/\0o\0:\0p\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0<\0/\0t\0a\0b\0l\0e\0>\0\r\0
+\0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x004\0.\x002\x005\0p\0t\0'\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x009\0.\x000\0p\0t\0;\0\r\0
+\0 \0 \0 \0 \0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0#\x002\x002\x002\x002\x002\x002\0;\0d\0i\0s\0p\0l\0a\0y\0:\0n\0o\0n\0e\0;\0m\0s\0o\0-\0h\0i\0d\0e\0:\0a\0l\0l\0'\0>\0<\0o\0:\0p\0>\0&\0n\0b\0s\0p\0;\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0<\0t\0a\0b\0l\0e\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0T\0a\0b\0l\0e\0 \0b\0o\0r\0d\0e\0r\0=\x000\0 \0c\0e\0l\0l\0s\0p\0a\0c\0i\0n\0g\0=\x000\0 \0c\0e\0l\0l\0p\0a\0d\0d\0i\0n\0g\0=\x000\0 \0w\0i\0d\0t\0h\0=\x001\x000\0\r\0
+\0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0w\0i\0d\0t\0h\0:\x007\0.\x005\0p\0t\0;\0b\0o\0r\0d\0e\0r\0-\0c\0o\0l\0l\0a\0p\0s\0e\0:\0c\0o\0l\0l\0a\0p\0s\0e\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0t\0b\0l\0l\0o\0o\0k\0:\x001\x001\x008\x004\0;\0\r\0
+\0 \0 \0 \0 \0 \0m\0s\0o\0-\0p\0a\0d\0d\0i\0n\0g\0-\0a\0l\0t\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0;\0b\0o\0r\0d\0e\0r\0-\0s\0p\0a\0c\0i\0n\0g\0:\0 \x000\0;\0w\0h\0i\0t\0e\0 \0!\0i\0m\0p\0o\0r\0t\0a\0n\0t\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x000\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0f\0i\0r\0s\0t\0r\0o\0w\0:\0y\0e\0s\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0l\0a\0s\0t\0r\0o\0w\0:\0y\0e\0s\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0h\0e\0i\0g\0h\0t\0:\x002\x006\0.\x002\x005\0p\0t\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0v\0a\0l\0i\0g\0n\0=\0t\0o\0p\0 \0s\0t\0y\0l\0e\0=\0'\0p\0a\0d\0d\0i\0n\0g\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0;\0h\0e\0i\0g\0h\0t\0:\x002\x006\0.\x002\x005\0p\0t\0;\0w\0o\0r\0d\0-\0b\0r\0e\0a\0k\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0b\0r\0e\0a\0k\0-\0w\0o\0r\0d\0;\0-\0w\0e\0b\0k\0i\0t\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0-\0m\0o\0z\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0'\0>\0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0<\0/\0t\0a\0b\0l\0e\0>\0\r\0
+\0 \0 \0 \0 \0<\0/\0d\0i\0v\0>\0\r\0
+\0 \0 \0 \0 \0<\0/\0d\0i\0v\0>\0\r\0
+\0 \0 \0 \0 \0<\0t\0a\0b\0l\0e\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0T\0a\0b\0l\0e\0 \0b\0o\0r\0d\0e\0r\0=\x000\0 \0c\0e\0l\0l\0s\0p\0a\0c\0i\0n\0g\0=\x000\0 \0c\0e\0l\0l\0p\0a\0d\0d\0i\0n\0g\0=\x000\0\r\0
+\0 \0 \0 \0 \0 \0w\0i\0d\0t\0h\0=\0"\x001\x000\x000\0%\0"\0 \0s\0t\0y\0l\0e\0=\0'\0w\0i\0d\0t\0h\0:\x001\x000\x000\0.\x000\0%\0;\0b\0o\0r\0d\0e\0r\0-\0c\0o\0l\0l\0a\0p\0s\0e\0:\0c\0o\0l\0l\0a\0p\0s\0e\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0t\0b\0l\0l\0o\0o\0k\0:\0\r\0
+\0 \0 \0 \0 \0 \x001\x001\x008\x004\0;\0m\0s\0o\0-\0p\0a\0d\0d\0i\0n\0g\0-\0a\0l\0t\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x000\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0f\0i\0r\0s\0t\0r\0o\0w\0:\0y\0e\0s\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0l\0a\0s\0t\0r\0o\0w\0:\0y\0e\0s\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0w\0i\0d\0t\0h\0=\x003\x002\x005\0 \0v\0a\0l\0i\0g\0n\0=\0t\0o\0p\0 \0s\0t\0y\0l\0e\0=\0'\0w\0i\0d\0t\0h\0:\x002\x004\x003\0.\x007\x005\0p\0t\0;\0p\0a\0d\0d\0i\0n\0g\0:\x000\0i\0n\0 \x003\0.\x007\x005\0p\0t\0 \x000\0i\0n\0 \x000\0i\0n\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x002\0.\x007\x005\0p\0t\0'\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0'\0>\0<\0i\0m\0g\0 \0b\0o\0r\0d\0e\0r\0=\x000\0\r\0
+\0 \0 \0 \0 \0 \0 \0w\0i\0d\0t\0h\0=\x003\x002\x000\0 \0h\0e\0i\0g\0h\0t\0=\x002\x004\x006\0 \0i\0d\0=\0"\0_\0x\x000\x000\x000\x000\0_\0i\x001\x000\x004\x000\0"\0\r\0
+\0 \0 \0 \0 \0 \0 \0s\0r\0c\0=\0"\0h\0t\0t\0p\0s\0:\0/\0/\0n\0e\0w\0s\0l\0e\0t\0t\0e\0r\0f\0i\0l\0e\0s\0.\0i\0n\0f\0i\0n\0e\0o\0n\0.\0c\0o\0m\0/\0f\0i\0l\0e\0s\0/\0i\0f\0x\0n\0e\0w\0s\0l\0e\0t\0t\0e\0r\0s\0-\0p\0i\0c\0t\0u\0r\0e\0s\0/\0S\0c\0r\0e\0e\0n\0s\0h\0o\0t\0%\x002\x000\x002\x000\x002\x006\0-\x000\x003\0-\x001\x009\0%\x002\x000\x001\x006\x002\x008\x005\x001\0_\x001\x009\0-\x000\x003\0-\x002\x000\x002\x006\0-\x000\x004\0-\x002\x009\0-\x000\x006\0.\0p\0n\0g\0"\0\r\0
+\0 \0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0h\0e\0i\0g\0h\0t\0:\x002\0.\x005\x005\x008\0i\0n\0;\0w\0i\0d\0t\0h\0:\x003\0.\x003\x003\x003\0i\0n\0'\0>\0<\0o\0:\0p\0>\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0v\0a\0l\0i\0g\0n\0=\0t\0o\0p\0 \0s\0t\0y\0l\0e\0=\0'\0p\0a\0d\0d\0i\0n\0g\0:\x003\0.\x007\x005\0p\0t\0 \x003\x000\0.\x000\0p\0t\0 \x000\0i\0n\0 \x003\0.\x007\x005\0p\0t\0;\0-\0w\0e\0b\0k\0i\0t\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0-\0m\0o\0z\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0t\0a\0b\0l\0e\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0T\0a\0b\0l\0e\0 \0b\0o\0r\0d\0e\0r\0=\x000\0 \0c\0e\0l\0l\0s\0p\0a\0c\0i\0n\0g\0=\x000\0 \0c\0e\0l\0l\0p\0a\0d\0d\0i\0n\0g\0=\x000\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0w\0i\0d\0t\0h\0=\0"\x001\x000\x000\0%\0"\0 \0s\0t\0y\0l\0e\0=\0'\0w\0i\0d\0t\0h\0:\x001\x000\x000\0.\x000\0%\0;\0b\0o\0r\0d\0e\0r\0-\0c\0o\0l\0l\0a\0p\0s\0e\0:\0c\0o\0l\0l\0a\0p\0s\0e\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0t\0b\0l\0l\0o\0o\0k\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \x001\x001\x008\x004\0;\0m\0s\0o\0-\0p\0a\0d\0d\0i\0n\0g\0-\0a\0l\0t\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x000\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0f\0i\0r\0s\0t\0r\0o\0w\0:\0y\0e\0s\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0l\0a\0s\0t\0r\0o\0w\0:\0y\0e\0s\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0v\0a\0l\0i\0g\0n\0=\0t\0o\0p\0 \0s\0t\0y\0l\0e\0=\0'\0p\0a\0d\0d\0i\0n\0g\0:\x000\0i\0n\0 \x000\0i\0n\0 \x001\x007\0.\x002\x005\0p\0t\0 \x000\0i\0n\0;\0-\0w\0e\0b\0k\0i\0t\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0-\0m\0o\0z\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x002\0.\x007\x005\0p\0t\0'\0>\0<\0b\0>\0<\0s\0p\0a\0n\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0'\0>\0N\0e\0w\0 \0M\0C\0U\0 \0c\0o\0l\0l\0a\0t\0e\0r\0a\0l\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0r\0e\0l\0e\0a\0s\0e\0s\0!\0<\0/\0s\0p\0a\0n\0>\0<\0/\0b\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0'\0>\0 \0<\0o\0:\0p\0>\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0/\0t\0a\0b\0l\0e\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x002\0.\x007\x005\0p\0t\0'\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0;\0d\0i\0s\0p\0l\0a\0y\0:\0n\0o\0n\0e\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0m\0s\0o\0-\0h\0i\0d\0e\0:\0a\0l\0l\0'\0>\0<\0o\0:\0p\0>\0&\0n\0b\0s\0p\0;\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0t\0a\0b\0l\0e\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0T\0a\0b\0l\0e\0 \0b\0o\0r\0d\0e\0r\0=\x000\0 \0c\0e\0l\0l\0s\0p\0a\0c\0i\0n\0g\0=\x000\0 \0c\0e\0l\0l\0p\0a\0d\0d\0i\0n\0g\0=\x000\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0w\0i\0d\0t\0h\0=\0"\x001\x000\x000\0%\0"\0 \0s\0t\0y\0l\0e\0=\0'\0w\0i\0d\0t\0h\0:\x001\x000\x000\0.\x000\0%\0;\0b\0o\0r\0d\0e\0r\0-\0c\0o\0l\0l\0a\0p\0s\0e\0:\0c\0o\0l\0l\0a\0p\0s\0e\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0t\0b\0l\0l\0o\0o\0k\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \x001\x001\x008\x004\0;\0m\0s\0o\0-\0p\0a\0d\0d\0i\0n\0g\0-\0a\0l\0t\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x000\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0f\0i\0r\0s\0t\0r\0o\0w\0:\0y\0e\0s\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0l\0a\0s\0t\0r\0o\0w\0:\0y\0e\0s\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0v\0a\0l\0i\0g\0n\0=\0t\0o\0p\0 \0s\0t\0y\0l\0e\0=\0'\0p\0a\0d\0d\0i\0n\0g\0:\x003\0.\x007\x005\0p\0t\0 \x003\x000\0.\x000\0p\0t\0 \x000\0i\0n\0 \x003\0.\x007\x005\0p\0t\0;\0-\0w\0e\0b\0k\0i\0t\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0-\0m\0o\0z\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x002\0.\x007\x005\0p\0t\0'\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0'\0>\0<\0b\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0W\0e\0 r\0e\0 \0e\0x\0c\0i\0t\0e\0d\0 \0t\0o\0 \0a\0n\0n\0o\0u\0n\0c\0e\0 \0t\0h\0e\0 \0r\0e\0l\0e\0a\0s\0e\0 \0o\0f\0 \0n\0e\0w\0 \0c\0o\0l\0l\0a\0t\0e\0r\0a\0l\0 \0m\0a\0t\0e\0r\0i\0a\0l\0s\0 \0a\0n\0d\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0p\0r\0o\0d\0u\0c\0t\0 \0b\0r\0o\0c\0h\0u\0r\0e\0s\0.\0 \0Y\0o\0u\0 \0c\0a\0n\0 \0f\0i\0n\0d\0 \0a\0l\0l\0 \0t\0h\0e\0 \0r\0e\0l\0e\0a\0s\0e\0s\0 \0b\0y\0 \0c\0l\0i\0c\0k\0i\0n\0g\0 \0o\0n\0 \0t\0h\0e\0i\0r\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0r\0e\0s\0p\0e\0c\0t\0i\0v\0e\0 \0l\0i\0n\0k\0s\0:\0<\0o\0:\0p\0>\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0d\0i\0v\0 \0s\0t\0y\0l\0e\0=\0'\0m\0a\0r\0g\0i\0n\0-\0l\0e\0f\0t\0:\0-\x002\x006\0.\x000\0p\0t\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0m\0a\0r\0g\0i\0n\0-\0l\0e\0f\0t\0:\0.\x005\0i\0n\0;\0t\0e\0x\0t\0-\0i\0n\0d\0e\0n\0t\0:\0-\x008\0.\x000\0p\0t\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x002\0.\x007\x005\0p\0t\0'\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0c\0o\0l\0o\0r\0:\0#\x000\0A\x008\x002\x007\x006\0'\0>\0-\0 \0<\0/\0s\0p\0a\0n\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0'\0>\0<\0a\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0h\0r\0e\0f\0=\0"\0h\0t\0t\0p\0s\0:\0/\0/\0w\0w\0w\0.\0i\0n\0f\0i\0n\0e\0o\0n\0.\0c\0o\0m\0/\0a\0s\0s\0e\0t\0s\0/\0r\0o\0w\0/\0p\0u\0b\0l\0i\0c\0/\0d\0o\0c\0u\0m\0e\0n\0t\0s\0/\x003\x000\0/\x006\x006\0/\0i\0n\0f\0i\0n\0e\0o\0n\0-\0m\0i\0c\0r\0o\0c\0o\0n\0t\0r\0o\0l\0l\0e\0r\0-\0p\0o\0c\0k\0e\0t\0-\0g\0u\0i\0d\0e\0-\x002\x000\x002\x004\0-\0p\0r\0o\0d\0u\0c\0t\0s\0e\0l\0e\0c\0t\0i\0o\0n\0g\0u\0i\0d\0e\0-\0e\0n\0.\0p\0d\0f\0?\0f\0i\0l\0e\0I\0d\0=\x005\x005\x004\x006\0d\x004\x006\x002\x005\x009\0d\x009\0a\x004\0b\0f\x000\x001\x005\0a\x002\x008\x002\0e\0f\x003\x003\0c\x003\0e\x004\x006\0&\0a\0m\0p\0;\0d\0a\0=\0t\0"\0>\0M\0C\0U\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0p\0o\0c\0k\0e\0t\0 \0g\0u\0i\0d\0e\0<\0/\0a\0>\0<\0o\0:\0p\0>\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0/\0d\0i\0v\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0d\0i\0v\0 \0s\0t\0y\0l\0e\0=\0'\0m\0a\0r\0g\0i\0n\0-\0l\0e\0f\0t\0:\0-\x002\x006\0.\x000\0p\0t\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0m\0a\0r\0g\0i\0n\0-\0l\0e\0f\0t\0:\0.\x005\0i\0n\0;\0t\0e\0x\0t\0-\0i\0n\0d\0e\0n\0t\0:\0-\x008\0.\x000\0p\0t\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x002\0.\x007\x005\0p\0t\0'\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0c\0o\0l\0o\0r\0:\0#\x000\0A\x008\x002\x007\x006\0'\0>\0-\0 \0<\0/\0s\0p\0a\0n\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0'\0>\0<\0a\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0h\0r\0e\0f\0=\0"\0h\0t\0t\0p\0s\0:\0/\0/\0w\0w\0w\0.\0i\0n\0f\0i\0n\0e\0o\0n\0.\0c\0o\0m\0/\0d\0e\0/\0g\0a\0t\0e\0d\0/\0i\0n\0f\0i\0n\0e\0o\0n\0-\0a\0u\0r\0i\0x\0-\0t\0c\x004\0x\0-\0p\0r\0o\0d\0u\0c\0t\0b\0r\0o\0c\0h\0u\0r\0e\0-\0e\0n\0_\x007\x002\x004\x009\x009\0e\x007\0f\0-\x000\0e\x008\x003\0-\x004\x002\0e\x009\0-\x008\0f\0d\x007\0-\x009\0b\x000\0c\x005\x009\0a\0f\x008\0b\x009\x005\0"\0>\0A\0U\0R\0I\0X\0"!\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0p\0r\0o\0d\0u\0c\0t\0 \0b\0r\0o\0c\0h\0u\0r\0e\0<\0/\0a\0>\0<\0o\0:\0p\0>\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0/\0d\0i\0v\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0d\0i\0v\0 \0s\0t\0y\0l\0e\0=\0'\0m\0a\0r\0g\0i\0n\0-\0l\0e\0f\0t\0:\0-\x002\x006\0.\x000\0p\0t\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0m\0a\0r\0g\0i\0n\0-\0l\0e\0f\0t\0:\0.\x005\0i\0n\0;\0t\0e\0x\0t\0-\0i\0n\0d\0e\0n\0t\0:\0-\x008\0.\x000\0p\0t\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x002\0.\x007\x005\0p\0t\0'\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0c\0o\0l\0o\0r\0:\0#\x000\0A\x008\x002\x007\x006\0'\0>\0-\0 \0<\0/\0s\0p\0a\0n\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0'\0>\0<\0a\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0h\0r\0e\0f\0=\0"\0h\0t\0t\0p\0s\0:\0/\0/\0w\0w\0w\0.\0i\0n\0f\0i\0n\0e\0o\0n\0.\0c\0o\0m\0/\0g\0a\0t\0e\0d\0/\0i\0n\0f\0i\0n\0e\0o\0n\0-\0t\0r\0a\0v\0e\0o\0-\0t\x002\0g\0-\x003\x002\0-\0b\0i\0t\0-\0m\0i\0c\0r\0o\0c\0o\0n\0t\0r\0o\0l\0l\0e\0r\0-\0b\0r\0o\0c\0h\0u\0r\0e\0-\0p\0r\0o\0d\0u\0c\0t\0b\0r\0o\0c\0h\0u\0r\0e\0-\0e\0n\0_\x000\0b\x006\x004\x005\x002\0f\0b\0-\x007\x000\0c\0a\0-\x004\x005\x006\0b\0-\0a\0f\0e\x006\0-\0f\x005\0c\0d\x004\x004\0d\x007\x005\0b\0f\0d\0"\0>\0T\0R\0A\0V\0E\0O\0"!\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0T\x002\0G\0 \0p\0r\0o\0d\0u\0c\0t\0 \0b\0r\0o\0c\0h\0u\0r\0e\0<\0/\0a\0>\0<\0o\0:\0p\0>\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0/\0d\0i\0v\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0d\0i\0v\0 \0s\0t\0y\0l\0e\0=\0'\0m\0a\0r\0g\0i\0n\0-\0l\0e\0f\0t\0:\0-\x002\x006\0.\x000\0p\0t\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0m\0a\0r\0g\0i\0n\0-\0l\0e\0f\0t\0:\0.\x005\0i\0n\0;\0t\0e\0x\0t\0-\0i\0n\0d\0e\0n\0t\0:\0-\x008\0.\x000\0p\0t\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x002\0.\x007\x005\0p\0t\0'\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0c\0o\0l\0o\0r\0:\0#\x000\0A\x008\x002\x007\x006\0'\0>\0-\0 \0<\0/\0s\0p\0a\0n\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0'\0>\0<\0a\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0h\0r\0e\0f\0=\0"\0h\0t\0t\0p\0s\0:\0/\0/\0w\0w\0w\0.\0i\0n\0f\0i\0n\0e\0o\0n\0.\0c\0o\0m\0/\0g\0a\0t\0e\0d\0/\0i\0n\0f\0i\0n\0e\0o\0n\0-\0i\0n\0f\0i\0n\0-\0b\0r\0o\0s\0c\0h\0u\0u\0r\0e\0-\0p\0s\0o\0c\0-\x004\0-\0a\0u\0t\0o\0m\0o\0t\0i\0v\0e\0-\0p\0r\0o\0d\0u\0c\0t\0b\0r\0o\0c\0h\0u\0r\0e\0-\0e\0n\0_\0a\x006\x005\x001\x002\x009\x001\x006\0-\x004\0a\0e\0a\0-\x004\x009\0c\x009\0-\0a\0c\x003\0a\0-\x009\0f\x003\x003\x004\x007\0c\0f\x002\x003\x006\0a\0"\0>\0P\0S\0O\0C\0"!\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0A\0u\0t\0o\0m\0o\0t\0i\0v\0e\0 \0p\0r\0o\0d\0u\0c\0t\0 \0b\0r\0o\0c\0h\0u\0r\0e\0<\0/\0a\0>\0<\0o\0:\0p\0>\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0/\0d\0i\0v\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x002\0.\x007\x005\0p\0t\0'\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0'\0>\0T\0h\0a\0n\0k\0 \0y\0o\0u\0 \0f\0o\0r\0 \0y\0o\0u\0r\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0o\0n\0g\0o\0i\0n\0g\0 \0s\0u\0p\0p\0o\0r\0t\0 \0c\0o\0n\0t\0r\0i\0b\0u\0t\0i\0n\0g\0 \0t\0o\0 \0t\0h\0e\0 \0n\0e\0w\0 \0e\0d\0i\0t\0i\0o\0n\0s\0!\0<\0b\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0&\0n\0b\0s\0p\0;\0 \0<\0o\0:\0p\0>\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0t\0a\0b\0l\0e\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0T\0a\0b\0l\0e\0 \0b\0o\0r\0d\0e\0r\0=\x000\0 \0c\0e\0l\0l\0s\0p\0a\0c\0i\0n\0g\0=\x000\0 \0c\0e\0l\0l\0p\0a\0d\0d\0i\0n\0g\0=\x000\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0b\0o\0r\0d\0e\0r\0-\0c\0o\0l\0l\0a\0p\0s\0e\0:\0c\0o\0l\0l\0a\0p\0s\0e\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0t\0b\0l\0l\0o\0o\0k\0:\x001\x001\x008\x004\0;\0m\0s\0o\0-\0p\0a\0d\0d\0i\0n\0g\0-\0a\0l\0t\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x000\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0f\0i\0r\0s\0t\0r\0o\0w\0:\0y\0e\0s\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0l\0a\0s\0t\0r\0o\0w\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0 \0y\0e\0s\0;\0h\0e\0i\0g\0h\0t\0:\x007\0.\x005\0p\0t\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0s\0t\0y\0l\0e\0=\0'\0p\0a\0d\0d\0i\0n\0g\0:\0.\x007\x005\0p\0t\0 \0.\x007\x005\0p\0t\0 \0.\x007\x005\0p\0t\0 \0.\x007\x005\0p\0t\0;\0h\0e\0i\0g\0h\0t\0:\x007\0.\x005\0p\0t\0'\0>\0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0/\0t\0a\0b\0l\0e\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x002\0.\x007\x005\0p\0t\0'\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0;\0d\0i\0s\0p\0l\0a\0y\0:\0n\0o\0n\0e\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0m\0s\0o\0-\0h\0i\0d\0e\0:\0a\0l\0l\0'\0>\0<\0o\0:\0p\0>\0&\0n\0b\0s\0p\0;\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0t\0a\0b\0l\0e\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0T\0a\0b\0l\0e\0 \0b\0o\0r\0d\0e\0r\0=\x000\0 \0c\0e\0l\0l\0s\0p\0a\0c\0i\0n\0g\0=\x000\0 \0c\0e\0l\0l\0p\0a\0d\0d\0i\0n\0g\0=\x000\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0b\0o\0r\0d\0e\0r\0-\0c\0o\0l\0l\0a\0p\0s\0e\0:\0c\0o\0l\0l\0a\0p\0s\0e\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0t\0b\0l\0l\0o\0o\0k\0:\x001\x001\x008\x004\0;\0m\0s\0o\0-\0p\0a\0d\0d\0i\0n\0g\0-\0a\0l\0t\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x000\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0f\0i\0r\0s\0t\0r\0o\0w\0:\0y\0e\0s\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0l\0a\0s\0t\0r\0o\0w\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0 \0y\0e\0s\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0s\0t\0y\0l\0e\0=\0'\0p\0a\0d\0d\0i\0n\0g\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0'\0>\0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0/\0t\0a\0b\0l\0e\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0>\0<\0o\0:\0p\0>\0<\0/\0o\0:\0p\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0/\0t\0a\0b\0l\0e\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0>\0<\0o\0:\0p\0>\0<\0/\0o\0:\0p\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0<\0/\0t\0a\0b\0l\0e\0>\0\r\0
+\0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x004\0.\x002\x005\0p\0t\0'\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x009\0.\x000\0p\0t\0;\0\r\0
+\0 \0 \0 \0 \0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0#\x002\x002\x002\x002\x002\x002\0;\0d\0i\0s\0p\0l\0a\0y\0:\0n\0o\0n\0e\0;\0m\0s\0o\0-\0h\0i\0d\0e\0:\0a\0l\0l\0'\0>\0<\0o\0:\0p\0>\0&\0n\0b\0s\0p\0;\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0<\0t\0a\0b\0l\0e\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0T\0a\0b\0l\0e\0 \0b\0o\0r\0d\0e\0r\0=\x000\0 \0c\0e\0l\0l\0s\0p\0a\0c\0i\0n\0g\0=\x000\0 \0c\0e\0l\0l\0p\0a\0d\0d\0i\0n\0g\0=\x000\0 \0w\0i\0d\0t\0h\0=\x001\x000\0\r\0
+\0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0w\0i\0d\0t\0h\0:\x007\0.\x005\0p\0t\0;\0b\0o\0r\0d\0e\0r\0-\0c\0o\0l\0l\0a\0p\0s\0e\0:\0c\0o\0l\0l\0a\0p\0s\0e\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0t\0b\0l\0l\0o\0o\0k\0:\x001\x001\x008\x004\0;\0\r\0
+\0 \0 \0 \0 \0 \0m\0s\0o\0-\0p\0a\0d\0d\0i\0n\0g\0-\0a\0l\0t\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0;\0b\0o\0r\0d\0e\0r\0-\0s\0p\0a\0c\0i\0n\0g\0:\0 \x000\0;\0w\0h\0i\0t\0e\0 \0!\0i\0m\0p\0o\0r\0t\0a\0n\0t\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x000\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0f\0i\0r\0s\0t\0r\0o\0w\0:\0y\0e\0s\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0l\0a\0s\0t\0r\0o\0w\0:\0y\0e\0s\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0h\0e\0i\0g\0h\0t\0:\x002\x006\0.\x002\x005\0p\0t\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0v\0a\0l\0i\0g\0n\0=\0t\0o\0p\0 \0s\0t\0y\0l\0e\0=\0'\0p\0a\0d\0d\0i\0n\0g\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0;\0h\0e\0i\0g\0h\0t\0:\x002\x006\0.\x002\x005\0p\0t\0;\0w\0o\0r\0d\0-\0b\0r\0e\0a\0k\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0b\0r\0e\0a\0k\0-\0w\0o\0r\0d\0;\0-\0w\0e\0b\0k\0i\0t\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0-\0m\0o\0z\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0'\0>\0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0<\0/\0t\0a\0b\0l\0e\0>\0\r\0
+\0 \0 \0 \0 \0<\0d\0i\0v\0 \0i\0d\0=\0"\0a\0r\0t\0i\0c\0l\0e\0_\x003\x004\x000\x001\x000\x002\0"\0>\0\r\0
+\0 \0 \0 \0 \0<\0d\0i\0v\0>\0\r\0
+\0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x004\0.\x002\x005\0p\0t\0'\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x009\0.\x000\0p\0t\0;\0\r\0
+\0 \0 \0 \0 \0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0#\x002\x002\x002\x002\x002\x002\0;\0d\0i\0s\0p\0l\0a\0y\0:\0n\0o\0n\0e\0;\0m\0s\0o\0-\0h\0i\0d\0e\0:\0a\0l\0l\0'\0>\0<\0o\0:\0p\0>\0&\0n\0b\0s\0p\0;\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0<\0t\0a\0b\0l\0e\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0T\0a\0b\0l\0e\0 \0b\0o\0r\0d\0e\0r\0=\x000\0 \0c\0e\0l\0l\0s\0p\0a\0c\0i\0n\0g\0=\x000\0 \0c\0e\0l\0l\0p\0a\0d\0d\0i\0n\0g\0=\x000\0\r\0
+\0 \0 \0 \0 \0 \0w\0i\0d\0t\0h\0=\0"\x001\x000\x000\0%\0"\0 \0s\0t\0y\0l\0e\0=\0'\0w\0i\0d\0t\0h\0:\x001\x000\x000\0.\x000\0%\0;\0b\0o\0r\0d\0e\0r\0-\0c\0o\0l\0l\0a\0p\0s\0e\0:\0c\0o\0l\0l\0a\0p\0s\0e\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0t\0b\0l\0l\0o\0o\0k\0:\0\r\0
+\0 \0 \0 \0 \0 \x001\x001\x008\x004\0;\0m\0s\0o\0-\0p\0a\0d\0d\0i\0n\0g\0-\0a\0l\0t\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0;\0b\0o\0r\0d\0e\0r\0-\0s\0p\0a\0c\0i\0n\0g\0:\0 \x000\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x000\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0f\0i\0r\0s\0t\0r\0o\0w\0:\0y\0e\0s\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0v\0a\0l\0i\0g\0n\0=\0t\0o\0p\0 \0s\0t\0y\0l\0e\0=\0'\0p\0a\0d\0d\0i\0n\0g\0:\x000\0i\0n\0 \x003\x000\0.\x000\0p\0t\0 \x001\x007\0.\x002\x005\0p\0t\0 \x003\x000\0.\x000\0p\0t\0;\0-\0w\0e\0b\0k\0i\0t\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0-\0m\0o\0z\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x002\0.\x007\x005\0p\0t\0'\0>\0<\0b\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0'\0>\0G\0u\0e\0l\0e\0r\0 \0M\0e\0r\0t\0 \0J\0o\0i\0n\0s\0 \0A\0T\0V\0 \0M\0C\0 \0T\0e\0a\0m\0!\0 \0<\0/\0s\0p\0a\0n\0>\0<\0/\0b\0>\0<\0s\0p\0a\0n\0\r\0
+\0 \0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0'\0>\0<\0o\0:\0p\0>\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x001\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0l\0a\0s\0t\0r\0o\0w\0:\0y\0e\0s\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0v\0a\0l\0i\0g\0n\0=\0t\0o\0p\0 \0s\0t\0y\0l\0e\0=\0'\0p\0a\0d\0d\0i\0n\0g\0:\x000\0i\0n\0 \x003\x000\0.\x000\0p\0t\0 \x000\0i\0n\0 \x003\x000\0.\x007\x005\0p\0t\0;\0-\0w\0e\0b\0k\0i\0t\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0-\0m\0o\0z\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x002\0.\x007\x005\0p\0t\0'\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0'\0>\0G\0u\0e\0l\0e\0r\0 \0M\0e\0r\0t\0 \0h\0a\0v\0e\0\r\0
+\0 \0 \0 \0 \0 \0 \0s\0t\0a\0r\0t\0e\0d\0 \0a\0s\0 \0a\0 \0w\0o\0r\0k\0i\0n\0g\0 \0s\0t\0u\0d\0e\0n\0t\0 \0i\0n\0 \0P\0M\0G\0 \0t\0e\0a\0m\0 \0o\0n\0 \0f\0i\0r\0s\0t\0 \0o\0f\0 \0M\0a\0r\0c\0h\0.\0 \0I\0n\0 \0h\0i\0s\0\r\0
+\0 \0 \0 \0 \0 \0 \0p\0r\0e\0v\0i\0o\0u\0s\0 \0r\0o\0l\0e\0 \0h\0e\0 \0w\0o\0r\0k\0e\0d\0 \0u\0n\0d\0e\0r\0 \0C\0u\0s\0t\0o\0m\0e\0r\0 \0S\0u\0c\0c\0e\0s\0s\0 \0M\0a\0n\0a\0g\0e\0m\0e\0n\0t\0 \0a\0n\0a\0l\0y\0z\0i\0n\0g\0\r\0
+\0 \0 \0 \0 \0 \0 \0c\0h\0a\0t\0b\0o\0t\0 \0p\0e\0r\0f\0o\0r\0m\0a\0n\0c\0e\0s\0 \0a\0n\0d\0 \0d\0e\0s\0i\0g\0n\0i\0n\0g\0 \0t\0a\0i\0l\0o\0r\0e\0d\0 \0j\0o\0u\0r\0n\0e\0y\0s\0 \0f\0o\0r\0 \0p\0a\0r\0t\0n\0e\0r\0s\0 \0i\0n\0 \0a\0\r\0
+\0 \0 \0 \0 \0 \0 \0S\0a\0a\0S\0 \0c\0o\0m\0p\0a\0n\0y\0.\0 \0H\0e\0 \0h\0a\0s\0 \0e\0x\0p\0e\0r\0i\0e\0n\0c\0e\0 \0a\0n\0d\0 \0a\0 \0b\0a\0c\0k\0g\0r\0o\0u\0n\0d\0 \0i\0n\0 \0m\0a\0c\0h\0i\0n\0e\0 \0l\0e\0a\0r\0n\0i\0n\0g\0,\0\r\0
+\0 \0 \0 \0 \0 \0 \0d\0e\0e\0p\0 \0l\0e\0a\0r\0n\0i\0n\0g\0 \0a\0n\0d\0 \0d\0a\0t\0a\0 \0a\0n\0a\0l\0y\0t\0i\0c\0s\0,\0 \0M\0e\0r\0t\0 \0d\0i\0d\0 \0h\0i\0s\0 \0b\0a\0c\0h\0e\0l\0o\0r\0s\0 \0i\0n\0 \0A\0I\0\r\0
+\0 \0 \0 \0 \0 \0 \0E\0n\0g\0i\0n\0e\0e\0r\0i\0n\0g\0 \0a\0n\0d\0 \0c\0u\0r\0r\0e\0n\0t\0l\0y\0 \0p\0u\0r\0s\0u\0i\0n\0g\0 \0a\0 \0m\0a\0s\0t\0e\0r\0s\0 \0i\0n\0 \0M\0a\0n\0a\0g\0e\0m\0e\0n\0t\0 \0a\0n\0d\0 \0T\0e\0c\0h\0n\0o\0l\0o\0g\0y\0\r\0
+\0 \0 \0 \0 \0 \0 \0a\0t\0 \0T\0U\0M\0.\0&\0n\0b\0s\0p\0;\0<\0b\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0b\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0P\0l\0e\0a\0s\0e\0 \0g\0i\0v\0e\0 \0a\0 \0w\0a\0r\0m\0 \0w\0e\0l\0c\0o\0m\0e\0 \0t\0o\0&\0n\0b\0s\0p\0;\0G\0u\0e\0l\0e\0r\0 \0M\0e\0r\0t\0!\0&\0n\0b\0s\0p\0;\0<\0b\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0b\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0&\0n\0b\0s\0p\0;\0 \0<\0o\0:\0p\0>\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0t\0a\0b\0l\0e\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0T\0a\0b\0l\0e\0 \0b\0o\0r\0d\0e\0r\0=\x000\0 \0c\0e\0l\0l\0s\0p\0a\0c\0i\0n\0g\0=\x000\0 \0c\0e\0l\0l\0p\0a\0d\0d\0i\0n\0g\0=\x000\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0b\0o\0r\0d\0e\0r\0-\0c\0o\0l\0l\0a\0p\0s\0e\0:\0c\0o\0l\0l\0a\0p\0s\0e\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0t\0b\0l\0l\0o\0o\0k\0:\x001\x001\x008\x004\0;\0m\0s\0o\0-\0p\0a\0d\0d\0i\0n\0g\0-\0a\0l\0t\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x000\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0f\0i\0r\0s\0t\0r\0o\0w\0:\0y\0e\0s\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0l\0a\0s\0t\0r\0o\0w\0:\0y\0e\0s\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0h\0e\0i\0g\0h\0t\0:\x007\0.\x005\0p\0t\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0s\0t\0y\0l\0e\0=\0'\0p\0a\0d\0d\0i\0n\0g\0:\0.\x007\x005\0p\0t\0 \0.\x007\x005\0p\0t\0 \0.\x007\x005\0p\0t\0 \0.\x007\x005\0p\0t\0;\0h\0e\0i\0g\0h\0t\0:\x007\0.\x005\0p\0t\0'\0>\0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0/\0t\0a\0b\0l\0e\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x002\0.\x007\x005\0p\0t\0'\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0;\0d\0i\0s\0p\0l\0a\0y\0:\0n\0o\0n\0e\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0m\0s\0o\0-\0h\0i\0d\0e\0:\0a\0l\0l\0'\0>\0<\0o\0:\0p\0>\0&\0n\0b\0s\0p\0;\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0t\0a\0b\0l\0e\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0T\0a\0b\0l\0e\0 \0b\0o\0r\0d\0e\0r\0=\x000\0 \0c\0e\0l\0l\0s\0p\0a\0c\0i\0n\0g\0=\x000\0 \0c\0e\0l\0l\0p\0a\0d\0d\0i\0n\0g\0=\x000\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0b\0o\0r\0d\0e\0r\0-\0c\0o\0l\0l\0a\0p\0s\0e\0:\0c\0o\0l\0l\0a\0p\0s\0e\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0t\0b\0l\0l\0o\0o\0k\0:\x001\x001\x008\x004\0;\0m\0s\0o\0-\0p\0a\0d\0d\0i\0n\0g\0-\0a\0l\0t\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x000\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0f\0i\0r\0s\0t\0r\0o\0w\0:\0y\0e\0s\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0l\0a\0s\0t\0r\0o\0w\0:\0y\0e\0s\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0s\0t\0y\0l\0e\0=\0'\0p\0a\0d\0d\0i\0n\0g\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0'\0>\0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0/\0t\0a\0b\0l\0e\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0>\0<\0o\0:\0p\0>\0<\0/\0o\0:\0p\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0<\0/\0t\0a\0b\0l\0e\0>\0\r\0
+\0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x004\0.\x002\x005\0p\0t\0'\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x009\0.\x000\0p\0t\0;\0\r\0
+\0 \0 \0 \0 \0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0#\x002\x002\x002\x002\x002\x002\0;\0d\0i\0s\0p\0l\0a\0y\0:\0n\0o\0n\0e\0;\0m\0s\0o\0-\0h\0i\0d\0e\0:\0a\0l\0l\0'\0>\0<\0o\0:\0p\0>\0&\0n\0b\0s\0p\0;\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0<\0t\0a\0b\0l\0e\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0T\0a\0b\0l\0e\0 \0b\0o\0r\0d\0e\0r\0=\x000\0 \0c\0e\0l\0l\0s\0p\0a\0c\0i\0n\0g\0=\x000\0 \0c\0e\0l\0l\0p\0a\0d\0d\0i\0n\0g\0=\x000\0\r\0
+\0 \0 \0 \0 \0 \0w\0i\0d\0t\0h\0=\0"\x001\x000\x000\0%\0"\0 \0s\0t\0y\0l\0e\0=\0'\0w\0i\0d\0t\0h\0:\x001\x000\x000\0.\x000\0%\0;\0b\0o\0r\0d\0e\0r\0-\0c\0o\0l\0l\0a\0p\0s\0e\0:\0c\0o\0l\0l\0a\0p\0s\0e\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0t\0b\0l\0l\0o\0o\0k\0:\0\r\0
+\0 \0 \0 \0 \0 \x001\x001\x008\x004\0;\0m\0s\0o\0-\0p\0a\0d\0d\0i\0n\0g\0-\0a\0l\0t\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0;\0b\0o\0r\0d\0e\0r\0-\0s\0p\0a\0c\0i\0n\0g\0:\x000\0;\0w\0h\0i\0t\0e\0 \0!\0i\0m\0p\0o\0r\0t\0a\0n\0t\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x000\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0f\0i\0r\0s\0t\0r\0o\0w\0:\0y\0e\0s\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0l\0a\0s\0t\0r\0o\0w\0:\0y\0e\0s\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0h\0e\0i\0g\0h\0t\0:\x002\x006\0.\x002\x005\0p\0t\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0v\0a\0l\0i\0g\0n\0=\0t\0o\0p\0 \0s\0t\0y\0l\0e\0=\0'\0p\0a\0d\0d\0i\0n\0g\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0;\0h\0e\0i\0g\0h\0t\0:\x002\x006\0.\x002\x005\0p\0t\0;\0w\0o\0r\0d\0-\0b\0r\0e\0a\0k\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0b\0r\0e\0a\0k\0-\0w\0o\0r\0d\0;\0-\0w\0e\0b\0k\0i\0t\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0-\0m\0o\0z\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0'\0>\0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0<\0/\0t\0a\0b\0l\0e\0>\0\r\0
+\0 \0 \0 \0 \0<\0/\0d\0i\0v\0>\0\r\0
+\0 \0 \0 \0 \0<\0/\0d\0i\0v\0>\0\r\0
+\0 \0 \0 \0 \0<\0d\0i\0v\0 \0a\0l\0i\0g\0n\0=\0c\0e\0n\0t\0e\0r\0>\0\r\0
+\0 \0 \0 \0 \0<\0t\0a\0b\0l\0e\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0T\0a\0b\0l\0e\0 \0b\0o\0r\0d\0e\0r\0=\x000\0 \0c\0e\0l\0l\0s\0p\0a\0c\0i\0n\0g\0=\x000\0 \0c\0e\0l\0l\0p\0a\0d\0d\0i\0n\0g\0=\x000\0 \0w\0i\0d\0t\0h\0=\x005\x007\x000\0\r\0
+\0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0w\0i\0d\0t\0h\0:\x004\x002\x007\0.\x005\0p\0t\0;\0b\0o\0r\0d\0e\0r\0-\0c\0o\0l\0l\0a\0p\0s\0e\0:\0c\0o\0l\0l\0a\0p\0s\0e\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0t\0b\0l\0l\0o\0o\0k\0:\x001\x001\x008\x004\0;\0\r\0
+\0 \0 \0 \0 \0 \0m\0s\0o\0-\0p\0a\0d\0d\0i\0n\0g\0-\0a\0l\0t\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x000\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0f\0i\0r\0s\0t\0r\0o\0w\0:\0y\0e\0s\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0l\0a\0s\0t\0r\0o\0w\0:\0y\0e\0s\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0w\0i\0d\0t\0h\0=\x005\x007\x000\0 \0s\0t\0y\0l\0e\0=\0'\0w\0i\0d\0t\0h\0:\x004\x002\x007\0.\x005\0p\0t\0;\0b\0o\0r\0d\0e\0r\0:\0n\0o\0n\0e\0;\0b\0o\0r\0d\0e\0r\0-\0b\0o\0t\0t\0o\0m\0:\0s\0o\0l\0i\0d\0 \0#\0E\x001\0E\x006\0E\0A\0 \x001\0.\x005\0p\0t\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0p\0a\0d\0d\0i\0n\0g\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0'\0>\0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0<\0/\0t\0a\0b\0l\0e\0>\0\r\0
+\0 \0 \0 \0 \0<\0/\0d\0i\0v\0>\0\r\0
+\0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x004\0.\x002\x005\0p\0t\0'\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x009\0.\x000\0p\0t\0;\0\r\0
+\0 \0 \0 \0 \0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0#\x002\x002\x002\x002\x002\x002\0;\0d\0i\0s\0p\0l\0a\0y\0:\0n\0o\0n\0e\0;\0m\0s\0o\0-\0h\0i\0d\0e\0:\0a\0l\0l\0'\0>\0<\0o\0:\0p\0>\0&\0n\0b\0s\0p\0;\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0<\0d\0i\0v\0 \0a\0l\0i\0g\0n\0=\0c\0e\0n\0t\0e\0r\0>\0\r\0
+\0 \0 \0 \0 \0<\0t\0a\0b\0l\0e\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0T\0a\0b\0l\0e\0 \0b\0o\0r\0d\0e\0r\0=\x000\0 \0c\0e\0l\0l\0s\0p\0a\0c\0i\0n\0g\0=\x000\0 \0c\0e\0l\0l\0p\0a\0d\0d\0i\0n\0g\0=\x000\0 \0w\0i\0d\0t\0h\0=\x006\x005\x000\0\r\0
+\0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0w\0i\0d\0t\0h\0:\x004\x008\x007\0.\x005\0p\0t\0;\0b\0o\0r\0d\0e\0r\0-\0c\0o\0l\0l\0a\0p\0s\0e\0:\0c\0o\0l\0l\0a\0p\0s\0e\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0t\0b\0l\0l\0o\0o\0k\0:\x001\x001\x008\x004\0;\0\r\0
+\0 \0 \0 \0 \0 \0m\0s\0o\0-\0p\0a\0d\0d\0i\0n\0g\0-\0a\0l\0t\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x000\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0f\0i\0r\0s\0t\0r\0o\0w\0:\0y\0e\0s\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0l\0a\0s\0t\0r\0o\0w\0:\0y\0e\0s\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0v\0a\0l\0i\0g\0n\0=\0t\0o\0p\0 \0s\0t\0y\0l\0e\0=\0'\0p\0a\0d\0d\0i\0n\0g\0:\x001\x001\0.\x002\x005\0p\0t\0 \x003\x000\0.\x000\0p\0t\0 \x001\x001\0.\x002\x005\0p\0t\0 \x003\x000\0.\x000\0p\0t\0;\0-\0w\0e\0b\0k\0i\0t\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0-\0m\0o\0z\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0-\0a\0l\0t\0:\x001\x002\0.\x007\x005\0p\0t\0'\0>\0<\0a\0\r\0
+\0 \0 \0 \0 \0 \0 \0n\0a\0m\0e\0=\0"\0C\0h\0a\0p\0t\0e\0r\0_\x001\x007\x008\x002\x007\x001\0"\0>\0<\0/\0a\0>\0<\0s\0t\0r\0o\0n\0g\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x001\x003\0.\x005\0p\0t\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0#\x000\0A\x008\x002\x007\x006\0'\0>\0E\0a\0s\0e\0 \0o\0f\0 \0U\0s\0e\0<\0/\0s\0p\0a\0n\0>\0<\0/\0s\0t\0r\0o\0n\0g\0>\0<\0s\0p\0a\0n\0\r\0
+\0 \0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x001\x003\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0#\x000\0A\x008\x002\x007\x006\0'\0>\0 \0<\0o\0:\0p\0>\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0<\0/\0t\0a\0b\0l\0e\0>\0\r\0
+\0 \0 \0 \0 \0<\0/\0d\0i\0v\0>\0\r\0
+\0 \0 \0 \0 \0<\0d\0i\0v\0 \0i\0d\0=\0"\0a\0r\0t\0i\0c\0l\0e\0_\x001\x007\x008\x002\x007\x000\0"\0>\0\r\0
+\0 \0 \0 \0 \0<\0d\0i\0v\0>\0\r\0
+\0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x004\0.\x002\x005\0p\0t\0'\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x009\0.\x000\0p\0t\0;\0\r\0
+\0 \0 \0 \0 \0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0#\x002\x002\x002\x002\x002\x002\0;\0d\0i\0s\0p\0l\0a\0y\0:\0n\0o\0n\0e\0;\0m\0s\0o\0-\0h\0i\0d\0e\0:\0a\0l\0l\0'\0>\0<\0o\0:\0p\0>\0&\0n\0b\0s\0p\0;\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0<\0t\0a\0b\0l\0e\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0T\0a\0b\0l\0e\0 \0b\0o\0r\0d\0e\0r\0=\x000\0 \0c\0e\0l\0l\0s\0p\0a\0c\0i\0n\0g\0=\x000\0 \0c\0e\0l\0l\0p\0a\0d\0d\0i\0n\0g\0=\x000\0\r\0
+\0 \0 \0 \0 \0 \0w\0i\0d\0t\0h\0=\0"\x001\x000\x000\0%\0"\0 \0s\0t\0y\0l\0e\0=\0'\0w\0i\0d\0t\0h\0:\x001\x000\x000\0.\x000\0%\0;\0b\0o\0r\0d\0e\0r\0-\0c\0o\0l\0l\0a\0p\0s\0e\0:\0c\0o\0l\0l\0a\0p\0s\0e\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0t\0b\0l\0l\0o\0o\0k\0:\0\r\0
+\0 \0 \0 \0 \0 \x001\x001\x008\x004\0;\0m\0s\0o\0-\0p\0a\0d\0d\0i\0n\0g\0-\0a\0l\0t\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0;\0b\0o\0r\0d\0e\0r\0-\0s\0p\0a\0c\0i\0n\0g\0:\0 \x000\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x000\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0f\0i\0r\0s\0t\0r\0o\0w\0:\0y\0e\0s\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0v\0a\0l\0i\0g\0n\0=\0t\0o\0p\0 \0s\0t\0y\0l\0e\0=\0'\0p\0a\0d\0d\0i\0n\0g\0:\x000\0i\0n\0 \x003\x000\0.\x000\0p\0t\0 \x001\x007\0.\x002\x005\0p\0t\0 \x003\x000\0.\x000\0p\0t\0;\0-\0w\0e\0b\0k\0i\0t\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0-\0m\0o\0z\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x002\0.\x007\x005\0p\0t\0'\0>\0<\0b\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0'\0>\0A\0T\0V\0 \0M\0C\0 \0E\0a\0s\0e\0 \0o\0f\0 \0U\0s\0e\0 \0U\0p\0d\0a\0t\0e\0s\0 \0<\0/\0s\0p\0a\0n\0>\0<\0/\0b\0>\0<\0s\0p\0a\0n\0\r\0
+\0 \0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0'\0>\0<\0o\0:\0p\0>\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x001\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0v\0a\0l\0i\0g\0n\0=\0t\0o\0p\0 \0s\0t\0y\0l\0e\0=\0'\0p\0a\0d\0d\0i\0n\0g\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0;\0-\0w\0e\0b\0k\0i\0t\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0-\0m\0o\0z\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x002\0.\x007\x005\0p\0t\0'\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0'\0>\0<\0i\0m\0g\0 \0b\0o\0r\0d\0e\0r\0=\x000\0\r\0
+\0 \0 \0 \0 \0 \0 \0w\0i\0d\0t\0h\0=\x006\x005\x000\0 \0h\0e\0i\0g\0h\0t\0=\x002\x000\x000\0 \0i\0d\0=\0"\0_\0x\x000\x000\x000\x000\0_\0i\x001\x000\x004\x001\0"\0\r\0
+\0 \0 \0 \0 \0 \0 \0s\0r\0c\0=\0"\0h\0t\0t\0p\0s\0:\0/\0/\0n\0e\0w\0s\0l\0e\0t\0t\0e\0r\0f\0i\0l\0e\0s\0.\0i\0n\0f\0i\0n\0e\0o\0n\0.\0c\0o\0m\0/\0f\0i\0l\0e\0s\0/\0i\0f\0x\0n\0e\0w\0s\0l\0e\0t\0t\0e\0r\0s\0-\0p\0i\0c\0t\0u\0r\0e\0s\0/\0E\0o\0U\0%\x002\x000\0L\0o\0g\0o\0_\x000\x004\0-\x000\x003\0-\x002\x000\x002\x004\0-\x001\x001\0-\x002\x000\0-\x005\x001\0.\0p\0n\0g\0"\0\r\0
+\0 \0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0h\0e\0i\0g\0h\0t\0:\x002\0.\x000\x008\x003\0i\0n\0;\0w\0i\0d\0t\0h\0:\x006\0.\x007\x007\x005\0i\0n\0'\0>\0<\0o\0:\0p\0>\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x002\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0l\0a\0s\0t\0r\0o\0w\0:\0y\0e\0s\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0v\0a\0l\0i\0g\0n\0=\0t\0o\0p\0 \0s\0t\0y\0l\0e\0=\0'\0p\0a\0d\0d\0i\0n\0g\0:\x001\x001\0.\x002\x005\0p\0t\0 \x003\x000\0.\x000\0p\0t\0 \x000\0i\0n\0 \x003\x000\0.\x000\0p\0t\0;\0-\0w\0e\0b\0k\0i\0t\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0-\0m\0o\0z\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x002\0.\x007\x005\0p\0t\0'\0>\0<\0s\0t\0r\0o\0n\0g\0>\0<\0s\0p\0a\0n\0\r\0
+\0 \0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0'\0>\0A\0U\0R\0I\0X\0"!\r\0
+\0 \0 \0 \0 \0 \0 \0A\0u\0t\0o\0m\0o\0t\0i\0v\0e\0 \0E\0a\0s\0e\0 \0o\0f\0 \0U\0s\0e\0r\0 \0n\0o\0w\0 \0o\0n\0l\0i\0n\0e\0 \0(\0g\0e\0t\0t\0i\0n\0g\0 \0s\0t\0a\0r\0t\0e\0d\0 \0w\0i\0t\0h\0 \0A\0U\0R\0I\0X\0"!)\0<\0/\0s\0p\0a\0n\0>\0<\0/\0s\0t\0r\0o\0n\0g\0>\0<\0s\0p\0a\0n\0\r\0
+\0 \0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0'\0>\0<\0o\0:\0p\0>\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0d\0i\0v\0 \0s\0t\0y\0l\0e\0=\0'\0m\0a\0r\0g\0i\0n\0-\0l\0e\0f\0t\0:\0-\x002\x006\0.\x000\0p\0t\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0m\0a\0r\0g\0i\0n\0-\0l\0e\0f\0t\0:\0.\x005\0i\0n\0;\0t\0e\0x\0t\0-\0i\0n\0d\0e\0n\0t\0:\0-\x008\0.\x000\0p\0t\0;\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \x001\x002\0.\x007\x005\0p\0t\0'\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0c\0o\0l\0o\0r\0:\0#\x000\0A\x008\x002\x007\x006\0'\0>\0-\0 \0<\0/\0s\0p\0a\0n\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0'\0>\0w\0e\0b\0s\0i\0t\0e\0 \0f\0o\0r\0 \0d\0e\0s\0i\0g\0n\0i\0n\0g\0 \0e\0m\0b\0e\0d\0d\0e\0d\0 \0a\0p\0p\0l\0i\0c\0a\0t\0i\0o\0n\0s\0 \0b\0a\0s\0e\0d\0 \0o\0n\0 \0t\0h\0e\0\r\0
+\0 \0 \0 \0 \0 \0 \x003\x002\0-\0b\0i\0t\0 \0A\0U\0R\0I\0X\0"! \0T\0r\0i\0C\0o\0r\0e\0 \0m\0i\0c\0r\0o\0c\0o\0n\0t\0r\0o\0l\0l\0e\0r\0.\0&\0n\0b\0s\0p\0;\0<\0b\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0[\0<\0a\0\r\0
+\0 \0 \0 \0 \0 \0 \0h\0r\0e\0f\0=\0"\0h\0t\0t\0p\0s\0:\0/\0/\0w\0w\0w\0.\0i\0n\0f\0i\0n\0e\0o\0n\0.\0c\0o\0m\0/\0p\0r\0o\0d\0u\0c\0t\0-\0i\0n\0f\0o\0r\0m\0a\0t\0i\0o\0n\0/\0g\0e\0t\0t\0i\0n\0g\0-\0s\0t\0a\0r\0t\0e\0d\0-\0w\0i\0t\0h\0-\0a\0u\0r\0i\0x\0"\0>\0W\0e\0b\0s\0i\0t\0e\0<\0/\0a\0>\0]\0<\0o\0:\0p\0>\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0/\0d\0i\0v\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x002\0.\x007\x005\0p\0t\0'\0>\0<\0s\0t\0r\0o\0n\0g\0>\0<\0s\0p\0a\0n\0\r\0
+\0 \0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0'\0>\0P\0S\0O\0C\0"!\r\0
+\0 \0 \0 \0 \0 \0 \0A\0u\0t\0o\0m\0o\0t\0i\0v\0e\0 \0E\0a\0s\0e\0 \0o\0f\0 \0U\0s\0e\0r\0 \0n\0o\0w\0 \0o\0n\0l\0i\0n\0e\0 \0(\0g\0e\0t\0t\0i\0n\0g\0 \0s\0t\0a\0r\0t\0e\0d\0 \0w\0i\0t\0h\0 \0P\0S\0O\0C\0"!\r\0
+\0 \0 \0 \0 \0 \0 \0A\0u\0t\0o\0m\0o\0t\0i\0v\0e\0)\0<\0/\0s\0p\0a\0n\0>\0<\0/\0s\0t\0r\0o\0n\0g\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0'\0>\0<\0o\0:\0p\0>\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0d\0i\0v\0 \0s\0t\0y\0l\0e\0=\0'\0m\0a\0r\0g\0i\0n\0-\0l\0e\0f\0t\0:\0-\x002\x006\0.\x000\0p\0t\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0m\0a\0r\0g\0i\0n\0-\0l\0e\0f\0t\0:\0.\x005\0i\0n\0;\0t\0e\0x\0t\0-\0i\0n\0d\0e\0n\0t\0:\0-\x008\0.\x000\0p\0t\0;\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \x001\x002\0.\x007\x005\0p\0t\0'\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0c\0o\0l\0o\0r\0:\0#\x000\0A\x008\x002\x007\x006\0'\0>\0-\0 \0<\0/\0s\0p\0a\0n\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0'\0>\0W\0e\0b\0s\0i\0t\0e\0 \0c\0o\0n\0t\0a\0i\0n\0i\0n\0g\0 \0r\0e\0s\0o\0u\0r\0c\0e\0s\0 \0f\0o\0r\0 \0t\0h\0e\0 \0P\0S\0O\0C\0"! \0A\0u\0t\0o\0m\0o\0t\0i\0v\0e\0\r\0
+\0 \0 \0 \0 \0 \0 \0D\0e\0v\0e\0l\0o\0p\0m\0e\0n\0t\0 \0E\0c\0o\0s\0y\0s\0t\0e\0m\0,\0 \0a\0 \0p\0l\0a\0t\0f\0o\0r\0m\0 \0f\0o\0r\0 \0c\0r\0e\0a\0t\0i\0n\0g\0 \0e\0m\0b\0e\0d\0d\0e\0d\0 \0a\0p\0p\0l\0i\0c\0a\0t\0i\0o\0n\0s\0.\0<\0b\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0[\0<\0a\0\r\0
+\0 \0 \0 \0 \0 \0 \0h\0r\0e\0f\0=\0"\0h\0t\0t\0p\0s\0:\0/\0/\0w\0w\0w\0.\0i\0n\0f\0i\0n\0e\0o\0n\0.\0c\0o\0m\0/\0p\0r\0o\0d\0u\0c\0t\0-\0i\0n\0f\0o\0r\0m\0a\0t\0i\0o\0n\0/\0g\0e\0t\0t\0i\0n\0g\0-\0s\0t\0a\0r\0t\0e\0d\0-\0w\0i\0t\0h\0-\0p\0s\0o\0c\0-\0a\0u\0t\0o\0m\0o\0t\0i\0v\0e\0"\0>\0W\0e\0b\0s\0i\0t\0e\0<\0/\0a\0>\0]\0<\0o\0:\0p\0>\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0/\0d\0i\0v\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x002\0.\x007\x005\0p\0t\0'\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0'\0>\0<\0b\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0s\0t\0r\0o\0n\0g\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0'\0>\0T\0R\0A\0V\0E\0O\0"! \0T\x002\0G\0 \0E\0a\0s\0e\0 \0o\0f\0\r\0
+\0 \0 \0 \0 \0 \0 \0U\0s\0e\0r\0 \0n\0o\0w\0 \0o\0n\0l\0i\0n\0e\0 \0(\0g\0e\0t\0t\0i\0n\0g\0 \0s\0t\0a\0r\0t\0e\0d\0 \0w\0i\0t\0h\0 \0T\0R\0A\0V\0E\0O\0"! \0T\x002\0G\0)\0<\0/\0s\0p\0a\0n\0>\0<\0/\0s\0t\0r\0o\0n\0g\0>\0<\0o\0:\0p\0>\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0d\0i\0v\0 \0s\0t\0y\0l\0e\0=\0'\0m\0a\0r\0g\0i\0n\0-\0l\0e\0f\0t\0:\0-\x002\x006\0.\x000\0p\0t\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0m\0a\0r\0g\0i\0n\0-\0l\0e\0f\0t\0:\0.\x005\0i\0n\0;\0t\0e\0x\0t\0-\0i\0n\0d\0e\0n\0t\0:\0-\x008\0.\x000\0p\0t\0;\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \x001\x002\0.\x007\x005\0p\0t\0'\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0c\0o\0l\0o\0r\0:\0#\x000\0A\x008\x002\x007\x006\0'\0>\0-\0 \0<\0/\0s\0p\0a\0n\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0'\0>\0W\0e\0b\0s\0i\0t\0e\0 \0c\0o\0n\0t\0a\0i\0n\0i\0n\0g\0 \0r\0e\0s\0o\0u\0r\0c\0e\0s\0 \0f\0o\0r\0 \0t\0h\0e\0 \0T\0R\0A\0V\0E\0O\0"! \0T\x002\0G\0 \0D\0e\0v\0e\0l\0o\0p\0m\0e\0n\0t\0\r\0
+\0 \0 \0 \0 \0 \0 \0E\0c\0o\0s\0y\0s\0t\0e\0m\0,\0 \0a\0 \0p\0l\0a\0t\0f\0o\0r\0m\0 \0f\0o\0r\0 \0d\0e\0s\0i\0g\0n\0i\0n\0g\0 \0a\0u\0t\0o\0m\0o\0t\0i\0v\0e\0-\0g\0r\0a\0d\0e\0 \0a\0p\0p\0l\0i\0c\0a\0t\0i\0o\0n\0s\0.\0<\0b\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0[\0<\0a\0\r\0
+\0 \0 \0 \0 \0 \0 \0h\0r\0e\0f\0=\0"\0h\0t\0t\0p\0s\0:\0/\0/\0w\0w\0w\0.\0i\0n\0f\0i\0n\0e\0o\0n\0.\0c\0o\0m\0/\0p\0r\0o\0d\0u\0c\0t\0-\0i\0n\0f\0o\0r\0m\0a\0t\0i\0o\0n\0/\0g\0e\0t\0t\0i\0n\0g\0-\0s\0t\0a\0r\0t\0e\0d\0-\0w\0i\0t\0h\0-\0t\0r\0a\0v\0e\0o\0"\0>\0W\0e\0b\0s\0i\0t\0e\0<\0/\0a\0>\0]\0<\0o\0:\0p\0>\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0/\0d\0i\0v\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x002\0.\x007\x005\0p\0t\0'\0>\0<\0s\0t\0r\0o\0n\0g\0>\0<\0s\0p\0a\0n\0\r\0
+\0 \0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0'\0>\0T\0R\0A\0V\0E\0O\0"!\r\0
+\0 \0 \0 \0 \0 \0 \0T\x002\0G\0 \x004\0M\0 \0i\0s\0 \0n\0o\0w\0 \0s\0u\0p\0p\0o\0r\0t\0e\0d\0 \0b\0y\0 \0M\0o\0d\0u\0s\0t\0o\0o\0l\0b\0o\0x\0&\0n\0b\0s\0p\0;\0<\0/\0s\0p\0a\0n\0>\0<\0/\0s\0t\0r\0o\0n\0g\0>\0<\0s\0p\0a\0n\0\r\0
+\0 \0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0'\0>\0<\0o\0:\0p\0>\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0d\0i\0v\0 \0s\0t\0y\0l\0e\0=\0'\0m\0a\0r\0g\0i\0n\0-\0l\0e\0f\0t\0:\0-\x002\x006\0.\x000\0p\0t\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0m\0a\0r\0g\0i\0n\0-\0l\0e\0f\0t\0:\0.\x005\0i\0n\0;\0t\0e\0x\0t\0-\0i\0n\0d\0e\0n\0t\0:\0-\x008\0.\x000\0p\0t\0;\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \x001\x002\0.\x007\x005\0p\0t\0'\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0c\0o\0l\0o\0r\0:\0#\x000\0A\x008\x002\x007\x006\0'\0>\0-\0 \0<\0/\0s\0p\0a\0n\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0'\0>\0W\0e\0b\0s\0i\0t\0e\0 \0c\0o\0n\0t\0a\0i\0n\0i\0n\0g\0 \0r\0e\0s\0o\0u\0r\0c\0e\0s\0 \0f\0o\0r\0 \0t\0h\0e\0 \0T\0R\0A\0V\0E\0O\0"! \0T\x002\0G\0 \0D\0e\0v\0e\0l\0o\0p\0m\0e\0n\0t\0\r\0
+\0 \0 \0 \0 \0 \0 \0E\0c\0o\0s\0y\0s\0t\0e\0m\0<\0b\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0[\0<\0a\0 \0h\0r\0e\0f\0=\0"\0h\0t\0t\0p\0s\0:\0/\0/\0w\0w\0w\0.\0i\0n\0f\0i\0n\0e\0o\0n\0.\0c\0o\0m\0/\0e\0v\0a\0l\0u\0a\0t\0i\0o\0n\0-\0b\0o\0a\0r\0d\0/\0K\0I\0T\0-\0T\x002\0G\0-\0C\0-\x002\0D\0-\x004\0M\0-\0L\0I\0T\0E\0"\0>\0B\0o\0r\0a\0d\0s\0<\0/\0a\0>\0]\0<\0o\0:\0p\0>\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0/\0d\0i\0v\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x002\0.\x007\x005\0p\0t\0'\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0'\0>\0<\0b\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0s\0t\0r\0o\0n\0g\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0'\0>\0C\0o\0n\0t\0a\0c\0t\0:\0 \0E\0m\0n\0a\0 \0A\0z\0e\0k\0<\0/\0s\0p\0a\0n\0>\0<\0/\0s\0t\0r\0o\0n\0g\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0o\0:\0p\0>\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0t\0a\0b\0l\0e\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0T\0a\0b\0l\0e\0 \0b\0o\0r\0d\0e\0r\0=\x000\0 \0c\0e\0l\0l\0s\0p\0a\0c\0i\0n\0g\0=\x000\0 \0c\0e\0l\0l\0p\0a\0d\0d\0i\0n\0g\0=\x000\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0b\0o\0r\0d\0e\0r\0-\0c\0o\0l\0l\0a\0p\0s\0e\0:\0c\0o\0l\0l\0a\0p\0s\0e\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0t\0b\0l\0l\0o\0o\0k\0:\x001\x001\x008\x004\0;\0m\0s\0o\0-\0p\0a\0d\0d\0i\0n\0g\0-\0a\0l\0t\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x000\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0f\0i\0r\0s\0t\0r\0o\0w\0:\0y\0e\0s\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0l\0a\0s\0t\0r\0o\0w\0:\0y\0e\0s\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0h\0e\0i\0g\0h\0t\0:\x007\0.\x005\0p\0t\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0s\0t\0y\0l\0e\0=\0'\0p\0a\0d\0d\0i\0n\0g\0:\0.\x007\x005\0p\0t\0 \0.\x007\x005\0p\0t\0 \0.\x007\x005\0p\0t\0 \0.\x007\x005\0p\0t\0;\0h\0e\0i\0g\0h\0t\0:\x007\0.\x005\0p\0t\0'\0>\0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0/\0t\0a\0b\0l\0e\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x002\0.\x007\x005\0p\0t\0'\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0;\0d\0i\0s\0p\0l\0a\0y\0:\0n\0o\0n\0e\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0m\0s\0o\0-\0h\0i\0d\0e\0:\0a\0l\0l\0'\0>\0<\0o\0:\0p\0>\0&\0n\0b\0s\0p\0;\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0t\0a\0b\0l\0e\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0T\0a\0b\0l\0e\0 \0b\0o\0r\0d\0e\0r\0=\x000\0 \0c\0e\0l\0l\0s\0p\0a\0c\0i\0n\0g\0=\x000\0 \0c\0e\0l\0l\0p\0a\0d\0d\0i\0n\0g\0=\x000\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0b\0o\0r\0d\0e\0r\0-\0c\0o\0l\0l\0a\0p\0s\0e\0:\0c\0o\0l\0l\0a\0p\0s\0e\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0t\0b\0l\0l\0o\0o\0k\0:\x001\x001\x008\x004\0;\0m\0s\0o\0-\0p\0a\0d\0d\0i\0n\0g\0-\0a\0l\0t\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x000\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0f\0i\0r\0s\0t\0r\0o\0w\0:\0y\0e\0s\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0l\0a\0s\0t\0r\0o\0w\0:\0y\0e\0s\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0s\0t\0y\0l\0e\0=\0'\0p\0a\0d\0d\0i\0n\0g\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0'\0>\0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0/\0t\0a\0b\0l\0e\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0>\0<\0o\0:\0p\0>\0<\0/\0o\0:\0p\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0<\0/\0t\0a\0b\0l\0e\0>\0\r\0
+\0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x004\0.\x002\x005\0p\0t\0'\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x009\0.\x000\0p\0t\0;\0\r\0
+\0 \0 \0 \0 \0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0#\x002\x002\x002\x002\x002\x002\0;\0d\0i\0s\0p\0l\0a\0y\0:\0n\0o\0n\0e\0;\0m\0s\0o\0-\0h\0i\0d\0e\0:\0a\0l\0l\0'\0>\0<\0o\0:\0p\0>\0&\0n\0b\0s\0p\0;\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0<\0t\0a\0b\0l\0e\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0T\0a\0b\0l\0e\0 \0b\0o\0r\0d\0e\0r\0=\x000\0 \0c\0e\0l\0l\0s\0p\0a\0c\0i\0n\0g\0=\x000\0 \0c\0e\0l\0l\0p\0a\0d\0d\0i\0n\0g\0=\x000\0\r\0
+\0 \0 \0 \0 \0 \0w\0i\0d\0t\0h\0=\0"\x001\x000\x000\0%\0"\0 \0s\0t\0y\0l\0e\0=\0'\0w\0i\0d\0t\0h\0:\x001\x000\x000\0.\x000\0%\0;\0b\0o\0r\0d\0e\0r\0-\0c\0o\0l\0l\0a\0p\0s\0e\0:\0c\0o\0l\0l\0a\0p\0s\0e\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0t\0b\0l\0l\0o\0o\0k\0:\0\r\0
+\0 \0 \0 \0 \0 \x001\x001\x008\x004\0;\0m\0s\0o\0-\0p\0a\0d\0d\0i\0n\0g\0-\0a\0l\0t\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0;\0b\0o\0r\0d\0e\0r\0-\0s\0p\0a\0c\0i\0n\0g\0:\0 \x000\0;\0w\0h\0i\0t\0e\0 \0!\0i\0m\0p\0o\0r\0t\0a\0n\0t\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x000\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0f\0i\0r\0s\0t\0r\0o\0w\0:\0y\0e\0s\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0l\0a\0s\0t\0r\0o\0w\0:\0y\0e\0s\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0h\0e\0i\0g\0h\0t\0:\x002\x006\0.\x002\x005\0p\0t\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0v\0a\0l\0i\0g\0n\0=\0t\0o\0p\0 \0s\0t\0y\0l\0e\0=\0'\0p\0a\0d\0d\0i\0n\0g\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0;\0h\0e\0i\0g\0h\0t\0:\x002\x006\0.\x002\x005\0p\0t\0;\0w\0o\0r\0d\0-\0b\0r\0e\0a\0k\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0b\0r\0e\0a\0k\0-\0w\0o\0r\0d\0;\0-\0w\0e\0b\0k\0i\0t\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0-\0m\0o\0z\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0'\0>\0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0<\0/\0t\0a\0b\0l\0e\0>\0\r\0
+\0 \0 \0 \0 \0<\0/\0d\0i\0v\0>\0\r\0
+\0 \0 \0 \0 \0<\0/\0d\0i\0v\0>\0\r\0
+\0 \0 \0 \0 \0<\0d\0i\0v\0 \0a\0l\0i\0g\0n\0=\0c\0e\0n\0t\0e\0r\0>\0\r\0
+\0 \0 \0 \0 \0<\0t\0a\0b\0l\0e\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0T\0a\0b\0l\0e\0 \0b\0o\0r\0d\0e\0r\0=\x000\0 \0c\0e\0l\0l\0s\0p\0a\0c\0i\0n\0g\0=\x000\0 \0c\0e\0l\0l\0p\0a\0d\0d\0i\0n\0g\0=\x000\0 \0w\0i\0d\0t\0h\0=\x005\x007\x000\0\r\0
+\0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0w\0i\0d\0t\0h\0:\x004\x002\x007\0.\x005\0p\0t\0;\0b\0o\0r\0d\0e\0r\0-\0c\0o\0l\0l\0a\0p\0s\0e\0:\0c\0o\0l\0l\0a\0p\0s\0e\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0t\0b\0l\0l\0o\0o\0k\0:\x001\x001\x008\x004\0;\0\r\0
+\0 \0 \0 \0 \0 \0m\0s\0o\0-\0p\0a\0d\0d\0i\0n\0g\0-\0a\0l\0t\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x000\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0f\0i\0r\0s\0t\0r\0o\0w\0:\0y\0e\0s\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0l\0a\0s\0t\0r\0o\0w\0:\0y\0e\0s\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0w\0i\0d\0t\0h\0=\x005\x007\x000\0 \0s\0t\0y\0l\0e\0=\0'\0w\0i\0d\0t\0h\0:\x004\x002\x007\0.\x005\0p\0t\0;\0b\0o\0r\0d\0e\0r\0:\0n\0o\0n\0e\0;\0b\0o\0r\0d\0e\0r\0-\0b\0o\0t\0t\0o\0m\0:\0s\0o\0l\0i\0d\0 \0#\0E\x001\0E\x006\0E\0A\0 \x001\0.\x005\0p\0t\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0p\0a\0d\0d\0i\0n\0g\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0'\0>\0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0<\0/\0t\0a\0b\0l\0e\0>\0\r\0
+\0 \0 \0 \0 \0<\0/\0d\0i\0v\0>\0\r\0
+\0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x004\0.\x002\x005\0p\0t\0'\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x009\0.\x000\0p\0t\0;\0\r\0
+\0 \0 \0 \0 \0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0#\x002\x002\x002\x002\x002\x002\0;\0d\0i\0s\0p\0l\0a\0y\0:\0n\0o\0n\0e\0;\0m\0s\0o\0-\0h\0i\0d\0e\0:\0a\0l\0l\0'\0>\0<\0o\0:\0p\0>\0&\0n\0b\0s\0p\0;\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0<\0d\0i\0v\0 \0a\0l\0i\0g\0n\0=\0c\0e\0n\0t\0e\0r\0>\0\r\0
+\0 \0 \0 \0 \0<\0t\0a\0b\0l\0e\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0T\0a\0b\0l\0e\0 \0b\0o\0r\0d\0e\0r\0=\x000\0 \0c\0e\0l\0l\0s\0p\0a\0c\0i\0n\0g\0=\x000\0 \0c\0e\0l\0l\0p\0a\0d\0d\0i\0n\0g\0=\x000\0 \0w\0i\0d\0t\0h\0=\x006\x005\x000\0\r\0
+\0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0w\0i\0d\0t\0h\0:\x004\x008\x007\0.\x005\0p\0t\0;\0b\0o\0r\0d\0e\0r\0-\0c\0o\0l\0l\0a\0p\0s\0e\0:\0c\0o\0l\0l\0a\0p\0s\0e\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0t\0b\0l\0l\0o\0o\0k\0:\x001\x001\x008\x004\0;\0\r\0
+\0 \0 \0 \0 \0 \0m\0s\0o\0-\0p\0a\0d\0d\0i\0n\0g\0-\0a\0l\0t\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x000\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0f\0i\0r\0s\0t\0r\0o\0w\0:\0y\0e\0s\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0l\0a\0s\0t\0r\0o\0w\0:\0y\0e\0s\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0v\0a\0l\0i\0g\0n\0=\0t\0o\0p\0 \0s\0t\0y\0l\0e\0=\0'\0p\0a\0d\0d\0i\0n\0g\0:\x001\x001\0.\x002\x005\0p\0t\0 \x003\x000\0.\x000\0p\0t\0 \x001\x001\0.\x002\x005\0p\0t\0 \x003\x000\0.\x000\0p\0t\0;\0-\0w\0e\0b\0k\0i\0t\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0-\0m\0o\0z\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0-\0a\0l\0t\0:\x001\x002\0.\x007\x005\0p\0t\0'\0>\0<\0a\0\r\0
+\0 \0 \0 \0 \0 \0 \0n\0a\0m\0e\0=\0"\0C\0h\0a\0p\0t\0e\0r\0_\x002\x002\x007\x006\x007\x007\0"\0>\0<\0/\0a\0>\0<\0s\0t\0r\0o\0n\0g\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x001\x003\0.\x005\0p\0t\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0#\x000\0A\x008\x002\x007\x006\0'\0>\0M\0a\0r\0k\0e\0t\0 \0N\0e\0w\0s\0 \0&\0a\0m\0p\0;\0 \0P\0r\0e\0s\0s\0\r\0
+\0 \0 \0 \0 \0 \0 \0R\0e\0l\0e\0a\0s\0e\0<\0/\0s\0p\0a\0n\0>\0<\0/\0s\0t\0r\0o\0n\0g\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x001\x003\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0c\0o\0l\0o\0r\0:\0#\x000\0A\x008\x002\x007\x006\0'\0>\0 \0<\0o\0:\0p\0>\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0<\0/\0t\0a\0b\0l\0e\0>\0\r\0
+\0 \0 \0 \0 \0<\0/\0d\0i\0v\0>\0\r\0
+\0 \0 \0 \0 \0<\0d\0i\0v\0 \0i\0d\0=\0"\0a\0r\0t\0i\0c\0l\0e\0_\x002\x002\x007\x006\x008\x001\0"\0>\0\r\0
+\0 \0 \0 \0 \0<\0d\0i\0v\0>\0\r\0
+\0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x004\0.\x002\x005\0p\0t\0'\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x009\0.\x000\0p\0t\0;\0\r\0
+\0 \0 \0 \0 \0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0#\x002\x002\x002\x002\x002\x002\0;\0d\0i\0s\0p\0l\0a\0y\0:\0n\0o\0n\0e\0;\0m\0s\0o\0-\0h\0i\0d\0e\0:\0a\0l\0l\0'\0>\0<\0o\0:\0p\0>\0&\0n\0b\0s\0p\0;\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0<\0t\0a\0b\0l\0e\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0T\0a\0b\0l\0e\0 \0b\0o\0r\0d\0e\0r\0=\x000\0 \0c\0e\0l\0l\0s\0p\0a\0c\0i\0n\0g\0=\x000\0 \0c\0e\0l\0l\0p\0a\0d\0d\0i\0n\0g\0=\x000\0\r\0
+\0 \0 \0 \0 \0 \0w\0i\0d\0t\0h\0=\0"\x001\x000\x000\0%\0"\0 \0s\0t\0y\0l\0e\0=\0'\0w\0i\0d\0t\0h\0:\x001\x000\x000\0.\x000\0%\0;\0b\0o\0r\0d\0e\0r\0-\0c\0o\0l\0l\0a\0p\0s\0e\0:\0c\0o\0l\0l\0a\0p\0s\0e\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0t\0b\0l\0l\0o\0o\0k\0:\0\r\0
+\0 \0 \0 \0 \0 \x001\x001\x008\x004\0;\0m\0s\0o\0-\0p\0a\0d\0d\0i\0n\0g\0-\0a\0l\0t\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0;\0b\0o\0r\0d\0e\0r\0-\0s\0p\0a\0c\0i\0n\0g\0:\0 \x000\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x000\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0f\0i\0r\0s\0t\0r\0o\0w\0:\0y\0e\0s\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0v\0a\0l\0i\0g\0n\0=\0t\0o\0p\0 \0s\0t\0y\0l\0e\0=\0'\0p\0a\0d\0d\0i\0n\0g\0:\x000\0i\0n\0 \x003\x000\0.\x000\0p\0t\0 \x001\x007\0.\x002\x005\0p\0t\0 \x003\x000\0.\x000\0p\0t\0;\0-\0w\0e\0b\0k\0i\0t\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0-\0m\0o\0z\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x002\0.\x007\x005\0p\0t\0'\0>\0<\0b\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0'\0>\0F\0e\0b\0r\0u\0a\0r\0y\0 \0&\0a\0m\0p\0;\0 \0M\0a\0r\0c\0h\0 \0s\0u\0m\0m\0a\0r\0y\0 \0<\0/\0s\0p\0a\0n\0>\0<\0/\0b\0>\0<\0s\0p\0a\0n\0\r\0
+\0 \0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0'\0>\0<\0o\0:\0p\0>\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x001\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0l\0a\0s\0t\0r\0o\0w\0:\0y\0e\0s\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0v\0a\0l\0i\0g\0n\0=\0t\0o\0p\0 \0s\0t\0y\0l\0e\0=\0'\0p\0a\0d\0d\0i\0n\0g\0:\x000\0i\0n\0 \x003\x000\0.\x000\0p\0t\0 \x000\0i\0n\0 \x003\x000\0.\x007\x005\0p\0t\0;\0-\0w\0e\0b\0k\0i\0t\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0-\0m\0o\0z\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x002\0.\x007\x005\0p\0t\0'\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0'\0>\0-\0&\0n\0b\0s\0p\0;\0I\0n\0f\0i\0n\0e\0o\0n\0 \0a\0n\0d\0\r\0
+\0 \0 \0 \0 \0 \0 \0B\0M\0W\0 \0G\0r\0o\0u\0p\0 \0j\0o\0i\0n\0 \0f\0o\0r\0c\0e\0s\0 \0t\0o\0 \0s\0h\0a\0p\0e\0 \0t\0h\0e\0 \0f\0u\0t\0u\0r\0e\0 \0o\0f\0 \0s\0o\0f\0t\0w\0a\0r\0e\0-\0d\0e\0f\0i\0n\0e\0d\0 \0v\0e\0h\0i\0c\0l\0e\0s\0\r\0
+\0 \0 \0 \0 \0 \0 \0w\0i\0t\0h\0 \0t\0h\0e\0 \0N\0e\0u\0e\0 \0K\0l\0a\0s\0s\0e\0 \0(\0F\0e\0b\0r\0u\0a\0r\0y\0 \x001\x006\0t\0h\0)\0&\0n\0b\0s\0p\0;\0&\0n\0b\0s\0p\0;\0[\0<\0a\0\r\0
+\0 \0 \0 \0 \0 \0 \0h\0r\0e\0f\0=\0"\0h\0t\0t\0p\0s\0:\0/\0/\0w\0w\0w\0.\0i\0n\0f\0i\0n\0e\0o\0n\0.\0c\0o\0m\0/\0p\0r\0e\0s\0s\0-\0r\0e\0l\0e\0a\0s\0e\0/\x002\x000\x002\x006\0/\0i\0n\0f\0a\0t\0v\x002\x000\x002\x006\x000\x002\0-\x000\x004\x009\0"\0>\0A\0r\0t\0i\0c\0l\0e\0<\0/\0a\0>\0]\0<\0b\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0-\0&\0n\0b\0s\0p\0;\0I\0n\0f\0i\0n\0e\0o\0n\0 \0e\0x\0p\0a\0n\0d\0s\0 \0A\0U\0R\0I\0X\0"! \0T\0C\x003\0x\0 \0w\0i\0t\0h\0 \x004\x000\x000\0 \0M\0H\0z\0 \0o\0p\0t\0i\0o\0n\0 \0t\0o\0 \0a\0d\0d\0 \0r\0e\0a\0l\0-\0t\0i\0m\0e\0\r\0
+\0 \0 \0 \0 \0 \0 \0c\0o\0m\0p\0u\0t\0e\0 \0h\0e\0a\0d\0r\0o\0o\0m\0 \0w\0i\0t\0h\0o\0u\0t\0 \0a\0 \0p\0l\0a\0t\0f\0o\0r\0m\0 \0c\0h\0a\0n\0g\0e\0 \0(\0M\0a\0r\0c\0h\0 \x003\0r\0d\0)\0&\0n\0b\0s\0p\0;\0&\0n\0b\0s\0p\0;\0[\0<\0a\0\r\0
+\0 \0 \0 \0 \0 \0 \0h\0r\0e\0f\0=\0"\0h\0t\0t\0p\0s\0:\0/\0/\0w\0w\0w\0.\0i\0n\0f\0i\0n\0e\0o\0n\0.\0c\0o\0m\0/\0m\0a\0r\0k\0e\0t\0-\0n\0e\0w\0s\0/\x002\x000\x002\x006\0/\0i\0n\0f\0a\0t\0v\x002\x000\x002\x006\x000\x003\0-\x000\x006\x001\0"\0>\0A\0r\0t\0i\0c\0l\0e\0<\0/\0a\0>\0]\0<\0b\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0-\0&\0n\0b\0s\0p\0;\0I\0n\0f\0i\0n\0e\0o\0n\0 \0e\0x\0p\0a\0n\0d\0s\0 \0D\0R\0I\0V\0E\0C\0O\0R\0E\0 \0p\0o\0r\0t\0f\0o\0l\0i\0o\0 \0w\0i\0t\0h\0 \0t\0h\0r\0e\0e\0 \0n\0e\0w\0 \0s\0o\0f\0t\0w\0a\0r\0e\0\r\0
+\0 \0 \0 \0 \0 \0 \0b\0u\0n\0d\0l\0e\0s\0,\0 \0a\0c\0c\0e\0l\0e\0r\0a\0t\0i\0n\0g\0 \0c\0u\0s\0t\0o\0m\0e\0r\0 \0t\0r\0a\0n\0s\0i\0t\0i\0o\0n\0 \0t\0o\0w\0a\0r\0d\0 \0f\0u\0t\0u\0r\0e\0 \0R\0I\0S\0C\0 V\0 \0a\0u\0t\0o\0m\0o\0t\0i\0v\0e\0\r\0
+\0 \0 \0 \0 \0 \0 \0m\0i\0c\0r\0o\0c\0o\0n\0t\0r\0o\0l\0l\0e\0r\0s\0 \0(\0M\0a\0r\0c\0h\0 \x003\0r\0d\0)\0&\0n\0b\0s\0p\0;\0[\0<\0a\0\r\0
+\0 \0 \0 \0 \0 \0 \0h\0r\0e\0f\0=\0"\0h\0t\0t\0p\0s\0:\0/\0/\0w\0w\0w\0.\0i\0n\0f\0i\0n\0e\0o\0n\0.\0c\0o\0m\0/\0m\0a\0r\0k\0e\0t\0-\0n\0e\0w\0s\0/\x002\x000\x002\x006\0/\0i\0n\0f\0a\0t\0v\x002\x000\x002\x006\x000\x003\0-\x000\x005\x006\0"\0>\0A\0r\0t\0i\0c\0l\0e\0<\0/\0a\0>\0]\0<\0b\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0-\0 \0I\0n\0f\0i\0n\0e\0o\0n\0 \0s\0t\0r\0e\0n\0g\0t\0h\0e\0n\0s\0 \0a\0u\0t\0o\0m\0o\0t\0i\0v\0e\0 \0m\0i\0c\0r\0o\0c\0o\0n\0t\0r\0o\0l\0l\0e\0r\0 \0p\0o\0r\0t\0f\0o\0l\0i\0o\0 \0w\0i\0t\0h\0 \0I\0S\0O\0/\0S\0A\0E\0\r\0
+\0 \0 \0 \0 \0 \0 \x002\x001\x004\x003\x004\0 \0c\0o\0m\0p\0l\0i\0a\0n\0c\0e\0,\0 \0C\0A\0T\0A\0R\0C\0 \0c\0e\0r\0t\0i\0f\0i\0c\0a\0t\0i\0o\0n\0,\0 \0a\0n\0d\0 \0P\0Q\0C\0-\0r\0e\0a\0d\0y\0 \0f\0e\0a\0t\0u\0r\0e\0s\0 \0(\0M\0a\0r\0c\0h\0\r\0
+\0 \0 \0 \0 \0 \0 \x003\0r\0d\0)\0&\0n\0b\0s\0p\0;\0&\0n\0b\0s\0p\0;\0[\0<\0a\0\r\0
+\0 \0 \0 \0 \0 \0 \0h\0r\0e\0f\0=\0"\0h\0t\0t\0p\0s\0:\0/\0/\0w\0w\0w\0.\0i\0n\0f\0i\0n\0e\0o\0n\0.\0c\0o\0m\0/\0m\0a\0r\0k\0e\0t\0-\0n\0e\0w\0s\0/\x002\x000\x002\x006\0/\0i\0n\0f\0a\0t\0v\x002\x000\x002\x006\x000\x003\0-\x000\x005\x009\0"\0>\0A\0r\0t\0i\0c\0l\0e\0<\0/\0a\0>\0]\0<\0b\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0-\0&\0n\0b\0s\0p\0;\0I\0n\0f\0i\0n\0e\0o\0n\0 s\0 \0M\0o\0d\0u\0s\0T\0o\0o\0l\0b\0o\0x\0"! \0P\0o\0w\0e\0r\0 \0S\0u\0i\0t\0e\0 \0a\0c\0c\0e\0l\0e\0r\0a\0t\0e\0s\0 \0t\0h\0e\0 \0d\0e\0v\0e\0l\0o\0p\0m\0e\0n\0t\0\r\0
+\0 \0 \0 \0 \0 \0 \0o\0f\0 \0p\0o\0w\0e\0r\0 \0c\0o\0n\0v\0e\0r\0s\0i\0o\0n\0 \0s\0o\0l\0u\0t\0i\0o\0n\0s\0 \0w\0i\0t\0h\0 \0P\0S\0O\0C\0"! \0A\0u\0t\0o\0m\0o\0t\0i\0v\0e\0 \0C\0o\0n\0t\0r\0o\0l\0 \0C\x003\0 \0M\0C\0U\0s\0\r\0
+\0 \0 \0 \0 \0 \0 \0(\0M\0a\0r\0c\0h\0 \x003\0r\0d\0)\0&\0n\0b\0s\0p\0;\0[\0<\0a\0\r\0
+\0 \0 \0 \0 \0 \0 \0h\0r\0e\0f\0=\0"\0h\0t\0t\0p\0s\0:\0/\0/\0w\0w\0w\0.\0i\0n\0f\0i\0n\0e\0o\0n\0.\0c\0o\0m\0/\0m\0a\0r\0k\0e\0t\0-\0n\0e\0w\0s\0/\x002\x000\x002\x006\0/\0i\0n\0f\0c\0s\0s\x002\x000\x002\x006\x000\x003\0-\x000\x005\x005\0"\0>\0A\0r\0t\0i\0c\0l\0e\0<\0/\0a\0>\0]\0<\0b\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0&\0n\0b\0s\0p\0;\0 \0<\0o\0:\0p\0>\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0t\0a\0b\0l\0e\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0T\0a\0b\0l\0e\0 \0b\0o\0r\0d\0e\0r\0=\x000\0 \0c\0e\0l\0l\0s\0p\0a\0c\0i\0n\0g\0=\x000\0 \0c\0e\0l\0l\0p\0a\0d\0d\0i\0n\0g\0=\x000\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0b\0o\0r\0d\0e\0r\0-\0c\0o\0l\0l\0a\0p\0s\0e\0:\0c\0o\0l\0l\0a\0p\0s\0e\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0t\0b\0l\0l\0o\0o\0k\0:\x001\x001\x008\x004\0;\0m\0s\0o\0-\0p\0a\0d\0d\0i\0n\0g\0-\0a\0l\0t\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x000\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0f\0i\0r\0s\0t\0r\0o\0w\0:\0y\0e\0s\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0l\0a\0s\0t\0r\0o\0w\0:\0y\0e\0s\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0h\0e\0i\0g\0h\0t\0:\x007\0.\x005\0p\0t\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0s\0t\0y\0l\0e\0=\0'\0p\0a\0d\0d\0i\0n\0g\0:\0.\x007\x005\0p\0t\0 \0.\x007\x005\0p\0t\0 \0.\x007\x005\0p\0t\0 \0.\x007\x005\0p\0t\0;\0h\0e\0i\0g\0h\0t\0:\x007\0.\x005\0p\0t\0'\0>\0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0/\0t\0a\0b\0l\0e\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x002\0.\x007\x005\0p\0t\0'\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0;\0d\0i\0s\0p\0l\0a\0y\0:\0n\0o\0n\0e\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0m\0s\0o\0-\0h\0i\0d\0e\0:\0a\0l\0l\0'\0>\0<\0o\0:\0p\0>\0&\0n\0b\0s\0p\0;\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0t\0a\0b\0l\0e\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0T\0a\0b\0l\0e\0 \0b\0o\0r\0d\0e\0r\0=\x000\0 \0c\0e\0l\0l\0s\0p\0a\0c\0i\0n\0g\0=\x000\0 \0c\0e\0l\0l\0p\0a\0d\0d\0i\0n\0g\0=\x000\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0b\0o\0r\0d\0e\0r\0-\0c\0o\0l\0l\0a\0p\0s\0e\0:\0c\0o\0l\0l\0a\0p\0s\0e\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0t\0b\0l\0l\0o\0o\0k\0:\x001\x001\x008\x004\0;\0m\0s\0o\0-\0p\0a\0d\0d\0i\0n\0g\0-\0a\0l\0t\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x000\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0f\0i\0r\0s\0t\0r\0o\0w\0:\0y\0e\0s\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0l\0a\0s\0t\0r\0o\0w\0:\0y\0e\0s\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0s\0t\0y\0l\0e\0=\0'\0p\0a\0d\0d\0i\0n\0g\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0'\0>\0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0/\0t\0a\0b\0l\0e\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0>\0<\0o\0:\0p\0>\0<\0/\0o\0:\0p\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0<\0/\0t\0a\0b\0l\0e\0>\0\r\0
+\0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0s\0t\0y\0l\0e\0=\0'\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x004\0.\x002\x005\0p\0t\0'\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x009\0.\x000\0p\0t\0;\0\r\0
+\0 \0 \0 \0 \0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0#\x002\x002\x002\x002\x002\x002\0;\0d\0i\0s\0p\0l\0a\0y\0:\0n\0o\0n\0e\0;\0m\0s\0o\0-\0h\0i\0d\0e\0:\0a\0l\0l\0'\0>\0<\0o\0:\0p\0>\0&\0n\0b\0s\0p\0;\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0<\0t\0a\0b\0l\0e\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0T\0a\0b\0l\0e\0 \0b\0o\0r\0d\0e\0r\0=\x000\0 \0c\0e\0l\0l\0s\0p\0a\0c\0i\0n\0g\0=\x000\0 \0c\0e\0l\0l\0p\0a\0d\0d\0i\0n\0g\0=\x000\0\r\0
+\0 \0 \0 \0 \0 \0w\0i\0d\0t\0h\0=\0"\x001\x000\x000\0%\0"\0 \0s\0t\0y\0l\0e\0=\0'\0w\0i\0d\0t\0h\0:\x001\x000\x000\0.\x000\0%\0;\0b\0o\0r\0d\0e\0r\0-\0c\0o\0l\0l\0a\0p\0s\0e\0:\0c\0o\0l\0l\0a\0p\0s\0e\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0t\0b\0l\0l\0o\0o\0k\0:\0\r\0
+\0 \0 \0 \0 \0 \x001\x001\x008\x004\0;\0m\0s\0o\0-\0p\0a\0d\0d\0i\0n\0g\0-\0a\0l\0t\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0;\0b\0o\0r\0d\0e\0r\0-\0s\0p\0a\0c\0i\0n\0g\0:\x000\0;\0w\0h\0i\0t\0e\0 \0!\0i\0m\0p\0o\0r\0t\0a\0n\0t\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x000\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0f\0i\0r\0s\0t\0r\0o\0w\0:\0y\0e\0s\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0l\0a\0s\0t\0r\0o\0w\0:\0y\0e\0s\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0h\0e\0i\0g\0h\0t\0:\x002\x006\0.\x002\x005\0p\0t\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0v\0a\0l\0i\0g\0n\0=\0t\0o\0p\0 \0s\0t\0y\0l\0e\0=\0'\0p\0a\0d\0d\0i\0n\0g\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0;\0h\0e\0i\0g\0h\0t\0:\x002\x006\0.\x002\x005\0p\0t\0;\0w\0o\0r\0d\0-\0b\0r\0e\0a\0k\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0b\0r\0e\0a\0k\0-\0w\0o\0r\0d\0;\0-\0w\0e\0b\0k\0i\0t\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0-\0m\0o\0z\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0'\0>\0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0<\0/\0t\0a\0b\0l\0e\0>\0\r\0
+\0 \0 \0 \0 \0<\0/\0d\0i\0v\0>\0\r\0
+\0 \0 \0 \0 \0<\0/\0d\0i\0v\0>\0\r\0
+\0 \0 \0 \0 \0<\0/\0d\0i\0v\0>\0\r\0
+\0 \0 \0 \0 \0<\0d\0i\0v\0 \0a\0l\0i\0g\0n\0=\0c\0e\0n\0t\0e\0r\0>\0\r\0
+\0 \0 \0 \0 \0<\0t\0a\0b\0l\0e\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0T\0a\0b\0l\0e\0 \0b\0o\0r\0d\0e\0r\0=\x000\0 \0c\0e\0l\0l\0s\0p\0a\0c\0i\0n\0g\0=\x000\0 \0c\0e\0l\0l\0p\0a\0d\0d\0i\0n\0g\0=\x000\0 \0w\0i\0d\0t\0h\0=\x006\x005\x000\0\r\0
+\0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0w\0i\0d\0t\0h\0:\x004\x008\x007\0.\x005\0p\0t\0;\0b\0o\0r\0d\0e\0r\0-\0c\0o\0l\0l\0a\0p\0s\0e\0:\0c\0o\0l\0l\0a\0p\0s\0e\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0t\0b\0l\0l\0o\0o\0k\0:\x001\x001\x008\x004\0;\0\r\0
+\0 \0 \0 \0 \0 \0m\0s\0o\0-\0p\0a\0d\0d\0i\0n\0g\0-\0a\0l\0t\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x000\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0f\0i\0r\0s\0t\0r\0o\0w\0:\0y\0e\0s\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0l\0a\0s\0t\0r\0o\0w\0:\0y\0e\0s\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0v\0a\0l\0i\0g\0n\0=\0t\0o\0p\0 \0s\0t\0y\0l\0e\0=\0'\0p\0a\0d\0d\0i\0n\0g\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0t\0a\0b\0l\0e\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0T\0a\0b\0l\0e\0 \0b\0o\0r\0d\0e\0r\0=\x000\0 \0c\0e\0l\0l\0s\0p\0a\0c\0i\0n\0g\0=\x000\0 \0c\0e\0l\0l\0p\0a\0d\0d\0i\0n\0g\0=\x000\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0w\0i\0d\0t\0h\0=\0"\x001\x000\x000\0%\0"\0 \0s\0t\0y\0l\0e\0=\0'\0w\0i\0d\0t\0h\0:\x001\x000\x000\0.\x000\0%\0;\0b\0o\0r\0d\0e\0r\0-\0c\0o\0l\0l\0a\0p\0s\0e\0:\0c\0o\0l\0l\0a\0p\0s\0e\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0t\0b\0l\0l\0o\0o\0k\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \x001\x001\x008\x004\0;\0m\0s\0o\0-\0p\0a\0d\0d\0i\0n\0g\0-\0a\0l\0t\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x000\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0f\0i\0r\0s\0t\0r\0o\0w\0:\0y\0e\0s\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0l\0a\0s\0t\0r\0o\0w\0:\0y\0e\0s\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0v\0a\0l\0i\0g\0n\0=\0t\0o\0p\0 \0s\0t\0y\0l\0e\0=\0'\0p\0a\0d\0d\0i\0n\0g\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0d\0i\0v\0 \0a\0l\0i\0g\0n\0=\0c\0e\0n\0t\0e\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0t\0a\0b\0l\0e\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0T\0a\0b\0l\0e\0 \0b\0o\0r\0d\0e\0r\0=\x000\0 \0c\0e\0l\0l\0s\0p\0a\0c\0i\0n\0g\0=\x000\0 \0c\0e\0l\0l\0p\0a\0d\0d\0i\0n\0g\0=\x000\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0w\0i\0d\0t\0h\0=\x006\x005\x000\0 \0s\0t\0y\0l\0e\0=\0'\0w\0i\0d\0t\0h\0:\x004\x008\x007\0.\x005\0p\0t\0;\0b\0o\0r\0d\0e\0r\0-\0c\0o\0l\0l\0a\0p\0s\0e\0:\0c\0o\0l\0l\0a\0p\0s\0e\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0t\0b\0l\0l\0o\0o\0k\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \x001\x001\x008\x004\0;\0m\0s\0o\0-\0p\0a\0d\0d\0i\0n\0g\0-\0a\0l\0t\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x000\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0f\0i\0r\0s\0t\0r\0o\0w\0:\0y\0e\0s\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0l\0a\0s\0t\0r\0o\0w\0:\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0 \0y\0e\0s\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0 \0<\0t\0d\0 \0v\0a\0l\0i\0g\0n\0=\0t\0o\0p\0 \0s\0t\0y\0l\0e\0=\0'\0b\0a\0c\0k\0g\0r\0o\0u\0n\0d\0:\0w\0h\0i\0t\0e\0;\0p\0a\0d\0d\0i\0n\0g\0:\x003\x007\0.\x005\0p\0t\0 \x001\x001\0.\x002\x005\0p\0t\0 \x000\0i\0n\0 \x001\x001\0.\x002\x005\0p\0t\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0a\0l\0i\0g\0n\0=\0c\0e\0n\0t\0e\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0a\0r\0g\0i\0n\0-\0b\0o\0t\0t\0o\0m\0:\x001\x002\0.\x000\0p\0t\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0 \0t\0e\0x\0t\0-\0a\0l\0i\0g\0n\0:\0c\0e\0n\0t\0e\0r\0;\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x003\0.\x005\0p\0t\0'\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x007\0.\x005\0p\0t\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0 \0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0#\x000\0A\x008\x002\x007\x006\0'\0>\0<\0a\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0 \0h\0r\0e\0f\0=\0"\0h\0t\0t\0p\0:\0/\0/\0w\0w\0w\0.\0i\0n\0f\0i\0n\0e\0o\0n\0.\0c\0o\0m\0/\0c\0m\0s\0/\0e\0n\0/\0c\0o\0r\0p\0o\0r\0a\0t\0e\0/\0i\0m\0p\0r\0i\0n\0t\0.\0h\0t\0m\0l\0"\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0 \0t\0a\0r\0g\0e\0t\0=\0"\0_\0b\0l\0a\0n\0k\0"\0>\0<\0b\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x001\x000\0.\x005\0p\0t\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0'\0>\0I\0m\0p\0r\0i\0n\0t\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0 \0<\0/\0s\0p\0a\0n\0>\0<\0/\0b\0>\0<\0/\0a\0>\0&\0n\0b\0s\0p\0;\0&\0n\0b\0s\0p\0;\0&\0n\0b\0s\0p\0;\0&\0n\0b\0s\0p\0;\0 \0<\0a\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0 \0h\0r\0e\0f\0=\0"\0h\0t\0t\0p\0:\0/\0/\0w\0w\0w\0.\0i\0n\0f\0i\0n\0e\0o\0n\0.\0c\0o\0m\0/\0c\0m\0s\0/\0e\0n\0/\0c\0o\0r\0p\0o\0r\0a\0t\0e\0/\0c\0o\0m\0p\0a\0n\0y\0/\0c\0o\0n\0t\0a\0c\0t\0/\0"\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0 \0t\0a\0r\0g\0e\0t\0=\0"\0_\0b\0l\0a\0n\0k\0"\0>\0<\0b\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x001\x000\0.\x005\0p\0t\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0'\0>\0C\0o\0n\0t\0a\0c\0t\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0 \0<\0/\0s\0p\0a\0n\0>\0<\0/\0b\0>\0<\0/\0a\0>\0&\0n\0b\0s\0p\0;\0&\0n\0b\0s\0p\0;\0&\0n\0b\0s\0p\0;\0&\0n\0b\0s\0p\0;\0 \0<\0a\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0 \0h\0r\0e\0f\0=\0"\0h\0t\0t\0p\0:\0/\0/\0w\0w\0w\0.\0i\0n\0f\0i\0n\0e\0o\0n\0.\0c\0o\0m\0/\0c\0m\0s\0/\0e\0n\0/\0c\0o\0r\0p\0o\0r\0a\0t\0e\0/\0p\0r\0i\0v\0a\0c\0y\0-\0p\0o\0l\0i\0c\0y\0.\0h\0t\0m\0l\0"\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0 \0t\0a\0r\0g\0e\0t\0=\0"\0_\0b\0l\0a\0n\0k\0"\0>\0<\0b\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x001\x000\0.\x005\0p\0t\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0'\0>\0P\0r\0i\0v\0a\0c\0y\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0 \0P\0o\0l\0i\0c\0y\0 \0<\0/\0s\0p\0a\0n\0>\0<\0/\0b\0>\0<\0/\0a\0>\0<\0b\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0 \0<\0b\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0 \0<\0/\0s\0p\0a\0n\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x001\x000\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0 \0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0'\0>\0�\0 \x001\x009\x009\x009\0 \0-\0 \x002\x000\x002\x006\0 \0I\0n\0f\0i\0n\0e\0o\0n\0 \0T\0e\0c\0h\0n\0o\0l\0o\0g\0i\0e\0s\0 \0A\0G\0<\0/\0s\0p\0a\0n\0>\0<\0s\0p\0a\0n\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x007\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0#\x000\0A\x008\x002\x007\x006\0'\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0 \0<\0/\0s\0p\0a\0n\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x007\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0'\0>\0<\0o\0:\0p\0>\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0a\0l\0i\0g\0n\0=\0c\0e\0n\0t\0e\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0a\0r\0g\0i\0n\0-\0b\0o\0t\0t\0o\0m\0:\x001\x002\0.\x000\0p\0t\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0 \0t\0e\0x\0t\0-\0a\0l\0i\0g\0n\0:\0c\0e\0n\0t\0e\0r\0;\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x003\0.\x005\0p\0t\0'\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x001\x000\0.\x000\0p\0t\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0 \0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0'\0>\0<\0o\0:\0p\0>\0&\0n\0b\0s\0p\0;\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0a\0l\0i\0g\0n\0=\0c\0e\0n\0t\0e\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0a\0r\0g\0i\0n\0-\0b\0o\0t\0t\0o\0m\0:\x001\x002\0.\x000\0p\0t\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0 \0t\0e\0x\0t\0-\0a\0l\0i\0g\0n\0:\0c\0e\0n\0t\0e\0r\0;\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x003\0.\x005\0p\0t\0'\0>\0<\0s\0p\0a\0n\0 \0l\0a\0n\0g\0=\0E\0N\0-\0U\0S\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x001\x000\0.\x000\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0 \0m\0s\0o\0-\0a\0n\0s\0i\0-\0l\0a\0n\0g\0u\0a\0g\0e\0:\0E\0N\0-\0U\0S\0'\0>\0W\0a\0n\0t\0 \0t\0o\0 \0f\0e\0a\0t\0u\0r\0e\0 \0a\0n\0 \0a\0r\0t\0i\0c\0l\0e\0 \0i\0n\0 \0t\0h\0e\0 \0n\0e\0x\0t\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0 \0n\0e\0w\0s\0l\0e\0t\0t\0e\0r\0?\0 \0C\0o\0n\0t\0a\0c\0t\0 \0u\0s\0 \0a\0t\0 \0<\0a\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0 \0h\0r\0e\0f\0=\0"\0m\0a\0i\0l\0t\0o\0:\0R\0-\0I\0F\0X\0-\0A\0T\0V\0M\0C\0n\0e\0w\0s\0l\0e\0t\0t\0e\0r\0@\0i\0n\0f\0i\0n\0e\0o\0n\0.\0c\0o\0m\0"\0>\0R\0-\0I\0F\0X\0-\0A\0T\0V\0M\0C\0n\0e\0w\0s\0l\0e\0t\0t\0e\0r\0@\0i\0n\0f\0i\0n\0e\0o\0n\0.\0c\0o\0m\0<\0/\0a\0>\0<\0/\0s\0p\0a\0n\0>\0<\0s\0p\0a\0n\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0 \0l\0a\0n\0g\0=\0E\0N\0-\0U\0S\0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x001\x000\0.\x000\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0 \0m\0s\0o\0-\0a\0n\0s\0i\0-\0l\0a\0n\0g\0u\0a\0g\0e\0:\0E\0N\0-\0U\0S\0'\0>\0<\0o\0:\0p\0>\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0a\0l\0i\0g\0n\0=\0c\0e\0n\0t\0e\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0a\0r\0g\0i\0n\0-\0b\0o\0t\0t\0o\0m\0:\x001\x002\0.\x000\0p\0t\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0 \0t\0e\0x\0t\0-\0a\0l\0i\0g\0n\0:\0c\0e\0n\0t\0e\0r\0;\0l\0i\0n\0e\0-\0h\0e\0i\0g\0h\0t\0:\x001\x003\0.\x005\0p\0t\0'\0>\0<\0s\0p\0a\0n\0 \0l\0a\0n\0g\0=\0E\0N\0-\0U\0S\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0 \0s\0t\0y\0l\0e\0=\0'\0f\0o\0n\0t\0-\0s\0i\0z\0e\0:\x007\0.\x005\0p\0t\0;\0f\0o\0n\0t\0-\0f\0a\0m\0i\0l\0y\0:\0"\0A\0r\0i\0a\0l\0"\0,\0s\0a\0n\0s\0-\0s\0e\0r\0i\0f\0;\0c\0o\0l\0o\0r\0:\0#\x000\0A\x008\x002\x007\x006\0;\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0 \0m\0s\0o\0-\0a\0n\0s\0i\0-\0l\0a\0n\0g\0u\0a\0g\0e\0:\0E\0N\0-\0U\0S\0'\0>\0<\0o\0:\0p\0>\0&\0n\0b\0s\0p\0;\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0 \0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0/\0t\0a\0b\0l\0e\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0/\0d\0i\0v\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0 \0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0/\0t\0a\0b\0l\0e\0>\0\r\0
+\0 \0 \0 \0 \0 \0 \0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0 \0 \0<\0/\0t\0a\0b\0l\0e\0>\0\r\0
+\0 \0 \0 \0 \0<\0/\0d\0i\0v\0>\0\r\0
+\0 \0 \0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0 \0a\0l\0i\0g\0n\0=\0c\0e\0n\0t\0e\0r\0 \0s\0t\0y\0l\0e\0=\0'\0t\0e\0x\0t\0-\0a\0l\0i\0g\0n\0:\0c\0e\0n\0t\0e\0r\0'\0>\0<\0o\0:\0p\0>\0<\0/\0o\0:\0p\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0 \0 \0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0 \0<\0/\0t\0a\0b\0l\0e\0>\0\r\0
+\0 \0 \0<\0/\0d\0i\0v\0>\0\r\0
+\0 \0 \0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0<\0t\0d\0 \0w\0i\0d\0t\0h\0=\x001\x000\0 \0s\0t\0y\0l\0e\0=\0'\0w\0i\0d\0t\0h\0:\x007\0.\x005\0p\0t\0;\0p\0a\0d\0d\0i\0n\0g\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0'\0>\0\r\0
+\0 \0 \0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0>\0<\0s\0p\0a\0n\0 \0s\0t\0y\0l\0e\0=\0'\0c\0o\0l\0o\0r\0:\0b\0l\0a\0c\0k\0'\0>\0&\0n\0b\0s\0p\0;\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0 \0 \0<\0/\0t\0d\0>\0\r\0
+\0 \0<\0/\0t\0r\0>\0\r\0
+\0 \0<\0t\0r\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0y\0f\0t\0i\0-\0i\0r\0o\0w\0:\x001\0;\0m\0s\0o\0-\0y\0f\0t\0i\0-\0l\0a\0s\0t\0r\0o\0w\0:\0y\0e\0s\0'\0>\0\r\0
+\0 \0 \0<\0t\0d\0 \0v\0a\0l\0i\0g\0n\0=\0t\0o\0p\0 \0s\0t\0y\0l\0e\0=\0'\0p\0a\0d\0d\0i\0n\0g\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0;\0w\0o\0r\0d\0-\0b\0r\0e\0a\0k\0:\0b\0r\0e\0a\0k\0-\0w\0o\0r\0d\0;\0\r\0
+\0 \0 \0-\0w\0e\0b\0k\0i\0t\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0-\0m\0o\0z\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0'\0>\0<\0/\0t\0d\0>\0\r\0
+\0 \0 \0<\0t\0d\0 \0w\0i\0d\0t\0h\0=\x000\0 \0v\0a\0l\0i\0g\0n\0=\0t\0o\0p\0 \0s\0t\0y\0l\0e\0=\0'\0w\0i\0d\0t\0h\0:\0.\x003\0p\0t\0;\0p\0a\0d\0d\0i\0n\0g\0:\x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0 \x000\0i\0n\0;\0w\0o\0r\0d\0-\0b\0r\0e\0a\0k\0:\0\r\0
+\0 \0 \0b\0r\0e\0a\0k\0-\0w\0o\0r\0d\0;\0-\0w\0e\0b\0k\0i\0t\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0-\0m\0o\0z\0-\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0h\0y\0p\0h\0e\0n\0s\0:\0 \0a\0u\0t\0o\0;\0v\0i\0s\0i\0b\0i\0l\0i\0t\0y\0:\0\r\0
+\0 \0 \0h\0i\0d\0d\0e\0n\0'\0>\0<\0/\0t\0d\0>\0\r\0
+\0 \0<\0/\0t\0r\0>\0\r\0
+\0<\0/\0t\0a\0b\0l\0e\0>\0\r\0
+\0\r\0
+\0<\0p\0 \0c\0l\0a\0s\0s\0=\0M\0s\0o\0N\0o\0r\0m\0a\0l\0>\0<\0s\0p\0a\0n\0 \0l\0a\0n\0g\0=\0E\0N\0-\0U\0S\0 \0s\0t\0y\0l\0e\0=\0'\0m\0s\0o\0-\0a\0n\0s\0i\0-\0l\0a\0n\0g\0u\0a\0g\0e\0:\0E\0N\0-\0U\0S\0'\0>\0<\0o\0:\0p\0>\0&\0n\0b\0s\0p\0;\0<\0/\0o\0:\0p\0>\0<\0/\0s\0p\0a\0n\0>\0<\0/\0p\0>\0\r\0
+\0\r\0
+\0<\0/\0d\0i\0v\0>\0\r\0
+\0\r\0
+\0<\0/\0b\0o\0d\0y\0>\0\r\0
+\0\r\0
+\0<\0/\0h\0t\0m\0l\0>\0\r\0
+\0`;
+const __vite_glob_1_11 = `��<\0h\0t\0m\0l\0 \0x\0m\0l\0n\0s\0:\0v\0=\0"\0u\0r\0n\0:\0s\0c\0h\0e\0m\0a\0s\0-\0m\0i\0c\0r\0o\0s\0o\0f\0t\0-\0c\0o\0m\0:\0v\0m\0l\0"\0\r\0
+\0x\0m\0l\0n\0s\0:\0o\0=\0"\0u\0r\0n\0:\0s\0c\0h\0e\0m\0a\0s\0-\0m\0i\0c\0r\0o\0s\0o\0f\0t\0-\0c\0o\0m\0:\0o\0f\0f\0i\0c\0e\0:\0o\0f\0f\0i\0c\0e\0"\0\r\0
+\0x\0m\0l\0n\0s\0:\0w\0=\0"\0u\0r\0n\0:\0s\0c\0h\0e\0m\0a\0s\0-\0m\0i\0c\0r\0o\0s\0o\0f\0t\0-\0c\0o\0m\0:\0o\0f\0f\0i\0c\0e\0:\0w\0o\0r\0d\0"\0\r\0
+\0x\0m\0l\0n\0s\0:\0m\0=\0"\0h\0t\0t\0p\0:\0/\0/\0s\0c\0h\0e\0m\0a\0s\0.\0m\0i\0c\0r\0o\0s\0o\0f\0t\0.\0c\0o\0m\0/\0o\0f\0f\0i\0c\0e\0/\x002\x000\x000\x004\0/\x001\x002\0/\0o\0m\0m\0l\0"\0\r\0
+\0x\0m\0l\0n\0s\0=\0"\0h\0t\0t\0p\0:\0/\0/\0w\0w\0w\0.\0w\x003\0.\0o\0r\0g\0/\0T\0R\0/\0R\0E\0C\0-\0h\0t\0m\0l\x004\x000\0"\0>\0\r\0
+\0\r\0
+\0<\0h\0e\0a\0d\0>\0\r\0
+\0<\0m\0e\0t\0a\0 \0h\0t\0t\0p\0-\0e\0q\0u\0i\0v\0=\0C\0o\0n\0t\0e\0n\0t\0-\0T\0y\0p\0e\0 \0c\0o\0n\0t\0e\0n\0t\0=\0"\0t\0e\0x\0t\0/\0h\0t\0m\0l\0;\0 \0c\0h\0a\0r\0s\0e\0t\0=\0u\0n\0i\0c\0o\0d\0e\0"\0>\0\r\0
+\0<\0m\0e\0t\0a\0 \0n\0a\0m\0e\0=\0P\0r\0o\0g\0I\0d\0 \0c\0o\0n\0t\0e\0n\0t\0=\0W\0o\0r\0d\0.\0D\0o\0c\0u\0m\0e\0n\0t\0>\0\r\0
+\0<\0m\0e\0t\0a\0 \0n\0a\0m\0e\0=\0G\0e\0n\0e\0r\0a\0t\0o\0r\0 \0c\0o\0n\0t\0e\0n\0t\0=\0"\0M\0i\0c\0r\0o\0s\0o\0f\0t\0 \0W\0o\0r\0d\0 \x001\x005\0"\0>\0\r\0
+\0<\0m\0e\0t\0a\0 \0n\0a\0m\0e\0=\0O\0r\0i\0g\0i\0n\0a\0t\0o\0r\0 \0c\0o\0n\0t\0e\0n\0t\0=\0"\0M\0i\0c\0r\0o\0s\0o\0f\0t\0 \0W\0o\0r\0d\0 \x001\x005\0"\0>\0\r\0
+\0<\0l\0i\0n\0k\0 \0r\0e\0l\0=\0F\0i\0l\0e\0-\0L\0i\0s\0t\0\r\0
 \0h\0r\0e\0f\0=\0"\0A\0u\0t\0o\0m\0o\0t\0i\0v\0e\0%\x002\x000\0M\0C\0%\x002\x000\0N\0e\0w\0s\0l\0e\0t\0t\0e\0r\0%\x002\x000\0-\0%\x002\x000\0M\0a\0r\0c\0h\0%\x002\x000\x002\x000\x002\x004\0%\x002\x000\0e\0d\0i\0t\0i\0o\0n\0!\0_\0f\0i\0l\0e\0s\0/\0f\0i\0l\0e\0l\0i\0s\0t\0.\0x\0m\0l\0"\0>\0\r\0
 \0<\0l\0i\0n\0k\0 \0r\0e\0l\0=\0E\0d\0i\0t\0-\0T\0i\0m\0e\0-\0D\0a\0t\0a\0\r\0
 \0h\0r\0e\0f\0=\0"\0A\0u\0t\0o\0m\0o\0t\0i\0v\0e\0%\x002\x000\0M\0C\0%\x002\x000\0N\0e\0w\0s\0l\0e\0t\0t\0e\0r\0%\x002\x000\0-\0%\x002\x000\0M\0a\0r\0c\0h\0%\x002\x000\x002\x000\x002\x004\0%\x002\x000\0e\0d\0i\0t\0i\0o\0n\0!\0_\0f\0i\0l\0e\0s\0/\0e\0d\0i\0t\0d\0a\0t\0a\0.\0m\0s\0o\0"\0>\0\r\0
@@ -47641,7 +50523,7 @@ const __vite_glob_1_10 = `��<\0h\0t\0m\0l\0 \0x\0m\0l\0n\0s\0:\0v\0=\0"\0u\0
 \0\r\0
 \0<\0/\0h\0t\0m\0l\0>\0\r\0
 \0`;
-const __vite_glob_1_11 = `��<\0h\0t\0m\0l\0 \0x\0m\0l\0n\0s\0:\0v\0=\0"\0u\0r\0n\0:\0s\0c\0h\0e\0m\0a\0s\0-\0m\0i\0c\0r\0o\0s\0o\0f\0t\0-\0c\0o\0m\0:\0v\0m\0l\0"\0\r\0
+const __vite_glob_1_12 = `��<\0h\0t\0m\0l\0 \0x\0m\0l\0n\0s\0:\0v\0=\0"\0u\0r\0n\0:\0s\0c\0h\0e\0m\0a\0s\0-\0m\0i\0c\0r\0o\0s\0o\0f\0t\0-\0c\0o\0m\0:\0v\0m\0l\0"\0\r\0
 \0x\0m\0l\0n\0s\0:\0o\0=\0"\0u\0r\0n\0:\0s\0c\0h\0e\0m\0a\0s\0-\0m\0i\0c\0r\0o\0s\0o\0f\0t\0-\0c\0o\0m\0:\0o\0f\0f\0i\0c\0e\0:\0o\0f\0f\0i\0c\0e\0"\0\r\0
 \0x\0m\0l\0n\0s\0:\0w\0=\0"\0u\0r\0n\0:\0s\0c\0h\0e\0m\0a\0s\0-\0m\0i\0c\0r\0o\0s\0o\0f\0t\0-\0c\0o\0m\0:\0o\0f\0f\0i\0c\0e\0:\0w\0o\0r\0d\0"\0\r\0
 \0x\0m\0l\0n\0s\0:\0m\0=\0"\0h\0t\0t\0p\0:\0/\0/\0s\0c\0h\0e\0m\0a\0s\0.\0m\0i\0c\0r\0o\0s\0o\0f\0t\0.\0c\0o\0m\0/\0o\0f\0f\0i\0c\0e\0/\x002\x000\x000\x004\0/\x001\x002\0/\0o\0m\0m\0l\0"\0\r\0
@@ -50240,7 +53122,7 @@ const __vite_glob_1_11 = `��<\0h\0t\0m\0l\0 \0x\0m\0l\0n\0s\0:\0v\0=\0"\0u\0
 \0\r\0
 \0<\0/\0h\0t\0m\0l\0>\0\r\0
 \0`;
-const __vite_glob_1_12 = `��<\0h\0t\0m\0l\0 \0x\0m\0l\0n\0s\0:\0v\0=\0"\0u\0r\0n\0:\0s\0c\0h\0e\0m\0a\0s\0-\0m\0i\0c\0r\0o\0s\0o\0f\0t\0-\0c\0o\0m\0:\0v\0m\0l\0"\0\r\0
+const __vite_glob_1_13 = `��<\0h\0t\0m\0l\0 \0x\0m\0l\0n\0s\0:\0v\0=\0"\0u\0r\0n\0:\0s\0c\0h\0e\0m\0a\0s\0-\0m\0i\0c\0r\0o\0s\0o\0f\0t\0-\0c\0o\0m\0:\0v\0m\0l\0"\0\r\0
 \0x\0m\0l\0n\0s\0:\0o\0=\0"\0u\0r\0n\0:\0s\0c\0h\0e\0m\0a\0s\0-\0m\0i\0c\0r\0o\0s\0o\0f\0t\0-\0c\0o\0m\0:\0o\0f\0f\0i\0c\0e\0:\0o\0f\0f\0i\0c\0e\0"\0\r\0
 \0x\0m\0l\0n\0s\0:\0w\0=\0"\0u\0r\0n\0:\0s\0c\0h\0e\0m\0a\0s\0-\0m\0i\0c\0r\0o\0s\0o\0f\0t\0-\0c\0o\0m\0:\0o\0f\0f\0i\0c\0e\0:\0w\0o\0r\0d\0"\0\r\0
 \0x\0m\0l\0n\0s\0:\0m\0=\0"\0h\0t\0t\0p\0:\0/\0/\0s\0c\0h\0e\0m\0a\0s\0.\0m\0i\0c\0r\0o\0s\0o\0f\0t\0.\0c\0o\0m\0/\0o\0f\0f\0i\0c\0e\0/\x002\x000\x000\x004\0/\x001\x002\0/\0o\0m\0m\0l\0"\0\r\0
@@ -53211,7 +56093,7 @@ const __vite_glob_1_12 = `��<\0h\0t\0m\0l\0 \0x\0m\0l\0n\0s\0:\0v\0=\0"\0u\0
 \0\r\0
 \0<\0/\0h\0t\0m\0l\0>\0\r\0
 \0`;
-const __vite_glob_1_13 = `��<\0h\0t\0m\0l\0 \0x\0m\0l\0n\0s\0:\0v\0=\0"\0u\0r\0n\0:\0s\0c\0h\0e\0m\0a\0s\0-\0m\0i\0c\0r\0o\0s\0o\0f\0t\0-\0c\0o\0m\0:\0v\0m\0l\0"\0\r\0
+const __vite_glob_1_14 = `��<\0h\0t\0m\0l\0 \0x\0m\0l\0n\0s\0:\0v\0=\0"\0u\0r\0n\0:\0s\0c\0h\0e\0m\0a\0s\0-\0m\0i\0c\0r\0o\0s\0o\0f\0t\0-\0c\0o\0m\0:\0v\0m\0l\0"\0\r\0
 \0x\0m\0l\0n\0s\0:\0o\0=\0"\0u\0r\0n\0:\0s\0c\0h\0e\0m\0a\0s\0-\0m\0i\0c\0r\0o\0s\0o\0f\0t\0-\0c\0o\0m\0:\0o\0f\0f\0i\0c\0e\0:\0o\0f\0f\0i\0c\0e\0"\0\r\0
 \0x\0m\0l\0n\0s\0:\0w\0=\0"\0u\0r\0n\0:\0s\0c\0h\0e\0m\0a\0s\0-\0m\0i\0c\0r\0o\0s\0o\0f\0t\0-\0c\0o\0m\0:\0o\0f\0f\0i\0c\0e\0:\0w\0o\0r\0d\0"\0\r\0
 \0x\0m\0l\0n\0s\0:\0m\0=\0"\0h\0t\0t\0p\0:\0/\0/\0s\0c\0h\0e\0m\0a\0s\0.\0m\0i\0c\0r\0o\0s\0o\0f\0t\0.\0c\0o\0m\0/\0o\0f\0f\0i\0c\0e\0/\x002\x000\x000\x004\0/\x001\x002\0/\0o\0m\0m\0l\0"\0\r\0
@@ -57005,7 +59887,7 @@ const __vite_glob_1_13 = `��<\0h\0t\0m\0l\0 \0x\0m\0l\0n\0s\0:\0v\0=\0"\0u\0
 \0\r\0
 \0<\0/\0h\0t\0m\0l\0>\0\r\0
 \0`;
-const __vite_glob_1_14 = `��<\0h\0t\0m\0l\0 \0x\0m\0l\0n\0s\0:\0v\0=\0"\0u\0r\0n\0:\0s\0c\0h\0e\0m\0a\0s\0-\0m\0i\0c\0r\0o\0s\0o\0f\0t\0-\0c\0o\0m\0:\0v\0m\0l\0"\0\r\0
+const __vite_glob_1_15 = `��<\0h\0t\0m\0l\0 \0x\0m\0l\0n\0s\0:\0v\0=\0"\0u\0r\0n\0:\0s\0c\0h\0e\0m\0a\0s\0-\0m\0i\0c\0r\0o\0s\0o\0f\0t\0-\0c\0o\0m\0:\0v\0m\0l\0"\0\r\0
 \0x\0m\0l\0n\0s\0:\0o\0=\0"\0u\0r\0n\0:\0s\0c\0h\0e\0m\0a\0s\0-\0m\0i\0c\0r\0o\0s\0o\0f\0t\0-\0c\0o\0m\0:\0o\0f\0f\0i\0c\0e\0:\0o\0f\0f\0i\0c\0e\0"\0\r\0
 \0x\0m\0l\0n\0s\0:\0w\0=\0"\0u\0r\0n\0:\0s\0c\0h\0e\0m\0a\0s\0-\0m\0i\0c\0r\0o\0s\0o\0f\0t\0-\0c\0o\0m\0:\0o\0f\0f\0i\0c\0e\0:\0w\0o\0r\0d\0"\0\r\0
 \0x\0m\0l\0n\0s\0:\0m\0=\0"\0h\0t\0t\0p\0:\0/\0/\0s\0c\0h\0e\0m\0a\0s\0.\0m\0i\0c\0r\0o\0s\0o\0f\0t\0.\0c\0o\0m\0/\0o\0f\0f\0i\0c\0e\0/\x002\x000\x000\x004\0/\x001\x002\0/\0o\0m\0m\0l\0"\0\r\0
@@ -59608,7 +62490,7 @@ const __vite_glob_1_14 = `��<\0h\0t\0m\0l\0 \0x\0m\0l\0n\0s\0:\0v\0=\0"\0u\0
 \0\r\0
 \0<\0/\0h\0t\0m\0l\0>\0\r\0
 \0`;
-const __vite_glob_1_15 = `��<\0h\0t\0m\0l\0 \0x\0m\0l\0n\0s\0:\0v\0=\0"\0u\0r\0n\0:\0s\0c\0h\0e\0m\0a\0s\0-\0m\0i\0c\0r\0o\0s\0o\0f\0t\0-\0c\0o\0m\0:\0v\0m\0l\0"\0\r\0
+const __vite_glob_1_16 = `��<\0h\0t\0m\0l\0 \0x\0m\0l\0n\0s\0:\0v\0=\0"\0u\0r\0n\0:\0s\0c\0h\0e\0m\0a\0s\0-\0m\0i\0c\0r\0o\0s\0o\0f\0t\0-\0c\0o\0m\0:\0v\0m\0l\0"\0\r\0
 \0x\0m\0l\0n\0s\0:\0o\0=\0"\0u\0r\0n\0:\0s\0c\0h\0e\0m\0a\0s\0-\0m\0i\0c\0r\0o\0s\0o\0f\0t\0-\0c\0o\0m\0:\0o\0f\0f\0i\0c\0e\0:\0o\0f\0f\0i\0c\0e\0"\0\r\0
 \0x\0m\0l\0n\0s\0:\0w\0=\0"\0u\0r\0n\0:\0s\0c\0h\0e\0m\0a\0s\0-\0m\0i\0c\0r\0o\0s\0o\0f\0t\0-\0c\0o\0m\0:\0o\0f\0f\0i\0c\0e\0:\0w\0o\0r\0d\0"\0\r\0
 \0x\0m\0l\0n\0s\0:\0m\0=\0"\0h\0t\0t\0p\0:\0/\0/\0s\0c\0h\0e\0m\0a\0s\0.\0m\0i\0c\0r\0o\0s\0o\0f\0t\0.\0c\0o\0m\0/\0o\0f\0f\0i\0c\0e\0/\x002\x000\x000\x004\0/\x001\x002\0/\0o\0m\0m\0l\0"\0\r\0
@@ -62840,7 +65722,7 @@ const __vite_glob_1_15 = `��<\0h\0t\0m\0l\0 \0x\0m\0l\0n\0s\0:\0v\0=\0"\0u\0
 \0\r\0
 \0<\0/\0h\0t\0m\0l\0>\0\r\0
 \0`;
-const __vite_glob_1_16 = `��<\0h\0t\0m\0l\0 \0x\0m\0l\0n\0s\0:\0v\0=\0"\0u\0r\0n\0:\0s\0c\0h\0e\0m\0a\0s\0-\0m\0i\0c\0r\0o\0s\0o\0f\0t\0-\0c\0o\0m\0:\0v\0m\0l\0"\0\r\0
+const __vite_glob_1_17 = `��<\0h\0t\0m\0l\0 \0x\0m\0l\0n\0s\0:\0v\0=\0"\0u\0r\0n\0:\0s\0c\0h\0e\0m\0a\0s\0-\0m\0i\0c\0r\0o\0s\0o\0f\0t\0-\0c\0o\0m\0:\0v\0m\0l\0"\0\r\0
 \0x\0m\0l\0n\0s\0:\0o\0=\0"\0u\0r\0n\0:\0s\0c\0h\0e\0m\0a\0s\0-\0m\0i\0c\0r\0o\0s\0o\0f\0t\0-\0c\0o\0m\0:\0o\0f\0f\0i\0c\0e\0:\0o\0f\0f\0i\0c\0e\0"\0\r\0
 \0x\0m\0l\0n\0s\0:\0w\0=\0"\0u\0r\0n\0:\0s\0c\0h\0e\0m\0a\0s\0-\0m\0i\0c\0r\0o\0s\0o\0f\0t\0-\0c\0o\0m\0:\0o\0f\0f\0i\0c\0e\0:\0w\0o\0r\0d\0"\0\r\0
 \0x\0m\0l\0n\0s\0:\0m\0=\0"\0h\0t\0t\0p\0:\0/\0/\0s\0c\0h\0e\0m\0a\0s\0.\0m\0i\0c\0r\0o\0s\0o\0f\0t\0.\0c\0o\0m\0/\0o\0f\0f\0i\0c\0e\0/\x002\x000\x000\x004\0/\x001\x002\0/\0o\0m\0m\0l\0"\0\r\0
@@ -65929,7 +68811,7 @@ const __vite_glob_1_16 = `��<\0h\0t\0m\0l\0 \0x\0m\0l\0n\0s\0:\0v\0=\0"\0u\0
 \0\r\0
 \0<\0/\0h\0t\0m\0l\0>\0\r\0
 \0`;
-const __vite_glob_1_17 = `��<\0h\0t\0m\0l\0 \0x\0m\0l\0n\0s\0:\0v\0=\0"\0u\0r\0n\0:\0s\0c\0h\0e\0m\0a\0s\0-\0m\0i\0c\0r\0o\0s\0o\0f\0t\0-\0c\0o\0m\0:\0v\0m\0l\0"\0\r\0
+const __vite_glob_1_18 = `��<\0h\0t\0m\0l\0 \0x\0m\0l\0n\0s\0:\0v\0=\0"\0u\0r\0n\0:\0s\0c\0h\0e\0m\0a\0s\0-\0m\0i\0c\0r\0o\0s\0o\0f\0t\0-\0c\0o\0m\0:\0v\0m\0l\0"\0\r\0
 \0x\0m\0l\0n\0s\0:\0o\0=\0"\0u\0r\0n\0:\0s\0c\0h\0e\0m\0a\0s\0-\0m\0i\0c\0r\0o\0s\0o\0f\0t\0-\0c\0o\0m\0:\0o\0f\0f\0i\0c\0e\0:\0o\0f\0f\0i\0c\0e\0"\0\r\0
 \0x\0m\0l\0n\0s\0:\0w\0=\0"\0u\0r\0n\0:\0s\0c\0h\0e\0m\0a\0s\0-\0m\0i\0c\0r\0o\0s\0o\0f\0t\0-\0c\0o\0m\0:\0o\0f\0f\0i\0c\0e\0:\0w\0o\0r\0d\0"\0\r\0
 \0x\0m\0l\0n\0s\0:\0x\0=\0"\0u\0r\0n\0:\0s\0c\0h\0e\0m\0a\0s\0-\0m\0i\0c\0r\0o\0s\0o\0f\0t\0-\0c\0o\0m\0:\0o\0f\0f\0i\0c\0e\0:\0e\0x\0c\0e\0l\0"\0\r\0
@@ -69218,7 +72100,7 @@ const __vite_glob_1_17 = `��<\0h\0t\0m\0l\0 \0x\0m\0l\0n\0s\0:\0v\0=\0"\0u\0
 \0\r\0
 \0<\0/\0h\0t\0m\0l\0>\0\r\0
 \0`;
-const __vite_glob_1_18 = `��<\0h\0t\0m\0l\0 \0x\0m\0l\0n\0s\0:\0v\0=\0"\0u\0r\0n\0:\0s\0c\0h\0e\0m\0a\0s\0-\0m\0i\0c\0r\0o\0s\0o\0f\0t\0-\0c\0o\0m\0:\0v\0m\0l\0"\0\r\0
+const __vite_glob_1_19 = `��<\0h\0t\0m\0l\0 \0x\0m\0l\0n\0s\0:\0v\0=\0"\0u\0r\0n\0:\0s\0c\0h\0e\0m\0a\0s\0-\0m\0i\0c\0r\0o\0s\0o\0f\0t\0-\0c\0o\0m\0:\0v\0m\0l\0"\0\r\0
 \0x\0m\0l\0n\0s\0:\0o\0=\0"\0u\0r\0n\0:\0s\0c\0h\0e\0m\0a\0s\0-\0m\0i\0c\0r\0o\0s\0o\0f\0t\0-\0c\0o\0m\0:\0o\0f\0f\0i\0c\0e\0:\0o\0f\0f\0i\0c\0e\0"\0\r\0
 \0x\0m\0l\0n\0s\0:\0w\0=\0"\0u\0r\0n\0:\0s\0c\0h\0e\0m\0a\0s\0-\0m\0i\0c\0r\0o\0s\0o\0f\0t\0-\0c\0o\0m\0:\0o\0f\0f\0i\0c\0e\0:\0w\0o\0r\0d\0"\0\r\0
 \0x\0m\0l\0n\0s\0:\0m\0=\0"\0h\0t\0t\0p\0:\0/\0/\0s\0c\0h\0e\0m\0a\0s\0.\0m\0i\0c\0r\0o\0s\0o\0f\0t\0.\0c\0o\0m\0/\0o\0f\0f\0i\0c\0e\0/\x002\x000\x000\x004\0/\x001\x002\0/\0o\0m\0m\0l\0"\0\r\0
@@ -72010,7 +74892,7 @@ const __vite_glob_1_18 = `��<\0h\0t\0m\0l\0 \0x\0m\0l\0n\0s\0:\0v\0=\0"\0u\0
 \0\r\0
 \0<\0/\0h\0t\0m\0l\0>\0\r\0
 \0`;
-const __vite_glob_1_19 = `��<\0h\0t\0m\0l\0 \0x\0m\0l\0n\0s\0:\0v\0=\0"\0u\0r\0n\0:\0s\0c\0h\0e\0m\0a\0s\0-\0m\0i\0c\0r\0o\0s\0o\0f\0t\0-\0c\0o\0m\0:\0v\0m\0l\0"\0\r\0
+const __vite_glob_1_20 = `��<\0h\0t\0m\0l\0 \0x\0m\0l\0n\0s\0:\0v\0=\0"\0u\0r\0n\0:\0s\0c\0h\0e\0m\0a\0s\0-\0m\0i\0c\0r\0o\0s\0o\0f\0t\0-\0c\0o\0m\0:\0v\0m\0l\0"\0\r\0
 \0x\0m\0l\0n\0s\0:\0o\0=\0"\0u\0r\0n\0:\0s\0c\0h\0e\0m\0a\0s\0-\0m\0i\0c\0r\0o\0s\0o\0f\0t\0-\0c\0o\0m\0:\0o\0f\0f\0i\0c\0e\0:\0o\0f\0f\0i\0c\0e\0"\0\r\0
 \0x\0m\0l\0n\0s\0:\0w\0=\0"\0u\0r\0n\0:\0s\0c\0h\0e\0m\0a\0s\0-\0m\0i\0c\0r\0o\0s\0o\0f\0t\0-\0c\0o\0m\0:\0o\0f\0f\0i\0c\0e\0:\0w\0o\0r\0d\0"\0\r\0
 \0x\0m\0l\0n\0s\0:\0m\0=\0"\0h\0t\0t\0p\0:\0/\0/\0s\0c\0h\0e\0m\0a\0s\0.\0m\0i\0c\0r\0o\0s\0o\0f\0t\0.\0c\0o\0m\0/\0o\0f\0f\0i\0c\0e\0/\x002\x000\x000\x004\0/\x001\x002\0/\0o\0m\0m\0l\0"\0\r\0
@@ -74809,7 +77691,7 @@ const __vite_glob_1_19 = `��<\0h\0t\0m\0l\0 \0x\0m\0l\0n\0s\0:\0v\0=\0"\0u\0
 \0\r\0
 \0<\0/\0h\0t\0m\0l\0>\0\r\0
 \0`;
-const __vite_glob_1_20 = `��<\0h\0t\0m\0l\0 \0x\0m\0l\0n\0s\0:\0v\0=\0"\0u\0r\0n\0:\0s\0c\0h\0e\0m\0a\0s\0-\0m\0i\0c\0r\0o\0s\0o\0f\0t\0-\0c\0o\0m\0:\0v\0m\0l\0"\0\r\0
+const __vite_glob_1_21 = `��<\0h\0t\0m\0l\0 \0x\0m\0l\0n\0s\0:\0v\0=\0"\0u\0r\0n\0:\0s\0c\0h\0e\0m\0a\0s\0-\0m\0i\0c\0r\0o\0s\0o\0f\0t\0-\0c\0o\0m\0:\0v\0m\0l\0"\0\r\0
 \0x\0m\0l\0n\0s\0:\0o\0=\0"\0u\0r\0n\0:\0s\0c\0h\0e\0m\0a\0s\0-\0m\0i\0c\0r\0o\0s\0o\0f\0t\0-\0c\0o\0m\0:\0o\0f\0f\0i\0c\0e\0:\0o\0f\0f\0i\0c\0e\0"\0\r\0
 \0x\0m\0l\0n\0s\0:\0w\0=\0"\0u\0r\0n\0:\0s\0c\0h\0e\0m\0a\0s\0-\0m\0i\0c\0r\0o\0s\0o\0f\0t\0-\0c\0o\0m\0:\0o\0f\0f\0i\0c\0e\0:\0w\0o\0r\0d\0"\0\r\0
 \0x\0m\0l\0n\0s\0:\0m\0=\0"\0h\0t\0t\0p\0:\0/\0/\0s\0c\0h\0e\0m\0a\0s\0.\0m\0i\0c\0r\0o\0s\0o\0f\0t\0.\0c\0o\0m\0/\0o\0f\0f\0i\0c\0e\0/\x002\x000\x000\x004\0/\x001\x002\0/\0o\0m\0m\0l\0"\0\r\0
@@ -77910,7 +80792,7 @@ const __vite_glob_1_20 = `��<\0h\0t\0m\0l\0 \0x\0m\0l\0n\0s\0:\0v\0=\0"\0u\0
 \0\r\0
 \0<\0/\0h\0t\0m\0l\0>\0\r\0
 \0`;
-const __vite_glob_1_21 = `��<\0h\0t\0m\0l\0 \0x\0m\0l\0n\0s\0:\0v\0=\0"\0u\0r\0n\0:\0s\0c\0h\0e\0m\0a\0s\0-\0m\0i\0c\0r\0o\0s\0o\0f\0t\0-\0c\0o\0m\0:\0v\0m\0l\0"\0\r\0
+const __vite_glob_1_22 = `��<\0h\0t\0m\0l\0 \0x\0m\0l\0n\0s\0:\0v\0=\0"\0u\0r\0n\0:\0s\0c\0h\0e\0m\0a\0s\0-\0m\0i\0c\0r\0o\0s\0o\0f\0t\0-\0c\0o\0m\0:\0v\0m\0l\0"\0\r\0
 \0x\0m\0l\0n\0s\0:\0o\0=\0"\0u\0r\0n\0:\0s\0c\0h\0e\0m\0a\0s\0-\0m\0i\0c\0r\0o\0s\0o\0f\0t\0-\0c\0o\0m\0:\0o\0f\0f\0i\0c\0e\0:\0o\0f\0f\0i\0c\0e\0"\0\r\0
 \0x\0m\0l\0n\0s\0:\0w\0=\0"\0u\0r\0n\0:\0s\0c\0h\0e\0m\0a\0s\0-\0m\0i\0c\0r\0o\0s\0o\0f\0t\0-\0c\0o\0m\0:\0o\0f\0f\0i\0c\0e\0:\0w\0o\0r\0d\0"\0\r\0
 \0x\0m\0l\0n\0s\0:\0x\0=\0"\0u\0r\0n\0:\0s\0c\0h\0e\0m\0a\0s\0-\0m\0i\0c\0r\0o\0s\0o\0f\0t\0-\0c\0o\0m\0:\0o\0f\0f\0i\0c\0e\0:\0e\0x\0c\0e\0l\0"\0\r\0
@@ -80160,7 +83042,7 @@ const __vite_glob_1_21 = `��<\0h\0t\0m\0l\0 \0x\0m\0l\0n\0s\0:\0v\0=\0"\0u\0
 \0\r\0
 \0<\0/\0h\0t\0m\0l\0>\0\r\0
 \0`;
-const __vite_glob_1_22 = `��<\0h\0t\0m\0l\0 \0x\0m\0l\0n\0s\0:\0v\0=\0"\0u\0r\0n\0:\0s\0c\0h\0e\0m\0a\0s\0-\0m\0i\0c\0r\0o\0s\0o\0f\0t\0-\0c\0o\0m\0:\0v\0m\0l\0"\0\r\0
+const __vite_glob_1_23 = `��<\0h\0t\0m\0l\0 \0x\0m\0l\0n\0s\0:\0v\0=\0"\0u\0r\0n\0:\0s\0c\0h\0e\0m\0a\0s\0-\0m\0i\0c\0r\0o\0s\0o\0f\0t\0-\0c\0o\0m\0:\0v\0m\0l\0"\0\r\0
 \0x\0m\0l\0n\0s\0:\0o\0=\0"\0u\0r\0n\0:\0s\0c\0h\0e\0m\0a\0s\0-\0m\0i\0c\0r\0o\0s\0o\0f\0t\0-\0c\0o\0m\0:\0o\0f\0f\0i\0c\0e\0:\0o\0f\0f\0i\0c\0e\0"\0\r\0
 \0x\0m\0l\0n\0s\0:\0w\0=\0"\0u\0r\0n\0:\0s\0c\0h\0e\0m\0a\0s\0-\0m\0i\0c\0r\0o\0s\0o\0f\0t\0-\0c\0o\0m\0:\0o\0f\0f\0i\0c\0e\0:\0w\0o\0r\0d\0"\0\r\0
 \0x\0m\0l\0n\0s\0:\0x\0=\0"\0u\0r\0n\0:\0s\0c\0h\0e\0m\0a\0s\0-\0m\0i\0c\0r\0o\0s\0o\0f\0t\0-\0c\0o\0m\0:\0o\0f\0f\0i\0c\0e\0:\0e\0x\0c\0e\0l\0"\0\r\0
@@ -82342,7 +85224,7 @@ const __vite_glob_1_22 = `��<\0h\0t\0m\0l\0 \0x\0m\0l\0n\0s\0:\0v\0=\0"\0u\0
 \0\r\0
 \0<\0/\0h\0t\0m\0l\0>\0\r\0
 \0`;
-const __vite_glob_1_23 = `��<\0h\0t\0m\0l\0 \0x\0m\0l\0n\0s\0:\0v\0=\0"\0u\0r\0n\0:\0s\0c\0h\0e\0m\0a\0s\0-\0m\0i\0c\0r\0o\0s\0o\0f\0t\0-\0c\0o\0m\0:\0v\0m\0l\0"\0\r\0
+const __vite_glob_1_24 = `��<\0h\0t\0m\0l\0 \0x\0m\0l\0n\0s\0:\0v\0=\0"\0u\0r\0n\0:\0s\0c\0h\0e\0m\0a\0s\0-\0m\0i\0c\0r\0o\0s\0o\0f\0t\0-\0c\0o\0m\0:\0v\0m\0l\0"\0\r\0
 \0x\0m\0l\0n\0s\0:\0o\0=\0"\0u\0r\0n\0:\0s\0c\0h\0e\0m\0a\0s\0-\0m\0i\0c\0r\0o\0s\0o\0f\0t\0-\0c\0o\0m\0:\0o\0f\0f\0i\0c\0e\0:\0o\0f\0f\0i\0c\0e\0"\0\r\0
 \0x\0m\0l\0n\0s\0:\0w\0=\0"\0u\0r\0n\0:\0s\0c\0h\0e\0m\0a\0s\0-\0m\0i\0c\0r\0o\0s\0o\0f\0t\0-\0c\0o\0m\0:\0o\0f\0f\0i\0c\0e\0:\0w\0o\0r\0d\0"\0\r\0
 \0x\0m\0l\0n\0s\0:\0x\0=\0"\0u\0r\0n\0:\0s\0c\0h\0e\0m\0a\0s\0-\0m\0i\0c\0r\0o\0s\0o\0f\0t\0-\0c\0o\0m\0:\0o\0f\0f\0i\0c\0e\0:\0e\0x\0c\0e\0l\0"\0\r\0
@@ -85558,7 +88440,7 @@ const __vite_glob_1_23 = `��<\0h\0t\0m\0l\0 \0x\0m\0l\0n\0s\0:\0v\0=\0"\0u\0
 \0\r\0
 \0<\0/\0h\0t\0m\0l\0>\0\r\0
 \0`;
-const __vite_glob_1_24 = `��<\0h\0t\0m\0l\0 \0x\0m\0l\0n\0s\0:\0v\0=\0"\0u\0r\0n\0:\0s\0c\0h\0e\0m\0a\0s\0-\0m\0i\0c\0r\0o\0s\0o\0f\0t\0-\0c\0o\0m\0:\0v\0m\0l\0"\0\r\0
+const __vite_glob_1_25 = `��<\0h\0t\0m\0l\0 \0x\0m\0l\0n\0s\0:\0v\0=\0"\0u\0r\0n\0:\0s\0c\0h\0e\0m\0a\0s\0-\0m\0i\0c\0r\0o\0s\0o\0f\0t\0-\0c\0o\0m\0:\0v\0m\0l\0"\0\r\0
 \0x\0m\0l\0n\0s\0:\0o\0=\0"\0u\0r\0n\0:\0s\0c\0h\0e\0m\0a\0s\0-\0m\0i\0c\0r\0o\0s\0o\0f\0t\0-\0c\0o\0m\0:\0o\0f\0f\0i\0c\0e\0:\0o\0f\0f\0i\0c\0e\0"\0\r\0
 \0x\0m\0l\0n\0s\0:\0w\0=\0"\0u\0r\0n\0:\0s\0c\0h\0e\0m\0a\0s\0-\0m\0i\0c\0r\0o\0s\0o\0f\0t\0-\0c\0o\0m\0:\0o\0f\0f\0i\0c\0e\0:\0w\0o\0r\0d\0"\0\r\0
 \0x\0m\0l\0n\0s\0:\0x\0=\0"\0u\0r\0n\0:\0s\0c\0h\0e\0m\0a\0s\0-\0m\0i\0c\0r\0o\0s\0o\0f\0t\0-\0c\0o\0m\0:\0o\0f\0f\0i\0c\0e\0:\0e\0x\0c\0e\0l\0"\0\r\0
@@ -87570,7 +90452,7 @@ const __vite_glob_1_24 = `��<\0h\0t\0m\0l\0 \0x\0m\0l\0n\0s\0:\0v\0=\0"\0u\0
 \0\r\0
 \0<\0/\0h\0t\0m\0l\0>\0\r\0
 \0`;
-const __vite_glob_1_25 = `��<\0h\0t\0m\0l\0 \0x\0m\0l\0n\0s\0:\0v\0=\0"\0u\0r\0n\0:\0s\0c\0h\0e\0m\0a\0s\0-\0m\0i\0c\0r\0o\0s\0o\0f\0t\0-\0c\0o\0m\0:\0v\0m\0l\0"\0\r\0
+const __vite_glob_1_26 = `��<\0h\0t\0m\0l\0 \0x\0m\0l\0n\0s\0:\0v\0=\0"\0u\0r\0n\0:\0s\0c\0h\0e\0m\0a\0s\0-\0m\0i\0c\0r\0o\0s\0o\0f\0t\0-\0c\0o\0m\0:\0v\0m\0l\0"\0\r\0
 \0x\0m\0l\0n\0s\0:\0o\0=\0"\0u\0r\0n\0:\0s\0c\0h\0e\0m\0a\0s\0-\0m\0i\0c\0r\0o\0s\0o\0f\0t\0-\0c\0o\0m\0:\0o\0f\0f\0i\0c\0e\0:\0o\0f\0f\0i\0c\0e\0"\0\r\0
 \0x\0m\0l\0n\0s\0:\0w\0=\0"\0u\0r\0n\0:\0s\0c\0h\0e\0m\0a\0s\0-\0m\0i\0c\0r\0o\0s\0o\0f\0t\0-\0c\0o\0m\0:\0o\0f\0f\0i\0c\0e\0:\0w\0o\0r\0d\0"\0\r\0
 \0x\0m\0l\0n\0s\0:\0x\0=\0"\0u\0r\0n\0:\0s\0c\0h\0e\0m\0a\0s\0-\0m\0i\0c\0r\0o\0s\0o\0f\0t\0-\0c\0o\0m\0:\0o\0f\0f\0i\0c\0e\0:\0e\0x\0c\0e\0l\0"\0\r\0
@@ -89744,7 +92626,7 @@ const __vite_glob_1_25 = `��<\0h\0t\0m\0l\0 \0x\0m\0l\0n\0s\0:\0v\0=\0"\0u\0
 \0\r\0
 \0<\0/\0h\0t\0m\0l\0>\0\r\0
 \0`;
-const __vite_glob_1_26 = `��<\0h\0t\0m\0l\0 \0x\0m\0l\0n\0s\0:\0v\0=\0"\0u\0r\0n\0:\0s\0c\0h\0e\0m\0a\0s\0-\0m\0i\0c\0r\0o\0s\0o\0f\0t\0-\0c\0o\0m\0:\0v\0m\0l\0"\0\r\0
+const __vite_glob_1_27 = `��<\0h\0t\0m\0l\0 \0x\0m\0l\0n\0s\0:\0v\0=\0"\0u\0r\0n\0:\0s\0c\0h\0e\0m\0a\0s\0-\0m\0i\0c\0r\0o\0s\0o\0f\0t\0-\0c\0o\0m\0:\0v\0m\0l\0"\0\r\0
 \0x\0m\0l\0n\0s\0:\0o\0=\0"\0u\0r\0n\0:\0s\0c\0h\0e\0m\0a\0s\0-\0m\0i\0c\0r\0o\0s\0o\0f\0t\0-\0c\0o\0m\0:\0o\0f\0f\0i\0c\0e\0:\0o\0f\0f\0i\0c\0e\0"\0\r\0
 \0x\0m\0l\0n\0s\0:\0w\0=\0"\0u\0r\0n\0:\0s\0c\0h\0e\0m\0a\0s\0-\0m\0i\0c\0r\0o\0s\0o\0f\0t\0-\0c\0o\0m\0:\0o\0f\0f\0i\0c\0e\0:\0w\0o\0r\0d\0"\0\r\0
 \0x\0m\0l\0n\0s\0:\0m\0=\0"\0h\0t\0t\0p\0:\0/\0/\0s\0c\0h\0e\0m\0a\0s\0.\0m\0i\0c\0r\0o\0s\0o\0f\0t\0.\0c\0o\0m\0/\0o\0f\0f\0i\0c\0e\0/\x002\x000\x000\x004\0/\x001\x002\0/\0o\0m\0m\0l\0"\0\r\0
@@ -92611,7 +95493,7 @@ const __vite_glob_1_26 = `��<\0h\0t\0m\0l\0 \0x\0m\0l\0n\0s\0:\0v\0=\0"\0u\0
 \0\r\0
 \0<\0/\0h\0t\0m\0l\0>\0\r\0
 \0`;
-const __vite_glob_1_27 = `��<\0h\0t\0m\0l\0 \0x\0m\0l\0n\0s\0:\0v\0=\0"\0u\0r\0n\0:\0s\0c\0h\0e\0m\0a\0s\0-\0m\0i\0c\0r\0o\0s\0o\0f\0t\0-\0c\0o\0m\0:\0v\0m\0l\0"\0\r\0
+const __vite_glob_1_28 = `��<\0h\0t\0m\0l\0 \0x\0m\0l\0n\0s\0:\0v\0=\0"\0u\0r\0n\0:\0s\0c\0h\0e\0m\0a\0s\0-\0m\0i\0c\0r\0o\0s\0o\0f\0t\0-\0c\0o\0m\0:\0v\0m\0l\0"\0\r\0
 \0x\0m\0l\0n\0s\0:\0o\0=\0"\0u\0r\0n\0:\0s\0c\0h\0e\0m\0a\0s\0-\0m\0i\0c\0r\0o\0s\0o\0f\0t\0-\0c\0o\0m\0:\0o\0f\0f\0i\0c\0e\0:\0o\0f\0f\0i\0c\0e\0"\0\r\0
 \0x\0m\0l\0n\0s\0:\0w\0=\0"\0u\0r\0n\0:\0s\0c\0h\0e\0m\0a\0s\0-\0m\0i\0c\0r\0o\0s\0o\0f\0t\0-\0c\0o\0m\0:\0o\0f\0f\0i\0c\0e\0:\0w\0o\0r\0d\0"\0\r\0
 \0x\0m\0l\0n\0s\0:\0x\0=\0"\0u\0r\0n\0:\0s\0c\0h\0e\0m\0a\0s\0-\0m\0i\0c\0r\0o\0s\0o\0f\0t\0-\0c\0o\0m\0:\0o\0f\0f\0i\0c\0e\0:\0e\0x\0c\0e\0l\0"\0\r\0
@@ -94917,7 +97799,7 @@ const __vite_glob_1_27 = `��<\0h\0t\0m\0l\0 \0x\0m\0l\0n\0s\0:\0v\0=\0"\0u\0
 \0\r\0
 \0<\0/\0h\0t\0m\0l\0>\0\r\0
 \0`;
-const __vite_glob_1_28 = `��<\0h\0t\0m\0l\0 \0x\0m\0l\0n\0s\0:\0v\0=\0"\0u\0r\0n\0:\0s\0c\0h\0e\0m\0a\0s\0-\0m\0i\0c\0r\0o\0s\0o\0f\0t\0-\0c\0o\0m\0:\0v\0m\0l\0"\0\r\0
+const __vite_glob_1_29 = `��<\0h\0t\0m\0l\0 \0x\0m\0l\0n\0s\0:\0v\0=\0"\0u\0r\0n\0:\0s\0c\0h\0e\0m\0a\0s\0-\0m\0i\0c\0r\0o\0s\0o\0f\0t\0-\0c\0o\0m\0:\0v\0m\0l\0"\0\r\0
 \0x\0m\0l\0n\0s\0:\0o\0=\0"\0u\0r\0n\0:\0s\0c\0h\0e\0m\0a\0s\0-\0m\0i\0c\0r\0o\0s\0o\0f\0t\0-\0c\0o\0m\0:\0o\0f\0f\0i\0c\0e\0:\0o\0f\0f\0i\0c\0e\0"\0\r\0
 \0x\0m\0l\0n\0s\0:\0w\0=\0"\0u\0r\0n\0:\0s\0c\0h\0e\0m\0a\0s\0-\0m\0i\0c\0r\0o\0s\0o\0f\0t\0-\0c\0o\0m\0:\0o\0f\0f\0i\0c\0e\0:\0w\0o\0r\0d\0"\0\r\0
 \0x\0m\0l\0n\0s\0:\0x\0=\0"\0u\0r\0n\0:\0s\0c\0h\0e\0m\0a\0s\0-\0m\0i\0c\0r\0o\0s\0o\0f\0t\0-\0c\0o\0m\0:\0o\0f\0f\0i\0c\0e\0:\0e\0x\0c\0e\0l\0"\0\r\0
@@ -97532,7 +100414,7 @@ const __vite_glob_1_28 = `��<\0h\0t\0m\0l\0 \0x\0m\0l\0n\0s\0:\0v\0=\0"\0u\0
 \0\r\0
 \0<\0/\0h\0t\0m\0l\0>\0\r\0
 \0`;
-const __vite_glob_1_29 = `��<\0h\0t\0m\0l\0 \0x\0m\0l\0n\0s\0:\0v\0=\0"\0u\0r\0n\0:\0s\0c\0h\0e\0m\0a\0s\0-\0m\0i\0c\0r\0o\0s\0o\0f\0t\0-\0c\0o\0m\0:\0v\0m\0l\0"\0\r\0
+const __vite_glob_1_30 = `��<\0h\0t\0m\0l\0 \0x\0m\0l\0n\0s\0:\0v\0=\0"\0u\0r\0n\0:\0s\0c\0h\0e\0m\0a\0s\0-\0m\0i\0c\0r\0o\0s\0o\0f\0t\0-\0c\0o\0m\0:\0v\0m\0l\0"\0\r\0
 \0x\0m\0l\0n\0s\0:\0o\0=\0"\0u\0r\0n\0:\0s\0c\0h\0e\0m\0a\0s\0-\0m\0i\0c\0r\0o\0s\0o\0f\0t\0-\0c\0o\0m\0:\0o\0f\0f\0i\0c\0e\0:\0o\0f\0f\0i\0c\0e\0"\0\r\0
 \0x\0m\0l\0n\0s\0:\0w\0=\0"\0u\0r\0n\0:\0s\0c\0h\0e\0m\0a\0s\0-\0m\0i\0c\0r\0o\0s\0o\0f\0t\0-\0c\0o\0m\0:\0o\0f\0f\0i\0c\0e\0:\0w\0o\0r\0d\0"\0\r\0
 \0x\0m\0l\0n\0s\0:\0x\0=\0"\0u\0r\0n\0:\0s\0c\0h\0e\0m\0a\0s\0-\0m\0i\0c\0r\0o\0s\0o\0f\0t\0-\0c\0o\0m\0:\0o\0f\0f\0i\0c\0e\0:\0e\0x\0c\0e\0l\0"\0\r\0
@@ -99536,7 +102418,7 @@ const __vite_glob_1_29 = `��<\0h\0t\0m\0l\0 \0x\0m\0l\0n\0s\0:\0v\0=\0"\0u\0
 \0\r\0
 \0<\0/\0h\0t\0m\0l\0>\0\r\0
 \0`;
-const __vite_glob_1_30 = `��<\0h\0t\0m\0l\0 \0x\0m\0l\0n\0s\0:\0v\0=\0"\0u\0r\0n\0:\0s\0c\0h\0e\0m\0a\0s\0-\0m\0i\0c\0r\0o\0s\0o\0f\0t\0-\0c\0o\0m\0:\0v\0m\0l\0"\0\r\0
+const __vite_glob_1_31 = `��<\0h\0t\0m\0l\0 \0x\0m\0l\0n\0s\0:\0v\0=\0"\0u\0r\0n\0:\0s\0c\0h\0e\0m\0a\0s\0-\0m\0i\0c\0r\0o\0s\0o\0f\0t\0-\0c\0o\0m\0:\0v\0m\0l\0"\0\r\0
 \0x\0m\0l\0n\0s\0:\0o\0=\0"\0u\0r\0n\0:\0s\0c\0h\0e\0m\0a\0s\0-\0m\0i\0c\0r\0o\0s\0o\0f\0t\0-\0c\0o\0m\0:\0o\0f\0f\0i\0c\0e\0:\0o\0f\0f\0i\0c\0e\0"\0\r\0
 \0x\0m\0l\0n\0s\0:\0w\0=\0"\0u\0r\0n\0:\0s\0c\0h\0e\0m\0a\0s\0-\0m\0i\0c\0r\0o\0s\0o\0f\0t\0-\0c\0o\0m\0:\0o\0f\0f\0i\0c\0e\0:\0w\0o\0r\0d\0"\0\r\0
 \0x\0m\0l\0n\0s\0:\0x\0=\0"\0u\0r\0n\0:\0s\0c\0h\0e\0m\0a\0s\0-\0m\0i\0c\0r\0o\0s\0o\0f\0t\0-\0c\0o\0m\0:\0o\0f\0f\0i\0c\0e\0:\0e\0x\0c\0e\0l\0"\0\r\0
@@ -101889,7 +104771,7 @@ const __vite_glob_1_30 = `��<\0h\0t\0m\0l\0 \0x\0m\0l\0n\0s\0:\0v\0=\0"\0u\0
 \0\r\0
 \0<\0/\0h\0t\0m\0l\0>\0\r\0
 \0`;
-const __vite_glob_1_31 = `��<\0h\0t\0m\0l\0 \0x\0m\0l\0n\0s\0:\0v\0=\0"\0u\0r\0n\0:\0s\0c\0h\0e\0m\0a\0s\0-\0m\0i\0c\0r\0o\0s\0o\0f\0t\0-\0c\0o\0m\0:\0v\0m\0l\0"\0\r\0
+const __vite_glob_1_32 = `��<\0h\0t\0m\0l\0 \0x\0m\0l\0n\0s\0:\0v\0=\0"\0u\0r\0n\0:\0s\0c\0h\0e\0m\0a\0s\0-\0m\0i\0c\0r\0o\0s\0o\0f\0t\0-\0c\0o\0m\0:\0v\0m\0l\0"\0\r\0
 \0x\0m\0l\0n\0s\0:\0o\0=\0"\0u\0r\0n\0:\0s\0c\0h\0e\0m\0a\0s\0-\0m\0i\0c\0r\0o\0s\0o\0f\0t\0-\0c\0o\0m\0:\0o\0f\0f\0i\0c\0e\0:\0o\0f\0f\0i\0c\0e\0"\0\r\0
 \0x\0m\0l\0n\0s\0:\0w\0=\0"\0u\0r\0n\0:\0s\0c\0h\0e\0m\0a\0s\0-\0m\0i\0c\0r\0o\0s\0o\0f\0t\0-\0c\0o\0m\0:\0o\0f\0f\0i\0c\0e\0:\0w\0o\0r\0d\0"\0\r\0
 \0x\0m\0l\0n\0s\0:\0x\0=\0"\0u\0r\0n\0:\0s\0c\0h\0e\0m\0a\0s\0-\0m\0i\0c\0r\0o\0s\0o\0f\0t\0-\0c\0o\0m\0:\0o\0f\0f\0i\0c\0e\0:\0e\0x\0c\0e\0l\0"\0\r\0
@@ -104014,7 +106896,7 @@ const __vite_glob_1_31 = `��<\0h\0t\0m\0l\0 \0x\0m\0l\0n\0s\0:\0v\0=\0"\0u\0
 \0\r\0
 \0<\0/\0h\0t\0m\0l\0>\0\r\0
 \0`;
-const __vite_glob_1_32 = `��<\0h\0t\0m\0l\0 \0x\0m\0l\0n\0s\0:\0v\0=\0"\0u\0r\0n\0:\0s\0c\0h\0e\0m\0a\0s\0-\0m\0i\0c\0r\0o\0s\0o\0f\0t\0-\0c\0o\0m\0:\0v\0m\0l\0"\0\r\0
+const __vite_glob_1_33 = `��<\0h\0t\0m\0l\0 \0x\0m\0l\0n\0s\0:\0v\0=\0"\0u\0r\0n\0:\0s\0c\0h\0e\0m\0a\0s\0-\0m\0i\0c\0r\0o\0s\0o\0f\0t\0-\0c\0o\0m\0:\0v\0m\0l\0"\0\r\0
 \0x\0m\0l\0n\0s\0:\0o\0=\0"\0u\0r\0n\0:\0s\0c\0h\0e\0m\0a\0s\0-\0m\0i\0c\0r\0o\0s\0o\0f\0t\0-\0c\0o\0m\0:\0o\0f\0f\0i\0c\0e\0:\0o\0f\0f\0i\0c\0e\0"\0\r\0
 \0x\0m\0l\0n\0s\0:\0w\0=\0"\0u\0r\0n\0:\0s\0c\0h\0e\0m\0a\0s\0-\0m\0i\0c\0r\0o\0s\0o\0f\0t\0-\0c\0o\0m\0:\0o\0f\0f\0i\0c\0e\0:\0w\0o\0r\0d\0"\0\r\0
 \0x\0m\0l\0n\0s\0:\0x\0=\0"\0u\0r\0n\0:\0s\0c\0h\0e\0m\0a\0s\0-\0m\0i\0c\0r\0o\0s\0o\0f\0t\0-\0c\0o\0m\0:\0o\0f\0f\0i\0c\0e\0:\0e\0x\0c\0e\0l\0"\0\r\0
@@ -106080,7 +108962,7 @@ const __vite_glob_1_32 = `��<\0h\0t\0m\0l\0 \0x\0m\0l\0n\0s\0:\0v\0=\0"\0u\0
 \0\r\0
 \0<\0/\0h\0t\0m\0l\0>\0\r\0
 \0`;
-const __vite_glob_1_33 = `��<\0h\0t\0m\0l\0 \0x\0m\0l\0n\0s\0:\0v\0=\0"\0u\0r\0n\0:\0s\0c\0h\0e\0m\0a\0s\0-\0m\0i\0c\0r\0o\0s\0o\0f\0t\0-\0c\0o\0m\0:\0v\0m\0l\0"\0\r\0
+const __vite_glob_1_34 = `��<\0h\0t\0m\0l\0 \0x\0m\0l\0n\0s\0:\0v\0=\0"\0u\0r\0n\0:\0s\0c\0h\0e\0m\0a\0s\0-\0m\0i\0c\0r\0o\0s\0o\0f\0t\0-\0c\0o\0m\0:\0v\0m\0l\0"\0\r\0
 \0x\0m\0l\0n\0s\0:\0o\0=\0"\0u\0r\0n\0:\0s\0c\0h\0e\0m\0a\0s\0-\0m\0i\0c\0r\0o\0s\0o\0f\0t\0-\0c\0o\0m\0:\0o\0f\0f\0i\0c\0e\0:\0o\0f\0f\0i\0c\0e\0"\0\r\0
 \0x\0m\0l\0n\0s\0:\0w\0=\0"\0u\0r\0n\0:\0s\0c\0h\0e\0m\0a\0s\0-\0m\0i\0c\0r\0o\0s\0o\0f\0t\0-\0c\0o\0m\0:\0o\0f\0f\0i\0c\0e\0:\0w\0o\0r\0d\0"\0\r\0
 \0x\0m\0l\0n\0s\0:\0x\0=\0"\0u\0r\0n\0:\0s\0c\0h\0e\0m\0a\0s\0-\0m\0i\0c\0r\0o\0s\0o\0f\0t\0-\0c\0o\0m\0:\0o\0f\0f\0i\0c\0e\0:\0e\0x\0c\0e\0l\0"\0\r\0
@@ -108472,7 +111354,7 @@ const __vite_glob_1_33 = `��<\0h\0t\0m\0l\0 \0x\0m\0l\0n\0s\0:\0v\0=\0"\0u\0
 \0\r\0
 \0<\0/\0h\0t\0m\0l\0>\0\r\0
 \0`;
-const __vite_glob_1_34 = `��<\0h\0t\0m\0l\0 \0x\0m\0l\0n\0s\0:\0v\0=\0"\0u\0r\0n\0:\0s\0c\0h\0e\0m\0a\0s\0-\0m\0i\0c\0r\0o\0s\0o\0f\0t\0-\0c\0o\0m\0:\0v\0m\0l\0"\0\r\0
+const __vite_glob_1_35 = `��<\0h\0t\0m\0l\0 \0x\0m\0l\0n\0s\0:\0v\0=\0"\0u\0r\0n\0:\0s\0c\0h\0e\0m\0a\0s\0-\0m\0i\0c\0r\0o\0s\0o\0f\0t\0-\0c\0o\0m\0:\0v\0m\0l\0"\0\r\0
 \0x\0m\0l\0n\0s\0:\0o\0=\0"\0u\0r\0n\0:\0s\0c\0h\0e\0m\0a\0s\0-\0m\0i\0c\0r\0o\0s\0o\0f\0t\0-\0c\0o\0m\0:\0o\0f\0f\0i\0c\0e\0:\0o\0f\0f\0i\0c\0e\0"\0\r\0
 \0x\0m\0l\0n\0s\0:\0w\0=\0"\0u\0r\0n\0:\0s\0c\0h\0e\0m\0a\0s\0-\0m\0i\0c\0r\0o\0s\0o\0f\0t\0-\0c\0o\0m\0:\0o\0f\0f\0i\0c\0e\0:\0w\0o\0r\0d\0"\0\r\0
 \0x\0m\0l\0n\0s\0:\0x\0=\0"\0u\0r\0n\0:\0s\0c\0h\0e\0m\0a\0s\0-\0m\0i\0c\0r\0o\0s\0o\0f\0t\0-\0c\0o\0m\0:\0o\0f\0f\0i\0c\0e\0:\0e\0x\0c\0e\0l\0"\0\r\0
@@ -110707,7 +113589,7 @@ const __vite_glob_1_34 = `��<\0h\0t\0m\0l\0 \0x\0m\0l\0n\0s\0:\0v\0=\0"\0u\0
 \0\r\0
 \0<\0/\0h\0t\0m\0l\0>\0\r\0
 \0`;
-const __vite_glob_1_35 = `��<\0h\0t\0m\0l\0 \0x\0m\0l\0n\0s\0:\0v\0=\0"\0u\0r\0n\0:\0s\0c\0h\0e\0m\0a\0s\0-\0m\0i\0c\0r\0o\0s\0o\0f\0t\0-\0c\0o\0m\0:\0v\0m\0l\0"\0\r\0
+const __vite_glob_1_36 = `��<\0h\0t\0m\0l\0 \0x\0m\0l\0n\0s\0:\0v\0=\0"\0u\0r\0n\0:\0s\0c\0h\0e\0m\0a\0s\0-\0m\0i\0c\0r\0o\0s\0o\0f\0t\0-\0c\0o\0m\0:\0v\0m\0l\0"\0\r\0
 \0x\0m\0l\0n\0s\0:\0o\0=\0"\0u\0r\0n\0:\0s\0c\0h\0e\0m\0a\0s\0-\0m\0i\0c\0r\0o\0s\0o\0f\0t\0-\0c\0o\0m\0:\0o\0f\0f\0i\0c\0e\0:\0o\0f\0f\0i\0c\0e\0"\0\r\0
 \0x\0m\0l\0n\0s\0:\0w\0=\0"\0u\0r\0n\0:\0s\0c\0h\0e\0m\0a\0s\0-\0m\0i\0c\0r\0o\0s\0o\0f\0t\0-\0c\0o\0m\0:\0o\0f\0f\0i\0c\0e\0:\0w\0o\0r\0d\0"\0\r\0
 \0x\0m\0l\0n\0s\0:\0m\0=\0"\0h\0t\0t\0p\0:\0/\0/\0s\0c\0h\0e\0m\0a\0s\0.\0m\0i\0c\0r\0o\0s\0o\0f\0t\0.\0c\0o\0m\0/\0o\0f\0f\0i\0c\0e\0/\x002\x000\x000\x004\0/\x001\x002\0/\0o\0m\0m\0l\0"\0\r\0
@@ -113796,32 +116678,33 @@ const files = /* @__PURE__ */ Object.assign({
   "../newsletters/Automotive MC Newsletter - July '25 edition.htm": __vite_glob_1_7,
   "../newsletters/Automotive MC Newsletter - June '25 edition.htm": __vite_glob_1_8,
   "../newsletters/Automotive MC Newsletter - March '25 edition.htm": __vite_glob_1_9,
-  "../newsletters/Automotive MC Newsletter - March 2024 edition!.htm": __vite_glob_1_10,
-  "../newsletters/Automotive MC Newsletter - May '25 edition.htm": __vite_glob_1_11,
-  "../newsletters/Automotive MC Newsletter - May 2024 edition!.htm": __vite_glob_1_12,
-  "../newsletters/Automotive MC Newsletter - November '25 edition.htm": __vite_glob_1_13,
-  "../newsletters/Automotive MC Newsletter - September 2025.htm": __vite_glob_1_14,
-  "../newsletters/FW Automotive MC Newsletter - Nov '24 edition.htm": __vite_glob_1_15,
-  "../newsletters/FW Your Automotive Microcontroller Newsletter February 2019.htm": __vite_glob_1_16,
-  "../newsletters/RE Your Monthly Automotive MC Newsletter June 2021.htm": __vite_glob_1_17,
-  "../newsletters/Your Automotive Microcontroller Newsletter December 2020.htm": __vite_glob_1_18,
-  "../newsletters/Your Automotive Microcontroller Newsletter January 2021.htm": __vite_glob_1_19,
-  "../newsletters/Your Automotive Microcontroller Newsletter November 2020.htm": __vite_glob_1_20,
-  "../newsletters/Your Monthly Automotive MC Newsletter - 23 cozy November! .htm": __vite_glob_1_21,
-  "../newsletters/Your Monthly Automotive MC Newsletter - Festive December issue!.htm": __vite_glob_1_22,
-  "../newsletters/Your Monthly Automotive MC Newsletter April 2021.htm": __vite_glob_1_23,
-  "../newsletters/Your Monthly Automotive MC Newsletter April 2022.htm": __vite_glob_1_24,
-  "../newsletters/Your Monthly Automotive MC Newsletter August 2021 .htm": __vite_glob_1_25,
-  "../newsletters/Your Monthly Automotive MC Newsletter February 2021.htm": __vite_glob_1_26,
-  "../newsletters/Your Monthly Automotive MC Newsletter July 2021.htm": __vite_glob_1_27,
-  "../newsletters/Your Monthly Automotive MC Newsletter March 2021.htm": __vite_glob_1_28,
-  "../newsletters/Your Monthly Automotive MC Newsletter March 2022.htm": __vite_glob_1_29,
-  "../newsletters/Your Monthly Automotive MC Newsletter May 2021.htm": __vite_glob_1_30,
-  "../newsletters/Your Monthly Automotive MC Newsletter November 2021.htm": __vite_glob_1_31,
-  "../newsletters/Your Monthly Automotive MC Newsletter October 2021.htm": __vite_glob_1_32,
-  "../newsletters/Your Monthly Automotive MC Newsletter September 2021.htm": __vite_glob_1_33,
-  "../newsletters/Your Monthly Automotive MC Newsletter may22 .htm": __vite_glob_1_34,
-  "../newsletters/Your Monthly Automotive MC newsletter sep22.htm": __vite_glob_1_35
+  "../newsletters/Automotive MC Newsletter - March '26 edition.htm": __vite_glob_1_10,
+  "../newsletters/Automotive MC Newsletter - March 2024 edition!.htm": __vite_glob_1_11,
+  "../newsletters/Automotive MC Newsletter - May '25 edition.htm": __vite_glob_1_12,
+  "../newsletters/Automotive MC Newsletter - May 2024 edition!.htm": __vite_glob_1_13,
+  "../newsletters/Automotive MC Newsletter - November '25 edition.htm": __vite_glob_1_14,
+  "../newsletters/Automotive MC Newsletter - September 2025.htm": __vite_glob_1_15,
+  "../newsletters/FW Automotive MC Newsletter - Nov '24 edition.htm": __vite_glob_1_16,
+  "../newsletters/FW Your Automotive Microcontroller Newsletter February 2019.htm": __vite_glob_1_17,
+  "../newsletters/RE Your Monthly Automotive MC Newsletter June 2021.htm": __vite_glob_1_18,
+  "../newsletters/Your Automotive Microcontroller Newsletter December 2020.htm": __vite_glob_1_19,
+  "../newsletters/Your Automotive Microcontroller Newsletter January 2021.htm": __vite_glob_1_20,
+  "../newsletters/Your Automotive Microcontroller Newsletter November 2020.htm": __vite_glob_1_21,
+  "../newsletters/Your Monthly Automotive MC Newsletter - 23 cozy November! .htm": __vite_glob_1_22,
+  "../newsletters/Your Monthly Automotive MC Newsletter - Festive December issue!.htm": __vite_glob_1_23,
+  "../newsletters/Your Monthly Automotive MC Newsletter April 2021.htm": __vite_glob_1_24,
+  "../newsletters/Your Monthly Automotive MC Newsletter April 2022.htm": __vite_glob_1_25,
+  "../newsletters/Your Monthly Automotive MC Newsletter August 2021 .htm": __vite_glob_1_26,
+  "../newsletters/Your Monthly Automotive MC Newsletter February 2021.htm": __vite_glob_1_27,
+  "../newsletters/Your Monthly Automotive MC Newsletter July 2021.htm": __vite_glob_1_28,
+  "../newsletters/Your Monthly Automotive MC Newsletter March 2021.htm": __vite_glob_1_29,
+  "../newsletters/Your Monthly Automotive MC Newsletter March 2022.htm": __vite_glob_1_30,
+  "../newsletters/Your Monthly Automotive MC Newsletter May 2021.htm": __vite_glob_1_31,
+  "../newsletters/Your Monthly Automotive MC Newsletter November 2021.htm": __vite_glob_1_32,
+  "../newsletters/Your Monthly Automotive MC Newsletter October 2021.htm": __vite_glob_1_33,
+  "../newsletters/Your Monthly Automotive MC Newsletter September 2021.htm": __vite_glob_1_34,
+  "../newsletters/Your Monthly Automotive MC Newsletter may22 .htm": __vite_glob_1_35,
+  "../newsletters/Your Monthly Automotive MC newsletter sep22.htm": __vite_glob_1_36
 });
 const fileUrls = /* @__PURE__ */ Object.assign({
   "../newsletters/Automotive MC Newsletter - April '25 edition.htm": __vite_glob_0_0,
@@ -113834,32 +116717,33 @@ const fileUrls = /* @__PURE__ */ Object.assign({
   "../newsletters/Automotive MC Newsletter - July '25 edition.htm": __vite_glob_0_7,
   "../newsletters/Automotive MC Newsletter - June '25 edition.htm": __vite_glob_0_8,
   "../newsletters/Automotive MC Newsletter - March '25 edition.htm": __vite_glob_0_9,
-  "../newsletters/Automotive MC Newsletter - March 2024 edition!.htm": __vite_glob_0_10,
-  "../newsletters/Automotive MC Newsletter - May '25 edition.htm": __vite_glob_0_11,
-  "../newsletters/Automotive MC Newsletter - May 2024 edition!.htm": __vite_glob_0_12,
-  "../newsletters/Automotive MC Newsletter - November '25 edition.htm": __vite_glob_0_13,
-  "../newsletters/Automotive MC Newsletter - September 2025.htm": __vite_glob_0_14,
-  "../newsletters/FW Automotive MC Newsletter - Nov '24 edition.htm": __vite_glob_0_15,
-  "../newsletters/FW Your Automotive Microcontroller Newsletter February 2019.htm": __vite_glob_0_16,
-  "../newsletters/RE Your Monthly Automotive MC Newsletter June 2021.htm": __vite_glob_0_17,
-  "../newsletters/Your Automotive Microcontroller Newsletter December 2020.htm": __vite_glob_0_18,
-  "../newsletters/Your Automotive Microcontroller Newsletter January 2021.htm": __vite_glob_0_19,
-  "../newsletters/Your Automotive Microcontroller Newsletter November 2020.htm": __vite_glob_0_20,
-  "../newsletters/Your Monthly Automotive MC Newsletter - 23 cozy November! .htm": __vite_glob_0_21,
-  "../newsletters/Your Monthly Automotive MC Newsletter - Festive December issue!.htm": __vite_glob_0_22,
-  "../newsletters/Your Monthly Automotive MC Newsletter April 2021.htm": __vite_glob_0_23,
-  "../newsletters/Your Monthly Automotive MC Newsletter April 2022.htm": __vite_glob_0_24,
-  "../newsletters/Your Monthly Automotive MC Newsletter August 2021 .htm": __vite_glob_0_25,
-  "../newsletters/Your Monthly Automotive MC Newsletter February 2021.htm": __vite_glob_0_26,
-  "../newsletters/Your Monthly Automotive MC Newsletter July 2021.htm": __vite_glob_0_27,
-  "../newsletters/Your Monthly Automotive MC Newsletter March 2021.htm": __vite_glob_0_28,
-  "../newsletters/Your Monthly Automotive MC Newsletter March 2022.htm": __vite_glob_0_29,
-  "../newsletters/Your Monthly Automotive MC Newsletter May 2021.htm": __vite_glob_0_30,
-  "../newsletters/Your Monthly Automotive MC Newsletter November 2021.htm": __vite_glob_0_31,
-  "../newsletters/Your Monthly Automotive MC Newsletter October 2021.htm": __vite_glob_0_32,
-  "../newsletters/Your Monthly Automotive MC Newsletter September 2021.htm": __vite_glob_0_33,
-  "../newsletters/Your Monthly Automotive MC Newsletter may22 .htm": __vite_glob_0_34,
-  "../newsletters/Your Monthly Automotive MC newsletter sep22.htm": __vite_glob_0_35
+  "../newsletters/Automotive MC Newsletter - March '26 edition.htm": __vite_glob_0_10,
+  "../newsletters/Automotive MC Newsletter - March 2024 edition!.htm": __vite_glob_0_11,
+  "../newsletters/Automotive MC Newsletter - May '25 edition.htm": __vite_glob_0_12,
+  "../newsletters/Automotive MC Newsletter - May 2024 edition!.htm": __vite_glob_0_13,
+  "../newsletters/Automotive MC Newsletter - November '25 edition.htm": __vite_glob_0_14,
+  "../newsletters/Automotive MC Newsletter - September 2025.htm": __vite_glob_0_15,
+  "../newsletters/FW Automotive MC Newsletter - Nov '24 edition.htm": __vite_glob_0_16,
+  "../newsletters/FW Your Automotive Microcontroller Newsletter February 2019.htm": __vite_glob_0_17,
+  "../newsletters/RE Your Monthly Automotive MC Newsletter June 2021.htm": __vite_glob_0_18,
+  "../newsletters/Your Automotive Microcontroller Newsletter December 2020.htm": __vite_glob_0_19,
+  "../newsletters/Your Automotive Microcontroller Newsletter January 2021.htm": __vite_glob_0_20,
+  "../newsletters/Your Automotive Microcontroller Newsletter November 2020.htm": __vite_glob_0_21,
+  "../newsletters/Your Monthly Automotive MC Newsletter - 23 cozy November! .htm": __vite_glob_0_22,
+  "../newsletters/Your Monthly Automotive MC Newsletter - Festive December issue!.htm": __vite_glob_0_23,
+  "../newsletters/Your Monthly Automotive MC Newsletter April 2021.htm": __vite_glob_0_24,
+  "../newsletters/Your Monthly Automotive MC Newsletter April 2022.htm": __vite_glob_0_25,
+  "../newsletters/Your Monthly Automotive MC Newsletter August 2021 .htm": __vite_glob_0_26,
+  "../newsletters/Your Monthly Automotive MC Newsletter February 2021.htm": __vite_glob_0_27,
+  "../newsletters/Your Monthly Automotive MC Newsletter July 2021.htm": __vite_glob_0_28,
+  "../newsletters/Your Monthly Automotive MC Newsletter March 2021.htm": __vite_glob_0_29,
+  "../newsletters/Your Monthly Automotive MC Newsletter March 2022.htm": __vite_glob_0_30,
+  "../newsletters/Your Monthly Automotive MC Newsletter May 2021.htm": __vite_glob_0_31,
+  "../newsletters/Your Monthly Automotive MC Newsletter November 2021.htm": __vite_glob_0_32,
+  "../newsletters/Your Monthly Automotive MC Newsletter October 2021.htm": __vite_glob_0_33,
+  "../newsletters/Your Monthly Automotive MC Newsletter September 2021.htm": __vite_glob_0_34,
+  "../newsletters/Your Monthly Automotive MC Newsletter may22 .htm": __vite_glob_0_35,
+  "../newsletters/Your Monthly Automotive MC newsletter sep22.htm": __vite_glob_0_36
 });
 const monthNames = [
   "january",
@@ -114716,32 +117600,33 @@ const htmlFiles = /* @__PURE__ */ Object.assign({
   "../newsletters/Automotive MC Newsletter - July '25 edition.htm": __vite_glob_0_7,
   "../newsletters/Automotive MC Newsletter - June '25 edition.htm": __vite_glob_0_8,
   "../newsletters/Automotive MC Newsletter - March '25 edition.htm": __vite_glob_0_9,
-  "../newsletters/Automotive MC Newsletter - March 2024 edition!.htm": __vite_glob_0_10,
-  "../newsletters/Automotive MC Newsletter - May '25 edition.htm": __vite_glob_0_11,
-  "../newsletters/Automotive MC Newsletter - May 2024 edition!.htm": __vite_glob_0_12,
-  "../newsletters/Automotive MC Newsletter - November '25 edition.htm": __vite_glob_0_13,
-  "../newsletters/Automotive MC Newsletter - September 2025.htm": __vite_glob_0_14,
-  "../newsletters/FW Automotive MC Newsletter - Nov '24 edition.htm": __vite_glob_0_15,
-  "../newsletters/FW Your Automotive Microcontroller Newsletter February 2019.htm": __vite_glob_0_16,
-  "../newsletters/RE Your Monthly Automotive MC Newsletter June 2021.htm": __vite_glob_0_17,
-  "../newsletters/Your Automotive Microcontroller Newsletter December 2020.htm": __vite_glob_0_18,
-  "../newsletters/Your Automotive Microcontroller Newsletter January 2021.htm": __vite_glob_0_19,
-  "../newsletters/Your Automotive Microcontroller Newsletter November 2020.htm": __vite_glob_0_20,
-  "../newsletters/Your Monthly Automotive MC Newsletter - 23 cozy November! .htm": __vite_glob_0_21,
-  "../newsletters/Your Monthly Automotive MC Newsletter - Festive December issue!.htm": __vite_glob_0_22,
-  "../newsletters/Your Monthly Automotive MC Newsletter April 2021.htm": __vite_glob_0_23,
-  "../newsletters/Your Monthly Automotive MC Newsletter April 2022.htm": __vite_glob_0_24,
-  "../newsletters/Your Monthly Automotive MC Newsletter August 2021 .htm": __vite_glob_0_25,
-  "../newsletters/Your Monthly Automotive MC Newsletter February 2021.htm": __vite_glob_0_26,
-  "../newsletters/Your Monthly Automotive MC Newsletter July 2021.htm": __vite_glob_0_27,
-  "../newsletters/Your Monthly Automotive MC Newsletter March 2021.htm": __vite_glob_0_28,
-  "../newsletters/Your Monthly Automotive MC Newsletter March 2022.htm": __vite_glob_0_29,
-  "../newsletters/Your Monthly Automotive MC Newsletter May 2021.htm": __vite_glob_0_30,
-  "../newsletters/Your Monthly Automotive MC Newsletter November 2021.htm": __vite_glob_0_31,
-  "../newsletters/Your Monthly Automotive MC Newsletter October 2021.htm": __vite_glob_0_32,
-  "../newsletters/Your Monthly Automotive MC Newsletter September 2021.htm": __vite_glob_0_33,
-  "../newsletters/Your Monthly Automotive MC Newsletter may22 .htm": __vite_glob_0_34,
-  "../newsletters/Your Monthly Automotive MC newsletter sep22.htm": __vite_glob_0_35
+  "../newsletters/Automotive MC Newsletter - March '26 edition.htm": __vite_glob_0_10,
+  "../newsletters/Automotive MC Newsletter - March 2024 edition!.htm": __vite_glob_0_11,
+  "../newsletters/Automotive MC Newsletter - May '25 edition.htm": __vite_glob_0_12,
+  "../newsletters/Automotive MC Newsletter - May 2024 edition!.htm": __vite_glob_0_13,
+  "../newsletters/Automotive MC Newsletter - November '25 edition.htm": __vite_glob_0_14,
+  "../newsletters/Automotive MC Newsletter - September 2025.htm": __vite_glob_0_15,
+  "../newsletters/FW Automotive MC Newsletter - Nov '24 edition.htm": __vite_glob_0_16,
+  "../newsletters/FW Your Automotive Microcontroller Newsletter February 2019.htm": __vite_glob_0_17,
+  "../newsletters/RE Your Monthly Automotive MC Newsletter June 2021.htm": __vite_glob_0_18,
+  "../newsletters/Your Automotive Microcontroller Newsletter December 2020.htm": __vite_glob_0_19,
+  "../newsletters/Your Automotive Microcontroller Newsletter January 2021.htm": __vite_glob_0_20,
+  "../newsletters/Your Automotive Microcontroller Newsletter November 2020.htm": __vite_glob_0_21,
+  "../newsletters/Your Monthly Automotive MC Newsletter - 23 cozy November! .htm": __vite_glob_0_22,
+  "../newsletters/Your Monthly Automotive MC Newsletter - Festive December issue!.htm": __vite_glob_0_23,
+  "../newsletters/Your Monthly Automotive MC Newsletter April 2021.htm": __vite_glob_0_24,
+  "../newsletters/Your Monthly Automotive MC Newsletter April 2022.htm": __vite_glob_0_25,
+  "../newsletters/Your Monthly Automotive MC Newsletter August 2021 .htm": __vite_glob_0_26,
+  "../newsletters/Your Monthly Automotive MC Newsletter February 2021.htm": __vite_glob_0_27,
+  "../newsletters/Your Monthly Automotive MC Newsletter July 2021.htm": __vite_glob_0_28,
+  "../newsletters/Your Monthly Automotive MC Newsletter March 2021.htm": __vite_glob_0_29,
+  "../newsletters/Your Monthly Automotive MC Newsletter March 2022.htm": __vite_glob_0_30,
+  "../newsletters/Your Monthly Automotive MC Newsletter May 2021.htm": __vite_glob_0_31,
+  "../newsletters/Your Monthly Automotive MC Newsletter November 2021.htm": __vite_glob_0_32,
+  "../newsletters/Your Monthly Automotive MC Newsletter October 2021.htm": __vite_glob_0_33,
+  "../newsletters/Your Monthly Automotive MC Newsletter September 2021.htm": __vite_glob_0_34,
+  "../newsletters/Your Monthly Automotive MC Newsletter may22 .htm": __vite_glob_0_35,
+  "../newsletters/Your Monthly Automotive MC newsletter sep22.htm": __vite_glob_0_36
 });
 const rawHtmlFiles = /* @__PURE__ */ Object.assign({
   "../newsletters/Automotive MC Newsletter - April '25 edition.htm": __vite_glob_1_0,
@@ -114754,32 +117639,33 @@ const rawHtmlFiles = /* @__PURE__ */ Object.assign({
   "../newsletters/Automotive MC Newsletter - July '25 edition.htm": __vite_glob_1_7,
   "../newsletters/Automotive MC Newsletter - June '25 edition.htm": __vite_glob_1_8,
   "../newsletters/Automotive MC Newsletter - March '25 edition.htm": __vite_glob_1_9,
-  "../newsletters/Automotive MC Newsletter - March 2024 edition!.htm": __vite_glob_1_10,
-  "../newsletters/Automotive MC Newsletter - May '25 edition.htm": __vite_glob_1_11,
-  "../newsletters/Automotive MC Newsletter - May 2024 edition!.htm": __vite_glob_1_12,
-  "../newsletters/Automotive MC Newsletter - November '25 edition.htm": __vite_glob_1_13,
-  "../newsletters/Automotive MC Newsletter - September 2025.htm": __vite_glob_1_14,
-  "../newsletters/FW Automotive MC Newsletter - Nov '24 edition.htm": __vite_glob_1_15,
-  "../newsletters/FW Your Automotive Microcontroller Newsletter February 2019.htm": __vite_glob_1_16,
-  "../newsletters/RE Your Monthly Automotive MC Newsletter June 2021.htm": __vite_glob_1_17,
-  "../newsletters/Your Automotive Microcontroller Newsletter December 2020.htm": __vite_glob_1_18,
-  "../newsletters/Your Automotive Microcontroller Newsletter January 2021.htm": __vite_glob_1_19,
-  "../newsletters/Your Automotive Microcontroller Newsletter November 2020.htm": __vite_glob_1_20,
-  "../newsletters/Your Monthly Automotive MC Newsletter - 23 cozy November! .htm": __vite_glob_1_21,
-  "../newsletters/Your Monthly Automotive MC Newsletter - Festive December issue!.htm": __vite_glob_1_22,
-  "../newsletters/Your Monthly Automotive MC Newsletter April 2021.htm": __vite_glob_1_23,
-  "../newsletters/Your Monthly Automotive MC Newsletter April 2022.htm": __vite_glob_1_24,
-  "../newsletters/Your Monthly Automotive MC Newsletter August 2021 .htm": __vite_glob_1_25,
-  "../newsletters/Your Monthly Automotive MC Newsletter February 2021.htm": __vite_glob_1_26,
-  "../newsletters/Your Monthly Automotive MC Newsletter July 2021.htm": __vite_glob_1_27,
-  "../newsletters/Your Monthly Automotive MC Newsletter March 2021.htm": __vite_glob_1_28,
-  "../newsletters/Your Monthly Automotive MC Newsletter March 2022.htm": __vite_glob_1_29,
-  "../newsletters/Your Monthly Automotive MC Newsletter May 2021.htm": __vite_glob_1_30,
-  "../newsletters/Your Monthly Automotive MC Newsletter November 2021.htm": __vite_glob_1_31,
-  "../newsletters/Your Monthly Automotive MC Newsletter October 2021.htm": __vite_glob_1_32,
-  "../newsletters/Your Monthly Automotive MC Newsletter September 2021.htm": __vite_glob_1_33,
-  "../newsletters/Your Monthly Automotive MC Newsletter may22 .htm": __vite_glob_1_34,
-  "../newsletters/Your Monthly Automotive MC newsletter sep22.htm": __vite_glob_1_35
+  "../newsletters/Automotive MC Newsletter - March '26 edition.htm": __vite_glob_1_10,
+  "../newsletters/Automotive MC Newsletter - March 2024 edition!.htm": __vite_glob_1_11,
+  "../newsletters/Automotive MC Newsletter - May '25 edition.htm": __vite_glob_1_12,
+  "../newsletters/Automotive MC Newsletter - May 2024 edition!.htm": __vite_glob_1_13,
+  "../newsletters/Automotive MC Newsletter - November '25 edition.htm": __vite_glob_1_14,
+  "../newsletters/Automotive MC Newsletter - September 2025.htm": __vite_glob_1_15,
+  "../newsletters/FW Automotive MC Newsletter - Nov '24 edition.htm": __vite_glob_1_16,
+  "../newsletters/FW Your Automotive Microcontroller Newsletter February 2019.htm": __vite_glob_1_17,
+  "../newsletters/RE Your Monthly Automotive MC Newsletter June 2021.htm": __vite_glob_1_18,
+  "../newsletters/Your Automotive Microcontroller Newsletter December 2020.htm": __vite_glob_1_19,
+  "../newsletters/Your Automotive Microcontroller Newsletter January 2021.htm": __vite_glob_1_20,
+  "../newsletters/Your Automotive Microcontroller Newsletter November 2020.htm": __vite_glob_1_21,
+  "../newsletters/Your Monthly Automotive MC Newsletter - 23 cozy November! .htm": __vite_glob_1_22,
+  "../newsletters/Your Monthly Automotive MC Newsletter - Festive December issue!.htm": __vite_glob_1_23,
+  "../newsletters/Your Monthly Automotive MC Newsletter April 2021.htm": __vite_glob_1_24,
+  "../newsletters/Your Monthly Automotive MC Newsletter April 2022.htm": __vite_glob_1_25,
+  "../newsletters/Your Monthly Automotive MC Newsletter August 2021 .htm": __vite_glob_1_26,
+  "../newsletters/Your Monthly Automotive MC Newsletter February 2021.htm": __vite_glob_1_27,
+  "../newsletters/Your Monthly Automotive MC Newsletter July 2021.htm": __vite_glob_1_28,
+  "../newsletters/Your Monthly Automotive MC Newsletter March 2021.htm": __vite_glob_1_29,
+  "../newsletters/Your Monthly Automotive MC Newsletter March 2022.htm": __vite_glob_1_30,
+  "../newsletters/Your Monthly Automotive MC Newsletter May 2021.htm": __vite_glob_1_31,
+  "../newsletters/Your Monthly Automotive MC Newsletter November 2021.htm": __vite_glob_1_32,
+  "../newsletters/Your Monthly Automotive MC Newsletter October 2021.htm": __vite_glob_1_33,
+  "../newsletters/Your Monthly Automotive MC Newsletter September 2021.htm": __vite_glob_1_34,
+  "../newsletters/Your Monthly Automotive MC Newsletter may22 .htm": __vite_glob_1_35,
+  "../newsletters/Your Monthly Automotive MC newsletter sep22.htm": __vite_glob_1_36
 });
 const MONTHS = [
   "january",
