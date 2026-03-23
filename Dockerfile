@@ -1,7 +1,16 @@
+FROM docker.io/node:22-alpine AS build
+WORKDIR /app
+
+COPY package.json package-lock.json ./
+RUN npm ci
+
+COPY . .
+RUN npm run build
+
 FROM docker.io/nginxinc/nginx-unprivileged:stable-alpine
 
-# Copy prebuilt static site
-COPY dist /usr/share/nginx/html
+# Copy generated static site from the build stage
+COPY --from=build /app/dist /usr/share/nginx/html
 
 # Provide an explicit config: non-root port and SPA fallback
 COPY nginx.conf /etc/nginx/conf.d/default.conf
