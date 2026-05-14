@@ -4,6 +4,7 @@ import { getNewsletters } from '../../data/newsletters'
 import { findHtmlByMonthYearAsync, loadHtmlByPathAsync, extractSectionSnippets, extractBodyText } from '../../utils/newsletterHtml'
 import { deleteDraft } from '../../utils/localNewsletters'
 import { useAuth } from '../../contexts/AuthContext'
+import { CANONICAL_CHAPTER_TITLES, getChapterMatchKeys, normalizeChapterTitle } from '../../constants/chapters'
 
 export default function NewslettersPage() {
   const location = useLocation()
@@ -78,34 +79,9 @@ export default function NewslettersPage() {
           })
         })
         
-        // Define the main chapters we want to show
-        const mainChapterNames = [
-          'AURIX™',
-          'TRAVEO™', 
-          'PSOC™ Automotive',
-          'Bulletin Board',
-          'Ease of Use',
-          'Market News & Press Release',
-          'Success Stories',
-          'Team News'
-        ]
-        
-        // Helper to normalize chapter names for comparison
-        const normalizeForMatch = (s: string): string => 
-          s.toLowerCase().replace(/™/g, '').replace(/&/g, 'and').replace(/[^a-z0-9]+/g, ' ').trim()
-        
-        // Filter to only include main chapters that exist in the extracted sections
-        const filteredChapters = mainChapterNames.filter((mainChapter) => {
-          const mainNorm = normalizeForMatch(mainChapter)
-          return Array.from(chapterTitlesSet).some((extractedChapter) => {
-            const extractedNorm = normalizeForMatch(extractedChapter)
-            // Match if normalized versions are equal
-            return extractedNorm === mainNorm
-          })
-        })
-        
-        setAvailableChapters(filteredChapters)
-        console.log('[DEBUG] Available main chapters:', filteredChapters)
+        // Fixed chapter list (always show these filter options)
+        setAvailableChapters([...CANONICAL_CHAPTER_TITLES])
+        console.log('[DEBUG] Available main chapters:', CANONICAL_CHAPTER_TITLES)
         setIsIndexBuilding(false)
       }
     })()
@@ -138,8 +114,10 @@ export default function NewslettersPage() {
         (normalized.includes('traveo') && chLower.includes('traveo')) ||
         (normalized.includes('psoc') && chLower.includes('psoc')) ||
         (normalized.includes('bulletin') && chLower.includes('bulletin')) ||
+        (normalized.includes('pdh') && (chLower.includes('pdh') || chLower.includes('partner'))) ||
         (normalized.includes('ease') && chLower.includes('ease')) ||
-        (normalized.includes('market') && chLower.includes('market'))
+        (normalized.includes('market') && chLower.includes('market')) ||
+        (normalized.includes('press') && (chLower.includes('press') || chLower.includes('release')))
       )
     })
     if (partialMatch) {
@@ -211,8 +189,8 @@ export default function NewslettersPage() {
     return out
   }, [textQuery, filtered, searchIndex])
 
-  const normalize = (s: string): string => s.toLowerCase().replace(/™/g, '').replace(/&/g, 'and').replace(/[^a-z0-9]+/g, ' ').trim()
-  const tokens = (s: string): string[] => normalize(s).split(' ').filter(Boolean)
+  const normalize = normalizeChapterTitle
+  const tokens = (s: string): string[] => normalizeChapterTitle(s).split(' ').filter(Boolean)
 
   // Compute chapter matches when a chapter is selected
   useEffect(() => {
@@ -223,8 +201,8 @@ export default function NewslettersPage() {
       return
     }
     setIsLoading(true)
-    const wanted = normalize(selectedChapter)
-    const wantedTokens = tokens(selectedChapter)
+    const wantedKeys = getChapterMatchKeys(selectedChapter)
+    const wantedTokens = tokens(wantedKeys[0] || selectedChapter)
     const results: Array<{ newsletterId: string; newsletterSlug: string; newsletterDate: string; href: string; html: string }> = []
     
     // Create normalized set of all available chapter titles for matching
@@ -239,7 +217,9 @@ export default function NewslettersPage() {
       // DEBUG: Log all section titles for the first newsletter
       if (n === newslettersToSearch[0]) {
         console.log(`[DEBUG] Newsletter: ${n.title}`)
-        console.log(`[DEBUG] Looking for chapter: "${selectedChapter}" (normalized: "${wanted}")`)
+        console.log(
+          `[DEBUG] Looking for chapter: "${selectedChapter}" (match keys: ${JSON.stringify(wantedKeys)})`
+        )
         console.log(`[DEBUG] All section titles:`, snippets.map(s => ({ title: s.title, normalized: normalize(s.title), id: s.id })))
       }
       
@@ -248,7 +228,7 @@ export default function NewslettersPage() {
         const titleNorm = normalize(s.title)
         
         // Exact match for the chapter name (preferred)
-        if (titleNorm === wanted) return true
+        if (wantedKeys.includes(titleNorm)) return true
         
         // Check if this section title is in our available chapters list
         // This means it's likely a main chapter heading, not a subsection

@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useEffect } from 'react'
 import type { FormEvent } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
 import { useAuth } from '../../contexts/AuthContext'
@@ -8,9 +9,17 @@ export default function LoginPage() {
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
   const [isLoading, setIsLoading] = useState(false)
-  const { login } = useAuth()
+  const { authMode, isAuthenticated, isEditor, isLoading: isAuthLoading, login, user } = useAuth()
   const navigate = useNavigate()
   const location = useLocation()
+  const from = (location.state as { from?: string })?.from || '/'
+  const denied = Boolean((location.state as { denied?: boolean } | null)?.denied)
+
+  useEffect(() => {
+    if (!isAuthLoading && isAuthenticated && isEditor) {
+      navigate(from, { replace: true })
+    }
+  }, [from, isAuthenticated, isAuthLoading, isEditor, navigate])
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault()
@@ -18,10 +27,8 @@ export default function LoginPage() {
     setIsLoading(true)
 
     try {
-      const success = await login({ username, password })
+      const success = await login({ username, password, returnTo: from })
       if (success) {
-        // Redirect to the page the user was trying to access, or home
-        const from = (location.state as { from?: string })?.from || '/'
         navigate(from, { replace: true })
       } else {
         setError('Invalid username or password')
@@ -33,12 +40,58 @@ export default function LoginPage() {
     }
   }
 
+  const handleCorporateLogin = async () => {
+    setError('')
+    setIsLoading(true)
+    try {
+      await login({ returnTo: from })
+    } finally {
+      setIsLoading(false)
+    }
+  }
+
+  if (authMode === 'miami') {
+    return (
+      <div className="login-page">
+        <div className="login-container">
+          <div className="login-header">
+            <h1>Editor Access</h1>
+            <p className="meta">Sign in with your Infineon corporate account to access editor features.</p>
+          </div>
+
+          {denied && (
+            <div className="error-message" role="alert">
+              Your account is signed in but is not in the editor allowlist for this app.
+            </div>
+          )}
+
+          {isAuthenticated && !isEditor && user?.email && (
+            <div className="error-message" role="alert">
+              Signed in as {user.email}, but this account does not currently have editor access.
+            </div>
+          )}
+
+          <div className="form-actions">
+            <button
+              type="button"
+              className="button primary"
+              onClick={handleCorporateLogin}
+              disabled={isLoading || isAuthLoading}
+            >
+              {isLoading ? 'Redirecting...' : 'Sign In With Corporate Email'}
+            </button>
+          </div>
+        </div>
+      </div>
+    )
+  }
+
   return (
     <div className="login-page">
       <div className="login-container">
         <div className="login-header">
           <h1>Admin Login</h1>
-          <p className="meta">Enter your credentials to access admin features</p>
+          <p className="meta">Enter your local development credentials to access admin features.</p>
         </div>
         <form onSubmit={handleSubmit} className="login-form">
           {error && (

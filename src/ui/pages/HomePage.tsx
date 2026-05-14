@@ -4,6 +4,7 @@ import { getNewsletters } from '../../data/newsletters'
 import { extractAndSanitizeBodyHtml, extractBodyText, extractSectionSnippets, findHtmlByMonthYearAsync, loadHtmlByPathAsync } from '../../utils/newsletterHtml'
 import newsletterImage from '../../photos/newsletter image.png'
 import headerImage from '../../photos/new-header.jpg'
+import { CANONICAL_CHAPTER_TITLES, getChapterMatchKeys, normalizeChapterTitle } from '../../constants/chapters'
 
 export default function HomePage() {
   const [newsletters, setNewsletters] = useState(() => getNewsletters())
@@ -76,33 +77,8 @@ export default function HomePage() {
           })
         })
         
-        // Define the main chapters we want to show
-        const mainChapterNames = [
-          'AURIX™',
-          'TRAVEO™', 
-          'PSOC™ Automotive',
-          'Bulletin Board',
-          'Ease of Use',
-          'Market News & Press Release',
-          'Success Stories',
-          'Team News'
-        ]
-        
-        // Helper to normalize chapter names for comparison
-        const normalizeForMatch = (s: string): string => 
-          s.toLowerCase().replace(/™/g, '').replace(/&/g, 'and').replace(/[^a-z0-9]+/g, ' ').trim()
-        
-        // Filter to only include main chapters that exist in the extracted sections
-        const filteredChapters = mainChapterNames.filter((mainChapter) => {
-          const mainNorm = normalizeForMatch(mainChapter)
-          return Array.from(chapterTitlesSet).some((extractedChapter) => {
-            const extractedNorm = normalizeForMatch(extractedChapter)
-            // Match if normalized versions are equal
-            return extractedNorm === mainNorm
-          })
-        })
-        
-        setAvailableChapters(filteredChapters)
+        // Fixed chapter list (always show these filter options)
+        setAvailableChapters([...CANONICAL_CHAPTER_TITLES])
         setIsIndexBuilding(false)
       }
     })()
@@ -127,8 +103,8 @@ export default function HomePage() {
     })
   }, [textQuery, selectedMonth, selectedYear, searchIndex, newsletters])
 
-  const normalize = (s: string): string => s.toLowerCase().replace(/™/g, '').replace(/&/g, 'and').replace(/[^a-z0-9]+/g, ' ').trim()
-  const tokens = (s: string): string[] => normalize(s).split(' ').filter(Boolean)
+  const normalize = normalizeChapterTitle
+  const tokens = (s: string): string[] => normalizeChapterTitle(s).split(' ').filter(Boolean)
 
   const clearAll = () => {
     setTextQuery('')
@@ -147,8 +123,8 @@ export default function HomePage() {
       return
     }
     setIsLoading(true)
-    const wanted = normalize(selectedChapter)
-    const wantedTokens = tokens(selectedChapter)
+    const wantedKeys = getChapterMatchKeys(selectedChapter)
+    const wantedTokens = tokens(wantedKeys[0] || selectedChapter)
     const results: Array<{ newsletterId: string; newsletterSlug: string; newsletterDate: string; href: string; html: string }> = []
     
     // Create normalized set of all available chapter titles for matching
@@ -165,7 +141,7 @@ export default function HomePage() {
         const titleNorm = normalize(s.title)
         
         // Exact match for the chapter name (preferred)
-        if (titleNorm === wanted) return true
+        if (wantedKeys.includes(titleNorm)) return true
         
         // Check if this section title is in our available chapters list
         const isMainChapter = normalizedAvailableChapters.includes(titleNorm)

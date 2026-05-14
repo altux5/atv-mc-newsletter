@@ -1,0 +1,26 @@
+services:
+  oidc-sidecar:
+    image: rddl-registry.vih.infineon.com/miami/oidc-sidecar:2.1.0
+    network_mode: host
+    depends_on:
+      - gateway
+    entrypoint:
+      - /bin/oauth2-proxy
+      - --prompt=none
+      - --upstream-timeout=10m
+      - --oidc-issuer-url=https://sso.infineon.com
+      - --client-id=${MIAMI_CLIENT_ID}
+      - --client-secret-file=/dev/null
+      - --cookie-secret=${MIAMI_COOKIE_SECRET}
+      - --http-address=:8080
+      - --upstream=http://localhost:8081
+      - --redirect-url=http://localhost:8080/oauth2/callback
+      - --email-domain=infineon.com
+
+  gateway:
+    image: rddl-registry.vih.infineon.com/miami/gateway:2.12.0
+    network_mode: host
+    volumes:
+      - ../config.yaml:/etc/miami/config.yaml
+    ports:
+      - 8081:8081

@@ -17802,39 +17802,188 @@ function RouterProvider2(props) {
   return /* @__PURE__ */ reactExports$1.createElement(RouterProvider, { flushSync: reactDomExports.flushSync, ...props });
 }
 const AUTH_STORAGE_KEY = "newsletter_auth";
-const ADMIN_USERNAME = "admin";
-const ADMIN_PASSWORD = "admin";
-function validateCredentials(credentials) {
-  return credentials.username === ADMIN_USERNAME && credentials.password === ADMIN_PASSWORD;
+const AUTH_EMAIL_STORAGE_KEY = "newsletter_auth_email";
+const LOCAL_EDITOR_USERNAME = "admin";
+const LOCAL_EDITOR_PASSWORD = "admin";
+const AUTH_MODE = "local".toLowerCase() === "miami" ? "miami" : "local";
+const OAUTH_SIGN_IN_PATH = "/oauth2/sign_in";
+const OAUTH_SIGN_OUT_PATH = "/oauth2/sign_out";
+const OAUTH_USERINFO_PATH = "/oauth2/userinfo";
+const editorEmails = parseList();
+function parseList(value) {
+  {
+    return [];
+  }
 }
-function saveAuthState() {
+function normalizeEmail(value) {
+  return value?.trim().toLowerCase() ?? "";
+}
+function buildReturnToPath(returnTo) {
+  if (returnTo) {
+    return returnTo;
+  }
+  return `${window.location.pathname}${window.location.search}${window.location.hash}`;
+}
+function buildOauthUrl(basePath, returnTo) {
+  const separator = basePath.includes("?") ? "&" : "?";
+  return `${basePath}${separator}rd=${encodeURIComponent(buildReturnToPath(returnTo))}`;
+}
+async function parseUserInfo(response) {
+  const contentType = response.headers.get("content-type") ?? "";
+  try {
+    if (contentType.includes("application/json")) {
+      return await response.json();
+    }
+    const text2 = await response.text();
+    return JSON.parse(text2);
+  } catch {
+    return null;
+  }
+}
+function getAuthMode() {
+  return AUTH_MODE;
+}
+function validateCredentials(credentials) {
+  if (AUTH_MODE !== "local") {
+    return false;
+  }
+  return credentials.username === LOCAL_EDITOR_USERNAME && credentials.password === LOCAL_EDITOR_PASSWORD;
+}
+function saveAuthState(email) {
   localStorage.setItem(AUTH_STORAGE_KEY, "authenticated");
+  if (email) {
+    localStorage.setItem(AUTH_EMAIL_STORAGE_KEY, normalizeEmail(email));
+  }
 }
 function clearAuthState() {
   localStorage.removeItem(AUTH_STORAGE_KEY);
+  localStorage.removeItem(AUTH_EMAIL_STORAGE_KEY);
 }
 function isAuthenticated() {
+  if (AUTH_MODE === "miami") {
+    return false;
+  }
   return localStorage.getItem(AUTH_STORAGE_KEY) === "authenticated";
+}
+function getLoginUrl(returnTo) {
+  return buildOauthUrl(OAUTH_SIGN_IN_PATH, returnTo);
+}
+function getLogoutUrl(returnTo = "/") {
+  return buildOauthUrl(OAUTH_SIGN_OUT_PATH, returnTo);
+}
+function redirectToLogin(returnTo) {
+  window.location.assign(getLoginUrl(returnTo));
+}
+function redirectToLogout(returnTo = "/") {
+  window.location.assign(getLogoutUrl(returnTo));
+}
+function isEditor(user) {
+  if (!user) {
+    return false;
+  }
+  if (AUTH_MODE === "local") {
+    return true;
+  }
+  if (editorEmails.length === 0) {
+    return false;
+  }
+  return editorEmails.includes(normalizeEmail(user.email));
+}
+async function fetchCurrentUser() {
+  if (AUTH_MODE === "local") {
+    if (!isAuthenticated()) {
+      return null;
+    }
+    const email = localStorage.getItem(AUTH_EMAIL_STORAGE_KEY) ?? `${LOCAL_EDITOR_USERNAME}@infineon.com`;
+    return {
+      email: normalizeEmail(email),
+      preferredUsername: LOCAL_EDITOR_USERNAME
+    };
+  }
+  try {
+    const response = await fetch(OAUTH_USERINFO_PATH, {
+      credentials: "include",
+      headers: {
+        Accept: "application/json"
+      }
+    });
+    if (!response.ok) {
+      return null;
+    }
+    const payload = await parseUserInfo(response);
+    const email = normalizeEmail(payload?.email ?? payload?.preferred_username ?? payload?.sub);
+    if (!email) {
+      return null;
+    }
+    return {
+      email,
+      name: payload?.name,
+      preferredUsername: payload?.preferred_username
+    };
+  } catch {
+    return null;
+  }
 }
 const AuthContext = reactExports$1.createContext(void 0);
 function AuthProvider({ children }) {
-  const [authenticated, setAuthenticated] = reactExports$1.useState(() => isAuthenticated());
+  const [user, setUser] = reactExports$1.useState(null);
+  const [loading, setLoading] = reactExports$1.useState(true);
+  const authMode = getAuthMode();
   reactExports$1.useEffect(() => {
-    setAuthenticated(isAuthenticated());
+    let cancelled = false;
+    const loadUser = async () => {
+      setLoading(true);
+      const currentUser = await fetchCurrentUser();
+      if (!cancelled) {
+        setUser(currentUser);
+        setLoading(false);
+      }
+    };
+    void loadUser();
+    return () => {
+      cancelled = true;
+    };
   }, []);
-  const login = async (credentials) => {
+  const login = async (credentials = {}) => {
+    if (authMode === "miami") {
+      redirectToLogin(credentials.returnTo);
+      return false;
+    }
     if (validateCredentials(credentials)) {
-      saveAuthState();
-      setAuthenticated(true);
+      const email = credentials.username ? `${credentials.username}@infineon.com` : void 0;
+      const nextUser = {
+        email: email ?? "admin@infineon.com",
+        preferredUsername: credentials.username
+      };
+      saveAuthState(nextUser.email);
+      setUser(nextUser);
       return true;
     }
     return false;
   };
   const logout = () => {
     clearAuthState();
-    setAuthenticated(false);
+    if (authMode === "miami") {
+      redirectToLogout("/");
+      return;
+    }
+    setUser(null);
   };
-  return /* @__PURE__ */ jsxRuntimeExports.jsx(AuthContext.Provider, { value: { isAuthenticated: authenticated, login, logout }, children });
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(
+    AuthContext.Provider,
+    {
+      value: {
+        isAuthenticated: user !== null,
+        isEditor: isEditor(user),
+        isLoading: loading,
+        user,
+        authMode,
+        login,
+        logout
+      },
+      children
+    }
+  );
 }
 function useAuth() {
   const context = reactExports$1.useContext(AuthContext);
@@ -17845,7 +17994,7 @@ function useAuth() {
 }
 const logoUrl = "/assets/Agent-logo-BNWebEI8.svg";
 function RootLayout() {
-  const { isAuthenticated: isAuthenticated2, logout } = useAuth();
+  const { isAuthenticated: isAuthenticated2, isEditor: isEditor2, logout, user } = useAuth();
   const navigate = useNavigate();
   const handleLogout = () => {
     logout();
@@ -17861,11 +18010,14 @@ function RootLayout() {
         /* @__PURE__ */ jsxRuntimeExports.jsx(NavLink, { to: "/", end: true, className: ({ isActive: isActive2 }) => isActive2 ? "active" : "", children: "Home" }),
         /* @__PURE__ */ jsxRuntimeExports.jsx(NavLink, { to: "/newsletters", className: ({ isActive: isActive2 }) => isActive2 ? "active" : "", children: "Newsletters" }),
         /* @__PURE__ */ jsxRuntimeExports.jsx(NavLink, { to: "/submit-article", className: ({ isActive: isActive2 }) => isActive2 ? "active" : "", children: "Submit Article" }),
-        isAuthenticated2 && /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
+        isEditor2 && /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx(NavLink, { to: "/admin/articles", className: ({ isActive: isActive2 }) => isActive2 ? "active" : "", children: "Review Articles" }),
           /* @__PURE__ */ jsxRuntimeExports.jsx(NavLink, { to: "/newsletters/create", className: ({ isActive: isActive2 }) => isActive2 ? "active" : "", children: "Create Newsletter" })
         ] }),
-        isAuthenticated2 ? /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: handleLogout, className: "auth-button logout-button", children: "Logout" }) : /* @__PURE__ */ jsxRuntimeExports.jsx(Link$1, { to: "/login", className: "auth-button login-button", children: "Login" })
+        isAuthenticated2 ? /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
+          user?.email && /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "meta auth-meta", children: user.email }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: handleLogout, className: "auth-button logout-button", children: "Logout" })
+        ] }) : /* @__PURE__ */ jsxRuntimeExports.jsx(Link$1, { to: "/login", className: "auth-button login-button", children: "Editor Login" })
       ] })
     ] }) }),
     /* @__PURE__ */ jsxRuntimeExports.jsx("main", { className: "container main-content", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Outlet, {}) }),
@@ -117770,6 +117922,28 @@ function getNewsletters() {
 getNewsletters();
 const newsletterImage = "/assets/newsletter%20image-ByQ57XuM.png";
 const headerImage = "/assets/new-header-Cc2PnMTJ.jpg";
+const CANONICAL_CHAPTER_TITLES = [
+  "AURIX™",
+  "TRAVEO™ T2G",
+  "PSOC™ Automotive",
+  "Bulletin Board",
+  "PDH & Partners",
+  "Ease of Use",
+  "Market News & Press Release"
+];
+function normalizeChapterTitle(s) {
+  return (s || "").toLowerCase().replace(/™/g, "").replace(/&/g, "and").replace(/[^a-z0-9]+/g, " ").trim();
+}
+function isCanonicalChapterTitle(title) {
+  return CANONICAL_CHAPTER_TITLES.includes(title);
+}
+function getChapterMatchKeys(selectedTitle) {
+  const normalized = normalizeChapterTitle(selectedTitle);
+  if (normalizeChapterTitle(selectedTitle) === normalizeChapterTitle("TRAVEO™ T2G")) {
+    return Array.from(/* @__PURE__ */ new Set([normalizeChapterTitle("TRAVEO™"), normalized]));
+  }
+  return [normalized];
+}
 function HomePage() {
   const [newsletters, setNewsletters] = reactExports$1.useState(() => getNewsletters());
   const latest = newsletters[0];
@@ -117823,25 +117997,7 @@ function HomePage() {
             chapterTitlesSet.add(section.title);
           });
         });
-        const mainChapterNames = [
-          "AURIX™",
-          "TRAVEO™",
-          "PSOC™ Automotive",
-          "Bulletin Board",
-          "Ease of Use",
-          "Market News & Press Release",
-          "Success Stories",
-          "Team News"
-        ];
-        const normalizeForMatch = (s) => s.toLowerCase().replace(/™/g, "").replace(/&/g, "and").replace(/[^a-z0-9]+/g, " ").trim();
-        const filteredChapters = mainChapterNames.filter((mainChapter) => {
-          const mainNorm = normalizeForMatch(mainChapter);
-          return Array.from(chapterTitlesSet).some((extractedChapter) => {
-            const extractedNorm = normalizeForMatch(extractedChapter);
-            return extractedNorm === mainNorm;
-          });
-        });
-        setAvailableChapters(filteredChapters);
+        setAvailableChapters([...CANONICAL_CHAPTER_TITLES]);
         setIsIndexBuilding(false);
       }
     })();
@@ -117865,8 +118021,8 @@ function HomePage() {
       return inTitle || inExcerpt || inBody;
     });
   }, [textQuery, selectedMonth, selectedYear, searchIndex, newsletters]);
-  const normalize2 = (s) => s.toLowerCase().replace(/™/g, "").replace(/&/g, "and").replace(/[^a-z0-9]+/g, " ").trim();
-  const tokens = (s) => normalize2(s).split(" ").filter(Boolean);
+  const normalize2 = normalizeChapterTitle;
+  const tokens = (s) => normalizeChapterTitle(s).split(" ").filter(Boolean);
   const clearAll = () => {
     setTextQuery("");
     setSelectedMonth(null);
@@ -117882,8 +118038,8 @@ function HomePage() {
       return;
     }
     setIsLoading(true);
-    const wanted = normalize2(selectedChapter);
-    const wantedTokens = tokens(selectedChapter);
+    const wantedKeys = getChapterMatchKeys(selectedChapter);
+    const wantedTokens = tokens(wantedKeys[0] || selectedChapter);
     const results = [];
     const normalizedAvailableChapters = availableChapters.map((ch) => normalize2(ch));
     const newslettersToSearch = filteredNewsletters;
@@ -117891,7 +118047,7 @@ function HomePage() {
       const snippets = sectionIndex[n.id] || [];
       const found2 = snippets.find((s) => {
         const titleNorm = normalize2(s.title);
-        if (titleNorm === wanted) return true;
+        if (wantedKeys.includes(titleNorm)) return true;
         const isMainChapter = normalizedAvailableChapters.includes(titleNorm);
         if (isMainChapter) {
           const titleTokens2 = tokens(s.title);
@@ -118709,26 +118865,8 @@ function NewslettersPage() {
             chapterTitlesSet.add(section.title);
           });
         });
-        const mainChapterNames = [
-          "AURIX™",
-          "TRAVEO™",
-          "PSOC™ Automotive",
-          "Bulletin Board",
-          "Ease of Use",
-          "Market News & Press Release",
-          "Success Stories",
-          "Team News"
-        ];
-        const normalizeForMatch = (s) => s.toLowerCase().replace(/™/g, "").replace(/&/g, "and").replace(/[^a-z0-9]+/g, " ").trim();
-        const filteredChapters = mainChapterNames.filter((mainChapter) => {
-          const mainNorm = normalizeForMatch(mainChapter);
-          return Array.from(chapterTitlesSet).some((extractedChapter) => {
-            const extractedNorm = normalizeForMatch(extractedChapter);
-            return extractedNorm === mainNorm;
-          });
-        });
-        setAvailableChapters(filteredChapters);
-        console.log("[DEBUG] Available main chapters:", filteredChapters);
+        setAvailableChapters([...CANONICAL_CHAPTER_TITLES]);
+        console.log("[DEBUG] Available main chapters:", CANONICAL_CHAPTER_TITLES);
         setIsIndexBuilding(false);
       }
     })();
@@ -118750,7 +118888,7 @@ function NewslettersPage() {
     const normalized = chapterParam.trim().toLowerCase();
     const partialMatch = availableChapters.find((ch) => {
       const chLower = ch.toLowerCase();
-      return normalized.includes("aurix") && chLower.includes("aurix") || normalized.includes("traveo") && chLower.includes("traveo") || normalized.includes("psoc") && chLower.includes("psoc") || normalized.includes("bulletin") && chLower.includes("bulletin") || normalized.includes("ease") && chLower.includes("ease") || normalized.includes("market") && chLower.includes("market");
+      return normalized.includes("aurix") && chLower.includes("aurix") || normalized.includes("traveo") && chLower.includes("traveo") || normalized.includes("psoc") && chLower.includes("psoc") || normalized.includes("bulletin") && chLower.includes("bulletin") || normalized.includes("pdh") && (chLower.includes("pdh") || chLower.includes("partner")) || normalized.includes("ease") && chLower.includes("ease") || normalized.includes("market") && chLower.includes("market") || normalized.includes("press") && (chLower.includes("press") || chLower.includes("release"));
     });
     if (partialMatch) {
       setSelectedChapter(partialMatch);
@@ -118810,8 +118948,8 @@ function NewslettersPage() {
     }
     return out;
   }, [textQuery, filtered, searchIndex]);
-  const normalize2 = (s) => s.toLowerCase().replace(/™/g, "").replace(/&/g, "and").replace(/[^a-z0-9]+/g, " ").trim();
-  const tokens = (s) => normalize2(s).split(" ").filter(Boolean);
+  const normalize2 = normalizeChapterTitle;
+  const tokens = (s) => normalizeChapterTitle(s).split(" ").filter(Boolean);
   reactExports$1.useEffect(() => {
     let cancelled = false;
     if (!selectedChapter) {
@@ -118820,8 +118958,8 @@ function NewslettersPage() {
       return;
     }
     setIsLoading(true);
-    const wanted = normalize2(selectedChapter);
-    const wantedTokens = tokens(selectedChapter);
+    const wantedKeys = getChapterMatchKeys(selectedChapter);
+    const wantedTokens = tokens(wantedKeys[0] || selectedChapter);
     const results = [];
     const normalizedAvailableChapters = availableChapters.map((ch) => normalize2(ch));
     const newslettersToSearch = filtered;
@@ -118829,12 +118967,14 @@ function NewslettersPage() {
       const snippets = sectionIndex[n.id] || [];
       if (n === newslettersToSearch[0]) {
         console.log(`[DEBUG] Newsletter: ${n.title}`);
-        console.log(`[DEBUG] Looking for chapter: "${selectedChapter}" (normalized: "${wanted}")`);
+        console.log(
+          `[DEBUG] Looking for chapter: "${selectedChapter}" (match keys: ${JSON.stringify(wantedKeys)})`
+        );
         console.log(`[DEBUG] All section titles:`, snippets.map((s) => ({ title: s.title, normalized: normalize2(s.title), id: s.id })));
       }
       const found2 = snippets.find((s) => {
         const titleNorm = normalize2(s.title);
-        if (titleNorm === wanted) return true;
+        if (wantedKeys.includes(titleNorm)) return true;
         const isMainChapter = normalizedAvailableChapters.includes(titleNorm);
         if (isMainChapter) {
           const titleTokens2 = tokens(s.title);
@@ -143325,16 +143465,7 @@ function CreateNewsletterPage() {
               /* @__PURE__ */ jsxRuntimeExports.jsxs(
                 "select",
                 {
-                  value: [
-                    "AURIX™",
-                    "TRAVEO™ T2G",
-                    "PSOC™ Automotive",
-                    "Bulletin Board",
-                    "Ease of Use",
-                    "Market News & Press Release",
-                    "Success Stories",
-                    "Team News"
-                  ].includes(chapter.title) ? chapter.title : "Other...",
+                  value: isCanonicalChapterTitle(chapter.title) ? chapter.title : "Other...",
                   onChange: (e) => {
                     if (e.target.value === "Other...") {
                       updateChapter(chapter.id, { title: "" });
@@ -143344,29 +143475,12 @@ function CreateNewsletterPage() {
                   },
                   children: [
                     /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "", children: "Select a chapter..." }),
-                    /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "AURIX™", children: "AURIX™" }),
-                    /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "TRAVEO™ T2G", children: "TRAVEO™ T2G" }),
-                    /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "PSOC™ Automotive", children: "PSOC™ Automotive" }),
-                    /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "Bulletin Board", children: "Bulletin Board" }),
-                    /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "Ease of Use", children: "Ease of Use" }),
-                    /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "Market News & Press Release", children: "Market News & Press Release" }),
-                    /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "Success Stories", children: "Success Stories" }),
-                    /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "Team News", children: "Team News" }),
+                    CANONICAL_CHAPTER_TITLES.map((t) => /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: t, children: t }, t)),
                     /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "Other...", children: "Other..." })
                   ]
                 }
               ),
-              ![
-                "AURIX™",
-                "TRAVEO™ T2G",
-                "PSOC™ Automotive",
-                "Bulletin Board",
-                "Ease of Use",
-                "Market News & Press Release",
-                "Success Stories",
-                "Team News",
-                ""
-              ].includes(chapter.title) && /* @__PURE__ */ jsxRuntimeExports.jsx(
+              chapter.title !== "" && !isCanonicalChapterTitle(chapter.title) && /* @__PURE__ */ jsxRuntimeExports.jsx(
                 "input",
                 {
                   type: "text",
@@ -144025,17 +144139,23 @@ function LoginPage() {
   const [password, setPassword] = reactExports$1.useState("");
   const [error, setError] = reactExports$1.useState("");
   const [isLoading, setIsLoading] = reactExports$1.useState(false);
-  const { login } = useAuth();
+  const { authMode, isAuthenticated: isAuthenticated2, isEditor: isEditor2, isLoading: isAuthLoading, login, user } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
+  const from2 = location.state?.from || "/";
+  const denied = Boolean(location.state?.denied);
+  reactExports$1.useEffect(() => {
+    if (!isAuthLoading && isAuthenticated2 && isEditor2) {
+      navigate(from2, { replace: true });
+    }
+  }, [from2, isAuthenticated2, isAuthLoading, isEditor2, navigate]);
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
     setIsLoading(true);
     try {
-      const success = await login({ username, password });
+      const success = await login({ username, password, returnTo: from2 });
       if (success) {
-        const from2 = location.state?.from || "/";
         navigate(from2, { replace: true });
       } else {
         setError("Invalid username or password");
@@ -144046,10 +144166,43 @@ function LoginPage() {
       setIsLoading(false);
     }
   };
+  const handleCorporateLogin = async () => {
+    setError("");
+    setIsLoading(true);
+    try {
+      await login({ returnTo: from2 });
+    } finally {
+      setIsLoading(false);
+    }
+  };
+  if (authMode === "miami") {
+    return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "login-page", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "login-container", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "login-header", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { children: "Editor Access" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "meta", children: "Sign in with your Infineon corporate account to access editor features." })
+      ] }),
+      denied && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "error-message", role: "alert", children: "Your account is signed in but is not in the editor allowlist for this app." }),
+      isAuthenticated2 && !isEditor2 && user?.email && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "error-message", role: "alert", children: [
+        "Signed in as ",
+        user.email,
+        ", but this account does not currently have editor access."
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "form-actions", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+        "button",
+        {
+          type: "button",
+          className: "button primary",
+          onClick: handleCorporateLogin,
+          disabled: isLoading || isAuthLoading,
+          children: isLoading ? "Redirecting..." : "Sign In With Corporate Email"
+        }
+      ) })
+    ] }) });
+  }
   return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "login-page", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "login-container", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "login-header", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { children: "Admin Login" }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "meta", children: "Enter your credentials to access admin features" })
+      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "meta", children: "Enter your local development credentials to access admin features." })
     ] }),
     /* @__PURE__ */ jsxRuntimeExports.jsxs("form", { onSubmit: handleSubmit, className: "login-form", children: [
       error && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "error-message", role: "alert", children: error }),
@@ -144088,10 +144241,30 @@ function LoginPage() {
   ] }) });
 }
 function ProtectedRoute({ children }) {
-  const { isAuthenticated: isAuthenticated2 } = useAuth();
+  const { authMode, isAuthenticated: isAuthenticated2, isEditor: isEditor2, isLoading, login } = useAuth();
   const location = useLocation();
+  reactExports$1.useEffect(() => {
+    if (!isLoading && !isAuthenticated2 && authMode === "miami") {
+      void login({ returnTo: location.pathname });
+    }
+  }, [authMode, isAuthenticated2, isLoading, location.pathname, login]);
+  if (isLoading) {
+    return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "login-page", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "login-container", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "login-header", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { children: "Checking Access" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "meta", children: "Verifying your corporate session." })
+    ] }) }) });
+  }
   if (!isAuthenticated2) {
+    if (authMode === "miami") {
+      return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "login-page", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "login-container", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "login-header", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { children: "Redirecting" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "meta", children: "Forwarding you to the corporate sign-in page." })
+      ] }) }) });
+    }
     return /* @__PURE__ */ jsxRuntimeExports.jsx(Navigate, { to: "/login", state: { from: location.pathname }, replace: true });
+  }
+  if (!isEditor2) {
+    return /* @__PURE__ */ jsxRuntimeExports.jsx(Navigate, { to: "/login", state: { from: location.pathname, denied: true }, replace: true });
   }
   return /* @__PURE__ */ jsxRuntimeExports.jsx(jsxRuntimeExports.Fragment, { children });
 }

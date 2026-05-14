@@ -1,0 +1,332 @@
+# =============================================================================
+# MIAMI Gateway Configuration — ATV MC Newsletter
+# =============================================================================
+# Deploy with:
+#   oc project atv-newsletter
+#   helm install --values miami/config.yaml miami-gateway \
+#     https://artifactory.icp.infineon.com/artifactory/helm-it-charts-local/miami-gateway-1.21.0.tgz
+# =============================================================================
+
+# ---------------------------------------------------------------------------
+# Hostname & General
+# ---------------------------------------------------------------------------
+
+# Public hostname for the OpenShift route (extracted from your callback URL).
+host: atv-mc-newsletter-play-atv-newsletter.eu-at-3.icp.infineon.com
+
+replicas: 1
+
+# 32-character secret to encrypt cookies. Generate one with:
+#   openssl rand -base64 24 | head -c 32
+# REQUIRED — replace this placeholder before deploying.
+cookieSecret: "4mkPeAf2oTKVXdHsOn1BEDvl3zFxC0ij"
+
+port: 8080
+timeout: 30m
+logLevel: INFO
+gzip: -1            # Disabled — Nginx in the app already handles compression
+bodyLimit: 10M
+headerLimit: 8KB
+trailingSlash: ""
+insecureEdgeTerminationPolicy: Redirect
+gogc: 30
+
+# ---------------------------------------------------------------------------
+# Authentication (iAuth / OIDC via Infineon SSO)
+# ---------------------------------------------------------------------------
+authentication:
+  url: https://sso.infineon.com
+  clientId: "MIAMI_ATVNEW"
+  clientSecret: ""                     # Empty for public OIDC client
+  prompt: consent
+  emailDomains:
+    - infineon.com
+
+  # ---- Skip auth for public pages & static assets ----
+  # Format: METHOD=regex  or  just regex (for all methods)
+  #
+  # WARNING: Do NOT add "/" by itself — it disables auth for EVERYTHING.
+  #
+  # The negative lookahead (?!create$|edit/) ensures /newsletters/<slug> is
+  # public but /newsletters/create and /newsletters/edit/<id> still require login.
+  skipAuthRoute:
+    # Static assets (Vite bundles, images, logos, favicon)
+    - ^/assets/
+    - ^/favicon
+    - ^/logo/
+    # Public SPA pages
+    - GET=^/$
+    - GET=^/newsletters$
+    - GET=^/newsletters/list$
+    - GET=^/newsletters/[^/]*-[^/]*$
+    - GET=^/submit-article$
+    - GET=^/login$
+
+  basicAuth:
+    tokenLifespan: 2h
+
+  customOAuthProvider:
+    skipOidcDiscovery: false
+    oidcGroupsClaim: groups
+    oidcAudienceClaim: aud
+
+# ---------------------------------------------------------------------------
+# Authorization — RDSP
+# ---------------------------------------------------------------------------
+rdsp:
+  enabled: true
+  applicationId: 1447
+  instanceId: 30354
+  projectParam: projectKey
+
+  # Because the newsletter app does not use project-based URL paths
+  # (no :projectKey in routes), set a default project so RDSP can
+  # resolve roles without a path parameter.
+  defaultProject: "672984"
+
+  # Users with this role bypass all per-route role checks.
+  adminRole: "Administrators"
+
+# OPA disabled — using RDSP instead
+opa:
+  enabled: false
+
+# ---------------------------------------------------------------------------
+# Services — Kubernetes service name → internal URL
+# ---------------------------------------------------------------------------
+services:
+  play-atv-newsletter: http://play-atv-newsletter:8080
+
+# ---------------------------------------------------------------------------
+# Routes
+# ---------------------------------------------------------------------------
+# Routes are evaluated in order. Put specific paths before the catch-all.
+# Roles reference the RDSP role names you created (Visitors, Developers).
+#
+# ┌──────────────────────────────────┬────────────────────────────────────────┐
+# │ Path                             │ Who can access                         │
+# ├──────────────────────────────────┼────────────────────────────────────────┤
+# │ /api/refine (POST)               │ Developers only (AI refinement)        │
+# │ /newsletters/create (GET)        │ Developers only (editor page)          │
+# │ /newsletters/edit/* (ANY)        │ Developers only (editor page)          │
+# │ /admin/* (ANY)                   │ Developers only (admin panel)          │
+# │ /** (ANY) — catch-all            │ Visitors + Developers (any authed user)│
+# └──────────────────────────────────┴────────────────────────────────────────┘
+
+routes:
+  # AI content-refinement endpoint — editor-only
+  - path: /api/refine
+    service: play-atv-newsletter
+    method: POST
+    roles:
+      - Developers
+
+  # Newsletter editor page
+  - path: /newsletters/create
+    service: play-atv-newsletter
+    method: GET
+    roles:
+      - Developers
+
+  # Newsletter edit page (with ID parameter)
+  - path: /newsletters/edit/*
+    service: play-atv-newsletter
+    method: ANY
+    roles:
+      - Developers
+
+  # Admin panel
+  - path: /admin/*
+    service: play-atv-newsletter
+    method: ANY
+    roles:
+      - Developers
+
+  # Everything else — any authenticated user with a role can access
+  - path: /**
+    service: play-atv-newsletter
+    method: ANY
+    roles:
+      - Visitors
+      - Developers
+
+# ---------------------------------------------------------------------------
+# CORS
+# ---------------------------------------------------------------------------
+cors:
+  allowOrigins:
+    - "*"
+  allowHeaders:
+    - content-type
+    - accept
+    - authorization
+  allowMethods:
+    - HEAD
+    - GET
+    - POST
+    - PUT
+    - PATCH
+    - DELETE
+    - OPTIONS
+  exposeHeaders: []
+
+# ---------------------------------------------------------------------------
+# Rate limiting
+# ---------------------------------------------------------------------------
+rate:
+  limit: 1000
+  burst: 500
+  expiry: 3m
+
+# ---------------------------------------------------------------------------
+# Image registry & sidecars
+# ---------------------------------------------------------------------------
+imageRegistry: artifactory.intra.infineon.com/docker-itdsa-rddl-local/miami
+
+gateway:
+  image:
+    repository: gateway
+    tag: 2.22.0
+
+oidcSidecar:
+  customTemplates:
+    enabled: false
+  defaultImageTag: 2.4.0
+  image:
+    repository: oidc
+    tag: 2.4.0
+  resources:
+    limits:
+      cpu: 200m
+      memory: 200Mi
+      ephemeral-storage: 1Gi
+    requests:
+      cpu: 50m
+      memory: 100Mi
+      ephemeral-storage: 300Mi
+
+basicAuthSidecar:
+  enabled: false
+  defaultImageTag: 2.5.0
+  image:
+    repository: basic-auth
+    tag: 2.5.0
+  resources:
+    limits:
+      cpu: 500m
+      memory: 200Mi
+      ephemeral-storage: 500Mi
+    requests:
+      cpu: 200m
+      memory: 100Mi
+      ephemeral-storage: 200Mi
+
+# ---------------------------------------------------------------------------
+# Resources for the gateway pod
+# ---------------------------------------------------------------------------
+resources:
+  requests:
+    memory: 500Mi
+    cpu: 200m
+    ephemeral-storage: 100Mi
+  limits:
+    memory: 1Gi
+    cpu: "1"
+    ephemeral-storage: 500Mi
+
+# ---------------------------------------------------------------------------
+# Monitoring — disabled by default
+# ---------------------------------------------------------------------------
+prometheus:
+  enabled: false
+
+jaeger:
+  enabled: false
+  collector: "jaeger-collector:14250"
+  environment: production
+  site: MUC
+  image: artifactory.intra.infineon.com/docker-itos-virtual/jaegertracing/jaeger-agent
+  resources:
+    limits:
+      cpu: 100m
+      memory: 100Mi
+    requests:
+      cpu: 100m
+      memory: 100Mi
+
+# ---------------------------------------------------------------------------
+# Device auth & Redis — not needed for this app
+# ---------------------------------------------------------------------------
+deviceAuthentication:
+  enabled: false
+
+redis:
+  miamiRedisDeployment: false
+  auth:
+    password: changeit
+  commonConfiguration: notify-keyspace-events KEA
+  database:
+    auth: 0
+    opa: 2
+    rate: 1
+  image:
+    registry: artifactory.intra.infineon.com/docker-itos-virtual
+    repository: bitnami/redis
+    tag: 7.0.11-debian-11-r7
+  master:
+    podSecurityContext:
+      enabled: false
+    containerSecurityContext:
+      enabled: false
+    persistence:
+      size: 50Mi
+    resources:
+      requests:
+        cpu: 50m
+        memory: 128Mi
+      limits:
+        cpu: 300m
+        memory: 192Mi
+  replica:
+    replicaCount: 1
+    podSecurityContext:
+      enabled: false
+    containerSecurityContext:
+      enabled: false
+    persistence:
+      size: 50Mi
+    resources:
+      requests:
+        cpu: 50m
+        memory: 128Mi
+      limits:
+        cpu: 300m
+        memory: 192Mi
+  metrics:
+    enabled: true
+    podSecurityContext:
+      enabled: false
+    containerSecurityContext:
+      enabled: false
+    image:
+      registry: artifactory.intra.infineon.com/docker-itos-virtual
+    resources:
+      requests:
+        cpu: 100m
+        memory: 256Mi
+      limits:
+        cpu: 100m
+        memory: 256Mi
+  networkPolicy:
+    enabled: false
+  sentinel:
+    enabled: false
+
+# ---------------------------------------------------------------------------
+# PAP / OPA cache — not used
+# ---------------------------------------------------------------------------
+pap:
+  enabled: false
+  endpoint: "http://localhost:8101/api/v1/access-policies"
+  projectField: projectKey
+  refresh: 5m

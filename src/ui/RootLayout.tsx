@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import { useAuth } from '../contexts/AuthContext'
 
 export default function RootLayout() {
-  const { isAuthenticated, logout } = useAuth()
+  const { isAuthenticated, isEditor, logout, user } = useAuth()
   const navigate = useNavigate()
 
   const handleLogout = () => {
@@ -30,7 +30,7 @@ export default function RootLayout() {
             <NavLink to="/submit-article" className={({ isActive }) => (isActive ? 'active' : '')}>
               Submit Article
             </NavLink>
-            {isAuthenticated && (
+            {isEditor && (
               <>
                 <NavLink to="/admin/articles" className={({ isActive }) => (isActive ? 'active' : '')}>
                   Review Articles
@@ -41,12 +41,15 @@ export default function RootLayout() {
               </>
             )}
             {isAuthenticated ? (
-              <button onClick={handleLogout} className="auth-button logout-button">
-                Logout
-              </button>
+              <>
+                {user?.email && <span className="meta auth-meta">{user.email}</span>}
+                <button onClick={handleLogout} className="auth-button logout-button">
+                  Logout
+                </button>
+              </>
             ) : (
               <Link to="/login" className="auth-button login-button">
-                Login
+                Editor Login
               </Link>
             )}
           </nav>

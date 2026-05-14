@@ -13,6 +13,7 @@ import type { SubmittedArticle } from '../../types/article'
 import { getAvailableArticlesForImport, markArticleAsImported } from '../../utils/localArticles'
 import type { ArticleTemplate } from '../../types/article'
 import { refineContent } from '../../utils/aiRefine'
+import { CANONICAL_CHAPTER_TITLES, isCanonicalChapterTitle } from '../../constants/chapters'
 
 export default function CreateNewsletterPage() {
   const { id } = useParams<{ id?: string }>()
@@ -435,16 +436,7 @@ export default function CreateNewsletterPage() {
                   <label>Chapter Title</label>
                   <select
                     value={
-                      [
-                        'AURIX™',
-                        'TRAVEO™ T2G',
-                        'PSOC™ Automotive',
-                        'Bulletin Board',
-                        'Ease of Use',
-                        'Market News & Press Release',
-                        'Success Stories',
-                        'Team News',
-                      ].includes(chapter.title)
+                      isCanonicalChapterTitle(chapter.title)
                         ? chapter.title
                         : 'Other...'
                     }
@@ -457,29 +449,14 @@ export default function CreateNewsletterPage() {
                     }}
                   >
                     <option value="">Select a chapter...</option>
-                    <option value="AURIX™">AURIX™</option>
-                    <option value="TRAVEO™ T2G">TRAVEO™ T2G</option>
-                    <option value="PSOC™ Automotive">PSOC™ Automotive</option>
-                    <option value="Bulletin Board">Bulletin Board</option>
-                    <option value="Ease of Use">Ease of Use</option>
-                    <option value="Market News & Press Release">
-                      Market News & Press Release
-                    </option>
-                    <option value="Success Stories">Success Stories</option>
-                    <option value="Team News">Team News</option>
+                    {CANONICAL_CHAPTER_TITLES.map((t) => (
+                      <option key={t} value={t}>
+                        {t}
+                      </option>
+                    ))}
                     <option value="Other...">Other...</option>
                   </select>
-                  {![
-                    'AURIX™',
-                    'TRAVEO™ T2G',
-                    'PSOC™ Automotive',
-                    'Bulletin Board',
-                    'Ease of Use',
-                    'Market News & Press Release',
-                    'Success Stories',
-                    'Team News',
-                    '',
-                  ].includes(chapter.title) && (
+                  {chapter.title !== '' && !isCanonicalChapterTitle(chapter.title) && (
                     <input
                       type="text"
                       value={chapter.title}

@@ -1,0 +1,85 @@
+host: atv-mc-newsletter-play-atv-newsletter.eu-at-3.icp.infineon.com
+replicas: 2
+cookieSecret: replace-with-32-byte-secret
+
+authentication:
+  url: https://sso.infineon.com
+  clientId: replace-with-your-miami-client-id
+  clientSecret: ""
+  prompt: none
+  emailDomains:
+    - infineon.com
+  skipAuthRoute:
+    - GET=^/$
+    - GET=^/login$
+    - GET=^/newsletters(?:/list)?(?:/[^/]+)?/?$
+    - GET=^/submit-article/?$
+    - GET=^/assets/.*
+    - GET=^/.*\.(?:css|js|png|jpg|jpeg|gif|svg|ico|woff2?)$
+
+rdsp:
+  enabled: true
+  applicationId: 0
+  instanceId: 0
+  projectParam: projectKey
+  defaultProject: ""
+  adminRole: newsletter-admin
+
+opa:
+  enabled: false
+
+services:
+  newsletter-web: http://newsletter-web:8080
+
+routes:
+  - path: /admin**
+    service: newsletter-web
+    method: ANY
+    roles:
+      - newsletter-editor
+
+  - path: /newsletters/create**
+    service: newsletter-web
+    method: ANY
+    roles:
+      - newsletter-editor
+
+  - path: /newsletters/edit/**
+    service: newsletter-web
+    method: ANY
+    roles:
+      - newsletter-editor
+
+  - path: /**
+    service: newsletter-web
+    method: ANY
+
+timeout: 30m
+port: 8080
+logLevel: INFO
+bodyLimit: 10M
+headerLimit: 1M
+trailingSlash: ""
+insecureEdgeTerminationPolicy: None
+gzip: -1
+
+cors:
+  allowOrigins:
+    - "*"
+  allowHeaders:
+    - content-type
+    - accept
+  allowMethods:
+    - GET
+    - POST
+    - PUT
+    - PATCH
+    - DELETE
+    - OPTIONS
+  exposeHeaders: []
+
+oidcSidecar:
+  image: rddl-registry.vih.infineon.com/miami/oidc-sidecar
+
+basicAuthSidecar:
+  enabled: false
