@@ -1,5 +1,5 @@
 #!/usr/bin/env pwsh
-# Deploy script: pushes to deploy-dev and triggers OpenShift build
+# Deploy script: pushes to deploy-dev, triggers OpenShift build, and rolls out new image
 param(
     [string]$Message = "deploy"
 )
@@ -17,4 +17,10 @@ git push origin deploy-dev
 Write-Host "`nTriggering OpenShift build..." -ForegroundColor Cyan
 oc start-build news-build -n atv-mc-newsletter-build --follow
 
-Write-Host "`nBuild complete. New image will be picked up by the Knative service." -ForegroundColor Green
+Write-Host "`nUpdating Knative service with new image..." -ForegroundColor Cyan
+$newImage = oc get istag news-build:latest -n atv-mc-newsletter-build -o jsonpath='{.image.dockerImageReference}'
+$patch = "{`"spec`":{`"template`":{`"spec`":{`"containers`":[{`"name`":`"news-dev`",`"image`":`"$newImage`"}]}}}}"
+oc patch ksvc/news-dev -n atv-mc-newsletter-development --type merge -p $patch
+
+Write-Host "`nDone! New revision deployed." -ForegroundColor Green
+oc get revisions -n atv-mc-newsletter-development -l serving.knative.dev/service=news-dev --sort-by=.metadata.creationTimestamp | Select-Object -Last 2
