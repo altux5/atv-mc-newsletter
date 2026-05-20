@@ -17804,12 +17804,6 @@ function RouterProvider2(props) {
 const OAUTH_SIGN_IN_PATH = "/oauth2/sign_in";
 const OAUTH_SIGN_OUT_PATH = "/oauth2/sign_out";
 const OAUTH_USERINFO_PATH = "/oauth2/userinfo";
-const editorEmails = parseList();
-function parseList(value) {
-  {
-    return [];
-  }
-}
 function normalizeEmail(value) {
   return value?.trim().toLowerCase() ?? "";
 }
@@ -17848,13 +17842,7 @@ function redirectToLogout(returnTo = "/") {
   window.location.assign(getLogoutUrl(returnTo));
 }
 function isEditor(user) {
-  if (!user) {
-    return false;
-  }
-  if (editorEmails.length === 0) {
-    return false;
-  }
-  return editorEmails.includes(normalizeEmail(user.email));
+  return user !== null;
 }
 async function fetchCurrentUser() {
   try {

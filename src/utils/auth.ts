@@ -2,8 +2,6 @@ const OAUTH_SIGN_IN_PATH = import.meta.env.VITE_OAUTH_SIGN_IN_PATH ?? '/oauth2/s
 const OAUTH_SIGN_OUT_PATH = import.meta.env.VITE_OAUTH_SIGN_OUT_PATH ?? '/oauth2/sign_out'
 const OAUTH_USERINFO_PATH = import.meta.env.VITE_OAUTH_USERINFO_PATH ?? '/oauth2/userinfo'
 
-const editorEmails = parseList(import.meta.env.VITE_EDITOR_EMAILS)
-
 export interface AuthUser {
   email: string
   name?: string
@@ -15,17 +13,6 @@ interface OAuthUserInfo {
   name?: string
   preferred_username?: string
   sub?: string
-}
-
-function parseList(value?: string): string[] {
-  if (!value) {
-    return []
-  }
-
-  return value
-    .split(',')
-    .map((item) => item.trim().toLowerCase())
-    .filter(Boolean)
 }
 
 function normalizeEmail(value?: string): string {
@@ -77,19 +64,7 @@ export function redirectToLogout(returnTo = '/'): void {
 }
 
 export function isEditor(user: AuthUser | null): boolean {
-  if (!user) {
-    return false
-  }
-
-  if (editorEmails.length === 0) {
-    return false
-  }
-
-  return editorEmails.includes(normalizeEmail(user.email))
-}
-
-export function getEditorEmailList(): string[] {
-  return [...editorEmails]
+  return user !== null
 }
 
 export async function fetchCurrentUser(): Promise<AuthUser | null> {

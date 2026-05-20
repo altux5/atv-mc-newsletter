@@ -12,7 +12,7 @@
 # ---------------------------------------------------------------------------
 
 # Public hostname for the OpenShift route (extracted from your callback URL).
-host: newsletter-play-atv-newsletter.eu-at-3.icp.infineon.com
+host: atv-mc-newsletter.eu-de-3.icp.infineon.com
 
 replicas: 1
 
@@ -38,7 +38,7 @@ authentication:
   url: https://sso.infineon.com
   clientId: "MIAMI_ATVNEW"
   clientSecret: ""                     # Empty for public OIDC client
-  prompt: consent
+  prompt: none
   emailDomains:
     - infineon.com
 
@@ -95,7 +95,7 @@ opa:
 # Services — Kubernetes service name → internal URL
 # ---------------------------------------------------------------------------
 services:
-  atv-mc-newsletter: http://atv-mc-newsletter-00004-private:80
+  atv-mc-newsletter: http://news-dev-stable:80
 
 # ---------------------------------------------------------------------------
 # Routes
