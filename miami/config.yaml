@@ -12,7 +12,7 @@
 # ---------------------------------------------------------------------------
 
 # Public hostname for the OpenShift route (extracted from your callback URL).
-host: atv-mc-newsletter-play-atv-newsletter.eu-at-3.icp.infineon.com
+host: newsletter-play-atv-newsletter.eu-at-3.icp.infineon.com
 
 replicas: 1
 
@@ -74,7 +74,7 @@ authentication:
 # Authorization — RDSP
 # ---------------------------------------------------------------------------
 rdsp:
-  enabled: true
+  enabled: false
   applicationId: 1447
   instanceId: 30354
   projectParam: projectKey
@@ -95,7 +95,7 @@ opa:
 # Services — Kubernetes service name → internal URL
 # ---------------------------------------------------------------------------
 services:
-  play-atv-newsletter: http://play-atv-newsletter:8080
+  atv-mc-newsletter: http://atv-mc-newsletter-00004-private:80
 
 # ---------------------------------------------------------------------------
 # Routes
@@ -116,39 +116,28 @@ services:
 routes:
   # AI content-refinement endpoint — editor-only
   - path: /api/refine
-    service: play-atv-newsletter
+    service: atv-mc-newsletter
     method: POST
-    roles:
-      - Developers
 
   # Newsletter editor page
   - path: /newsletters/create
-    service: play-atv-newsletter
+    service: atv-mc-newsletter
     method: GET
-    roles:
-      - Developers
 
   # Newsletter edit page (with ID parameter)
   - path: /newsletters/edit/*
-    service: play-atv-newsletter
+    service: atv-mc-newsletter
     method: ANY
-    roles:
-      - Developers
 
   # Admin panel
   - path: /admin/*
-    service: play-atv-newsletter
+    service: atv-mc-newsletter
     method: ANY
-    roles:
-      - Developers
 
   # Everything else — any authenticated user with a role can access
   - path: /**
-    service: play-atv-newsletter
+    service: atv-mc-newsletter
     method: ANY
-    roles:
-      - Visitors
-      - Developers
 
 # ---------------------------------------------------------------------------
 # CORS

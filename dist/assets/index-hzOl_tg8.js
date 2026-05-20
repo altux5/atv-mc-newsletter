@@ -17801,11 +17801,6 @@ const ReactDOM = /* @__PURE__ */ getDefaultExportFromCjs(reactDomExports);
 function RouterProvider2(props) {
   return /* @__PURE__ */ reactExports$1.createElement(RouterProvider, { flushSync: reactDomExports.flushSync, ...props });
 }
-const AUTH_STORAGE_KEY = "newsletter_auth";
-const AUTH_EMAIL_STORAGE_KEY = "newsletter_auth_email";
-const LOCAL_EDITOR_USERNAME = "admin";
-const LOCAL_EDITOR_PASSWORD = "admin";
-const AUTH_MODE = "local".toLowerCase() === "miami" ? "miami" : "local";
 const OAUTH_SIGN_IN_PATH = "/oauth2/sign_in";
 const OAUTH_SIGN_OUT_PATH = "/oauth2/sign_out";
 const OAUTH_USERINFO_PATH = "/oauth2/userinfo";
@@ -17840,31 +17835,6 @@ async function parseUserInfo(response) {
     return null;
   }
 }
-function getAuthMode() {
-  return AUTH_MODE;
-}
-function validateCredentials(credentials) {
-  if (AUTH_MODE !== "local") {
-    return false;
-  }
-  return credentials.username === LOCAL_EDITOR_USERNAME && credentials.password === LOCAL_EDITOR_PASSWORD;
-}
-function saveAuthState(email) {
-  localStorage.setItem(AUTH_STORAGE_KEY, "authenticated");
-  if (email) {
-    localStorage.setItem(AUTH_EMAIL_STORAGE_KEY, normalizeEmail(email));
-  }
-}
-function clearAuthState() {
-  localStorage.removeItem(AUTH_STORAGE_KEY);
-  localStorage.removeItem(AUTH_EMAIL_STORAGE_KEY);
-}
-function isAuthenticated() {
-  if (AUTH_MODE === "miami") {
-    return false;
-  }
-  return localStorage.getItem(AUTH_STORAGE_KEY) === "authenticated";
-}
 function getLoginUrl(returnTo) {
   return buildOauthUrl(OAUTH_SIGN_IN_PATH, returnTo);
 }
@@ -17881,25 +17851,12 @@ function isEditor(user) {
   if (!user) {
     return false;
   }
-  if (AUTH_MODE === "local") {
-    return true;
-  }
   if (editorEmails.length === 0) {
     return false;
   }
   return editorEmails.includes(normalizeEmail(user.email));
 }
 async function fetchCurrentUser() {
-  if (AUTH_MODE === "local") {
-    if (!isAuthenticated()) {
-      return null;
-    }
-    const email = localStorage.getItem(AUTH_EMAIL_STORAGE_KEY) ?? `${LOCAL_EDITOR_USERNAME}@infineon.com`;
-    return {
-      email: normalizeEmail(email),
-      preferredUsername: LOCAL_EDITOR_USERNAME
-    };
-  }
   try {
     const response = await fetch(OAUTH_USERINFO_PATH, {
       credentials: "include",
@@ -17928,7 +17885,6 @@ const AuthContext = reactExports$1.createContext(void 0);
 function AuthProvider({ children }) {
   const [user, setUser] = reactExports$1.useState(null);
   const [loading, setLoading] = reactExports$1.useState(true);
-  const authMode = getAuthMode();
   reactExports$1.useEffect(() => {
     let cancelled = false;
     const loadUser = async () => {
@@ -17944,30 +17900,11 @@ function AuthProvider({ children }) {
       cancelled = true;
     };
   }, []);
-  const login = async (credentials = {}) => {
-    if (authMode === "miami") {
-      redirectToLogin(credentials.returnTo);
-      return false;
-    }
-    if (validateCredentials(credentials)) {
-      const email = credentials.username ? `${credentials.username}@infineon.com` : void 0;
-      const nextUser = {
-        email: email ?? "admin@infineon.com",
-        preferredUsername: credentials.username
-      };
-      saveAuthState(nextUser.email);
-      setUser(nextUser);
-      return true;
-    }
-    return false;
+  const login = (returnTo) => {
+    redirectToLogin(returnTo);
   };
   const logout = () => {
-    clearAuthState();
-    if (authMode === "miami") {
-      redirectToLogout("/");
-      return;
-    }
-    setUser(null);
+    redirectToLogout("/");
   };
   return /* @__PURE__ */ jsxRuntimeExports.jsx(
     AuthContext.Provider,
@@ -17977,7 +17914,6 @@ function AuthProvider({ children }) {
         isEditor: isEditor(user),
         isLoading: loading,
         user,
-        authMode,
         login,
         logout
       },
@@ -17994,7 +17930,7 @@ function useAuth() {
 }
 const logoUrl = "/assets/Agent-logo-BNWebEI8.svg";
 function RootLayout() {
-  const { isAuthenticated: isAuthenticated2, isEditor: isEditor2, logout, user } = useAuth();
+  const { isAuthenticated, isEditor: isEditor2, logout, user } = useAuth();
   const navigate = useNavigate();
   const handleLogout = () => {
     logout();
@@ -18014,7 +17950,7 @@ function RootLayout() {
           /* @__PURE__ */ jsxRuntimeExports.jsx(NavLink, { to: "/admin/articles", className: ({ isActive: isActive2 }) => isActive2 ? "active" : "", children: "Review Articles" }),
           /* @__PURE__ */ jsxRuntimeExports.jsx(NavLink, { to: "/newsletters/create", className: ({ isActive: isActive2 }) => isActive2 ? "active" : "", children: "Create Newsletter" })
         ] }),
-        isAuthenticated2 ? /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
+        isAuthenticated ? /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
           user?.email && /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "meta auth-meta", children: user.email }),
           /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: handleLogout, className: "auth-button logout-button", children: "Logout" })
         ] }) : /* @__PURE__ */ jsxRuntimeExports.jsx(Link$1, { to: "/login", className: "auth-button login-button", children: "Editor Login" })
@@ -118809,7 +118745,7 @@ function HomePage() {
 }
 function NewslettersPage() {
   const location = useLocation();
-  const { isAuthenticated: isAuthenticated2 } = useAuth();
+  const { isAuthenticated } = useAuth();
   const [newsletters, setNewsletters] = reactExports$1.useState(() => getNewsletters());
   const [selectedChapter, setSelectedChapter] = reactExports$1.useState(null);
   const [sectionIndex, setSectionIndex] = reactExports$1.useState({});
@@ -119183,7 +119119,7 @@ function NewslettersPage() {
                 textQuery && matchSnippets[n.id] ? /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "query-snippet", dangerouslySetInnerHTML: { __html: matchSnippets[n.id] } }) : /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: n.excerpt }),
                 /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "tag-row", children: n.tags.map((t) => /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "pill", children: t }, t)) })
               ] }),
-              isLocal && isAuthenticated2 && /* @__PURE__ */ jsxRuntimeExports.jsx(
+              isLocal && isAuthenticated && /* @__PURE__ */ jsxRuntimeExports.jsx(
                 "button",
                 {
                   onClick: handleDelete2,
@@ -119276,7 +119212,7 @@ function generateNewsletterBodyHtml(draft) {
 function NewsletterDetailPage() {
   const { slug } = useParams();
   const navigate = useNavigate();
-  const { isAuthenticated: isAuthenticated2 } = useAuth();
+  const { isAuthenticated } = useAuth();
   const [newsletters] = reactExports$1.useState(() => getNewsletters());
   const newsletter = reactExports$1.useMemo(() => newsletters.find((n) => n.slug === slug), [slug, newsletters]);
   if (!newsletter) {
@@ -119349,7 +119285,7 @@ function NewsletterDetailPage() {
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("article", { className: "newsletter-detail", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: { display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 16 }, children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx(Link$1, { to: "/newsletters", className: "back-link", children: "← Back to list" }),
-      isLocalNewsletter && isAuthenticated2 && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: { display: "flex", gap: 8 }, children: [
+      isLocalNewsletter && isAuthenticated && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: { display: "flex", gap: 8 }, children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx(Link$1, { to: `/newsletters/edit/${newsletter.id}`, className: "button", style: { textDecoration: "none" }, children: "✏️ Edit" }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: handleDelete2, className: "button", style: { color: "#dc2626", borderColor: "#fecaca" }, children: "🗑️ Delete" })
       ] })
@@ -119364,7 +119300,7 @@ function NewsletterDetailPage() {
 }
 function NewslettersListPage() {
   const location = useLocation();
-  const { isAuthenticated: isAuthenticated2 } = useAuth();
+  const { isAuthenticated } = useAuth();
   const [newsletters, setNewsletters] = reactExports$1.useState(() => getNewsletters());
   const [textQuery, setTextQuery] = reactExports$1.useState("");
   const [searchIndex, setSearchIndex] = reactExports$1.useState({});
@@ -119495,7 +119431,7 @@ function NewslettersListPage() {
           ] }),
           /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "list-row-meta", children: [
             new Date(n.date).toLocaleDateString(),
-            isLocal && isAuthenticated2 && /* @__PURE__ */ jsxRuntimeExports.jsx(
+            isLocal && isAuthenticated && /* @__PURE__ */ jsxRuntimeExports.jsx(
               "button",
               {
                 onClick: handleDelete2,
@@ -144135,133 +144071,63 @@ function AdminArticlesPage() {
   ] });
 }
 function LoginPage() {
-  const [username, setUsername] = reactExports$1.useState("");
-  const [password, setPassword] = reactExports$1.useState("");
-  const [error, setError] = reactExports$1.useState("");
-  const [isLoading, setIsLoading] = reactExports$1.useState(false);
-  const { authMode, isAuthenticated: isAuthenticated2, isEditor: isEditor2, isLoading: isAuthLoading, login, user } = useAuth();
+  const { isAuthenticated, isEditor: isEditor2, isLoading: isAuthLoading, login, user } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
   const from2 = location.state?.from || "/";
   const denied = Boolean(location.state?.denied);
   reactExports$1.useEffect(() => {
-    if (!isAuthLoading && isAuthenticated2 && isEditor2) {
+    if (!isAuthLoading && isAuthenticated && isEditor2) {
       navigate(from2, { replace: true });
     }
-  }, [from2, isAuthenticated2, isAuthLoading, isEditor2, navigate]);
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setError("");
-    setIsLoading(true);
-    try {
-      const success = await login({ username, password, returnTo: from2 });
-      if (success) {
-        navigate(from2, { replace: true });
-      } else {
-        setError("Invalid username or password");
-      }
-    } catch (err) {
-      setError("An error occurred. Please try again.");
-    } finally {
-      setIsLoading(false);
+  }, [from2, isAuthenticated, isAuthLoading, isEditor2, navigate]);
+  reactExports$1.useEffect(() => {
+    if (!isAuthLoading && !isAuthenticated && !denied) {
+      login(from2);
     }
-  };
-  const handleCorporateLogin = async () => {
-    setError("");
-    setIsLoading(true);
-    try {
-      await login({ returnTo: from2 });
-    } finally {
-      setIsLoading(false);
-    }
-  };
-  if (authMode === "miami") {
-    return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "login-page", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "login-container", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "login-header", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { children: "Editor Access" }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "meta", children: "Sign in with your Infineon corporate account to access editor features." })
-      ] }),
-      denied && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "error-message", role: "alert", children: "Your account is signed in but is not in the editor allowlist for this app." }),
-      isAuthenticated2 && !isEditor2 && user?.email && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "error-message", role: "alert", children: [
-        "Signed in as ",
-        user.email,
-        ", but this account does not currently have editor access."
-      ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "form-actions", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
-        "button",
-        {
-          type: "button",
-          className: "button primary",
-          onClick: handleCorporateLogin,
-          disabled: isLoading || isAuthLoading,
-          children: isLoading ? "Redirecting..." : "Sign In With Corporate Email"
-        }
-      ) })
-    ] }) });
-  }
+  }, [isAuthLoading, isAuthenticated, denied, login, from2]);
   return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "login-page", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "login-container", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "login-header", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { children: "Admin Login" }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "meta", children: "Enter your local development credentials to access admin features." })
+      /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { children: "Editor Access" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "meta", children: "Sign in with your Infineon corporate account to access editor features." })
     ] }),
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("form", { onSubmit: handleSubmit, className: "login-form", children: [
-      error && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "error-message", role: "alert", children: error }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "form-group", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx("label", { htmlFor: "username", children: "Username" }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(
-          "input",
-          {
-            id: "username",
-            type: "text",
-            value: username,
-            onChange: (e) => setUsername(e.target.value),
-            required: true,
-            autoComplete: "username",
-            disabled: isLoading
-          }
-        )
-      ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "form-group", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx("label", { htmlFor: "password", children: "Password" }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(
-          "input",
-          {
-            id: "password",
-            type: "password",
-            value: password,
-            onChange: (e) => setPassword(e.target.value),
-            required: true,
-            autoComplete: "current-password",
-            disabled: isLoading
-          }
-        )
-      ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "form-actions", children: /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "submit", className: "button primary", disabled: isLoading, children: isLoading ? "Logging in..." : "Login" }) })
-    ] })
+    denied && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "error-message", role: "alert", children: "Your account is signed in but is not authorised for editor access. Please contact the newsletter administrator to request access." }),
+    isAuthenticated && !isEditor2 && user?.email && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "error-message", role: "alert", children: [
+      "Signed in as ",
+      /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: user.email }),
+      ", but this account does not currently have editor access. Please contact the newsletter administrator to request access."
+    ] }),
+    !isAuthenticated && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "form-actions", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+      "button",
+      {
+        type: "button",
+        className: "button primary",
+        onClick: () => login(from2),
+        disabled: isAuthLoading,
+        children: isAuthLoading ? "Redirecting..." : "Sign In With Corporate Email"
+      }
+    ) })
   ] }) });
 }
 function ProtectedRoute({ children }) {
-  const { authMode, isAuthenticated: isAuthenticated2, isEditor: isEditor2, isLoading, login } = useAuth();
+  const { isAuthenticated, isEditor: isEditor2, isLoading, login } = useAuth();
   const location = useLocation();
   reactExports$1.useEffect(() => {
-    if (!isLoading && !isAuthenticated2 && authMode === "miami") {
-      void login({ returnTo: location.pathname });
+    if (!isLoading && !isAuthenticated) {
+      login(location.pathname);
     }
-  }, [authMode, isAuthenticated2, isLoading, location.pathname, login]);
+  }, [isAuthenticated, isLoading, location.pathname, login]);
   if (isLoading) {
     return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "login-page", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "login-container", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "login-header", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { children: "Checking Access" }),
       /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "meta", children: "Verifying your corporate session." })
     ] }) }) });
   }
-  if (!isAuthenticated2) {
-    if (authMode === "miami") {
-      return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "login-page", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "login-container", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "login-header", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { children: "Redirecting" }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "meta", children: "Forwarding you to the corporate sign-in page." })
-      ] }) }) });
-    }
-    return /* @__PURE__ */ jsxRuntimeExports.jsx(Navigate, { to: "/login", state: { from: location.pathname }, replace: true });
+  if (!isAuthenticated) {
+    return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "login-page", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "login-container", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "login-header", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { children: "Redirecting" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "meta", children: "Forwarding you to the corporate sign-in page." })
+    ] }) }) });
   }
   if (!isEditor2) {
     return /* @__PURE__ */ jsxRuntimeExports.jsx(Navigate, { to: "/login", state: { from: location.pathname, denied: true }, replace: true });

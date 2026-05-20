@@ -7,14 +7,14 @@ interface ProtectedRouteProps {
 }
 
 export default function ProtectedRoute({ children }: ProtectedRouteProps) {
-  const { authMode, isAuthenticated, isEditor, isLoading, login } = useAuth()
+  const { isAuthenticated, isEditor, isLoading, login } = useAuth()
   const location = useLocation()
 
   useEffect(() => {
-    if (!isLoading && !isAuthenticated && authMode === 'miami') {
-      void login({ returnTo: location.pathname })
+    if (!isLoading && !isAuthenticated) {
+      login(location.pathname)
     }
-  }, [authMode, isAuthenticated, isLoading, location.pathname, login])
+  }, [isAuthenticated, isLoading, location.pathname, login])
 
   if (isLoading) {
     return (
@@ -30,20 +30,16 @@ export default function ProtectedRoute({ children }: ProtectedRouteProps) {
   }
 
   if (!isAuthenticated) {
-    if (authMode === 'miami') {
-      return (
-        <div className="login-page">
-          <div className="login-container">
-            <div className="login-header">
-              <h1>Redirecting</h1>
-              <p className="meta">Forwarding you to the corporate sign-in page.</p>
-            </div>
+    return (
+      <div className="login-page">
+        <div className="login-container">
+          <div className="login-header">
+            <h1>Redirecting</h1>
+            <p className="meta">Forwarding you to the corporate sign-in page.</p>
           </div>
         </div>
-      )
-    }
-
-    return <Navigate to="/login" state={{ from: location.pathname }} replace />
+      </div>
+    )
   }
 
   if (!isEditor) {
