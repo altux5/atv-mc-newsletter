@@ -3,9 +3,9 @@ kind: PipelineRun
 metadata:
   name: news-build-on-push
   annotations:
+    pipelinesascode.tekton.dev/max-keep-runs: "5"
     pipelinesascode.tekton.dev/on-event: "[push]"
     pipelinesascode.tekton.dev/on-target-branch: "[deploy-dev]"
-    pipelinesascode.tekton.dev/task: "[git-clone]"
 spec:
   pipelineSpec:
     tasks:
