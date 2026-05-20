@@ -14,6 +14,17 @@ git add -A
 git commit -m $Message
 git push origin deploy-dev
 
+Write-Host "`nBuilding frontend..." -ForegroundColor Cyan
+npm run build
+if ($LASTEXITCODE -ne 0) {
+    Write-Host "Build failed!" -ForegroundColor Red
+    exit 1
+}
+
+git add dist/
+git commit -m "Rebuild dist" --allow-empty
+git push origin deploy-dev
+
 Write-Host "`nTriggering OpenShift build..." -ForegroundColor Cyan
 oc start-build news-build -n atv-mc-newsletter-build --follow
 
