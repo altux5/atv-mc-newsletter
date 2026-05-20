@@ -1,0 +1,21 @@
+apiVersion: tekton.dev/v1
+kind: PipelineRun
+metadata:
+  name: news-build-on-push
+  annotations:
+    pipelinesascode.tekton.dev/on-event: "[push]"
+    pipelinesascode.tekton.dev/on-target-branch: "[deploy-dev]"
+    pipelinesascode.tekton.dev/task: "[git-clone]"
+spec:
+  pipelineSpec:
+    tasks:
+      - name: trigger-build
+        taskSpec:
+          steps:
+            - name: start-build
+              image: image-registry.openshift-image-registry.svc:5000/openshift/cli:latest
+              script: |
+                #!/bin/sh
+                echo "Triggering OpenShift build..."
+                oc start-build news-build -n atv-mc-newsletter-build --wait
+                echo "Build complete."
