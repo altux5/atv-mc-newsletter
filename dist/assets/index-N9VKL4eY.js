@@ -118145,7 +118145,7 @@ function HomePage() {
                   /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { style: { textAlign: "left", width: "100%", color: "var(--brand)" }, children: "Welcome to the ATV MC Digital Newsletter" }),
                   /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { style: { textAlign: "left", width: "100%", maxWidth: "none", fontSize: "18px" }, children: [
                     /* @__PURE__ */ jsxRuntimeExports.jsx("br", {}),
-                    " Your secure, always-current dashboard for everything Automotive Microcontrollers. Learn more about our products and solutions. Each month we update six focused sections, no scrolling through threads, no hunting for links.",
+                    " Your secure, 1.0.0 always-current dashboard for everything Automotive Microcontrollers. Learn more about our products and solutions. Each month we update six focused sections, no scrolling through threads, no hunting for links.",
                     /* @__PURE__ */ jsxRuntimeExports.jsx("br", {}),
                     /* @__PURE__ */ jsxRuntimeExports.jsx("br", {})
                   ] }),
