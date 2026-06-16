@@ -1,15 +1,15 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { getNewsletters } from '../../data/newsletters'
+import { getNewslettersAsync, type Newsletter } from '../../data/newsletters'
 import { findHtmlByMonthYearAsync, loadHtmlByPathAsync, extractSectionSnippets, extractBodyText } from '../../utils/newsletterHtml'
-import { deleteDraft } from '../../utils/localNewsletters'
+import { deleteNewsletterApi } from '../../utils/newslettersApi'
 import { useAuth } from '../../contexts/AuthContext'
 import { CANONICAL_CHAPTER_TITLES, getChapterMatchKeys, normalizeChapterTitle } from '../../constants/chapters'
 
 export default function NewslettersPage() {
   const location = useLocation()
   const { isAuthenticated } = useAuth()
-  const [newsletters, setNewsletters] = useState(() => getNewsletters())
+  const [newsletters, setNewsletters] = useState<Newsletter[]>([])
   const [selectedChapter, setSelectedChapter] = useState<string | null>(null)
   const [sectionIndex, setSectionIndex] = useState<Record<string, ReturnType<typeof extractSectionSnippets>>>({})
   const [searchIndex, setSearchIndex] = useState<Record<string, string>>({})
@@ -30,13 +30,19 @@ export default function NewslettersPage() {
   
   // Refresh newsletters when component mounts or location changes
   useEffect(() => {
-    setNewsletters(getNewsletters())
+    let cancelled = false
+    void getNewslettersAsync().then((list) => {
+      if (!cancelled) setNewsletters(list)
+    })
+    return () => {
+      cancelled = true
+    }
   }, [location.pathname])
   
   // Listen for newsletter publish events
   useEffect(() => {
     const handleNewsletterPublished = () => {
-      setNewsletters(getNewsletters())
+      void getNewslettersAsync().then(setNewsletters)
     }
     window.addEventListener('newsletterPublished', handleNewsletterPublished)
     return () => window.removeEventListener('newsletterPublished', handleNewsletterPublished)
@@ -472,9 +478,16 @@ export default function NewslettersPage() {
                   `Are you sure you want to delete "${n.title}"? This action cannot be undone.`
                 )
                 if (confirmed) {
-                  deleteDraft(n.id)
-                  window.dispatchEvent(new Event('newsletterPublished'))
-                  setNewsletters(getNewsletters())
+                  void deleteNewsletterApi(n.id)
+                    .then(() => {
+                      window.dispatchEvent(new Event('newsletterPublished'))
+                      return getNewslettersAsync()
+                    })
+                    .then(setNewsletters)
+                    .catch((error) => {
+                      console.error('Failed to delete newsletter:', error)
+                      alert('Failed to delete newsletter. Please try again.')
+                    })
                 }
               }
               

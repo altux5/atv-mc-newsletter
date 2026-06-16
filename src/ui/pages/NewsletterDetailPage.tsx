@@ -1,8 +1,9 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link, useParams, useNavigate } from 'react-router-dom'
-import { getNewsletters } from '../../data/newsletters'
-import { extractAndSanitizeBodyHtml, extractMonthYearFromHtml, findHtmlByMonthYear, findHtmlByMonthYearAsync, loadHtmlByPathAsync, parseMonthYearFromPath } from '../../utils/newsletterHtml'
-import { getDraftById, deleteDraft } from '../../utils/localNewsletters'
+import { getNewslettersAsync, type Newsletter } from '../../data/newsletters'
+import { extractAndSanitizeBodyHtml, extractMonthYearFromHtml, findHtmlByMonthYearAsync, loadHtmlByPathAsync, parseMonthYearFromPath } from '../../utils/newsletterHtml'
+import { getDraftByIdApi, deleteNewsletterApi } from '../../utils/newslettersApi'
+import type { NewsletterDraft } from '../../types/newsletter-creation'
 import { generateNewsletterBodyHtml } from '../../utils/generateNewsletterHtml'
 import { useAuth } from '../../contexts/AuthContext'
 
@@ -10,53 +11,48 @@ export default function NewsletterDetailPage() {
   const { slug } = useParams()
   const navigate = useNavigate()
   const { isAuthenticated } = useAuth()
-  const [newsletters] = useState(() => getNewsletters())
-  const newsletter = useMemo(() => newsletters.find((n) => n.slug === slug), [slug, newsletters])
-
-  if (!newsletter) {
-    return (
-      <div>
-        <p>Newsletter not found.</p>
-        <Link to="/newsletters" className="button">
-          Back to list
-        </Link>
-      </div>
-    )
-  }
-
-  const handleDelete = () => {
-    const confirmed = window.confirm(
-      `Are you sure you want to delete "${newsletter.title}"? This action cannot be undone.`
-    )
-    if (confirmed) {
-      deleteDraft(newsletter.id)
-      // Dispatch event to refresh newsletter lists
-      window.dispatchEvent(new Event('newsletterPublished'))
-      alert('Newsletter deleted successfully!')
-      navigate('/newsletters')
-    }
-  }
-
-  const date = new Date(newsletter.date)
-  
-  // Check if this is a locally created newsletter (no sourcePath)
-  const isLocalNewsletter = !newsletter.sourcePath
-  const localDraft = isLocalNewsletter ? getDraftById(newsletter.id) : null
-  
-  const eagerMatch = !isLocalNewsletter ? findHtmlByMonthYear(date.getUTCMonth(), date.getUTCFullYear()) : null
-  const [htmlString, setHtmlString] = useState<string | null>(
-    localDraft ? generateNewsletterBodyHtml(localDraft) : (eagerMatch?.html ?? null)
+  const [newsletters, setNewsletters] = useState<Newsletter[] | null>(null)
+  const newsletter = useMemo(
+    () => (newsletters ? newsletters.find((n) => n.slug === slug) : undefined),
+    [slug, newsletters],
   )
-  const [sourcePath, setSourcePath] = useState<string | null>(eagerMatch?.path ?? null)
 
+  const isLocalNewsletter = !!newsletter && !newsletter.sourcePath
+
+  const [htmlString, setHtmlString] = useState<string | null>(null)
+  const [sourcePath, setSourcePath] = useState<string | null>(null)
+  const [sanitizedHtml, setSanitizedHtml] = useState<string | null>(null)
+  const [derivedTitle, setDerivedTitle] = useState<string | null>(null)
+
+  // Load the merged newsletter list (.htm archive + DB) to resolve this slug.
   useEffect(() => {
-    if (isLocalNewsletter && localDraft) {
-      setHtmlString(generateNewsletterBodyHtml(localDraft))
+    let cancelled = false
+    void getNewslettersAsync().then((list) => {
+      if (!cancelled) setNewsletters(list)
+    })
+    return () => {
+      cancelled = true
+    }
+  }, [])
+
+  // Load the body HTML for the resolved newsletter.
+  useEffect(() => {
+    if (!newsletter) {
+      setHtmlString(null)
       return
     }
-    
+    const date = new Date(newsletter.date)
     let cancelled = false
     ;(async () => {
+      // Custom (DB) newsletter: fetch the draft and render its body HTML.
+      if (!newsletter.sourcePath) {
+        const draft: NewsletterDraft | null = await getDraftByIdApi(newsletter.id)
+        if (cancelled) return
+        setHtmlString(draft ? generateNewsletterBodyHtml(draft) : null)
+        return
+      }
+
+      // .htm archive newsletter: load by path, or fall back to month/year match.
       const asyncMatch = newsletter.sourcePath
         ? await loadHtmlByPathAsync(newsletter.sourcePath)
         : await findHtmlByMonthYearAsync(date.getUTCMonth(), date.getUTCFullYear())
@@ -69,27 +65,25 @@ export default function NewsletterDetailPage() {
     return () => {
       cancelled = true
     }
-  }, [newsletter.slug, isLocalNewsletter])
+  }, [newsletter])
 
-  // Prepare sanitized inline HTML for native rendering
-  const [sanitizedHtml, setSanitizedHtml] = useState<string | null>(null)
-  const [derivedTitle, setDerivedTitle] = useState<string | null>(null)
+  // Prepare sanitized inline HTML for native rendering.
   useEffect(() => {
-    if (!htmlString) {
+    if (!newsletter || !htmlString) {
       setSanitizedHtml(null)
       setDerivedTitle(null)
       return
     }
-    
-    // For local newsletters, HTML is already safe
-    if (isLocalNewsletter) {
+
+    // For custom (DB) newsletters, the generated HTML is already safe.
+    if (!newsletter.sourcePath) {
       setSanitizedHtml(htmlString)
       setDerivedTitle(newsletter.title)
       return
     }
-    
+
     setSanitizedHtml(extractAndSanitizeBodyHtml(htmlString))
-    // Derive Month Year from HTML or path to show consistent title
+    // Derive Month Year from HTML or path to show a consistent title.
     const parsedFromPath = (sourcePath && parseMonthYearFromPath(sourcePath)) || null
     const parsedFromHtml = extractMonthYearFromHtml(htmlString)
     const parsed = parsedFromPath || parsedFromHtml
@@ -99,7 +93,46 @@ export default function NewsletterDetailPage() {
     } else {
       setDerivedTitle(null)
     }
-  }, [htmlString, isLocalNewsletter])
+  }, [htmlString, newsletter, sourcePath])
+
+  const handleDelete = () => {
+    if (!newsletter) return
+    const confirmed = window.confirm(
+      `Are you sure you want to delete "${newsletter.title}"? This action cannot be undone.`
+    )
+    if (confirmed) {
+      void deleteNewsletterApi(newsletter.id)
+        .then(() => {
+          // Dispatch event to refresh newsletter lists
+          window.dispatchEvent(new Event('newsletterPublished'))
+          alert('Newsletter deleted successfully!')
+          navigate('/newsletters')
+        })
+        .catch((error) => {
+          console.error('Failed to delete newsletter:', error)
+          alert('Failed to delete newsletter. Please try again.')
+        })
+    }
+  }
+
+  if (newsletters === null) {
+    return (
+      <div>
+        <p className="meta">Loading newsletter…</p>
+      </div>
+    )
+  }
+
+  if (!newsletter) {
+    return (
+      <div>
+        <p>Newsletter not found.</p>
+        <Link to="/newsletters" className="button">
+          Back to list
+        </Link>
+      </div>
+    )
+  }
 
   return (
     <article className="newsletter-detail">

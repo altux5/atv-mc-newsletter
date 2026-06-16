@@ -1,13 +1,13 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { getNewsletters } from '../../data/newsletters'
+import { getNewslettersAsync, type Newsletter } from '../../data/newsletters'
 import { extractAndSanitizeBodyHtml, extractBodyText, extractSectionSnippets, findHtmlByMonthYearAsync, loadHtmlByPathAsync } from '../../utils/newsletterHtml'
 import newsletterImage from '../../photos/newsletter image.png'
 import headerImage from '../../photos/new-header.jpg'
 import { CANONICAL_CHAPTER_TITLES, getChapterMatchKeys, normalizeChapterTitle } from '../../constants/chapters'
 
 export default function HomePage() {
-  const [newsletters, setNewsletters] = useState(() => getNewsletters())
+  const [newsletters, setNewsletters] = useState<Newsletter[]>([])
   const latest = newsletters[0]
   const [latestParagraphs, setLatestParagraphs] = useState<string[]>([])
   
@@ -27,13 +27,19 @@ export default function HomePage() {
   
   // Refresh newsletters on mount
   useEffect(() => {
-    setNewsletters(getNewsletters())
+    let cancelled = false
+    void getNewslettersAsync().then((list) => {
+      if (!cancelled) setNewsletters(list)
+    })
+    return () => {
+      cancelled = true
+    }
   }, [])
   
   // Listen for newsletter publish events
   useEffect(() => {
     const handleNewsletterPublished = () => {
-      setNewsletters(getNewsletters())
+      void getNewslettersAsync().then(setNewsletters)
     }
     window.addEventListener('newsletterPublished', handleNewsletterPublished)
     return () => window.removeEventListener('newsletterPublished', handleNewsletterPublished)

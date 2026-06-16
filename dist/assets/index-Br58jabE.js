@@ -10904,7 +10904,7 @@ function requireReactDomClient_production() {
     r: requestFormReset,
     D: prefetchDNS,
     C: preconnect,
-    L: preload,
+    L: preload2,
     m: preloadModule,
     X: preinitScript,
     S: preinitStyle,
@@ -10936,7 +10936,7 @@ function requireReactDomClient_production() {
     previousDispatcher.C(href, crossOrigin);
     preconnectAs("preconnect", href, crossOrigin);
   }
-  function preload(href, as, options2) {
+  function preload2(href, as, options2) {
     previousDispatcher.L(href, as, options2);
     var ownerDocument = globalDocument;
     if (ownerDocument && href && as) {
@@ -17960,6 +17960,61 @@ function RootLayout() {
     ] }) })
   ] });
 }
+const scriptRel = "modulepreload";
+const assetsURL = function(dep) {
+  return "/" + dep;
+};
+const seen = {};
+const __vitePreload = function preload(baseModule, deps, importerUrl) {
+  let promise = Promise.resolve();
+  if (deps && deps.length > 0) {
+    let allSettled2 = function(promises$2) {
+      return Promise.all(promises$2.map((p) => Promise.resolve(p).then((value$1) => ({
+        status: "fulfilled",
+        value: value$1
+      }), (reason) => ({
+        status: "rejected",
+        reason
+      }))));
+    };
+    var allSettled = allSettled2;
+    document.getElementsByTagName("link");
+    const cspNonceMeta = document.querySelector("meta[property=csp-nonce]");
+    const cspNonce = cspNonceMeta?.nonce || cspNonceMeta?.getAttribute("nonce");
+    promise = allSettled2(deps.map((dep) => {
+      dep = assetsURL(dep);
+      if (dep in seen) return;
+      seen[dep] = true;
+      const isCss = dep.endsWith(".css");
+      const cssSelector = isCss ? '[rel="stylesheet"]' : "";
+      if (document.querySelector(`link[href="${dep}"]${cssSelector}`)) return;
+      const link = document.createElement("link");
+      link.rel = isCss ? "stylesheet" : scriptRel;
+      if (!isCss) link.as = "script";
+      link.crossOrigin = "";
+      link.href = dep;
+      if (cspNonce) link.setAttribute("nonce", cspNonce);
+      document.head.appendChild(link);
+      if (isCss) return new Promise((res, rej) => {
+        link.addEventListener("load", res);
+        link.addEventListener("error", () => rej(/* @__PURE__ */ new Error(`Unable to preload CSS for ${dep}`)));
+      });
+    }));
+  }
+  function handlePreloadError(err$2) {
+    const e$1 = new Event("vite:preloadError", { cancelable: true });
+    e$1.payload = err$2;
+    window.dispatchEvent(e$1);
+    if (!e$1.defaultPrevented) throw err$2;
+  }
+  return promise.then((res) => {
+    for (const item of res || []) {
+      if (item.status !== "rejected") continue;
+      handlePreloadError(item.reason);
+    }
+    return baseModule().catch(handlePreloadError);
+  });
+};
 const __vite_glob_0_0 = "/assets/Automotive%20MC%20Newsletter%20-%20April%20'25%20edition-BDsU97TJ.htm";
 const __vite_glob_0_1 = "/assets/Automotive%20MC%20Newsletter%20-%20April%202024%20edition!-TiJSKTE2.htm";
 const __vite_glob_0_2 = "/assets/Automotive%20MC%20Newsletter%20-%20August%20'25%20edition-CGOsfQ0k.htm";
@@ -116873,20 +116928,6 @@ const germanMonthNames = {
   november: 10,
   dezember: 11
 };
-function findHtmlByMonthYear(monthIndexZeroBased, year) {
-  const month = monthNames[monthIndexZeroBased];
-  const yearStr = String(year);
-  const yy = String(year % 100).padStart(2, "0");
-  for (const [path, html2] of Object.entries(files)) {
-    const lower = path.toLowerCase();
-    const hasMonth = lower.includes(month);
-    const hasYear = lower.includes(yearStr) || lower.includes(` '${yy}`);
-    if (hasMonth && hasYear) {
-      return { html: decodePossiblyUtf16(html2), path };
-    }
-  }
-  return null;
-}
 async function findHtmlByMonthYearAsync(monthIndexZeroBased, year) {
   const month = monthNames[monthIndexZeroBased];
   const yearStr = String(year);
@@ -117246,7 +117287,7 @@ function slugifyHeading(text2) {
   return text2.toLowerCase().normalize("NFKD").replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
 }
 function assignStableHeadingIds(container2) {
-  const seen = /* @__PURE__ */ new Map();
+  const seen2 = /* @__PURE__ */ new Map();
   const headings = container2.querySelectorAll("h1, h2, h3, h4");
   headings.forEach((h2) => {
     const el = h2;
@@ -117255,9 +117296,9 @@ function assignStableHeadingIds(container2) {
     const raw = (el.textContent || "").trim();
     if (!raw) return;
     const base2 = slugifyHeading(raw) || "section";
-    const count = seen.get(base2) || 0;
+    const count = seen2.get(base2) || 0;
     const id = count === 0 ? base2 : `${base2}-${count + 1}`;
-    seen.set(base2, count + 1);
+    seen2.set(base2, count + 1);
     el.setAttribute("id", id);
   });
 }
@@ -117503,10 +117544,10 @@ function extractSectionSnippets(htmlDocumentString) {
       };
     }).filter((a) => a.title);
     const uniqueAnchors = [];
-    const seen = /* @__PURE__ */ new Set();
+    const seen2 = /* @__PURE__ */ new Set();
     for (const a of anchors) {
-      if (seen.has(a.headerEl)) continue;
-      seen.add(a.headerEl);
+      if (seen2.has(a.headerEl)) continue;
+      seen2.add(a.headerEl);
       uniqueAnchors.push(a);
     }
     const ordered = uniqueAnchors;
@@ -117583,17 +117624,6 @@ const STORAGE_KEY = "newsletter_drafts";
 function generateId() {
   return `draft_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
 }
-function saveDraft(draft) {
-  const drafts = getAllDrafts();
-  const existingIndex = drafts.findIndex((d) => d.id === draft.id);
-  draft.updatedAt = (/* @__PURE__ */ new Date()).toISOString();
-  if (existingIndex >= 0) {
-    drafts[existingIndex] = draft;
-  } else {
-    drafts.push(draft);
-  }
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(drafts));
-}
 function getAllDrafts() {
   try {
     const stored = localStorage.getItem(STORAGE_KEY);
@@ -117603,15 +117633,6 @@ function getAllDrafts() {
     console.error("Failed to load drafts from LocalStorage:", error);
     return [];
   }
-}
-function getDraftById(id) {
-  const drafts = getAllDrafts();
-  return drafts.find((d) => d.id === id) || null;
-}
-function deleteDraft(id) {
-  const drafts = getAllDrafts();
-  const filtered = drafts.filter((d) => d.id !== id);
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(filtered));
 }
 function draftToNewsletter(draft) {
   const monthName = new Date(Date.UTC(draft.year, draft.month, 1)).toLocaleString(void 0, {
@@ -117851,6 +117872,26 @@ function getNewsletters() {
   const allNewsletters = [...derived, ...localNewsletters].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
   return allNewsletters;
 }
+async function getNewslettersAsync() {
+  let dbNewsletters = [];
+  try {
+    const { getPublishedNewslettersApi: getPublishedNewslettersApi2 } = await __vitePreload(async () => {
+      const { getPublishedNewslettersApi: getPublishedNewslettersApi3 } = await Promise.resolve().then(() => newslettersApi);
+      return { getPublishedNewslettersApi: getPublishedNewslettersApi3 };
+    }, true ? [] : void 0);
+    dbNewsletters = await getPublishedNewslettersApi2();
+  } catch (error) {
+    console.error("Failed to load newsletters from API:", error);
+  }
+  const seen2 = /* @__PURE__ */ new Set();
+  const merged = [];
+  for (const n of [...derived, ...dbNewsletters]) {
+    if (seen2.has(n.id)) continue;
+    seen2.add(n.id);
+    merged.push(n);
+  }
+  return merged.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+}
 getNewsletters();
 const newsletterImage = "/assets/newsletter%20image-ByQ57XuM.png";
 const headerImage = "/assets/new-header-Cc2PnMTJ.jpg";
@@ -117877,7 +117918,7 @@ function getChapterMatchKeys(selectedTitle) {
   return [normalized];
 }
 function HomePage() {
-  const [newsletters, setNewsletters] = reactExports$1.useState(() => getNewsletters());
+  const [newsletters, setNewsletters] = reactExports$1.useState([]);
   const latest = newsletters[0];
   const [latestParagraphs, setLatestParagraphs] = reactExports$1.useState([]);
   const [textQuery, setTextQuery] = reactExports$1.useState("");
@@ -117892,11 +117933,17 @@ function HomePage() {
   const [matches2, setMatches] = reactExports$1.useState([]);
   const [isIndexBuilding, setIsIndexBuilding] = reactExports$1.useState(true);
   reactExports$1.useEffect(() => {
-    setNewsletters(getNewsletters());
+    let cancelled = false;
+    void getNewslettersAsync().then((list) => {
+      if (!cancelled) setNewsletters(list);
+    });
+    return () => {
+      cancelled = true;
+    };
   }, []);
   reactExports$1.useEffect(() => {
     const handleNewsletterPublished = () => {
-      setNewsletters(getNewsletters());
+      void getNewslettersAsync().then(setNewsletters);
     };
     window.addEventListener("newsletterPublished", handleNewsletterPublished);
     return () => window.removeEventListener("newsletterPublished", handleNewsletterPublished);
@@ -118739,10 +118786,97 @@ function HomePage() {
     )
   ] });
 }
+class AuthRequiredError extends Error {
+  constructor(message) {
+    super(message);
+    this.name = "AuthRequiredError";
+  }
+}
+async function apiFetch(input, init2) {
+  let res;
+  try {
+    res = await fetch(input, { ...init2, redirect: "manual", credentials: "include" });
+  } catch {
+    throw new AuthRequiredError(
+      "Could not reach the server. Your session may have expired — please refresh the page to sign in from your browser, then try again."
+    );
+  }
+  if (res.type === "opaqueredirect" || res.status === 401 || res.status === 403) {
+    throw new AuthRequiredError(
+      "You need to sign in to do that. Please refresh the page to sign in from your browser, then try again."
+    );
+  }
+  return res;
+}
+async function parseJson(res) {
+  if (!res.ok) {
+    let detail = "";
+    try {
+      const data = await res.json();
+      detail = data?.error ?? "";
+    } catch {
+    }
+    throw new Error(detail || `Request failed (${res.status})`);
+  }
+  return res.json();
+}
+const DRAFTS = "/api/drafts";
+const NEWSLETTERS = "/api/newsletters";
+async function getPublishedNewslettersApi() {
+  const res = await apiFetch(NEWSLETTERS);
+  return parseJson(res);
+}
+async function getDraftByIdApi(id) {
+  const res = await apiFetch(`${DRAFTS}/${encodeURIComponent(id)}`);
+  if (res.status === 404) return null;
+  return parseJson(res);
+}
+async function saveDraftApi(draft) {
+  const body = { ...draft, updatedAt: (/* @__PURE__ */ new Date()).toISOString() };
+  const res = await apiFetch(`${DRAFTS}/${encodeURIComponent(draft.id)}`, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(body)
+  });
+  return parseJson(res);
+}
+async function deleteDraftApi(id) {
+  const res = await apiFetch(`${DRAFTS}/${encodeURIComponent(id)}`, { method: "DELETE" });
+  if (!res.ok && res.status !== 404) {
+    throw new Error(`Failed to delete draft (${res.status})`);
+  }
+}
+async function publishNewsletterApi(draft) {
+  const published = { ...draft, status: "published" };
+  await saveDraftApi(published);
+  const summary = draftToNewsletter(published);
+  const res = await apiFetch(NEWSLETTERS, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(summary)
+  });
+  return parseJson(res);
+}
+async function deleteNewsletterApi(id) {
+  const res = await apiFetch(`${NEWSLETTERS}/${encodeURIComponent(id)}`, { method: "DELETE" });
+  if (!res.ok && res.status !== 404) {
+    throw new Error(`Failed to delete newsletter (${res.status})`);
+  }
+  await deleteDraftApi(id);
+}
+const newslettersApi = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  deleteDraftApi,
+  deleteNewsletterApi,
+  getDraftByIdApi,
+  getPublishedNewslettersApi,
+  publishNewsletterApi,
+  saveDraftApi
+}, Symbol.toStringTag, { value: "Module" }));
 function NewslettersPage() {
   const location = useLocation();
   const { isAuthenticated } = useAuth();
-  const [newsletters, setNewsletters] = reactExports$1.useState(() => getNewsletters());
+  const [newsletters, setNewsletters] = reactExports$1.useState([]);
   const [selectedChapter, setSelectedChapter] = reactExports$1.useState(null);
   const [sectionIndex, setSectionIndex] = reactExports$1.useState({});
   const [searchIndex, setSearchIndex] = reactExports$1.useState({});
@@ -118760,11 +118894,17 @@ function NewslettersPage() {
   const [page, setPage] = reactExports$1.useState(1);
   const pageSize = 9;
   reactExports$1.useEffect(() => {
-    setNewsletters(getNewsletters());
+    let cancelled = false;
+    void getNewslettersAsync().then((list) => {
+      if (!cancelled) setNewsletters(list);
+    });
+    return () => {
+      cancelled = true;
+    };
   }, [location.pathname]);
   reactExports$1.useEffect(() => {
     const handleNewsletterPublished = () => {
-      setNewsletters(getNewsletters());
+      void getNewslettersAsync().then(setNewsletters);
     };
     window.addEventListener("newsletterPublished", handleNewsletterPublished);
     return () => window.removeEventListener("newsletterPublished", handleNewsletterPublished);
@@ -119103,9 +119243,13 @@ function NewslettersPage() {
                 `Are you sure you want to delete "${n.title}"? This action cannot be undone.`
               );
               if (confirmed) {
-                deleteDraft(n.id);
-                window.dispatchEvent(new Event("newsletterPublished"));
-                setNewsletters(getNewsletters());
+                void deleteNewsletterApi(n.id).then(() => {
+                  window.dispatchEvent(new Event("newsletterPublished"));
+                  return getNewslettersAsync();
+                }).then(setNewsletters).catch((error) => {
+                  console.error("Failed to delete newsletter:", error);
+                  alert("Failed to delete newsletter. Please try again.");
+                });
               }
             };
             return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "newsletter-card-wrapper", children: [
@@ -119209,40 +119353,39 @@ function NewsletterDetailPage() {
   const { slug } = useParams();
   const navigate = useNavigate();
   const { isAuthenticated } = useAuth();
-  const [newsletters] = reactExports$1.useState(() => getNewsletters());
-  const newsletter = reactExports$1.useMemo(() => newsletters.find((n) => n.slug === slug), [slug, newsletters]);
-  if (!newsletter) {
-    return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "Newsletter not found." }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx(Link$1, { to: "/newsletters", className: "button", children: "Back to list" })
-    ] });
-  }
-  const handleDelete2 = () => {
-    const confirmed = window.confirm(
-      `Are you sure you want to delete "${newsletter.title}"? This action cannot be undone.`
-    );
-    if (confirmed) {
-      deleteDraft(newsletter.id);
-      window.dispatchEvent(new Event("newsletterPublished"));
-      alert("Newsletter deleted successfully!");
-      navigate("/newsletters");
-    }
-  };
-  const date = new Date(newsletter.date);
-  const isLocalNewsletter = !newsletter.sourcePath;
-  const localDraft = isLocalNewsletter ? getDraftById(newsletter.id) : null;
-  const eagerMatch = !isLocalNewsletter ? findHtmlByMonthYear(date.getUTCMonth(), date.getUTCFullYear()) : null;
-  const [htmlString, setHtmlString] = reactExports$1.useState(
-    localDraft ? generateNewsletterBodyHtml(localDraft) : eagerMatch?.html ?? null
+  const [newsletters, setNewsletters] = reactExports$1.useState(null);
+  const newsletter = reactExports$1.useMemo(
+    () => newsletters ? newsletters.find((n) => n.slug === slug) : void 0,
+    [slug, newsletters]
   );
-  const [sourcePath, setSourcePath] = reactExports$1.useState(eagerMatch?.path ?? null);
+  const isLocalNewsletter = !!newsletter && !newsletter.sourcePath;
+  const [htmlString, setHtmlString] = reactExports$1.useState(null);
+  const [sourcePath, setSourcePath] = reactExports$1.useState(null);
+  const [sanitizedHtml, setSanitizedHtml] = reactExports$1.useState(null);
+  const [derivedTitle, setDerivedTitle] = reactExports$1.useState(null);
   reactExports$1.useEffect(() => {
-    if (isLocalNewsletter && localDraft) {
-      setHtmlString(generateNewsletterBodyHtml(localDraft));
+    let cancelled = false;
+    void getNewslettersAsync().then((list) => {
+      if (!cancelled) setNewsletters(list);
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+  reactExports$1.useEffect(() => {
+    if (!newsletter) {
+      setHtmlString(null);
       return;
     }
+    const date = new Date(newsletter.date);
     let cancelled = false;
     (async () => {
+      if (!newsletter.sourcePath) {
+        const draft = await getDraftByIdApi(newsletter.id);
+        if (cancelled) return;
+        setHtmlString(draft ? generateNewsletterBodyHtml(draft) : null);
+        return;
+      }
       const asyncMatch = newsletter.sourcePath ? await loadHtmlByPathAsync(newsletter.sourcePath) : await findHtmlByMonthYearAsync(date.getUTCMonth(), date.getUTCFullYear());
       if (cancelled) return;
       if (asyncMatch) {
@@ -119253,16 +119396,14 @@ function NewsletterDetailPage() {
     return () => {
       cancelled = true;
     };
-  }, [newsletter.slug, isLocalNewsletter]);
-  const [sanitizedHtml, setSanitizedHtml] = reactExports$1.useState(null);
-  const [derivedTitle, setDerivedTitle] = reactExports$1.useState(null);
+  }, [newsletter]);
   reactExports$1.useEffect(() => {
-    if (!htmlString) {
+    if (!newsletter || !htmlString) {
       setSanitizedHtml(null);
       setDerivedTitle(null);
       return;
     }
-    if (isLocalNewsletter) {
+    if (!newsletter.sourcePath) {
       setSanitizedHtml(htmlString);
       setDerivedTitle(newsletter.title);
       return;
@@ -119277,7 +119418,32 @@ function NewsletterDetailPage() {
     } else {
       setDerivedTitle(null);
     }
-  }, [htmlString, isLocalNewsletter]);
+  }, [htmlString, newsletter, sourcePath]);
+  const handleDelete2 = () => {
+    if (!newsletter) return;
+    const confirmed = window.confirm(
+      `Are you sure you want to delete "${newsletter.title}"? This action cannot be undone.`
+    );
+    if (confirmed) {
+      void deleteNewsletterApi(newsletter.id).then(() => {
+        window.dispatchEvent(new Event("newsletterPublished"));
+        alert("Newsletter deleted successfully!");
+        navigate("/newsletters");
+      }).catch((error) => {
+        console.error("Failed to delete newsletter:", error);
+        alert("Failed to delete newsletter. Please try again.");
+      });
+    }
+  };
+  if (newsletters === null) {
+    return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { children: /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "meta", children: "Loading newsletter…" }) });
+  }
+  if (!newsletter) {
+    return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "Newsletter not found." }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Link$1, { to: "/newsletters", className: "button", children: "Back to list" })
+    ] });
+  }
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("article", { className: "newsletter-detail", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: { display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 16 }, children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx(Link$1, { to: "/newsletters", className: "back-link", children: "← Back to list" }),
@@ -119297,17 +119463,23 @@ function NewsletterDetailPage() {
 function NewslettersListPage() {
   const location = useLocation();
   const { isAuthenticated } = useAuth();
-  const [newsletters, setNewsletters] = reactExports$1.useState(() => getNewsletters());
+  const [newsletters, setNewsletters] = reactExports$1.useState([]);
   const [textQuery, setTextQuery] = reactExports$1.useState("");
   const [searchIndex, setSearchIndex] = reactExports$1.useState({});
   const [selectedMonth, setSelectedMonth] = reactExports$1.useState(null);
   const [selectedYear, setSelectedYear] = reactExports$1.useState(null);
   reactExports$1.useEffect(() => {
-    setNewsletters(getNewsletters());
+    let cancelled = false;
+    void getNewslettersAsync().then((list) => {
+      if (!cancelled) setNewsletters(list);
+    });
+    return () => {
+      cancelled = true;
+    };
   }, [location.pathname]);
   reactExports$1.useEffect(() => {
     const handleNewsletterPublished = () => {
-      setNewsletters(getNewsletters());
+      void getNewslettersAsync().then(setNewsletters);
     };
     window.addEventListener("newsletterPublished", handleNewsletterPublished);
     return () => window.removeEventListener("newsletterPublished", handleNewsletterPublished);
@@ -119415,9 +119587,13 @@ function NewslettersListPage() {
             `Are you sure you want to delete "${n.title}"? This action cannot be undone.`
           );
           if (confirmed) {
-            deleteDraft(n.id);
-            window.dispatchEvent(new Event("newsletterPublished"));
-            setNewsletters(getNewsletters());
+            void deleteNewsletterApi(n.id).then(() => {
+              window.dispatchEvent(new Event("newsletterPublished"));
+              return getNewslettersAsync();
+            }).then(setNewsletters).catch((error) => {
+              console.error("Failed to delete newsletter:", error);
+              alert("Failed to delete newsletter. Please try again.");
+            });
           }
         };
         return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { style: { position: "relative" }, children: /* @__PURE__ */ jsxRuntimeExports.jsxs(Link$1, { to: `/newsletters/${n.slug}`, className: "list-row", children: [
@@ -121201,15 +121377,15 @@ class ContentMatch {
   content expression.
   */
   fillBefore(after, toEnd = false, startIndex = 0) {
-    let seen = [this];
+    let seen2 = [this];
     function search(match, types) {
       let finished = match.matchFragment(after, startIndex);
       if (finished && (!toEnd || finished.validEnd))
         return Fragment.from(types.map((tp) => tp.createAndFill()));
       for (let i = 0; i < match.next.length; i++) {
         let { type, next } = match.next[i];
-        if (!(type.isText || type.hasRequiredAttrs()) && seen.indexOf(next) == -1) {
-          seen.push(next);
+        if (!(type.isText || type.hasRequiredAttrs()) && seen2.indexOf(next) == -1) {
+          seen2.push(next);
           let found2 = search(next, types.concat(type));
           if (found2)
             return found2;
@@ -121237,7 +121413,7 @@ class ContentMatch {
   @internal
   */
   computeWrapping(target) {
-    let seen = /* @__PURE__ */ Object.create(null), active = [{ match: this, type: null, via: null }];
+    let seen2 = /* @__PURE__ */ Object.create(null), active = [{ match: this, type: null, via: null }];
     while (active.length) {
       let current = active.shift(), match = current.match;
       if (match.matchType(target)) {
@@ -121248,9 +121424,9 @@ class ContentMatch {
       }
       for (let i = 0; i < match.next.length; i++) {
         let { type, next } = match.next[i];
-        if (!type.isLeaf && !type.hasRequiredAttrs() && !(type.name in seen) && (!current.type || next.validEnd)) {
+        if (!type.isLeaf && !type.hasRequiredAttrs() && !(type.name in seen2) && (!current.type || next.validEnd)) {
           active.push({ match: type.contentMatch, type, via: current });
-          seen[type.name] = true;
+          seen2[type.name] = true;
         }
       }
     }
@@ -121276,18 +121452,18 @@ class ContentMatch {
   @internal
   */
   toString() {
-    let seen = [];
+    let seen2 = [];
     function scan(m) {
-      seen.push(m);
+      seen2.push(m);
       for (let i = 0; i < m.next.length; i++)
-        if (seen.indexOf(m.next[i].next) == -1)
+        if (seen2.indexOf(m.next[i].next) == -1)
           scan(m.next[i].next);
     }
     scan(this);
-    return seen.map((m, i) => {
+    return seen2.map((m, i) => {
       let out = i + (m.validEnd ? "*" : " ") + " ";
       for (let i2 = 0; i2 < m.next.length; i2++)
-        out += (i2 ? ", " : "") + m.next[i2].type.name + "->" + seen.indexOf(m.next[i2].next);
+        out += (i2 ? ", " : "") + m.next[i2].type.name + "->" + seen2.indexOf(m.next[i2].next);
       return out;
     }).join("\n");
   }
@@ -122606,13 +122782,13 @@ function markMayApply(markType, nodeType) {
     let parent = nodes[name];
     if (!parent.allowsMarkType(markType))
       continue;
-    let seen = [], scan = (match) => {
-      seen.push(match);
+    let seen2 = [], scan = (match) => {
+      seen2.push(match);
       for (let i = 0; i < match.edgeCount; i++) {
         let { type, next } = match.edge(i);
         if (type == nodeType)
           return true;
-        if (seen.indexOf(next) < 0 && scan(next))
+        if (seen2.indexOf(next) < 0 && scan(next))
           return true;
       }
     };
@@ -125378,27 +125554,27 @@ class EditorState {
   applyTransaction(rootTr) {
     if (!this.filterTransaction(rootTr))
       return { state: this, transactions: [] };
-    let trs = [rootTr], newState = this.applyInner(rootTr), seen = null;
+    let trs = [rootTr], newState = this.applyInner(rootTr), seen2 = null;
     for (; ; ) {
       let haveNew = false;
       for (let i = 0; i < this.config.plugins.length; i++) {
         let plugin = this.config.plugins[i];
         if (plugin.spec.appendTransaction) {
-          let n = seen ? seen[i].n : 0, oldState = seen ? seen[i].state : this;
+          let n = seen2 ? seen2[i].n : 0, oldState = seen2 ? seen2[i].state : this;
           let tr2 = n < trs.length && plugin.spec.appendTransaction.call(plugin, n ? trs.slice(n) : trs, oldState, newState);
           if (tr2 && newState.filterTransaction(tr2, i)) {
             tr2.setMeta("appendedTransaction", rootTr);
-            if (!seen) {
-              seen = [];
+            if (!seen2) {
+              seen2 = [];
               for (let j = 0; j < this.config.plugins.length; j++)
-                seen.push(j < i ? { state: newState, n: trs.length } : { state: this, n: 0 });
+                seen2.push(j < i ? { state: newState, n: trs.length } : { state: this, n: 0 });
             }
             trs.push(tr2);
             newState = newState.applyInner(tr2);
             haveNew = true;
           }
-          if (seen)
-            seen[i] = { state: newState, n: trs.length };
+          if (seen2)
+            seen2[i] = { state: newState, n: trs.length };
         }
       }
       if (!haveNew)
@@ -130619,8 +130795,8 @@ function readDOMChange(view, from2, to, typeOver, addedNodes) {
   from2 = $before.before(shared + 1);
   to = view.state.doc.resolve(to).after(shared + 1);
   let sel = view.state.selection;
-  let parse2 = parseBetween(view, from2, to);
-  let doc2 = view.state.doc, compare = doc2.slice(parse2.from, parse2.to);
+  let parse = parseBetween(view, from2, to);
+  let doc2 = view.state.doc, compare = doc2.slice(parse.from, parse.to);
   let preferredPos, preferredSide;
   if (view.input.lastKeyCode === 8 && Date.now() - 100 < view.input.lastKeyCodeTime) {
     preferredPos = view.state.selection.to;
@@ -130630,7 +130806,7 @@ function readDOMChange(view, from2, to, typeOver, addedNodes) {
     preferredSide = "start";
   }
   view.input.lastKeyCode = null;
-  let change = findDiff(compare.content, parse2.doc.content, parse2.from, preferredPos, preferredSide);
+  let change = findDiff(compare.content, parse.doc.content, parse.from, preferredPos, preferredSide);
   if (change)
     view.input.domChangeCount++;
   if ((ios && view.input.lastIOSEnter > Date.now() - 225 || android) && addedNodes.some((n) => n.nodeType == 1 && !isInline.test(n.nodeName)) && (!change || change.endA >= change.endB) && view.someProp("handleKeyDown", (f) => f(view, keyEvent(13, "Enter")))) {
@@ -130638,11 +130814,11 @@ function readDOMChange(view, from2, to, typeOver, addedNodes) {
     return;
   }
   if (!change) {
-    if (typeOver && sel instanceof TextSelection && !sel.empty && sel.$head.sameParent(sel.$anchor) && !view.composing && !(parse2.sel && parse2.sel.anchor != parse2.sel.head)) {
+    if (typeOver && sel instanceof TextSelection && !sel.empty && sel.$head.sameParent(sel.$anchor) && !view.composing && !(parse.sel && parse.sel.anchor != parse.sel.head)) {
       change = { start: sel.from, endA: sel.to, endB: sel.to };
     } else {
-      if (parse2.sel) {
-        let sel2 = resolveSelection(view, view.state.doc, parse2.sel);
+      if (parse.sel) {
+        let sel2 = resolveSelection(view, view.state.doc, parse.sel);
         if (sel2 && !sel2.eq(view.state.selection)) {
           let tr2 = view.state.tr.setSelection(sel2);
           if (compositionID)
@@ -130654,23 +130830,23 @@ function readDOMChange(view, from2, to, typeOver, addedNodes) {
     }
   }
   if (view.state.selection.from < view.state.selection.to && change.start == change.endB && view.state.selection instanceof TextSelection) {
-    if (change.start > view.state.selection.from && change.start <= view.state.selection.from + 2 && view.state.selection.from >= parse2.from) {
+    if (change.start > view.state.selection.from && change.start <= view.state.selection.from + 2 && view.state.selection.from >= parse.from) {
       change.start = view.state.selection.from;
-    } else if (change.endA < view.state.selection.to && change.endA >= view.state.selection.to - 2 && view.state.selection.to <= parse2.to) {
+    } else if (change.endA < view.state.selection.to && change.endA >= view.state.selection.to - 2 && view.state.selection.to <= parse.to) {
       change.endB += view.state.selection.to - change.endA;
       change.endA = view.state.selection.to;
     }
   }
-  if (ie$1 && ie_version <= 11 && change.endB == change.start + 1 && change.endA == change.start && change.start > parse2.from && parse2.doc.textBetween(change.start - parse2.from - 1, change.start - parse2.from + 1) == "  ") {
+  if (ie$1 && ie_version <= 11 && change.endB == change.start + 1 && change.endA == change.start && change.start > parse.from && parse.doc.textBetween(change.start - parse.from - 1, change.start - parse.from + 1) == "  ") {
     change.start--;
     change.endA--;
     change.endB--;
   }
-  let $from = parse2.doc.resolveNoCache(change.start - parse2.from);
-  let $to = parse2.doc.resolveNoCache(change.endB - parse2.from);
+  let $from = parse.doc.resolveNoCache(change.start - parse.from);
+  let $to = parse.doc.resolveNoCache(change.endB - parse.from);
   let $fromA = doc2.resolve(change.start);
   let inlineChange = $from.sameParent($to) && $from.parent.inlineContent && $fromA.end() >= change.endA;
-  if ((ios && view.input.lastIOSEnter > Date.now() - 225 && (!inlineChange || addedNodes.some((n) => n.nodeName == "DIV" || n.nodeName == "P")) || !inlineChange && $from.pos < parse2.doc.content.size && (!$from.sameParent($to) || !$from.parent.inlineContent) && $from.pos < $to.pos && !/\S/.test(parse2.doc.textBetween($from.pos, $to.pos, "", ""))) && view.someProp("handleKeyDown", (f) => f(view, keyEvent(13, "Enter")))) {
+  if ((ios && view.input.lastIOSEnter > Date.now() - 225 && (!inlineChange || addedNodes.some((n) => n.nodeName == "DIV" || n.nodeName == "P")) || !inlineChange && $from.pos < parse.doc.content.size && (!$from.sameParent($to) || !$from.parent.inlineContent) && $from.pos < $to.pos && !/\S/.test(parse.doc.textBetween($from.pos, $to.pos, "", ""))) && view.someProp("handleKeyDown", (f) => f(view, keyEvent(13, "Enter")))) {
     view.input.lastIOSEnter = 0;
     return;
   }
@@ -130681,9 +130857,9 @@ function readDOMChange(view, from2, to, typeOver, addedNodes) {
   }
   if (chrome && change.endB == change.start)
     view.input.lastChromeDelete = Date.now();
-  if (android && !inlineChange && $from.start() != $to.start() && $to.parentOffset == 0 && $from.depth == $to.depth && parse2.sel && parse2.sel.anchor == parse2.sel.head && parse2.sel.head == change.endA) {
+  if (android && !inlineChange && $from.start() != $to.start() && $to.parentOffset == 0 && $from.depth == $to.depth && parse.sel && parse.sel.anchor == parse.sel.head && parse.sel.head == change.endA) {
     change.endB -= 2;
-    $to = parse2.doc.resolveNoCache(change.endB - parse2.from);
+    $to = parse.doc.resolveNoCache(change.endB - parse.from);
     setTimeout(() => {
       view.someProp("handleKeyDown", function(f) {
         return f(view, keyEvent(13, "Enter"));
@@ -130692,9 +130868,9 @@ function readDOMChange(view, from2, to, typeOver, addedNodes) {
   }
   let chFrom = change.start, chTo = change.endA;
   let mkTr = (base2) => {
-    let tr2 = base2 || view.state.tr.replace(chFrom, chTo, parse2.doc.slice(change.start - parse2.from, change.endB - parse2.from));
-    if (parse2.sel) {
-      let sel2 = resolveSelection(view, tr2.doc, parse2.sel);
+    let tr2 = base2 || view.state.tr.replace(chFrom, chTo, parse.doc.slice(change.start - parse.from, change.endB - parse.from));
+    if (parse.sel) {
+      let sel2 = resolveSelection(view, tr2.doc, parse.sel);
       if (sel2 && !(chrome && view.composing && sel2.empty && (change.start != change.endB || view.input.lastChromeDelete < Date.now() - 100) && (sel2.head == chFrom || sel2.head == tr2.mapping.map(chTo) - 1) || ie$1 && sel2.empty && sel2.head == chFrom))
         tr2.setSelection(sel2);
     }
@@ -133012,10 +133188,10 @@ function getAttributes(state, typeOrName) {
   return {};
 }
 function removeDuplicates(array, by = JSON.stringify) {
-  const seen = {};
+  const seen2 = {};
   return array.filter((item) => {
     const key = by(item);
-    return Object.prototype.hasOwnProperty.call(seen, key) ? false : seen[key] = true;
+    return Object.prototype.hasOwnProperty.call(seen2, key) ? false : seen2[key] = true;
   });
 }
 function simplifyChangedRanges(changes) {
@@ -142939,51 +143115,17 @@ function NewsletterPreview({ draft }) {
   ] });
 }
 const BASE = "/api/articles";
-class AuthRequiredError extends Error {
-  constructor(message) {
-    super(message);
-    this.name = "AuthRequiredError";
-  }
-}
-async function apiFetch(input, init2) {
-  let res;
-  try {
-    res = await fetch(input, { ...init2, redirect: "manual", credentials: "include" });
-  } catch {
-    throw new AuthRequiredError(
-      "Could not reach the server. Your session may have expired — please refresh the page to sign in from your browser, then try again."
-    );
-  }
-  if (res.type === "opaqueredirect" || res.status === 401 || res.status === 403) {
-    throw new AuthRequiredError(
-      "You need to sign in to do that. Please refresh the page to sign in from your browser, then try again."
-    );
-  }
-  return res;
-}
-async function parse(res) {
-  if (!res.ok) {
-    let detail = "";
-    try {
-      const data = await res.json();
-      detail = data?.error ?? "";
-    } catch {
-    }
-    throw new Error(detail || `Request failed (${res.status})`);
-  }
-  return res.json();
-}
 async function saveArticle(formData) {
   const res = await apiFetch(BASE, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(formData)
   });
-  return parse(res);
+  return parseJson(res);
 }
 async function getArticles() {
   const res = await apiFetch(BASE);
-  return parse(res);
+  return parseJson(res);
 }
 async function deleteArticle(id) {
   const res = await apiFetch(`${BASE}/${encodeURIComponent(id)}`, { method: "DELETE" });
@@ -142993,7 +143135,7 @@ async function deleteArticle(id) {
 }
 async function markArticleAsImported(id) {
   const res = await apiFetch(`${BASE}/${encodeURIComponent(id)}/import`, { method: "PATCH" });
-  await parse(res);
+  await parseJson(res);
 }
 async function getAvailableArticlesForImport() {
   return getArticles();
@@ -143036,11 +143178,15 @@ function CreateNewsletterPage() {
   });
   reactExports$1.useEffect(() => {
     if (id) {
-      const existingDraft = getDraftById(id);
-      if (existingDraft) {
+      let cancelled = false;
+      void getDraftByIdApi(id).then((existingDraft) => {
+        if (cancelled || !existingDraft) return;
         setDraft(existingDraft);
         setLastSaved(new Date(existingDraft.updatedAt));
-      }
+      });
+      return () => {
+        cancelled = true;
+      };
     }
   }, [id]);
   reactExports$1.useEffect(() => {
@@ -143054,7 +143200,7 @@ function CreateNewsletterPage() {
   const handleSave = async (showNotification = true) => {
     setIsSaving(true);
     try {
-      saveDraft(draft);
+      await saveDraftApi(draft);
       setLastSaved(/* @__PURE__ */ new Date());
       if (showNotification) {
         alert("Draft saved successfully!");
@@ -143062,7 +143208,8 @@ function CreateNewsletterPage() {
     } catch (error) {
       console.error("Failed to save draft:", error);
       if (showNotification) {
-        alert("Failed to save draft. Please try again.");
+        const message = error instanceof Error ? error.message : "Failed to save draft. Please try again.";
+        alert(message);
       }
     } finally {
       setIsSaving(false);
@@ -143082,11 +143229,16 @@ function CreateNewsletterPage() {
     );
     if (confirmed) {
       const draftToPublish = { ...draft, status: "published" };
-      saveDraft(draftToPublish);
-      setDraft(draftToPublish);
-      window.dispatchEvent(new Event("newsletterPublished"));
-      alert("Newsletter published successfully!");
-      navigate("/newsletters");
+      void publishNewsletterApi(draftToPublish).then(() => {
+        setDraft(draftToPublish);
+        window.dispatchEvent(new Event("newsletterPublished"));
+        alert("Newsletter published successfully!");
+        navigate("/newsletters");
+      }).catch((error) => {
+        console.error("Failed to publish newsletter:", error);
+        const message = error instanceof Error ? error.message : "Failed to publish newsletter. Please try again.";
+        alert(message);
+      });
     }
   };
   const updateDraft = (updates) => {

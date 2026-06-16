@@ -3,10 +3,9 @@ import { useNavigate, useParams } from 'react-router-dom'
 import type { NewsletterDraft, NewsletterChapter } from '../../types/newsletter-creation'
 import {
   createEmptyDraft,
-  saveDraft,
-  getDraftById,
   generateId,
 } from '../../utils/localNewsletters'
+import { saveDraftApi, getDraftByIdApi, publishNewsletterApi } from '../../utils/newslettersApi'
 import RichTextEditor from '../components/RichTextEditor'
 import NewsletterPreview from '../components/NewsletterPreview'
 import type { SubmittedArticle } from '../../types/article'
@@ -38,10 +37,14 @@ export default function CreateNewsletterPage() {
   // Load existing draft if editing
   useEffect(() => {
     if (id) {
-      const existingDraft = getDraftById(id)
-      if (existingDraft) {
+      let cancelled = false
+      void getDraftByIdApi(id).then((existingDraft) => {
+        if (cancelled || !existingDraft) return
         setDraft(existingDraft)
         setLastSaved(new Date(existingDraft.updatedAt))
+      })
+      return () => {
+        cancelled = true
       }
     }
   }, [id])
@@ -59,7 +62,7 @@ export default function CreateNewsletterPage() {
   const handleSave = async (showNotification = true) => {
     setIsSaving(true)
     try {
-      saveDraft(draft)
+      await saveDraftApi(draft)
       setLastSaved(new Date())
       if (showNotification) {
         alert('Draft saved successfully!')
@@ -67,7 +70,8 @@ export default function CreateNewsletterPage() {
     } catch (error) {
       console.error('Failed to save draft:', error)
       if (showNotification) {
-        alert('Failed to save draft. Please try again.')
+        const message = error instanceof Error ? error.message : 'Failed to save draft. Please try again.'
+        alert(message)
       }
     } finally {
       setIsSaving(false)
@@ -88,14 +92,20 @@ export default function CreateNewsletterPage() {
       'Are you sure you want to publish this newsletter? It will be visible to all users.'
     )
     if (confirmed) {
-      // Update draft status before saving
       const draftToPublish = { ...draft, status: 'published' as const }
-      saveDraft(draftToPublish)
-      setDraft(draftToPublish)
-      // Dispatch custom event to notify other components
-      window.dispatchEvent(new Event('newsletterPublished'))
-      alert('Newsletter published successfully!')
-      navigate('/newsletters')
+      void publishNewsletterApi(draftToPublish)
+        .then(() => {
+          setDraft(draftToPublish)
+          // Dispatch custom event to notify other components
+          window.dispatchEvent(new Event('newsletterPublished'))
+          alert('Newsletter published successfully!')
+          navigate('/newsletters')
+        })
+        .catch((error) => {
+          console.error('Failed to publish newsletter:', error)
+          const message = error instanceof Error ? error.message : 'Failed to publish newsletter. Please try again.'
+          alert(message)
+        })
     }
   }
 

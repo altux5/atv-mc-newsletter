@@ -151,6 +151,31 @@ export function getNewsletters(): Newsletter[] {
   return allNewsletters
 }
 
+// Async variant: merges the bundled .htm archive (derived, synchronous) with
+// published newsletters loaded from the database API. This is the two-track
+// source of truth — the .htm files stay as a read-only archive while new
+// newsletters live in PostgreSQL. Search/filter operate on this merged list,
+// so they automatically span both sources.
+export async function getNewslettersAsync(): Promise<Newsletter[]> {
+  let dbNewsletters: Newsletter[] = []
+  try {
+    const { getPublishedNewslettersApi } = await import('../utils/newslettersApi')
+    dbNewsletters = await getPublishedNewslettersApi()
+  } catch (error) {
+    // If the API is unreachable, still show the .htm archive rather than nothing.
+    console.error('Failed to load newsletters from API:', error)
+  }
+  // De-dupe by id in case a derived .htm and a DB row ever collide.
+  const seen = new Set<string>()
+  const merged: Newsletter[] = []
+  for (const n of [...derived, ...dbNewsletters]) {
+    if (seen.has(n.id)) continue
+    seen.add(n.id)
+    merged.push(n)
+  }
+  return merged.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+}
+
 // Export for backward compatibility - but components should use getNewsletters() for fresh data
 export const newsletters: Newsletter[] = getNewsletters()
 
