@@ -117571,7 +117571,7 @@ function extractSectionSnippets(htmlDocumentString) {
     return [];
   }
 }
-const STORAGE_KEY$1 = "newsletter_drafts";
+const STORAGE_KEY = "newsletter_drafts";
 function generateId() {
   return `draft_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
 }
@@ -117584,11 +117584,11 @@ function saveDraft(draft) {
   } else {
     drafts.push(draft);
   }
-  localStorage.setItem(STORAGE_KEY$1, JSON.stringify(drafts));
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(drafts));
 }
 function getAllDrafts() {
   try {
-    const stored = localStorage.getItem(STORAGE_KEY$1);
+    const stored = localStorage.getItem(STORAGE_KEY);
     if (!stored) return [];
     return JSON.parse(stored);
   } catch (error) {
@@ -117603,7 +117603,7 @@ function getDraftById(id) {
 function deleteDraft(id) {
   const drafts = getAllDrafts();
   const filtered = drafts.filter((d) => d.id !== id);
-  localStorage.setItem(STORAGE_KEY$1, JSON.stringify(filtered));
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(filtered));
 }
 function draftToNewsletter(draft) {
   const monthName = new Date(Date.UTC(draft.year, draft.month, 1)).toLocaleString(void 0, {
@@ -130611,8 +130611,8 @@ function readDOMChange(view, from2, to, typeOver, addedNodes) {
   from2 = $before.before(shared + 1);
   to = view.state.doc.resolve(to).after(shared + 1);
   let sel = view.state.selection;
-  let parse = parseBetween(view, from2, to);
-  let doc2 = view.state.doc, compare = doc2.slice(parse.from, parse.to);
+  let parse2 = parseBetween(view, from2, to);
+  let doc2 = view.state.doc, compare = doc2.slice(parse2.from, parse2.to);
   let preferredPos, preferredSide;
   if (view.input.lastKeyCode === 8 && Date.now() - 100 < view.input.lastKeyCodeTime) {
     preferredPos = view.state.selection.to;
@@ -130622,7 +130622,7 @@ function readDOMChange(view, from2, to, typeOver, addedNodes) {
     preferredSide = "start";
   }
   view.input.lastKeyCode = null;
-  let change = findDiff(compare.content, parse.doc.content, parse.from, preferredPos, preferredSide);
+  let change = findDiff(compare.content, parse2.doc.content, parse2.from, preferredPos, preferredSide);
   if (change)
     view.input.domChangeCount++;
   if ((ios && view.input.lastIOSEnter > Date.now() - 225 || android) && addedNodes.some((n) => n.nodeType == 1 && !isInline.test(n.nodeName)) && (!change || change.endA >= change.endB) && view.someProp("handleKeyDown", (f) => f(view, keyEvent(13, "Enter")))) {
@@ -130630,11 +130630,11 @@ function readDOMChange(view, from2, to, typeOver, addedNodes) {
     return;
   }
   if (!change) {
-    if (typeOver && sel instanceof TextSelection && !sel.empty && sel.$head.sameParent(sel.$anchor) && !view.composing && !(parse.sel && parse.sel.anchor != parse.sel.head)) {
+    if (typeOver && sel instanceof TextSelection && !sel.empty && sel.$head.sameParent(sel.$anchor) && !view.composing && !(parse2.sel && parse2.sel.anchor != parse2.sel.head)) {
       change = { start: sel.from, endA: sel.to, endB: sel.to };
     } else {
-      if (parse.sel) {
-        let sel2 = resolveSelection(view, view.state.doc, parse.sel);
+      if (parse2.sel) {
+        let sel2 = resolveSelection(view, view.state.doc, parse2.sel);
         if (sel2 && !sel2.eq(view.state.selection)) {
           let tr2 = view.state.tr.setSelection(sel2);
           if (compositionID)
@@ -130646,23 +130646,23 @@ function readDOMChange(view, from2, to, typeOver, addedNodes) {
     }
   }
   if (view.state.selection.from < view.state.selection.to && change.start == change.endB && view.state.selection instanceof TextSelection) {
-    if (change.start > view.state.selection.from && change.start <= view.state.selection.from + 2 && view.state.selection.from >= parse.from) {
+    if (change.start > view.state.selection.from && change.start <= view.state.selection.from + 2 && view.state.selection.from >= parse2.from) {
       change.start = view.state.selection.from;
-    } else if (change.endA < view.state.selection.to && change.endA >= view.state.selection.to - 2 && view.state.selection.to <= parse.to) {
+    } else if (change.endA < view.state.selection.to && change.endA >= view.state.selection.to - 2 && view.state.selection.to <= parse2.to) {
       change.endB += view.state.selection.to - change.endA;
       change.endA = view.state.selection.to;
     }
   }
-  if (ie$1 && ie_version <= 11 && change.endB == change.start + 1 && change.endA == change.start && change.start > parse.from && parse.doc.textBetween(change.start - parse.from - 1, change.start - parse.from + 1) == "  ") {
+  if (ie$1 && ie_version <= 11 && change.endB == change.start + 1 && change.endA == change.start && change.start > parse2.from && parse2.doc.textBetween(change.start - parse2.from - 1, change.start - parse2.from + 1) == "  ") {
     change.start--;
     change.endA--;
     change.endB--;
   }
-  let $from = parse.doc.resolveNoCache(change.start - parse.from);
-  let $to = parse.doc.resolveNoCache(change.endB - parse.from);
+  let $from = parse2.doc.resolveNoCache(change.start - parse2.from);
+  let $to = parse2.doc.resolveNoCache(change.endB - parse2.from);
   let $fromA = doc2.resolve(change.start);
   let inlineChange = $from.sameParent($to) && $from.parent.inlineContent && $fromA.end() >= change.endA;
-  if ((ios && view.input.lastIOSEnter > Date.now() - 225 && (!inlineChange || addedNodes.some((n) => n.nodeName == "DIV" || n.nodeName == "P")) || !inlineChange && $from.pos < parse.doc.content.size && (!$from.sameParent($to) || !$from.parent.inlineContent) && $from.pos < $to.pos && !/\S/.test(parse.doc.textBetween($from.pos, $to.pos, "", ""))) && view.someProp("handleKeyDown", (f) => f(view, keyEvent(13, "Enter")))) {
+  if ((ios && view.input.lastIOSEnter > Date.now() - 225 && (!inlineChange || addedNodes.some((n) => n.nodeName == "DIV" || n.nodeName == "P")) || !inlineChange && $from.pos < parse2.doc.content.size && (!$from.sameParent($to) || !$from.parent.inlineContent) && $from.pos < $to.pos && !/\S/.test(parse2.doc.textBetween($from.pos, $to.pos, "", ""))) && view.someProp("handleKeyDown", (f) => f(view, keyEvent(13, "Enter")))) {
     view.input.lastIOSEnter = 0;
     return;
   }
@@ -130673,9 +130673,9 @@ function readDOMChange(view, from2, to, typeOver, addedNodes) {
   }
   if (chrome && change.endB == change.start)
     view.input.lastChromeDelete = Date.now();
-  if (android && !inlineChange && $from.start() != $to.start() && $to.parentOffset == 0 && $from.depth == $to.depth && parse.sel && parse.sel.anchor == parse.sel.head && parse.sel.head == change.endA) {
+  if (android && !inlineChange && $from.start() != $to.start() && $to.parentOffset == 0 && $from.depth == $to.depth && parse2.sel && parse2.sel.anchor == parse2.sel.head && parse2.sel.head == change.endA) {
     change.endB -= 2;
-    $to = parse.doc.resolveNoCache(change.endB - parse.from);
+    $to = parse2.doc.resolveNoCache(change.endB - parse2.from);
     setTimeout(() => {
       view.someProp("handleKeyDown", function(f) {
         return f(view, keyEvent(13, "Enter"));
@@ -130684,9 +130684,9 @@ function readDOMChange(view, from2, to, typeOver, addedNodes) {
   }
   let chFrom = change.start, chTo = change.endA;
   let mkTr = (base2) => {
-    let tr2 = base2 || view.state.tr.replace(chFrom, chTo, parse.doc.slice(change.start - parse.from, change.endB - parse.from));
-    if (parse.sel) {
-      let sel2 = resolveSelection(view, tr2.doc, parse.sel);
+    let tr2 = base2 || view.state.tr.replace(chFrom, chTo, parse2.doc.slice(change.start - parse2.from, change.endB - parse2.from));
+    if (parse2.sel) {
+      let sel2 = resolveSelection(view, tr2.doc, parse2.sel);
       if (sel2 && !(chrome && view.composing && sel2.empty && (change.start != change.endB || view.input.lastChromeDelete < Date.now() - 100) && (sel2.head == chFrom || sel2.head == tr2.mapping.map(chTo) - 1) || ie$1 && sel2.empty && sel2.head == chFrom))
         tr2.setSelection(sel2);
     }
@@ -142930,66 +142930,42 @@ function NewsletterPreview({ draft }) {
     ] })
   ] });
 }
-const STORAGE_KEY = "submitted_articles";
-function generateArticleId() {
-  return `article_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
-}
-function saveArticle(formData) {
-  try {
-    const article = {
-      id: generateArticleId(),
-      ...formData,
-      submittedAt: (/* @__PURE__ */ new Date()).toISOString(),
-      importedToNewsletter: false
-    };
-    const existingArticles = getArticles();
-    existingArticles.push(article);
-    const dataToStore = JSON.stringify(existingArticles);
-    const sizeInMB = new TextEncoder().encode(dataToStore).length / (1024 * 1024);
-    if (sizeInMB > 4) {
-      throw new Error("Article data is too large. Please use a smaller image or contact support.");
-    }
+const BASE = "/api/articles";
+async function parse(res) {
+  if (!res.ok) {
+    let detail = "";
     try {
-      localStorage.setItem(STORAGE_KEY, dataToStore);
-    } catch (storageError) {
-      if (storageError instanceof DOMException && storageError.name === "QuotaExceededError") {
-        throw new Error("Storage limit exceeded. Please clear some data or use a smaller image.");
-      }
-      throw storageError;
+      const data = await res.json();
+      detail = data?.error ?? "";
+    } catch {
     }
-    return article;
-  } catch (error) {
-    if (error instanceof Error) {
-      throw error;
-    }
-    if (error instanceof DOMException && error.name === "QuotaExceededError") {
-      throw new Error("Storage limit exceeded. Please clear some data or use a smaller image.");
-    }
-    throw new Error("Failed to save article. Please try again or contact support.");
+    throw new Error(detail || `Request failed (${res.status})`);
+  }
+  return res.json();
+}
+async function saveArticle(formData) {
+  const res = await fetch(BASE, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(formData)
+  });
+  return parse(res);
+}
+async function getArticles() {
+  const res = await fetch(BASE);
+  return parse(res);
+}
+async function deleteArticle(id) {
+  const res = await fetch(`${BASE}/${encodeURIComponent(id)}`, { method: "DELETE" });
+  if (!res.ok && res.status !== 404) {
+    throw new Error(`Failed to delete article (${res.status})`);
   }
 }
-function getArticles() {
-  try {
-    const stored = localStorage.getItem(STORAGE_KEY);
-    return stored ? JSON.parse(stored) : [];
-  } catch (error) {
-    console.error("Error reading articles from localStorage:", error);
-    return [];
-  }
+async function markArticleAsImported(id) {
+  const res = await fetch(`${BASE}/${encodeURIComponent(id)}/import`, { method: "PATCH" });
+  await parse(res);
 }
-function deleteArticle(id) {
-  const articles = getArticles();
-  const filtered = articles.filter((article) => article.id !== id);
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(filtered));
-}
-function markArticleAsImported(id) {
-  const articles = getArticles();
-  const updated = articles.map(
-    (article) => article.id === id ? { ...article, importedToNewsletter: true } : article
-  );
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(updated));
-}
-function getAvailableArticlesForImport() {
+async function getAvailableArticlesForImport() {
   return getArticles();
 }
 async function refineContent(html2, options = {}) {
@@ -143157,15 +143133,20 @@ function CreateNewsletterPage() {
   const removeHeaderImage = () => {
     updateDraft({ headerImage: void 0 });
   };
-  const openArticleImport = () => {
-    const articles = getAvailableArticlesForImport();
-    setAvailableArticles(articles);
+  const openArticleImport = async () => {
+    try {
+      const articles = await getAvailableArticlesForImport();
+      setAvailableArticles(articles);
+    } catch (error) {
+      console.error("Failed to load articles:", error);
+      setAvailableArticles([]);
+    }
     setShowArticleImport(true);
   };
   const closeArticleImport = () => {
     setShowArticleImport(false);
   };
-  const importArticle = (article) => {
+  const importArticle = async (article) => {
     let htmlContent = "";
     if (article.template === "portrait") {
       htmlContent = `
@@ -143200,8 +143181,12 @@ function CreateNewsletterPage() {
       ...prev,
       chapters: [...prev.chapters, newChapter]
     }));
-    markArticleAsImported(article.id);
-    const updatedArticles = getAvailableArticlesForImport();
+    try {
+      await markArticleAsImported(article.id);
+    } catch (error) {
+      console.error("Failed to mark article as imported:", error);
+    }
+    const updatedArticles = await getAvailableArticlesForImport();
     setAvailableArticles(updatedArticles);
     alert("Article imported successfully!");
   };
@@ -143752,7 +143737,7 @@ function SubmitArticlePage() {
       }
     }
   };
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!title.trim()) {
       alert("Please enter a title for your article.");
@@ -143777,7 +143762,7 @@ function SubmitArticlePage() {
     }
     setIsSubmitting(true);
     try {
-      saveArticle({
+      await saveArticle({
         template: selectedTemplate,
         title: title.trim(),
         content: content.trim(),
@@ -143977,21 +143962,31 @@ function SubmitArticlePage() {
 }
 function AdminArticlesPage() {
   const [articles, setArticles] = reactExports$1.useState([]);
-  const loadArticles = () => {
-    const allArticles = getArticles();
-    const sorted = allArticles.sort(
-      (a, b) => new Date(b.submittedAt).getTime() - new Date(a.submittedAt).getTime()
-    );
-    setArticles(sorted);
+  const loadArticles = async () => {
+    try {
+      const allArticles = await getArticles();
+      const sorted = [...allArticles].sort(
+        (a, b) => new Date(b.submittedAt).getTime() - new Date(a.submittedAt).getTime()
+      );
+      setArticles(sorted);
+    } catch (error) {
+      console.error("Failed to load articles:", error);
+      setArticles([]);
+    }
   };
   reactExports$1.useEffect(() => {
     loadArticles();
   }, []);
-  const handleDelete2 = (id) => {
+  const handleDelete2 = async (id) => {
     const confirmed = window.confirm("Are you sure you want to delete this article? This action cannot be undone.");
     if (confirmed) {
-      deleteArticle(id);
-      loadArticles();
+      try {
+        await deleteArticle(id);
+      } catch (error) {
+        console.error("Failed to delete article:", error);
+        alert("Failed to delete article. Please try again.");
+      }
+      await loadArticles();
     }
   };
   const formatDate = (isoString) => {
