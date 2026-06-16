@@ -17804,7 +17804,7 @@ function RouterProvider2(props) {
 const OAUTH_SIGN_IN_PATH = "/oauth2/sign_in";
 const OAUTH_SIGN_OUT_PATH = "/oauth2/sign_out";
 const OAUTH_USERINFO_PATH = "/oauth2/userinfo";
-const EDITOR_EMAILS = "sAltugEren.Cogalgil@infineon.com".split(",").map((entry) => entry.trim().toLowerCase()).filter(Boolean);
+const EDITOR_EMAILS = "AltugEren.Cogalgil@infineon.com".split(",").map((entry) => entry.trim().toLowerCase()).filter(Boolean);
 function normalizeEmail(value) {
   return value?.trim().toLowerCase() ?? "";
 }
