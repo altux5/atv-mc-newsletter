@@ -4,8 +4,11 @@ import { getArticles, deleteArticle } from '../../utils/articlesApi'
 
 export default function AdminArticlesPage() {
   const [articles, setArticles] = useState<SubmittedArticle[]>([])
+  const [loadError, setLoadError] = useState<string | null>(null)
+  const [isLoading, setIsLoading] = useState(true)
 
   const loadArticles = async () => {
+    setIsLoading(true)
     try {
       const allArticles = await getArticles()
       // Sort by submission date, newest first
@@ -13,9 +16,17 @@ export default function AdminArticlesPage() {
         new Date(b.submittedAt).getTime() - new Date(a.submittedAt).getTime()
       )
       setArticles(sorted)
+      setLoadError(null)
     } catch (error) {
       console.error('Failed to load articles:', error)
       setArticles([])
+      setLoadError(
+        error instanceof Error
+          ? error.message
+          : 'Could not load articles. Please try again.',
+      )
+    } finally {
+      setIsLoading(false)
     }
   }
 
@@ -56,14 +67,28 @@ export default function AdminArticlesPage() {
             Manage article submissions for newsletters
           </p>
         </div>
-        <div className="empty-state">
-          <p style={{ fontSize: 18, color: 'var(--muted)' }}>
-            No articles have been submitted yet.
-          </p>
-          <p className="meta">
-            When users submit articles, they will appear here for review.
-          </p>
-        </div>
+        {isLoading ? (
+          <div className="empty-state">
+            <p style={{ fontSize: 18, color: 'var(--muted)' }}>Loading articles…</p>
+          </div>
+        ) : loadError ? (
+          <div className="empty-state">
+            <p style={{ fontSize: 18, color: '#dc2626' }}>Couldn’t load articles</p>
+            <p className="meta">{loadError}</p>
+            <button type="button" className="button small" onClick={loadArticles} style={{ marginTop: 12 }}>
+              Try again
+            </button>
+          </div>
+        ) : (
+          <div className="empty-state">
+            <p style={{ fontSize: 18, color: 'var(--muted)' }}>
+              No articles have been submitted yet.
+            </p>
+            <p className="meta">
+              When users submit articles, they will appear here for review.
+            </p>
+          </div>
+        )}
       </div>
     )
   }

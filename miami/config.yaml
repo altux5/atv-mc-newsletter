@@ -142,66 +142,102 @@ routes:
     method: GET
     service: atv-mc-newsletter
     roles:
+      - Project Owners
+      - Administrators
       - Developers
+      - Editors
   - path: /api/articles/*
     method: GET
     service: atv-mc-newsletter
     roles:
+      - Project Owners
+      - Administrators
       - Developers
+      - Editors
   - path: /api/articles/*
     method: DELETE
     service: atv-mc-newsletter
     roles:
+      - Project Owners
+      - Administrators
       - Developers
+      - Editors
   - path: /api/articles/*/import
     method: PATCH
     service: atv-mc-newsletter
     roles:
+      - Project Owners
+      - Administrators
       - Developers
+      - Editors
 
   # Newsletter mutations are editor-only (reading is public, see skipAuthRoute).
   - path: /api/newsletters
     method: POST
     service: atv-mc-newsletter
     roles:
+      - Project Owners
+      - Administrators
       - Developers
+      - Editors
   - path: /api/newsletters/*
     method: PUT
     service: atv-mc-newsletter
     roles:
+      - Project Owners
+      - Administrators
       - Developers
+      - Editors
   - path: /api/newsletters/*
     method: DELETE
     service: atv-mc-newsletter
     roles:
+      - Project Owners
+      - Administrators
       - Developers
+      - Editors
 
   # Newsletter editor drafts are entirely editor-only (all methods).
   - path: /api/drafts
     method: GET
     service: atv-mc-newsletter
     roles:
+      - Project Owners
+      - Administrators
       - Developers
+      - Editors
   - path: /api/drafts
     method: POST
     service: atv-mc-newsletter
     roles:
+      - Project Owners
+      - Administrators
       - Developers
+      - Editors
   - path: /api/drafts/*
     method: GET
     service: atv-mc-newsletter
     roles:
+      - Project Owners
+      - Administrators
       - Developers
+      - Editors
   - path: /api/drafts/*
     method: PUT
     service: atv-mc-newsletter
     roles:
+      - Project Owners
+      - Administrators
       - Developers
+      - Editors
   - path: /api/drafts/*
     method: DELETE
     service: atv-mc-newsletter
     roles:
+      - Project Owners
+      - Administrators
       - Developers
+      - Editors
 
   # NOTE: POST /api/articles is intentionally NOT listed here. It falls through
   # to the /** catch-all (any authenticated user), so ANY logged-in employee can
