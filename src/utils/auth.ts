@@ -2,6 +2,14 @@ const OAUTH_SIGN_IN_PATH = import.meta.env.VITE_OAUTH_SIGN_IN_PATH ?? '/oauth2/s
 const OAUTH_SIGN_OUT_PATH = import.meta.env.VITE_OAUTH_SIGN_OUT_PATH ?? '/oauth2/sign_out'
 const OAUTH_USERINFO_PATH = import.meta.env.VITE_OAUTH_USERINFO_PATH ?? '/oauth2/userinfo'
 
+// Editors are identified by an email allowlist (VITE_EDITOR_EMAILS, comma-
+// separated), inlined at build time. This gates only the editor UI; the MIAMI
+// gateway + RDSP roles are the real enforcement for editor API routes/pages.
+const EDITOR_EMAILS: ReadonlyArray<string> = (import.meta.env.VITE_EDITOR_EMAILS ?? '')
+  .split(',')
+  .map((entry) => entry.trim().toLowerCase())
+  .filter(Boolean)
+
 export interface AuthUser {
   email: string
   name?: string
@@ -64,7 +72,15 @@ export function redirectToLogout(returnTo = '/'): void {
 }
 
 export function isEditor(user: AuthUser | null): boolean {
-  return user !== null
+  if (!user) return false
+  if (EDITOR_EMAILS.length === 0) {
+    console.warn(
+      '[auth] VITE_EDITOR_EMAILS is empty; no users are treated as editors. ' +
+        'Set it in .env (comma-separated emails) and rebuild.',
+    )
+    return false
+  }
+  return EDITOR_EMAILS.includes(normalizeEmail(user.email))
 }
 
 export async function fetchCurrentUser(): Promise<AuthUser | null> {
