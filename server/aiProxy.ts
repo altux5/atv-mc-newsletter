@@ -1,118 +1,154 @@
 /// <reference types="node" />
 import fs from 'fs'
 import path from 'path'
+import { fileURLToPath } from 'url'
 import express, { type Request, type Response } from 'express'
 import dotenv from 'dotenv'
 import { Agent as UndiciAgent } from 'undici'
+import { dbApi } from './dbApi.js'
+import { ensureSchema } from './db.js'
 
 dotenv.config()
 
 const app = express()
-app.use(express.json({ limit: '1mb' }))
+// Limit is generous because submitted articles embed base64 images.
+app.use(express.json({ limit: '15mb' }))
 
-const requiredEnv = ['AI_BASE_URL', 'AI_MODEL', 'AI_CA_BUNDLE']
-const missing = requiredEnv.filter((key) => !process.env[key])
-if (missing.length > 0) {
-  console.warn(`[ai-proxy] Missing env vars: ${missing.join(', ')}. Using defaults where possible.`)
-}
+// Database-backed REST API (newsletters, drafts, articles).
+app.use('/api', dbApi)
 
-const baseUrl = process.env.AI_BASE_URL ?? 'https://gpt4ifx.icp.infineon.com'
-const model = process.env.AI_MODEL ?? 'gpt-5-mini'
-const caBundlePath = process.env.AI_CA_BUNDLE ?? 'ca-bundle.crt'
-const caFullPath = path.isAbsolute(caBundlePath)
-  ? caBundlePath
-  : path.join(process.cwd(), caBundlePath)
+// --- AI refine route (optional) -------------------------------------------
+// The AI proxy is optional. If its CA bundle or credentials are missing, the
+// server still boots (to serve the SPA and the database API) and the refine
+// route returns 503 instead of crashing the whole process at startup.
+function setupAiRefine(): void {
+  const baseUrl = process.env.AI_BASE_URL ?? 'https://gpt4ifx.icp.infineon.com'
+  const model = process.env.AI_MODEL ?? 'gpt-5-mini'
+  const caBundlePath = process.env.AI_CA_BUNDLE ?? 'ca-bundle.crt'
+  const caFullPath = path.isAbsolute(caBundlePath)
+    ? caBundlePath
+    : path.join(process.cwd(), caBundlePath)
 
-if (!fs.existsSync(caFullPath)) {
-  throw new Error(`[ai-proxy] CA bundle not found at ${caFullPath}. Download it and set AI_CA_BUNDLE.`)
-}
+  const username = process.env.AI_USERNAME
+  const password = process.env.AI_PASSWORD
+  const bearerToken = process.env.AI_TOKEN
+  const hasAuth = Boolean((username && password) || bearerToken)
+  const hasCa = fs.existsSync(caFullPath)
 
-const ca = fs.readFileSync(caFullPath)
-// Undici Agent with custom CA for fetch
-const dispatcher = new UndiciAgent({
-  connect: {
-    ca,
-  },
-  keepAliveTimeout: 30_000,
-})
-
-const username = process.env.AI_USERNAME
-const password = process.env.AI_PASSWORD
-const bearerToken = process.env.AI_TOKEN
-
-if (!((username && password) || bearerToken)) {
-  throw new Error(
-    '[ai-proxy] Authentication required!\n' +
-    '  Option 1: Set AI_USERNAME and AI_PASSWORD in .env for Basic Auth\n' +
-    '  Option 2: Set AI_TOKEN in .env for Bearer Auth (preferred)\n' +
-    '  See: https://gpt4ifx.icp.infineon.com/docs'
-  )
-}
-
-const useBasic = Boolean(username && password)
-const authHeader = useBasic
-  ? `Basic ${Buffer.from(`${username}:${password}`).toString('base64')}`
-  : `Bearer ${bearerToken}`
-
-app.post('/api/refine', async (req: Request, res: Response) => {
-  const { content, context } = req.body ?? {}
-
-  if (!content || typeof content !== 'string') {
-    return res.status(400).json({ error: 'Missing content to refine.' })
+  if (!hasCa || !hasAuth) {
+    const reasons = [
+      !hasCa ? `CA bundle not found at ${caFullPath}` : null,
+      !hasAuth ? 'no AI_TOKEN or AI_USERNAME/AI_PASSWORD set' : null,
+    ]
+      .filter(Boolean)
+      .join('; ')
+    console.warn(`[ai-proxy] AI refine disabled (${reasons}). The /api/refine route will return 503.`)
+    app.post('/api/refine', (_req: Request, res: Response) => {
+      res.status(503).json({ error: 'AI refine is not configured on this server.' })
+    })
+    return
   }
 
-  try {
-    const requestInit: RequestInit & { dispatcher: UndiciAgent } = {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: authHeader,
-      },
-      body: JSON.stringify({
-        model,
-        
-        messages: [
-          {
-            role: 'system',
-            content:
-              'You are a precise newsletter editor. Improve clarity, grammar, and flow. Keep HTML tags/links/images intact. Return only refined HTML.',
-          },
-          {
-            role: 'user',
-            content: `Context: ${context || 'newsletter section'}\n\nHTML content:\n${content}`,
-          },
-        ],
-      }),
-      dispatcher,
+  const ca = fs.readFileSync(caFullPath)
+  // Undici Agent with custom CA for fetch.
+  const dispatcher = new UndiciAgent({
+    connect: { ca },
+    keepAliveTimeout: 30_000,
+  })
+
+  const authHeader =
+    username && password
+      ? `Basic ${Buffer.from(`${username}:${password}`).toString('base64')}`
+      : `Bearer ${bearerToken}`
+
+  app.post('/api/refine', async (req: Request, res: Response) => {
+    const { content, context } = req.body ?? {}
+
+    if (!content || typeof content !== 'string') {
+      return res.status(400).json({ error: 'Missing content to refine.' })
     }
 
-    const response = await fetch(`${baseUrl}/chat/completions`, requestInit)
+    try {
+      const requestInit: RequestInit & { dispatcher: UndiciAgent } = {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: authHeader,
+        },
+        body: JSON.stringify({
+          model,
+          messages: [
+            {
+              role: 'system',
+              content:
+                'You are a precise newsletter editor. Improve clarity, grammar, and flow. Keep HTML tags/links/images intact. Return only refined HTML.',
+            },
+            {
+              role: 'user',
+              content: `Context: ${context || 'newsletter section'}\n\nHTML content:\n${content}`,
+            },
+          ],
+        }),
+        dispatcher,
+      }
 
-    if (!response.ok) {
-      const errorText = await response.text()
-      console.error('[ai-proxy] Upstream error:', response.status, errorText)
-      return res.status(502).json({ error: 'AI service error', detail: errorText })
+      const response = await fetch(`${baseUrl}/chat/completions`, requestInit)
+
+      if (!response.ok) {
+        const errorText = await response.text()
+        console.error('[ai-proxy] Upstream error:', response.status, errorText)
+        return res.status(502).json({ error: 'AI service error', detail: errorText })
+      }
+
+      const data = (await response.json()) as {
+        choices?: Array<{ message?: { content?: string } }>
+      }
+      const refined = data.choices?.[0]?.message?.content?.trim()
+
+      if (!refined) {
+        return res.status(500).json({ error: 'AI returned empty response.' })
+      }
+
+      return res.json({ refined })
+    } catch (error) {
+      console.error('[ai-proxy] Request failed:', error)
+      const message = error instanceof Error ? error.message : 'Unknown error'
+      return res.status(500).json({ error: message })
     }
+  })
+  console.log('[ai-proxy] AI refine enabled.')
+}
 
-    const data = (await response.json()) as {
-      choices?: Array<{ message?: { content?: string } }>
+setupAiRefine()
+
+// --- static SPA (production) ----------------------------------------------
+// When a built frontend is present (dist/), this single server also serves the
+// SPA. In local dev the Vite dev server serves the frontend instead and proxies
+// /api here, so this block is simply skipped when dist/ is absent.
+const here = path.dirname(fileURLToPath(import.meta.url))
+const distDir = path.join(here, '..', 'dist')
+if (fs.existsSync(distDir)) {
+  app.use(express.static(distDir))
+  // SPA fallback: any non-API route returns index.html for client-side routing.
+  app.get('*', (req: Request, res: Response) => {
+    if (req.path.startsWith('/api/')) {
+      return res.status(404).json({ error: 'Not found' })
     }
-    const refined = data.choices?.[0]?.message?.content?.trim()
+    res.sendFile(path.join(distDir, 'index.html'))
+  })
+  console.log(`[server] serving static SPA from ${distDir}`)
+}
 
-    if (!refined) {
-      return res.status(500).json({ error: 'AI returned empty response.' })
-    }
-
-    return res.json({ refined })
-  } catch (error) {
-    console.error('[ai-proxy] Request failed:', error)
-    const message = error instanceof Error ? error.message : 'Unknown error'
-    return res.status(500).json({ error: message })
-  }
+// Knative/OpenShift inject PORT (usually 8080); fall back to PROXY_PORT for dev.
+const port = Number(process.env.PORT ?? process.env.PROXY_PORT ?? 8788)
+app.listen(port, '0.0.0.0', () => {
+  console.log(`[server] listening on http://0.0.0.0:${port}`)
 })
 
-const port = Number(process.env.PROXY_PORT ?? 8788)
-app.listen(port, () => {
-  console.log(`[ai-proxy] listening on http://localhost:${port}`)
+// Ensure the database schema exists. Non-fatal: the server still serves the SPA
+// and AI proxy (and returns per-request errors on DB routes) if the DB is down.
+ensureSchema().catch((error) => {
+  const message = error instanceof Error ? error.message : 'Unknown error'
+  console.warn(`[db] schema init skipped: ${message}`)
 })
 

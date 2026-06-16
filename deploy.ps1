@@ -28,9 +28,34 @@ git push origin deploy-dev
 Write-Host "`nTriggering OpenShift build..." -ForegroundColor Cyan
 oc start-build news-build -n atv-mc-newsletter-build --follow
 
-Write-Host "`nUpdating Knative service with new image..." -ForegroundColor Cyan
+Write-Host "`nUpdating Knative service with new image, DB secret, and min-scale..." -ForegroundColor Cyan
 $newImage = oc get istag news-build:latest -n atv-mc-newsletter-build -o jsonpath='{.image.dockerImageReference}'
-$patch = "{`"spec`":{`"template`":{`"spec`":{`"containers`":[{`"name`":`"news-dev`",`"image`":`"$newImage`"}]}}}}"
+# Build the patch as an object and serialize it, so the image, the DB secret
+# (envFrom) and the min-scale annotation are all applied together. Note: oc set
+# env does NOT work on Knative services, which is why the secret is wired here.
+$patchObj = @{
+    spec = @{
+        template = @{
+            metadata = @{
+                annotations = @{
+                    'autoscaling.knative.dev/min-scale' = '1'
+                }
+            }
+            spec = @{
+                containers = @(
+                    @{
+                        name    = 'news-dev'
+                        image   = $newImage
+                        envFrom = @(
+                            @{ secretRef = @{ name = 'newsletter-db' } }
+                        )
+                    }
+                )
+            }
+        }
+    }
+}
+$patch = $patchObj | ConvertTo-Json -Depth 10 -Compress
 oc patch ksvc/news-dev -n atv-mc-newsletter-development --type merge -p $patch
 
 Write-Host "`nDone! New revision deployed." -ForegroundColor Green

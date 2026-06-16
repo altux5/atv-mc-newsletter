@@ -15,6 +15,9 @@ pnpm-debug.log*
 .env*
 !.env.example
 
+# OpenShift real secrets (keep only the *.example.yaml templates)
+openshift/*.secret.yaml
+
 # Testing
 coverage/
 

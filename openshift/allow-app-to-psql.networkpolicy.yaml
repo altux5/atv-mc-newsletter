@@ -1,0 +1,30 @@
+# Allow the app namespace to reach the StackGres PostgreSQL pods.
+#
+# StackGres pods are covered by NetworkPolicies, so cross-namespace traffic is
+# denied by default. This policy explicitly allows ingress FROM the app
+# namespace TO the database pods on the PostgreSQL/pgBouncer port.
+#
+# Apply it into the DATABASE namespace:
+#   oc apply -f openshift/allow-app-to-psql.networkpolicy.yaml
+#
+# Namespaces are matched by the built-in kubernetes.io/metadata.name label,
+# which Kubernetes sets automatically on every namespace.
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: allow-app-to-postgres
+  namespace: atv-mc-newsletter-psql
+spec:
+  podSelector:
+    matchLabels:
+      stackgres.io/cluster-name: atv-news-stackgres-clust
+  policyTypes:
+    - Ingress
+  ingress:
+    - from:
+        - namespaceSelector:
+            matchLabels:
+              kubernetes.io/metadata.name: atv-mc-newsletter-development
+      ports:
+        - protocol: TCP
+          port: 5432
