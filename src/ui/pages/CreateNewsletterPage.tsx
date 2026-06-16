@@ -10,7 +10,7 @@ import {
 import RichTextEditor from '../components/RichTextEditor'
 import NewsletterPreview from '../components/NewsletterPreview'
 import type { SubmittedArticle } from '../../types/article'
-import { getAvailableArticlesForImport, markArticleAsImported } from '../../utils/localArticles'
+import { getAvailableArticlesForImport, markArticleAsImported } from '../../utils/articlesApi'
 import type { ArticleTemplate } from '../../types/article'
 import { refineContent } from '../../utils/aiRefine'
 import { CANONICAL_CHAPTER_TITLES, isCanonicalChapterTitle } from '../../constants/chapters'
@@ -181,9 +181,14 @@ export default function CreateNewsletterPage() {
     updateDraft({ headerImage: undefined })
   }
 
-  const openArticleImport = () => {
-    const articles = getAvailableArticlesForImport()
-    setAvailableArticles(articles)
+  const openArticleImport = async () => {
+    try {
+      const articles = await getAvailableArticlesForImport()
+      setAvailableArticles(articles)
+    } catch (error) {
+      console.error('Failed to load articles:', error)
+      setAvailableArticles([])
+    }
     setShowArticleImport(true)
   }
 
@@ -191,7 +196,7 @@ export default function CreateNewsletterPage() {
     setShowArticleImport(false)
   }
 
-  const importArticle = (article: SubmittedArticle) => {
+  const importArticle = async (article: SubmittedArticle) => {
     // Convert article to chapter content based on template
     let htmlContent = ''
     
@@ -235,10 +240,14 @@ export default function CreateNewsletterPage() {
     }))
 
     // Mark article as imported
-    markArticleAsImported(article.id)
-    
+    try {
+      await markArticleAsImported(article.id)
+    } catch (error) {
+      console.error('Failed to mark article as imported:', error)
+    }
+
     // Update available articles list
-    const updatedArticles = getAvailableArticlesForImport()
+    const updatedArticles = await getAvailableArticlesForImport()
     setAvailableArticles(updatedArticles)
 
     alert('Article imported successfully!')

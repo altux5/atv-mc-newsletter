@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import type { ArticleTemplate } from '../../types/article'
-import { saveArticle } from '../../utils/localArticles'
+import { saveArticle } from '../../utils/articlesApi'
 
 export default function SubmitArticlePage() {
   const navigate = useNavigate()
@@ -100,7 +100,7 @@ export default function SubmitArticlePage() {
     }
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
 
     // Validation
@@ -132,7 +132,7 @@ export default function SubmitArticlePage() {
 
     setIsSubmitting(true)
     try {
-      saveArticle({
+      await saveArticle({
         template: selectedTemplate,
         title: title.trim(),
         content: content.trim(),

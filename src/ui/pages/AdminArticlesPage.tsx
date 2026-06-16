@@ -1,28 +1,38 @@
 import { useState, useEffect } from 'react'
 import type { SubmittedArticle } from '../../types/article'
-import { getArticles, deleteArticle } from '../../utils/localArticles'
+import { getArticles, deleteArticle } from '../../utils/articlesApi'
 
 export default function AdminArticlesPage() {
   const [articles, setArticles] = useState<SubmittedArticle[]>([])
 
-  const loadArticles = () => {
-    const allArticles = getArticles()
-    // Sort by submission date, newest first
-    const sorted = allArticles.sort((a, b) => 
-      new Date(b.submittedAt).getTime() - new Date(a.submittedAt).getTime()
-    )
-    setArticles(sorted)
+  const loadArticles = async () => {
+    try {
+      const allArticles = await getArticles()
+      // Sort by submission date, newest first
+      const sorted = [...allArticles].sort((a, b) =>
+        new Date(b.submittedAt).getTime() - new Date(a.submittedAt).getTime()
+      )
+      setArticles(sorted)
+    } catch (error) {
+      console.error('Failed to load articles:', error)
+      setArticles([])
+    }
   }
 
   useEffect(() => {
     loadArticles()
   }, [])
 
-  const handleDelete = (id: string) => {
+  const handleDelete = async (id: string) => {
     const confirmed = window.confirm('Are you sure you want to delete this article? This action cannot be undone.')
     if (confirmed) {
-      deleteArticle(id)
-      loadArticles()
+      try {
+        await deleteArticle(id)
+      } catch (error) {
+        console.error('Failed to delete article:', error)
+        alert('Failed to delete article. Please try again.')
+      }
+      await loadArticles()
     }
   }
 
