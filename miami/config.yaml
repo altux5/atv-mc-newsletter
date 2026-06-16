@@ -59,6 +59,8 @@ authentication:
     - GET=^/newsletters$
     - GET=^/newsletters/list$
     - GET=^/newsletters/[^/]*-[^/]*$
+    - GET=^/api/newsletters$
+    - GET=^/api/newsletters/[^/]+$
     - GET=^/submit-article$
     - GET=^/login$
 
@@ -134,6 +136,76 @@ routes:
     service: atv-mc-newsletter
     method: ANY
 
+   # --- Database API: editor-only (Developers) ---------------------------
+  # Reviewing/managing submitted articles (NOT submitting — see note below).
+  - path: /api/articles
+    method: GET
+    service: atv-mc-newsletter
+    roles:
+      - Developers
+  - path: /api/articles/*
+    method: GET
+    service: atv-mc-newsletter
+    roles:
+      - Developers
+  - path: /api/articles/*
+    method: DELETE
+    service: atv-mc-newsletter
+    roles:
+      - Developers
+  - path: /api/articles/*/import
+    method: PATCH
+    service: atv-mc-newsletter
+    roles:
+      - Developers
+
+  # Newsletter mutations are editor-only (reading is public, see skipAuthRoute).
+  - path: /api/newsletters
+    method: POST
+    service: atv-mc-newsletter
+    roles:
+      - Developers
+  - path: /api/newsletters/*
+    method: PUT
+    service: atv-mc-newsletter
+    roles:
+      - Developers
+  - path: /api/newsletters/*
+    method: DELETE
+    service: atv-mc-newsletter
+    roles:
+      - Developers
+
+  # Newsletter editor drafts are entirely editor-only (all methods).
+  - path: /api/drafts
+    method: GET
+    service: atv-mc-newsletter
+    roles:
+      - Developers
+  - path: /api/drafts
+    method: POST
+    service: atv-mc-newsletter
+    roles:
+      - Developers
+  - path: /api/drafts/*
+    method: GET
+    service: atv-mc-newsletter
+    roles:
+      - Developers
+  - path: /api/drafts/*
+    method: PUT
+    service: atv-mc-newsletter
+    roles:
+      - Developers
+  - path: /api/drafts/*
+    method: DELETE
+    service: atv-mc-newsletter
+    roles:
+      - Developers
+
+  # NOTE: POST /api/articles is intentionally NOT listed here. It falls through
+  # to the /** catch-all (any authenticated user), so ANY logged-in employee can
+  # submit an article, but only Developers can review/delete/import them.
   # Everything else — any authenticated user with a role can access
   - path: /**
     service: atv-mc-newsletter
