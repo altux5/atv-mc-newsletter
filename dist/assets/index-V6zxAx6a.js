@@ -143992,16 +143992,25 @@ function SubmitArticlePage() {
 }
 function AdminArticlesPage() {
   const [articles, setArticles] = reactExports$1.useState([]);
+  const [loadError, setLoadError] = reactExports$1.useState(null);
+  const [isLoading, setIsLoading] = reactExports$1.useState(true);
   const loadArticles = async () => {
+    setIsLoading(true);
     try {
       const allArticles = await getArticles();
       const sorted = [...allArticles].sort(
         (a, b) => new Date(b.submittedAt).getTime() - new Date(a.submittedAt).getTime()
       );
       setArticles(sorted);
+      setLoadError(null);
     } catch (error) {
       console.error("Failed to load articles:", error);
       setArticles([]);
+      setLoadError(
+        error instanceof Error ? error.message : "Could not load articles. Please try again."
+      );
+    } finally {
+      setIsLoading(false);
     }
   };
   reactExports$1.useEffect(() => {
@@ -144035,7 +144044,11 @@ function AdminArticlesPage() {
         /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { style: { color: "var(--brand)", margin: 0 }, children: "Review Submitted Articles" }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "meta", style: { marginTop: 8 }, children: "Manage article submissions for newsletters" })
       ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "empty-state", children: [
+      isLoading ? /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "empty-state", children: /* @__PURE__ */ jsxRuntimeExports.jsx("p", { style: { fontSize: 18, color: "var(--muted)" }, children: "Loading articles…" }) }) : loadError ? /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "empty-state", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { style: { fontSize: 18, color: "#dc2626" }, children: "Couldn’t load articles" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "meta", children: loadError }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "button small", onClick: loadArticles, style: { marginTop: 12 }, children: "Try again" })
+      ] }) : /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "empty-state", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx("p", { style: { fontSize: 18, color: "var(--muted)" }, children: "No articles have been submitted yet." }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "meta", children: "When users submit articles, they will appear here for review." })
       ] })
