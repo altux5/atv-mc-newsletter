@@ -17804,6 +17804,7 @@ function RouterProvider2(props) {
 const OAUTH_SIGN_IN_PATH = "/oauth2/sign_in";
 const OAUTH_SIGN_OUT_PATH = "/oauth2/sign_out";
 const OAUTH_USERINFO_PATH = "/oauth2/userinfo";
+const EDITOR_EMAILS = "AltugEren.Cogalgil@infineon.com".split(",").map((entry) => entry.trim().toLowerCase()).filter(Boolean);
 function normalizeEmail(value) {
   return value?.trim().toLowerCase() ?? "";
 }
@@ -17842,7 +17843,14 @@ function redirectToLogout(returnTo = "/") {
   window.location.assign(getLogoutUrl(returnTo));
 }
 function isEditor(user) {
-  return user !== null;
+  if (!user) return false;
+  if (EDITOR_EMAILS.length === 0) {
+    console.warn(
+      "[auth] VITE_EDITOR_EMAILS is empty; no users are treated as editors. Set it in .env (comma-separated emails) and rebuild."
+    );
+    return false;
+  }
+  return EDITOR_EMAILS.includes(normalizeEmail(user.email));
 }
 async function fetchCurrentUser() {
   try {
@@ -142931,6 +142939,28 @@ function NewsletterPreview({ draft }) {
   ] });
 }
 const BASE = "/api/articles";
+class AuthRequiredError extends Error {
+  constructor(message) {
+    super(message);
+    this.name = "AuthRequiredError";
+  }
+}
+async function apiFetch(input, init2) {
+  let res;
+  try {
+    res = await fetch(input, { ...init2, redirect: "manual", credentials: "include" });
+  } catch {
+    throw new AuthRequiredError(
+      "Could not reach the server. Your session may have expired — please refresh the page to sign in from your browser, then try again."
+    );
+  }
+  if (res.type === "opaqueredirect" || res.status === 401 || res.status === 403) {
+    throw new AuthRequiredError(
+      "You need to sign in to do that. Please refresh the page to sign in from your browser, then try again."
+    );
+  }
+  return res;
+}
 async function parse(res) {
   if (!res.ok) {
     let detail = "";
@@ -142944,7 +142974,7 @@ async function parse(res) {
   return res.json();
 }
 async function saveArticle(formData) {
-  const res = await fetch(BASE, {
+  const res = await apiFetch(BASE, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(formData)
@@ -142952,17 +142982,17 @@ async function saveArticle(formData) {
   return parse(res);
 }
 async function getArticles() {
-  const res = await fetch(BASE);
+  const res = await apiFetch(BASE);
   return parse(res);
 }
 async function deleteArticle(id) {
-  const res = await fetch(`${BASE}/${encodeURIComponent(id)}`, { method: "DELETE" });
+  const res = await apiFetch(`${BASE}/${encodeURIComponent(id)}`, { method: "DELETE" });
   if (!res.ok && res.status !== 404) {
     throw new Error(`Failed to delete article (${res.status})`);
   }
 }
 async function markArticleAsImported(id) {
-  const res = await fetch(`${BASE}/${encodeURIComponent(id)}/import`, { method: "PATCH" });
+  const res = await apiFetch(`${BASE}/${encodeURIComponent(id)}/import`, { method: "PATCH" });
   await parse(res);
 }
 async function getAvailableArticlesForImport() {
