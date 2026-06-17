@@ -1720,30 +1720,42 @@ a { color: var(--text); text-decoration: none; }
   accent-color: var(--brand);
 }
 .layout-glyph {
-  position: relative;
-  width: 30px;
-  height: 30px;
   flex: 0 0 auto;
+  width: 38px;
+  height: 28px;
   border: 1px solid #cbd5e1;
-  background: #eef2f7;
+  background: #fff;
+  display: flex;
+  gap: 3px;
+  padding: 3px;
 }
 .layout-glyph::before {
   content: '';
-  position: absolute;
   background: var(--brand);
-  opacity: 0.6;
+  opacity: 0.65;
+  border-radius: 1px;
+}
+.layout-glyph::after {
+  content: '';
+  flex: 1;
+  background: #e2e8f0;
+  border-radius: 1px;
+}
+.layout-glyph--portrait {
+  flex-direction: row;
 }
 .layout-glyph--portrait::before {
-  left: 3px;
-  top: 3px;
-  bottom: 3px;
-  width: 9px;
+  width: 11px;
+  align-self: stretch;
+}
+.layout-glyph--landscape {
+  flex-direction: column;
 }
 .layout-glyph--landscape::before {
-  left: 3px;
-  top: 3px;
-  right: 3px;
   height: 9px;
+}
+.layout-option.selected .layout-glyph::before {
+  opacity: 1;
 }
 .layout-name {
   display: flex;
@@ -1802,11 +1814,11 @@ a { color: var(--text); text-decoration: none; }
   flex: 0 0 auto;
 }
 .article-layout--portrait .article-image-col {
-  width: 200px;
+  width: 300px;
 }
 .article-layout--landscape .article-image-col {
   width: 100%;
-  max-width: 360px;
+  max-width: none;
 }
 .article-content-col {
   flex: 1;
@@ -1833,7 +1845,7 @@ a { color: var(--text); text-decoration: none; }
   justify-content: center;
 }
 .article-layout--portrait .article-image-box {
-  width: 200px;
+  width: 300px;
 }
 .article-image-box img {
   width: 100%;
@@ -2171,6 +2183,7 @@ a { color: var(--text); text-decoration: none; }
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 12px;
   margin-bottom: 12px;
 }
 .nl-edit-head-label {
@@ -2181,13 +2194,35 @@ a { color: var(--text); text-decoration: none; }
   display: flex;
   align-items: center;
   gap: 8px;
+  flex: 0 0 auto;
+}
+/* Article title doubles as the editor heading — looks like the masthead inputs */
+.nl-article-title-input {
+  flex: 1;
+  min-width: 0;
+  border: 1px solid transparent;
+  background: transparent;
+  font-family: inherit;
+  font-size: 13pt;
+  font-weight: 700;
+  color: #222;
+  padding: 4px 6px;
+  border-radius: 4px;
+}
+.nl-article-title-input:hover {
+  border-color: #e5e7eb;
+}
+.nl-article-title-input:focus {
+  outline: none;
+  border-color: var(--brand);
+  background: #fff;
 }
 
 /* Auto navigation bar */
 .nl-nav {
   position: relative;
   background: var(--brand);
-  padding: 14px 18px;
+  padding: 22px 18px;
   margin: 8px 0 4px;
 }
 .nl-nav-title {
@@ -2304,7 +2339,7 @@ a { color: var(--text); text-decoration: none; }
   background: #f3f5f7;
 }
 .nl-article--portrait .nl-article-img {
-  width: 200px;
+  width: 300px;
 }
 .nl-article-img img {
   width: 100%;
@@ -2362,6 +2397,74 @@ a { color: var(--text); text-decoration: none; }
   border-style: solid;
   font-size: 15px;
   padding: 12px;
+}
+
+/* Footer (click to edit) */
+.nl-footer {
+  margin-top: 28px;
+  padding: 20px 12px 6px;
+  border-top: 1px solid #e5e7eb;
+  text-align: center;
+  font-size: 10.5pt;
+  line-height: 1.6;
+  color: #333;
+}
+.nl-footer p {
+  margin: 6px 0;
+}
+.nl-footer a {
+  color: var(--brand);
+}
+.nl-footer-edit {
+  margin-top: 24px;
+}
+
+/* Draft import modal list */
+.draft-import-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.draft-import-row {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 100%;
+  text-align: left;
+  padding: 12px 14px;
+  border: 1px solid #e5e7eb;
+  background: #fff;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: border-color 140ms ease, background 140ms ease;
+}
+.draft-import-row:hover {
+  border-color: var(--brand);
+  background: var(--brand-ghost);
+}
+.draft-import-main {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.draft-import-title {
+  font-weight: 600;
+  color: var(--text);
+}
+.draft-status {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  padding: 1px 8px;
+  border-radius: 999px;
+}
+.draft-status--draft {
+  background: #fef3c7;
+  color: #92400e;
+}
+.draft-status--published {
+  background: #dcfce7;
+  color: #166534;
 }
 
 @media (max-width: 768px) {

@@ -10,6 +10,15 @@ const STORAGE_KEY = 'newsletter_drafts'
 
 export const DEFAULT_SUBTITLE = 'We make green mobility smart!'
 
+/** Default newsletter footer. Links taken from the historic .htm newsletters. */
+export const DEFAULT_FOOTER_HTML =
+  '<p><a href="http://www.infineon.com/cms/en/corporate/imprint.html">Imprint</a>' +
+  '&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.infineon.com/cms/en/corporate/company/contact/">Contact</a>' +
+  '&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.infineon.com/cms/en/corporate/privacy-policy.html">Privacy Policy</a></p>' +
+  '<p>\u00a9 1999 - 2026 Infineon Technologies AG</p>' +
+  '<p>Want to feature an article in the next newsletter? Contact us at ' +
+  '<a href="mailto:R-IFX-ATVMCnewsletter@infineon.com">R-IFX-ATVMCnewsletter@infineon.com</a></p>'
+
 // Generate unique ID
 export function generateId(): string {
   return `draft_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`
@@ -63,6 +72,7 @@ export function normalizeDraft(draft: NewsletterDraft): NewsletterDraft {
   return {
     ...draft,
     subtitle: draft.subtitle || DEFAULT_SUBTITLE,
+    footerContent: draft.footerContent || DEFAULT_FOOTER_HTML,
     chapters: chapters.length > 0 ? chapters : [createEmptyChapter()],
   }
 }
@@ -173,6 +183,7 @@ export function createEmptyDraft(): NewsletterDraft {
     headerImage: undefined,
     introContent: '',
     chapters: [createEmptyChapter()],
+    footerContent: DEFAULT_FOOTER_HTML,
     status: 'draft',
     createdAt: now.toISOString(),
     updatedAt: now.toISOString(),

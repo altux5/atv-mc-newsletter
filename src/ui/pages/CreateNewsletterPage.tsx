@@ -14,7 +14,7 @@ import {
   computeAutoTitle,
   generateId,
 } from '../../utils/localNewsletters'
-import { saveDraftApi, getDraftByIdApi, publishNewsletterApi } from '../../utils/newslettersApi'
+import { saveDraftApi, getDraftByIdApi, getAllDraftsApi, publishNewsletterApi } from '../../utils/newslettersApi'
 import RichTextEditor from '../components/RichTextEditor'
 import type { SubmittedArticle } from '../../types/article'
 import { getAvailableArticlesForImport, markArticleAsImported } from '../../utils/articlesApi'
@@ -100,8 +100,7 @@ function ArticleDisplay({ article }: { article: NewsletterArticle }) {
           className="nl-article-img"
           style={{
             aspectRatio: aspectRatioCss(ARTICLE_CROP[article.template]),
-            width: article.template === 'portrait' ? 200 : undefined,
-            maxWidth: article.template === 'landscape' ? 600 : undefined,
+            width: article.template === 'portrait' ? 300 : '100%',
           }}
         >
           <img src={article.image} alt="" />
@@ -121,6 +120,8 @@ export default function CreateNewsletterPage() {
   const [lastSaved, setLastSaved] = useState<Date | null>(null)
   const [showArticleImport, setShowArticleImport] = useState(false)
   const [availableArticles, setAvailableArticles] = useState<SubmittedArticle[]>([])
+  const [showDraftImport, setShowDraftImport] = useState(false)
+  const [availableDrafts, setAvailableDrafts] = useState<NewsletterDraft[]>([])
   // Live-canvas editing: which block / article is currently open for editing.
   const [activeBlock, setActiveBlock] = useState<string | null>(null)
   const [activeArticleId, setActiveArticleId] = useState<string | null>(null)
@@ -367,6 +368,34 @@ export default function CreateNewsletterPage() {
     setShowArticleImport(false)
   }
 
+  const openDraftImport = async () => {
+    try {
+      const drafts = await getAllDraftsApi()
+      // Most-recent first; don't offer the draft we're already editing.
+      const sorted = drafts
+        .filter((d) => d.id !== draft.id)
+        .sort((a, b) => (a.updatedAt < b.updatedAt ? 1 : -1))
+      setAvailableDrafts(sorted)
+    } catch (error) {
+      console.error('Failed to load drafts:', error)
+      setAvailableDrafts([])
+    }
+    setShowDraftImport(true)
+  }
+
+  const closeDraftImport = () => {
+    setShowDraftImport(false)
+  }
+
+  const openDraft = (target: NewsletterDraft) => {
+    setShowDraftImport(false)
+    setActiveBlock(null)
+    setActiveArticleId(null)
+    if (target.id === id) return
+    // Navigating to the edit route loads the draft via the id effect.
+    navigate(`/newsletters/edit/${target.id}`)
+  }
+
   const importArticle = async (article: SubmittedArticle) => {
     // Import the submitted article as a new chapter holding one article. The
     // contributor's image is already sized; the chapter title (AURIX™, TRAVEO™,
@@ -413,8 +442,8 @@ export default function CreateNewsletterPage() {
           {lastSaved && (
             <span className="meta nl-saved">Saved {lastSaved.toLocaleTimeString()}</span>
           )}
-          <button type="button" onClick={openArticleImport} className="button secondary">
-            📥 Import Article
+          <button type="button" onClick={openDraftImport} className="button secondary">
+            📂 Import Draft
           </button>
           <button
             type="button"
@@ -534,7 +563,6 @@ export default function CreateNewsletterPage() {
         {/* Auto-generated navigation bar */}
         {draft.chapters.some((c) => c.title.trim()) && (
           <div className="nl-nav">
-            <div className="nl-nav-title">In this issue</div>
             <div className="nl-nav-items">
               {draft.chapters
                 .filter((c) => c.title.trim())
@@ -621,13 +649,30 @@ export default function CreateNewsletterPage() {
               </div>
             </div>
 
-            {chapter.articles.map((article, aIndex) => (
+            {chapter.articles.map((article) => (
               <div key={article.id} className="nl-article-slot">
                 {activeArticleId === article.id ? (
                   <div className="nl-article-edit">
                     <div className="nl-edit-head">
-                      <span className="nl-edit-head-label">Article {aIndex + 1}</span>
+                      <input
+                        className="nl-article-title-input"
+                        value={article.title}
+                        onChange={(e) =>
+                          updateArticle(chapter.id, article.id, { title: e.target.value })
+                        }
+                        placeholder="Article title…"
+                        maxLength={140}
+                        aria-label="Article title"
+                      />
                       <div className="nl-edit-head-actions">
+                        <button
+                          type="button"
+                          className="button small secondary"
+                          title="Import a submitted article into this chapter"
+                          onClick={openArticleImport}
+                        >
+                          📥 Import
+                        </button>
                         <button
                           type="button"
                           className="button icon danger"
@@ -645,21 +690,6 @@ export default function CreateNewsletterPage() {
                           Done
                         </button>
                       </div>
-                    </div>
-
-                    <div className="form-group">
-                      <label>
-                        Article Title <span className="meta">(bold heading)</span>
-                      </label>
-                      <input
-                        type="text"
-                        value={article.title}
-                        onChange={(e) =>
-                          updateArticle(chapter.id, article.id, { title: e.target.value })
-                        }
-                        placeholder="e.g., New AURIX™ TC4x evaluation board"
-                        maxLength={140}
-                      />
                     </div>
 
                     <div className="form-group">
@@ -684,8 +714,8 @@ export default function CreateNewsletterPage() {
                               {layout === 'portrait' ? 'Portrait' : 'Landscape'}
                               <span className="meta">
                                 {layout === 'portrait'
-                                  ? ' image left · W200×H600'
-                                  : ' image top · W600×H200'}
+                                  ? ' image left · W300×H500'
+                                  : ' image spans full width · H≈200'}
                               </span>
                             </span>
                           </label>
@@ -728,7 +758,7 @@ export default function CreateNewsletterPage() {
                           )}
                         </div>
                         <p className="meta" style={{ marginTop: 6 }}>
-                          Auto-cropped to {article.template === 'portrait' ? 'W200×H600' : 'W600×H200'}.
+                          Auto-cropped to {article.template === 'portrait' ? 'W300×H500' : 'full width × H≈200'}.
                         </p>
                       </div>
 
@@ -783,6 +813,40 @@ export default function CreateNewsletterPage() {
         <button type="button" className="nl-add-chapter" onClick={addChapter}>
           ＋ Add chapter
         </button>
+
+        {/* Footer */}
+        {activeBlock === 'footer' ? (
+          <div className="nl-edit-pop nl-footer-edit">
+            <div className="nl-edit-head">
+              <span className="nl-edit-head-label">Footer</span>
+              <button
+                type="button"
+                className="button small primary"
+                onClick={() => setActiveBlock(null)}
+              >
+                Done
+              </button>
+            </div>
+            <RichTextEditor
+              content={draft.footerContent}
+              onChange={(html) => updateDraft({ footerContent: html })}
+              placeholder="Footer links, copyright and contact…"
+            />
+          </div>
+        ) : (
+          <div
+            className="nl-footer nl-click-edit"
+            onClick={() => setActiveBlock('footer')}
+            title="Click to edit the footer"
+          >
+            {draft.footerContent ? (
+              <div dangerouslySetInnerHTML={{ __html: draft.footerContent }} />
+            ) : (
+              <p className="nl-placeholder">Click to add a footer…</p>
+            )}
+            <span className="nl-edit-badge">✏️ Edit</span>
+          </div>
+        )}
       </div>
 
       {/* Article Import Modal */}
@@ -838,6 +902,48 @@ export default function CreateNewsletterPage() {
                         </button>
                       </div>
                     </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Draft Import Modal */}
+      {showDraftImport && (
+        <div className="modal-overlay" onClick={closeDraftImport}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+            <div className="modal-header">
+              <h2>Open a saved draft</h2>
+              <button type="button" onClick={closeDraftImport} className="modal-close">
+                ✕
+              </button>
+            </div>
+            <div className="modal-body">
+              {availableDrafts.length === 0 ? (
+                <p className="empty-state-text">No other saved drafts found.</p>
+              ) : (
+                <div className="draft-import-list">
+                  {availableDrafts.map((d) => (
+                    <button
+                      key={d.id}
+                      type="button"
+                      className="draft-import-row"
+                      onClick={() => openDraft(d)}
+                    >
+                      <div className="draft-import-main">
+                        <span className="draft-import-title">
+                          {d.title?.trim() || computeAutoTitle(d.month, d.year)}
+                        </span>
+                        <span className={`draft-status draft-status--${d.status}`}>
+                          {d.status}
+                        </span>
+                      </div>
+                      <span className="meta">
+                        Updated {new Date(d.updatedAt).toLocaleString()}
+                      </span>
+                    </button>
                   ))}
                 </div>
               )}

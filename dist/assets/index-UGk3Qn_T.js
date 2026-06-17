@@ -117622,6 +117622,7 @@ function extractSectionSnippets(htmlDocumentString) {
 }
 const STORAGE_KEY = "newsletter_drafts";
 const DEFAULT_SUBTITLE = "We make green mobility smart!";
+const DEFAULT_FOOTER_HTML = '<p><a href="http://www.infineon.com/cms/en/corporate/imprint.html">Imprint</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.infineon.com/cms/en/corporate/company/contact/">Contact</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.infineon.com/cms/en/corporate/privacy-policy.html">Privacy Policy</a></p><p>© 1999 - 2026 Infineon Technologies AG</p><p>Want to feature an article in the next newsletter? Contact us at <a href="mailto:R-IFX-ATVMCnewsletter@infineon.com">R-IFX-ATVMCnewsletter@infineon.com</a></p>';
 function generateId() {
   return `draft_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
 }
@@ -117662,6 +117663,7 @@ function normalizeDraft(draft) {
   return {
     ...draft,
     subtitle: draft.subtitle || DEFAULT_SUBTITLE,
+    footerContent: draft.footerContent || DEFAULT_FOOTER_HTML,
     chapters: chapters.length > 0 ? chapters : [createEmptyChapter()]
   };
 }
@@ -117723,6 +117725,7 @@ function createEmptyDraft() {
     headerImage: void 0,
     introContent: "",
     chapters: [createEmptyChapter()],
+    footerContent: DEFAULT_FOOTER_HTML,
     status: "draft",
     createdAt: now.toISOString(),
     updatedAt: now.toISOString()
@@ -118860,6 +118863,10 @@ async function getPublishedNewslettersApi() {
   const res = await apiFetch(NEWSLETTERS);
   return parseJson(res);
 }
+async function getAllDraftsApi() {
+  const res = await apiFetch(DRAFTS);
+  return parseJson(res);
+}
 async function getDraftByIdApi(id) {
   const res = await apiFetch(`${DRAFTS}/${encodeURIComponent(id)}`);
   if (res.status === 404) return null;
@@ -118902,6 +118909,7 @@ const newslettersApi = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defi
   __proto__: null,
   deleteDraftApi,
   deleteNewsletterApi,
+  getAllDraftsApi,
   getDraftByIdApi,
   getPublishedNewslettersApi,
   publishNewsletterApi,
@@ -119364,8 +119372,8 @@ function renderArticle(article) {
   if (article.image && article.template === "portrait") {
     return `
       <div style="display:flex;gap:18px;margin:0 0 22px;align-items:flex-start;">
-        <div style="flex:0 0 200px;width:200px;">
-          <img src="${article.image}" alt="${escapeHtml(article.title)}" style="width:200px;height:600px;object-fit:cover;display:block;" />
+        <div style="flex:0 0 300px;width:300px;">
+          <img src="${article.image}" alt="${escapeHtml(article.title)}" style="width:300px;height:auto;display:block;" />
         </div>
         <div style="flex:1;min-width:0;">${body}</div>
       </div>`;
@@ -119373,7 +119381,7 @@ function renderArticle(article) {
   if (article.image && article.template === "landscape") {
     return `
       <div style="margin:0 0 22px;">
-        <img src="${article.image}" alt="${escapeHtml(article.title)}" style="width:100%;max-width:600px;height:200px;object-fit:cover;display:block;margin:0 0 12px;" />
+        <img src="${article.image}" alt="${escapeHtml(article.title)}" style="width:100%;height:auto;object-fit:cover;display:block;margin:0 0 12px;" />
         ${body}
       </div>`;
   }
@@ -119412,12 +119420,13 @@ function generateNewsletterBodyHtml(draft) {
 
       ${draft.introContent ? `<div style="font-size:10.5pt;line-height:1.6;padding:0 0 12px;">${draft.introContent}</div>` : ""}
 
-      ${navItems ? `<div style="background:${BRAND_GREEN};padding:14px 18px;margin:8px 0 4px;">
-               <div style="color:#ffffff;font-size:12pt;font-weight:bold;margin:0 0 8px;">In this issue</div>
+      ${navItems ? `<div style="background:${BRAND_GREEN};padding:22px 18px;margin:8px 0 4px;">
                <div>${navItems}</div>
              </div>` : ""}
 
       ${chaptersHtml}
+
+      ${(draft.footerContent ?? DEFAULT_FOOTER_HTML).trim() ? `<div style="margin:28px 0 0;padding:20px 0 0;border-top:1px solid #e5e7eb;text-align:center;font-size:10.5pt;line-height:1.6;color:#333;">${draft.footerContent ?? DEFAULT_FOOTER_HTML}</div>` : ""}
     </div>
   `;
   return bodyHtml.trim();
@@ -143150,8 +143159,8 @@ async function getAvailableArticlesForImport() {
   return getArticles();
 }
 const ARTICLE_CROP = {
-  portrait: { ratioW: 200, ratioH: 600, maxW: 600, maxH: 1800 },
-  landscape: { ratioW: 600, ratioH: 200, maxW: 1200, maxH: 400 }
+  portrait: { ratioW: 300, ratioH: 500, maxW: 600, maxH: 1e3 },
+  landscape: { ratioW: 1400, ratioH: 400, maxW: 1400, maxH: 400 }
 };
 const HEADER_CROP = { ratioW: 800, ratioH: 400, maxW: 1600, maxH: 800 };
 function aspectRatioCss(ratio) {
@@ -143254,8 +143263,7 @@ function ArticleDisplay({ article }) {
           className: "nl-article-img",
           style: {
             aspectRatio: aspectRatioCss(ARTICLE_CROP[article.template]),
-            width: article.template === "portrait" ? 200 : void 0,
-            maxWidth: article.template === "landscape" ? 600 : void 0
+            width: article.template === "portrait" ? 300 : "100%"
           },
           children: /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: article.image, alt: "" })
         }
@@ -143273,6 +143281,8 @@ function CreateNewsletterPage() {
   const [lastSaved, setLastSaved] = reactExports$1.useState(null);
   const [showArticleImport, setShowArticleImport] = reactExports$1.useState(false);
   const [availableArticles, setAvailableArticles] = reactExports$1.useState([]);
+  const [showDraftImport, setShowDraftImport] = reactExports$1.useState(false);
+  const [availableDrafts, setAvailableDrafts] = reactExports$1.useState([]);
   const [activeBlock, setActiveBlock] = reactExports$1.useState(null);
   const [activeArticleId, setActiveArticleId] = reactExports$1.useState(null);
   reactExports$1.useEffect(() => {
@@ -143476,6 +143486,27 @@ function CreateNewsletterPage() {
   const closeArticleImport = () => {
     setShowArticleImport(false);
   };
+  const openDraftImport = async () => {
+    try {
+      const drafts = await getAllDraftsApi();
+      const sorted = drafts.filter((d) => d.id !== draft.id).sort((a, b) => a.updatedAt < b.updatedAt ? 1 : -1);
+      setAvailableDrafts(sorted);
+    } catch (error) {
+      console.error("Failed to load drafts:", error);
+      setAvailableDrafts([]);
+    }
+    setShowDraftImport(true);
+  };
+  const closeDraftImport = () => {
+    setShowDraftImport(false);
+  };
+  const openDraft = (target) => {
+    setShowDraftImport(false);
+    setActiveBlock(null);
+    setActiveArticleId(null);
+    if (target.id === id) return;
+    navigate(`/newsletters/edit/${target.id}`);
+  };
   const importArticle = async (article) => {
     const newArticle = {
       id: generateId(),
@@ -143509,7 +143540,7 @@ function CreateNewsletterPage() {
           "Saved ",
           lastSaved.toLocaleTimeString()
         ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", onClick: openArticleImport, className: "button secondary", children: "📥 Import Article" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", onClick: openDraftImport, className: "button secondary", children: "📂 Import Draft" }),
         /* @__PURE__ */ jsxRuntimeExports.jsx(
           "button",
           {
@@ -143621,7 +143652,6 @@ function CreateNewsletterPage() {
         }
       ),
       draft.chapters.some((c) => c.title.trim()) && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "nl-nav", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "nl-nav-title", children: "In this issue" }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "nl-nav-items", children: draft.chapters.filter((c) => c.title.trim()).map((c) => /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "nl-nav-item", children: c.title.trim() }, c.id)) }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "nl-auto-tag", title: "Built automatically from your chapter titles", children: "auto" })
       ] }),
@@ -143694,13 +143724,30 @@ function CreateNewsletterPage() {
             )
           ] })
         ] }),
-        chapter.articles.map((article, aIndex) => /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "nl-article-slot", children: activeArticleId === article.id ? /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "nl-article-edit", children: [
+        chapter.articles.map((article) => /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "nl-article-slot", children: activeArticleId === article.id ? /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "nl-article-edit", children: [
           /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "nl-edit-head", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "nl-edit-head-label", children: [
-              "Article ",
-              aIndex + 1
-            ] }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(
+              "input",
+              {
+                className: "nl-article-title-input",
+                value: article.title,
+                onChange: (e) => updateArticle(chapter.id, article.id, { title: e.target.value }),
+                placeholder: "Article title…",
+                maxLength: 140,
+                "aria-label": "Article title"
+              }
+            ),
             /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "nl-edit-head-actions", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx(
+                "button",
+                {
+                  type: "button",
+                  className: "button small secondary",
+                  title: "Import a submitted article into this chapter",
+                  onClick: openArticleImport,
+                  children: "📥 Import"
+                }
+              ),
               /* @__PURE__ */ jsxRuntimeExports.jsx(
                 "button",
                 {
@@ -143724,22 +143771,6 @@ function CreateNewsletterPage() {
             ] })
           ] }),
           /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "form-group", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsxs("label", { children: [
-              "Article Title ",
-              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "meta", children: "(bold heading)" })
-            ] }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx(
-              "input",
-              {
-                type: "text",
-                value: article.title,
-                onChange: (e) => updateArticle(chapter.id, article.id, { title: e.target.value }),
-                placeholder: "e.g., New AURIX™ TC4x evaluation board",
-                maxLength: 140
-              }
-            )
-          ] }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "form-group", children: [
             /* @__PURE__ */ jsxRuntimeExports.jsx("label", { children: "Layout" }),
             /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "layout-toggle", children: ["portrait", "landscape"].map((layout) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
               "label",
@@ -143759,7 +143790,7 @@ function CreateNewsletterPage() {
                   /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: `layout-glyph layout-glyph--${layout}`, "aria-hidden": "true" }),
                   /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "layout-name", children: [
                     layout === "portrait" ? "Portrait" : "Landscape",
-                    /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "meta", children: layout === "portrait" ? " image left · W200×H600" : " image top · W600×H200" })
+                    /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "meta", children: layout === "portrait" ? " image left · W300×H500" : " image spans full width · H≈200" })
                   ] })
                 ]
               },
@@ -143801,7 +143832,7 @@ function CreateNewsletterPage() {
               ),
               /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "meta", style: { marginTop: 6 }, children: [
                 "Auto-cropped to ",
-                article.template === "portrait" ? "W200×H600" : "W600×H200",
+                article.template === "portrait" ? "W300×H500" : "full width × H≈200",
                 "."
               ] })
             ] }),
@@ -143853,7 +143884,40 @@ function CreateNewsletterPage() {
           }
         )
       ] }, chapter.id)),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "nl-add-chapter", onClick: addChapter, children: "＋ Add chapter" })
+      /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "nl-add-chapter", onClick: addChapter, children: "＋ Add chapter" }),
+      activeBlock === "footer" ? /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "nl-edit-pop nl-footer-edit", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "nl-edit-head", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "nl-edit-head-label", children: "Footer" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(
+            "button",
+            {
+              type: "button",
+              className: "button small primary",
+              onClick: () => setActiveBlock(null),
+              children: "Done"
+            }
+          )
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(
+          RichTextEditor,
+          {
+            content: draft.footerContent,
+            onChange: (html2) => updateDraft({ footerContent: html2 }),
+            placeholder: "Footer links, copyright and contact…"
+          }
+        )
+      ] }) : /* @__PURE__ */ jsxRuntimeExports.jsxs(
+        "div",
+        {
+          className: "nl-footer nl-click-edit",
+          onClick: () => setActiveBlock("footer"),
+          title: "Click to edit the footer",
+          children: [
+            draft.footerContent ? /* @__PURE__ */ jsxRuntimeExports.jsx("div", { dangerouslySetInnerHTML: { __html: draft.footerContent } }) : /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "nl-placeholder", children: "Click to add a footer…" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "nl-edit-badge", children: "✏️ Edit" })
+          ]
+        }
+      )
     ] }),
     showArticleImport && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "modal-overlay", onClick: closeArticleImport, children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "modal-content", onClick: (e) => e.stopPropagation(), children: [
       /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "modal-header", children: [
@@ -143897,6 +143961,31 @@ function CreateNewsletterPage() {
           )
         ] })
       ] }, article.id)) }) })
+    ] }) }),
+    showDraftImport && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "modal-overlay", onClick: closeDraftImport, children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "modal-content", onClick: (e) => e.stopPropagation(), children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "modal-header", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { children: "Open a saved draft" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", onClick: closeDraftImport, className: "modal-close", children: "✕" })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "modal-body", children: availableDrafts.length === 0 ? /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "empty-state-text", children: "No other saved drafts found." }) : /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "draft-import-list", children: availableDrafts.map((d) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
+        "button",
+        {
+          type: "button",
+          className: "draft-import-row",
+          onClick: () => openDraft(d),
+          children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "draft-import-main", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "draft-import-title", children: d.title?.trim() || computeAutoTitle(d.month, d.year) }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: `draft-status draft-status--${d.status}`, children: d.status })
+            ] }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "meta", children: [
+              "Updated ",
+              new Date(d.updatedAt).toLocaleString()
+            ] })
+          ]
+        },
+        d.id
+      )) }) })
     ] }) })
   ] });
 }

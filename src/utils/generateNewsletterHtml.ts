@@ -3,7 +3,7 @@ import type {
   NewsletterChapter,
   NewsletterArticle,
 } from '../types/newsletter-creation'
-import { computeAutoTitle, DEFAULT_SUBTITLE } from './localNewsletters'
+import { computeAutoTitle, DEFAULT_SUBTITLE, DEFAULT_FOOTER_HTML } from './localNewsletters'
 import defaultHeaderImage from '../photos/newsletter image.png'
 import logoUrl from '../logo/Agent-logo.svg'
 
@@ -225,8 +225,8 @@ function renderArticle(article: NewsletterArticle): string {
   if (article.image && article.template === 'portrait') {
     return `
       <div style="display:flex;gap:18px;margin:0 0 22px;align-items:flex-start;">
-        <div style="flex:0 0 200px;width:200px;">
-          <img src="${article.image}" alt="${escapeHtml(article.title)}" style="width:200px;height:600px;object-fit:cover;display:block;" />
+        <div style="flex:0 0 300px;width:300px;">
+          <img src="${article.image}" alt="${escapeHtml(article.title)}" style="width:300px;height:auto;display:block;" />
         </div>
         <div style="flex:1;min-width:0;">${body}</div>
       </div>`
@@ -235,7 +235,7 @@ function renderArticle(article: NewsletterArticle): string {
   if (article.image && article.template === 'landscape') {
     return `
       <div style="margin:0 0 22px;">
-        <img src="${article.image}" alt="${escapeHtml(article.title)}" style="width:100%;max-width:600px;height:200px;object-fit:cover;display:block;margin:0 0 12px;" />
+        <img src="${article.image}" alt="${escapeHtml(article.title)}" style="width:100%;height:auto;object-fit:cover;display:block;margin:0 0 12px;" />
         ${body}
       </div>`
   }
@@ -301,14 +301,21 @@ export function generateNewsletterBodyHtml(draft: NewsletterDraft): string {
 
       ${
         navItems
-          ? `<div style="background:${BRAND_GREEN};padding:14px 18px;margin:8px 0 4px;">
-               <div style="color:#ffffff;font-size:12pt;font-weight:bold;margin:0 0 8px;">In this issue</div>
+          ? `<div style="background:${BRAND_GREEN};padding:22px 18px;margin:8px 0 4px;">
                <div>${navItems}</div>
              </div>`
           : ''
       }
 
       ${chaptersHtml}
+
+      ${
+        (draft.footerContent ?? DEFAULT_FOOTER_HTML).trim()
+          ? `<div style="margin:28px 0 0;padding:20px 0 0;border-top:1px solid #e5e7eb;text-align:center;font-size:10.5pt;line-height:1.6;color:#333;">${
+              draft.footerContent ?? DEFAULT_FOOTER_HTML
+            }</div>`
+          : ''
+      }
     </div>
   `
 

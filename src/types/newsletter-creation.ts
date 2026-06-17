@@ -47,6 +47,7 @@ export interface NewsletterDraft {
   headerImage?: string // base64 encoded main photo; falls back to the bundled default
   introContent: string // Initial start section content after header image
   chapters: NewsletterChapter[]
+  footerContent: string // HTML footer (imprint/contact/privacy + copyright + CTA)
   status: 'draft' | 'published'
   createdAt: string
   updatedAt: string

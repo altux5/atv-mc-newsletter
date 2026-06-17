@@ -18,12 +18,13 @@ export interface CropRatio {
 }
 
 /**
- * Target ratios per layout. Portrait article images are tall (W200×H600 → 1:3),
- * landscape images are wide (W600×H200 → 3:1), and the newsletter header is 2:1.
+ * Target ratios per layout. Portrait article images are tall (W300×H500), while
+ * landscape images span the full article width as a thin band (≈3.5:1, so they
+ * "hug" the box like the header). The newsletter header is 2:1.
  */
 export const ARTICLE_CROP: Record<'portrait' | 'landscape', CropRatio> = {
-  portrait: { ratioW: 200, ratioH: 600, maxW: 600, maxH: 1800 },
-  landscape: { ratioW: 600, ratioH: 200, maxW: 1200, maxH: 400 },
+  portrait: { ratioW: 300, ratioH: 500, maxW: 600, maxH: 1000 },
+  landscape: { ratioW: 1400, ratioH: 400, maxW: 1400, maxH: 400 },
 }
 
 export const HEADER_CROP: CropRatio = { ratioW: 800, ratioH: 400, maxW: 1600, maxH: 800 }
