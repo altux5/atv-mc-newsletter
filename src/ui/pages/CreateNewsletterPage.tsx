@@ -15,7 +15,7 @@ import {
 } from '../../utils/localNewsletters'
 import { saveDraftApi, getDraftByIdApi, getAllDraftsApi, publishNewsletterApi } from '../../utils/newslettersApi'
 import RichTextEditor from '../components/RichTextEditor'
-import { generateNewsletterBodyHtml } from '../../utils/generateNewsletterHtml'
+import { generateNewsletterBodyHtml, normalizeButtonUrl } from '../../utils/generateNewsletterHtml'
 import type { SubmittedArticle } from '../../types/article'
 import { getAvailableArticlesForImport, markArticleAsImported } from '../../utils/articlesApi'
 import { cropImageToRatio, ARTICLE_CROP, HEADER_CROP, aspectRatioCss, articleImageBg, downscaleImage } from '../../utils/imageCrop'
@@ -99,7 +99,7 @@ function ArticleButtonView({ button }: { button?: NewsletterArticle['button'] })
   if (!button || !button.label.trim() || !button.url.trim()) return null
   return (
     <p style={{ margin: '16px 0 0' }}>
-      <a className="nl-cta" href={button.url} target="_blank" rel="noopener noreferrer">
+      <a className="nl-cta" href={normalizeButtonUrl(button.url)} target="_blank" rel="noopener noreferrer">
         {button.label}
       </a>
     </p>
@@ -119,12 +119,12 @@ function ArticleDisplay({ article }: { article: NewsletterArticle }) {
       ) : (
         <p className="nl-placeholder-inline">No content yet…</p>
       )}
-      <ArticleButtonView button={article.button} />
       {article.contact && (
         <p className="nl-article-contact">
           <strong>Contact:</strong> {article.contact}
         </p>
       )}
+      <ArticleButtonView button={article.button} />
     </div>
   )
   if (article.image) {
@@ -709,9 +709,10 @@ export default function CreateNewsletterPage() {
             <div className="nl-nav-items">
               {draft.chapters
                 .filter((c) => c.title.trim())
-                .map((c) => (
-                  <span key={c.id} className="nl-nav-item">
-                    {c.title.trim()}
+                .map((c, i, arr) => (
+                  <span key={c.id} className="nl-nav-item-wrap">
+                    <span className="nl-nav-item">{c.title.trim()}</span>
+                    {i < arr.length - 1 && <span className="nl-nav-sep">|</span>}
                   </span>
                 ))}
             </div>
@@ -829,17 +830,6 @@ export default function CreateNewsletterPage() {
                       </button>
                     </div>
 
-                    <input
-                      className="nl-article-title-input nl-article-title-block"
-                      value={article.title}
-                      onChange={(e) =>
-                        updateArticle(chapter.id, article.id, { title: e.target.value })
-                      }
-                      placeholder="Article title…"
-                      maxLength={140}
-                      aria-label="Article title"
-                    />
-
                     <div className={`article-layout article-layout--${article.template}`}>
                       <div className="article-image-col">
                         <ArticleImageEditor
@@ -856,6 +846,16 @@ export default function CreateNewsletterPage() {
                       </div>
 
                       <div className="article-content-col">
+                        <input
+                          className="nl-article-title-input nl-article-title-block"
+                          value={article.title}
+                          onChange={(e) =>
+                            updateArticle(chapter.id, article.id, { title: e.target.value })
+                          }
+                          placeholder="Article title…"
+                          maxLength={140}
+                          aria-label="Article title"
+                        />
                         <RichTextEditor
                           content={article.content}
                           onChange={(html) =>
@@ -864,29 +864,6 @@ export default function CreateNewsletterPage() {
                           placeholder="Write the article (a few sentences)..."
                           enableRefine
                         />
-                        <div className="nl-article-button-row">
-                          <input
-                            type="text"
-                            value={article.button?.label ?? ''}
-                            onChange={(e) =>
-                              updateArticle(chapter.id, article.id, {
-                                button: { label: e.target.value, url: article.button?.url ?? '' },
-                              })
-                            }
-                            placeholder="Button label (optional)"
-                            maxLength={60}
-                          />
-                          <input
-                            type="text"
-                            value={article.button?.url ?? ''}
-                            onChange={(e) =>
-                              updateArticle(chapter.id, article.id, {
-                                button: { label: article.button?.label ?? '', url: e.target.value },
-                              })
-                            }
-                            placeholder="Button link (https://…)"
-                          />
-                        </div>
                         <input
                           className="nl-contact-input"
                           type="text"
@@ -897,6 +874,52 @@ export default function CreateNewsletterPage() {
                           placeholder="Contact: Name, email or phone"
                           maxLength={200}
                         />
+                        {article.button !== undefined ? (
+                          <div className="nl-article-button-edit">
+                            <div className="nl-article-button-row">
+                              <input
+                                type="text"
+                                value={article.button?.label ?? ''}
+                                onChange={(e) =>
+                                  updateArticle(chapter.id, article.id, {
+                                    button: { label: e.target.value, url: article.button?.url ?? '' },
+                                  })
+                                }
+                                placeholder="Button label"
+                                maxLength={60}
+                              />
+                              <input
+                                type="text"
+                                value={article.button?.url ?? ''}
+                                onChange={(e) =>
+                                  updateArticle(chapter.id, article.id, {
+                                    button: { label: article.button?.label ?? '', url: e.target.value },
+                                  })
+                                }
+                                placeholder="Button link (e.g. google.com)"
+                              />
+                            </div>
+                            <button
+                              type="button"
+                              className="nl-remove-button-link"
+                              onClick={() =>
+                                updateArticle(chapter.id, article.id, { button: undefined })
+                              }
+                            >
+                              Remove button
+                            </button>
+                          </div>
+                        ) : (
+                          <button
+                            type="button"
+                            className="nl-add-button-ghost"
+                            onClick={() =>
+                              updateArticle(chapter.id, article.id, { button: { label: '', url: '' } })
+                            }
+                          >
+                            ＋ Add button to this article
+                          </button>
+                        )}
                       </div>
                     </div>
 

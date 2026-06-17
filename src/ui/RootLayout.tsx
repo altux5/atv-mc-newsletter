@@ -1,4 +1,4 @@
-import { NavLink, Outlet, useNavigate } from 'react-router-dom'
+import { NavLink, Outlet, useNavigate, useLocation } from 'react-router-dom'
 import logoUrl from '../logo/Agent-logo.svg'
 import { Link } from 'react-router-dom'
 import { useAuth } from '../contexts/AuthContext'
@@ -6,6 +6,12 @@ import { useAuth } from '../contexts/AuthContext'
 export default function RootLayout() {
   const { isAuthenticated, isEditor, logout, user } = useAuth()
   const navigate = useNavigate()
+  const location = useLocation()
+  // The newsletter editor has its own floating toolbar; keep the site header
+  // static there so only one bar floats.
+  const isEditorRoute =
+    location.pathname === '/newsletters/create' ||
+    location.pathname.startsWith('/newsletters/edit/')
 
   const handleLogout = () => {
     logout()
@@ -14,7 +20,7 @@ export default function RootLayout() {
 
   return (
     <div className="app-shell">
-      <header className="app-header">
+      <header className={`app-header${isEditorRoute ? ' editor-route' : ''}`}>
         <div className="container header-inner">
           <Link to="/" className="brand">
             <img src={logoUrl} alt="Agent logo" />

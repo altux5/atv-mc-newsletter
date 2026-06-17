@@ -194,6 +194,18 @@ function escapeHtml(value: string): string {
     .replace(/'/g, '&#39;')
 }
 
+/**
+ * Make a user-entered button link absolute. Bare hosts like "google.com" become
+ * "https://google.com" so the browser does not treat them as a same-site path.
+ * Existing schemes (http/https/mailto/tel), anchors (#) and root paths (/) pass through.
+ */
+export function normalizeButtonUrl(url: string): string {
+  const u = (url || '').trim()
+  if (!u) return ''
+  if (/^(https?:\/\/|mailto:|tel:|#|\/)/i.test(u)) return u
+  return `https://${u}`
+}
+
 /** Resolve a chapter to its articles, migrating legacy single-content chapters. */
 function chapterArticles(chapter: NewsletterChapter): NewsletterArticle[] {
   if (Array.isArray(chapter.articles) && chapter.articles.length > 0) {
@@ -225,7 +237,7 @@ function renderArticleImage(article: NewsletterArticle): string {
 function renderArticleButton(article: NewsletterArticle): string {
   const b = article.button
   if (!b || !b.label.trim() || !b.url.trim()) return ''
-  return `<p style="margin:16px 0 0;"><a href="${escapeHtml(b.url)}" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:${BRAND_GREEN};color:#ffffff;font-weight:bold;font-size:10.5pt;padding:9px 20px;text-decoration:none;border-radius:2px;">${escapeHtml(b.label)}</a></p>`
+  return `<p style="margin:16px 0 0;"><a href="${escapeHtml(normalizeButtonUrl(b.url))}" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:${BRAND_GREEN};color:#ffffff;font-weight:bold;font-size:10.5pt;padding:9px 20px;text-decoration:none;border-radius:2px;">${escapeHtml(b.label)}</a></p>`
 }
 
 function renderArticle(article: NewsletterArticle): string {
@@ -235,7 +247,7 @@ function renderArticle(article: NewsletterArticle): string {
   const contactHtml = article.contact
     ? `<p style="margin:12px 0 0;font-style:italic;font-size:10pt;color:#555;"><strong>Contact:</strong> ${escapeHtml(article.contact)}</p>`
     : ''
-  const body = `<div style="border-radius:3px;">${titleHtml}<div style="font-size:10.5pt;line-height:1.65;color:#333;">${article.content || ''}</div>${renderArticleButton(article)}${contactHtml}</div>`
+  const body = `<div style="border-radius:3px;">${titleHtml}<div style="font-size:10.5pt;line-height:1.65;color:#333;">${article.content || ''}</div>${contactHtml}${renderArticleButton(article)}</div>`
 
   if (article.image && article.template === 'portrait') {
     return `
@@ -265,11 +277,11 @@ export function generateNewsletterBodyHtml(draft: NewsletterDraft): string {
     .filter((c) => c.title?.trim())
     .map(
       (chapter, index) =>
-        `<a href="#chapter_${index}" style="color:#ffffff;text-decoration:none;font-size:11.5pt;font-weight:bold;margin:0 12px 6px;display:inline-block;">${escapeHtml(
+        `<a href="#chapter_${index}" style="color:#ffffff;text-decoration:none;font-size:11.5pt;font-weight:bold;margin:0 10px 6px;display:inline-block;">${escapeHtml(
           chapter.title,
         )}</a>`,
     )
-    .join('')
+    .join('<span style="color:#ffffff;opacity:0.55;font-size:11.5pt;">|</span>')
 
   const chaptersHtml = draft.chapters
     .map((chapter, index) => {

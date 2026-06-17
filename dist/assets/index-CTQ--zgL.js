@@ -17928,12 +17928,14 @@ const logoUrl = "/assets/Agent-logo-BNWebEI8.svg";
 function RootLayout() {
   const { isAuthenticated, isEditor: isEditor2, logout, user } = useAuth();
   const navigate = useNavigate();
+  const location = useLocation();
+  const isEditorRoute = location.pathname === "/newsletters/create" || location.pathname.startsWith("/newsletters/edit/");
   const handleLogout = () => {
     logout();
     navigate("/");
   };
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "app-shell", children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsx("header", { className: "app-header", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "container header-inner", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx("header", { className: `app-header${isEditorRoute ? " editor-route" : ""}`, children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "container header-inner", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsxs(Link$1, { to: "/", className: "brand", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: logoUrl, alt: "Agent logo" }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "ATV MC Newsletter Hub" })
@@ -119449,6 +119451,12 @@ const FONT_STACK = "Arial, 'Segoe UI', Tahoma, sans-serif";
 function escapeHtml(value) {
   return String(value ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#39;");
 }
+function normalizeButtonUrl(url) {
+  const u = (url || "").trim();
+  if (!u) return "";
+  if (/^(https?:\/\/|mailto:|tel:|#|\/)/i.test(u)) return u;
+  return `https://${u}`;
+}
 function chapterArticles(chapter) {
   if (Array.isArray(chapter.articles) && chapter.articles.length > 0) {
     return chapter.articles;
@@ -119477,12 +119485,12 @@ function renderArticleImage(article) {
 function renderArticleButton(article) {
   const b = article.button;
   if (!b || !b.label.trim() || !b.url.trim()) return "";
-  return `<p style="margin:16px 0 0;"><a href="${escapeHtml(b.url)}" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:${BRAND_GREEN};color:#ffffff;font-weight:bold;font-size:10.5pt;padding:9px 20px;text-decoration:none;border-radius:2px;">${escapeHtml(b.label)}</a></p>`;
+  return `<p style="margin:16px 0 0;"><a href="${escapeHtml(normalizeButtonUrl(b.url))}" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:${BRAND_GREEN};color:#ffffff;font-weight:bold;font-size:10.5pt;padding:9px 20px;text-decoration:none;border-radius:2px;">${escapeHtml(b.label)}</a></p>`;
 }
 function renderArticle(article) {
   const titleHtml = article.title ? `<p style="font-size:12pt;font-weight:bold;color:#222;margin:0 0 8px;">${escapeHtml(article.title)}</p>` : "";
   const contactHtml = article.contact ? `<p style="margin:12px 0 0;font-style:italic;font-size:10pt;color:#555;"><strong>Contact:</strong> ${escapeHtml(article.contact)}</p>` : "";
-  const body = `<div style="border-radius:3px;">${titleHtml}<div style="font-size:10.5pt;line-height:1.65;color:#333;">${article.content || ""}</div>${renderArticleButton(article)}${contactHtml}</div>`;
+  const body = `<div style="border-radius:3px;">${titleHtml}<div style="font-size:10.5pt;line-height:1.65;color:#333;">${article.content || ""}</div>${contactHtml}${renderArticleButton(article)}</div>`;
   if (article.image && article.template === "portrait") {
     return `
       <div style="display:flex;gap:22px;align-items:flex-start;">
@@ -119504,10 +119512,10 @@ function generateNewsletterBodyHtml(draft) {
   const subtitle = (draft.subtitle ?? DEFAULT_SUBTITLE).trim();
   const headerSrc = draft.headerImage || defaultHeaderImage;
   const navItems = draft.chapters.filter((c) => c.title?.trim()).map(
-    (chapter, index) => `<a href="#chapter_${index}" style="color:#ffffff;text-decoration:none;font-size:11.5pt;font-weight:bold;margin:0 12px 6px;display:inline-block;">${escapeHtml(
+    (chapter, index) => `<a href="#chapter_${index}" style="color:#ffffff;text-decoration:none;font-size:11.5pt;font-weight:bold;margin:0 10px 6px;display:inline-block;">${escapeHtml(
       chapter.title
     )}</a>`
-  ).join("");
+  ).join('<span style="color:#ffffff;opacity:0.55;font-size:11.5pt;">|</span>');
   const chaptersHtml = draft.chapters.map((chapter, index) => {
     const heading = chapter.title?.trim() ? `<a name="chapter_${index}" id="chapter_${index}"></a>
            <h2 style="font-size:13.5pt;font-weight:bold;color:${BRAND_GREEN};margin:0 0 18px;border-bottom:1px solid #e5e7eb;padding-bottom:8px;">${escapeHtml(
@@ -143315,7 +143323,7 @@ function articleImageStyle(article) {
 }
 function ArticleButtonView({ button }) {
   if (!button || !button.label.trim() || !button.url.trim()) return null;
-  return /* @__PURE__ */ jsxRuntimeExports.jsx("p", { style: { margin: "16px 0 0" }, children: /* @__PURE__ */ jsxRuntimeExports.jsx("a", { className: "nl-cta", href: button.url, target: "_blank", rel: "noopener noreferrer", children: button.label }) });
+  return /* @__PURE__ */ jsxRuntimeExports.jsx("p", { style: { margin: "16px 0 0" }, children: /* @__PURE__ */ jsxRuntimeExports.jsx("a", { className: "nl-cta", href: normalizeButtonUrl(button.url), target: "_blank", rel: "noopener noreferrer", children: button.label }) });
 }
 function ArticleDisplay({ article }) {
   if (!article.title && !article.content && !article.image && !article.button) {
@@ -143324,12 +143332,12 @@ function ArticleDisplay({ article }) {
   const body = /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "nl-article-body", children: [
     article.title && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "nl-article-title", children: article.title }),
     article.content ? /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "nl-article-content", dangerouslySetInnerHTML: { __html: article.content } }) : /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "nl-placeholder-inline", children: "No content yet…" }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx(ArticleButtonView, { button: article.button }),
     article.contact && /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "nl-article-contact", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: "Contact:" }),
       " ",
       article.contact
-    ] })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(ArticleButtonView, { button: article.button })
   ] });
   if (article.image) {
     return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: `nl-article nl-article--${article.template}`, children: [
@@ -143826,7 +143834,10 @@ function CreateNewsletterPage() {
         }
       ),
       draft.chapters.some((c) => c.title.trim()) && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "nl-nav", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "nl-nav-items", children: draft.chapters.filter((c) => c.title.trim()).map((c) => /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "nl-nav-item", children: c.title.trim() }, c.id)) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "nl-nav-items", children: draft.chapters.filter((c) => c.title.trim()).map((c, i, arr) => /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "nl-nav-item-wrap", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "nl-nav-item", children: c.title.trim() }),
+          i < arr.length - 1 && /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "nl-nav-sep", children: "|" })
+        ] }, c.id)) }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "nl-auto-tag", title: "Built automatically from your chapter titles", children: "auto" })
       ] }),
       draft.chapters.map((chapter, index) => /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "nl-chapter", children: [
@@ -143931,17 +143942,6 @@ function CreateNewsletterPage() {
               }
             )
           ] }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx(
-            "input",
-            {
-              className: "nl-article-title-input nl-article-title-block",
-              value: article.title,
-              onChange: (e) => updateArticle(chapter.id, article.id, { title: e.target.value }),
-              placeholder: "Article title…",
-              maxLength: 140,
-              "aria-label": "Article title"
-            }
-          ),
           /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: `article-layout article-layout--${article.template}`, children: [
             /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "article-image-col", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
               ArticleImageEditor,
@@ -143957,6 +143957,17 @@ function CreateNewsletterPage() {
             ) }),
             /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "article-content-col", children: [
               /* @__PURE__ */ jsxRuntimeExports.jsx(
+                "input",
+                {
+                  className: "nl-article-title-input nl-article-title-block",
+                  value: article.title,
+                  onChange: (e) => updateArticle(chapter.id, article.id, { title: e.target.value }),
+                  placeholder: "Article title…",
+                  maxLength: 140,
+                  "aria-label": "Article title"
+                }
+              ),
+              /* @__PURE__ */ jsxRuntimeExports.jsx(
                 RichTextEditor,
                 {
                   content: article.content,
@@ -143965,31 +143976,6 @@ function CreateNewsletterPage() {
                   enableRefine: true
                 }
               ),
-              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "nl-article-button-row", children: [
-                /* @__PURE__ */ jsxRuntimeExports.jsx(
-                  "input",
-                  {
-                    type: "text",
-                    value: article.button?.label ?? "",
-                    onChange: (e) => updateArticle(chapter.id, article.id, {
-                      button: { label: e.target.value, url: article.button?.url ?? "" }
-                    }),
-                    placeholder: "Button label (optional)",
-                    maxLength: 60
-                  }
-                ),
-                /* @__PURE__ */ jsxRuntimeExports.jsx(
-                  "input",
-                  {
-                    type: "text",
-                    value: article.button?.url ?? "",
-                    onChange: (e) => updateArticle(chapter.id, article.id, {
-                      button: { label: article.button?.label ?? "", url: e.target.value }
-                    }),
-                    placeholder: "Button link (https://…)"
-                  }
-                )
-              ] }),
               /* @__PURE__ */ jsxRuntimeExports.jsx(
                 "input",
                 {
@@ -143999,6 +143985,50 @@ function CreateNewsletterPage() {
                   onChange: (e) => updateArticle(chapter.id, article.id, { contact: e.target.value }),
                   placeholder: "Contact: Name, email or phone",
                   maxLength: 200
+                }
+              ),
+              article.button !== void 0 ? /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "nl-article-button-edit", children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "nl-article-button-row", children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsx(
+                    "input",
+                    {
+                      type: "text",
+                      value: article.button?.label ?? "",
+                      onChange: (e) => updateArticle(chapter.id, article.id, {
+                        button: { label: e.target.value, url: article.button?.url ?? "" }
+                      }),
+                      placeholder: "Button label",
+                      maxLength: 60
+                    }
+                  ),
+                  /* @__PURE__ */ jsxRuntimeExports.jsx(
+                    "input",
+                    {
+                      type: "text",
+                      value: article.button?.url ?? "",
+                      onChange: (e) => updateArticle(chapter.id, article.id, {
+                        button: { label: article.button?.label ?? "", url: e.target.value }
+                      }),
+                      placeholder: "Button link (e.g. google.com)"
+                    }
+                  )
+                ] }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx(
+                  "button",
+                  {
+                    type: "button",
+                    className: "nl-remove-button-link",
+                    onClick: () => updateArticle(chapter.id, article.id, { button: void 0 }),
+                    children: "Remove button"
+                  }
+                )
+              ] }) : /* @__PURE__ */ jsxRuntimeExports.jsx(
+                "button",
+                {
+                  type: "button",
+                  className: "nl-add-button-ghost",
+                  onClick: () => updateArticle(chapter.id, article.id, { button: { label: "", url: "" } }),
+                  children: "＋ Add button to this article"
                 }
               )
             ] })
