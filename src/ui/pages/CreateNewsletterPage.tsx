@@ -1,8 +1,17 @@
 import { useState, useEffect } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
-import type { NewsletterDraft, NewsletterChapter } from '../../types/newsletter-creation'
+import type {
+  NewsletterDraft,
+  NewsletterChapter,
+  NewsletterArticle,
+  ArticleLayout,
+} from '../../types/newsletter-creation'
 import {
   createEmptyDraft,
+  createEmptyChapter,
+  createEmptyArticle,
+  normalizeDraft,
+  computeAutoTitle,
   generateId,
 } from '../../utils/localNewsletters'
 import { saveDraftApi, getDraftByIdApi, publishNewsletterApi } from '../../utils/newslettersApi'
@@ -10,8 +19,7 @@ import RichTextEditor from '../components/RichTextEditor'
 import NewsletterPreview from '../components/NewsletterPreview'
 import type { SubmittedArticle } from '../../types/article'
 import { getAvailableArticlesForImport, markArticleAsImported } from '../../utils/articlesApi'
-import type { ArticleTemplate } from '../../types/article'
-import { refineContent } from '../../utils/aiRefine'
+import { cropImageToRatio, ARTICLE_CROP, HEADER_CROP, aspectRatioCss } from '../../utils/imageCrop'
 import { CANONICAL_CHAPTER_TITLES, isCanonicalChapterTitle } from '../../constants/chapters'
 
 export default function CreateNewsletterPage() {
@@ -24,23 +32,13 @@ export default function CreateNewsletterPage() {
   const [showArticleImport, setShowArticleImport] = useState(false)
   const [availableArticles, setAvailableArticles] = useState<SubmittedArticle[]>([])
 
-  const refineIntro = (html: string) =>
-    refineContent(html, {
-      context: `Newsletter intro for ${draft.title || 'newsletter'}`,
-    })
-
-  const refineChapterContent = (chapter: NewsletterChapter, index: number) => (html: string) =>
-    refineContent(html, {
-      context: `Chapter ${index + 1}: ${chapter.title || 'Untitled chapter'}`,
-    })
-
   // Load existing draft if editing
   useEffect(() => {
     if (id) {
       let cancelled = false
       void getDraftByIdApi(id).then((existingDraft) => {
         if (cancelled || !existingDraft) return
-        setDraft(existingDraft)
+        setDraft(normalizeDraft(existingDraft))
         setLastSaved(new Date(existingDraft.updatedAt))
       })
       return () => {
@@ -123,16 +121,81 @@ export default function CreateNewsletterPage() {
   }
 
   const addChapter = () => {
-    const newChapter: NewsletterChapter = {
-      id: generateId(),
-      title: '',
-      content: '',
-      images: [],
-    }
+    setDraft((prev) => ({ ...prev, chapters: [...prev.chapters, createEmptyChapter()] }))
+  }
+
+  // Keep the title in sync with the selected month/year, but only while the
+  // editor hasn't typed a custom title (i.e. it still matches the auto value).
+  const changeMonthYear = (next: { month?: number; year?: number }) => {
+    setDraft((prev) => {
+      const month = next.month ?? prev.month
+      const year = next.year ?? prev.year
+      const keepAuto = !prev.title.trim() || prev.title.trim() === computeAutoTitle(prev.month, prev.year)
+      return {
+        ...prev,
+        month,
+        year,
+        title: keepAuto ? computeAutoTitle(month, year) : prev.title,
+      }
+    })
+  }
+
+  const updateArticle = (
+    chapterId: string,
+    articleId: string,
+    updates: Partial<NewsletterArticle>,
+  ) => {
     setDraft((prev) => ({
       ...prev,
-      chapters: [...prev.chapters, newChapter],
+      chapters: prev.chapters.map((ch) =>
+        ch.id === chapterId
+          ? { ...ch, articles: ch.articles.map((a) => (a.id === articleId ? { ...a, ...updates } : a)) }
+          : ch,
+      ),
     }))
+  }
+
+  const addArticle = (chapterId: string) => {
+    setDraft((prev) => ({
+      ...prev,
+      chapters: prev.chapters.map((ch) =>
+        ch.id === chapterId ? { ...ch, articles: [...ch.articles, createEmptyArticle()] } : ch,
+      ),
+    }))
+  }
+
+  const deleteArticle = (chapterId: string, articleId: string) => {
+    setDraft((prev) => {
+      const chapter = prev.chapters.find((c) => c.id === chapterId)
+      if (chapter && chapter.articles.length <= 1) return prev
+      return {
+        ...prev,
+        chapters: prev.chapters.map((ch) =>
+          ch.id === chapterId ? { ...ch, articles: ch.articles.filter((a) => a.id !== articleId) } : ch,
+        ),
+      }
+    })
+  }
+
+  const handleArticleImageUpload = async (
+    chapterId: string,
+    articleId: string,
+    template: ArticleLayout,
+    e: React.ChangeEvent<HTMLInputElement>,
+  ) => {
+    const file = e.target.files?.[0]
+    if (!file) return
+    if (file.size > 10 * 1024 * 1024) {
+      alert('Image size must be less than 10MB')
+      return
+    }
+    try {
+      const cropped = await cropImageToRatio(file, ARTICLE_CROP[template])
+      updateArticle(chapterId, articleId, { image: cropped })
+    } catch {
+      alert('Could not process that image. Please try another file.')
+    }
+    e.target.value = ''
   }
 
   const deleteChapter = (chapterId: string) => {
@@ -171,20 +234,20 @@ export default function CreateNewsletterPage() {
     })
   }
 
-  const handleHeaderImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleHeaderImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0]
-    if (file) {
-      if (file.size > 5 * 1024 * 1024) {
-        alert('Image size must be less than 5MB')
-        return
-      }
-      const reader = new FileReader()
-      reader.onload = (event) => {
-        const dataUrl = event.target?.result as string
-        updateDraft({ headerImage: dataUrl })
-      }
-      reader.readAsDataURL(file)
+    if (!file) return
+    if (file.size > 10 * 1024 * 1024) {
+      alert('Image size must be less than 10MB')
+      return
     }
+    try {
+      const cropped = await cropImageToRatio(file, HEADER_CROP)
+      updateDraft({ headerImage: cropped })
+    } catch {
+      alert('Could not process that image. Please try another file.')
+    }
+    e.target.value = ''
   }
 
   const removeHeaderImage = () => {
@@ -207,46 +270,21 @@ export default function CreateNewsletterPage() {
   }
 
   const importArticle = async (article: SubmittedArticle) => {
-    // Convert article to chapter content based on template
-    let htmlContent = ''
-    
-    if (article.template === 'portrait') {
-      // Portrait: Image left (H600×W200), Text right (H600×W400)
-      htmlContent = `
-        <div style="display: flex; gap: 16px; margin-bottom: 16px;">
-          <div style="flex: 0 0 200px;">
-            <img src="${article.imageDataUrl}" alt="${article.title}" style="width: 100%; height: auto; display: block;" />
-          </div>
-          <div style="flex: 1;">
-            <h3>${article.title}</h3>
-            <p>${article.content}</p>
-            <p style="margin-top: 12px; font-style: italic;"><strong>Contact:</strong> ${article.contact}</p>
-          </div>
-        </div>
-      `
-    } else {
-      // Landscape: Image top (H200×W600), Text bottom (H400×W600)
-      htmlContent = `
-        <div style="margin-bottom: 16px;">
-          <img src="${article.imageDataUrl}" alt="${article.title}" style="width: 100%; height: auto; display: block; margin-bottom: 12px;" />
-          <h3>${article.title}</h3>
-          <p>${article.content}</p>
-          <p style="margin-top: 12px; font-style: italic;"><strong>Contact:</strong> ${article.contact}</p>
-        </div>
-      `
-    }
-
-    // Add as new chapter
-    const newChapter: NewsletterChapter = {
+    // Import the submitted article as a new chapter holding one article. The
+    // contributor's image is already sized; the chapter title (AURIX™, TRAVEO™,
+    // …) is left for the editor to assign.
+    const newArticle: NewsletterArticle = {
       id: generateId(),
       title: article.title,
-      content: htmlContent,
-      images: [],
+      content: article.content ? `<p>${article.content}</p>` : '',
+      template: article.template,
+      image: article.imageDataUrl || undefined,
+      contact: article.contact || '',
     }
 
     setDraft((prev) => ({
       ...prev,
-      chapters: [...prev.chapters, newChapter],
+      chapters: [...prev.chapters, { id: generateId(), title: '', articles: [newArticle] }],
     }))
 
     // Mark article as imported
@@ -301,23 +339,13 @@ export default function CreateNewsletterPage() {
           {/* Newsletter Metadata */}
           <section className="editor-section metadata-section">
             <h2>Newsletter Details</h2>
-            <div className="form-group">
-              <label htmlFor="title">Newsletter Title</label>
-              <input
-                id="title"
-                type="text"
-                value={draft.title}
-                onChange={(e) => updateDraft({ title: e.target.value })}
-                placeholder="e.g., ATV MC Newsletter - December 2024 edition"
-              />
-            </div>
             <div className="form-row">
               <div className="form-group">
                 <label htmlFor="month">Month</label>
                 <select
                   id="month"
                   value={draft.month}
-                  onChange={(e) => updateDraft({ month: Number(e.target.value) })}
+                  onChange={(e) => changeMonthYear({ month: Number(e.target.value) })}
                 >
                   {Array.from({ length: 12 }, (_, i) => {
                     const monthName = new Date(2024, i, 1).toLocaleString(undefined, {
@@ -336,7 +364,7 @@ export default function CreateNewsletterPage() {
                 <select
                   id="year"
                   value={draft.year}
-                  onChange={(e) => updateDraft({ year: Number(e.target.value) })}
+                  onChange={(e) => changeMonthYear({ year: Number(e.target.value) })}
                 >
                   {Array.from({ length: 10 }, (_, i) => {
                     const year = new Date().getFullYear() - 1 + i
@@ -349,9 +377,32 @@ export default function CreateNewsletterPage() {
                 </select>
               </div>
             </div>
+            <div className="form-group">
+              <label htmlFor="title">Newsletter Title</label>
+              <input
+                id="title"
+                type="text"
+                value={draft.title}
+                onChange={(e) => updateDraft({ title: e.target.value })}
+                placeholder="ATV MC Monthly Update - June '26"
+              />
+              <p className="meta" style={{ marginTop: 4 }}>
+                Auto-filled from the month and year. Edit it and your wording is kept.
+              </p>
+            </div>
+            <div className="form-group">
+              <label htmlFor="subtitle">Subtitle</label>
+              <input
+                id="subtitle"
+                type="text"
+                value={draft.subtitle}
+                onChange={(e) => updateDraft({ subtitle: e.target.value })}
+                placeholder="We make green mobility smart!"
+              />
+            </div>
           </section>
 
-          {/* Header Image */}
+          {/* Header Image + Intro */}
           <section className="editor-section header-image-section">
             <h2>Header Image</h2>
             {draft.headerImage ? (
@@ -378,26 +429,21 @@ export default function CreateNewsletterPage() {
                   />
                 </label>
                 <p className="meta" style={{ marginTop: 8 }}>
-                  Recommended: 800x400px, max 5MB
+                  Optional — a default header image is used if you don't upload one. Cropped to 2:1 (≈800×400).
                 </p>
               </div>
             )}
-          </section>
 
-          {/* Intro Section */}
-          <section className="editor-section intro-section">
-            <h2>Initial Start Section</h2>
-            <p className="meta" style={{ marginTop: 0, marginBottom: 12 }}>
-              This intro content appears after the header image and before the navigation.
-            </p>
-            <div className="form-group">
+            <div className="form-group" style={{ marginTop: 24 }}>
+              <p className="meta" style={{ marginTop: 0, marginBottom: 12 }}>
+                This intro content appears after the header image and before the navigation.
+              </p>
               <label>Intro Content</label>
               <RichTextEditor
                 content={draft.introContent}
                 onChange={(html) => updateDraft({ introContent: html })}
                 placeholder="Write your introduction or opening message..."
                 enableRefine
-                onRefine={refineIntro}
               />
             </div>
           </section>
@@ -452,16 +498,20 @@ export default function CreateNewsletterPage() {
                 </div>
 
                 <div className="form-group">
-                  <label>Chapter Title</label>
+                  <label>
+                    Chapter Title <span className="meta">(green section heading)</span>
+                  </label>
                   <select
                     value={
                       isCanonicalChapterTitle(chapter.title)
                         ? chapter.title
-                        : 'Other...'
+                        : chapter.title.trim() === ''
+                          ? ''
+                          : 'Other...'
                     }
                     onChange={(e) => {
                       if (e.target.value === 'Other...') {
-                        updateChapter(chapter.id, { title: '' })
+                        updateChapter(chapter.id, { title: ' ' })
                       } else {
                         updateChapter(chapter.id, { title: e.target.value })
                       }
@@ -478,7 +528,7 @@ export default function CreateNewsletterPage() {
                   {chapter.title !== '' && !isCanonicalChapterTitle(chapter.title) && (
                     <input
                       type="text"
-                      value={chapter.title}
+                      value={chapter.title.trimStart()}
                       onChange={(e) =>
                         updateChapter(chapter.id, { title: e.target.value })
                       }
@@ -488,210 +538,146 @@ export default function CreateNewsletterPage() {
                   )}
                 </div>
 
-                {/* Chapter Content Mode Selection */}
-                <div className="form-group">
-                  <label>Content Type</label>
-                  <select
-                    value={chapter.template ? 'template' : 'rich-text'}
-                    onChange={(e) => {
-                      if (e.target.value === 'template') {
-                        updateChapter(chapter.id, {
-                          template: 'portrait',
-                          chapterImage: '',
-                          chapterText: '',
-                          chapterContact: '',
-                          content: '', // Clear rich text content when switching to template
-                        })
-                      } else {
-                        updateChapter(chapter.id, {
-                          template: undefined,
-                          chapterImage: undefined,
-                          chapterText: undefined,
-                          chapterContact: undefined,
-                        })
-                      }
-                    }}
-                  >
-                    <option value="rich-text">Rich Text Editor</option>
-                    <option value="template">Article Template</option>
-                  </select>
-                </div>
+                {/* Articles within this chapter */}
+                <div className="articles-block">
+                  <div className="articles-block-header">
+                    <span className="articles-label">Articles</span>
+                    <button
+                      type="button"
+                      onClick={() => addArticle(chapter.id)}
+                      className="button small"
+                    >
+                      + Add Article
+                    </button>
+                  </div>
 
-                {/* Template-based Content Editor */}
-                {chapter.template && (
-                  <div className="chapter-template-editor">
-                    <div className="form-group">
-                      <label>Template Layout</label>
-                      <div className="template-selection-small">
-                        <label className={`template-card-small ${chapter.template === 'portrait' ? 'selected' : ''}`}>
-                          <input
-                            type="radio"
-                            name={`template-${chapter.id}`}
-                            value="portrait"
-                            checked={chapter.template === 'portrait'}
-                            onChange={(e) => updateChapter(chapter.id, { template: e.target.value as ArticleTemplate })}
-                          />
-                          <div className="template-preview-small portrait-preview">
-                            <div className="template-image-small">Image</div>
-                            <div className="template-text-small">Text</div>
-                          </div>
-                          <div className="template-info-small">
-                            <strong>Portrait</strong>
-                            <span>H600×W200 (left)</span>
-                          </div>
-                        </label>
-
-                        <label className={`template-card-small ${chapter.template === 'landscape' ? 'selected' : ''}`}>
-                          <input
-                            type="radio"
-                            name={`template-${chapter.id}`}
-                            value="landscape"
-                            checked={chapter.template === 'landscape'}
-                            onChange={(e) => updateChapter(chapter.id, { template: e.target.value as ArticleTemplate })}
-                          />
-                          <div className="template-preview-small landscape-preview">
-                            <div className="template-image-small">Image</div>
-                            <div className="template-text-small">Text</div>
-                          </div>
-                          <div className="template-info-small">
-                            <strong>Landscape</strong>
-                            <span>H200×W600 (top)</span>
-                          </div>
-                        </label>
+                  {chapter.articles.map((article, aIndex) => (
+                    <div key={article.id} className="article-editor">
+                      <div className="article-editor-head">
+                        <span className="article-number">Article {aIndex + 1}</span>
+                        <button
+                          type="button"
+                          onClick={() => deleteArticle(chapter.id, article.id)}
+                          disabled={chapter.articles.length === 1}
+                          className="button icon danger"
+                          title="Delete article"
+                        >
+                          🗑️
+                        </button>
                       </div>
-                    </div>
 
-                    <div className="form-group">
-                      <label>Article Image</label>
-                      {chapter.chapterImage ? (
-                        <div className="image-preview-container">
-                          <img src={chapter.chapterImage} alt="Chapter preview" className="article-image-preview" />
-                          <button
-                            type="button"
-                            onClick={() => updateChapter(chapter.id, { chapterImage: '' })}
-                            className="button small danger"
-                          >
-                            Remove Image
-                          </button>
-                        </div>
-                      ) : (
-                        <div className="image-upload-area">
-                          <label htmlFor={`chapter-image-${chapter.id}`} className="upload-label">
-                            <span>📷 Upload Image</span>
-                            <input
-                              id={`chapter-image-${chapter.id}`}
-                              type="file"
-                              accept="image/*"
-                              onChange={(e) => {
-                                const file = e.target.files?.[0]
-                                if (file) {
-                                  if (file.size > 5 * 1024 * 1024) {
-                                    alert('Image size must be less than 5MB')
-                                    return
-                                  }
-                                  const reader = new FileReader()
-                                  reader.onload = (event) => {
-                                    const dataUrl = event.target?.result as string
-                                    updateChapter(chapter.id, { chapterImage: dataUrl })
-                                  }
-                                  reader.readAsDataURL(file)
+                      <div className="form-group">
+                        <label>
+                          Article Title <span className="meta">(bold heading)</span>
+                        </label>
+                        <input
+                          type="text"
+                          value={article.title}
+                          onChange={(e) =>
+                            updateArticle(chapter.id, article.id, { title: e.target.value })
+                          }
+                          placeholder="e.g., New AURIX™ TC4x evaluation board"
+                          maxLength={140}
+                        />
+                      </div>
+
+                      <div className="form-group">
+                        <label>Layout</label>
+                        <div className="layout-toggle">
+                          {(['portrait', 'landscape'] as ArticleLayout[]).map((layout) => (
+                            <label
+                              key={layout}
+                              className={`layout-option ${article.template === layout ? 'selected' : ''}`}
+                            >
+                              <input
+                                type="radio"
+                                name={`layout-${article.id}`}
+                                value={layout}
+                                checked={article.template === layout}
+                                onChange={() =>
+                                  updateArticle(chapter.id, article.id, { template: layout })
                                 }
-                              }}
-                              style={{ display: 'none' }}
-                            />
-                          </label>
-                          <p className="meta" style={{ marginTop: 8 }}>
-                            {chapter.template === 'portrait' 
-                              ? 'Recommended: H600 × W200 pixels' 
-                              : 'Recommended: H200 × W600 pixels'}
+                              />
+                              <span className={`layout-glyph layout-glyph--${layout}`} aria-hidden="true" />
+                              <span className="layout-name">
+                                {layout === 'portrait' ? 'Portrait' : 'Landscape'}
+                                <span className="meta">
+                                  {layout === 'portrait'
+                                    ? ' image left · W200×H600'
+                                    : ' image top · W600×H200'}
+                                </span>
+                              </span>
+                            </label>
+                          ))}
+                        </div>
+                      </div>
+
+                      <div className={`article-layout article-layout--${article.template}`}>
+                        <div className="article-image-col">
+                          <label>Article Image</label>
+                          <div
+                            className="article-image-box"
+                            style={{ aspectRatio: aspectRatioCss(ARTICLE_CROP[article.template]) }}
+                          >
+                            {article.image ? (
+                              <>
+                                <img src={article.image} alt="Article" />
+                                <button
+                                  type="button"
+                                  onClick={() =>
+                                    updateArticle(chapter.id, article.id, { image: undefined })
+                                  }
+                                  className="button small danger article-image-remove"
+                                >
+                                  Remove
+                                </button>
+                              </>
+                            ) : (
+                              <label className="article-image-drop">
+                                <span>📷 Upload</span>
+                                <input
+                                  type="file"
+                                  accept="image/*"
+                                  style={{ display: 'none' }}
+                                  onChange={(e) =>
+                                    handleArticleImageUpload(chapter.id, article.id, article.template, e)
+                                  }
+                                />
+                              </label>
+                            )}
+                          </div>
+                          <p className="meta" style={{ marginTop: 6 }}>
+                            Auto-cropped to {article.template === 'portrait' ? 'W200×H600' : 'W600×H200'}.
                           </p>
                         </div>
-                      )}
-                    </div>
 
-                    <div className="form-group">
-                      <label>Article Content (3-4 sentences)</label>
-                      <textarea
-                        value={chapter.chapterText || ''}
-                        onChange={(e) => updateChapter(chapter.id, { chapterText: e.target.value })}
-                        placeholder="Write your article content here (3-4 sentences)..."
-                        rows={6}
-                        maxLength={500}
-                      />
-                      <p className="meta" style={{ marginTop: 4 }}>
-                        {(chapter.chapterText || '').trim().split(/\s+/).filter(w => w).length} words
-                      </p>
+                        <div className="article-content-col">
+                          <label>Article Content</label>
+                          <RichTextEditor
+                            content={article.content}
+                            onChange={(html) =>
+                              updateArticle(chapter.id, article.id, { content: html })
+                            }
+                            placeholder="Write the article (a few sentences)..."
+                            enableRefine
+                          />
+                          <div className="form-group" style={{ marginTop: 12 }}>
+                            <label>Contact</label>
+                            <input
+                              type="text"
+                              value={article.contact ?? ''}
+                              onChange={(e) =>
+                                updateArticle(chapter.id, article.id, { contact: e.target.value })
+                              }
+                              placeholder="Contact: Name, email or phone"
+                              maxLength={200}
+                            />
+                          </div>
+                        </div>
+                      </div>
                     </div>
-
-                    <div className="form-group">
-                      <label>Contact Information</label>
-                      <input
-                        type="text"
-                        value={chapter.chapterContact || ''}
-                        onChange={(e) => updateChapter(chapter.id, { chapterContact: e.target.value })}
-                        placeholder="Contact: Your Name, Email, or Phone"
-                        maxLength={200}
-                      />
-                    </div>
-
-                    <div className="form-group">
-                      <button
-                        type="button"
-                        onClick={() => {
-                          // Generate HTML content from template
-                          let htmlContent = ''
-                          if (chapter.template === 'portrait' && chapter.chapterImage && chapter.chapterText) {
-                            htmlContent = `
-                              <div style="display: flex; gap: 16px; margin-bottom: 16px;">
-                                <div style="flex: 0 0 200px;">
-                                  <img src="${chapter.chapterImage}" alt="${chapter.title}" style="width: 100%; height: auto; display: block;" />
-                                </div>
-                                <div style="flex: 1;">
-                                  <p>${chapter.chapterText}</p>
-                                  ${chapter.chapterContact ? `<p style="margin-top: 12px; font-style: italic;"><strong>Contact:</strong> ${chapter.chapterContact}</p>` : ''}
-                                </div>
-                              </div>
-                            `
-                          } else if (chapter.template === 'landscape' && chapter.chapterImage && chapter.chapterText) {
-                            htmlContent = `
-                              <div style="margin-bottom: 16px;">
-                                <img src="${chapter.chapterImage}" alt="${chapter.title}" style="width: 100%; height: auto; display: block; margin-bottom: 12px;" />
-                                <p>${chapter.chapterText}</p>
-                                ${chapter.chapterContact ? `<p style="margin-top: 12px; font-style: italic;"><strong>Contact:</strong> ${chapter.chapterContact}</p>` : ''}
-                              </div>
-                            `
-                          }
-                          if (htmlContent) {
-                            updateChapter(chapter.id, { content: htmlContent })
-                            alert('Template content converted to HTML! You can now edit it in Rich Text mode if needed.')
-                          } else {
-                            alert('Please fill in the image and content fields first.')
-                          }
-                        }}
-                        className="button small primary"
-                      >
-                        Convert to HTML Content
-                      </button>
-                      <p className="meta" style={{ marginTop: 4 }}>
-                        This will convert your template content to HTML format that can be edited further
-                      </p>
-                    </div>
-                  </div>
-                )}
-
-                {/* Rich Text Editor */}
-                {!chapter.template && (
-                  <div className="form-group">
-                    <label>Chapter Content</label>
-                    <RichTextEditor
-                      content={chapter.content}
-                      onChange={(html) => updateChapter(chapter.id, { content: html })}
-                      placeholder="Write your chapter content here..."
-                      enableRefine
-                      onRefine={refineChapterContent(chapter, index)}
-                    />
-                  </div>
-                )}
+                  ))}
+                </div>
               </div>
             ))}
           </section>

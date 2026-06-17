@@ -1,11 +1,70 @@
 import type { Newsletter } from '../data/newsletters'
-import type { NewsletterDraft } from '../types/newsletter-creation'
+import type {
+  NewsletterDraft,
+  NewsletterChapter,
+  NewsletterArticle,
+  ArticleLayout,
+} from '../types/newsletter-creation'
 
 const STORAGE_KEY = 'newsletter_drafts'
+
+export const DEFAULT_SUBTITLE = 'We make green mobility smart!'
 
 // Generate unique ID
 export function generateId(): string {
   return `draft_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`
+}
+
+/** Auto title from month/year, e.g. "ATV MC Monthly Update - June '26". */
+export function computeAutoTitle(month: number, year: number): string {
+  const monthName = new Date(Date.UTC(year, month, 1)).toLocaleString('en-US', {
+    month: 'long',
+    timeZone: 'UTC',
+  })
+  const yy = String(year).slice(-2)
+  return `ATV MC Monthly Update - ${monthName} '${yy}`
+}
+
+/** A blank article (portrait by default). */
+export function createEmptyArticle(): NewsletterArticle {
+  return { id: generateId(), title: '', content: '', template: 'portrait', image: undefined, contact: '' }
+}
+
+/** A blank chapter containing a single empty article. */
+export function createEmptyChapter(): NewsletterChapter {
+  return { id: generateId(), title: '', articles: [createEmptyArticle()] }
+}
+
+/**
+ * Ensure a draft matches the current model: a subtitle is present and every
+ * chapter has an `articles` array. Legacy chapters (single rich-text or the old
+ * template fields) are migrated into one article so old drafts keep working.
+ */
+export function normalizeDraft(draft: NewsletterDraft): NewsletterDraft {
+  const chapters: NewsletterChapter[] = (draft.chapters ?? []).map((ch) => {
+    if (Array.isArray(ch.articles) && ch.articles.length > 0) {
+      return {
+        id: ch.id,
+        title: ch.title,
+        articles: ch.articles.map((a) => ({ ...a, template: a.template ?? 'portrait' })),
+      }
+    }
+    const hasRich = (ch.content ?? '').trim().length > 0
+    const article: NewsletterArticle = {
+      id: generateId(),
+      title: '',
+      content: hasRich ? (ch.content as string) : ch.chapterText ? `<p>${ch.chapterText}</p>` : '',
+      template: (ch.template as ArticleLayout) ?? 'portrait',
+      image: !hasRich ? ch.chapterImage || undefined : undefined,
+      contact: ch.chapterContact ?? '',
+    }
+    return { id: ch.id, title: ch.title, articles: [article] }
+  })
+  return {
+    ...draft,
+    subtitle: draft.subtitle || DEFAULT_SUBTITLE,
+    chapters: chapters.length > 0 ? chapters : [createEmptyChapter()],
+  }
 }
 
 // Save a newsletter draft to LocalStorage
@@ -66,19 +125,17 @@ export function draftToNewsletter(draft: NewsletterDraft): Newsletter {
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/(^-|-$)/g, '')
   
-  // Create excerpt from intro content or first chapter
+  // Create excerpt from intro content or the first article
   let excerpt = 'Custom newsletter'
-  if (draft.introContent) {
+  const firstChapter = draft.chapters[0]
+  const firstArticleContent =
+    firstChapter?.articles?.[0]?.content ?? firstChapter?.content ?? ''
+  const source = draft.introContent || firstArticleContent
+  if (source) {
     const temp = document.createElement('div')
-    temp.innerHTML = draft.introContent
+    temp.innerHTML = source
     const text = (temp.textContent || '').replace(/\s+/g, ' ').trim()
-    excerpt = text.length > 200 ? text.slice(0, 197).trimEnd() + '…' : text
-  } else if (draft.chapters.length > 0) {
-    const firstContent = draft.chapters[0].content
-    const temp = document.createElement('div')
-    temp.innerHTML = firstContent
-    const text = (temp.textContent || '').replace(/\s+/g, ' ').trim()
-    excerpt = text.length > 200 ? text.slice(0, 197).trimEnd() + '…' : text
+    if (text) excerpt = text.length > 200 ? text.slice(0, 197).trimEnd() + '…' : text
   }
   
   return {
@@ -104,22 +161,18 @@ export function getPublishedNewsletters(): Newsletter[] {
 // Create a new empty draft
 export function createEmptyDraft(): NewsletterDraft {
   const now = new Date()
+  const month = now.getMonth()
+  const year = now.getFullYear()
   return {
     id: generateId(),
-    title: '',
+    title: computeAutoTitle(month, year),
+    subtitle: DEFAULT_SUBTITLE,
     date: now.toISOString(),
-    month: now.getMonth(),
-    year: now.getFullYear(),
+    month,
+    year,
     headerImage: undefined,
     introContent: '',
-    chapters: [
-      {
-        id: generateId(),
-        title: '',
-        content: '',
-        images: [],
-      },
-    ],
+    chapters: [createEmptyChapter()],
     status: 'draft',
     createdAt: now.toISOString(),
     updatedAt: now.toISOString(),

@@ -151,8 +151,12 @@ export default function NewsletterDetailPage() {
           </div>
         )}
       </div>
-      <h1>{derivedTitle || newsletter.title}</h1>
-      <p className="meta">{new Date(newsletter.date).toLocaleDateString()}</p>
+      {!isLocalNewsletter && (
+        <>
+          <h1>{derivedTitle || newsletter.title}</h1>
+          <p className="meta">{new Date(newsletter.date).toLocaleDateString()}</p>
+        </>
+      )}
       {htmlString && sanitizedHtml ? (
         <div className="embedded-newsletter" dangerouslySetInnerHTML={{ __html: sanitizedHtml }} />
       ) : (

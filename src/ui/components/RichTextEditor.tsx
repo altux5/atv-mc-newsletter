@@ -3,7 +3,7 @@ import StarterKit from '@tiptap/starter-kit'
 import Link from '@tiptap/extension-link'
 import Image from '@tiptap/extension-image'
 import Placeholder from '@tiptap/extension-placeholder'
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 
 const AI_LOADING_MESSAGES = [
   "✨ Polishing your prose...",
@@ -31,7 +31,6 @@ export default function RichTextEditor({
   onRefine,
   refineLabel = 'Refine with AI',
 }: RichTextEditorProps) {
-  const imageInputRef = useRef<HTMLInputElement>(null)
   const [isRefining, setIsRefining] = useState(false)
   const [loadingMessage, setLoadingMessage] = useState(AI_LOADING_MESSAGES[0])
   
@@ -107,51 +106,8 @@ export default function RichTextEditor({
     }
   }
 
-  const addImage = () => {
-    // Trigger the hidden file input
-    imageInputRef.current?.click()
-  }
-
-  const handleImageUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files?.[0]
-    if (!file) return
-
-    // Validate file type
-    if (!file.type.startsWith('image/')) {
-      alert('Please select an image file')
-      return
-    }
-
-    // Validate file size (max 5MB)
-    if (file.size > 5 * 1024 * 1024) {
-      alert('Image size must be less than 5MB')
-      return
-    }
-
-    // Convert to base64 and insert
-    const reader = new FileReader()
-    reader.onload = (e) => {
-      const dataUrl = e.target?.result as string
-      if (dataUrl && editor) {
-        editor.chain().focus().setImage({ src: dataUrl }).run()
-      }
-    }
-    reader.readAsDataURL(file)
-
-    // Reset input so same file can be selected again
-    event.target.value = ''
-  }
-
   return (
     <div className="rich-text-editor">
-      {/* Hidden file input for image uploads */}
-      <input
-        ref={imageInputRef}
-        type="file"
-        accept="image/*"
-        style={{ display: 'none' }}
-        onChange={handleImageUpload}
-      />
       <div className="editor-toolbar">
         <button
           type="button"
@@ -215,9 +171,6 @@ export default function RichTextEditor({
         <button type="button" onClick={addLink} title="Add Link">
           🔗 Link
         </button>
-        <button type="button" onClick={addImage} title="Add Image">
-          🖼️ Image
-        </button>
         <span className="separator">|</span>
         <button
           type="button"
@@ -235,14 +188,15 @@ export default function RichTextEditor({
         >
           ↷ Redo
         </button>
-        {enableRefine && onRefine && (
+        {enableRefine && (
           <>
             <span className="separator">|</span>
             <button
               type="button"
               onClick={handleRefine}
-              disabled={isRefining}
-              title={refineLabel}
+              disabled
+              title="Work in progress — coming soon"
+              aria-disabled="true"
               className="ai-refine-button"
             >
               <span className="ai-refine-icon">✨</span>

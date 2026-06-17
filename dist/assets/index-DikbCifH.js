@@ -117621,8 +117621,49 @@ function extractSectionSnippets(htmlDocumentString) {
   }
 }
 const STORAGE_KEY = "newsletter_drafts";
+const DEFAULT_SUBTITLE = "We make green mobility smart!";
 function generateId() {
   return `draft_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+}
+function computeAutoTitle(month, year) {
+  const monthName = new Date(Date.UTC(year, month, 1)).toLocaleString("en-US", {
+    month: "long",
+    timeZone: "UTC"
+  });
+  const yy = String(year).slice(-2);
+  return `ATV MC Monthly Update - ${monthName} '${yy}`;
+}
+function createEmptyArticle() {
+  return { id: generateId(), title: "", content: "", template: "portrait", image: void 0, contact: "" };
+}
+function createEmptyChapter() {
+  return { id: generateId(), title: "", articles: [createEmptyArticle()] };
+}
+function normalizeDraft(draft) {
+  const chapters = (draft.chapters ?? []).map((ch) => {
+    if (Array.isArray(ch.articles) && ch.articles.length > 0) {
+      return {
+        id: ch.id,
+        title: ch.title,
+        articles: ch.articles.map((a) => ({ ...a, template: a.template ?? "portrait" }))
+      };
+    }
+    const hasRich = (ch.content ?? "").trim().length > 0;
+    const article = {
+      id: generateId(),
+      title: "",
+      content: hasRich ? ch.content : ch.chapterText ? `<p>${ch.chapterText}</p>` : "",
+      template: ch.template ?? "portrait",
+      image: !hasRich ? ch.chapterImage || void 0 : void 0,
+      contact: ch.chapterContact ?? ""
+    };
+    return { id: ch.id, title: ch.title, articles: [article] };
+  });
+  return {
+    ...draft,
+    subtitle: draft.subtitle || DEFAULT_SUBTITLE,
+    chapters: chapters.length > 0 ? chapters : [createEmptyChapter()]
+  };
 }
 function getAllDrafts() {
   try {
@@ -117643,17 +117684,14 @@ function draftToNewsletter(draft) {
   const date = new Date(Date.UTC(draft.year, draft.month, 5));
   const slug = title.toLowerCase().normalize("NFKD").replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
   let excerpt = "Custom newsletter";
-  if (draft.introContent) {
+  const firstChapter = draft.chapters[0];
+  const firstArticleContent = firstChapter?.articles?.[0]?.content ?? firstChapter?.content ?? "";
+  const source = draft.introContent || firstArticleContent;
+  if (source) {
     const temp = document.createElement("div");
-    temp.innerHTML = draft.introContent;
+    temp.innerHTML = source;
     const text2 = (temp.textContent || "").replace(/\s+/g, " ").trim();
-    excerpt = text2.length > 200 ? text2.slice(0, 197).trimEnd() + "…" : text2;
-  } else if (draft.chapters.length > 0) {
-    const firstContent = draft.chapters[0].content;
-    const temp = document.createElement("div");
-    temp.innerHTML = firstContent;
-    const text2 = (temp.textContent || "").replace(/\s+/g, " ").trim();
-    excerpt = text2.length > 200 ? text2.slice(0, 197).trimEnd() + "…" : text2;
+    if (text2) excerpt = text2.length > 200 ? text2.slice(0, 197).trimEnd() + "…" : text2;
   }
   return {
     id: draft.id,
@@ -117673,22 +117711,18 @@ function getPublishedNewsletters() {
 }
 function createEmptyDraft() {
   const now = /* @__PURE__ */ new Date();
+  const month = now.getMonth();
+  const year = now.getFullYear();
   return {
     id: generateId(),
-    title: "",
+    title: computeAutoTitle(month, year),
+    subtitle: DEFAULT_SUBTITLE,
     date: now.toISOString(),
-    month: now.getMonth(),
-    year: now.getFullYear(),
+    month,
+    year,
     headerImage: void 0,
     introContent: "",
-    chapters: [
-      {
-        id: generateId(),
-        title: "",
-        content: "",
-        images: []
-      }
-    ],
+    chapters: [createEmptyChapter()],
     status: "draft",
     createdAt: now.toISOString(),
     updatedAt: now.toISOString()
@@ -117893,7 +117927,7 @@ async function getNewslettersAsync() {
   return merged.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 }
 getNewsletters();
-const newsletterImage = "/assets/newsletter%20image-ByQ57XuM.png";
+const defaultHeaderImage = "/assets/newsletter%20image-ByQ57XuM.png";
 const headerImage = "/assets/new-header-Cc2PnMTJ.jpg";
 const CANONICAL_CHAPTER_TITLES = [
   "AURIX™",
@@ -118244,7 +118278,7 @@ function HomePage() {
                   /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { style: { marginTop: 0, color: "var(--brand)" }, children: "Latest newsletter" }),
                   /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "latest-grid", children: [
                     /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "left", children: [
-                      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "media", children: /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: newsletterImage, alt: "Newsletter picture" }) }),
+                      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "media", children: /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: defaultHeaderImage, alt: "Newsletter picture" }) }),
                       /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
                         /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { style: { color: "#000" }, children: latest.title }),
                         /* @__PURE__ */ jsxRuntimeExports.jsx("p", { style: { margin: 0 }, children: new Date(latest.date).toLocaleDateString() })
@@ -119299,51 +119333,90 @@ function NewslettersPage() {
     ] })
   ] });
 }
+const BRAND_GREEN = "#0A8276";
+const TITLE_GREEN = "#007D6F";
+const FONT_STACK = "Arial, 'Segoe UI', Tahoma, sans-serif";
+function escapeHtml(value) {
+  return String(value ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#39;");
+}
+function chapterArticles(chapter) {
+  if (Array.isArray(chapter.articles) && chapter.articles.length > 0) {
+    return chapter.articles;
+  }
+  if ((chapter.content ?? "").trim()) {
+    return [
+      {
+        id: `${chapter.id}_legacy`,
+        title: "",
+        content: chapter.content,
+        template: chapter.template ?? "portrait",
+        image: chapter.chapterImage || void 0,
+        contact: chapter.chapterContact ?? ""
+      }
+    ];
+  }
+  return [];
+}
+function renderArticle(article) {
+  const titleHtml = article.title ? `<p style="font-size:12pt;font-weight:bold;color:#222;margin:0 0 8px;">${escapeHtml(article.title)}</p>` : "";
+  const contactHtml = article.contact ? `<p style="margin:10px 0 0;font-style:italic;font-size:10pt;color:#555;"><strong>Contact:</strong> ${escapeHtml(article.contact)}</p>` : "";
+  const body = `${titleHtml}<div style="font-size:10.5pt;line-height:1.6;color:#333;">${article.content || ""}</div>${contactHtml}`;
+  if (article.image && article.template === "portrait") {
+    return `
+      <div style="display:flex;gap:18px;margin:0 0 22px;align-items:flex-start;">
+        <div style="flex:0 0 200px;width:200px;">
+          <img src="${article.image}" alt="${escapeHtml(article.title)}" style="width:200px;height:600px;object-fit:cover;display:block;" />
+        </div>
+        <div style="flex:1;min-width:0;">${body}</div>
+      </div>`;
+  }
+  if (article.image && article.template === "landscape") {
+    return `
+      <div style="margin:0 0 22px;">
+        <img src="${article.image}" alt="${escapeHtml(article.title)}" style="width:100%;max-width:600px;height:200px;object-fit:cover;display:block;margin:0 0 12px;" />
+        ${body}
+      </div>`;
+  }
+  return `<div style="margin:0 0 22px;">${body}</div>`;
+}
 function generateNewsletterBodyHtml(draft) {
-  const chapterNav = draft.chapters.map((chapter, index) => {
-    const chapterId = `chapter_${index}`;
-    return `
-        <div style="padding: 8px 0;">
-          <a href="#${chapterId}" style="color: #0A8276; text-decoration: none;">
-            ${chapter.title || `Chapter ${index + 1}`}
-          </a>
-        </div>
-      `;
-  }).join("");
+  const title = draft.title?.trim() || computeAutoTitle(draft.month, draft.year);
+  const subtitle = (draft.subtitle ?? DEFAULT_SUBTITLE).trim();
+  const headerSrc = draft.headerImage || defaultHeaderImage;
+  const navItems = draft.chapters.filter((c) => c.title?.trim()).map(
+    (chapter, index) => `<a href="#chapter_${index}" style="color:#ffffff;text-decoration:none;font-size:11.5pt;font-weight:bold;margin:0 14px 6px 0;display:inline-block;">${escapeHtml(
+      chapter.title
+    )}</a>`
+  ).join("");
   const chaptersHtml = draft.chapters.map((chapter, index) => {
-    const chapterId = `chapter_${index}`;
-    const chapterTitle = chapter.title || `Chapter ${index + 1}`;
-    return `
-        <div style="padding: 20px 0;">
-          <a name="${chapterId}" id="${chapterId}"></a>
-          <h2 style="color: #0A8276; font-size: 18px; margin: 0 0 12px 0;">
-            ${chapterTitle}
-          </h2>
-          <div>
-            ${chapter.content}
-          </div>
-        </div>
-      `;
+    const heading = chapter.title?.trim() ? `<a name="chapter_${index}" id="chapter_${index}"></a>
+           <h2 style="font-size:13.5pt;font-weight:bold;color:${BRAND_GREEN};margin:0 0 14px;border-bottom:1px solid #e5e7eb;padding-bottom:6px;">${escapeHtml(
+      chapter.title
+    )}</h2>` : `<a name="chapter_${index}" id="chapter_${index}"></a>`;
+    const articles = chapterArticles(chapter).map(renderArticle).join("");
+    return `<section style="padding:22px 0;">${heading}${articles}</section>`;
   }).join("");
   const bodyHtml = `
-    <div style="max-width: 800px; margin: 0 auto;">
-      ${draft.headerImage ? `
-      <div style="margin-bottom: 20px;">
-        <img src="${draft.headerImage}" alt="Newsletter Header" style="width: 100%; height: auto;" />
+    <div style="max-width:800px;margin:0 auto;font-family:${FONT_STACK};color:#333;">
+      <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:20px;padding:0 0 18px;">
+        <div style="flex:1;min-width:0;">
+          <h1 style="font-size:21pt;font-weight:bold;color:${TITLE_GREEN};margin:0;line-height:1.2;">${escapeHtml(
+    title
+  )}</h1>
+          ${subtitle ? `<p style="font-size:12pt;font-weight:bold;color:${TITLE_GREEN};margin:8px 0 0;">${escapeHtml(subtitle)}</p>` : ""}
+        </div>
+        <img src="${logoUrl}" alt="Infineon" style="flex:0 0 auto;height:54px;width:auto;display:block;" />
       </div>
-      ` : ""}
-      
-      ${draft.introContent ? `
-      <div style="padding: 20px 0;">
-        ${draft.introContent}
-      </div>
-      ` : ""}
-      
-      <div style="padding: 30px 0 20px 0; border-top: 2px solid #0A8276;">
-        <h3 style="color: #0A8276; margin: 0 0 12px 0;">Chapter Navigation</h3>
-        ${chapterNav}
-      </div>
-      
+
+      ${`<div style="margin:0 0 20px;"><img src="${headerSrc}" alt="Newsletter header" style="width:100%;height:auto;display:block;" /></div>`}
+
+      ${draft.introContent ? `<div style="font-size:10.5pt;line-height:1.6;padding:0 0 12px;">${draft.introContent}</div>` : ""}
+
+      ${navItems ? `<div style="background:${BRAND_GREEN};padding:14px 18px;margin:8px 0 4px;">
+               <div style="color:#ffffff;font-size:12pt;font-weight:bold;margin:0 0 8px;">In this issue</div>
+               <div>${navItems}</div>
+             </div>` : ""}
+
       ${chaptersHtml}
     </div>
   `;
@@ -119452,8 +119525,10 @@ function NewsletterDetailPage() {
         /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: handleDelete2, className: "button", style: { color: "#dc2626", borderColor: "#fecaca" }, children: "🗑️ Delete" })
       ] })
     ] }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { children: derivedTitle || newsletter.title }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "meta", children: new Date(newsletter.date).toLocaleDateString() }),
+    !isLocalNewsletter && /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { children: derivedTitle || newsletter.title }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "meta", children: new Date(newsletter.date).toLocaleDateString() })
+    ] }),
     htmlString && sanitizedHtml ? /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "embedded-newsletter", dangerouslySetInnerHTML: { __html: sanitizedHtml } }) : /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "content", children: newsletter.content.map((block, idx) => {
       if (block.type === "h2") return /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { children: block.text }, idx);
       return /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: block.text }, idx);
@@ -142853,7 +142928,6 @@ function RichTextEditor({
   onRefine,
   refineLabel = "Refine with AI"
 }) {
-  const imageInputRef = reactExports$1.useRef(null);
   const [isRefining, setIsRefining] = reactExports$1.useState(false);
   const [loadingMessage, setLoadingMessage] = reactExports$1.useState(AI_LOADING_MESSAGES[0]);
   const editor = useEditor({
@@ -142919,41 +142993,7 @@ function RichTextEditor({
       editor.chain().focus().setLink({ href: url }).run();
     }
   };
-  const addImage = () => {
-    imageInputRef.current?.click();
-  };
-  const handleImageUpload = (event) => {
-    const file = event.target.files?.[0];
-    if (!file) return;
-    if (!file.type.startsWith("image/")) {
-      alert("Please select an image file");
-      return;
-    }
-    if (file.size > 5 * 1024 * 1024) {
-      alert("Image size must be less than 5MB");
-      return;
-    }
-    const reader = new FileReader();
-    reader.onload = (e) => {
-      const dataUrl = e.target?.result;
-      if (dataUrl && editor) {
-        editor.chain().focus().setImage({ src: dataUrl }).run();
-      }
-    };
-    reader.readAsDataURL(file);
-    event.target.value = "";
-  };
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "rich-text-editor", children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsx(
-      "input",
-      {
-        ref: imageInputRef,
-        type: "file",
-        accept: "image/*",
-        style: { display: "none" },
-        onChange: handleImageUpload
-      }
-    ),
     /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "editor-toolbar", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx(
         "button",
@@ -143029,7 +143069,6 @@ function RichTextEditor({
       ),
       /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "separator", children: "|" }),
       /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", onClick: addLink, title: "Add Link", children: "🔗 Link" }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", onClick: addImage, title: "Add Image", children: "🖼️ Image" }),
       /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "separator", children: "|" }),
       /* @__PURE__ */ jsxRuntimeExports.jsx(
         "button",
@@ -143051,15 +143090,16 @@ function RichTextEditor({
           children: "↷ Redo"
         }
       ),
-      enableRefine && onRefine && /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
+      enableRefine && /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "separator", children: "|" }),
         /* @__PURE__ */ jsxRuntimeExports.jsxs(
           "button",
           {
             type: "button",
             onClick: handleRefine,
-            disabled: isRefining,
-            title: refineLabel,
+            disabled: true,
+            title: "Work in progress — coming soon",
+            "aria-disabled": "true",
             className: "ai-refine-button",
             children: [
               /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "ai-refine-icon", children: "✨" }),
@@ -143085,33 +143125,18 @@ function RichTextEditor({
 }
 function NewsletterPreview({ draft }) {
   const bodyHtml = generateNewsletterBodyHtml(draft);
-  const monthName = new Date(Date.UTC(draft.year, draft.month, 1)).toLocaleString(void 0, {
-    month: "long",
-    timeZone: "UTC"
-  });
-  const title = draft.title || `ATV MC Newsletter - ${monthName} ${draft.year} edition`;
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "newsletter-preview", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "preview-header", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { style: { color: "var(--brand)", marginBottom: 8 }, children: "Preview" }),
       /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "meta", style: { marginTop: 0 }, children: "This is how your newsletter will appear when published" })
     ] }),
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "preview-content", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: { textAlign: "center", padding: "20px 0", borderBottom: "2px solid var(--brand)" }, children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { style: { color: "var(--brand)", margin: 0, fontSize: "24px" }, children: title }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { style: { color: "#666", margin: "8px 0 0 0" }, children: [
-          monthName,
-          " ",
-          draft.year
-        ] })
-      ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx(
-        "div",
-        {
-          className: "embedded-newsletter",
-          dangerouslySetInnerHTML: { __html: bodyHtml }
-        }
-      )
-    ] })
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "preview-content", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+      "div",
+      {
+        className: "embedded-newsletter",
+        dangerouslySetInnerHTML: { __html: bodyHtml }
+      }
+    ) })
   ] });
 }
 const BASE = "/api/articles";
@@ -143140,26 +143165,64 @@ async function markArticleAsImported(id) {
 async function getAvailableArticlesForImport() {
   return getArticles();
 }
-async function refineContent(html2, options = {}) {
-  const response = await fetch("/api/refine", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify({
-      content: html2,
-      context: options.context
-    })
+const ARTICLE_CROP = {
+  portrait: { ratioW: 200, ratioH: 600, maxW: 600, maxH: 1800 },
+  landscape: { ratioW: 600, ratioH: 200, maxW: 1200, maxH: 400 }
+};
+const HEADER_CROP = { ratioW: 800, ratioH: 400, maxW: 1600, maxH: 800 };
+function aspectRatioCss(ratio) {
+  return `${ratio.ratioW} / ${ratio.ratioH}`;
+}
+function loadImage(src) {
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+    img.onload = () => resolve(img);
+    img.onerror = () => reject(new Error("Failed to load image"));
+    img.src = src;
   });
-  if (!response.ok) {
-    const errorText = await response.text();
-    throw new Error(errorText || "Failed to refine content");
+}
+function readFileAsDataUrl(file) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = (e) => resolve(e.target?.result);
+    reader.onerror = () => reject(new Error("Failed to read file"));
+    reader.readAsDataURL(file);
+  });
+}
+async function cropImageToRatio(file, ratio, quality = 0.82) {
+  const dataUrl = await readFileAsDataUrl(file);
+  let img;
+  try {
+    img = await loadImage(dataUrl);
+  } catch {
+    return dataUrl;
   }
-  const data = await response.json();
-  if (!data.refined) {
-    throw new Error("No refined content returned");
+  const targetAr = ratio.ratioW / ratio.ratioH;
+  let outW = ratio.maxW;
+  let outH = Math.round(outW / targetAr);
+  if (outH > ratio.maxH) {
+    outH = ratio.maxH;
+    outW = Math.round(outH * targetAr);
   }
-  return data.refined;
+  const sourceAr = img.width / img.height;
+  let sx = 0;
+  let sy = 0;
+  let sW = img.width;
+  let sH = img.height;
+  if (sourceAr > targetAr) {
+    sW = Math.round(img.height * targetAr);
+    sx = Math.round((img.width - sW) / 2);
+  } else {
+    sH = Math.round(img.width / targetAr);
+    sy = Math.round((img.height - sH) / 2);
+  }
+  const canvas = document.createElement("canvas");
+  canvas.width = outW;
+  canvas.height = outH;
+  const ctx = canvas.getContext("2d");
+  if (!ctx) return dataUrl;
+  ctx.drawImage(img, sx, sy, sW, sH, 0, 0, outW, outH);
+  return canvas.toDataURL("image/jpeg", quality);
 }
 function CreateNewsletterPage() {
   const { id } = useParams();
@@ -143170,18 +143233,12 @@ function CreateNewsletterPage() {
   const [lastSaved, setLastSaved] = reactExports$1.useState(null);
   const [showArticleImport, setShowArticleImport] = reactExports$1.useState(false);
   const [availableArticles, setAvailableArticles] = reactExports$1.useState([]);
-  const refineIntro = (html2) => refineContent(html2, {
-    context: `Newsletter intro for ${draft.title || "newsletter"}`
-  });
-  const refineChapterContent = (chapter, index) => (html2) => refineContent(html2, {
-    context: `Chapter ${index + 1}: ${chapter.title || "Untitled chapter"}`
-  });
   reactExports$1.useEffect(() => {
     if (id) {
       let cancelled = false;
       void getDraftByIdApi(id).then((existingDraft) => {
         if (cancelled || !existingDraft) return;
-        setDraft(existingDraft);
+        setDraft(normalizeDraft(existingDraft));
         setLastSaved(new Date(existingDraft.updatedAt));
       });
       return () => {
@@ -143253,16 +143310,63 @@ function CreateNewsletterPage() {
     }));
   };
   const addChapter = () => {
-    const newChapter = {
-      id: generateId(),
-      title: "",
-      content: "",
-      images: []
-    };
+    setDraft((prev) => ({ ...prev, chapters: [...prev.chapters, createEmptyChapter()] }));
+  };
+  const changeMonthYear = (next) => {
+    setDraft((prev) => {
+      const month = next.month ?? prev.month;
+      const year = next.year ?? prev.year;
+      const keepAuto = !prev.title.trim() || prev.title.trim() === computeAutoTitle(prev.month, prev.year);
+      return {
+        ...prev,
+        month,
+        year,
+        title: keepAuto ? computeAutoTitle(month, year) : prev.title
+      };
+    });
+  };
+  const updateArticle = (chapterId, articleId, updates) => {
     setDraft((prev) => ({
       ...prev,
-      chapters: [...prev.chapters, newChapter]
+      chapters: prev.chapters.map(
+        (ch) => ch.id === chapterId ? { ...ch, articles: ch.articles.map((a) => a.id === articleId ? { ...a, ...updates } : a) } : ch
+      )
     }));
+  };
+  const addArticle = (chapterId) => {
+    setDraft((prev) => ({
+      ...prev,
+      chapters: prev.chapters.map(
+        (ch) => ch.id === chapterId ? { ...ch, articles: [...ch.articles, createEmptyArticle()] } : ch
+      )
+    }));
+  };
+  const deleteArticle2 = (chapterId, articleId) => {
+    setDraft((prev) => {
+      const chapter = prev.chapters.find((c) => c.id === chapterId);
+      if (chapter && chapter.articles.length <= 1) return prev;
+      return {
+        ...prev,
+        chapters: prev.chapters.map(
+          (ch) => ch.id === chapterId ? { ...ch, articles: ch.articles.filter((a) => a.id !== articleId) } : ch
+        )
+      };
+    });
+  };
+  const handleArticleImageUpload = async (chapterId, articleId, template, e) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    if (file.size > 10 * 1024 * 1024) {
+      alert("Image size must be less than 10MB");
+      return;
+    }
+    try {
+      const cropped = await cropImageToRatio(file, ARTICLE_CROP[template]);
+      updateArticle(chapterId, articleId, { image: cropped });
+    } catch {
+      alert("Could not process that image. Please try another file.");
+    }
+    e.target.value = "";
   };
   const deleteChapter = (chapterId) => {
     if (draft.chapters.length === 1) {
@@ -143297,20 +143401,20 @@ function CreateNewsletterPage() {
       return { ...prev, chapters: newChapters };
     });
   };
-  const handleHeaderImageUpload = (e) => {
+  const handleHeaderImageUpload = async (e) => {
     const file = e.target.files?.[0];
-    if (file) {
-      if (file.size > 5 * 1024 * 1024) {
-        alert("Image size must be less than 5MB");
-        return;
-      }
-      const reader = new FileReader();
-      reader.onload = (event) => {
-        const dataUrl = event.target?.result;
-        updateDraft({ headerImage: dataUrl });
-      };
-      reader.readAsDataURL(file);
+    if (!file) return;
+    if (file.size > 10 * 1024 * 1024) {
+      alert("Image size must be less than 10MB");
+      return;
     }
+    try {
+      const cropped = await cropImageToRatio(file, HEADER_CROP);
+      updateDraft({ headerImage: cropped });
+    } catch {
+      alert("Could not process that image. Please try another file.");
+    }
+    e.target.value = "";
   };
   const removeHeaderImage = () => {
     updateDraft({ headerImage: void 0 });
@@ -143329,39 +143433,17 @@ function CreateNewsletterPage() {
     setShowArticleImport(false);
   };
   const importArticle = async (article) => {
-    let htmlContent = "";
-    if (article.template === "portrait") {
-      htmlContent = `
-        <div style="display: flex; gap: 16px; margin-bottom: 16px;">
-          <div style="flex: 0 0 200px;">
-            <img src="${article.imageDataUrl}" alt="${article.title}" style="width: 100%; height: auto; display: block;" />
-          </div>
-          <div style="flex: 1;">
-            <h3>${article.title}</h3>
-            <p>${article.content}</p>
-            <p style="margin-top: 12px; font-style: italic;"><strong>Contact:</strong> ${article.contact}</p>
-          </div>
-        </div>
-      `;
-    } else {
-      htmlContent = `
-        <div style="margin-bottom: 16px;">
-          <img src="${article.imageDataUrl}" alt="${article.title}" style="width: 100%; height: auto; display: block; margin-bottom: 12px;" />
-          <h3>${article.title}</h3>
-          <p>${article.content}</p>
-          <p style="margin-top: 12px; font-style: italic;"><strong>Contact:</strong> ${article.contact}</p>
-        </div>
-      `;
-    }
-    const newChapter = {
+    const newArticle = {
       id: generateId(),
       title: article.title,
-      content: htmlContent,
-      images: []
+      content: article.content ? `<p>${article.content}</p>` : "",
+      template: article.template,
+      image: article.imageDataUrl || void 0,
+      contact: article.contact || ""
     };
     setDraft((prev) => ({
       ...prev,
-      chapters: [...prev.chapters, newChapter]
+      chapters: [...prev.chapters, { id: generateId(), title: "", articles: [newArticle] }]
     }));
     try {
       await markArticleAsImported(article.id);
@@ -143406,19 +143488,6 @@ function CreateNewsletterPage() {
       /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "editor-main", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "editor-section metadata-section", children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { children: "Newsletter Details" }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "form-group", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("label", { htmlFor: "title", children: "Newsletter Title" }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx(
-              "input",
-              {
-                id: "title",
-                type: "text",
-                value: draft.title,
-                onChange: (e) => updateDraft({ title: e.target.value }),
-                placeholder: "e.g., ATV MC Newsletter - December 2024 edition"
-              }
-            )
-          ] }),
           /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "form-row", children: [
             /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "form-group", children: [
               /* @__PURE__ */ jsxRuntimeExports.jsx("label", { htmlFor: "month", children: "Month" }),
@@ -143427,7 +143496,7 @@ function CreateNewsletterPage() {
                 {
                   id: "month",
                   value: draft.month,
-                  onChange: (e) => updateDraft({ month: Number(e.target.value) }),
+                  onChange: (e) => changeMonthYear({ month: Number(e.target.value) }),
                   children: Array.from({ length: 12 }, (_, i) => {
                     const monthName = new Date(2024, i, 1).toLocaleString(void 0, {
                       month: "long"
@@ -143444,7 +143513,7 @@ function CreateNewsletterPage() {
                 {
                   id: "year",
                   value: draft.year,
-                  onChange: (e) => updateDraft({ year: Number(e.target.value) }),
+                  onChange: (e) => changeMonthYear({ year: Number(e.target.value) }),
                   children: Array.from({ length: 10 }, (_, i) => {
                     const year = (/* @__PURE__ */ new Date()).getFullYear() - 1 + i;
                     return /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: year, children: year }, year);
@@ -143452,6 +143521,33 @@ function CreateNewsletterPage() {
                 }
               )
             ] })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "form-group", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("label", { htmlFor: "title", children: "Newsletter Title" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(
+              "input",
+              {
+                id: "title",
+                type: "text",
+                value: draft.title,
+                onChange: (e) => updateDraft({ title: e.target.value }),
+                placeholder: "ATV MC Monthly Update - June '26"
+              }
+            ),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "meta", style: { marginTop: 4 }, children: "Auto-filled from the month and year. Edit it and your wording is kept." })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "form-group", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("label", { htmlFor: "subtitle", children: "Subtitle" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(
+              "input",
+              {
+                id: "subtitle",
+                type: "text",
+                value: draft.subtitle,
+                onChange: (e) => updateDraft({ subtitle: e.target.value }),
+                placeholder: "We make green mobility smart!"
+              }
+            )
           ] })
         ] }),
         /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "editor-section header-image-section", children: [
@@ -143481,13 +143577,10 @@ function CreateNewsletterPage() {
                 }
               )
             ] }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "meta", style: { marginTop: 8 }, children: "Recommended: 800x400px, max 5MB" })
-          ] })
-        ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "editor-section intro-section", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { children: "Initial Start Section" }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "meta", style: { marginTop: 0, marginBottom: 12 }, children: "This intro content appears after the header image and before the navigation." }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "form-group", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "meta", style: { marginTop: 8 }, children: "Optional — a default header image is used if you don't upload one. Cropped to 2:1 (≈800×400)." })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "form-group", style: { marginTop: 24 }, children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "meta", style: { marginTop: 0, marginBottom: 12 }, children: "This intro content appears after the header image and before the navigation." }),
             /* @__PURE__ */ jsxRuntimeExports.jsx("label", { children: "Intro Content" }),
             /* @__PURE__ */ jsxRuntimeExports.jsx(
               RichTextEditor,
@@ -143495,8 +143588,7 @@ function CreateNewsletterPage() {
                 content: draft.introContent,
                 onChange: (html2) => updateDraft({ introContent: html2 }),
                 placeholder: "Write your introduction or opening message...",
-                enableRefine: true,
-                onRefine: refineIntro
+                enableRefine: true
               }
             )
           ] })
@@ -143552,14 +143644,17 @@ function CreateNewsletterPage() {
               ] })
             ] }),
             /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "form-group", children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx("label", { children: "Chapter Title" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("label", { children: [
+                "Chapter Title ",
+                /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "meta", children: "(green section heading)" })
+              ] }),
               /* @__PURE__ */ jsxRuntimeExports.jsxs(
                 "select",
                 {
-                  value: isCanonicalChapterTitle(chapter.title) ? chapter.title : "Other...",
+                  value: isCanonicalChapterTitle(chapter.title) ? chapter.title : chapter.title.trim() === "" ? "" : "Other...",
                   onChange: (e) => {
                     if (e.target.value === "Other...") {
-                      updateChapter(chapter.id, { title: "" });
+                      updateChapter(chapter.id, { title: " " });
                     } else {
                       updateChapter(chapter.id, { title: e.target.value });
                     }
@@ -143575,219 +143670,153 @@ function CreateNewsletterPage() {
                 "input",
                 {
                   type: "text",
-                  value: chapter.title,
+                  value: chapter.title.trimStart(),
                   onChange: (e) => updateChapter(chapter.id, { title: e.target.value }),
                   placeholder: "Enter custom chapter name...",
                   style: { marginTop: 8 }
                 }
               )
             ] }),
-            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "form-group", children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx("label", { children: "Content Type" }),
-              /* @__PURE__ */ jsxRuntimeExports.jsxs(
-                "select",
-                {
-                  value: chapter.template ? "template" : "rich-text",
-                  onChange: (e) => {
-                    if (e.target.value === "template") {
-                      updateChapter(chapter.id, {
-                        template: "portrait",
-                        chapterImage: "",
-                        chapterText: "",
-                        chapterContact: "",
-                        content: ""
-                        // Clear rich text content when switching to template
-                      });
-                    } else {
-                      updateChapter(chapter.id, {
-                        template: void 0,
-                        chapterImage: void 0,
-                        chapterText: void 0,
-                        chapterContact: void 0
-                      });
-                    }
-                  },
-                  children: [
-                    /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "rich-text", children: "Rich Text Editor" }),
-                    /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "template", children: "Article Template" })
-                  ]
-                }
-              )
-            ] }),
-            chapter.template && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "chapter-template-editor", children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "form-group", children: [
-                /* @__PURE__ */ jsxRuntimeExports.jsx("label", { children: "Template Layout" }),
-                /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "template-selection-small", children: [
-                  /* @__PURE__ */ jsxRuntimeExports.jsxs("label", { className: `template-card-small ${chapter.template === "portrait" ? "selected" : ""}`, children: [
-                    /* @__PURE__ */ jsxRuntimeExports.jsx(
-                      "input",
-                      {
-                        type: "radio",
-                        name: `template-${chapter.id}`,
-                        value: "portrait",
-                        checked: chapter.template === "portrait",
-                        onChange: (e) => updateChapter(chapter.id, { template: e.target.value })
-                      }
-                    ),
-                    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "template-preview-small portrait-preview", children: [
-                      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "template-image-small", children: "Image" }),
-                      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "template-text-small", children: "Text" })
-                    ] }),
-                    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "template-info-small", children: [
-                      /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: "Portrait" }),
-                      /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "H600×W200 (left)" })
-                    ] })
-                  ] }),
-                  /* @__PURE__ */ jsxRuntimeExports.jsxs("label", { className: `template-card-small ${chapter.template === "landscape" ? "selected" : ""}`, children: [
-                    /* @__PURE__ */ jsxRuntimeExports.jsx(
-                      "input",
-                      {
-                        type: "radio",
-                        name: `template-${chapter.id}`,
-                        value: "landscape",
-                        checked: chapter.template === "landscape",
-                        onChange: (e) => updateChapter(chapter.id, { template: e.target.value })
-                      }
-                    ),
-                    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "template-preview-small landscape-preview", children: [
-                      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "template-image-small", children: "Image" }),
-                      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "template-text-small", children: "Text" })
-                    ] }),
-                    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "template-info-small", children: [
-                      /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: "Landscape" }),
-                      /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "H200×W600 (top)" })
-                    ] })
-                  ] })
-                ] })
-              ] }),
-              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "form-group", children: [
-                /* @__PURE__ */ jsxRuntimeExports.jsx("label", { children: "Article Image" }),
-                chapter.chapterImage ? /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "image-preview-container", children: [
-                  /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: chapter.chapterImage, alt: "Chapter preview", className: "article-image-preview" }),
-                  /* @__PURE__ */ jsxRuntimeExports.jsx(
-                    "button",
-                    {
-                      type: "button",
-                      onClick: () => updateChapter(chapter.id, { chapterImage: "" }),
-                      className: "button small danger",
-                      children: "Remove Image"
-                    }
-                  )
-                ] }) : /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "image-upload-area", children: [
-                  /* @__PURE__ */ jsxRuntimeExports.jsxs("label", { htmlFor: `chapter-image-${chapter.id}`, className: "upload-label", children: [
-                    /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "📷 Upload Image" }),
-                    /* @__PURE__ */ jsxRuntimeExports.jsx(
-                      "input",
-                      {
-                        id: `chapter-image-${chapter.id}`,
-                        type: "file",
-                        accept: "image/*",
-                        onChange: (e) => {
-                          const file = e.target.files?.[0];
-                          if (file) {
-                            if (file.size > 5 * 1024 * 1024) {
-                              alert("Image size must be less than 5MB");
-                              return;
-                            }
-                            const reader = new FileReader();
-                            reader.onload = (event) => {
-                              const dataUrl = event.target?.result;
-                              updateChapter(chapter.id, { chapterImage: dataUrl });
-                            };
-                            reader.readAsDataURL(file);
-                          }
-                        },
-                        style: { display: "none" }
-                      }
-                    )
-                  ] }),
-                  /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "meta", style: { marginTop: 8 }, children: chapter.template === "portrait" ? "Recommended: H600 × W200 pixels" : "Recommended: H200 × W600 pixels" })
-                ] })
-              ] }),
-              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "form-group", children: [
-                /* @__PURE__ */ jsxRuntimeExports.jsx("label", { children: "Article Content (3-4 sentences)" }),
-                /* @__PURE__ */ jsxRuntimeExports.jsx(
-                  "textarea",
-                  {
-                    value: chapter.chapterText || "",
-                    onChange: (e) => updateChapter(chapter.id, { chapterText: e.target.value }),
-                    placeholder: "Write your article content here (3-4 sentences)...",
-                    rows: 6,
-                    maxLength: 500
-                  }
-                ),
-                /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "meta", style: { marginTop: 4 }, children: [
-                  (chapter.chapterText || "").trim().split(/\s+/).filter((w) => w).length,
-                  " words"
-                ] })
-              ] }),
-              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "form-group", children: [
-                /* @__PURE__ */ jsxRuntimeExports.jsx("label", { children: "Contact Information" }),
-                /* @__PURE__ */ jsxRuntimeExports.jsx(
-                  "input",
-                  {
-                    type: "text",
-                    value: chapter.chapterContact || "",
-                    onChange: (e) => updateChapter(chapter.id, { chapterContact: e.target.value }),
-                    placeholder: "Contact: Your Name, Email, or Phone",
-                    maxLength: 200
-                  }
-                )
-              ] }),
-              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "form-group", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "articles-block", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "articles-block-header", children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "articles-label", children: "Articles" }),
                 /* @__PURE__ */ jsxRuntimeExports.jsx(
                   "button",
                   {
                     type: "button",
-                    onClick: () => {
-                      let htmlContent = "";
-                      if (chapter.template === "portrait" && chapter.chapterImage && chapter.chapterText) {
-                        htmlContent = `
-                              <div style="display: flex; gap: 16px; margin-bottom: 16px;">
-                                <div style="flex: 0 0 200px;">
-                                  <img src="${chapter.chapterImage}" alt="${chapter.title}" style="width: 100%; height: auto; display: block;" />
-                                </div>
-                                <div style="flex: 1;">
-                                  <p>${chapter.chapterText}</p>
-                                  ${chapter.chapterContact ? `<p style="margin-top: 12px; font-style: italic;"><strong>Contact:</strong> ${chapter.chapterContact}</p>` : ""}
-                                </div>
-                              </div>
-                            `;
-                      } else if (chapter.template === "landscape" && chapter.chapterImage && chapter.chapterText) {
-                        htmlContent = `
-                              <div style="margin-bottom: 16px;">
-                                <img src="${chapter.chapterImage}" alt="${chapter.title}" style="width: 100%; height: auto; display: block; margin-bottom: 12px;" />
-                                <p>${chapter.chapterText}</p>
-                                ${chapter.chapterContact ? `<p style="margin-top: 12px; font-style: italic;"><strong>Contact:</strong> ${chapter.chapterContact}</p>` : ""}
-                              </div>
-                            `;
-                      }
-                      if (htmlContent) {
-                        updateChapter(chapter.id, { content: htmlContent });
-                        alert("Template content converted to HTML! You can now edit it in Rich Text mode if needed.");
-                      } else {
-                        alert("Please fill in the image and content fields first.");
-                      }
-                    },
-                    className: "button small primary",
-                    children: "Convert to HTML Content"
+                    onClick: () => addArticle(chapter.id),
+                    className: "button small",
+                    children: "+ Add Article"
                   }
-                ),
-                /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "meta", style: { marginTop: 4 }, children: "This will convert your template content to HTML format that can be edited further" })
-              ] })
-            ] }),
-            !chapter.template && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "form-group", children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx("label", { children: "Chapter Content" }),
-              /* @__PURE__ */ jsxRuntimeExports.jsx(
-                RichTextEditor,
-                {
-                  content: chapter.content,
-                  onChange: (html2) => updateChapter(chapter.id, { content: html2 }),
-                  placeholder: "Write your chapter content here...",
-                  enableRefine: true,
-                  onRefine: refineChapterContent(chapter, index)
-                }
-              )
+                )
+              ] }),
+              chapter.articles.map((article, aIndex) => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "article-editor", children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "article-editor-head", children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "article-number", children: [
+                    "Article ",
+                    aIndex + 1
+                  ] }),
+                  /* @__PURE__ */ jsxRuntimeExports.jsx(
+                    "button",
+                    {
+                      type: "button",
+                      onClick: () => deleteArticle2(chapter.id, article.id),
+                      disabled: chapter.articles.length === 1,
+                      className: "button icon danger",
+                      title: "Delete article",
+                      children: "🗑️"
+                    }
+                  )
+                ] }),
+                /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "form-group", children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsxs("label", { children: [
+                    "Article Title ",
+                    /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "meta", children: "(bold heading)" })
+                  ] }),
+                  /* @__PURE__ */ jsxRuntimeExports.jsx(
+                    "input",
+                    {
+                      type: "text",
+                      value: article.title,
+                      onChange: (e) => updateArticle(chapter.id, article.id, { title: e.target.value }),
+                      placeholder: "e.g., New AURIX™ TC4x evaluation board",
+                      maxLength: 140
+                    }
+                  )
+                ] }),
+                /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "form-group", children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("label", { children: "Layout" }),
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "layout-toggle", children: ["portrait", "landscape"].map((layout) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
+                    "label",
+                    {
+                      className: `layout-option ${article.template === layout ? "selected" : ""}`,
+                      children: [
+                        /* @__PURE__ */ jsxRuntimeExports.jsx(
+                          "input",
+                          {
+                            type: "radio",
+                            name: `layout-${article.id}`,
+                            value: layout,
+                            checked: article.template === layout,
+                            onChange: () => updateArticle(chapter.id, article.id, { template: layout })
+                          }
+                        ),
+                        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: `layout-glyph layout-glyph--${layout}`, "aria-hidden": "true" }),
+                        /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "layout-name", children: [
+                          layout === "portrait" ? "Portrait" : "Landscape",
+                          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "meta", children: layout === "portrait" ? " image left · W200×H600" : " image top · W600×H200" })
+                        ] })
+                      ]
+                    },
+                    layout
+                  )) })
+                ] }),
+                /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: `article-layout article-layout--${article.template}`, children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "article-image-col", children: [
+                    /* @__PURE__ */ jsxRuntimeExports.jsx("label", { children: "Article Image" }),
+                    /* @__PURE__ */ jsxRuntimeExports.jsx(
+                      "div",
+                      {
+                        className: "article-image-box",
+                        style: { aspectRatio: aspectRatioCss(ARTICLE_CROP[article.template]) },
+                        children: article.image ? /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
+                          /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: article.image, alt: "Article" }),
+                          /* @__PURE__ */ jsxRuntimeExports.jsx(
+                            "button",
+                            {
+                              type: "button",
+                              onClick: () => updateArticle(chapter.id, article.id, { image: void 0 }),
+                              className: "button small danger article-image-remove",
+                              children: "Remove"
+                            }
+                          )
+                        ] }) : /* @__PURE__ */ jsxRuntimeExports.jsxs("label", { className: "article-image-drop", children: [
+                          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "📷 Upload" }),
+                          /* @__PURE__ */ jsxRuntimeExports.jsx(
+                            "input",
+                            {
+                              type: "file",
+                              accept: "image/*",
+                              style: { display: "none" },
+                              onChange: (e) => handleArticleImageUpload(chapter.id, article.id, article.template, e)
+                            }
+                          )
+                        ] })
+                      }
+                    ),
+                    /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "meta", style: { marginTop: 6 }, children: [
+                      "Auto-cropped to ",
+                      article.template === "portrait" ? "W200×H600" : "W600×H200",
+                      "."
+                    ] })
+                  ] }),
+                  /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "article-content-col", children: [
+                    /* @__PURE__ */ jsxRuntimeExports.jsx("label", { children: "Article Content" }),
+                    /* @__PURE__ */ jsxRuntimeExports.jsx(
+                      RichTextEditor,
+                      {
+                        content: article.content,
+                        onChange: (html2) => updateArticle(chapter.id, article.id, { content: html2 }),
+                        placeholder: "Write the article (a few sentences)...",
+                        enableRefine: true
+                      }
+                    ),
+                    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "form-group", style: { marginTop: 12 }, children: [
+                      /* @__PURE__ */ jsxRuntimeExports.jsx("label", { children: "Contact" }),
+                      /* @__PURE__ */ jsxRuntimeExports.jsx(
+                        "input",
+                        {
+                          type: "text",
+                          value: article.contact ?? "",
+                          onChange: (e) => updateArticle(chapter.id, article.id, { contact: e.target.value }),
+                          placeholder: "Contact: Name, email or phone",
+                          maxLength: 200
+                        }
+                      )
+                    ] })
+                  ] })
+                ] })
+              ] }, article.id))
             ] })
           ] }, chapter.id))
         ] })
@@ -143848,76 +143877,21 @@ function SubmitArticlePage() {
   const [imageDataUrl, setImageDataUrl] = reactExports$1.useState("");
   const [imagePreview, setImagePreview] = reactExports$1.useState(null);
   const [isSubmitting, setIsSubmitting] = reactExports$1.useState(false);
-  const compressImage = (file, maxWidth, maxHeight, quality) => {
-    return new Promise((resolve, reject) => {
-      const reader = new FileReader();
-      reader.onload = (event) => {
-        const img = new Image();
-        img.onload = () => {
-          const canvas = document.createElement("canvas");
-          let width = img.width;
-          let height = img.height;
-          if (width > height) {
-            if (width > maxWidth) {
-              height = height * maxWidth / width;
-              width = maxWidth;
-            }
-          } else {
-            if (height > maxHeight) {
-              width = width * maxHeight / height;
-              height = maxHeight;
-            }
-          }
-          canvas.width = width;
-          canvas.height = height;
-          const ctx = canvas.getContext("2d");
-          if (!ctx) {
-            reject(new Error("Could not get canvas context"));
-            return;
-          }
-          ctx.drawImage(img, 0, 0, width, height);
-          const compressedDataUrl = canvas.toDataURL("image/jpeg", quality);
-          resolve(compressedDataUrl);
-        };
-        img.onerror = () => reject(new Error("Failed to load image"));
-        img.src = event.target?.result;
-      };
-      reader.onerror = () => reject(new Error("Failed to read file"));
-      reader.readAsDataURL(file);
-    });
-  };
   const handleImageUpload = async (e) => {
     const file = e.target.files?.[0];
-    if (file) {
-      if (file.size > 10 * 1024 * 1024) {
-        alert("Image size must be less than 10MB. Please use a smaller image.");
-        return;
-      }
-      try {
-        const maxWidth = selectedTemplate === "portrait" ? 600 : 1200;
-        const maxHeight = selectedTemplate === "portrait" ? 800 : 400;
-        const compressedDataUrl = await compressImage(file, maxWidth, maxHeight, 0.8);
-        const base64Data = compressedDataUrl.split(",")[1] || "";
-        const sizeInMB = base64Data.length * 3 / 4 / (1024 * 1024);
-        if (sizeInMB > 2) {
-          const moreCompressed = await compressImage(file, maxWidth, maxHeight, 0.6);
-          setImageDataUrl(moreCompressed);
-          setImagePreview(moreCompressed);
-        } else {
-          setImageDataUrl(compressedDataUrl);
-          setImagePreview(compressedDataUrl);
-        }
-      } catch (error) {
-        console.error("Error compressing image:", error);
-        const reader = new FileReader();
-        reader.onload = (event) => {
-          const dataUrl = event.target?.result;
-          setImageDataUrl(dataUrl);
-          setImagePreview(dataUrl);
-        };
-        reader.readAsDataURL(file);
-      }
+    if (!file) return;
+    if (file.size > 10 * 1024 * 1024) {
+      alert("Image size must be less than 10MB. Please use a smaller image.");
+      return;
     }
+    try {
+      const cropped = await cropImageToRatio(file, ARTICLE_CROP[selectedTemplate]);
+      setImageDataUrl(cropped);
+      setImagePreview(cropped);
+    } catch {
+      alert("Could not process that image. Please try another file.");
+    }
+    e.target.value = "";
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -143927,11 +143901,6 @@ function SubmitArticlePage() {
     }
     if (!content.trim()) {
       alert("Please enter article content.");
-      return;
-    }
-    const wordCount = content.trim().split(/\s+/).length;
-    if (wordCount < 15 || wordCount > 100) {
-      alert("Article content should be 3-4 sentences (approximately 15-100 words).");
       return;
     }
     if (!imageDataUrl) {
@@ -143977,67 +143946,6 @@ function SubmitArticlePage() {
       /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "meta", style: { marginTop: 8 }, children: "Share your content with our newsletter community" })
     ] }),
     /* @__PURE__ */ jsxRuntimeExports.jsxs("form", { onSubmit: handleSubmit, className: "article-form", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "form-section", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { children: "Select Template" }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "meta", style: { marginTop: 0, marginBottom: 16 }, children: "Choose the template that best fits your article type" }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "template-selection", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("label", { className: `template-card ${selectedTemplate === "portrait" ? "selected" : ""}`, children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx(
-              "input",
-              {
-                type: "radio",
-                name: "template",
-                value: "portrait",
-                checked: selectedTemplate === "portrait",
-                onChange: (e) => setSelectedTemplate(e.target.value)
-              }
-            ),
-            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "template-preview portrait-preview", children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "template-image", children: "Image" }),
-              /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "template-text", children: "Text Content" })
-            ] }),
-            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "template-info", children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: "Portrait Layout" }),
-              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "template-dimensions", children: "Image: H600 × W200 (left)" }),
-              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "template-dimensions", children: "Text: H600 × W400 (right)" })
-            ] })
-          ] }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("label", { className: `template-card ${selectedTemplate === "landscape" ? "selected" : ""}`, children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx(
-              "input",
-              {
-                type: "radio",
-                name: "template",
-                value: "landscape",
-                checked: selectedTemplate === "landscape",
-                onChange: (e) => setSelectedTemplate(e.target.value)
-              }
-            ),
-            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "template-preview landscape-preview", children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "template-image", children: "Image" }),
-              /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "template-text", children: "Text Content" })
-            ] }),
-            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "template-info", children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: "Landscape Layout" }),
-              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "template-dimensions", children: "Image: H200 × W600 (top)" }),
-              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "template-dimensions", children: "Text: H400 × W600 (bottom)" })
-            ] })
-          ] })
-        ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "template-recommendations", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { children: "Template Recommendations" }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("ul", { children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsxs("li", { children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: "Portrait (H600 × W200):" }),
-              " Best for Events, Product News, Applications, New Kits, Eval Boards, Samples, Team News"
-            ] }),
-            /* @__PURE__ */ jsxRuntimeExports.jsxs("li", { children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: "Landscape (W600 × H200):" }),
-              " Best for Design Wins, Success Stories, Business Wins, Market News"
-            ] })
-          ] })
-        ] })
-      ] }),
       /* @__PURE__ */ jsxRuntimeExports.jsx("section", { className: "form-section", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "form-group", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx("label", { htmlFor: "title", children: "Article Title *" }),
         /* @__PURE__ */ jsxRuntimeExports.jsx(
@@ -144048,77 +143956,117 @@ function SubmitArticlePage() {
             value: title,
             onChange: (e) => setTitle(e.target.value),
             placeholder: "Enter your article title",
-            maxLength: 100,
+            maxLength: 140,
             required: true
           }
         )
       ] }) }),
       /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "form-section", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { children: "Article Image *" }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "meta", style: { marginTop: 0, marginBottom: 12 }, children: selectedTemplate === "portrait" ? "Recommended dimensions: H600 × W200 pixels" : "Recommended dimensions: H200 × W600 pixels" }),
-        imagePreview ? /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "image-preview-container", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: imagePreview, alt: "Article preview", className: "article-image-preview" }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx(
-            "button",
-            {
-              type: "button",
-              onClick: removeImage,
-              className: "button small danger",
-              children: "Remove Image"
-            }
-          )
-        ] }) : /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "image-upload-area", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("label", { htmlFor: "article-image", className: "upload-label", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "📷 Upload Image" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { children: "Layout" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "layout-toggle", children: ["portrait", "landscape"].map((layout) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
+          "label",
+          {
+            className: `layout-option ${selectedTemplate === layout ? "selected" : ""}`,
+            children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx(
+                "input",
+                {
+                  type: "radio",
+                  name: "template",
+                  value: layout,
+                  checked: selectedTemplate === layout,
+                  onChange: () => setSelectedTemplate(layout)
+                }
+              ),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: `layout-glyph layout-glyph--${layout}`, "aria-hidden": "true" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "layout-name", children: [
+                layout === "portrait" ? "Portrait" : "Landscape",
+                /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "meta", children: layout === "portrait" ? " image left · W200×H600" : " image top · W600×H200" })
+              ] })
+            ]
+          },
+          layout
+        )) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "meta", style: { marginTop: 10 }, children: "Portrait suits events, product news, kits and team news. Landscape suits design wins, success stories and market news." })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "form-section", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { children: "Article *" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: `article-layout article-layout--${selectedTemplate}`, children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "article-image-col", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("label", { children: "Article Image *" }),
             /* @__PURE__ */ jsxRuntimeExports.jsx(
-              "input",
+              "div",
               {
-                id: "article-image",
-                type: "file",
-                accept: "image/*",
-                onChange: handleImageUpload,
-                style: { display: "none" }
+                className: "article-image-box",
+                style: { aspectRatio: aspectRatioCss(ARTICLE_CROP[selectedTemplate]) },
+                children: imagePreview ? /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: imagePreview, alt: "Article preview" }),
+                  /* @__PURE__ */ jsxRuntimeExports.jsx(
+                    "button",
+                    {
+                      type: "button",
+                      onClick: removeImage,
+                      className: "button small danger article-image-remove",
+                      children: "Remove"
+                    }
+                  )
+                ] }) : /* @__PURE__ */ jsxRuntimeExports.jsxs("label", { className: "article-image-drop", children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "📷 Upload" }),
+                  /* @__PURE__ */ jsxRuntimeExports.jsx(
+                    "input",
+                    {
+                      type: "file",
+                      accept: "image/*",
+                      onChange: handleImageUpload,
+                      style: { display: "none" }
+                    }
+                  )
+                ] })
               }
-            )
+            ),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "meta", style: { marginTop: 6 }, children: [
+              "Auto-cropped to ",
+              selectedTemplate === "portrait" ? "W200×H600" : "W600×H200",
+              ". Max 10MB."
+            ] })
           ] }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "meta", style: { marginTop: 8 }, children: "Max file size: 5MB" })
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "article-content-col", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "form-group", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("label", { htmlFor: "content", children: "Article Content *" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx(
+                "textarea",
+                {
+                  id: "content",
+                  value: content,
+                  onChange: (e) => setContent2(e.target.value),
+                  placeholder: "Write your article content...",
+                  rows: 8,
+                  required: true
+                }
+              ),
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "meta", style: { marginTop: 4 }, children: [
+                content.trim().split(/\s+/).filter((w) => w).length,
+                " words"
+              ] })
+            ] }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "form-group", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("label", { htmlFor: "contact", children: "Contact Information *" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx(
+                "input",
+                {
+                  id: "contact",
+                  type: "text",
+                  value: contact,
+                  onChange: (e) => setContact(e.target.value),
+                  placeholder: "Contact: Your Name, Email, or Phone",
+                  maxLength: 200,
+                  required: true
+                }
+              )
+            ] })
+          ] })
         ] })
       ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("section", { className: "form-section", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "form-group", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx("label", { htmlFor: "content", children: "Article Content (3-4 sentences) *" }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(
-          "textarea",
-          {
-            id: "content",
-            value: content,
-            onChange: (e) => setContent2(e.target.value),
-            placeholder: "Write your article content here (3-4 sentences)...",
-            rows: 6,
-            maxLength: 500,
-            required: true
-          }
-        ),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "meta", style: { marginTop: 4 }, children: [
-          content.trim().split(/\s+/).filter((w) => w).length,
-          " words"
-        ] })
-      ] }) }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("section", { className: "form-section", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "form-group", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx("label", { htmlFor: "contact", children: "Contact Information *" }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(
-          "input",
-          {
-            id: "contact",
-            type: "text",
-            value: contact,
-            onChange: (e) => setContact(e.target.value),
-            placeholder: "Contact: Your Name, Email, or Phone",
-            maxLength: 200,
-            required: true
-          }
-        ),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "meta", style: { marginTop: 4 }, children: "This will appear at the bottom of your article" })
-      ] }) }),
       /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "form-actions", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx(
           "button",

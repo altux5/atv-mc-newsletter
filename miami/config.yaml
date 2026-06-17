@@ -36,7 +36,7 @@ gogc: 30
 # ---------------------------------------------------------------------------
 authentication:
   url: https://sso.infineon.com
-  clientId: "MIAMI_ATVNEW"
+  clientId: "MIAMI_ATVPRD"
   clientSecret: ""                     # Empty for public OIDC client
   prompt: none
   emailDomains:
@@ -76,18 +76,18 @@ authentication:
 # Authorization — RDSP
 # ---------------------------------------------------------------------------
 rdsp:
-  enabled: false
-  applicationId: 1447
-  instanceId: 30354
+  enabled: true
+  applicationId: 1510
+  instanceId: 30541
   projectParam: projectKey
 
   # Because the newsletter app does not use project-based URL paths
   # (no :projectKey in routes), set a default project so RDSP can
   # resolve roles without a path parameter.
-  defaultProject: "672984"
+  defaultProject: "NEWSPROD"
 
   # Users with this role bypass all per-route role checks.
-  adminRole: "Administrators"
+  adminRole: "Adminstrators"
 
 # OPA disabled — using RDSP instead
 opa:
@@ -143,7 +143,7 @@ routes:
     service: atv-mc-newsletter
     roles:
       - Project Owners
-      - Administrators
+      - Adminstrators
       - Developers
       - Editors
   - path: /api/articles/*
@@ -151,7 +151,7 @@ routes:
     service: atv-mc-newsletter
     roles:
       - Project Owners
-      - Administrators
+      - Adminstrators
       - Developers
       - Editors
   - path: /api/articles/*
@@ -159,7 +159,7 @@ routes:
     service: atv-mc-newsletter
     roles:
       - Project Owners
-      - Administrators
+      - Adminstrators
       - Developers
       - Editors
   - path: /api/articles/*/import
@@ -167,7 +167,7 @@ routes:
     service: atv-mc-newsletter
     roles:
       - Project Owners
-      - Administrators
+      - Adminstrators
       - Developers
       - Editors
 
@@ -177,7 +177,7 @@ routes:
     service: atv-mc-newsletter
     roles:
       - Project Owners
-      - Administrators
+      - Adminstrators
       - Developers
       - Editors
   - path: /api/newsletters/*
@@ -185,7 +185,7 @@ routes:
     service: atv-mc-newsletter
     roles:
       - Project Owners
-      - Administrators
+      - Adminstrators
       - Developers
       - Editors
   - path: /api/newsletters/*
@@ -193,7 +193,7 @@ routes:
     service: atv-mc-newsletter
     roles:
       - Project Owners
-      - Administrators
+      - Adminstrators
       - Developers
       - Editors
 
@@ -203,7 +203,7 @@ routes:
     service: atv-mc-newsletter
     roles:
       - Project Owners
-      - Administrators
+      - Adminstrators
       - Developers
       - Editors
   - path: /api/drafts
@@ -211,7 +211,7 @@ routes:
     service: atv-mc-newsletter
     roles:
       - Project Owners
-      - Administrators
+      - Adminstrators
       - Developers
       - Editors
   - path: /api/drafts/*
@@ -219,7 +219,7 @@ routes:
     service: atv-mc-newsletter
     roles:
       - Project Owners
-      - Administrators
+      - Adminstrators
       - Developers
       - Editors
   - path: /api/drafts/*
@@ -227,7 +227,7 @@ routes:
     service: atv-mc-newsletter
     roles:
       - Project Owners
-      - Administrators
+      - Adminstrators
       - Developers
       - Editors
   - path: /api/drafts/*
@@ -235,7 +235,7 @@ routes:
     service: atv-mc-newsletter
     roles:
       - Project Owners
-      - Administrators
+      - Adminstrators
       - Developers
       - Editors
 
