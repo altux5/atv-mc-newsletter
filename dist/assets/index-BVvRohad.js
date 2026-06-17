@@ -143123,22 +143123,6 @@ function RichTextEditor({
     /* @__PURE__ */ jsxRuntimeExports.jsx(EditorContent, { editor })
   ] });
 }
-function NewsletterPreview({ draft }) {
-  const bodyHtml = generateNewsletterBodyHtml(draft);
-  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "newsletter-preview", children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "preview-header", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { style: { color: "var(--brand)", marginBottom: 8 }, children: "Preview" }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "meta", style: { marginTop: 0 }, children: "This is how your newsletter will appear when published" })
-    ] }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "preview-content", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
-      "div",
-      {
-        className: "embedded-newsletter",
-        dangerouslySetInnerHTML: { __html: bodyHtml }
-      }
-    ) })
-  ] });
-}
 const BASE = "/api/articles";
 async function saveArticle(formData) {
   const res = await apiFetch(BASE, {
@@ -143224,15 +143208,73 @@ async function cropImageToRatio(file, ratio, quality = 0.82) {
   ctx.drawImage(img, sx, sy, sW, sH, 0, 0, outW, outH);
   return canvas.toDataURL("image/jpeg", quality);
 }
+function CanvasImage({
+  src,
+  style: style2,
+  onUpload,
+  onRemove,
+  emptyLabel,
+  hint,
+  className
+}) {
+  return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: `canvas-image ${className ?? ""}`, style: style2, children: src ? /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src, alt: "" }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "canvas-image-overlay", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("label", { className: "canvas-image-btn", children: [
+        "Replace",
+        /* @__PURE__ */ jsxRuntimeExports.jsx("input", { type: "file", accept: "image/*", hidden: true, onChange: onUpload })
+      ] }),
+      onRemove && /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "canvas-image-btn danger", onClick: onRemove, children: "Remove" })
+    ] })
+  ] }) : /* @__PURE__ */ jsxRuntimeExports.jsxs("label", { className: "canvas-image-empty", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "canvas-image-plus", children: "＋" }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: emptyLabel }),
+    hint && /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "canvas-image-hint", children: hint }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("input", { type: "file", accept: "image/*", hidden: true, onChange: onUpload })
+  ] }) });
+}
+function ArticleDisplay({ article }) {
+  if (!article.title && !article.content && !article.image) {
+    return /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "nl-placeholder", children: "Click to add this article…" });
+  }
+  const body = /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "nl-article-body", children: [
+    article.title && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "nl-article-title", children: article.title }),
+    article.content ? /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "nl-article-content", dangerouslySetInnerHTML: { __html: article.content } }) : /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "nl-placeholder-inline", children: "No content yet…" }),
+    article.contact && /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "nl-article-contact", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: "Contact:" }),
+      " ",
+      article.contact
+    ] })
+  ] });
+  if (article.image) {
+    return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: `nl-article nl-article--${article.template}`, children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx(
+        "div",
+        {
+          className: "nl-article-img",
+          style: {
+            aspectRatio: aspectRatioCss(ARTICLE_CROP[article.template]),
+            width: article.template === "portrait" ? 200 : void 0,
+            maxWidth: article.template === "landscape" ? 600 : void 0
+          },
+          children: /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: article.image, alt: "" })
+        }
+      ),
+      body
+    ] });
+  }
+  return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "nl-article", children: body });
+}
 function CreateNewsletterPage() {
   const { id } = useParams();
   const navigate = useNavigate();
   const [draft, setDraft] = reactExports$1.useState(createEmptyDraft());
-  const [showPreview, setShowPreview] = reactExports$1.useState(false);
   const [isSaving, setIsSaving] = reactExports$1.useState(false);
   const [lastSaved, setLastSaved] = reactExports$1.useState(null);
   const [showArticleImport, setShowArticleImport] = reactExports$1.useState(false);
   const [availableArticles, setAvailableArticles] = reactExports$1.useState([]);
+  const [activeBlock, setActiveBlock] = reactExports$1.useState(null);
+  const [activeArticleId, setActiveArticleId] = reactExports$1.useState(null);
   reactExports$1.useEffect(() => {
     if (id) {
       let cancelled = false;
@@ -143248,7 +143290,9 @@ function CreateNewsletterPage() {
   }, [id]);
   reactExports$1.useEffect(() => {
     const interval = setInterval(() => {
-      if (draft.title || draft.chapters.some((c) => c.title || c.content)) {
+      if (draft.title || draft.chapters.some(
+        (c) => c.title || c.articles.some((a) => a.title || a.content || a.image)
+      )) {
         handleSave(false);
       }
     }, 3e4);
@@ -143454,23 +143498,18 @@ function CreateNewsletterPage() {
     setAvailableArticles(updatedArticles);
     alert("Article imported successfully!");
   };
-  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "create-newsletter-page", children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "page-header", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { style: { color: "var(--brand)", margin: 0 }, children: id ? "Edit Newsletter" : "Create Newsletter" }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "header-actions", children: [
-        lastSaved && /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "meta", style: { marginRight: 16 }, children: [
-          "Last saved: ",
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "nl-editor", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "nl-toolbar", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "nl-toolbar-left", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", onClick: () => navigate(-1), className: "button secondary", children: "← Back" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "nl-toolbar-title", children: id ? "Edit Newsletter" : "Create Newsletter" })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "nl-toolbar-right", children: [
+        lastSaved && /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "meta nl-saved", children: [
+          "Saved ",
           lastSaved.toLocaleTimeString()
         ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(
-          "button",
-          {
-            type: "button",
-            onClick: () => setShowPreview(!showPreview),
-            className: "button secondary",
-            children: showPreview ? "Hide Preview" : "Show Preview"
-          }
-        ),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", onClick: openArticleImport, className: "button secondary", children: "📥 Import Article" }),
         /* @__PURE__ */ jsxRuntimeExports.jsx(
           "button",
           {
@@ -143478,350 +143517,343 @@ function CreateNewsletterPage() {
             onClick: () => handleSave(true),
             disabled: isSaving,
             className: "button secondary",
-            children: isSaving ? "Saving..." : "Save Draft"
+            children: isSaving ? "Saving…" : "Save Draft"
           }
         ),
         /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", onClick: handlePublish, className: "button primary", children: "Publish" })
       ] })
     ] }),
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: `editor-layout ${showPreview ? "with-preview" : ""}`, children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "editor-main", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "editor-section metadata-section", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { children: "Newsletter Details" }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "form-row", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "form-group", children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx("label", { htmlFor: "month", children: "Month" }),
-              /* @__PURE__ */ jsxRuntimeExports.jsx(
-                "select",
-                {
-                  id: "month",
-                  value: draft.month,
-                  onChange: (e) => changeMonthYear({ month: Number(e.target.value) }),
-                  children: Array.from({ length: 12 }, (_, i) => {
-                    const monthName = new Date(2024, i, 1).toLocaleString(void 0, {
-                      month: "long"
-                    });
-                    return /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: i, children: monthName }, i);
-                  })
-                }
-              )
-            ] }),
-            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "form-group", children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx("label", { htmlFor: "year", children: "Year" }),
-              /* @__PURE__ */ jsxRuntimeExports.jsx(
-                "select",
-                {
-                  id: "year",
-                  value: draft.year,
-                  onChange: (e) => changeMonthYear({ year: Number(e.target.value) }),
-                  children: Array.from({ length: 10 }, (_, i) => {
-                    const year = (/* @__PURE__ */ new Date()).getFullYear() - 1 + i;
-                    return /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: year, children: year }, year);
-                  })
-                }
-              )
-            ] })
-          ] }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "form-group", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("label", { htmlFor: "title", children: "Newsletter Title" }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "nl-hint", children: "This is a live preview — click any part of the newsletter to edit it in place." }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "nl-canvas", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "nl-masthead", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "nl-masthead-text", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(
+            "input",
+            {
+              className: "nl-title-input",
+              value: draft.title,
+              onChange: (e) => updateDraft({ title: e.target.value }),
+              placeholder: computeAutoTitle(draft.month, draft.year),
+              "aria-label": "Newsletter title"
+            }
+          ),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(
+            "input",
+            {
+              className: "nl-subtitle-input",
+              value: draft.subtitle,
+              onChange: (e) => updateDraft({ subtitle: e.target.value }),
+              placeholder: "We make green mobility smart!",
+              "aria-label": "Subtitle"
+            }
+          ),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "nl-issue", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "nl-issue-label", children: "Issue" }),
             /* @__PURE__ */ jsxRuntimeExports.jsx(
-              "input",
+              "select",
               {
-                id: "title",
-                type: "text",
-                value: draft.title,
-                onChange: (e) => updateDraft({ title: e.target.value }),
-                placeholder: "ATV MC Monthly Update - June '26"
+                value: draft.month,
+                onChange: (e) => changeMonthYear({ month: Number(e.target.value) }),
+                "aria-label": "Month",
+                children: Array.from({ length: 12 }, (_, i) => /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: i, children: new Date(2024, i, 1).toLocaleString(void 0, { month: "long" }) }, i))
               }
             ),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "meta", style: { marginTop: 4 }, children: "Auto-filled from the month and year. Edit it and your wording is kept." })
-          ] }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "form-group", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("label", { htmlFor: "subtitle", children: "Subtitle" }),
             /* @__PURE__ */ jsxRuntimeExports.jsx(
-              "input",
+              "select",
               {
-                id: "subtitle",
-                type: "text",
-                value: draft.subtitle,
-                onChange: (e) => updateDraft({ subtitle: e.target.value }),
-                placeholder: "We make green mobility smart!"
+                value: draft.year,
+                onChange: (e) => changeMonthYear({ year: Number(e.target.value) }),
+                "aria-label": "Year",
+                children: Array.from({ length: 10 }, (_, i) => {
+                  const year = (/* @__PURE__ */ new Date()).getFullYear() - 1 + i;
+                  return /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: year, children: year }, year);
+                })
               }
             )
           ] })
         ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "editor-section header-image-section", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { children: "Header Image" }),
-          draft.headerImage ? /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "image-preview", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: draft.headerImage, alt: "Header" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("img", { className: "nl-logo", src: logoUrl, alt: "Infineon" })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(
+        CanvasImage,
+        {
+          className: "nl-header-image",
+          src: draft.headerImage || defaultHeaderImage,
+          style: { aspectRatio: aspectRatioCss(HEADER_CROP) },
+          onUpload: handleHeaderImageUpload,
+          onRemove: draft.headerImage ? removeHeaderImage : void 0,
+          emptyLabel: "Upload header image",
+          hint: "Optional — a default is used if empty. Cropped to 2:1."
+        }
+      ),
+      activeBlock === "intro" ? /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "nl-edit-pop", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "nl-edit-head", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "nl-edit-head-label", children: "Intro" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(
+            "button",
+            {
+              type: "button",
+              className: "button small primary",
+              onClick: () => setActiveBlock(null),
+              children: "Done"
+            }
+          )
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(
+          RichTextEditor,
+          {
+            content: draft.introContent,
+            onChange: (html2) => updateDraft({ introContent: html2 }),
+            placeholder: "Write your introduction or opening message...",
+            enableRefine: true
+          }
+        )
+      ] }) : /* @__PURE__ */ jsxRuntimeExports.jsxs(
+        "div",
+        {
+          className: "nl-intro nl-click-edit",
+          onClick: () => setActiveBlock("intro"),
+          title: "Click to edit the intro",
+          children: [
+            draft.introContent ? /* @__PURE__ */ jsxRuntimeExports.jsx("div", { dangerouslySetInnerHTML: { __html: draft.introContent } }) : /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "nl-placeholder", children: "Click to add an intro message…" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "nl-edit-badge", children: "✏️ Edit" })
+          ]
+        }
+      ),
+      draft.chapters.some((c) => c.title.trim()) && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "nl-nav", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "nl-nav-title", children: "In this issue" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "nl-nav-items", children: draft.chapters.filter((c) => c.title.trim()).map((c) => /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "nl-nav-item", children: c.title.trim() }, c.id)) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "nl-auto-tag", title: "Built automatically from your chapter titles", children: "auto" })
+      ] }),
+      draft.chapters.map((chapter, index) => /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "nl-chapter", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "nl-chapter-bar", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "nl-chapter-title", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs(
+              "select",
+              {
+                className: "nl-chapter-select",
+                value: isCanonicalChapterTitle(chapter.title) ? chapter.title : chapter.title.trim() === "" ? "" : "Other...",
+                onChange: (e) => {
+                  if (e.target.value === "Other...") {
+                    updateChapter(chapter.id, { title: " " });
+                  } else {
+                    updateChapter(chapter.id, { title: e.target.value });
+                  }
+                },
+                children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "", children: "Select a chapter…" }),
+                  CANONICAL_CHAPTER_TITLES.map((t) => /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: t, children: t }, t)),
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "Other...", children: "Other…" })
+                ]
+              }
+            ),
+            chapter.title !== "" && !isCanonicalChapterTitle(chapter.title) && /* @__PURE__ */ jsxRuntimeExports.jsx(
+              "input",
+              {
+                className: "nl-chapter-custom",
+                type: "text",
+                value: chapter.title.trimStart(),
+                onChange: (e) => updateChapter(chapter.id, { title: e.target.value }),
+                placeholder: "Custom chapter name…"
+              }
+            )
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "nl-chapter-tools", children: [
             /* @__PURE__ */ jsxRuntimeExports.jsx(
               "button",
               {
                 type: "button",
-                onClick: removeHeaderImage,
-                className: "button small danger",
-                children: "Remove Image"
+                onClick: () => moveChapterUp(index),
+                disabled: index === 0,
+                className: "button icon",
+                title: "Move chapter up",
+                children: "↑"
               }
-            )
-          ] }) : /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "image-upload", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsxs("label", { htmlFor: "header-image", className: "upload-label", children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "📷 Upload Header Image" }),
-              /* @__PURE__ */ jsxRuntimeExports.jsx(
-                "input",
-                {
-                  id: "header-image",
-                  type: "file",
-                  accept: "image/*",
-                  onChange: handleHeaderImageUpload,
-                  style: { display: "none" }
-                }
-              )
-            ] }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "meta", style: { marginTop: 8 }, children: "Optional — a default header image is used if you don't upload one. Cropped to 2:1 (≈800×400)." })
-          ] }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "form-group", style: { marginTop: 24 }, children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "meta", style: { marginTop: 0, marginBottom: 12 }, children: "This intro content appears after the header image and before the navigation." }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("label", { children: "Intro Content" }),
+            ),
             /* @__PURE__ */ jsxRuntimeExports.jsx(
-              RichTextEditor,
+              "button",
               {
-                content: draft.introContent,
-                onChange: (html2) => updateDraft({ introContent: html2 }),
-                placeholder: "Write your introduction or opening message...",
-                enableRefine: true
+                type: "button",
+                onClick: () => moveChapterDown(index),
+                disabled: index === draft.chapters.length - 1,
+                className: "button icon",
+                title: "Move chapter down",
+                children: "↓"
+              }
+            ),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(
+              "button",
+              {
+                type: "button",
+                onClick: () => deleteChapter(chapter.id),
+                disabled: draft.chapters.length === 1,
+                className: "button icon danger",
+                title: "Delete chapter",
+                children: "🗑️"
               }
             )
           ] })
         ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "editor-section chapters-section", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "section-header", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { children: "Chapters" }),
-            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: { display: "flex", gap: "8px" }, children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", onClick: openArticleImport, className: "button small secondary", children: "📥 Import from Articles" }),
-              /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", onClick: addChapter, className: "button small", children: "+ Add Chapter" })
-            ] })
-          ] }),
-          draft.chapters.map((chapter, index) => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "chapter-editor", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "chapter-header", children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "chapter-number", children: [
-                "Chapter ",
-                index + 1
-              ] }),
-              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "chapter-actions", children: [
-                /* @__PURE__ */ jsxRuntimeExports.jsx(
-                  "button",
-                  {
-                    type: "button",
-                    onClick: () => moveChapterUp(index),
-                    disabled: index === 0,
-                    className: "button icon",
-                    title: "Move up",
-                    children: "↑"
-                  }
-                ),
-                /* @__PURE__ */ jsxRuntimeExports.jsx(
-                  "button",
-                  {
-                    type: "button",
-                    onClick: () => moveChapterDown(index),
-                    disabled: index === draft.chapters.length - 1,
-                    className: "button icon",
-                    title: "Move down",
-                    children: "↓"
-                  }
-                ),
-                /* @__PURE__ */ jsxRuntimeExports.jsx(
-                  "button",
-                  {
-                    type: "button",
-                    onClick: () => deleteChapter(chapter.id),
-                    disabled: draft.chapters.length === 1,
-                    className: "button icon danger",
-                    title: "Delete chapter",
-                    children: "🗑️"
-                  }
-                )
-              ] })
+        chapter.articles.map((article, aIndex) => /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "nl-article-slot", children: activeArticleId === article.id ? /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "nl-article-edit", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "nl-edit-head", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "nl-edit-head-label", children: [
+              "Article ",
+              aIndex + 1
             ] }),
-            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "form-group", children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsxs("label", { children: [
-                "Chapter Title ",
-                /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "meta", children: "(green section heading)" })
-              ] }),
-              /* @__PURE__ */ jsxRuntimeExports.jsxs(
-                "select",
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "nl-edit-head-actions", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx(
+                "button",
                 {
-                  value: isCanonicalChapterTitle(chapter.title) ? chapter.title : chapter.title.trim() === "" ? "" : "Other...",
-                  onChange: (e) => {
-                    if (e.target.value === "Other...") {
-                      updateChapter(chapter.id, { title: " " });
-                    } else {
-                      updateChapter(chapter.id, { title: e.target.value });
-                    }
-                  },
-                  children: [
-                    /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "", children: "Select a chapter..." }),
-                    CANONICAL_CHAPTER_TITLES.map((t) => /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: t, children: t }, t)),
-                    /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "Other...", children: "Other..." })
-                  ]
+                  type: "button",
+                  className: "button icon danger",
+                  title: "Delete article",
+                  disabled: chapter.articles.length === 1,
+                  onClick: () => deleteArticle2(chapter.id, article.id),
+                  children: "🗑️"
                 }
               ),
-              chapter.title !== "" && !isCanonicalChapterTitle(chapter.title) && /* @__PURE__ */ jsxRuntimeExports.jsx(
-                "input",
+              /* @__PURE__ */ jsxRuntimeExports.jsx(
+                "button",
                 {
-                  type: "text",
-                  value: chapter.title.trimStart(),
-                  onChange: (e) => updateChapter(chapter.id, { title: e.target.value }),
-                  placeholder: "Enter custom chapter name...",
-                  style: { marginTop: 8 }
+                  type: "button",
+                  className: "button small primary",
+                  onClick: () => setActiveArticleId(null),
+                  children: "Done"
                 }
               )
+            ] })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "form-group", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("label", { children: [
+              "Article Title ",
+              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "meta", children: "(bold heading)" })
             ] }),
-            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "articles-block", children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "articles-block-header", children: [
-                /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "articles-label", children: "Articles" }),
-                /* @__PURE__ */ jsxRuntimeExports.jsx(
-                  "button",
-                  {
-                    type: "button",
-                    onClick: () => addArticle(chapter.id),
-                    className: "button small",
-                    children: "+ Add Article"
-                  }
-                )
-              ] }),
-              chapter.articles.map((article, aIndex) => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "article-editor", children: [
-                /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "article-editor-head", children: [
-                  /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "article-number", children: [
-                    "Article ",
-                    aIndex + 1
-                  ] }),
-                  /* @__PURE__ */ jsxRuntimeExports.jsx(
-                    "button",
-                    {
-                      type: "button",
-                      onClick: () => deleteArticle2(chapter.id, article.id),
-                      disabled: chapter.articles.length === 1,
-                      className: "button icon danger",
-                      title: "Delete article",
-                      children: "🗑️"
-                    }
-                  )
-                ] }),
-                /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "form-group", children: [
-                  /* @__PURE__ */ jsxRuntimeExports.jsxs("label", { children: [
-                    "Article Title ",
-                    /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "meta", children: "(bold heading)" })
-                  ] }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(
+              "input",
+              {
+                type: "text",
+                value: article.title,
+                onChange: (e) => updateArticle(chapter.id, article.id, { title: e.target.value }),
+                placeholder: "e.g., New AURIX™ TC4x evaluation board",
+                maxLength: 140
+              }
+            )
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "form-group", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("label", { children: "Layout" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "layout-toggle", children: ["portrait", "landscape"].map((layout) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
+              "label",
+              {
+                className: `layout-option ${article.template === layout ? "selected" : ""}`,
+                children: [
                   /* @__PURE__ */ jsxRuntimeExports.jsx(
                     "input",
                     {
-                      type: "text",
-                      value: article.title,
-                      onChange: (e) => updateArticle(chapter.id, article.id, { title: e.target.value }),
-                      placeholder: "e.g., New AURIX™ TC4x evaluation board",
-                      maxLength: 140
+                      type: "radio",
+                      name: `layout-${article.id}`,
+                      value: layout,
+                      checked: article.template === layout,
+                      onChange: () => updateArticle(chapter.id, article.id, { template: layout })
                     }
-                  )
-                ] }),
-                /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "form-group", children: [
-                  /* @__PURE__ */ jsxRuntimeExports.jsx("label", { children: "Layout" }),
-                  /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "layout-toggle", children: ["portrait", "landscape"].map((layout) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
-                    "label",
-                    {
-                      className: `layout-option ${article.template === layout ? "selected" : ""}`,
-                      children: [
-                        /* @__PURE__ */ jsxRuntimeExports.jsx(
-                          "input",
-                          {
-                            type: "radio",
-                            name: `layout-${article.id}`,
-                            value: layout,
-                            checked: article.template === layout,
-                            onChange: () => updateArticle(chapter.id, article.id, { template: layout })
-                          }
-                        ),
-                        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: `layout-glyph layout-glyph--${layout}`, "aria-hidden": "true" }),
-                        /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "layout-name", children: [
-                          layout === "portrait" ? "Portrait" : "Landscape",
-                          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "meta", children: layout === "portrait" ? " image left · W200×H600" : " image top · W600×H200" })
-                        ] })
-                      ]
-                    },
-                    layout
-                  )) })
-                ] }),
-                /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: `article-layout article-layout--${article.template}`, children: [
-                  /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "article-image-col", children: [
-                    /* @__PURE__ */ jsxRuntimeExports.jsx("label", { children: "Article Image" }),
-                    /* @__PURE__ */ jsxRuntimeExports.jsx(
-                      "div",
-                      {
-                        className: "article-image-box",
-                        style: { aspectRatio: aspectRatioCss(ARTICLE_CROP[article.template]) },
-                        children: article.image ? /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
-                          /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: article.image, alt: "Article" }),
-                          /* @__PURE__ */ jsxRuntimeExports.jsx(
-                            "button",
-                            {
-                              type: "button",
-                              onClick: () => updateArticle(chapter.id, article.id, { image: void 0 }),
-                              className: "button small danger article-image-remove",
-                              children: "Remove"
-                            }
-                          )
-                        ] }) : /* @__PURE__ */ jsxRuntimeExports.jsxs("label", { className: "article-image-drop", children: [
-                          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "📷 Upload" }),
-                          /* @__PURE__ */ jsxRuntimeExports.jsx(
-                            "input",
-                            {
-                              type: "file",
-                              accept: "image/*",
-                              style: { display: "none" },
-                              onChange: (e) => handleArticleImageUpload(chapter.id, article.id, article.template, e)
-                            }
-                          )
-                        ] })
-                      }
-                    ),
-                    /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "meta", style: { marginTop: 6 }, children: [
-                      "Auto-cropped to ",
-                      article.template === "portrait" ? "W200×H600" : "W600×H200",
-                      "."
-                    ] })
-                  ] }),
-                  /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "article-content-col", children: [
-                    /* @__PURE__ */ jsxRuntimeExports.jsx("label", { children: "Article Content" }),
-                    /* @__PURE__ */ jsxRuntimeExports.jsx(
-                      RichTextEditor,
-                      {
-                        content: article.content,
-                        onChange: (html2) => updateArticle(chapter.id, article.id, { content: html2 }),
-                        placeholder: "Write the article (a few sentences)...",
-                        enableRefine: true
-                      }
-                    ),
-                    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "form-group", style: { marginTop: 12 }, children: [
-                      /* @__PURE__ */ jsxRuntimeExports.jsx("label", { children: "Contact" }),
-                      /* @__PURE__ */ jsxRuntimeExports.jsx(
-                        "input",
-                        {
-                          type: "text",
-                          value: article.contact ?? "",
-                          onChange: (e) => updateArticle(chapter.id, article.id, { contact: e.target.value }),
-                          placeholder: "Contact: Name, email or phone",
-                          maxLength: 200
-                        }
-                      )
-                    ] })
+                  ),
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: `layout-glyph layout-glyph--${layout}`, "aria-hidden": "true" }),
+                  /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "layout-name", children: [
+                    layout === "portrait" ? "Portrait" : "Landscape",
+                    /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "meta", children: layout === "portrait" ? " image left · W200×H600" : " image top · W600×H200" })
                   ] })
-                ] })
-              ] }, article.id))
+                ]
+              },
+              layout
+            )) })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: `article-layout article-layout--${article.template}`, children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "article-image-col", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("label", { children: "Article Image" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx(
+                "div",
+                {
+                  className: "article-image-box",
+                  style: { aspectRatio: aspectRatioCss(ARTICLE_CROP[article.template]) },
+                  children: article.image ? /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
+                    /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: article.image, alt: "Article" }),
+                    /* @__PURE__ */ jsxRuntimeExports.jsx(
+                      "button",
+                      {
+                        type: "button",
+                        onClick: () => updateArticle(chapter.id, article.id, { image: void 0 }),
+                        className: "button small danger article-image-remove",
+                        children: "Remove"
+                      }
+                    )
+                  ] }) : /* @__PURE__ */ jsxRuntimeExports.jsxs("label", { className: "article-image-drop", children: [
+                    /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "📷 Upload" }),
+                    /* @__PURE__ */ jsxRuntimeExports.jsx(
+                      "input",
+                      {
+                        type: "file",
+                        accept: "image/*",
+                        style: { display: "none" },
+                        onChange: (e) => handleArticleImageUpload(chapter.id, article.id, article.template, e)
+                      }
+                    )
+                  ] })
+                }
+              ),
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "meta", style: { marginTop: 6 }, children: [
+                "Auto-cropped to ",
+                article.template === "portrait" ? "W200×H600" : "W600×H200",
+                "."
+              ] })
+            ] }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "article-content-col", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("label", { children: "Article Content" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx(
+                RichTextEditor,
+                {
+                  content: article.content,
+                  onChange: (html2) => updateArticle(chapter.id, article.id, { content: html2 }),
+                  placeholder: "Write the article (a few sentences)...",
+                  enableRefine: true
+                }
+              ),
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "form-group", style: { marginTop: 12 }, children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx("label", { children: "Contact" }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx(
+                  "input",
+                  {
+                    type: "text",
+                    value: article.contact ?? "",
+                    onChange: (e) => updateArticle(chapter.id, article.id, { contact: e.target.value }),
+                    placeholder: "Contact: Name, email or phone",
+                    maxLength: 200
+                  }
+                )
+              ] })
             ] })
-          ] }, chapter.id))
-        ] })
-      ] }),
-      showPreview && /* @__PURE__ */ jsxRuntimeExports.jsx("aside", { className: "preview-sidebar", children: /* @__PURE__ */ jsxRuntimeExports.jsx(NewsletterPreview, { draft }) })
+          ] })
+        ] }) : /* @__PURE__ */ jsxRuntimeExports.jsxs(
+          "div",
+          {
+            className: "nl-article-display nl-click-edit",
+            onClick: () => setActiveArticleId(article.id),
+            title: "Click to edit this article",
+            children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx(ArticleDisplay, { article }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "nl-edit-badge", children: "✏️ Edit" })
+            ]
+          }
+        ) }, article.id)),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(
+          "button",
+          {
+            type: "button",
+            className: "nl-add-inline",
+            onClick: () => addArticle(chapter.id),
+            children: "＋ Add article to this chapter"
+          }
+        )
+      ] }, chapter.id)),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "nl-add-chapter", onClick: addChapter, children: "＋ Add chapter" })
     ] }),
     showArticleImport && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "modal-overlay", onClick: closeArticleImport, children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "modal-content", onClick: (e) => e.stopPropagation(), children: [
       /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "modal-header", children: [
