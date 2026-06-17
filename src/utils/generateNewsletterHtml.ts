@@ -4,6 +4,7 @@ import type {
   NewsletterArticle,
 } from '../types/newsletter-creation'
 import { computeAutoTitle, DEFAULT_SUBTITLE, DEFAULT_FOOTER_HTML } from './localNewsletters'
+import { ARTICLE_CROP, articleImageBg } from './imageCrop'
 import defaultHeaderImage from '../photos/newsletter image.png'
 import logoUrl from '../logo/Agent-logo.svg'
 
@@ -213,34 +214,46 @@ function chapterArticles(chapter: NewsletterChapter): NewsletterArticle[] {
   return []
 }
 
+function renderArticleImage(article: NewsletterArticle): string {
+  if (!article.image) return ''
+  const ratio = ARTICLE_CROP[article.template]
+  const bg = articleImageBg(ratio, article.imageAspect, article.imageZoom, article.imagePosX, article.imagePosY)
+  const widthStyle = article.template === 'portrait' ? 'width:300px;' : 'width:100%;'
+  return `<div style="${widthStyle}aspect-ratio:${ratio.ratioW} / ${ratio.ratioH};background-image:url('${article.image}');background-repeat:no-repeat;background-position:${bg.backgroundPosition};background-size:${bg.backgroundSize};border-radius:2px;"></div>`
+}
+
+function renderArticleButton(article: NewsletterArticle): string {
+  const b = article.button
+  if (!b || !b.label.trim() || !b.url.trim()) return ''
+  return `<p style="margin:16px 0 0;"><a href="${escapeHtml(b.url)}" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:${BRAND_GREEN};color:#ffffff;font-weight:bold;font-size:10.5pt;padding:9px 20px;text-decoration:none;border-radius:2px;">${escapeHtml(b.label)}</a></p>`
+}
+
 function renderArticle(article: NewsletterArticle): string {
   const titleHtml = article.title
     ? `<p style="font-size:12pt;font-weight:bold;color:#222;margin:0 0 8px;">${escapeHtml(article.title)}</p>`
     : ''
   const contactHtml = article.contact
-    ? `<p style="margin:10px 0 0;font-style:italic;font-size:10pt;color:#555;"><strong>Contact:</strong> ${escapeHtml(article.contact)}</p>`
+    ? `<p style="margin:12px 0 0;font-style:italic;font-size:10pt;color:#555;"><strong>Contact:</strong> ${escapeHtml(article.contact)}</p>`
     : ''
-  const body = `${titleHtml}<div style="font-size:10.5pt;line-height:1.6;color:#333;">${article.content || ''}</div>${contactHtml}`
+  const body = `<div style="border-radius:3px;">${titleHtml}<div style="font-size:10.5pt;line-height:1.65;color:#333;">${article.content || ''}</div>${renderArticleButton(article)}${contactHtml}</div>`
 
   if (article.image && article.template === 'portrait') {
     return `
-      <div style="display:flex;gap:18px;margin:0 0 22px;align-items:flex-start;">
-        <div style="flex:0 0 300px;width:300px;">
-          <img src="${article.image}" alt="${escapeHtml(article.title)}" style="width:300px;height:auto;display:block;" />
-        </div>
+      <div style="display:flex;gap:22px;align-items:flex-start;">
+        <div style="flex:0 0 300px;">${renderArticleImage(article)}</div>
         <div style="flex:1;min-width:0;">${body}</div>
       </div>`
   }
 
   if (article.image && article.template === 'landscape') {
     return `
-      <div style="margin:0 0 22px;">
-        <img src="${article.image}" alt="${escapeHtml(article.title)}" style="width:100%;height:auto;object-fit:cover;display:block;margin:0 0 12px;" />
+      <div>
+        <div style="margin:0 0 14px;">${renderArticleImage(article)}</div>
         ${body}
       </div>`
   }
 
-  return `<div style="margin:0 0 22px;">${body}</div>`
+  return `<div>${body}</div>`
 }
 
 export function generateNewsletterBodyHtml(draft: NewsletterDraft): string {
@@ -252,7 +265,7 @@ export function generateNewsletterBodyHtml(draft: NewsletterDraft): string {
     .filter((c) => c.title?.trim())
     .map(
       (chapter, index) =>
-        `<a href="#chapter_${index}" style="color:#ffffff;text-decoration:none;font-size:11.5pt;font-weight:bold;margin:0 14px 6px 0;display:inline-block;">${escapeHtml(
+        `<a href="#chapter_${index}" style="color:#ffffff;text-decoration:none;font-size:11.5pt;font-weight:bold;margin:0 12px 6px;display:inline-block;">${escapeHtml(
           chapter.title,
         )}</a>`,
     )
@@ -262,12 +275,14 @@ export function generateNewsletterBodyHtml(draft: NewsletterDraft): string {
     .map((chapter, index) => {
       const heading = chapter.title?.trim()
         ? `<a name="chapter_${index}" id="chapter_${index}"></a>
-           <h2 style="font-size:13.5pt;font-weight:bold;color:${BRAND_GREEN};margin:0 0 14px;border-bottom:1px solid #e5e7eb;padding-bottom:6px;">${escapeHtml(
+           <h2 style="font-size:13.5pt;font-weight:bold;color:${BRAND_GREEN};margin:0 0 18px;border-bottom:1px solid #e5e7eb;padding-bottom:8px;">${escapeHtml(
              chapter.title,
            )}</h2>`
         : `<a name="chapter_${index}" id="chapter_${index}"></a>`
-      const articles = chapterArticles(chapter).map(renderArticle).join('')
-      return `<section style="padding:22px 0;">${heading}${articles}</section>`
+      const articles = chapterArticles(chapter)
+        .map(renderArticle)
+        .join('<hr style="border:none;border-top:1px solid #f0f2f4;margin:24px 0;" />')
+      return `<section style="padding:30px 0;">${heading}${articles}</section>`
     })
     .join('')
 
@@ -301,7 +316,7 @@ export function generateNewsletterBodyHtml(draft: NewsletterDraft): string {
 
       ${
         navItems
-          ? `<div style="background:${BRAND_GREEN};padding:22px 18px;margin:8px 0 4px;">
+          ? `<div style="background:${BRAND_GREEN};padding:20px 18px;margin:8px 0 8px;text-align:center;">
                <div>${navItems}</div>
              </div>`
           : ''

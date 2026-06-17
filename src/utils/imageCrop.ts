@@ -34,6 +34,47 @@ export function aspectRatioCss(ratio: CropRatio): string {
   return `${ratio.ratioW} / ${ratio.ratioH}`
 }
 
+/**
+ * Background size+position for rendering an article image inside a fixed-ratio
+ * frame with pan/zoom. The image is sized to "cover" the frame at zoom 1, then
+ * scaled by `zoom`; `posX/posY` (0..1) choose which part shows. The SAME math is
+ * used by the editor (React style) and the generator (inline CSS string) so the
+ * published newsletter matches the editor exactly.
+ */
+export function articleImageBg(
+  ratio: CropRatio,
+  imageAspect: number | undefined,
+  zoom: number | undefined,
+  posX: number | undefined,
+  posY: number | undefined,
+): { backgroundSize: string; backgroundPosition: string } {
+  const px = ((posX ?? 0.5) * 100).toFixed(2)
+  const py = ((posY ?? 0.5) * 100).toFixed(2)
+  const position = `${px}% ${py}%`
+
+  // Unknown aspect (legacy drafts / pre-cropped imported images): plain cover so
+  // the image is never distorted. Pan/zoom only applies once a real aspect is known.
+  if (!imageAspect || imageAspect <= 0) {
+    return { backgroundSize: 'cover', backgroundPosition: position }
+  }
+
+  const frameAspect = ratio.ratioW / ratio.ratioH
+  const z = zoom && zoom > 0 ? zoom : 1
+  let w: number
+  let h: number
+  if (imageAspect >= frameAspect) {
+    h = 100
+    w = (imageAspect / frameAspect) * 100
+  } else {
+    w = 100
+    h = (frameAspect / imageAspect) * 100
+  }
+  return {
+    backgroundSize: `${(w * z).toFixed(2)}% ${(h * z).toFixed(2)}%`,
+    backgroundPosition: position,
+  }
+}
+
 function loadImage(src: string): Promise<HTMLImageElement> {
   return new Promise((resolve, reject) => {
     const img = new Image()
@@ -50,6 +91,36 @@ function readFileAsDataUrl(file: File): Promise<string> {
     reader.onerror = () => reject(new Error('Failed to read file'))
     reader.readAsDataURL(file)
   })
+}
+
+/**
+ * Downscale an uploaded image (preserving aspect) and return the data URL plus
+ * its natural aspect ratio. The full image is kept (NOT cropped) so the editor
+ * can pan/zoom freely; cropping happens visually via {@link articleImageBg}.
+ */
+export async function downscaleImage(
+  file: File,
+  maxDim = 1400,
+  quality = 0.85,
+): Promise<{ dataUrl: string; aspect: number }> {
+  const original = await readFileAsDataUrl(file)
+  let img: HTMLImageElement
+  try {
+    img = await loadImage(original)
+  } catch {
+    return { dataUrl: original, aspect: 1 }
+  }
+  const aspect = img.width / img.height
+  const scale = Math.min(1, maxDim / Math.max(img.width, img.height))
+  const outW = Math.max(1, Math.round(img.width * scale))
+  const outH = Math.max(1, Math.round(img.height * scale))
+  const canvas = document.createElement('canvas')
+  canvas.width = outW
+  canvas.height = outH
+  const ctx = canvas.getContext('2d')
+  if (!ctx) return { dataUrl: original, aspect }
+  ctx.drawImage(img, 0, 0, outW, outH)
+  return { dataUrl: canvas.toDataURL('image/jpeg', quality), aspect }
 }
 
 /**

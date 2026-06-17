@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import type {
   NewsletterDraft,
@@ -12,13 +12,13 @@ import {
   createEmptyArticle,
   normalizeDraft,
   computeAutoTitle,
-  generateId,
 } from '../../utils/localNewsletters'
 import { saveDraftApi, getDraftByIdApi, getAllDraftsApi, publishNewsletterApi } from '../../utils/newslettersApi'
 import RichTextEditor from '../components/RichTextEditor'
+import { generateNewsletterBodyHtml } from '../../utils/generateNewsletterHtml'
 import type { SubmittedArticle } from '../../types/article'
 import { getAvailableArticlesForImport, markArticleAsImported } from '../../utils/articlesApi'
-import { cropImageToRatio, ARTICLE_CROP, HEADER_CROP, aspectRatioCss } from '../../utils/imageCrop'
+import { cropImageToRatio, ARTICLE_CROP, HEADER_CROP, aspectRatioCss, articleImageBg, downscaleImage } from '../../utils/imageCrop'
 import { CANONICAL_CHAPTER_TITLES, isCanonicalChapterTitle } from '../../constants/chapters'
 import defaultHeaderImage from '../../photos/newsletter image.png'
 import logoUrl from '../../logo/Agent-logo.svg'
@@ -73,9 +73,42 @@ function CanvasImage({
   )
 }
 
+const clamp01 = (n: number) => Math.min(1, Math.max(0, n))
+const clamp = (n: number, lo: number, hi: number) => Math.min(hi, Math.max(lo, n))
+
+/** Background style (cover + pan/zoom) for an article image inside its frame. */
+function articleImageStyle(article: NewsletterArticle): React.CSSProperties {
+  if (!article.image) return {}
+  const bg = articleImageBg(
+    ARTICLE_CROP[article.template],
+    article.imageAspect,
+    article.imageZoom,
+    article.imagePosX,
+    article.imagePosY,
+  )
+  return {
+    backgroundImage: `url(${article.image})`,
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: bg.backgroundPosition,
+    backgroundSize: bg.backgroundSize,
+  }
+}
+
+/** The green CTA button under an article (matches the historic .htm button). */
+function ArticleButtonView({ button }: { button?: NewsletterArticle['button'] }) {
+  if (!button || !button.label.trim() || !button.url.trim()) return null
+  return (
+    <p style={{ margin: '16px 0 0' }}>
+      <a className="nl-cta" href={button.url} target="_blank" rel="noopener noreferrer">
+        {button.label}
+      </a>
+    </p>
+  )
+}
+
 /** Read-only article rendering used in the canvas display (click to edit). */
 function ArticleDisplay({ article }: { article: NewsletterArticle }) {
-  if (!article.title && !article.content && !article.image) {
+  if (!article.title && !article.content && !article.image && !article.button) {
     return <p className="nl-placeholder">Click to add this article…</p>
   }
   const body = (
@@ -86,6 +119,7 @@ function ArticleDisplay({ article }: { article: NewsletterArticle }) {
       ) : (
         <p className="nl-placeholder-inline">No content yet…</p>
       )}
+      <ArticleButtonView button={article.button} />
       {article.contact && (
         <p className="nl-article-contact">
           <strong>Contact:</strong> {article.contact}
@@ -101,15 +135,108 @@ function ArticleDisplay({ article }: { article: NewsletterArticle }) {
           style={{
             aspectRatio: aspectRatioCss(ARTICLE_CROP[article.template]),
             width: article.template === 'portrait' ? 300 : '100%',
+            ...articleImageStyle(article),
           }}
-        >
-          <img src={article.image} alt="" />
-        </div>
+        />
         {body}
       </div>
     )
   }
   return <div className="nl-article">{body}</div>
+}
+
+/** Editable image frame: drag to pan, slider/buttons to zoom, replace/remove. */
+function ArticleImageEditor({
+  article,
+  onUpload,
+  onChange,
+  onRemove,
+}: {
+  article: NewsletterArticle
+  onUpload: (e: React.ChangeEvent<HTMLInputElement>) => void
+  onChange: (updates: Partial<NewsletterArticle>) => void
+  onRemove: () => void
+}) {
+  const frameRef = useRef<HTMLDivElement>(null)
+  const drag = useRef<{ x: number; y: number; posX: number; posY: number } | null>(null)
+  const zoom = article.imageZoom ?? 1
+
+  const onPointerDown = (e: React.PointerEvent) => {
+    if (!article.image) return
+    frameRef.current?.setPointerCapture(e.pointerId)
+    drag.current = {
+      x: e.clientX,
+      y: e.clientY,
+      posX: article.imagePosX ?? 0.5,
+      posY: article.imagePosY ?? 0.5,
+    }
+  }
+  const onPointerMove = (e: React.PointerEvent) => {
+    const d = drag.current
+    const el = frameRef.current
+    if (!d || !el) return
+    const rect = el.getBoundingClientRect()
+    onChange({
+      imagePosX: clamp01(d.posX - (e.clientX - d.x) / rect.width),
+      imagePosY: clamp01(d.posY - (e.clientY - d.y) / rect.height),
+    })
+  }
+  const endDrag = (e: React.PointerEvent) => {
+    drag.current = null
+    frameRef.current?.releasePointerCapture(e.pointerId)
+  }
+
+  return (
+    <div className="nl-img-editor">
+      <div
+        ref={frameRef}
+        className={`nl-img-frame ${article.image ? 'has-image' : ''}`}
+        style={{
+          aspectRatio: aspectRatioCss(ARTICLE_CROP[article.template]),
+          ...articleImageStyle(article),
+        }}
+        onPointerDown={onPointerDown}
+        onPointerMove={onPointerMove}
+        onPointerUp={endDrag}
+        onPointerCancel={endDrag}
+      >
+        {article.image ? (
+          <span className="nl-img-hint">drag to position</span>
+        ) : (
+          <label className="article-image-drop">
+            <span>📷 Upload</span>
+            <input type="file" accept="image/*" hidden onChange={onUpload} />
+          </label>
+        )}
+      </div>
+      {article.image && (
+        <div className="nl-img-controls">
+          <button type="button" title="Zoom out" onClick={() => onChange({ imageZoom: clamp(zoom - 0.2, 1, 3) })}>
+            −
+          </button>
+          <input
+            type="range"
+            min={1}
+            max={3}
+            step={0.05}
+            value={zoom}
+            onChange={(e) => onChange({ imageZoom: Number(e.target.value) })}
+            aria-label="Zoom"
+          />
+          <button type="button" title="Zoom in" onClick={() => onChange({ imageZoom: clamp(zoom + 0.2, 1, 3) })}>
+            ＋
+          </button>
+          <label className="button small secondary nl-img-replace">
+            Replace
+            <input type="file" accept="image/*" hidden onChange={onUpload} />
+          </label>
+          <button type="button" className="button small danger" onClick={onRemove}>
+            Remove
+          </button>
+        </div>
+      )}
+    </div>
+  )
 }
 
 export default function CreateNewsletterPage() {
@@ -120,8 +247,13 @@ export default function CreateNewsletterPage() {
   const [lastSaved, setLastSaved] = useState<Date | null>(null)
   const [showArticleImport, setShowArticleImport] = useState(false)
   const [availableArticles, setAvailableArticles] = useState<SubmittedArticle[]>([])
+  const [loadingArticles, setLoadingArticles] = useState(false)
+  const [importTarget, setImportTarget] = useState<{ chapterId: string; articleId: string } | null>(null)
+  const [importingArticleId, setImportingArticleId] = useState<string | null>(null)
   const [showDraftImport, setShowDraftImport] = useState(false)
   const [availableDrafts, setAvailableDrafts] = useState<NewsletterDraft[]>([])
+  const [loadingDrafts, setLoadingDrafts] = useState(false)
+  const [previewMode, setPreviewMode] = useState(false)
   // Live-canvas editing: which block / article is currently open for editing.
   const [activeBlock, setActiveBlock] = useState<string | null>(null)
   const [activeArticleId, setActiveArticleId] = useState<string | null>(null)
@@ -279,7 +411,6 @@ export default function CreateNewsletterPage() {
   const handleArticleImageUpload = async (
     chapterId: string,
     articleId: string,
-    template: ArticleLayout,
     e: React.ChangeEvent<HTMLInputElement>,
   ) => {
     const file = e.target.files?.[0]
@@ -289,8 +420,16 @@ export default function CreateNewsletterPage() {
       return
     }
     try {
-      const cropped = await cropImageToRatio(file, ARTICLE_CROP[template])
-      updateArticle(chapterId, articleId, { image: cropped })
+      // Keep the full (downscaled) image so the editor can pan/zoom; the visible
+      // crop is produced live by articleImageBg().
+      const { dataUrl, aspect } = await downscaleImage(file)
+      updateArticle(chapterId, articleId, {
+        image: dataUrl,
+        imageAspect: aspect,
+        imageZoom: 1,
+        imagePosX: 0.5,
+        imagePosY: 0.5,
+      })
     } catch {
       alert('Could not process that image. Please try another file.')
     }
@@ -353,34 +492,42 @@ export default function CreateNewsletterPage() {
     updateDraft({ headerImage: undefined })
   }
 
-  const openArticleImport = async () => {
+  const openArticleImport = async (chapterId: string, articleId: string) => {
+    setImportTarget({ chapterId, articleId })
+    setShowArticleImport(true)
+    setLoadingArticles(true)
     try {
       const articles = await getAvailableArticlesForImport()
       setAvailableArticles(articles)
     } catch (error) {
       console.error('Failed to load articles:', error)
       setAvailableArticles([])
+    } finally {
+      setLoadingArticles(false)
     }
-    setShowArticleImport(true)
   }
 
   const closeArticleImport = () => {
     setShowArticleImport(false)
+    setImportTarget(null)
   }
 
   const openDraftImport = async () => {
+    // Open immediately with a loading state so the button feels responsive.
+    setShowDraftImport(true)
+    setLoadingDrafts(true)
     try {
       const drafts = await getAllDraftsApi()
-      // Most-recent first; don't offer the draft we're already editing.
       const sorted = drafts
-        .filter((d) => d.id !== draft.id)
+        .filter((d) => d.id !== draft.id && d.status !== 'published')
         .sort((a, b) => (a.updatedAt < b.updatedAt ? 1 : -1))
       setAvailableDrafts(sorted)
     } catch (error) {
       console.error('Failed to load drafts:', error)
       setAvailableDrafts([])
+    } finally {
+      setLoadingDrafts(false)
     }
-    setShowDraftImport(true)
   }
 
   const closeDraftImport = () => {
@@ -392,40 +539,33 @@ export default function CreateNewsletterPage() {
     setActiveBlock(null)
     setActiveArticleId(null)
     if (target.id === id) return
-    // Navigating to the edit route loads the draft via the id effect.
     navigate(`/newsletters/edit/${target.id}`)
   }
 
   const importArticle = async (article: SubmittedArticle) => {
-    // Import the submitted article as a new chapter holding one article. The
-    // contributor's image is already sized; the chapter title (AURIX™, TRAVEO™,
-    // …) is left for the editor to assign.
-    const newArticle: NewsletterArticle = {
-      id: generateId(),
+    // Fill the article slot the import was triggered from (stays in its chapter).
+    const target = importTarget
+    if (!target) return
+    setShowArticleImport(false)
+    setImportingArticleId(target.articleId)
+    updateArticle(target.chapterId, target.articleId, {
       title: article.title,
       content: article.content ? `<p>${article.content}</p>` : '',
       template: article.template,
       image: article.imageDataUrl || undefined,
+      imageAspect: undefined,
+      imageZoom: 1,
+      imagePosX: 0.5,
+      imagePosY: 0.5,
       contact: article.contact || '',
-    }
-
-    setDraft((prev) => ({
-      ...prev,
-      chapters: [...prev.chapters, { id: generateId(), title: '', articles: [newArticle] }],
-    }))
-
-    // Mark article as imported
+    })
     try {
       await markArticleAsImported(article.id)
     } catch (error) {
       console.error('Failed to mark article as imported:', error)
     }
-
-    // Update available articles list
-    const updatedArticles = await getAvailableArticlesForImport()
-    setAvailableArticles(updatedArticles)
-
-    alert('Article imported successfully!')
+    setImportingArticleId(null)
+    setImportTarget(null)
   }
 
   return (
@@ -444,6 +584,9 @@ export default function CreateNewsletterPage() {
           )}
           <button type="button" onClick={openDraftImport} className="button secondary">
             📂 Import Draft
+          </button>
+          <button type="button" onClick={() => setPreviewMode(true)} className="button secondary">
+            👁 Preview
           </button>
           <button
             type="button"
@@ -653,117 +796,66 @@ export default function CreateNewsletterPage() {
               <div key={article.id} className="nl-article-slot">
                 {activeArticleId === article.id ? (
                   <div className="nl-article-edit">
-                    <div className="nl-edit-head">
-                      <input
-                        className="nl-article-title-input"
-                        value={article.title}
-                        onChange={(e) =>
-                          updateArticle(chapter.id, article.id, { title: e.target.value })
-                        }
-                        placeholder="Article title…"
-                        maxLength={140}
-                        aria-label="Article title"
-                      />
-                      <div className="nl-edit-head-actions">
-                        <button
-                          type="button"
-                          className="button small secondary"
-                          title="Import a submitted article into this chapter"
-                          onClick={openArticleImport}
-                        >
-                          📥 Import
-                        </button>
-                        <button
-                          type="button"
-                          className="button icon danger"
-                          title="Delete article"
-                          disabled={chapter.articles.length === 1}
-                          onClick={() => deleteArticle(chapter.id, article.id)}
-                        >
-                          🗑️
-                        </button>
-                        <button
-                          type="button"
-                          className="button small primary"
-                          onClick={() => setActiveArticleId(null)}
-                        >
-                          Done
-                        </button>
+                    {importingArticleId === article.id && (
+                      <div className="nl-importing-overlay">
+                        <span className="nl-spinner" />
+                        Importing article…
                       </div>
+                    )}
+
+                    {/* Top bar: layout choices + import (the first item in the box) */}
+                    <div className="nl-article-topbar">
+                      {(['portrait', 'landscape'] as ArticleLayout[]).map((layout) => (
+                        <button
+                          key={layout}
+                          type="button"
+                          className={`nl-layout-box ${article.template === layout ? 'selected' : ''}`}
+                          onClick={() => updateArticle(chapter.id, article.id, { template: layout })}
+                          aria-pressed={article.template === layout}
+                        >
+                          <span className={`layout-glyph layout-glyph--${layout}`} aria-hidden="true" />
+                          <span className="nl-layout-name">
+                            {layout === 'portrait' ? 'Portrait' : 'Landscape'}
+                          </span>
+                        </button>
+                      ))}
+                      <button
+                        type="button"
+                        className="nl-layout-box nl-import-box"
+                        onClick={() => openArticleImport(chapter.id, article.id)}
+                      >
+                        <span className="nl-import-glyph" aria-hidden="true">📥</span>
+                        <span className="nl-layout-name">Import from submitted articles</span>
+                      </button>
                     </div>
 
-                    <div className="form-group">
-                      <label>Layout</label>
-                      <div className="layout-toggle">
-                        {(['portrait', 'landscape'] as ArticleLayout[]).map((layout) => (
-                          <label
-                            key={layout}
-                            className={`layout-option ${article.template === layout ? 'selected' : ''}`}
-                          >
-                            <input
-                              type="radio"
-                              name={`layout-${article.id}`}
-                              value={layout}
-                              checked={article.template === layout}
-                              onChange={() =>
-                                updateArticle(chapter.id, article.id, { template: layout })
-                              }
-                            />
-                            <span className={`layout-glyph layout-glyph--${layout}`} aria-hidden="true" />
-                            <span className="layout-name">
-                              {layout === 'portrait' ? 'Portrait' : 'Landscape'}
-                              <span className="meta">
-                                {layout === 'portrait'
-                                  ? ' image left · W300×H500'
-                                  : ' image spans full width · H≈200'}
-                              </span>
-                            </span>
-                          </label>
-                        ))}
-                      </div>
-                    </div>
+                    <input
+                      className="nl-article-title-input nl-article-title-block"
+                      value={article.title}
+                      onChange={(e) =>
+                        updateArticle(chapter.id, article.id, { title: e.target.value })
+                      }
+                      placeholder="Article title…"
+                      maxLength={140}
+                      aria-label="Article title"
+                    />
 
                     <div className={`article-layout article-layout--${article.template}`}>
                       <div className="article-image-col">
-                        <label>Article Image</label>
-                        <div
-                          className="article-image-box"
-                          style={{ aspectRatio: aspectRatioCss(ARTICLE_CROP[article.template]) }}
-                        >
-                          {article.image ? (
-                            <>
-                              <img src={article.image} alt="Article" />
-                              <button
-                                type="button"
-                                onClick={() =>
-                                  updateArticle(chapter.id, article.id, { image: undefined })
-                                }
-                                className="button small danger article-image-remove"
-                              >
-                                Remove
-                              </button>
-                            </>
-                          ) : (
-                            <label className="article-image-drop">
-                              <span>📷 Upload</span>
-                              <input
-                                type="file"
-                                accept="image/*"
-                                style={{ display: 'none' }}
-                                onChange={(e) =>
-                                  handleArticleImageUpload(chapter.id, article.id, article.template, e)
-                                }
-                              />
-                            </label>
-                          )}
-                        </div>
-                        <p className="meta" style={{ marginTop: 6 }}>
-                          Auto-cropped to {article.template === 'portrait' ? 'W300×H500' : 'full width × H≈200'}.
-                        </p>
+                        <ArticleImageEditor
+                          article={article}
+                          onUpload={(e) => handleArticleImageUpload(chapter.id, article.id, e)}
+                          onChange={(updates) => updateArticle(chapter.id, article.id, updates)}
+                          onRemove={() =>
+                            updateArticle(chapter.id, article.id, {
+                              image: undefined,
+                              imageAspect: undefined,
+                            })
+                          }
+                        />
                       </div>
 
                       <div className="article-content-col">
-                        <label>Article Content</label>
                         <RichTextEditor
                           content={article.content}
                           onChange={(html) =>
@@ -772,19 +864,59 @@ export default function CreateNewsletterPage() {
                           placeholder="Write the article (a few sentences)..."
                           enableRefine
                         />
-                        <div className="form-group" style={{ marginTop: 12 }}>
-                          <label>Contact</label>
+                        <div className="nl-article-button-row">
                           <input
                             type="text"
-                            value={article.contact ?? ''}
+                            value={article.button?.label ?? ''}
                             onChange={(e) =>
-                              updateArticle(chapter.id, article.id, { contact: e.target.value })
+                              updateArticle(chapter.id, article.id, {
+                                button: { label: e.target.value, url: article.button?.url ?? '' },
+                              })
                             }
-                            placeholder="Contact: Name, email or phone"
-                            maxLength={200}
+                            placeholder="Button label (optional)"
+                            maxLength={60}
+                          />
+                          <input
+                            type="text"
+                            value={article.button?.url ?? ''}
+                            onChange={(e) =>
+                              updateArticle(chapter.id, article.id, {
+                                button: { label: article.button?.label ?? '', url: e.target.value },
+                              })
+                            }
+                            placeholder="Button link (https://…)"
                           />
                         </div>
+                        <input
+                          className="nl-contact-input"
+                          type="text"
+                          value={article.contact ?? ''}
+                          onChange={(e) =>
+                            updateArticle(chapter.id, article.id, { contact: e.target.value })
+                          }
+                          placeholder="Contact: Name, email or phone"
+                          maxLength={200}
+                        />
                       </div>
+                    </div>
+
+                    <div className="nl-article-foot">
+                      <button
+                        type="button"
+                        className="button icon danger"
+                        title="Delete article"
+                        disabled={chapter.articles.length === 1}
+                        onClick={() => deleteArticle(chapter.id, article.id)}
+                      >
+                        🗑️
+                      </button>
+                      <button
+                        type="button"
+                        className="button small primary"
+                        onClick={() => setActiveArticleId(null)}
+                      >
+                        Done
+                      </button>
                     </div>
                   </div>
                 ) : (
@@ -864,7 +996,12 @@ export default function CreateNewsletterPage() {
               </button>
             </div>
             <div className="modal-body">
-              {availableArticles.length === 0 ? (
+              {loadingArticles ? (
+                <div className="modal-loading">
+                  <span className="nl-spinner" />
+                  Loading articles…
+                </div>
+              ) : availableArticles.length === 0 ? (
                 <p className="empty-state-text">
                   No submitted articles available to import.
                 </p>
@@ -921,7 +1058,12 @@ export default function CreateNewsletterPage() {
               </button>
             </div>
             <div className="modal-body">
-              {availableDrafts.length === 0 ? (
+              {loadingDrafts ? (
+                <div className="modal-loading">
+                  <span className="nl-spinner" />
+                  Loading drafts…
+                </div>
+              ) : availableDrafts.length === 0 ? (
                 <p className="empty-state-text">No other saved drafts found.</p>
               ) : (
                 <div className="draft-import-list">
@@ -947,6 +1089,26 @@ export default function CreateNewsletterPage() {
                   ))}
                 </div>
               )}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Full-screen read-only preview */}
+      {previewMode && (
+        <div className="nl-preview-overlay">
+          <div className="nl-preview-bar">
+            <span className="nl-preview-label">Preview · read only</span>
+            <button type="button" className="button primary" onClick={() => setPreviewMode(false)}>
+              ← Back to editing
+            </button>
+          </div>
+          <div className="nl-preview-scroll">
+            <div className="nl-published-frame">
+              <div
+                className="embedded-newsletter"
+                dangerouslySetInnerHTML={{ __html: generateNewsletterBodyHtml(draft) }}
+              />
             </div>
           </div>
         </div>

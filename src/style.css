@@ -2235,6 +2235,7 @@ a { color: var(--text); text-decoration: none; }
   display: flex;
   flex-wrap: wrap;
   gap: 6px 16px;
+  justify-content: center;
 }
 .nl-nav-item {
   color: #fff;
@@ -2256,7 +2257,7 @@ a { color: var(--text); text-decoration: none; }
 
 /* Chapter */
 .nl-chapter {
-  padding: 22px 0;
+  padding: 30px 0;
 }
 .nl-chapter-bar {
   display: flex;
@@ -2322,12 +2323,19 @@ a { color: var(--text); text-decoration: none; }
 .nl-article-slot {
   margin-bottom: 6px;
 }
+/* Subtle divider between articles within the same chapter (lighter than the
+   chapter heading rule). */
+.nl-chapter .nl-article-slot + .nl-article-slot {
+  border-top: 1px solid #f0f2f4;
+  margin-top: 14px;
+  padding-top: 14px;
+}
 .nl-article-display {
-  padding: 10px 12px;
+  padding: 12px 12px;
 }
 .nl-article {
   display: flex;
-  gap: 18px;
+  gap: 22px;
   align-items: flex-start;
 }
 .nl-article--landscape {
@@ -2337,15 +2345,10 @@ a { color: var(--text); text-decoration: none; }
   flex: 0 0 auto;
   overflow: hidden;
   background: #f3f5f7;
+  border-radius: 2px;
 }
 .nl-article--portrait .nl-article-img {
   width: 300px;
-}
-.nl-article-img img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
 }
 .nl-article-body {
   flex: 1;
@@ -2359,14 +2362,15 @@ a { color: var(--text); text-decoration: none; }
 }
 .nl-article-content {
   font-size: 10.5pt;
-  line-height: 1.6;
+  line-height: 1.65;
   color: #333;
+  border-radius: 3px;
 }
 .nl-article-content p {
   margin: 0 0 10px;
 }
 .nl-article-contact {
-  margin: 10px 0 0;
+  margin: 12px 0 0;
   font-style: italic;
   font-size: 10pt;
   color: #555;
@@ -2477,5 +2481,279 @@ a { color: var(--text); text-decoration: none; }
   }
   .nl-article--portrait {
     flex-direction: column;
+  }
+}
+
+/* ============================================
+   Article editor v2 — 3-box top bar, pan/zoom, button, preview
+   ============================================ */
+
+/* Top bar: portrait / landscape / import (the first item in the article box) */
+.nl-article-topbar {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1.4fr;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+.nl-layout-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 10px;
+  border: 1px solid #e5e7eb;
+  background: #fff;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: border-color 160ms ease, background 160ms ease, transform 120ms ease, box-shadow 160ms ease;
+}
+.nl-layout-box:hover {
+  border-color: #c7ece7;
+}
+.nl-layout-box.selected {
+  border-color: var(--brand);
+  background: var(--brand-ghost);
+  box-shadow: 0 0 0 1px var(--brand) inset;
+  transform: translateY(-1px);
+}
+.nl-layout-name {
+  font-weight: 600;
+  font-size: 13px;
+  color: var(--text);
+  text-align: center;
+}
+.nl-import-box {
+  border-style: dashed;
+}
+.nl-import-glyph {
+  font-size: 22px;
+  line-height: 1;
+}
+/* Bigger layout preview glyphs (no radio tick — selection shows via color) */
+.nl-layout-box .layout-glyph {
+  width: 64px;
+  height: 46px;
+  gap: 4px;
+  padding: 5px;
+}
+.nl-layout-box .layout-glyph--portrait::before {
+  width: 18px;
+}
+.nl-layout-box .layout-glyph--landscape::before {
+  height: 14px;
+}
+
+/* Title as a block input under the top bar */
+.nl-article-title-block {
+  display: block;
+  width: 100%;
+  margin-bottom: 14px;
+  font-size: 14pt;
+}
+
+/* Image editor: frame + pan + zoom */
+.nl-img-editor {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.nl-img-frame {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border: 1px solid #e5e7eb;
+  border-radius: 2px;
+  background-color: #f3f5f7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.article-layout--portrait .nl-img-frame {
+  width: 300px;
+}
+.nl-img-frame.has-image {
+  cursor: grab;
+  touch-action: none;
+}
+.nl-img-frame.has-image:active {
+  cursor: grabbing;
+}
+.nl-img-hint {
+  position: absolute;
+  bottom: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(17, 24, 39, 0.6);
+  color: #fff;
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 140ms ease;
+}
+.nl-img-frame.has-image:hover .nl-img-hint {
+  opacity: 1;
+}
+.nl-img-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.nl-img-controls button {
+  width: 30px;
+  height: 30px;
+  border: 1px solid #e5e7eb;
+  background: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 1;
+}
+.nl-img-controls button:hover {
+  border-color: var(--brand);
+}
+.nl-img-controls input[type='range'] {
+  flex: 1;
+  min-width: 80px;
+  accent-color: var(--brand);
+}
+.nl-img-replace {
+  cursor: pointer;
+}
+
+/* Button (label + link) row + contact input */
+.nl-article-button-row {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 8px;
+  margin-top: 12px;
+}
+.nl-contact-input {
+  margin-top: 8px;
+  width: 100%;
+}
+
+/* Bottom-right actions (bin + done) */
+.nl-article-foot {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 8px;
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px solid #eef2f7;
+}
+
+/* Importing overlay on the article box */
+.nl-article-edit {
+  position: relative;
+}
+.nl-importing-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(2px);
+  font-weight: 600;
+  color: var(--brand);
+  border-radius: 6px;
+}
+
+/* Spinner + modal loading */
+.nl-spinner {
+  width: 18px;
+  height: 18px;
+  border: 2px solid #c7ece7;
+  border-top-color: var(--brand);
+  border-radius: 50%;
+  animation: nl-spin 0.7s linear infinite;
+  display: inline-block;
+}
+@keyframes nl-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.modal-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 40px 0;
+  color: var(--muted);
+}
+
+/* CTA button (matches historic .htm green button) */
+.nl-cta {
+  display: inline-block;
+  background: var(--brand);
+  color: #fff;
+  font-weight: 700;
+  font-size: 10.5pt;
+  padding: 9px 20px;
+  text-decoration: none;
+  border-radius: 2px;
+}
+.nl-cta:hover {
+  background: #097066;
+}
+
+/* Full-screen read-only preview */
+.nl-preview-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: #eef1f3;
+  display: flex;
+  flex-direction: column;
+}
+.nl-preview-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 20px;
+  background: #fff;
+  border-bottom: 1px solid #e5e7eb;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+.nl-preview-label {
+  font-weight: 600;
+  color: var(--muted);
+}
+.nl-preview-scroll {
+  flex: 1;
+  overflow-y: auto;
+  padding: 28px 16px 60px;
+}
+
+/* Framed published newsletter (canvas-like frame on the live site too) */
+.nl-published-frame {
+  max-width: 820px;
+  margin: 0 auto;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+  padding: 36px 40px 48px;
+}
+
+@media (max-width: 768px) {
+  .nl-article-topbar {
+    grid-template-columns: 1fr;
+  }
+  .nl-article-button-row {
+    grid-template-columns: 1fr;
+  }
+  .article-layout--portrait .nl-img-frame {
+    width: 100%;
+  }
+  .nl-published-frame {
+    padding: 24px 18px 36px;
   }
 }

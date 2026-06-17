@@ -158,7 +158,13 @@ export default function NewsletterDetailPage() {
         </>
       )}
       {htmlString && sanitizedHtml ? (
-        <div className="embedded-newsletter" dangerouslySetInnerHTML={{ __html: sanitizedHtml }} />
+        isLocalNewsletter ? (
+          <div className="nl-published-frame">
+            <div className="embedded-newsletter" dangerouslySetInnerHTML={{ __html: sanitizedHtml }} />
+          </div>
+        ) : (
+          <div className="embedded-newsletter" dangerouslySetInnerHTML={{ __html: sanitizedHtml }} />
+        )
       ) : (
         <div className="content">
           {newsletter.content.map((block, idx) => {

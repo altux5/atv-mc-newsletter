@@ -2,6 +2,12 @@
 
 export type ArticleLayout = 'portrait' | 'landscape'
 
+/** A call-to-action button rendered under an article (label + link). */
+export interface ArticleButton {
+  label: string
+  url: string
+}
+
 /**
  * A single article inside a chapter. A chapter (e.g. "AURIX™") can contain
  * several of these. Each article has its own bold heading, layout, image and
@@ -12,8 +18,13 @@ export interface NewsletterArticle {
   title: string // bold article heading (distinct from the green chapter title)
   content: string // HTML content from the rich text editor
   template: ArticleLayout // controls image placement/size (portrait vs landscape)
-  image?: string // base64 encoded image, already cropped to the layout ratio
+  image?: string // base64 encoded source image (downscaled, NOT pre-cropped)
+  imageAspect?: number // natural width/height of the source image
+  imageZoom?: number // 1..3, pan/zoom scale within the frame (default 1)
+  imagePosX?: number // 0..1 horizontal focus (default 0.5)
+  imagePosY?: number // 0..1 vertical focus (default 0.5)
   contact?: string
+  button?: ArticleButton // optional CTA button
 }
 
 export interface NewsletterChapter {

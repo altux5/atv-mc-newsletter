@@ -119341,6 +119341,108 @@ function NewslettersPage() {
     ] })
   ] });
 }
+const ARTICLE_CROP = {
+  portrait: { ratioW: 300, ratioH: 500, maxW: 600, maxH: 1e3 },
+  landscape: { ratioW: 1400, ratioH: 400, maxW: 1400, maxH: 400 }
+};
+const HEADER_CROP = { ratioW: 800, ratioH: 400, maxW: 1600, maxH: 800 };
+function aspectRatioCss(ratio) {
+  return `${ratio.ratioW} / ${ratio.ratioH}`;
+}
+function articleImageBg(ratio, imageAspect, zoom, posX, posY) {
+  const px = ((posX ?? 0.5) * 100).toFixed(2);
+  const py = ((posY ?? 0.5) * 100).toFixed(2);
+  const position = `${px}% ${py}%`;
+  if (!imageAspect || imageAspect <= 0) {
+    return { backgroundSize: "cover", backgroundPosition: position };
+  }
+  const frameAspect = ratio.ratioW / ratio.ratioH;
+  const z = zoom && zoom > 0 ? zoom : 1;
+  let w;
+  let h2;
+  if (imageAspect >= frameAspect) {
+    h2 = 100;
+    w = imageAspect / frameAspect * 100;
+  } else {
+    w = 100;
+    h2 = frameAspect / imageAspect * 100;
+  }
+  return {
+    backgroundSize: `${(w * z).toFixed(2)}% ${(h2 * z).toFixed(2)}%`,
+    backgroundPosition: position
+  };
+}
+function loadImage(src) {
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+    img.onload = () => resolve(img);
+    img.onerror = () => reject(new Error("Failed to load image"));
+    img.src = src;
+  });
+}
+function readFileAsDataUrl(file) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = (e) => resolve(e.target?.result);
+    reader.onerror = () => reject(new Error("Failed to read file"));
+    reader.readAsDataURL(file);
+  });
+}
+async function downscaleImage(file, maxDim = 1400, quality = 0.85) {
+  const original = await readFileAsDataUrl(file);
+  let img;
+  try {
+    img = await loadImage(original);
+  } catch {
+    return { dataUrl: original, aspect: 1 };
+  }
+  const aspect = img.width / img.height;
+  const scale = Math.min(1, maxDim / Math.max(img.width, img.height));
+  const outW = Math.max(1, Math.round(img.width * scale));
+  const outH = Math.max(1, Math.round(img.height * scale));
+  const canvas = document.createElement("canvas");
+  canvas.width = outW;
+  canvas.height = outH;
+  const ctx = canvas.getContext("2d");
+  if (!ctx) return { dataUrl: original, aspect };
+  ctx.drawImage(img, 0, 0, outW, outH);
+  return { dataUrl: canvas.toDataURL("image/jpeg", quality), aspect };
+}
+async function cropImageToRatio(file, ratio, quality = 0.82) {
+  const dataUrl = await readFileAsDataUrl(file);
+  let img;
+  try {
+    img = await loadImage(dataUrl);
+  } catch {
+    return dataUrl;
+  }
+  const targetAr = ratio.ratioW / ratio.ratioH;
+  let outW = ratio.maxW;
+  let outH = Math.round(outW / targetAr);
+  if (outH > ratio.maxH) {
+    outH = ratio.maxH;
+    outW = Math.round(outH * targetAr);
+  }
+  const sourceAr = img.width / img.height;
+  let sx = 0;
+  let sy = 0;
+  let sW = img.width;
+  let sH = img.height;
+  if (sourceAr > targetAr) {
+    sW = Math.round(img.height * targetAr);
+    sx = Math.round((img.width - sW) / 2);
+  } else {
+    sH = Math.round(img.width / targetAr);
+    sy = Math.round((img.height - sH) / 2);
+  }
+  const canvas = document.createElement("canvas");
+  canvas.width = outW;
+  canvas.height = outH;
+  const ctx = canvas.getContext("2d");
+  if (!ctx) return dataUrl;
+  ctx.drawImage(img, sx, sy, sW, sH, 0, 0, outW, outH);
+  return canvas.toDataURL("image/jpeg", quality);
+}
 const BRAND_GREEN = "#0A8276";
 const TITLE_GREEN = "#007D6F";
 const FONT_STACK = "Arial, 'Segoe UI', Tahoma, sans-serif";
@@ -119365,44 +119467,54 @@ function chapterArticles(chapter) {
   }
   return [];
 }
+function renderArticleImage(article) {
+  if (!article.image) return "";
+  const ratio = ARTICLE_CROP[article.template];
+  const bg = articleImageBg(ratio, article.imageAspect, article.imageZoom, article.imagePosX, article.imagePosY);
+  const widthStyle = article.template === "portrait" ? "width:300px;" : "width:100%;";
+  return `<div style="${widthStyle}aspect-ratio:${ratio.ratioW} / ${ratio.ratioH};background-image:url('${article.image}');background-repeat:no-repeat;background-position:${bg.backgroundPosition};background-size:${bg.backgroundSize};border-radius:2px;"></div>`;
+}
+function renderArticleButton(article) {
+  const b = article.button;
+  if (!b || !b.label.trim() || !b.url.trim()) return "";
+  return `<p style="margin:16px 0 0;"><a href="${escapeHtml(b.url)}" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:${BRAND_GREEN};color:#ffffff;font-weight:bold;font-size:10.5pt;padding:9px 20px;text-decoration:none;border-radius:2px;">${escapeHtml(b.label)}</a></p>`;
+}
 function renderArticle(article) {
   const titleHtml = article.title ? `<p style="font-size:12pt;font-weight:bold;color:#222;margin:0 0 8px;">${escapeHtml(article.title)}</p>` : "";
-  const contactHtml = article.contact ? `<p style="margin:10px 0 0;font-style:italic;font-size:10pt;color:#555;"><strong>Contact:</strong> ${escapeHtml(article.contact)}</p>` : "";
-  const body = `${titleHtml}<div style="font-size:10.5pt;line-height:1.6;color:#333;">${article.content || ""}</div>${contactHtml}`;
+  const contactHtml = article.contact ? `<p style="margin:12px 0 0;font-style:italic;font-size:10pt;color:#555;"><strong>Contact:</strong> ${escapeHtml(article.contact)}</p>` : "";
+  const body = `<div style="border-radius:3px;">${titleHtml}<div style="font-size:10.5pt;line-height:1.65;color:#333;">${article.content || ""}</div>${renderArticleButton(article)}${contactHtml}</div>`;
   if (article.image && article.template === "portrait") {
     return `
-      <div style="display:flex;gap:18px;margin:0 0 22px;align-items:flex-start;">
-        <div style="flex:0 0 300px;width:300px;">
-          <img src="${article.image}" alt="${escapeHtml(article.title)}" style="width:300px;height:auto;display:block;" />
-        </div>
+      <div style="display:flex;gap:22px;align-items:flex-start;">
+        <div style="flex:0 0 300px;">${renderArticleImage(article)}</div>
         <div style="flex:1;min-width:0;">${body}</div>
       </div>`;
   }
   if (article.image && article.template === "landscape") {
     return `
-      <div style="margin:0 0 22px;">
-        <img src="${article.image}" alt="${escapeHtml(article.title)}" style="width:100%;height:auto;object-fit:cover;display:block;margin:0 0 12px;" />
+      <div>
+        <div style="margin:0 0 14px;">${renderArticleImage(article)}</div>
         ${body}
       </div>`;
   }
-  return `<div style="margin:0 0 22px;">${body}</div>`;
+  return `<div>${body}</div>`;
 }
 function generateNewsletterBodyHtml(draft) {
   const title = draft.title?.trim() || computeAutoTitle(draft.month, draft.year);
   const subtitle = (draft.subtitle ?? DEFAULT_SUBTITLE).trim();
   const headerSrc = draft.headerImage || defaultHeaderImage;
   const navItems = draft.chapters.filter((c) => c.title?.trim()).map(
-    (chapter, index) => `<a href="#chapter_${index}" style="color:#ffffff;text-decoration:none;font-size:11.5pt;font-weight:bold;margin:0 14px 6px 0;display:inline-block;">${escapeHtml(
+    (chapter, index) => `<a href="#chapter_${index}" style="color:#ffffff;text-decoration:none;font-size:11.5pt;font-weight:bold;margin:0 12px 6px;display:inline-block;">${escapeHtml(
       chapter.title
     )}</a>`
   ).join("");
   const chaptersHtml = draft.chapters.map((chapter, index) => {
     const heading = chapter.title?.trim() ? `<a name="chapter_${index}" id="chapter_${index}"></a>
-           <h2 style="font-size:13.5pt;font-weight:bold;color:${BRAND_GREEN};margin:0 0 14px;border-bottom:1px solid #e5e7eb;padding-bottom:6px;">${escapeHtml(
+           <h2 style="font-size:13.5pt;font-weight:bold;color:${BRAND_GREEN};margin:0 0 18px;border-bottom:1px solid #e5e7eb;padding-bottom:8px;">${escapeHtml(
       chapter.title
     )}</h2>` : `<a name="chapter_${index}" id="chapter_${index}"></a>`;
-    const articles = chapterArticles(chapter).map(renderArticle).join("");
-    return `<section style="padding:22px 0;">${heading}${articles}</section>`;
+    const articles = chapterArticles(chapter).map(renderArticle).join('<hr style="border:none;border-top:1px solid #f0f2f4;margin:24px 0;" />');
+    return `<section style="padding:30px 0;">${heading}${articles}</section>`;
   }).join("");
   const bodyHtml = `
     <div style="max-width:800px;margin:0 auto;font-family:${FONT_STACK};color:#333;">
@@ -119420,7 +119532,7 @@ function generateNewsletterBodyHtml(draft) {
 
       ${draft.introContent ? `<div style="font-size:10.5pt;line-height:1.6;padding:0 0 12px;">${draft.introContent}</div>` : ""}
 
-      ${navItems ? `<div style="background:${BRAND_GREEN};padding:22px 18px;margin:8px 0 4px;">
+      ${navItems ? `<div style="background:${BRAND_GREEN};padding:20px 18px;margin:8px 0 8px;text-align:center;">
                <div>${navItems}</div>
              </div>` : ""}
 
@@ -119538,7 +119650,7 @@ function NewsletterDetailPage() {
       /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { children: derivedTitle || newsletter.title }),
       /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "meta", children: new Date(newsletter.date).toLocaleDateString() })
     ] }),
-    htmlString && sanitizedHtml ? /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "embedded-newsletter", dangerouslySetInnerHTML: { __html: sanitizedHtml } }) : /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "content", children: newsletter.content.map((block, idx) => {
+    htmlString && sanitizedHtml ? isLocalNewsletter ? /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "nl-published-frame", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "embedded-newsletter", dangerouslySetInnerHTML: { __html: sanitizedHtml } }) }) : /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "embedded-newsletter", dangerouslySetInnerHTML: { __html: sanitizedHtml } }) : /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "content", children: newsletter.content.map((block, idx) => {
       if (block.type === "h2") return /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { children: block.text }, idx);
       return /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: block.text }, idx);
     }) })
@@ -143158,65 +143270,6 @@ async function markArticleAsImported(id) {
 async function getAvailableArticlesForImport() {
   return getArticles();
 }
-const ARTICLE_CROP = {
-  portrait: { ratioW: 300, ratioH: 500, maxW: 600, maxH: 1e3 },
-  landscape: { ratioW: 1400, ratioH: 400, maxW: 1400, maxH: 400 }
-};
-const HEADER_CROP = { ratioW: 800, ratioH: 400, maxW: 1600, maxH: 800 };
-function aspectRatioCss(ratio) {
-  return `${ratio.ratioW} / ${ratio.ratioH}`;
-}
-function loadImage(src) {
-  return new Promise((resolve, reject) => {
-    const img = new Image();
-    img.onload = () => resolve(img);
-    img.onerror = () => reject(new Error("Failed to load image"));
-    img.src = src;
-  });
-}
-function readFileAsDataUrl(file) {
-  return new Promise((resolve, reject) => {
-    const reader = new FileReader();
-    reader.onload = (e) => resolve(e.target?.result);
-    reader.onerror = () => reject(new Error("Failed to read file"));
-    reader.readAsDataURL(file);
-  });
-}
-async function cropImageToRatio(file, ratio, quality = 0.82) {
-  const dataUrl = await readFileAsDataUrl(file);
-  let img;
-  try {
-    img = await loadImage(dataUrl);
-  } catch {
-    return dataUrl;
-  }
-  const targetAr = ratio.ratioW / ratio.ratioH;
-  let outW = ratio.maxW;
-  let outH = Math.round(outW / targetAr);
-  if (outH > ratio.maxH) {
-    outH = ratio.maxH;
-    outW = Math.round(outH * targetAr);
-  }
-  const sourceAr = img.width / img.height;
-  let sx = 0;
-  let sy = 0;
-  let sW = img.width;
-  let sH = img.height;
-  if (sourceAr > targetAr) {
-    sW = Math.round(img.height * targetAr);
-    sx = Math.round((img.width - sW) / 2);
-  } else {
-    sH = Math.round(img.width / targetAr);
-    sy = Math.round((img.height - sH) / 2);
-  }
-  const canvas = document.createElement("canvas");
-  canvas.width = outW;
-  canvas.height = outH;
-  const ctx = canvas.getContext("2d");
-  if (!ctx) return dataUrl;
-  ctx.drawImage(img, sx, sy, sW, sH, 0, 0, outW, outH);
-  return canvas.toDataURL("image/jpeg", quality);
-}
 function CanvasImage({
   src,
   style: style2,
@@ -143242,13 +143295,36 @@ function CanvasImage({
     /* @__PURE__ */ jsxRuntimeExports.jsx("input", { type: "file", accept: "image/*", hidden: true, onChange: onUpload })
   ] }) });
 }
+const clamp01 = (n) => Math.min(1, Math.max(0, n));
+const clamp = (n, lo, hi) => Math.min(hi, Math.max(lo, n));
+function articleImageStyle(article) {
+  if (!article.image) return {};
+  const bg = articleImageBg(
+    ARTICLE_CROP[article.template],
+    article.imageAspect,
+    article.imageZoom,
+    article.imagePosX,
+    article.imagePosY
+  );
+  return {
+    backgroundImage: `url(${article.image})`,
+    backgroundRepeat: "no-repeat",
+    backgroundPosition: bg.backgroundPosition,
+    backgroundSize: bg.backgroundSize
+  };
+}
+function ArticleButtonView({ button }) {
+  if (!button || !button.label.trim() || !button.url.trim()) return null;
+  return /* @__PURE__ */ jsxRuntimeExports.jsx("p", { style: { margin: "16px 0 0" }, children: /* @__PURE__ */ jsxRuntimeExports.jsx("a", { className: "nl-cta", href: button.url, target: "_blank", rel: "noopener noreferrer", children: button.label }) });
+}
 function ArticleDisplay({ article }) {
-  if (!article.title && !article.content && !article.image) {
+  if (!article.title && !article.content && !article.image && !article.button) {
     return /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "nl-placeholder", children: "Click to add this article…" });
   }
   const body = /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "nl-article-body", children: [
     article.title && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "nl-article-title", children: article.title }),
     article.content ? /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "nl-article-content", dangerouslySetInnerHTML: { __html: article.content } }) : /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "nl-placeholder-inline", children: "No content yet…" }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(ArticleButtonView, { button: article.button }),
     article.contact && /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "nl-article-contact", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: "Contact:" }),
       " ",
@@ -143263,15 +143339,91 @@ function ArticleDisplay({ article }) {
           className: "nl-article-img",
           style: {
             aspectRatio: aspectRatioCss(ARTICLE_CROP[article.template]),
-            width: article.template === "portrait" ? 300 : "100%"
-          },
-          children: /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: article.image, alt: "" })
+            width: article.template === "portrait" ? 300 : "100%",
+            ...articleImageStyle(article)
+          }
         }
       ),
       body
     ] });
   }
   return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "nl-article", children: body });
+}
+function ArticleImageEditor({
+  article,
+  onUpload,
+  onChange,
+  onRemove
+}) {
+  const frameRef = reactExports$1.useRef(null);
+  const drag = reactExports$1.useRef(null);
+  const zoom = article.imageZoom ?? 1;
+  const onPointerDown = (e) => {
+    if (!article.image) return;
+    frameRef.current?.setPointerCapture(e.pointerId);
+    drag.current = {
+      x: e.clientX,
+      y: e.clientY,
+      posX: article.imagePosX ?? 0.5,
+      posY: article.imagePosY ?? 0.5
+    };
+  };
+  const onPointerMove = (e) => {
+    const d = drag.current;
+    const el = frameRef.current;
+    if (!d || !el) return;
+    const rect = el.getBoundingClientRect();
+    onChange({
+      imagePosX: clamp01(d.posX - (e.clientX - d.x) / rect.width),
+      imagePosY: clamp01(d.posY - (e.clientY - d.y) / rect.height)
+    });
+  };
+  const endDrag = (e) => {
+    drag.current = null;
+    frameRef.current?.releasePointerCapture(e.pointerId);
+  };
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "nl-img-editor", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx(
+      "div",
+      {
+        ref: frameRef,
+        className: `nl-img-frame ${article.image ? "has-image" : ""}`,
+        style: {
+          aspectRatio: aspectRatioCss(ARTICLE_CROP[article.template]),
+          ...articleImageStyle(article)
+        },
+        onPointerDown,
+        onPointerMove,
+        onPointerUp: endDrag,
+        onPointerCancel: endDrag,
+        children: article.image ? /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "nl-img-hint", children: "drag to position" }) : /* @__PURE__ */ jsxRuntimeExports.jsxs("label", { className: "article-image-drop", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "📷 Upload" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("input", { type: "file", accept: "image/*", hidden: true, onChange: onUpload })
+        ] })
+      }
+    ),
+    article.image && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "nl-img-controls", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", title: "Zoom out", onClick: () => onChange({ imageZoom: clamp(zoom - 0.2, 1, 3) }), children: "−" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(
+        "input",
+        {
+          type: "range",
+          min: 1,
+          max: 3,
+          step: 0.05,
+          value: zoom,
+          onChange: (e) => onChange({ imageZoom: Number(e.target.value) }),
+          "aria-label": "Zoom"
+        }
+      ),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", title: "Zoom in", onClick: () => onChange({ imageZoom: clamp(zoom + 0.2, 1, 3) }), children: "＋" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("label", { className: "button small secondary nl-img-replace", children: [
+        "Replace",
+        /* @__PURE__ */ jsxRuntimeExports.jsx("input", { type: "file", accept: "image/*", hidden: true, onChange: onUpload })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "button small danger", onClick: onRemove, children: "Remove" })
+    ] })
+  ] });
 }
 function CreateNewsletterPage() {
   const { id } = useParams();
@@ -143281,8 +143433,13 @@ function CreateNewsletterPage() {
   const [lastSaved, setLastSaved] = reactExports$1.useState(null);
   const [showArticleImport, setShowArticleImport] = reactExports$1.useState(false);
   const [availableArticles, setAvailableArticles] = reactExports$1.useState([]);
+  const [loadingArticles, setLoadingArticles] = reactExports$1.useState(false);
+  const [importTarget, setImportTarget] = reactExports$1.useState(null);
+  const [importingArticleId, setImportingArticleId] = reactExports$1.useState(null);
   const [showDraftImport, setShowDraftImport] = reactExports$1.useState(false);
   const [availableDrafts, setAvailableDrafts] = reactExports$1.useState([]);
+  const [loadingDrafts, setLoadingDrafts] = reactExports$1.useState(false);
+  const [previewMode, setPreviewMode] = reactExports$1.useState(false);
   const [activeBlock, setActiveBlock] = reactExports$1.useState(null);
   const [activeArticleId, setActiveArticleId] = reactExports$1.useState(null);
   reactExports$1.useEffect(() => {
@@ -143407,7 +143564,7 @@ function CreateNewsletterPage() {
       };
     });
   };
-  const handleArticleImageUpload = async (chapterId, articleId, template, e) => {
+  const handleArticleImageUpload = async (chapterId, articleId, e) => {
     const file = e.target.files?.[0];
     if (!file) return;
     if (file.size > 10 * 1024 * 1024) {
@@ -143415,8 +143572,14 @@ function CreateNewsletterPage() {
       return;
     }
     try {
-      const cropped = await cropImageToRatio(file, ARTICLE_CROP[template]);
-      updateArticle(chapterId, articleId, { image: cropped });
+      const { dataUrl, aspect } = await downscaleImage(file);
+      updateArticle(chapterId, articleId, {
+        image: dataUrl,
+        imageAspect: aspect,
+        imageZoom: 1,
+        imagePosX: 0.5,
+        imagePosY: 0.5
+      });
     } catch {
       alert("Could not process that image. Please try another file.");
     }
@@ -143473,29 +143636,37 @@ function CreateNewsletterPage() {
   const removeHeaderImage = () => {
     updateDraft({ headerImage: void 0 });
   };
-  const openArticleImport = async () => {
+  const openArticleImport = async (chapterId, articleId) => {
+    setImportTarget({ chapterId, articleId });
+    setShowArticleImport(true);
+    setLoadingArticles(true);
     try {
       const articles = await getAvailableArticlesForImport();
       setAvailableArticles(articles);
     } catch (error) {
       console.error("Failed to load articles:", error);
       setAvailableArticles([]);
+    } finally {
+      setLoadingArticles(false);
     }
-    setShowArticleImport(true);
   };
   const closeArticleImport = () => {
     setShowArticleImport(false);
+    setImportTarget(null);
   };
   const openDraftImport = async () => {
+    setShowDraftImport(true);
+    setLoadingDrafts(true);
     try {
       const drafts = await getAllDraftsApi();
-      const sorted = drafts.filter((d) => d.id !== draft.id).sort((a, b) => a.updatedAt < b.updatedAt ? 1 : -1);
+      const sorted = drafts.filter((d) => d.id !== draft.id && d.status !== "published").sort((a, b) => a.updatedAt < b.updatedAt ? 1 : -1);
       setAvailableDrafts(sorted);
     } catch (error) {
       console.error("Failed to load drafts:", error);
       setAvailableDrafts([]);
+    } finally {
+      setLoadingDrafts(false);
     }
-    setShowDraftImport(true);
   };
   const closeDraftImport = () => {
     setShowDraftImport(false);
@@ -143508,26 +143679,28 @@ function CreateNewsletterPage() {
     navigate(`/newsletters/edit/${target.id}`);
   };
   const importArticle = async (article) => {
-    const newArticle = {
-      id: generateId(),
+    const target = importTarget;
+    if (!target) return;
+    setShowArticleImport(false);
+    setImportingArticleId(target.articleId);
+    updateArticle(target.chapterId, target.articleId, {
       title: article.title,
       content: article.content ? `<p>${article.content}</p>` : "",
       template: article.template,
       image: article.imageDataUrl || void 0,
+      imageAspect: void 0,
+      imageZoom: 1,
+      imagePosX: 0.5,
+      imagePosY: 0.5,
       contact: article.contact || ""
-    };
-    setDraft((prev) => ({
-      ...prev,
-      chapters: [...prev.chapters, { id: generateId(), title: "", articles: [newArticle] }]
-    }));
+    });
     try {
       await markArticleAsImported(article.id);
     } catch (error) {
       console.error("Failed to mark article as imported:", error);
     }
-    const updatedArticles = await getAvailableArticlesForImport();
-    setAvailableArticles(updatedArticles);
-    alert("Article imported successfully!");
+    setImportingArticleId(null);
+    setImportTarget(null);
   };
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "nl-editor", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "nl-toolbar", children: [
@@ -143541,6 +143714,7 @@ function CreateNewsletterPage() {
           lastSaved.toLocaleTimeString()
         ] }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", onClick: openDraftImport, className: "button secondary", children: "📂 Import Draft" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", onClick: () => setPreviewMode(true), className: "button secondary", children: "👁 Preview" }),
         /* @__PURE__ */ jsxRuntimeExports.jsx(
           "button",
           {
@@ -143725,119 +143899,63 @@ function CreateNewsletterPage() {
           ] })
         ] }),
         chapter.articles.map((article) => /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "nl-article-slot", children: activeArticleId === article.id ? /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "nl-article-edit", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "nl-edit-head", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx(
-              "input",
-              {
-                className: "nl-article-title-input",
-                value: article.title,
-                onChange: (e) => updateArticle(chapter.id, article.id, { title: e.target.value }),
-                placeholder: "Article title…",
-                maxLength: 140,
-                "aria-label": "Article title"
-              }
-            ),
-            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "nl-edit-head-actions", children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx(
-                "button",
-                {
-                  type: "button",
-                  className: "button small secondary",
-                  title: "Import a submitted article into this chapter",
-                  onClick: openArticleImport,
-                  children: "📥 Import"
-                }
-              ),
-              /* @__PURE__ */ jsxRuntimeExports.jsx(
-                "button",
-                {
-                  type: "button",
-                  className: "button icon danger",
-                  title: "Delete article",
-                  disabled: chapter.articles.length === 1,
-                  onClick: () => deleteArticle2(chapter.id, article.id),
-                  children: "🗑️"
-                }
-              ),
-              /* @__PURE__ */ jsxRuntimeExports.jsx(
-                "button",
-                {
-                  type: "button",
-                  className: "button small primary",
-                  onClick: () => setActiveArticleId(null),
-                  children: "Done"
-                }
-              )
-            ] })
+          importingArticleId === article.id && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "nl-importing-overlay", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "nl-spinner" }),
+            "Importing article…"
           ] }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "form-group", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("label", { children: "Layout" }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "layout-toggle", children: ["portrait", "landscape"].map((layout) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
-              "label",
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "nl-article-topbar", children: [
+            ["portrait", "landscape"].map((layout) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
+              "button",
               {
-                className: `layout-option ${article.template === layout ? "selected" : ""}`,
+                type: "button",
+                className: `nl-layout-box ${article.template === layout ? "selected" : ""}`,
+                onClick: () => updateArticle(chapter.id, article.id, { template: layout }),
+                "aria-pressed": article.template === layout,
                 children: [
-                  /* @__PURE__ */ jsxRuntimeExports.jsx(
-                    "input",
-                    {
-                      type: "radio",
-                      name: `layout-${article.id}`,
-                      value: layout,
-                      checked: article.template === layout,
-                      onChange: () => updateArticle(chapter.id, article.id, { template: layout })
-                    }
-                  ),
                   /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: `layout-glyph layout-glyph--${layout}`, "aria-hidden": "true" }),
-                  /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "layout-name", children: [
-                    layout === "portrait" ? "Portrait" : "Landscape",
-                    /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "meta", children: layout === "portrait" ? " image left · W300×H500" : " image spans full width · H≈200" })
-                  ] })
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "nl-layout-name", children: layout === "portrait" ? "Portrait" : "Landscape" })
                 ]
               },
               layout
-            )) })
+            )),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs(
+              "button",
+              {
+                type: "button",
+                className: "nl-layout-box nl-import-box",
+                onClick: () => openArticleImport(chapter.id, article.id),
+                children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "nl-import-glyph", "aria-hidden": "true", children: "📥" }),
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "nl-layout-name", children: "Import from submitted articles" })
+                ]
+              }
+            )
           ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(
+            "input",
+            {
+              className: "nl-article-title-input nl-article-title-block",
+              value: article.title,
+              onChange: (e) => updateArticle(chapter.id, article.id, { title: e.target.value }),
+              placeholder: "Article title…",
+              maxLength: 140,
+              "aria-label": "Article title"
+            }
+          ),
           /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: `article-layout article-layout--${article.template}`, children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "article-image-col", children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx("label", { children: "Article Image" }),
-              /* @__PURE__ */ jsxRuntimeExports.jsx(
-                "div",
-                {
-                  className: "article-image-box",
-                  style: { aspectRatio: aspectRatioCss(ARTICLE_CROP[article.template]) },
-                  children: article.image ? /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
-                    /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: article.image, alt: "Article" }),
-                    /* @__PURE__ */ jsxRuntimeExports.jsx(
-                      "button",
-                      {
-                        type: "button",
-                        onClick: () => updateArticle(chapter.id, article.id, { image: void 0 }),
-                        className: "button small danger article-image-remove",
-                        children: "Remove"
-                      }
-                    )
-                  ] }) : /* @__PURE__ */ jsxRuntimeExports.jsxs("label", { className: "article-image-drop", children: [
-                    /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "📷 Upload" }),
-                    /* @__PURE__ */ jsxRuntimeExports.jsx(
-                      "input",
-                      {
-                        type: "file",
-                        accept: "image/*",
-                        style: { display: "none" },
-                        onChange: (e) => handleArticleImageUpload(chapter.id, article.id, article.template, e)
-                      }
-                    )
-                  ] })
-                }
-              ),
-              /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "meta", style: { marginTop: 6 }, children: [
-                "Auto-cropped to ",
-                article.template === "portrait" ? "W300×H500" : "full width × H≈200",
-                "."
-              ] })
-            ] }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "article-image-col", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+              ArticleImageEditor,
+              {
+                article,
+                onUpload: (e) => handleArticleImageUpload(chapter.id, article.id, e),
+                onChange: (updates) => updateArticle(chapter.id, article.id, updates),
+                onRemove: () => updateArticle(chapter.id, article.id, {
+                  image: void 0,
+                  imageAspect: void 0
+                })
+              }
+            ) }),
             /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "article-content-col", children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx("label", { children: "Article Content" }),
               /* @__PURE__ */ jsxRuntimeExports.jsx(
                 RichTextEditor,
                 {
@@ -143847,20 +143965,65 @@ function CreateNewsletterPage() {
                   enableRefine: true
                 }
               ),
-              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "form-group", style: { marginTop: 12 }, children: [
-                /* @__PURE__ */ jsxRuntimeExports.jsx("label", { children: "Contact" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "nl-article-button-row", children: [
                 /* @__PURE__ */ jsxRuntimeExports.jsx(
                   "input",
                   {
                     type: "text",
-                    value: article.contact ?? "",
-                    onChange: (e) => updateArticle(chapter.id, article.id, { contact: e.target.value }),
-                    placeholder: "Contact: Name, email or phone",
-                    maxLength: 200
+                    value: article.button?.label ?? "",
+                    onChange: (e) => updateArticle(chapter.id, article.id, {
+                      button: { label: e.target.value, url: article.button?.url ?? "" }
+                    }),
+                    placeholder: "Button label (optional)",
+                    maxLength: 60
+                  }
+                ),
+                /* @__PURE__ */ jsxRuntimeExports.jsx(
+                  "input",
+                  {
+                    type: "text",
+                    value: article.button?.url ?? "",
+                    onChange: (e) => updateArticle(chapter.id, article.id, {
+                      button: { label: article.button?.label ?? "", url: e.target.value }
+                    }),
+                    placeholder: "Button link (https://…)"
                   }
                 )
-              ] })
+              ] }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx(
+                "input",
+                {
+                  className: "nl-contact-input",
+                  type: "text",
+                  value: article.contact ?? "",
+                  onChange: (e) => updateArticle(chapter.id, article.id, { contact: e.target.value }),
+                  placeholder: "Contact: Name, email or phone",
+                  maxLength: 200
+                }
+              )
             ] })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "nl-article-foot", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(
+              "button",
+              {
+                type: "button",
+                className: "button icon danger",
+                title: "Delete article",
+                disabled: chapter.articles.length === 1,
+                onClick: () => deleteArticle2(chapter.id, article.id),
+                children: "🗑️"
+              }
+            ),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(
+              "button",
+              {
+                type: "button",
+                className: "button small primary",
+                onClick: () => setActiveArticleId(null),
+                children: "Done"
+              }
+            )
           ] })
         ] }) : /* @__PURE__ */ jsxRuntimeExports.jsxs(
           "div",
@@ -143932,7 +144095,10 @@ function CreateNewsletterPage() {
           }
         )
       ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "modal-body", children: availableArticles.length === 0 ? /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "empty-state-text", children: "No submitted articles available to import." }) : /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "articles-import-list", children: availableArticles.map((article) => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "import-article-card", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "modal-body", children: loadingArticles ? /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "modal-loading", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "nl-spinner" }),
+        "Loading articles…"
+      ] }) : availableArticles.length === 0 ? /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "empty-state-text", children: "No submitted articles available to import." }) : /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "articles-import-list", children: availableArticles.map((article) => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "import-article-card", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "import-article-header", children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { children: article.title }),
           article.importedToNewsletter && /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "imported-badge", children: "Already Imported" })
@@ -143967,7 +144133,10 @@ function CreateNewsletterPage() {
         /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { children: "Open a saved draft" }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", onClick: closeDraftImport, className: "modal-close", children: "✕" })
       ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "modal-body", children: availableDrafts.length === 0 ? /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "empty-state-text", children: "No other saved drafts found." }) : /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "draft-import-list", children: availableDrafts.map((d) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "modal-body", children: loadingDrafts ? /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "modal-loading", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "nl-spinner" }),
+        "Loading drafts…"
+      ] }) : availableDrafts.length === 0 ? /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "empty-state-text", children: "No other saved drafts found." }) : /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "draft-import-list", children: availableDrafts.map((d) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
         "button",
         {
           type: "button",
@@ -143986,7 +144155,20 @@ function CreateNewsletterPage() {
         },
         d.id
       )) }) })
-    ] }) })
+    ] }) }),
+    previewMode && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "nl-preview-overlay", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "nl-preview-bar", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "nl-preview-label", children: "Preview · read only" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "button primary", onClick: () => setPreviewMode(false), children: "← Back to editing" })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "nl-preview-scroll", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "nl-published-frame", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+        "div",
+        {
+          className: "embedded-newsletter",
+          dangerouslySetInnerHTML: { __html: generateNewsletterBodyHtml(draft) }
+        }
+      ) }) })
+    ] })
   ] });
 }
 function SubmitArticlePage() {
