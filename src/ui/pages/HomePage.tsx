@@ -1,95 +1,30 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { getNewslettersAsync, type Newsletter } from '../../data/newsletters'
-import { extractAndSanitizeBodyHtml, extractBodyText, extractSectionSnippets, findHtmlByMonthYearAsync, loadHtmlByPathAsync } from '../../utils/newsletterHtml'
+import { extractAndSanitizeBodyHtml, findHtmlByMonthYearAsync, loadHtmlByPathAsync } from '../../utils/newsletterHtml'
 import newsletterImage from '../../photos/newsletter image.png'
 import headerImage from '../../photos/new-header.jpg'
-import { CANONICAL_CHAPTER_TITLES, getChapterMatchKeys, normalizeChapterTitle } from '../../constants/chapters'
+import { getChapterMatchKeys, normalizeChapterTitle } from '../../constants/chapters'
+import { useNewsletters } from '../../contexts/NewslettersContext'
+
+// Cache the "from this newsletter" preview per newsletter id so returning to the
+// home page shows it instantly instead of re-fetching and re-parsing the HTML.
+const latestPreviewCache = new Map<string, string[]>()
 
 export default function HomePage() {
-  const [newsletters, setNewsletters] = useState<Newsletter[]>([])
+  const { newsletters, searchIndex, sectionIndex, availableChapters, isIndexBuilding } = useNewsletters()
   const latest = newsletters[0]
-  const [latestParagraphs, setLatestParagraphs] = useState<string[]>([])
-  
+  const [latestParagraphs, setLatestParagraphs] = useState<string[]>(() =>
+    newsletters[0] ? latestPreviewCache.get(newsletters[0].id) ?? [] : []
+  )
+
   // Search state
   const [textQuery, setTextQuery] = useState('')
-  const [searchIndex, setSearchIndex] = useState<Record<string, string>>({})
-  const [sectionIndex, setSectionIndex] = useState<Record<string, ReturnType<typeof extractSectionSnippets>>>({})
-  const [availableChapters, setAvailableChapters] = useState<string[]>([])
   const [selectedChapter, setSelectedChapter] = useState<string | null>(null)
   const [selectedMonth, setSelectedMonth] = useState<number | null>(null)
   const [selectedYear, setSelectedYear] = useState<number | null>(null)
   const [currentPage, setCurrentPage] = useState(1)
   const [isLoading, setIsLoading] = useState(false)
   const [matches, setMatches] = useState<Array<{ newsletterId: string; newsletterSlug: string; newsletterDate: string; href: string; html: string }>>([])
-  const [isIndexBuilding, setIsIndexBuilding] = useState(true)
-
-  
-  // Refresh newsletters on mount
-  useEffect(() => {
-    let cancelled = false
-    void getNewslettersAsync().then((list) => {
-      if (!cancelled) setNewsletters(list)
-    })
-    return () => {
-      cancelled = true
-    }
-  }, [])
-  
-  // Listen for newsletter publish events
-  useEffect(() => {
-    const handleNewsletterPublished = () => {
-      void getNewslettersAsync().then(setNewsletters)
-    }
-    window.addEventListener('newsletterPublished', handleNewsletterPublished)
-    return () => window.removeEventListener('newsletterPublished', handleNewsletterPublished)
-  }, [])
-  
-  // Build search index and section index
-  useEffect(() => {
-    let cancelled = false
-    ;(async () => {
-      setIsIndexBuilding(true)
-      const entries: Record<string, string> = {}
-      const sectionsEntries: Record<string, ReturnType<typeof extractSectionSnippets>> = {}
-
-      const tasks = newsletters.map(async (n) => {
-        try {
-          const date = new Date(n.date)
-          const match = n.sourcePath
-            ? await loadHtmlByPathAsync(n.sourcePath)
-            : await findHtmlByMonthYearAsync(date.getUTCMonth(), date.getUTCFullYear())
-          const html = match?.html
-          if (html) {
-            entries[n.id] = extractBodyText(html)
-            sectionsEntries[n.id] = extractSectionSnippets(html)
-          }
-        } catch {
-          // ignore individual newsletter failures to keep the rest fast
-        }
-      })
-
-      await Promise.all(tasks)
-
-      if (!cancelled) {
-        setSearchIndex(entries)
-        setSectionIndex(sectionsEntries)
-        
-        // Compute unique chapter titles from all extracted sections
-        const chapterTitlesSet = new Set<string>()
-        Object.values(sectionsEntries).forEach((sections) => {
-          sections.forEach((section) => {
-            chapterTitlesSet.add(section.title)
-          })
-        })
-        
-        // Fixed chapter list (always show these filter options)
-        setAvailableChapters([...CANONICAL_CHAPTER_TITLES])
-        setIsIndexBuilding(false)
-      }
-    })()
-    return () => { cancelled = true }
-  }, [newsletters])
 
   // Filter newsletters based on search criteria
   const filteredNewsletters = useMemo(() => {
@@ -258,17 +193,23 @@ export default function HomePage() {
   }
 
   useEffect(() => {
+    if (!latest) return
+    const cached = latestPreviewCache.get(latest.id)
+    if (cached && cached.length > 0) {
+      setLatestParagraphs(cached)
+      return
+    }
+    const target = latest
     let cancelled = false
     ;(async () => {
-      if (!latest) return
       try {
         let html: string | null = null
-        if (latest.sourcePath) {
-          const match = await loadHtmlByPathAsync(latest.sourcePath)
+        if (target.sourcePath) {
+          const match = await loadHtmlByPathAsync(target.sourcePath)
           html = match?.html || null
         }
         if (!html) {
-          const d = new Date(latest.date)
+          const d = new Date(target.date)
           const match = await findHtmlByMonthYearAsync(d.getUTCMonth(), d.getUTCFullYear())
           html = match?.html || null
         }
@@ -284,7 +225,10 @@ export default function HomePage() {
           meaningful.push(text)
           break
         }
-        if (!cancelled) setLatestParagraphs(meaningful)
+        if (!cancelled) {
+          if (meaningful.length > 0) latestPreviewCache.set(target.id, meaningful)
+          setLatestParagraphs(meaningful)
+        }
       } catch {}
     })()
     return () => { cancelled = true }

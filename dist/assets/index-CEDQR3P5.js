@@ -17924,47 +17924,6 @@ function useAuth() {
   }
   return context;
 }
-const logoUrl = "/assets/Agent-logo-BNWebEI8.svg";
-function RootLayout() {
-  const { isAuthenticated, isEditor: isEditor2, logout, user } = useAuth();
-  const navigate = useNavigate();
-  const location = useLocation();
-  const hideStickyHeader = location.pathname === "/newsletters/create" || location.pathname.startsWith("/newsletters/edit/") || location.pathname === "/submit-article";
-  const handleLogout = () => {
-    logout();
-    navigate("/");
-  };
-  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "app-shell", children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsx("header", { className: `app-header${hideStickyHeader ? " editor-route" : ""}`, children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "container header-inner", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsxs(Link$1, { to: "/", className: "brand", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: logoUrl, alt: "Agent logo" }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "ATV MC Newsletter Hub" })
-      ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("nav", { className: "nav", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx(NavLink, { to: "/", end: true, className: ({ isActive: isActive2 }) => isActive2 ? "active" : "", children: "Home" }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(NavLink, { to: "/newsletters", className: ({ isActive: isActive2 }) => isActive2 ? "active" : "", children: "Newsletters" }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(NavLink, { to: "/submit-article", className: ({ isActive: isActive2 }) => isActive2 ? "active" : "", children: "Submit Article" }),
-        isEditor2 && /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx(NavLink, { to: "/admin/articles", className: ({ isActive: isActive2 }) => isActive2 ? "active" : "", children: "Review Articles" }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx(NavLink, { to: "/newsletters/create", className: ({ isActive: isActive2 }) => isActive2 ? "active" : "", children: "Create Newsletter" })
-        ] })
-      ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "nav-auth", children: isAuthenticated ? /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "user-chip", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "user-avatar", "aria-hidden": "true", children: (user?.email?.[0] ?? "U").toUpperCase() }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "user-info", children: [
-          user?.email && /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "user-email", title: user.email, children: user.email }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: handleLogout, className: "auth-button logout-button", children: "Logout" })
-        ] })
-      ] }) : /* @__PURE__ */ jsxRuntimeExports.jsx(Link$1, { to: "/login", className: "auth-button login-button", children: "Editor Login" }) })
-    ] }) }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx("main", { className: "container main-content", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Outlet, {}) }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx("footer", { className: "app-footer", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "container", children: [
-      "© ",
-      (/* @__PURE__ */ new Date()).getFullYear(),
-      " Newsletter Hub"
-    ] }) })
-  ] });
-}
 const scriptRel = "modulepreload";
 const assetsURL = function(dep) {
   return "/" + dep;
@@ -117935,8 +117894,6 @@ async function getNewslettersAsync() {
   return merged.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 }
 getNewsletters();
-const defaultHeaderImage = "/assets/newsletter%20image-ByQ57XuM.png";
-const headerImage = "/assets/new-header-Cc2PnMTJ.jpg";
 const CANONICAL_CHAPTER_TITLES = [
   "AURIX™",
   "TRAVEO™ T2G",
@@ -117959,73 +117916,176 @@ function getChapterMatchKeys(selectedTitle) {
   }
   return [normalized];
 }
+const AVAILABLE_CHAPTERS = [...CANONICAL_CHAPTER_TITLES];
+let cachedNewsletters = null;
+let cachedSectionIndex = null;
+let cachedSearchIndex = null;
+let inFlightNewsletters = null;
+const parsedHtmlCache = /* @__PURE__ */ new Map();
+async function indexOne(n) {
+  const cached = parsedHtmlCache.get(n.id);
+  if (cached !== void 0) return cached;
+  let entry = null;
+  try {
+    const date = new Date(n.date);
+    const match = n.sourcePath ? await loadHtmlByPathAsync(n.sourcePath) : await findHtmlByMonthYearAsync(date.getUTCMonth(), date.getUTCFullYear());
+    const html2 = match?.html;
+    if (html2) {
+      entry = { sections: extractSectionSnippets(html2), body: extractBodyText(html2) };
+    }
+  } catch {
+    entry = null;
+  }
+  parsedHtmlCache.set(n.id, entry);
+  return entry;
+}
+const NewslettersContext = reactExports$1.createContext(void 0);
+function NewslettersProvider({ children }) {
+  const [newsletters, setNewsletters] = reactExports$1.useState(() => cachedNewsletters ?? getNewsletters());
+  const [isLoadingNewsletters, setIsLoadingNewsletters] = reactExports$1.useState(cachedNewsletters === null);
+  const [sectionIndex, setSectionIndex] = reactExports$1.useState(() => cachedSectionIndex ?? {});
+  const [searchIndex, setSearchIndex] = reactExports$1.useState(() => cachedSearchIndex ?? {});
+  const [isIndexBuilding, setIsIndexBuilding] = reactExports$1.useState(cachedSectionIndex === null);
+  const loadNewsletters = reactExports$1.useCallback(() => {
+    setIsLoadingNewsletters(cachedNewsletters === null);
+    if (!inFlightNewsletters) {
+      inFlightNewsletters = getNewslettersAsync();
+    }
+    const pending = inFlightNewsletters;
+    return pending.then((list) => {
+      cachedNewsletters = list;
+      if (inFlightNewsletters === pending) inFlightNewsletters = null;
+      setNewsletters(list);
+      setIsLoadingNewsletters(false);
+      return list;
+    }).catch((error) => {
+      console.error("Failed to load newsletters:", error);
+      if (inFlightNewsletters === pending) inFlightNewsletters = null;
+      setIsLoadingNewsletters(false);
+      return [];
+    });
+  }, []);
+  const refresh = reactExports$1.useCallback(() => {
+    cachedNewsletters = null;
+    cachedSectionIndex = null;
+    cachedSearchIndex = null;
+    inFlightNewsletters = null;
+    parsedHtmlCache.clear();
+    setIsIndexBuilding(true);
+    void loadNewsletters();
+  }, [loadNewsletters]);
+  reactExports$1.useEffect(() => {
+    if (cachedNewsletters === null) {
+      void loadNewsletters();
+    }
+  }, [loadNewsletters]);
+  reactExports$1.useEffect(() => {
+    const handler = () => refresh();
+    window.addEventListener("newsletterPublished", handler);
+    return () => window.removeEventListener("newsletterPublished", handler);
+  }, [refresh]);
+  reactExports$1.useEffect(() => {
+    let cancelled = false;
+    if (cachedSectionIndex === null) setIsIndexBuilding(true);
+    void (async () => {
+      const nextSections = {};
+      const nextSearch = {};
+      await Promise.all(
+        newsletters.map(async (n) => {
+          const entry = await indexOne(n);
+          if (entry) {
+            nextSections[n.id] = entry.sections;
+            nextSearch[n.id] = entry.body;
+          }
+        })
+      );
+      if (cancelled) return;
+      cachedSectionIndex = nextSections;
+      cachedSearchIndex = nextSearch;
+      setSectionIndex(nextSections);
+      setSearchIndex(nextSearch);
+      setIsIndexBuilding(false);
+    })();
+    return () => {
+      cancelled = true;
+    };
+  }, [newsletters]);
+  const value = reactExports$1.useMemo(
+    () => ({
+      newsletters,
+      isLoadingNewsletters,
+      searchIndex,
+      sectionIndex,
+      isIndexBuilding,
+      availableChapters: AVAILABLE_CHAPTERS,
+      refresh
+    }),
+    [newsletters, isLoadingNewsletters, searchIndex, sectionIndex, isIndexBuilding, refresh]
+  );
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(NewslettersContext.Provider, { value, children });
+}
+function useNewsletters() {
+  const ctx = reactExports$1.useContext(NewslettersContext);
+  if (!ctx) throw new Error("useNewsletters must be used within a NewslettersProvider");
+  return ctx;
+}
+const logoUrl = "/assets/Agent-logo-BNWebEI8.svg";
+function RootLayout() {
+  const { isAuthenticated, isEditor: isEditor2, logout, user } = useAuth();
+  const navigate = useNavigate();
+  const location = useLocation();
+  const hideStickyHeader = location.pathname === "/newsletters/create" || location.pathname.startsWith("/newsletters/edit/") || location.pathname === "/submit-article";
+  const handleLogout = () => {
+    logout();
+    navigate("/");
+  };
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "app-shell", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx("header", { className: `app-header${hideStickyHeader ? " editor-route" : ""}`, children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "container header-inner", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(Link$1, { to: "/", className: "brand", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: logoUrl, alt: "Agent logo" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "ATV MC Newsletter Hub" })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("nav", { className: "nav", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(NavLink, { to: "/", end: true, className: ({ isActive: isActive2 }) => isActive2 ? "active" : "", children: "Home" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(NavLink, { to: "/newsletters", className: ({ isActive: isActive2 }) => isActive2 ? "active" : "", children: "Newsletters" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(NavLink, { to: "/submit-article", className: ({ isActive: isActive2 }) => isActive2 ? "active" : "", children: "Submit Article" }),
+        isEditor2 && /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(NavLink, { to: "/admin/articles", className: ({ isActive: isActive2 }) => isActive2 ? "active" : "", children: "Review Articles" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(NavLink, { to: "/newsletters/create", className: ({ isActive: isActive2 }) => isActive2 ? "active" : "", children: "Create Newsletter" })
+        ] })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "nav-auth", children: isAuthenticated ? /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "user-chip", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "user-avatar", "aria-hidden": "true", children: (user?.email?.[0] ?? "U").toUpperCase() }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "user-info", children: [
+          user?.email && /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "user-email", title: user.email, children: user.email }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: handleLogout, className: "auth-button logout-button", children: "Logout" })
+        ] })
+      ] }) : /* @__PURE__ */ jsxRuntimeExports.jsx(Link$1, { to: "/login", className: "auth-button login-button", children: "Editor Login" }) })
+    ] }) }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("main", { className: "container main-content", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Outlet, {}) }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("footer", { className: "app-footer", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "container", children: [
+      "© ",
+      (/* @__PURE__ */ new Date()).getFullYear(),
+      " Newsletter Hub"
+    ] }) })
+  ] });
+}
+const defaultHeaderImage = "/assets/newsletter%20image-ByQ57XuM.png";
+const headerImage = "/assets/new-header-Cc2PnMTJ.jpg";
+const latestPreviewCache = /* @__PURE__ */ new Map();
 function HomePage() {
-  const [newsletters, setNewsletters] = reactExports$1.useState([]);
+  const { newsletters, searchIndex, sectionIndex, availableChapters, isIndexBuilding } = useNewsletters();
   const latest = newsletters[0];
-  const [latestParagraphs, setLatestParagraphs] = reactExports$1.useState([]);
+  const [latestParagraphs, setLatestParagraphs] = reactExports$1.useState(
+    () => newsletters[0] ? latestPreviewCache.get(newsletters[0].id) ?? [] : []
+  );
   const [textQuery, setTextQuery] = reactExports$1.useState("");
-  const [searchIndex, setSearchIndex] = reactExports$1.useState({});
-  const [sectionIndex, setSectionIndex] = reactExports$1.useState({});
-  const [availableChapters, setAvailableChapters] = reactExports$1.useState([]);
   const [selectedChapter, setSelectedChapter] = reactExports$1.useState(null);
   const [selectedMonth, setSelectedMonth] = reactExports$1.useState(null);
   const [selectedYear, setSelectedYear] = reactExports$1.useState(null);
   const [currentPage, setCurrentPage] = reactExports$1.useState(1);
   const [isLoading, setIsLoading] = reactExports$1.useState(false);
   const [matches2, setMatches] = reactExports$1.useState([]);
-  const [isIndexBuilding, setIsIndexBuilding] = reactExports$1.useState(true);
-  reactExports$1.useEffect(() => {
-    let cancelled = false;
-    void getNewslettersAsync().then((list) => {
-      if (!cancelled) setNewsletters(list);
-    });
-    return () => {
-      cancelled = true;
-    };
-  }, []);
-  reactExports$1.useEffect(() => {
-    const handleNewsletterPublished = () => {
-      void getNewslettersAsync().then(setNewsletters);
-    };
-    window.addEventListener("newsletterPublished", handleNewsletterPublished);
-    return () => window.removeEventListener("newsletterPublished", handleNewsletterPublished);
-  }, []);
-  reactExports$1.useEffect(() => {
-    let cancelled = false;
-    (async () => {
-      setIsIndexBuilding(true);
-      const entries2 = {};
-      const sectionsEntries = {};
-      const tasks = newsletters.map(async (n) => {
-        try {
-          const date = new Date(n.date);
-          const match = n.sourcePath ? await loadHtmlByPathAsync(n.sourcePath) : await findHtmlByMonthYearAsync(date.getUTCMonth(), date.getUTCFullYear());
-          const html2 = match?.html;
-          if (html2) {
-            entries2[n.id] = extractBodyText(html2);
-            sectionsEntries[n.id] = extractSectionSnippets(html2);
-          }
-        } catch {
-        }
-      });
-      await Promise.all(tasks);
-      if (!cancelled) {
-        setSearchIndex(entries2);
-        setSectionIndex(sectionsEntries);
-        const chapterTitlesSet = /* @__PURE__ */ new Set();
-        Object.values(sectionsEntries).forEach((sections) => {
-          sections.forEach((section) => {
-            chapterTitlesSet.add(section.title);
-          });
-        });
-        setAvailableChapters([...CANONICAL_CHAPTER_TITLES]);
-        setIsIndexBuilding(false);
-      }
-    })();
-    return () => {
-      cancelled = true;
-    };
-  }, [newsletters]);
   const filteredNewsletters = reactExports$1.useMemo(() => {
     const q = textQuery.trim().toLowerCase();
     const byDate = newsletters.filter((n) => {
@@ -118152,17 +118212,23 @@ function HomePage() {
     }
   };
   reactExports$1.useEffect(() => {
+    if (!latest) return;
+    const cached = latestPreviewCache.get(latest.id);
+    if (cached && cached.length > 0) {
+      setLatestParagraphs(cached);
+      return;
+    }
+    const target = latest;
     let cancelled = false;
     (async () => {
-      if (!latest) return;
       try {
         let html2 = null;
-        if (latest.sourcePath) {
-          const match = await loadHtmlByPathAsync(latest.sourcePath);
+        if (target.sourcePath) {
+          const match = await loadHtmlByPathAsync(target.sourcePath);
           html2 = match?.html || null;
         }
         if (!html2) {
-          const d = new Date(latest.date);
+          const d = new Date(target.date);
           const match = await findHtmlByMonthYearAsync(d.getUTCMonth(), d.getUTCFullYear());
           html2 = match?.html || null;
         }
@@ -118178,7 +118244,10 @@ function HomePage() {
           meaningful.push(text2);
           break;
         }
-        if (!cancelled) setLatestParagraphs(meaningful);
+        if (!cancelled) {
+          if (meaningful.length > 0) latestPreviewCache.set(target.id, meaningful);
+          setLatestParagraphs(meaningful);
+        }
       } catch {
       }
     })();
@@ -118923,76 +118992,19 @@ const newslettersApi = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defi
 function NewslettersPage() {
   const location = useLocation();
   const { isAuthenticated } = useAuth();
-  const [newsletters, setNewsletters] = reactExports$1.useState([]);
+  const { newsletters, searchIndex, sectionIndex, availableChapters, isIndexBuilding, isLoadingNewsletters } = useNewsletters();
   const [selectedChapter, setSelectedChapter] = reactExports$1.useState(null);
-  const [sectionIndex, setSectionIndex] = reactExports$1.useState({});
-  const [searchIndex, setSearchIndex] = reactExports$1.useState({});
-  const [availableChapters, setAvailableChapters] = reactExports$1.useState([]);
   const [textQuery, setTextQuery] = reactExports$1.useState("");
   const [selectedMonth, setSelectedMonth] = reactExports$1.useState(null);
   const [selectedYear, setSelectedYear] = reactExports$1.useState(null);
   const [isLoading, setIsLoading] = reactExports$1.useState(false);
   const [matches2, setMatches] = reactExports$1.useState([]);
-  const [isIndexBuilding, setIsIndexBuilding] = reactExports$1.useState(true);
   const [initialChapterParam] = reactExports$1.useState(() => {
     const params = new URLSearchParams(window.location.search);
     return params.get("chapter");
   });
   const [page, setPage] = reactExports$1.useState(1);
   const pageSize = 9;
-  reactExports$1.useEffect(() => {
-    let cancelled = false;
-    void getNewslettersAsync().then((list) => {
-      if (!cancelled) setNewsletters(list);
-    });
-    return () => {
-      cancelled = true;
-    };
-  }, [location.pathname]);
-  reactExports$1.useEffect(() => {
-    const handleNewsletterPublished = () => {
-      void getNewslettersAsync().then(setNewsletters);
-    };
-    window.addEventListener("newsletterPublished", handleNewsletterPublished);
-    return () => window.removeEventListener("newsletterPublished", handleNewsletterPublished);
-  }, []);
-  reactExports$1.useEffect(() => {
-    let cancelled = false;
-    (async () => {
-      setIsIndexBuilding(true);
-      const sectionsEntries = {};
-      const searchEntries = {};
-      const tasks = newsletters.map(async (n) => {
-        try {
-          const date = new Date(n.date);
-          const match = n.sourcePath ? await loadHtmlByPathAsync(n.sourcePath) : await findHtmlByMonthYearAsync(date.getUTCMonth(), date.getUTCFullYear());
-          const html2 = match?.html;
-          if (html2) {
-            sectionsEntries[n.id] = extractSectionSnippets(html2);
-            searchEntries[n.id] = extractBodyText(html2);
-          }
-        } catch {
-        }
-      });
-      await Promise.all(tasks);
-      if (!cancelled) {
-        setSectionIndex(sectionsEntries);
-        setSearchIndex(searchEntries);
-        const chapterTitlesSet = /* @__PURE__ */ new Set();
-        Object.values(sectionsEntries).forEach((sections) => {
-          sections.forEach((section) => {
-            chapterTitlesSet.add(section.title);
-          });
-        });
-        setAvailableChapters([...CANONICAL_CHAPTER_TITLES]);
-        console.log("[DEBUG] Available main chapters:", CANONICAL_CHAPTER_TITLES);
-        setIsIndexBuilding(false);
-      }
-    })();
-    return () => {
-      cancelled = true;
-    };
-  }, [newsletters]);
   reactExports$1.useEffect(() => {
     const params = new URLSearchParams(location.search);
     const chapterParam = params.get("chapter");
@@ -119028,7 +119040,7 @@ function NewslettersPage() {
       const inBody = (searchIndex[n.id] || "").toLowerCase().includes(q);
       return inTitle || inExcerpt || inBody;
     });
-  }, [textQuery, searchIndex, selectedMonth, selectedYear]);
+  }, [textQuery, searchIndex, selectedMonth, selectedYear, newsletters]);
   const matchSnippets = reactExports$1.useMemo(() => {
     const q = textQuery.trim();
     if (!q) return {};
@@ -119150,8 +119162,6 @@ function NewslettersPage() {
     /* @__PURE__ */ jsxRuntimeExports.jsx("style", { children: `
         .newsletters-page .heading-row h1 { color: var(--brand); margin: 0; }
         .newsletters-page .heading-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
-        .newsletters-page .heading-row .toggle { color: var(--brand); text-decoration: none; padding: 4px 8px; border-radius: 0; }
-        .newsletters-page .heading-row .toggle.active { background: rgba(0,0,0,0.04); }
         .newsletters-page .layout-with-sidebar { gap: 16px; align-items: flex-start; }
         .newsletters-page .filters.card { background: #fff; border: 1px solid var(--border-color, #e0e0e0); border-radius: 0; padding: 16px; }
         .newsletters-page .filters .field { margin-bottom: 12px; }
@@ -119188,14 +119198,48 @@ function NewslettersPage() {
       ` }),
     /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "heading-row", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { children: "All Newsletters" }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "view-toggle", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx(Link$1, { to: "/newsletters", className: `toggle ${location.pathname.endsWith("/list") ? "" : "active"}`, children: "Grid view" }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "sep", children: "/" }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(Link$1, { to: "/newsletters/list", className: `toggle ${location.pathname.endsWith("/list") ? "active" : ""}`, children: "List view" })
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "view-toggle", role: "tablist", "aria-label": "Newsletter layout", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs(
+          Link$1,
+          {
+            to: "/newsletters",
+            className: `toggle ${location.pathname.endsWith("/list") ? "" : "active"}`,
+            "aria-current": location.pathname.endsWith("/list") ? void 0 : "page",
+            children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("svg", { viewBox: "0 0 16 16", "aria-hidden": "true", focusable: "false", children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx("rect", { x: "1", y: "1", width: "6", height: "6", rx: "1.2" }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx("rect", { x: "9", y: "1", width: "6", height: "6", rx: "1.2" }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx("rect", { x: "1", y: "9", width: "6", height: "6", rx: "1.2" }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx("rect", { x: "9", y: "9", width: "6", height: "6", rx: "1.2" })
+              ] }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "Grid" })
+            ]
+          }
+        ),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs(
+          Link$1,
+          {
+            to: "/newsletters/list",
+            className: `toggle ${location.pathname.endsWith("/list") ? "active" : ""}`,
+            "aria-current": location.pathname.endsWith("/list") ? "page" : void 0,
+            children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("svg", { viewBox: "0 0 16 16", "aria-hidden": "true", focusable: "false", children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx("rect", { x: "1", y: "2", width: "14", height: "2.4", rx: "1.2" }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx("rect", { x: "1", y: "6.8", width: "14", height: "2.4", rx: "1.2" }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx("rect", { x: "1", y: "11.6", width: "14", height: "2.4", rx: "1.2" })
+              ] }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "List" })
+            ]
+          }
+        )
       ] })
     ] }),
     /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "layout-with-sidebar", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsxs("aside", { className: "filters card", children: [
+        isLoadingNewsletters && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "index-banner", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "index-dot" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "Syncing newsletters from the server…" })
+        ] }),
         isIndexBuilding && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "index-banner", children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "index-dot" }),
           /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "Preparing chapters and search index…" })
@@ -119292,8 +119336,7 @@ function NewslettersPage() {
               if (confirmed) {
                 void deleteNewsletterApi(n.id).then(() => {
                   window.dispatchEvent(new Event("newsletterPublished"));
-                  return getNewslettersAsync();
-                }).then(setNewsletters).catch((error) => {
+                }).catch((error) => {
                   console.error("Failed to delete newsletter:", error);
                   alert("Failed to delete newsletter. Please try again.");
                 });
@@ -119330,7 +119373,10 @@ function NewslettersPage() {
               )
             ] }, n.id);
           }),
-          filtered.length === 0 && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "meta", children: "No newsletters match your search/filters." })
+          filtered.length === 0 && (isLoadingNewsletters ? /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "loading", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "loading-bar", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "loading-bar-inner" }) }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "meta", children: "Loading newsletters…" })
+          ] }) : /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "meta", children: "No newsletters match your search/filters." }))
         ] }),
         filtered.length > 0 && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "pagination", children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx("button", { className: "button", disabled: page <= 1, onClick: () => setPage((p) => Math.max(1, p - 1)), children: "Previous" }),
@@ -119668,48 +119714,11 @@ function NewsletterDetailPage() {
   ] });
 }
 function NewslettersListPage() {
-  const location = useLocation();
   const { isAuthenticated } = useAuth();
-  const [newsletters, setNewsletters] = reactExports$1.useState([]);
+  const { newsletters, searchIndex, isLoadingNewsletters } = useNewsletters();
   const [textQuery, setTextQuery] = reactExports$1.useState("");
-  const [searchIndex, setSearchIndex] = reactExports$1.useState({});
   const [selectedMonth, setSelectedMonth] = reactExports$1.useState(null);
   const [selectedYear, setSelectedYear] = reactExports$1.useState(null);
-  reactExports$1.useEffect(() => {
-    let cancelled = false;
-    void getNewslettersAsync().then((list) => {
-      if (!cancelled) setNewsletters(list);
-    });
-    return () => {
-      cancelled = true;
-    };
-  }, [location.pathname]);
-  reactExports$1.useEffect(() => {
-    const handleNewsletterPublished = () => {
-      void getNewslettersAsync().then(setNewsletters);
-    };
-    window.addEventListener("newsletterPublished", handleNewsletterPublished);
-    return () => window.removeEventListener("newsletterPublished", handleNewsletterPublished);
-  }, []);
-  reactExports$1.useEffect(() => {
-    let cancelled = false;
-    (async () => {
-      const entries2 = {};
-      for (const n of newsletters) {
-        try {
-          const date = new Date(n.date);
-          const match = n.sourcePath ? await loadHtmlByPathAsync(n.sourcePath) : await findHtmlByMonthYearAsync(date.getUTCMonth(), date.getUTCFullYear());
-          const html2 = match?.html;
-          if (html2) entries2[n.id] = extractBodyText(html2);
-        } catch {
-        }
-      }
-      if (!cancelled) setSearchIndex(entries2);
-    })();
-    return () => {
-      cancelled = true;
-    };
-  }, []);
   const filtered = reactExports$1.useMemo(() => {
     const q = textQuery.trim().toLowerCase();
     const byDate = newsletters.filter((n) => {
@@ -119725,7 +119734,7 @@ function NewslettersListPage() {
       const inBody = (searchIndex[n.id] || "").toLowerCase().includes(q);
       return inTitle || inExcerpt || inBody;
     });
-  }, [textQuery, selectedMonth, selectedYear, searchIndex]);
+  }, [textQuery, selectedMonth, selectedYear, searchIndex, newsletters]);
   const clearAll = () => {
     setTextQuery("");
     setSelectedMonth(null);
@@ -119735,21 +119744,36 @@ function NewslettersListPage() {
     /* @__PURE__ */ jsxRuntimeExports.jsx("style", { children: `
         .newsletters-page .heading-row h1 { color: var(--brand); margin: 0; }
         .newsletters-page .heading-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
-        .newsletters-page .heading-row .toggle { color: var(--brand); text-decoration: none; padding: 4px 8px; border-radius: 0; }
-        .newsletters-page .heading-row .toggle.active { background: rgba(0,0,0,0.04); }
         .newsletters-page .inline-filters.card { background: #fff; border: 1px solid var(--border-color, #e0e0e0); border-radius: 0; padding: 16px; margin-bottom: 16px; }
         .newsletters-page .inline-group label { font-weight: 600; }
         .newsletters-page .list-row { background: #fff; border: 1px solid var(--border-color, #e0e0e0); border-radius: 0; padding: 12px 16px; margin-bottom: 8px; text-decoration: none; color: inherit; transition: border-color 150ms ease, background 150ms ease; }
         .newsletters-page .list-row:hover { border-color: var(--brand); background: #fafafa; }
         .newsletters-page .list-row-title strong { color: #000; }
         .newsletters-page .list-row:hover .list-row-title strong { color: var(--brand); }
+        .newsletters-page .index-banner { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; font-size: 13px; color: #555; }
+        .newsletters-page .index-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--brand); animation: nllistpulse 0.9s ease-in-out infinite alternate; }
+        @keyframes nllistpulse { from { transform: scale(0.9); opacity: 0.6; } to { transform: scale(1.1); opacity: 1; } }
       ` }),
     /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "heading-row", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { children: "All Newsletters" }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "view-toggle", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx(Link$1, { to: "/newsletters", className: "toggle", children: "Grid view" }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "sep", children: "/" }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(Link$1, { to: "/newsletters/list", className: "toggle active", children: "List view" })
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "view-toggle", role: "tablist", "aria-label": "Newsletter layout", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs(Link$1, { to: "/newsletters", className: "toggle", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("svg", { viewBox: "0 0 16 16", "aria-hidden": "true", focusable: "false", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("rect", { x: "1", y: "1", width: "6", height: "6", rx: "1.2" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("rect", { x: "9", y: "1", width: "6", height: "6", rx: "1.2" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("rect", { x: "1", y: "9", width: "6", height: "6", rx: "1.2" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("rect", { x: "9", y: "9", width: "6", height: "6", rx: "1.2" })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "Grid" })
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs(Link$1, { to: "/newsletters/list", className: "toggle active", "aria-current": "page", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("svg", { viewBox: "0 0 16 16", "aria-hidden": "true", focusable: "false", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("rect", { x: "1", y: "2", width: "14", height: "2.4", rx: "1.2" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("rect", { x: "1", y: "6.8", width: "14", height: "2.4", rx: "1.2" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("rect", { x: "1", y: "11.6", width: "14", height: "2.4", rx: "1.2" })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "List" })
+        ] })
       ] })
     ] }),
     /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "inline-filters card", children: [
@@ -119784,56 +119808,61 @@ function NewslettersListPage() {
       ] }),
       (textQuery || selectedMonth != null || selectedYear != null) && /* @__PURE__ */ jsxRuntimeExports.jsx("button", { className: "button", onClick: clearAll, children: "Clear" })
     ] }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx("section", { className: "content-grid", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "list full-width", children: [
-      filtered.map((n) => {
-        const isLocal = !n.sourcePath;
-        const handleDelete2 = (e) => {
-          e.preventDefault();
-          e.stopPropagation();
-          const confirmed = window.confirm(
-            `Are you sure you want to delete "${n.title}"? This action cannot be undone.`
-          );
-          if (confirmed) {
-            void deleteNewsletterApi(n.id).then(() => {
-              window.dispatchEvent(new Event("newsletterPublished"));
-              return getNewslettersAsync();
-            }).then(setNewsletters).catch((error) => {
-              console.error("Failed to delete newsletter:", error);
-              alert("Failed to delete newsletter. Please try again.");
-            });
-          }
-        };
-        return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { style: { position: "relative" }, children: /* @__PURE__ */ jsxRuntimeExports.jsxs(Link$1, { to: `/newsletters/${n.slug}`, className: "list-row", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "list-row-title", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: n.title }),
-            isLocal && /* @__PURE__ */ jsxRuntimeExports.jsx("span", { style: { marginLeft: 8, fontSize: 12, color: "#0A8276", background: "#e6f7f5", padding: "2px 6px", borderRadius: 4 }, children: "Custom" })
-          ] }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "list-row-meta", children: [
-            new Date(n.date).toLocaleDateString(),
-            isLocal && isAuthenticated && /* @__PURE__ */ jsxRuntimeExports.jsx(
-              "button",
-              {
-                onClick: handleDelete2,
-                style: {
-                  marginLeft: 12,
-                  padding: "2px 8px",
-                  background: "transparent",
-                  border: "1px solid #fecaca",
-                  borderRadius: "4px",
-                  cursor: "pointer",
-                  fontSize: "12px",
-                  color: "#dc2626"
-                },
-                title: "Delete newsletter",
-                children: "🗑️ Delete"
-              }
-            )
-          ] }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "list-row-excerpt", children: n.excerpt })
-        ] }) }, n.id);
-      }),
-      filtered.length === 0 && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "meta", children: "No newsletters match your filters." })
-    ] }) })
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "content-grid", children: [
+      isLoadingNewsletters && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "index-banner", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "index-dot" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "Loading newsletters from the server…" })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "list full-width", children: [
+        filtered.map((n) => {
+          const isLocal = !n.sourcePath;
+          const handleDelete2 = (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            const confirmed = window.confirm(
+              `Are you sure you want to delete "${n.title}"? This action cannot be undone.`
+            );
+            if (confirmed) {
+              void deleteNewsletterApi(n.id).then(() => {
+                window.dispatchEvent(new Event("newsletterPublished"));
+              }).catch((error) => {
+                console.error("Failed to delete newsletter:", error);
+                alert("Failed to delete newsletter. Please try again.");
+              });
+            }
+          };
+          return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { style: { position: "relative" }, children: /* @__PURE__ */ jsxRuntimeExports.jsxs(Link$1, { to: `/newsletters/${n.slug}`, className: "list-row", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "list-row-title", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: n.title }),
+              isLocal && /* @__PURE__ */ jsxRuntimeExports.jsx("span", { style: { marginLeft: 8, fontSize: 12, color: "#0A8276", background: "#e6f7f5", padding: "2px 6px", borderRadius: 4 }, children: "Custom" })
+            ] }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "list-row-meta", children: [
+              new Date(n.date).toLocaleDateString(),
+              isLocal && isAuthenticated && /* @__PURE__ */ jsxRuntimeExports.jsx(
+                "button",
+                {
+                  onClick: handleDelete2,
+                  style: {
+                    marginLeft: 12,
+                    padding: "2px 8px",
+                    background: "transparent",
+                    border: "1px solid #fecaca",
+                    borderRadius: "4px",
+                    cursor: "pointer",
+                    fontSize: "12px",
+                    color: "#dc2626"
+                  },
+                  title: "Delete newsletter",
+                  children: "🗑️ Delete"
+                }
+              )
+            ] }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "list-row-excerpt", children: n.excerpt })
+          ] }) }, n.id);
+        }),
+        filtered.length === 0 && (isLoadingNewsletters ? /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "meta", children: "Loading newsletters…" }) : /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "meta", children: "No newsletters match your filters." }))
+      ] })
+    ] })
   ] });
 }
 var shim = { exports: {} };
@@ -144563,5 +144592,5 @@ const router = createBrowserRouter([
 ]);
 const container = document.getElementById("root");
 clientExports.createRoot(container).render(
-  /* @__PURE__ */ jsxRuntimeExports.jsx(React.StrictMode, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(AuthProvider, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(RouterProvider2, { router }) }) })
+  /* @__PURE__ */ jsxRuntimeExports.jsx(React.StrictMode, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(AuthProvider, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(NewslettersProvider, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(RouterProvider2, { router }) }) }) })
 );

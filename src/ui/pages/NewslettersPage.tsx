@@ -1,25 +1,20 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { getNewslettersAsync, type Newsletter } from '../../data/newsletters'
-import { findHtmlByMonthYearAsync, loadHtmlByPathAsync, extractSectionSnippets, extractBodyText } from '../../utils/newsletterHtml'
 import { deleteNewsletterApi } from '../../utils/newslettersApi'
 import { useAuth } from '../../contexts/AuthContext'
-import { CANONICAL_CHAPTER_TITLES, getChapterMatchKeys, normalizeChapterTitle } from '../../constants/chapters'
+import { getChapterMatchKeys, normalizeChapterTitle } from '../../constants/chapters'
+import { useNewsletters } from '../../contexts/NewslettersContext'
 
 export default function NewslettersPage() {
   const location = useLocation()
   const { isAuthenticated } = useAuth()
-  const [newsletters, setNewsletters] = useState<Newsletter[]>([])
+  const { newsletters, searchIndex, sectionIndex, availableChapters, isIndexBuilding, isLoadingNewsletters } = useNewsletters()
   const [selectedChapter, setSelectedChapter] = useState<string | null>(null)
-  const [sectionIndex, setSectionIndex] = useState<Record<string, ReturnType<typeof extractSectionSnippets>>>({})
-  const [searchIndex, setSearchIndex] = useState<Record<string, string>>({})
-  const [availableChapters, setAvailableChapters] = useState<string[]>([])
   const [textQuery, setTextQuery] = useState('')
   const [selectedMonth, setSelectedMonth] = useState<number | null>(null) // 0-11
   const [selectedYear, setSelectedYear] = useState<number | null>(null)
   const [isLoading, setIsLoading] = useState(false)
   const [matches, setMatches] = useState<Array<{ newsletterId: string; newsletterSlug: string; newsletterDate: string; href: string; html: string }>>([])
-  const [isIndexBuilding, setIsIndexBuilding] = useState(true)
   const [initialChapterParam] = useState<string | null>(() => {
     const params = new URLSearchParams(window.location.search)
     return params.get('chapter')
@@ -27,74 +22,6 @@ export default function NewslettersPage() {
   // Titles and excerpts are now derived synchronously in the data layer; no runtime overrides needed
   const [page, setPage] = useState(1)
   const pageSize = 9
-  
-  // Refresh newsletters when component mounts or location changes
-  useEffect(() => {
-    let cancelled = false
-    void getNewslettersAsync().then((list) => {
-      if (!cancelled) setNewsletters(list)
-    })
-    return () => {
-      cancelled = true
-    }
-  }, [location.pathname])
-  
-  // Listen for newsletter publish events
-  useEffect(() => {
-    const handleNewsletterPublished = () => {
-      void getNewslettersAsync().then(setNewsletters)
-    }
-    window.addEventListener('newsletterPublished', handleNewsletterPublished)
-    return () => window.removeEventListener('newsletterPublished', handleNewsletterPublished)
-  }, [])
-
-  // Build indexes used for section extraction
-  useEffect(() => {
-    let cancelled = false
-    ;(async () => {
-      setIsIndexBuilding(true)
-      const sectionsEntries: Record<string, ReturnType<typeof extractSectionSnippets>> = {}
-      const searchEntries: Record<string, string> = {}
-      const tasks = newsletters.map(async (n) => {
-        try {
-          const date = new Date(n.date)
-          const match = n.sourcePath
-            ? await loadHtmlByPathAsync(n.sourcePath)
-            : await findHtmlByMonthYearAsync(date.getUTCMonth(), date.getUTCFullYear())
-          const html = match?.html
-          if (html) {
-            sectionsEntries[n.id] = extractSectionSnippets(html)
-            searchEntries[n.id] = extractBodyText(html)
-          }
-        } catch {
-          // ignore individual failures so others can still load quickly
-        }
-      })
-
-      await Promise.all(tasks)
-
-      if (!cancelled) {
-        setSectionIndex(sectionsEntries)
-        setSearchIndex(searchEntries)
-        
-        // Compute unique chapter titles from all extracted sections
-        const chapterTitlesSet = new Set<string>()
-        Object.values(sectionsEntries).forEach((sections) => {
-          sections.forEach((section) => {
-            chapterTitlesSet.add(section.title)
-          })
-        })
-        
-        // Fixed chapter list (always show these filter options)
-        setAvailableChapters([...CANONICAL_CHAPTER_TITLES])
-        console.log('[DEBUG] Available main chapters:', CANONICAL_CHAPTER_TITLES)
-        setIsIndexBuilding(false)
-      }
-    })()
-    return () => {
-      cancelled = true
-    }
-  }, [newsletters])
 
   // Read chapter from query param on mount and when it changes
   useEffect(() => {
@@ -149,7 +76,7 @@ export default function NewslettersPage() {
       const inBody = (searchIndex[n.id] || '').toLowerCase().includes(q)
       return inTitle || inExcerpt || inBody
     })
-  }, [textQuery, searchIndex, selectedMonth, selectedYear])
+  }, [textQuery, searchIndex, selectedMonth, selectedYear, newsletters])
 
   // Build highlighted snippets centered around the first body/excerpt match
   const matchSnippets: Record<string, string> = useMemo(() => {
@@ -314,8 +241,6 @@ export default function NewslettersPage() {
       <style>{`
         .newsletters-page .heading-row h1 { color: var(--brand); margin: 0; }
         .newsletters-page .heading-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
-        .newsletters-page .heading-row .toggle { color: var(--brand); text-decoration: none; padding: 4px 8px; border-radius: 0; }
-        .newsletters-page .heading-row .toggle.active { background: rgba(0,0,0,0.04); }
         .newsletters-page .layout-with-sidebar { gap: 16px; align-items: flex-start; }
         .newsletters-page .filters.card { background: #fff; border: 1px solid var(--border-color, #e0e0e0); border-radius: 0; padding: 16px; }
         .newsletters-page .filters .field { margin-bottom: 12px; }
@@ -352,14 +277,33 @@ export default function NewslettersPage() {
       `}</style>
       <div className="heading-row">
         <h1>All Newsletters</h1>
-        <div className="view-toggle">
-          <Link to="/newsletters" className={`toggle ${location.pathname.endsWith('/list') ? '' : 'active'}`}>Grid view</Link>
-          <span className="sep">/</span>
-          <Link to="/newsletters/list" className={`toggle ${location.pathname.endsWith('/list') ? 'active' : ''}`}>List view</Link>
+        <div className="view-toggle" role="tablist" aria-label="Newsletter layout">
+          <Link
+            to="/newsletters"
+            className={`toggle ${location.pathname.endsWith('/list') ? '' : 'active'}`}
+            aria-current={location.pathname.endsWith('/list') ? undefined : 'page'}
+          >
+            <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><rect x="1" y="1" width="6" height="6" rx="1.2" /><rect x="9" y="1" width="6" height="6" rx="1.2" /><rect x="1" y="9" width="6" height="6" rx="1.2" /><rect x="9" y="9" width="6" height="6" rx="1.2" /></svg>
+            <span>Grid</span>
+          </Link>
+          <Link
+            to="/newsletters/list"
+            className={`toggle ${location.pathname.endsWith('/list') ? 'active' : ''}`}
+            aria-current={location.pathname.endsWith('/list') ? 'page' : undefined}
+          >
+            <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><rect x="1" y="2" width="14" height="2.4" rx="1.2" /><rect x="1" y="6.8" width="14" height="2.4" rx="1.2" /><rect x="1" y="11.6" width="14" height="2.4" rx="1.2" /></svg>
+            <span>List</span>
+          </Link>
         </div>
       </div>
       <div className="layout-with-sidebar">
         <aside className="filters card">
+          {isLoadingNewsletters && (
+            <div className="index-banner">
+              <span className="index-dot" />
+              <span>Syncing newsletters from the server…</span>
+            </div>
+          )}
           {isIndexBuilding && (
             <div className="index-banner">
               <span className="index-dot" />
@@ -481,9 +425,7 @@ export default function NewslettersPage() {
                   void deleteNewsletterApi(n.id)
                     .then(() => {
                       window.dispatchEvent(new Event('newsletterPublished'))
-                      return getNewslettersAsync()
                     })
-                    .then(setNewsletters)
                     .catch((error) => {
                       console.error('Failed to delete newsletter:', error)
                       alert('Failed to delete newsletter. Please try again.')
@@ -532,7 +474,16 @@ export default function NewslettersPage() {
                 </div>
               )
             })}
-            {filtered.length === 0 && <p className="meta">No newsletters match your search/filters.</p>}
+            {filtered.length === 0 && (
+              isLoadingNewsletters ? (
+                <div className="loading">
+                  <div className="loading-bar"><div className="loading-bar-inner" /></div>
+                  <p className="meta">Loading newsletters…</p>
+                </div>
+              ) : (
+                <p className="meta">No newsletters match your search/filters.</p>
+              )
+            )}
           </div>
           )}
           {filtered.length > 0 && (

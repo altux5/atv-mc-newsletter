@@ -1,57 +1,15 @@
-import { useEffect, useMemo, useState } from 'react'
-import { Link, useLocation } from 'react-router-dom'
-import { getNewslettersAsync, type Newsletter } from '../../data/newsletters'
-import { extractBodyText, findHtmlByMonthYearAsync, loadHtmlByPathAsync } from '../../utils/newsletterHtml'
+import { useMemo, useState } from 'react'
+import { Link } from 'react-router-dom'
 import { deleteNewsletterApi } from '../../utils/newslettersApi'
 import { useAuth } from '../../contexts/AuthContext'
+import { useNewsletters } from '../../contexts/NewslettersContext'
 
 export default function NewslettersListPage() {
-  const location = useLocation()
   const { isAuthenticated } = useAuth()
-  const [newsletters, setNewsletters] = useState<Newsletter[]>([])
+  const { newsletters, searchIndex, isLoadingNewsletters } = useNewsletters()
   const [textQuery, setTextQuery] = useState('')
-  const [searchIndex, setSearchIndex] = useState<Record<string, string>>({})
   const [selectedMonth, setSelectedMonth] = useState<number | null>(null)
   const [selectedYear, setSelectedYear] = useState<number | null>(null)
-  
-  // Refresh newsletters when component mounts or location changes
-  useEffect(() => {
-    let cancelled = false
-    void getNewslettersAsync().then((list) => {
-      if (!cancelled) setNewsletters(list)
-    })
-    return () => {
-      cancelled = true
-    }
-  }, [location.pathname])
-  
-  // Listen for newsletter publish events
-  useEffect(() => {
-    const handleNewsletterPublished = () => {
-      void getNewslettersAsync().then(setNewsletters)
-    }
-    window.addEventListener('newsletterPublished', handleNewsletterPublished)
-    return () => window.removeEventListener('newsletterPublished', handleNewsletterPublished)
-  }, [])
-
-  useEffect(() => {
-    let cancelled = false
-    ;(async () => {
-      const entries: Record<string, string> = {}
-      for (const n of newsletters) {
-        try {
-          const date = new Date(n.date)
-          const match = n.sourcePath
-            ? await loadHtmlByPathAsync(n.sourcePath)
-            : await findHtmlByMonthYearAsync(date.getUTCMonth(), date.getUTCFullYear())
-          const html = match?.html
-          if (html) entries[n.id] = extractBodyText(html)
-        } catch {}
-      }
-      if (!cancelled) setSearchIndex(entries)
-    })()
-    return () => { cancelled = true }
-  }, [])
 
   const filtered = useMemo(() => {
     const q = textQuery.trim().toLowerCase()
@@ -68,7 +26,7 @@ export default function NewslettersListPage() {
       const inBody = (searchIndex[n.id] || '').toLowerCase().includes(q)
       return inTitle || inExcerpt || inBody
     })
-  }, [textQuery, selectedMonth, selectedYear, searchIndex])
+  }, [textQuery, selectedMonth, selectedYear, searchIndex, newsletters])
 
   const clearAll = () => {
     setTextQuery('')
@@ -81,21 +39,27 @@ export default function NewslettersListPage() {
       <style>{`
         .newsletters-page .heading-row h1 { color: var(--brand); margin: 0; }
         .newsletters-page .heading-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
-        .newsletters-page .heading-row .toggle { color: var(--brand); text-decoration: none; padding: 4px 8px; border-radius: 0; }
-        .newsletters-page .heading-row .toggle.active { background: rgba(0,0,0,0.04); }
         .newsletters-page .inline-filters.card { background: #fff; border: 1px solid var(--border-color, #e0e0e0); border-radius: 0; padding: 16px; margin-bottom: 16px; }
         .newsletters-page .inline-group label { font-weight: 600; }
         .newsletters-page .list-row { background: #fff; border: 1px solid var(--border-color, #e0e0e0); border-radius: 0; padding: 12px 16px; margin-bottom: 8px; text-decoration: none; color: inherit; transition: border-color 150ms ease, background 150ms ease; }
         .newsletters-page .list-row:hover { border-color: var(--brand); background: #fafafa; }
         .newsletters-page .list-row-title strong { color: #000; }
         .newsletters-page .list-row:hover .list-row-title strong { color: var(--brand); }
+        .newsletters-page .index-banner { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; font-size: 13px; color: #555; }
+        .newsletters-page .index-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--brand); animation: nllistpulse 0.9s ease-in-out infinite alternate; }
+        @keyframes nllistpulse { from { transform: scale(0.9); opacity: 0.6; } to { transform: scale(1.1); opacity: 1; } }
       `}</style>
       <div className="heading-row">
         <h1>All Newsletters</h1>
-        <div className="view-toggle">
-          <Link to="/newsletters" className="toggle">Grid view</Link>
-          <span className="sep">/</span>
-          <Link to="/newsletters/list" className="toggle active">List view</Link>
+        <div className="view-toggle" role="tablist" aria-label="Newsletter layout">
+          <Link to="/newsletters" className="toggle">
+            <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><rect x="1" y="1" width="6" height="6" rx="1.2" /><rect x="9" y="1" width="6" height="6" rx="1.2" /><rect x="1" y="9" width="6" height="6" rx="1.2" /><rect x="9" y="9" width="6" height="6" rx="1.2" /></svg>
+            <span>Grid</span>
+          </Link>
+          <Link to="/newsletters/list" className="toggle active" aria-current="page">
+            <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><rect x="1" y="2" width="14" height="2.4" rx="1.2" /><rect x="1" y="6.8" width="14" height="2.4" rx="1.2" /><rect x="1" y="11.6" width="14" height="2.4" rx="1.2" /></svg>
+            <span>List</span>
+          </Link>
         </div>
       </div>
       <div className="inline-filters card">
@@ -137,6 +101,12 @@ export default function NewslettersListPage() {
         )}
       </div>
       <section className="content-grid">
+        {isLoadingNewsletters && (
+          <div className="index-banner">
+            <span className="index-dot" />
+            <span>Loading newsletters from the server…</span>
+          </div>
+        )}
         <div className="list full-width">
           {filtered.map((n) => {
             const isLocal = !n.sourcePath
@@ -151,9 +121,7 @@ export default function NewslettersListPage() {
                 void deleteNewsletterApi(n.id)
                   .then(() => {
                     window.dispatchEvent(new Event('newsletterPublished'))
-                    return getNewslettersAsync()
                   })
-                  .then(setNewsletters)
                   .catch((error) => {
                     console.error('Failed to delete newsletter:', error)
                     alert('Failed to delete newsletter. Please try again.')
@@ -198,7 +166,11 @@ export default function NewslettersListPage() {
               </div>
             )
           })}
-          {filtered.length === 0 && <p className="meta">No newsletters match your filters.</p>}
+          {filtered.length === 0 && (
+            isLoadingNewsletters
+              ? <p className="meta">Loading newsletters…</p>
+              : <p className="meta">No newsletters match your filters.</p>
+          )}
         </div>
       </section>
     </div>

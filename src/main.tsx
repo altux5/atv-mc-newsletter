@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import './style.css'
 import { AuthProvider } from './contexts/AuthContext'
+import { NewslettersProvider } from './contexts/NewslettersContext'
 import RootLayout from './ui/RootLayout'
 import HomePage from './ui/pages/HomePage'
 import NewslettersPage from './ui/pages/NewslettersPage'
@@ -60,7 +61,9 @@ const container = document.getElementById('root')!
 createRoot(container).render(
   <React.StrictMode>
     <AuthProvider>
-      <RouterProvider router={router} />
+      <NewslettersProvider>
+        <RouterProvider router={router} />
+      </NewslettersProvider>
     </AuthProvider>
   </React.StrictMode>
 )
