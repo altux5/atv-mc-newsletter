@@ -47,19 +47,30 @@ export default function RootLayout() {
                 </NavLink>
               </>
             )}
+          </nav>
+          <div className="nav-auth">
             {isAuthenticated ? (
-              <>
-                {user?.email && <span className="meta auth-meta">{user.email}</span>}
-                <button onClick={handleLogout} className="auth-button logout-button">
-                  Logout
-                </button>
-              </>
+              <div className="user-chip">
+                <span className="user-avatar" aria-hidden="true">
+                  {(user?.email?.[0] ?? 'U').toUpperCase()}
+                </span>
+                <div className="user-info">
+                  {user?.email && (
+                    <span className="user-email" title={user.email}>
+                      {user.email}
+                    </span>
+                  )}
+                  <button onClick={handleLogout} className="auth-button logout-button">
+                    Logout
+                  </button>
+                </div>
+              </div>
             ) : (
               <Link to="/login" className="auth-button login-button">
                 Editor Login
               </Link>
             )}
-          </nav>
+          </div>
         </div>
       </header>
       <main className="container main-content">

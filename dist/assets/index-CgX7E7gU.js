@@ -17947,12 +17947,15 @@ function RootLayout() {
         isEditor2 && /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx(NavLink, { to: "/admin/articles", className: ({ isActive: isActive2 }) => isActive2 ? "active" : "", children: "Review Articles" }),
           /* @__PURE__ */ jsxRuntimeExports.jsx(NavLink, { to: "/newsletters/create", className: ({ isActive: isActive2 }) => isActive2 ? "active" : "", children: "Create Newsletter" })
-        ] }),
-        isAuthenticated ? /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
-          user?.email && /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "meta auth-meta", children: user.email }),
+        ] })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "nav-auth", children: isAuthenticated ? /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "user-chip", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "user-avatar", "aria-hidden": "true", children: (user?.email?.[0] ?? "U").toUpperCase() }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "user-info", children: [
+          user?.email && /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "user-email", title: user.email, children: user.email }),
           /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: handleLogout, className: "auth-button logout-button", children: "Logout" })
-        ] }) : /* @__PURE__ */ jsxRuntimeExports.jsx(Link$1, { to: "/login", className: "auth-button login-button", children: "Editor Login" })
-      ] })
+        ] })
+      ] }) : /* @__PURE__ */ jsxRuntimeExports.jsx(Link$1, { to: "/login", className: "auth-button login-button", children: "Editor Login" }) })
     ] }) }),
     /* @__PURE__ */ jsxRuntimeExports.jsx("main", { className: "container main-content", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Outlet, {}) }),
     /* @__PURE__ */ jsxRuntimeExports.jsx("footer", { className: "app-footer", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "container", children: [
