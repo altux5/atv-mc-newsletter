@@ -7,11 +7,12 @@ export default function RootLayout() {
   const { isAuthenticated, isEditor, logout, user } = useAuth()
   const navigate = useNavigate()
   const location = useLocation()
-  // The newsletter editor has its own floating toolbar; keep the site header
-  // static there so only one bar floats.
-  const isEditorRoute =
+  // Pages that have their own floating toolbar (newsletter editor, submit
+  // article). Keep the site header static there so only one bar floats.
+  const hideStickyHeader =
     location.pathname === '/newsletters/create' ||
-    location.pathname.startsWith('/newsletters/edit/')
+    location.pathname.startsWith('/newsletters/edit/') ||
+    location.pathname === '/submit-article'
 
   const handleLogout = () => {
     logout()
@@ -20,7 +21,7 @@ export default function RootLayout() {
 
   return (
     <div className="app-shell">
-      <header className={`app-header${isEditorRoute ? ' editor-route' : ''}`}>
+      <header className={`app-header${hideStickyHeader ? ' editor-route' : ''}`}>
         <div className="container header-inner">
           <Link to="/" className="brand">
             <img src={logoUrl} alt="Agent logo" />

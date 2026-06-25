@@ -17929,13 +17929,13 @@ function RootLayout() {
   const { isAuthenticated, isEditor: isEditor2, logout, user } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
-  const isEditorRoute = location.pathname === "/newsletters/create" || location.pathname.startsWith("/newsletters/edit/");
+  const hideStickyHeader = location.pathname === "/newsletters/create" || location.pathname.startsWith("/newsletters/edit/") || location.pathname === "/submit-article";
   const handleLogout = () => {
     logout();
     navigate("/");
   };
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "app-shell", children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsx("header", { className: `app-header${isEditorRoute ? " editor-route" : ""}`, children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "container header-inner", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx("header", { className: `app-header${hideStickyHeader ? " editor-route" : ""}`, children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "container header-inner", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsxs(Link$1, { to: "/", className: "brand", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: logoUrl, alt: "Agent logo" }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "ATV MC Newsletter Hub" })
@@ -144273,154 +144273,90 @@ function SubmitArticlePage() {
     setImageDataUrl("");
     setImagePreview(null);
   };
-  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "submit-article-page", children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "page-header", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { style: { color: "var(--brand)", margin: 0 }, children: "Submit Your Article" }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "meta", style: { marginTop: 8 }, children: "Share your content with our newsletter community" })
-    ] }),
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("form", { onSubmit: handleSubmit, className: "article-form", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx("section", { className: "form-section", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "form-group", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx("label", { htmlFor: "title", children: "Article Title *" }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(
-          "input",
-          {
-            id: "title",
-            type: "text",
-            value: title,
-            onChange: (e) => setTitle(e.target.value),
-            placeholder: "Enter your article title",
-            maxLength: 140,
-            required: true
-          }
-        )
-      ] }) }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "form-section", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { children: "Layout" }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "layout-toggle", children: ["portrait", "landscape"].map((layout) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
-          "label",
-          {
-            className: `layout-option ${selectedTemplate === layout ? "selected" : ""}`,
-            children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx(
-                "input",
-                {
-                  type: "radio",
-                  name: "template",
-                  value: layout,
-                  checked: selectedTemplate === layout,
-                  onChange: () => setSelectedTemplate(layout)
-                }
-              ),
-              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: `layout-glyph layout-glyph--${layout}`, "aria-hidden": "true" }),
-              /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "layout-name", children: [
-                layout === "portrait" ? "Portrait" : "Landscape",
-                /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "meta", children: layout === "portrait" ? " image left · W200×H600" : " image top · W600×H200" })
-              ] })
-            ]
-          },
-          layout
-        )) }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "meta", style: { marginTop: 10 }, children: "Portrait suits events, product news, kits and team news. Landscape suits design wins, success stories and market news." })
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("form", { onSubmit: handleSubmit, className: "nl-editor submit-article-page", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "nl-toolbar", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "nl-toolbar-left", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", onClick: () => navigate(-1), className: "button secondary", children: "← Back" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "nl-toolbar-title", children: "Submit Article" })
       ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "form-section", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { children: "Article *" }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: `article-layout article-layout--${selectedTemplate}`, children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "article-image-col", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("label", { children: "Article Image *" }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx(
-              "div",
-              {
-                className: "article-image-box",
-                style: { aspectRatio: aspectRatioCss(ARTICLE_CROP[selectedTemplate]) },
-                children: imagePreview ? /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
-                  /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: imagePreview, alt: "Article preview" }),
-                  /* @__PURE__ */ jsxRuntimeExports.jsx(
-                    "button",
-                    {
-                      type: "button",
-                      onClick: removeImage,
-                      className: "button small danger article-image-remove",
-                      children: "Remove"
-                    }
-                  )
-                ] }) : /* @__PURE__ */ jsxRuntimeExports.jsxs("label", { className: "article-image-drop", children: [
-                  /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "📷 Upload" }),
-                  /* @__PURE__ */ jsxRuntimeExports.jsx(
-                    "input",
-                    {
-                      type: "file",
-                      accept: "image/*",
-                      onChange: handleImageUpload,
-                      style: { display: "none" }
-                    }
-                  )
-                ] })
-              }
-            ),
-            /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "meta", style: { marginTop: 6 }, children: [
-              "Auto-cropped to ",
-              selectedTemplate === "portrait" ? "W200×H600" : "W600×H200",
-              ". Max 10MB."
-            ] })
-          ] }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "article-content-col", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "form-group", children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx("label", { htmlFor: "content", children: "Article Content *" }),
-              /* @__PURE__ */ jsxRuntimeExports.jsx(
-                "textarea",
-                {
-                  id: "content",
-                  value: content,
-                  onChange: (e) => setContent2(e.target.value),
-                  placeholder: "Write your article content...",
-                  rows: 8,
-                  required: true
-                }
-              ),
-              /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "meta", style: { marginTop: 4 }, children: [
-                content.trim().split(/\s+/).filter((w) => w).length,
-                " words"
-              ] })
-            ] }),
-            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "form-group", children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx("label", { htmlFor: "contact", children: "Contact Information *" }),
-              /* @__PURE__ */ jsxRuntimeExports.jsx(
-                "input",
-                {
-                  id: "contact",
-                  type: "text",
-                  value: contact,
-                  onChange: (e) => setContact(e.target.value),
-                  placeholder: "Contact: Your Name, Email, or Phone",
-                  maxLength: 200,
-                  required: true
-                }
-              )
-            ] })
-          ] })
-        ] })
-      ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "form-actions", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx(
-          "button",
-          {
-            type: "button",
-            onClick: () => navigate(-1),
-            className: "button secondary",
-            children: "Cancel"
-          }
-        ),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(
-          "button",
-          {
-            type: "submit",
-            disabled: isSubmitting,
-            className: "button primary",
-            children: isSubmitting ? "Submitting..." : "Submit Article"
-          }
-        )
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "nl-toolbar-right", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", onClick: () => navigate(-1), className: "button secondary", children: "Cancel" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "submit", disabled: isSubmitting, className: "button primary", children: isSubmitting ? "Submitting…" : "Submit Article" })
       ] })
-    ] })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "nl-hint", children: "Pick a layout, add your image, then write your article — this is how it will look." }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "nl-canvas submit-canvas", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "nl-article-edit", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "nl-article-topbar nl-article-topbar--two", children: ["portrait", "landscape"].map((layout) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
+        "button",
+        {
+          type: "button",
+          className: `nl-layout-box ${selectedTemplate === layout ? "selected" : ""}`,
+          onClick: () => setSelectedTemplate(layout),
+          "aria-pressed": selectedTemplate === layout,
+          children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: `layout-glyph layout-glyph--${layout}`, "aria-hidden": "true" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "nl-layout-name", children: layout === "portrait" ? "Portrait" : "Landscape" })
+          ]
+        },
+        layout
+      )) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: `article-layout article-layout--${selectedTemplate}`, children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "article-image-col", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(
+            "div",
+            {
+              className: "nl-img-frame",
+              style: { aspectRatio: aspectRatioCss(ARTICLE_CROP[selectedTemplate]) },
+              children: imagePreview ? /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: imagePreview, alt: "Article" }) : /* @__PURE__ */ jsxRuntimeExports.jsxs("label", { className: "article-image-drop", children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "📷 Upload" }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx("input", { type: "file", accept: "image/*", hidden: true, onChange: handleImageUpload })
+              ] })
+            }
+          ),
+          imagePreview && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "nl-img-controls", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("label", { className: "button small secondary nl-img-replace", children: [
+              "Replace",
+              /* @__PURE__ */ jsxRuntimeExports.jsx("input", { type: "file", accept: "image/*", hidden: true, onChange: handleImageUpload })
+            ] }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "button small danger", onClick: removeImage, children: "Remove" })
+          ] })
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "article-content-col", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(
+            "input",
+            {
+              className: "nl-article-title-input nl-article-title-block",
+              value: title,
+              onChange: (e) => setTitle(e.target.value),
+              placeholder: "Article title…",
+              maxLength: 140,
+              "aria-label": "Article title"
+            }
+          ),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(
+            "textarea",
+            {
+              className: "nl-content-input",
+              value: content,
+              onChange: (e) => setContent2(e.target.value),
+              placeholder: "Write your article (a few sentences)…",
+              rows: 8
+            }
+          ),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(
+            "input",
+            {
+              className: "nl-contact-input",
+              type: "text",
+              value: contact,
+              onChange: (e) => setContact(e.target.value),
+              placeholder: "Contact: Your name, email or phone",
+              maxLength: 200
+            }
+          )
+        ] })
+      ] })
+    ] }) })
   ] });
 }
 function AdminArticlesPage() {

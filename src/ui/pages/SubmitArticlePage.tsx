@@ -93,152 +93,106 @@ export default function SubmitArticlePage() {
   }
 
   return (
-    <div className="submit-article-page">
-      <div className="page-header">
-        <h1 style={{ color: 'var(--brand)', margin: 0 }}>Submit Your Article</h1>
-        <p className="meta" style={{ marginTop: 8 }}>
-          Share your content with our newsletter community
-        </p>
+    <form onSubmit={handleSubmit} className="nl-editor submit-article-page">
+      {/* Floating action toolbar (matches the newsletter editor) */}
+      <div className="nl-toolbar">
+        <div className="nl-toolbar-left">
+          <button type="button" onClick={() => navigate(-1)} className="button secondary">
+            ← Back
+          </button>
+          <span className="nl-toolbar-title">Submit Article</span>
+        </div>
+        <div className="nl-toolbar-right">
+          <button type="button" onClick={() => navigate(-1)} className="button secondary">
+            Cancel
+          </button>
+          <button type="submit" disabled={isSubmitting} className="button primary">
+            {isSubmitting ? 'Submitting…' : 'Submit Article'}
+          </button>
+        </div>
       </div>
 
-      <form onSubmit={handleSubmit} className="article-form">
-        {/* Article Title */}
-        <section className="form-section">
-          <div className="form-group">
-            <label htmlFor="title">Article Title *</label>
-            <input
-              id="title"
-              type="text"
-              value={title}
-              onChange={(e) => setTitle(e.target.value)}
-              placeholder="Enter your article title"
-              maxLength={140}
-              required
-            />
-          </div>
-        </section>
+      <p className="nl-hint">
+        Pick a layout, add your image, then write your article — this is how it will look.
+      </p>
 
-        {/* Layout */}
-        <section className="form-section">
-          <h2>Layout</h2>
-          <div className="layout-toggle">
+      <div className="nl-canvas submit-canvas">
+        <div className="nl-article-edit">
+          {/* Layout choice (same boxes as the newsletter editor) */}
+          <div className="nl-article-topbar nl-article-topbar--two">
             {(['portrait', 'landscape'] as ArticleTemplate[]).map((layout) => (
-              <label
+              <button
                 key={layout}
-                className={`layout-option ${selectedTemplate === layout ? 'selected' : ''}`}
+                type="button"
+                className={`nl-layout-box ${selectedTemplate === layout ? 'selected' : ''}`}
+                onClick={() => setSelectedTemplate(layout)}
+                aria-pressed={selectedTemplate === layout}
               >
-                <input
-                  type="radio"
-                  name="template"
-                  value={layout}
-                  checked={selectedTemplate === layout}
-                  onChange={() => setSelectedTemplate(layout)}
-                />
                 <span className={`layout-glyph layout-glyph--${layout}`} aria-hidden="true" />
-                <span className="layout-name">
+                <span className="nl-layout-name">
                   {layout === 'portrait' ? 'Portrait' : 'Landscape'}
-                  <span className="meta">
-                    {layout === 'portrait' ? ' image left · W200×H600' : ' image top · W600×H200'}
-                  </span>
                 </span>
-              </label>
+              </button>
             ))}
           </div>
-          <p className="meta" style={{ marginTop: 10 }}>
-            Portrait suits events, product news, kits and team news. Landscape suits design wins,
-            success stories and market news.
-          </p>
-        </section>
 
-        {/* Article: image + content laid out by the selected template */}
-        <section className="form-section">
-          <h2>Article *</h2>
           <div className={`article-layout article-layout--${selectedTemplate}`}>
             <div className="article-image-col">
-              <label>Article Image *</label>
               <div
-                className="article-image-box"
+                className="nl-img-frame"
                 style={{ aspectRatio: aspectRatioCss(ARTICLE_CROP[selectedTemplate]) }}
               >
                 {imagePreview ? (
-                  <>
-                    <img src={imagePreview} alt="Article preview" />
-                    <button
-                      type="button"
-                      onClick={removeImage}
-                      className="button small danger article-image-remove"
-                    >
-                      Remove
-                    </button>
-                  </>
+                  <img src={imagePreview} alt="Article" />
                 ) : (
                   <label className="article-image-drop">
                     <span>📷 Upload</span>
-                    <input
-                      type="file"
-                      accept="image/*"
-                      onChange={handleImageUpload}
-                      style={{ display: 'none' }}
-                    />
+                    <input type="file" accept="image/*" hidden onChange={handleImageUpload} />
                   </label>
                 )}
               </div>
-              <p className="meta" style={{ marginTop: 6 }}>
-                Auto-cropped to {selectedTemplate === 'portrait' ? 'W200×H600' : 'W600×H200'}. Max 10MB.
-              </p>
+              {imagePreview && (
+                <div className="nl-img-controls">
+                  <label className="button small secondary nl-img-replace">
+                    Replace
+                    <input type="file" accept="image/*" hidden onChange={handleImageUpload} />
+                  </label>
+                  <button type="button" className="button small danger" onClick={removeImage}>
+                    Remove
+                  </button>
+                </div>
+              )}
             </div>
 
             <div className="article-content-col">
-              <div className="form-group">
-                <label htmlFor="content">Article Content *</label>
-                <textarea
-                  id="content"
-                  value={content}
-                  onChange={(e) => setContent(e.target.value)}
-                  placeholder="Write your article content..."
-                  rows={8}
-                  required
-                />
-                <p className="meta" style={{ marginTop: 4 }}>
-                  {content.trim().split(/\s+/).filter((w) => w).length} words
-                </p>
-              </div>
-
-              <div className="form-group">
-                <label htmlFor="contact">Contact Information *</label>
-                <input
-                  id="contact"
-                  type="text"
-                  value={contact}
-                  onChange={(e) => setContact(e.target.value)}
-                  placeholder="Contact: Your Name, Email, or Phone"
-                  maxLength={200}
-                  required
-                />
-              </div>
+              <input
+                className="nl-article-title-input nl-article-title-block"
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
+                placeholder="Article title…"
+                maxLength={140}
+                aria-label="Article title"
+              />
+              <textarea
+                className="nl-content-input"
+                value={content}
+                onChange={(e) => setContent(e.target.value)}
+                placeholder="Write your article (a few sentences)…"
+                rows={8}
+              />
+              <input
+                className="nl-contact-input"
+                type="text"
+                value={contact}
+                onChange={(e) => setContact(e.target.value)}
+                placeholder="Contact: Your name, email or phone"
+                maxLength={200}
+              />
             </div>
           </div>
-        </section>
-
-        {/* Submit Button */}
-        <div className="form-actions">
-          <button
-            type="button"
-            onClick={() => navigate(-1)}
-            className="button secondary"
-          >
-            Cancel
-          </button>
-          <button
-            type="submit"
-            disabled={isSubmitting}
-            className="button primary"
-          >
-            {isSubmitting ? 'Submitting...' : 'Submit Article'}
-          </button>
         </div>
-      </form>
-    </div>
+      </div>
+    </form>
   )
 }
 

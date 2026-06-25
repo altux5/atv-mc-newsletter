@@ -2543,6 +2543,9 @@ a { color: var(--text); text-decoration: none; }
   gap: 10px;
   margin-bottom: 14px;
 }
+.nl-article-topbar--two {
+  grid-template-columns: 1fr 1fr;
+}
 .nl-layout-box {
   display: flex;
   flex-direction: column;
@@ -2633,6 +2636,13 @@ a { color: var(--text); text-decoration: none; }
 .article-layout--portrait .nl-img-frame {
   width: 300px;
 }
+/* Static image (submit page has no pan/zoom) simply fills the frame. */
+.nl-img-frame > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
 .nl-img-frame.has-image {
   cursor: grab;
   touch-action: none;
@@ -2692,6 +2702,7 @@ a { color: var(--text); text-decoration: none; }
   gap: 8px;
 }
 .nl-contact-input,
+.nl-content-input,
 .nl-article-button-row input {
   width: 100%;
   border: 1px solid #e5e7eb;
@@ -2702,10 +2713,18 @@ a { color: var(--text); text-decoration: none; }
   font-size: 14px;
   color: var(--text);
 }
+.nl-content-input {
+  display: block;
+  resize: vertical;
+  min-height: 160px;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
 .nl-contact-input {
   margin-top: 10px;
 }
 .nl-contact-input:focus,
+.nl-content-input:focus,
 .nl-article-button-row input:focus {
   outline: none;
   border-color: var(--brand);
