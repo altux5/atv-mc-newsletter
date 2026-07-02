@@ -1,6 +1,6 @@
 import { Router, type Request, type Response } from 'express'
 import { randomUUID } from 'crypto'
-import { query } from './db.js'
+import { pool, query } from './db.js'
 import {
   isMailerEnabled,
   sendNewsletterToSubscribers,
@@ -127,16 +127,34 @@ dbApi.post('/newsletters', async (req: Request, res: Response) => {
   const content = Array.isArray(b.content) ? b.content : []
   const tags: string[] = Array.isArray(b.tags) ? b.tags : []
   try {
-    const rows = await query<NewsletterRow>(
-      `INSERT INTO newsletters (id, slug, title, date, excerpt, content, tags, source_path, updated_at)
-       VALUES ($1, $2, $3, $4::date, $5, $6::jsonb, $7, $8, now())
-       ON CONFLICT (id) DO UPDATE SET
-         slug = EXCLUDED.slug, title = EXCLUDED.title, date = EXCLUDED.date,
-         excerpt = EXCLUDED.excerpt, content = EXCLUDED.content, tags = EXCLUDED.tags,
-         source_path = EXCLUDED.source_path, updated_at = now()
-       RETURNING ${NEWSLETTER_COLUMNS}`,
-      [id, b.slug, b.title, date, b.excerpt ?? null, JSON.stringify(content), tags, b.sourcePath ?? null],
-    )
+    // A newsletter is keyed by `id` (the draft id) but `slug` is also UNIQUE
+    // (it is the public route). Re-publishing the same title from a different
+    // draft yields the same slug with a new id, which would violate the slug
+    // constraint. Do the delete + upsert in one transaction so publishing simply
+    // replaces whatever newsletter currently occupies that slug.
+    const client = await pool.connect()
+    let rows: NewsletterRow[]
+    try {
+      await client.query('BEGIN')
+      await client.query('DELETE FROM newsletters WHERE slug = $1 AND id <> $2', [b.slug, id])
+      const result = await client.query<NewsletterRow>(
+        `INSERT INTO newsletters (id, slug, title, date, excerpt, content, tags, source_path, updated_at)
+         VALUES ($1, $2, $3, $4::date, $5, $6::jsonb, $7, $8, now())
+         ON CONFLICT (id) DO UPDATE SET
+           slug = EXCLUDED.slug, title = EXCLUDED.title, date = EXCLUDED.date,
+           excerpt = EXCLUDED.excerpt, content = EXCLUDED.content, tags = EXCLUDED.tags,
+           source_path = EXCLUDED.source_path, updated_at = now()
+         RETURNING ${NEWSLETTER_COLUMNS}`,
+        [id, b.slug, b.title, date, b.excerpt ?? null, JSON.stringify(content), tags, b.sourcePath ?? null],
+      )
+      await client.query('COMMIT')
+      rows = result.rows
+    } catch (txError) {
+      await client.query('ROLLBACK')
+      throw txError
+    } finally {
+      client.release()
+    }
     const newsletter = mapNewsletter(rows[0])
     // When the editor publishes (notifySubscribers=true), email the distribution
     // list from here — the publish request already reaches the server, whereas a
