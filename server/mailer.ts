@@ -37,6 +37,9 @@ export interface NewsletterEmail {
   slug: string
   excerpt: string
   date: string
+  // Full, pre-rendered newsletter body HTML (matches the website). When present
+  // the email shows the whole newsletter instead of the short teaser.
+  bodyHtml?: string
 }
 
 export interface Recipient {
@@ -114,6 +117,26 @@ function buildReadUrl(baseUrl: string, slug: string): string {
 }
 
 function renderHtml(newsletter: NewsletterEmail, readUrl: string, unsubscribeUrl: string): string {
+  // Full-content email: wrap the pre-rendered newsletter body with a light
+  // "view online" header and an unsubscribe footer.
+  if (newsletter.bodyHtml && newsletter.bodyHtml.trim()) {
+    return `<!DOCTYPE html>
+<html>
+  <body style="margin:0;padding:0;background:#f4f5f7;">
+    <div style="text-align:center;padding:12px 16px;font-family:Arial,Segoe UI,sans-serif;font-size:12px;color:#6b7280;">
+      <a href="${readUrl}" style="color:#0a6ed1;text-decoration:none;">View this newsletter online</a>
+    </div>
+    <div style="max-width:840px;margin:0 auto 16px;background:#ffffff;border:1px solid #e5e7eb;padding:28px 32px;">
+      ${newsletter.bodyHtml}
+    </div>
+    <div style="text-align:center;padding:0 16px 24px;font-family:Arial,Segoe UI,sans-serif;font-size:12px;line-height:1.6;color:#9ca3af;">
+      You are receiving this because you subscribed to the ATV MC Newsletter.<br/>
+      <a href="${unsubscribeUrl}" style="color:#6b7280;">Unsubscribe</a>
+    </div>
+  </body>
+</html>`
+  }
+
   const title = escapeHtml(newsletter.title)
   const excerpt = escapeHtml(newsletter.excerpt || 'A new edition of the ATV MC Newsletter is out.')
   const date = escapeHtml(newsletter.date)

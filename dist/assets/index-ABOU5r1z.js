@@ -128622,7 +128622,6 @@ async function parseJson(res) {
   return res.json();
 }
 const SUBSCRIBERS = "/api/subscribers";
-const NEWSLETTERS$1 = "/api/newsletters";
 async function subscribeApi(email) {
   const res = await apiFetch(SUBSCRIBERS, {
     method: "POST",
@@ -128630,13 +128629,6 @@ async function subscribeApi(email) {
     body: JSON.stringify({ email })
   });
   await parseJson(res);
-}
-async function sendNewsletterApi(id) {
-  const res = await apiFetch(`${NEWSLETTERS$1}/${encodeURIComponent(id)}/send`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" }
-  });
-  return parseJson(res);
 }
 function SubscribeForm() {
   const [email, setEmail] = reactExports$1.useState("");
@@ -129567,6 +129559,214 @@ function HomePage() {
     )
   ] });
 }
+const ARTICLE_CROP = {
+  portrait: { ratioW: 300, ratioH: 500, maxW: 600, maxH: 1e3 },
+  landscape: { ratioW: 1400, ratioH: 400, maxW: 1400, maxH: 400 }
+};
+const HEADER_CROP = { ratioW: 800, ratioH: 400, maxW: 1600, maxH: 800 };
+function aspectRatioCss(ratio) {
+  return `${ratio.ratioW} / ${ratio.ratioH}`;
+}
+function articleImageBg(ratio, imageAspect, zoom, posX, posY) {
+  const px = ((posX ?? 0.5) * 100).toFixed(2);
+  const py = ((posY ?? 0.5) * 100).toFixed(2);
+  const position = `${px}% ${py}%`;
+  if (!imageAspect || imageAspect <= 0) {
+    return { backgroundSize: "cover", backgroundPosition: position };
+  }
+  const frameAspect = ratio.ratioW / ratio.ratioH;
+  const z = zoom && zoom > 0 ? zoom : 1;
+  let w;
+  let h2;
+  if (imageAspect >= frameAspect) {
+    h2 = 100;
+    w = imageAspect / frameAspect * 100;
+  } else {
+    w = 100;
+    h2 = frameAspect / imageAspect * 100;
+  }
+  return {
+    backgroundSize: `${(w * z).toFixed(2)}% ${(h2 * z).toFixed(2)}%`,
+    backgroundPosition: position
+  };
+}
+function loadImage(src) {
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+    img.onload = () => resolve(img);
+    img.onerror = () => reject(new Error("Failed to load image"));
+    img.src = src;
+  });
+}
+function readFileAsDataUrl(file) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = (e) => resolve(e.target?.result);
+    reader.onerror = () => reject(new Error("Failed to read file"));
+    reader.readAsDataURL(file);
+  });
+}
+async function downscaleImage(file, maxDim = 1400, quality = 0.85) {
+  const original = await readFileAsDataUrl(file);
+  let img;
+  try {
+    img = await loadImage(original);
+  } catch {
+    return { dataUrl: original, aspect: 1 };
+  }
+  const aspect = img.width / img.height;
+  const scale = Math.min(1, maxDim / Math.max(img.width, img.height));
+  const outW = Math.max(1, Math.round(img.width * scale));
+  const outH = Math.max(1, Math.round(img.height * scale));
+  const canvas = document.createElement("canvas");
+  canvas.width = outW;
+  canvas.height = outH;
+  const ctx = canvas.getContext("2d");
+  if (!ctx) return { dataUrl: original, aspect };
+  ctx.drawImage(img, 0, 0, outW, outH);
+  return { dataUrl: canvas.toDataURL("image/jpeg", quality), aspect };
+}
+async function cropImageToRatio(file, ratio, quality = 0.82) {
+  const dataUrl = await readFileAsDataUrl(file);
+  let img;
+  try {
+    img = await loadImage(dataUrl);
+  } catch {
+    return dataUrl;
+  }
+  const targetAr = ratio.ratioW / ratio.ratioH;
+  let outW = ratio.maxW;
+  let outH = Math.round(outW / targetAr);
+  if (outH > ratio.maxH) {
+    outH = ratio.maxH;
+    outW = Math.round(outH * targetAr);
+  }
+  const sourceAr = img.width / img.height;
+  let sx = 0;
+  let sy = 0;
+  let sW = img.width;
+  let sH = img.height;
+  if (sourceAr > targetAr) {
+    sW = Math.round(img.height * targetAr);
+    sx = Math.round((img.width - sW) / 2);
+  } else {
+    sH = Math.round(img.width / targetAr);
+    sy = Math.round((img.height - sH) / 2);
+  }
+  const canvas = document.createElement("canvas");
+  canvas.width = outW;
+  canvas.height = outH;
+  const ctx = canvas.getContext("2d");
+  if (!ctx) return dataUrl;
+  ctx.drawImage(img, sx, sy, sW, sH, 0, 0, outW, outH);
+  return canvas.toDataURL("image/jpeg", quality);
+}
+const BRAND_GREEN = "#0A8276";
+const TITLE_GREEN = "#007D6F";
+const FONT_STACK = "Arial, 'Segoe UI', Tahoma, sans-serif";
+function escapeHtml(value) {
+  return String(value ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#39;");
+}
+function normalizeButtonUrl(url) {
+  const u = (url || "").trim();
+  if (!u) return "";
+  if (/^(https?:\/\/|mailto:|tel:|#|\/)/i.test(u)) return u;
+  return `https://${u}`;
+}
+function chapterArticles(chapter) {
+  if (Array.isArray(chapter.articles) && chapter.articles.length > 0) {
+    return chapter.articles;
+  }
+  if ((chapter.content ?? "").trim()) {
+    return [
+      {
+        id: `${chapter.id}_legacy`,
+        title: "",
+        content: chapter.content,
+        template: chapter.template ?? "portrait",
+        image: chapter.chapterImage || void 0,
+        contact: chapter.chapterContact ?? ""
+      }
+    ];
+  }
+  return [];
+}
+function renderArticleImage(article) {
+  if (!article.image) return "";
+  const ratio = ARTICLE_CROP[article.template];
+  const bg = articleImageBg(ratio, article.imageAspect, article.imageZoom, article.imagePosX, article.imagePosY);
+  const widthStyle = article.template === "portrait" ? "width:300px;" : "width:100%;";
+  return `<div style="${widthStyle}aspect-ratio:${ratio.ratioW} / ${ratio.ratioH};background-image:url('${article.image}');background-repeat:no-repeat;background-position:${bg.backgroundPosition};background-size:${bg.backgroundSize};border-radius:2px;"></div>`;
+}
+function renderArticleButton(article) {
+  const b = article.button;
+  if (!b || !b.label.trim() || !b.url.trim()) return "";
+  return `<p style="margin:16px 0 0;"><a href="${escapeHtml(normalizeButtonUrl(b.url))}" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:${BRAND_GREEN};color:#ffffff;font-weight:bold;font-size:10.5pt;padding:9px 20px;text-decoration:none;border-radius:2px;">${escapeHtml(b.label)}</a></p>`;
+}
+function renderArticle(article) {
+  const titleHtml = article.title ? `<p style="font-size:12pt;font-weight:bold;color:#222;margin:0 0 8px;">${escapeHtml(article.title)}</p>` : "";
+  const contactHtml = article.contact ? `<p style="margin:12px 0 0;font-style:italic;font-size:10pt;color:#555;"><strong>Contact:</strong> ${escapeHtml(article.contact)}</p>` : "";
+  const body = `<div style="border-radius:3px;">${titleHtml}<div style="font-size:10.5pt;line-height:1.65;color:#333;">${article.content || ""}</div>${contactHtml}${renderArticleButton(article)}</div>`;
+  if (article.image && article.template === "portrait") {
+    return `
+      <div style="display:flex;gap:22px;align-items:flex-start;">
+        <div style="flex:0 0 300px;">${renderArticleImage(article)}</div>
+        <div style="flex:1;min-width:0;">${body}</div>
+      </div>`;
+  }
+  if (article.image && article.template === "landscape") {
+    return `
+      <div>
+        <div style="margin:0 0 14px;">${renderArticleImage(article)}</div>
+        ${body}
+      </div>`;
+  }
+  return `<div>${body}</div>`;
+}
+function generateNewsletterBodyHtml(draft) {
+  const title = draft.title?.trim() || computeAutoTitle(draft.month, draft.year);
+  const subtitle = (draft.subtitle ?? DEFAULT_SUBTITLE).trim();
+  const headerSrc = draft.headerImage || defaultHeaderImage;
+  const navItems = draft.chapters.filter((c) => c.title?.trim()).map(
+    (chapter, index) => `<a href="#chapter_${index}" style="color:#ffffff;text-decoration:none;font-size:11.5pt;font-weight:bold;margin:0 10px 6px;display:inline-block;">${escapeHtml(
+      chapter.title
+    )}</a>`
+  ).join('<span style="color:#ffffff;opacity:0.55;font-size:11.5pt;">|</span>');
+  const chaptersHtml = draft.chapters.map((chapter, index) => {
+    const heading = chapter.title?.trim() ? `<a name="chapter_${index}" id="chapter_${index}"></a>
+           <h2 style="font-size:13.5pt;font-weight:bold;color:${BRAND_GREEN};margin:0 0 18px;border-bottom:1px solid #e5e7eb;padding-bottom:8px;">${escapeHtml(
+      chapter.title
+    )}</h2>` : `<a name="chapter_${index}" id="chapter_${index}"></a>`;
+    const articles = chapterArticles(chapter).map(renderArticle).join('<hr style="border:none;border-top:1px solid #f0f2f4;margin:24px 0;" />');
+    return `<section style="padding:30px 0;">${heading}${articles}</section>`;
+  }).join("");
+  const bodyHtml = `
+    <div style="max-width:800px;margin:0 auto;font-family:${FONT_STACK};color:#333;">
+      <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:20px;padding:0 0 18px;">
+        <div style="flex:1;min-width:0;">
+          <h1 style="font-size:21pt;font-weight:bold;color:${TITLE_GREEN};margin:0;line-height:1.2;">${escapeHtml(
+    title
+  )}</h1>
+          ${subtitle ? `<p style="font-size:12pt;font-weight:bold;color:${TITLE_GREEN};margin:8px 0 0;">${escapeHtml(subtitle)}</p>` : ""}
+        </div>
+        <img src="${logoUrl}" alt="Infineon" style="flex:0 0 auto;height:54px;width:auto;display:block;" />
+      </div>
+
+      ${`<div style="margin:0 0 20px;"><img src="${headerSrc}" alt="Newsletter header" style="width:100%;height:auto;display:block;" /></div>`}
+
+      ${draft.introContent ? `<div style="font-size:10.5pt;line-height:1.6;padding:0 0 12px;">${draft.introContent}</div>` : ""}
+
+      ${navItems ? `<div style="background:${BRAND_GREEN};padding:20px 18px;margin:8px 0 8px;text-align:center;">
+               <div>${navItems}</div>
+             </div>` : ""}
+
+      ${chaptersHtml}
+
+      ${(draft.footerContent ?? DEFAULT_FOOTER_HTML).trim() ? `<div style="margin:28px 0 0;padding:20px 0 0;border-top:1px solid #e5e7eb;text-align:center;font-size:10.5pt;line-height:1.6;color:#333;">${draft.footerContent ?? DEFAULT_FOOTER_HTML}</div>` : ""}
+    </div>
+  `;
+  return bodyHtml.trim();
+}
 const DRAFTS = "/api/drafts";
 const NEWSLETTERS = "/api/newsletters";
 async function getPublishedNewslettersApi() {
@@ -129597,14 +129797,19 @@ async function deleteDraftApi(id) {
     throw new Error(`Failed to delete draft (${res.status})`);
   }
 }
+function absolutizeAssetUrls(html2) {
+  const origin = window.location.origin;
+  return html2.replace(/src="\/(?!\/)/g, `src="${origin}/`).replace(/url\('\/(?!\/)/g, `url('${origin}/`);
+}
 async function publishNewsletterApi(draft) {
   const published = { ...draft, status: "published" };
   await saveDraftApi(published);
   const summary = draftToNewsletter(published);
+  const emailHtml = absolutizeAssetUrls(generateNewsletterBodyHtml(published));
   const res = await apiFetch(NEWSLETTERS, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(summary)
+    body: JSON.stringify({ ...summary, notifySubscribers: true, emailHtml })
   });
   return parseJson(res);
 }
@@ -130188,214 +130393,6 @@ function NewslettersPage() {
       ] })
     ] })
   ] });
-}
-const ARTICLE_CROP = {
-  portrait: { ratioW: 300, ratioH: 500, maxW: 600, maxH: 1e3 },
-  landscape: { ratioW: 1400, ratioH: 400, maxW: 1400, maxH: 400 }
-};
-const HEADER_CROP = { ratioW: 800, ratioH: 400, maxW: 1600, maxH: 800 };
-function aspectRatioCss(ratio) {
-  return `${ratio.ratioW} / ${ratio.ratioH}`;
-}
-function articleImageBg(ratio, imageAspect, zoom, posX, posY) {
-  const px = ((posX ?? 0.5) * 100).toFixed(2);
-  const py = ((posY ?? 0.5) * 100).toFixed(2);
-  const position = `${px}% ${py}%`;
-  if (!imageAspect || imageAspect <= 0) {
-    return { backgroundSize: "cover", backgroundPosition: position };
-  }
-  const frameAspect = ratio.ratioW / ratio.ratioH;
-  const z = zoom && zoom > 0 ? zoom : 1;
-  let w;
-  let h2;
-  if (imageAspect >= frameAspect) {
-    h2 = 100;
-    w = imageAspect / frameAspect * 100;
-  } else {
-    w = 100;
-    h2 = frameAspect / imageAspect * 100;
-  }
-  return {
-    backgroundSize: `${(w * z).toFixed(2)}% ${(h2 * z).toFixed(2)}%`,
-    backgroundPosition: position
-  };
-}
-function loadImage(src) {
-  return new Promise((resolve, reject) => {
-    const img = new Image();
-    img.onload = () => resolve(img);
-    img.onerror = () => reject(new Error("Failed to load image"));
-    img.src = src;
-  });
-}
-function readFileAsDataUrl(file) {
-  return new Promise((resolve, reject) => {
-    const reader = new FileReader();
-    reader.onload = (e) => resolve(e.target?.result);
-    reader.onerror = () => reject(new Error("Failed to read file"));
-    reader.readAsDataURL(file);
-  });
-}
-async function downscaleImage(file, maxDim = 1400, quality = 0.85) {
-  const original = await readFileAsDataUrl(file);
-  let img;
-  try {
-    img = await loadImage(original);
-  } catch {
-    return { dataUrl: original, aspect: 1 };
-  }
-  const aspect = img.width / img.height;
-  const scale = Math.min(1, maxDim / Math.max(img.width, img.height));
-  const outW = Math.max(1, Math.round(img.width * scale));
-  const outH = Math.max(1, Math.round(img.height * scale));
-  const canvas = document.createElement("canvas");
-  canvas.width = outW;
-  canvas.height = outH;
-  const ctx = canvas.getContext("2d");
-  if (!ctx) return { dataUrl: original, aspect };
-  ctx.drawImage(img, 0, 0, outW, outH);
-  return { dataUrl: canvas.toDataURL("image/jpeg", quality), aspect };
-}
-async function cropImageToRatio(file, ratio, quality = 0.82) {
-  const dataUrl = await readFileAsDataUrl(file);
-  let img;
-  try {
-    img = await loadImage(dataUrl);
-  } catch {
-    return dataUrl;
-  }
-  const targetAr = ratio.ratioW / ratio.ratioH;
-  let outW = ratio.maxW;
-  let outH = Math.round(outW / targetAr);
-  if (outH > ratio.maxH) {
-    outH = ratio.maxH;
-    outW = Math.round(outH * targetAr);
-  }
-  const sourceAr = img.width / img.height;
-  let sx = 0;
-  let sy = 0;
-  let sW = img.width;
-  let sH = img.height;
-  if (sourceAr > targetAr) {
-    sW = Math.round(img.height * targetAr);
-    sx = Math.round((img.width - sW) / 2);
-  } else {
-    sH = Math.round(img.width / targetAr);
-    sy = Math.round((img.height - sH) / 2);
-  }
-  const canvas = document.createElement("canvas");
-  canvas.width = outW;
-  canvas.height = outH;
-  const ctx = canvas.getContext("2d");
-  if (!ctx) return dataUrl;
-  ctx.drawImage(img, sx, sy, sW, sH, 0, 0, outW, outH);
-  return canvas.toDataURL("image/jpeg", quality);
-}
-const BRAND_GREEN = "#0A8276";
-const TITLE_GREEN = "#007D6F";
-const FONT_STACK = "Arial, 'Segoe UI', Tahoma, sans-serif";
-function escapeHtml(value) {
-  return String(value ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#39;");
-}
-function normalizeButtonUrl(url) {
-  const u = (url || "").trim();
-  if (!u) return "";
-  if (/^(https?:\/\/|mailto:|tel:|#|\/)/i.test(u)) return u;
-  return `https://${u}`;
-}
-function chapterArticles(chapter) {
-  if (Array.isArray(chapter.articles) && chapter.articles.length > 0) {
-    return chapter.articles;
-  }
-  if ((chapter.content ?? "").trim()) {
-    return [
-      {
-        id: `${chapter.id}_legacy`,
-        title: "",
-        content: chapter.content,
-        template: chapter.template ?? "portrait",
-        image: chapter.chapterImage || void 0,
-        contact: chapter.chapterContact ?? ""
-      }
-    ];
-  }
-  return [];
-}
-function renderArticleImage(article) {
-  if (!article.image) return "";
-  const ratio = ARTICLE_CROP[article.template];
-  const bg = articleImageBg(ratio, article.imageAspect, article.imageZoom, article.imagePosX, article.imagePosY);
-  const widthStyle = article.template === "portrait" ? "width:300px;" : "width:100%;";
-  return `<div style="${widthStyle}aspect-ratio:${ratio.ratioW} / ${ratio.ratioH};background-image:url('${article.image}');background-repeat:no-repeat;background-position:${bg.backgroundPosition};background-size:${bg.backgroundSize};border-radius:2px;"></div>`;
-}
-function renderArticleButton(article) {
-  const b = article.button;
-  if (!b || !b.label.trim() || !b.url.trim()) return "";
-  return `<p style="margin:16px 0 0;"><a href="${escapeHtml(normalizeButtonUrl(b.url))}" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:${BRAND_GREEN};color:#ffffff;font-weight:bold;font-size:10.5pt;padding:9px 20px;text-decoration:none;border-radius:2px;">${escapeHtml(b.label)}</a></p>`;
-}
-function renderArticle(article) {
-  const titleHtml = article.title ? `<p style="font-size:12pt;font-weight:bold;color:#222;margin:0 0 8px;">${escapeHtml(article.title)}</p>` : "";
-  const contactHtml = article.contact ? `<p style="margin:12px 0 0;font-style:italic;font-size:10pt;color:#555;"><strong>Contact:</strong> ${escapeHtml(article.contact)}</p>` : "";
-  const body = `<div style="border-radius:3px;">${titleHtml}<div style="font-size:10.5pt;line-height:1.65;color:#333;">${article.content || ""}</div>${contactHtml}${renderArticleButton(article)}</div>`;
-  if (article.image && article.template === "portrait") {
-    return `
-      <div style="display:flex;gap:22px;align-items:flex-start;">
-        <div style="flex:0 0 300px;">${renderArticleImage(article)}</div>
-        <div style="flex:1;min-width:0;">${body}</div>
-      </div>`;
-  }
-  if (article.image && article.template === "landscape") {
-    return `
-      <div>
-        <div style="margin:0 0 14px;">${renderArticleImage(article)}</div>
-        ${body}
-      </div>`;
-  }
-  return `<div>${body}</div>`;
-}
-function generateNewsletterBodyHtml(draft) {
-  const title = draft.title?.trim() || computeAutoTitle(draft.month, draft.year);
-  const subtitle = (draft.subtitle ?? DEFAULT_SUBTITLE).trim();
-  const headerSrc = draft.headerImage || defaultHeaderImage;
-  const navItems = draft.chapters.filter((c) => c.title?.trim()).map(
-    (chapter, index) => `<a href="#chapter_${index}" style="color:#ffffff;text-decoration:none;font-size:11.5pt;font-weight:bold;margin:0 10px 6px;display:inline-block;">${escapeHtml(
-      chapter.title
-    )}</a>`
-  ).join('<span style="color:#ffffff;opacity:0.55;font-size:11.5pt;">|</span>');
-  const chaptersHtml = draft.chapters.map((chapter, index) => {
-    const heading = chapter.title?.trim() ? `<a name="chapter_${index}" id="chapter_${index}"></a>
-           <h2 style="font-size:13.5pt;font-weight:bold;color:${BRAND_GREEN};margin:0 0 18px;border-bottom:1px solid #e5e7eb;padding-bottom:8px;">${escapeHtml(
-      chapter.title
-    )}</h2>` : `<a name="chapter_${index}" id="chapter_${index}"></a>`;
-    const articles = chapterArticles(chapter).map(renderArticle).join('<hr style="border:none;border-top:1px solid #f0f2f4;margin:24px 0;" />');
-    return `<section style="padding:30px 0;">${heading}${articles}</section>`;
-  }).join("");
-  const bodyHtml = `
-    <div style="max-width:800px;margin:0 auto;font-family:${FONT_STACK};color:#333;">
-      <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:20px;padding:0 0 18px;">
-        <div style="flex:1;min-width:0;">
-          <h1 style="font-size:21pt;font-weight:bold;color:${TITLE_GREEN};margin:0;line-height:1.2;">${escapeHtml(
-    title
-  )}</h1>
-          ${subtitle ? `<p style="font-size:12pt;font-weight:bold;color:${TITLE_GREEN};margin:8px 0 0;">${escapeHtml(subtitle)}</p>` : ""}
-        </div>
-        <img src="${logoUrl}" alt="Infineon" style="flex:0 0 auto;height:54px;width:auto;display:block;" />
-      </div>
-
-      ${`<div style="margin:0 0 20px;"><img src="${headerSrc}" alt="Newsletter header" style="width:100%;height:auto;display:block;" /></div>`}
-
-      ${draft.introContent ? `<div style="font-size:10.5pt;line-height:1.6;padding:0 0 12px;">${draft.introContent}</div>` : ""}
-
-      ${navItems ? `<div style="background:${BRAND_GREEN};padding:20px 18px;margin:8px 0 8px;text-align:center;">
-               <div>${navItems}</div>
-             </div>` : ""}
-
-      ${chaptersHtml}
-
-      ${(draft.footerContent ?? DEFAULT_FOOTER_HTML).trim() ? `<div style="margin:28px 0 0;padding:20px 0 0;border-top:1px solid #e5e7eb;text-align:center;font-size:10.5pt;line-height:1.6;color:#333;">${draft.footerContent ?? DEFAULT_FOOTER_HTML}</div>` : ""}
-    </div>
-  `;
-  return bodyHtml.trim();
 }
 function NewsletterDetailPage() {
   const { slug } = useParams();
@@ -154368,26 +154365,23 @@ function CreateNewsletterPage() {
     );
     if (confirmed) {
       const draftToPublish = { ...draft, status: "published" };
-      void publishNewsletterApi(draftToPublish).then(async (published) => {
+      void publishNewsletterApi(draftToPublish).then((published) => {
         setDraft(draftToPublish);
         window.dispatchEvent(new Event("newsletterPublished"));
+        const notify = published.notify;
         let mailNote = "";
-        try {
-          const result = await sendNewsletterApi(published.id);
-          if (result.recipients === 0) {
+        if (notify) {
+          if (notify.recipients === 0) {
             mailNote = "\n\nNo subscribers yet, so no emails were sent.";
-          } else if (result.failed > 0) {
+          } else if (notify.failed > 0) {
             mailNote = `
 
-Emailed ${result.sent} of ${result.recipients} subscribers (${result.failed} failed).`;
+Emailed ${notify.sent} of ${notify.recipients} subscribers (${notify.failed} failed).`;
           } else {
             mailNote = `
 
-Emailed ${result.sent} subscriber${result.sent === 1 ? "" : "s"}.`;
+Emailed ${notify.sent} subscriber${notify.sent === 1 ? "" : "s"}.`;
           }
-        } catch (mailError) {
-          console.error("Failed to email subscribers:", mailError);
-          mailNote = "\n\nThe newsletter was published, but subscriber emails could not be sent.";
         }
         alert(`Newsletter published successfully!${mailNote}`);
         navigate("/newsletters");

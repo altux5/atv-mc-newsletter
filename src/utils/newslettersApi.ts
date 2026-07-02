@@ -1,7 +1,9 @@
 import type { Newsletter } from '../data/newsletters'
 import type { NewsletterDraft } from '../types/newsletter-creation'
+import type { SendResult } from './subscribersApi'
 import { apiFetch, parseJson } from './apiClient'
 import { draftToNewsletter } from './localNewsletters'
+import { generateNewsletterBodyHtml } from './generateNewsletterHtml'
 
 // API client for newsletter drafts + published newsletters, backed by the
 // database (/api/drafts and /api/newsletters). This mirrors the old
@@ -61,18 +63,42 @@ export async function deleteDraftApi(id: string): Promise<void> {
  * Publish a draft: mark it published (drafts table) AND upsert a Newsletter
  * summary row into the `newsletters` table so it appears in the public list.
  * The full editor body is reconstructed from the draft on the detail page.
+ *
+ * `notifySubscribers` tells the server to email the distribution list as part of
+ * this same (gateway-reachable) request; the returned `notify` summary reports
+ * how many subscribers were emailed. `notify` is null when mail is not
+ * configured on the server.
  */
-export async function publishNewsletterApi(draft: NewsletterDraft): Promise<Newsletter> {
+export interface PublishResult extends Newsletter {
+  notify?: SendResult | null
+}
+
+/**
+ * Rewrite root-relative asset URLs (e.g. the header image and logo bundled by
+ * Vite as `/assets/...`) to absolute URLs so they load inside email clients,
+ * which cannot resolve site-relative paths. Data URLs and already-absolute URLs
+ * are left untouched.
+ */
+function absolutizeAssetUrls(html: string): string {
+  const origin = window.location.origin
+  return html
+    .replace(/src="\/(?!\/)/g, `src="${origin}/`)
+    .replace(/url\('\/(?!\/)/g, `url('${origin}/`)
+}
+
+export async function publishNewsletterApi(draft: NewsletterDraft): Promise<PublishResult> {
   const published: NewsletterDraft = { ...draft, status: 'published' }
   await saveDraftApi(published)
 
   const summary = draftToNewsletter(published)
+  // Render the full newsletter exactly as the website shows it, then email that.
+  const emailHtml = absolutizeAssetUrls(generateNewsletterBodyHtml(published))
   const res = await apiFetch(NEWSLETTERS, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(summary),
+    body: JSON.stringify({ ...summary, notifySubscribers: true, emailHtml }),
   })
-  return parseJson<Newsletter>(res)
+  return parseJson<PublishResult>(res)
 }
 
 /**

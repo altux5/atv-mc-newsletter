@@ -14,7 +14,6 @@ import {
   computeAutoTitle,
 } from '../../utils/localNewsletters'
 import { saveDraftApi, getDraftByIdApi, getAllDraftsApi, publishNewsletterApi, deleteDraftApi } from '../../utils/newslettersApi'
-import { sendNewsletterApi } from '../../utils/subscribersApi'
 import RichTextEditor from '../components/RichTextEditor'
 import { generateNewsletterBodyHtml, normalizeButtonUrl } from '../../utils/generateNewsletterHtml'
 import type { SubmittedArticle } from '../../types/article'
@@ -385,26 +384,22 @@ export default function CreateNewsletterPage() {
     if (confirmed) {
       const draftToPublish = { ...draft, status: 'published' as const }
       void publishNewsletterApi(draftToPublish)
-        .then(async (published) => {
+        .then((published) => {
           setDraft(draftToPublish)
           // Dispatch custom event to notify other components
           window.dispatchEvent(new Event('newsletterPublished'))
-          // Email the new edition to the distribution list. A failure here (or
-          // mail being disabled on the server) must not undo the publish, so it
-          // is reported separately and never rethrown.
+          // The server emails subscribers as part of publishing and returns a
+          // summary (null when mail is not configured on the server).
+          const notify = published.notify
           let mailNote = ''
-          try {
-            const result = await sendNewsletterApi(published.id)
-            if (result.recipients === 0) {
+          if (notify) {
+            if (notify.recipients === 0) {
               mailNote = '\n\nNo subscribers yet, so no emails were sent.'
-            } else if (result.failed > 0) {
-              mailNote = `\n\nEmailed ${result.sent} of ${result.recipients} subscribers (${result.failed} failed).`
+            } else if (notify.failed > 0) {
+              mailNote = `\n\nEmailed ${notify.sent} of ${notify.recipients} subscribers (${notify.failed} failed).`
             } else {
-              mailNote = `\n\nEmailed ${result.sent} subscriber${result.sent === 1 ? '' : 's'}.`
+              mailNote = `\n\nEmailed ${notify.sent} subscriber${notify.sent === 1 ? '' : 's'}.`
             }
-          } catch (mailError) {
-            console.error('Failed to email subscribers:', mailError)
-            mailNote = '\n\nThe newsletter was published, but subscriber emails could not be sent.'
           }
           alert(`Newsletter published successfully!${mailNote}`)
           navigate('/newsletters')

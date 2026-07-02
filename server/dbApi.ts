@@ -6,6 +6,7 @@ import {
   sendNewsletterToSubscribers,
   type NewsletterEmail,
   type Recipient,
+  type SendResult,
 } from './mailer.js'
 
 // REST API backed by PostgreSQL. Mounted under /api by the server entry point.
@@ -136,7 +137,27 @@ dbApi.post('/newsletters', async (req: Request, res: Response) => {
        RETURNING ${NEWSLETTER_COLUMNS}`,
       [id, b.slug, b.title, date, b.excerpt ?? null, JSON.stringify(content), tags, b.sourcePath ?? null],
     )
-    res.status(201).json(mapNewsletter(rows[0]))
+    const newsletter = mapNewsletter(rows[0])
+    // When the editor publishes (notifySubscribers=true), email the distribution
+    // list from here — the publish request already reaches the server, whereas a
+    // separate /send request is not always exposed to the browser by the gateway.
+    // The .htm migration and plain edits omit the flag, so they never send.
+    let notify: NotifyResult | null = null
+    if (b.notifySubscribers === true) {
+      try {
+        notify = await dispatchNewsletterToSubscribers({
+          title: rows[0].title,
+          slug: rows[0].slug,
+          excerpt: rows[0].excerpt ?? '',
+          date: rows[0].date,
+          bodyHtml: typeof b.emailHtml === 'string' ? b.emailHtml : undefined,
+        })
+      } catch (mailError) {
+        console.error('[db-api] notify subscribers failed:', mailError)
+        notify = { sent: 0, failed: 0, recipients: 0, errors: ['Email send failed'] }
+      }
+    }
+    res.status(201).json({ ...newsletter, notify })
   } catch (error) {
     fail(res, 'POST /newsletters', error)
   }
@@ -387,8 +408,33 @@ interface SendRecipientRow {
   unsubscribe_token: string
 }
 
-// Editor: email a published newsletter to every active subscriber. Returns a
-// per-run summary; individual failures do not fail the request.
+export interface NotifyResult extends SendResult {
+  recipients: number
+}
+
+// Send a newsletter to every active subscriber. Returns null when the mailer is
+// not configured; otherwise a per-run summary (recipients may be 0). Shared by
+// the publish flow and the manual /send route below.
+async function dispatchNewsletterToSubscribers(
+  newsletter: NewsletterEmail,
+): Promise<NotifyResult | null> {
+  if (!isMailerEnabled()) return null
+  const recipientRows = await query<SendRecipientRow>(
+    `SELECT email, unsubscribe_token FROM subscribers WHERE active = true`,
+  )
+  if (recipientRows.length === 0) return { sent: 0, failed: 0, errors: [], recipients: 0 }
+  const recipients: Recipient[] = recipientRows.map((r) => ({
+    email: r.email,
+    unsubscribeToken: r.unsubscribe_token,
+  }))
+  const result = await sendNewsletterToSubscribers(newsletter, recipients)
+  return { ...result, recipients: recipients.length }
+}
+
+// Editor: email a published newsletter to every active subscriber. Kept for
+// manual/administrative re-sends. The normal publish flow does NOT rely on this
+// route (the gateway does not always expose this extra path to the browser);
+// publishing triggers the send server-side via POST /newsletters.
 dbApi.post('/newsletters/:id/send', async (req: Request, res: Response) => {
   if (!isMailerEnabled()) {
     return res.status(503).json({ error: 'Email distribution is not configured on this server.' })
@@ -401,26 +447,13 @@ dbApi.post('/newsletters/:id/send', async (req: Request, res: Response) => {
     )
     if (newsletterRows.length === 0) return res.status(404).json({ error: 'Newsletter not found' })
 
-    const recipientRows = await query<SendRecipientRow>(
-      `SELECT email, unsubscribe_token FROM subscribers WHERE active = true`,
-    )
-    if (recipientRows.length === 0) {
-      return res.json({ sent: 0, failed: 0, recipients: 0, errors: [] })
-    }
-
-    const newsletter: NewsletterEmail = {
+    const result = await dispatchNewsletterToSubscribers({
       title: newsletterRows[0].title,
       slug: newsletterRows[0].slug,
       excerpt: newsletterRows[0].excerpt ?? '',
       date: newsletterRows[0].date,
-    }
-    const recipients: Recipient[] = recipientRows.map((r) => ({
-      email: r.email,
-      unsubscribeToken: r.unsubscribe_token,
-    }))
-
-    const result = await sendNewsletterToSubscribers(newsletter, recipients)
-    res.json({ ...result, recipients: recipients.length })
+    })
+    res.json(result ?? { sent: 0, failed: 0, recipients: 0, errors: [] })
   } catch (error) {
     fail(res, 'POST /newsletters/:id/send', error)
   }
