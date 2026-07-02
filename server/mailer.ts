@@ -197,6 +197,50 @@ function renderText(newsletter: NewsletterEmail, readUrl: string, unsubscribeUrl
   ].join('\n')
 }
 
+interface InlineAttachment {
+  filename: string
+  content: Buffer
+  cid: string
+  contentType: string
+}
+
+// Matches a base64 data URI, e.g. data:image/png;base64,AAAA...
+const DATA_URI_RE = /data:([a-zA-Z0-9.+/-]+);base64,([A-Za-z0-9+/=]+)/g
+
+/**
+ * Replace inline base64 image data URIs in the body with `cid:` references and
+ * return the matching attachments. Identical images are embedded once. Returns
+ * the body unchanged with no attachments when there is nothing to embed.
+ */
+function embedDataUrisAsCid(html: string | undefined): {
+  html: string | undefined
+  attachments: InlineAttachment[]
+} {
+  if (!html) return { html, attachments: [] }
+  const attachments: InlineAttachment[] = []
+  const cidByDataUri = new Map<string, string>()
+  let index = 0
+
+  const out = html.replace(DATA_URI_RE, (match, mime: string, base64: string) => {
+    let cid = cidByDataUri.get(match)
+    if (!cid) {
+      index += 1
+      const ext = (mime.split('/')[1] || 'img').replace(/[^a-z0-9]/gi, '') || 'img'
+      cid = `nl-img-${index}@newsletter`
+      cidByDataUri.set(match, cid)
+      attachments.push({
+        filename: `image-${index}.${ext}`,
+        content: Buffer.from(base64, 'base64'),
+        cid,
+        contentType: mime,
+      })
+    }
+    return `cid:${cid}`
+  })
+
+  return { html: out, attachments }
+}
+
 /**
  * Send a "new edition" email to every recipient. Each message carries a
  * personalised unsubscribe link. Failures are collected per-recipient so one bad
@@ -214,6 +258,12 @@ export async function sendNewsletterToSubscribers(
   const readUrl = buildReadUrl(config.baseUrl, newsletter.slug)
   const subject = `New: ${newsletter.title}`
 
+  // Embed inline (base64 data URL) images once as CID attachments so they render
+  // in clients that block data URIs (Gmail, Outlook). The resulting body +
+  // attachments are identical for every recipient, so compute them a single time.
+  const embedded = embedDataUrisAsCid(newsletter.bodyHtml)
+  const emailNewsletter: NewsletterEmail = { ...newsletter, bodyHtml: embedded.html }
+
   for (const recipient of recipients) {
     const unsubscribeUrl = buildUnsubscribeUrl(config.baseUrl, recipient)
     try {
@@ -221,8 +271,9 @@ export async function sendNewsletterToSubscribers(
         from: config.from,
         to: recipient.email,
         subject,
-        text: renderText(newsletter, readUrl, unsubscribeUrl),
-        html: renderHtml(newsletter, readUrl, unsubscribeUrl),
+        text: renderText(emailNewsletter, readUrl, unsubscribeUrl),
+        html: renderHtml(emailNewsletter, readUrl, unsubscribeUrl),
+        attachments: embedded.attachments,
         headers: {
           'List-Unsubscribe': `<${unsubscribeUrl}>`,
         },

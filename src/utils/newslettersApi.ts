@@ -3,7 +3,7 @@ import type { NewsletterDraft } from '../types/newsletter-creation'
 import type { SendResult } from './subscribersApi'
 import { apiFetch, parseJson } from './apiClient'
 import { draftToNewsletter } from './localNewsletters'
-import { generateNewsletterBodyHtml } from './generateNewsletterHtml'
+import { generateNewsletterEmailHtml } from './generateNewsletterEmailHtml'
 
 // API client for newsletter drafts + published newsletters, backed by the
 // database (/api/drafts and /api/newsletters). This mirrors the old
@@ -91,8 +91,11 @@ export async function publishNewsletterApi(draft: NewsletterDraft): Promise<Publ
   await saveDraftApi(published)
 
   const summary = draftToNewsletter(published)
-  // Render the full newsletter exactly as the website shows it, then email that.
-  const emailHtml = absolutizeAssetUrls(generateNewsletterBodyHtml(published))
+  // Render the full newsletter with an email-safe (table-based) layout, then
+  // make bundled asset URLs (e.g. the default header image) absolute so email
+  // clients can load them. Article/embedded data-URL images are left as-is and
+  // embedded as CID attachments by the server.
+  const emailHtml = absolutizeAssetUrls(generateNewsletterEmailHtml(published))
   const res = await apiFetch(NEWSLETTERS, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
