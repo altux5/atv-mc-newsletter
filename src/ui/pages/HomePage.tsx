@@ -285,7 +285,7 @@ export default function HomePage() {
             
             </h1>
             <p style={{ textAlign: 'left', width: '100%', maxWidth: 'none', fontSize: '18px'  }}>
-            <br /> Your secure, 1.0.0 always-current dashboard for everything Automotive Microcontrollers. Learn more about our products and solutions. Each month we update six focused sections, no scrolling through threads, no hunting for links.
+            <br /> Your secure, always-current dashboard for everything Automotive Microcontrollers. Learn more about our products and solutions. Each month we update six focused sections, no scrolling through threads, no hunting for links.
             <br />
             <br />
             </p>

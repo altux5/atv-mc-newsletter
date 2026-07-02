@@ -62,6 +62,8 @@ export interface NewsletterDraft {
   status: 'draft' | 'published'
   createdAt: string
   updatedAt: string
+  autoSaved?: boolean // true when the most recent save was an automatic autosave
+  lastEditedBy?: string // email of the editor who last saved this draft
 }
 
 export interface CreateNewsletterFormData {

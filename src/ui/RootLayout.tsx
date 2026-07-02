@@ -32,7 +32,18 @@ export default function RootLayout() {
             <NavLink to="/" end className={({ isActive }) => (isActive ? 'active' : '')}>
               Home
             </NavLink>
-            <NavLink to="/newsletters" className={({ isActive }) => (isActive ? 'active' : '')}>
+            <NavLink
+              to="/newsletters"
+              className={() => {
+                const p = location.pathname
+                const isNewslettersTab =
+                  p === '/newsletters' ||
+                  (p.startsWith('/newsletters/') &&
+                    p !== '/newsletters/create' &&
+                    !p.startsWith('/newsletters/edit/'))
+                return isNewslettersTab ? 'active' : ''
+              }}
+            >
               Newsletters
             </NavLink>
             <NavLink to="/submit-article" className={({ isActive }) => (isActive ? 'active' : '')}>

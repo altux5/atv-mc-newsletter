@@ -13,7 +13,7 @@ import {
   normalizeDraft,
   computeAutoTitle,
 } from '../../utils/localNewsletters'
-import { saveDraftApi, getDraftByIdApi, getAllDraftsApi, publishNewsletterApi } from '../../utils/newslettersApi'
+import { saveDraftApi, getDraftByIdApi, getAllDraftsApi, publishNewsletterApi, deleteDraftApi } from '../../utils/newslettersApi'
 import { sendNewsletterApi } from '../../utils/subscribersApi'
 import RichTextEditor from '../components/RichTextEditor'
 import { generateNewsletterBodyHtml, normalizeButtonUrl } from '../../utils/generateNewsletterHtml'
@@ -23,6 +23,8 @@ import { cropImageToRatio, ARTICLE_CROP, HEADER_CROP, aspectRatioCss, articleIma
 import { CANONICAL_CHAPTER_TITLES, isCanonicalChapterTitle } from '../../constants/chapters'
 import defaultHeaderImage from '../../photos/newsletter image.png'
 import logoUrl from '../../logo/Agent-logo.svg'
+import { useAuth } from '../../contexts/AuthContext'
+import { sanitizeHtml } from '../../utils/sanitizeHtml'
 
 // --- Live-canvas display pieces -------------------------------------------
 
@@ -240,9 +242,14 @@ function ArticleImageEditor({
   )
 }
 
+// How often the editor autosaves the current draft (only when something has
+// actually changed since the previous save).
+const AUTOSAVE_INTERVAL_MS = 60000
+
 export default function CreateNewsletterPage() {
   const { id } = useParams<{ id?: string }>()
   const navigate = useNavigate()
+  const { user } = useAuth()
   const [draft, setDraft] = useState<NewsletterDraft>(createEmptyDraft())
   const [isSaving, setIsSaving] = useState(false)
   const [lastSaved, setLastSaved] = useState<Date | null>(null)
@@ -259,44 +266,78 @@ export default function CreateNewsletterPage() {
   const [activeBlock, setActiveBlock] = useState<string | null>(null)
   const [activeArticleId, setActiveArticleId] = useState<string | null>(null)
 
-  // Load existing draft if editing
+  // Refs let the autosave loop read the latest values without re-registering
+  // its interval on every keystroke.
+  const draftRef = useRef(draft)
+  draftRef.current = draft
+  const idRef = useRef(id)
+  idRef.current = id
+  const userEmailRef = useRef<string | undefined>(user?.email)
+  userEmailRef.current = user?.email
+  // JSON of the draft as it was last persisted, so autosave can skip when
+  // nothing has actually changed.
+  const lastSavedSnapshotRef = useRef<string | null>(null)
+
+  // Load existing draft if editing. Skip when the id already belongs to the
+  // draft we are actively editing (e.g. right after the first autosave anchors
+  // the URL to /edit/:id) so an in-progress session is never overwritten.
   useEffect(() => {
-    if (id) {
-      let cancelled = false
-      void getDraftByIdApi(id).then((existingDraft) => {
-        if (cancelled || !existingDraft) return
-        setDraft(normalizeDraft(existingDraft))
-        setLastSaved(new Date(existingDraft.updatedAt))
-      })
-      return () => {
-        cancelled = true
-      }
+    if (!id || id === draftRef.current.id) return
+    let cancelled = false
+    void getDraftByIdApi(id).then((existingDraft) => {
+      if (cancelled || !existingDraft) return
+      const normalized = normalizeDraft(existingDraft)
+      setDraft(normalized)
+      setLastSaved(new Date(existingDraft.updatedAt))
+      lastSavedSnapshotRef.current = JSON.stringify(normalized)
+    })
+    return () => {
+      cancelled = true
     }
   }, [id])
 
-  // Auto-save every 30 seconds
-  useEffect(() => {
-    const interval = setInterval(() => {
-      if (
-        draft.title ||
-        draft.chapters.some(
-          (c) => c.title || c.articles.some((a) => a.title || a.content || a.image),
-        )
-      ) {
-        handleSave(false)
-      }
-    }, 30000)
-    return () => clearInterval(interval)
-  }, [draft])
+  // Whether a draft has anything worth persisting. The title is auto-filled from
+  // the month/year, so it only counts once the editor customizes it.
+  const hasMeaningfulContent = (d: NewsletterDraft): boolean => {
+    const titleIsCustom =
+      d.title.trim().length > 0 && d.title.trim() !== computeAutoTitle(d.month, d.year)
+    return (
+      titleIsCustom ||
+      !!d.headerImage ||
+      d.introContent.trim().length > 0 ||
+      d.chapters.some(
+        (c) => c.title || c.articles.some((a) => a.title || a.content || a.image),
+      )
+    )
+  }
 
-  const handleSave = async (showNotification = true) => {
+  // Persist the current draft. `auto` marks the save as an autosave (tag) and
+  // suppresses the confirmation dialog. Both manual and auto saves update the
+  // same draft row and stamp the editing editor's email.
+  const persistDraft = async (options?: { auto?: boolean; showNotification?: boolean }) => {
+    const auto = options?.auto ?? false
+    const showNotification = options?.showNotification ?? false
+    const current: NewsletterDraft = {
+      ...draftRef.current,
+      autoSaved: auto,
+      lastEditedBy: userEmailRef.current || draftRef.current.lastEditedBy,
+    }
     setIsSaving(true)
     try {
-      await saveDraftApi(draft)
+      const saved = await saveDraftApi(current)
+      // Reflect the tag fields locally so the UI (and next autosave diff) match.
+      setDraft((prev) => ({ ...prev, autoSaved: auto, lastEditedBy: current.lastEditedBy }))
+      lastSavedSnapshotRef.current = JSON.stringify(current)
       setLastSaved(new Date())
+      // Anchor the editing session to this draft so autosaves and reloads keep
+      // updating the same row instead of spawning a new draft each time.
+      if (!idRef.current) {
+        navigate(`/newsletters/edit/${current.id}`, { replace: true })
+      }
       if (showNotification) {
         alert('Draft saved successfully!')
       }
+      return saved
     } catch (error) {
       console.error('Failed to save draft:', error)
       if (showNotification) {
@@ -307,6 +348,26 @@ export default function CreateNewsletterPage() {
       setIsSaving(false)
     }
   }
+
+  // Keep a ref to the latest persist function so the single autosave interval
+  // always calls an up-to-date closure.
+  const persistRef = useRef(persistDraft)
+  persistRef.current = persistDraft
+
+  const handleSave = (showNotification = true) => persistDraft({ auto: false, showNotification })
+
+  // Auto-save on a fixed cadence, but only when there is meaningful content AND
+  // something has changed since the last save. This keeps one draft per session
+  // and updates it in place instead of creating a new item each time.
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const current = draftRef.current
+      if (!hasMeaningfulContent(current)) return
+      if (JSON.stringify(current) === lastSavedSnapshotRef.current) return
+      void persistRef.current({ auto: true })
+    }, AUTOSAVE_INTERVAL_MS)
+    return () => clearInterval(interval)
+  }, [])
 
   const handlePublish = () => {
     if (!draft.title) {
@@ -560,6 +621,18 @@ export default function CreateNewsletterPage() {
     navigate(`/newsletters/edit/${target.id}`)
   }
 
+  const handleDeleteDraft = async (target: NewsletterDraft) => {
+    const label = target.title?.trim() || computeAutoTitle(target.month, target.year)
+    if (!window.confirm(`Delete draft "${label}"? This cannot be undone.`)) return
+    try {
+      await deleteDraftApi(target.id)
+      setAvailableDrafts((prev) => prev.filter((d) => d.id !== target.id))
+    } catch (error) {
+      console.error('Failed to delete draft:', error)
+      alert('Failed to delete draft. Please try again.')
+    }
+  }
+
   const importArticle = async (article: SubmittedArticle) => {
     // Fill the article slot the import was triggered from (stays in its chapter).
     const target = importTarget
@@ -568,7 +641,7 @@ export default function CreateNewsletterPage() {
     setImportingArticleId(target.articleId)
     updateArticle(target.chapterId, target.articleId, {
       title: article.title,
-      content: article.content ? `<p>${article.content}</p>` : '',
+      content: sanitizeHtml(article.content || ''),
       template: article.template,
       image: article.imageDataUrl || undefined,
       imageAspect: undefined,
@@ -1061,7 +1134,7 @@ export default function CreateNewsletterPage() {
                           <img src={article.imageDataUrl} alt={article.title} />
                         </div>
                         <div className="import-article-text">
-                          <p>{article.content}</p>
+                          <div dangerouslySetInnerHTML={{ __html: sanitizeHtml(article.content) }} />
                           <p className="import-article-contact">
                             <strong>Contact:</strong> {article.contact}
                           </p>
@@ -1109,24 +1182,42 @@ export default function CreateNewsletterPage() {
               ) : (
                 <div className="draft-import-list">
                   {availableDrafts.map((d) => (
-                    <button
-                      key={d.id}
-                      type="button"
-                      className="draft-import-row"
-                      onClick={() => openDraft(d)}
-                    >
-                      <div className="draft-import-main">
-                        <span className="draft-import-title">
-                          {d.title?.trim() || computeAutoTitle(d.month, d.year)}
+                    <div key={d.id} className="draft-import-row">
+                      <button
+                        type="button"
+                        className="draft-import-open"
+                        onClick={() => openDraft(d)}
+                      >
+                        <div className="draft-import-main">
+                          <span className="draft-import-title">
+                            {d.title?.trim() || computeAutoTitle(d.month, d.year)}
+                          </span>
+                          <span className={`draft-status draft-status--${d.status}`}>
+                            {d.status}
+                          </span>
+                          {d.autoSaved && (
+                            <span className="draft-tag draft-tag--auto">⚡ Auto-saved</span>
+                          )}
+                          {d.lastEditedBy && (
+                            <span className="draft-tag draft-tag--editor" title={d.lastEditedBy}>
+                              ✎ {d.lastEditedBy}
+                            </span>
+                          )}
+                        </div>
+                        <span className="meta">
+                          Updated {new Date(d.updatedAt).toLocaleString()}
                         </span>
-                        <span className={`draft-status draft-status--${d.status}`}>
-                          {d.status}
-                        </span>
-                      </div>
-                      <span className="meta">
-                        Updated {new Date(d.updatedAt).toLocaleString()}
-                      </span>
-                    </button>
+                      </button>
+                      <button
+                        type="button"
+                        className="draft-import-delete"
+                        title="Delete draft"
+                        aria-label="Delete draft"
+                        onClick={() => handleDeleteDraft(d)}
+                      >
+                        🗑️
+                      </button>
+                    </div>
                   ))}
                 </div>
               )}

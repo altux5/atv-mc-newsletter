@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import type { SubmittedArticle } from '../../types/article'
 import { getArticles, deleteArticle } from '../../utils/articlesApi'
+import { sanitizeHtml } from '../../utils/sanitizeHtml'
 
 export default function AdminArticlesPage() {
   const [articles, setArticles] = useState<SubmittedArticle[]>([])
@@ -122,7 +123,10 @@ export default function AdminArticlesPage() {
                 </span>
               </div>
               <div className="article-content-container">
-                <p className="article-content">{article.content}</p>
+                <div
+                  className="article-content"
+                  dangerouslySetInnerHTML={{ __html: sanitizeHtml(article.content) }}
+                />
                 <p className="article-contact">
                   <strong>Contact:</strong> {article.contact}
                 </p>

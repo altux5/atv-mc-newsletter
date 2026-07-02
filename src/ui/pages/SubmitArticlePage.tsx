@@ -3,6 +3,17 @@ import { useNavigate } from 'react-router-dom'
 import type { ArticleTemplate } from '../../types/article'
 import { saveArticle } from '../../utils/articlesApi'
 import { cropImageToRatio, ARTICLE_CROP, aspectRatioCss } from '../../utils/imageCrop'
+import RichTextEditor from '../components/RichTextEditor'
+import { sanitizeHtml } from '../../utils/sanitizeHtml'
+
+/** True when rich-text HTML has no visible text and no image. */
+function isHtmlEmpty(html: string): boolean {
+  const text = html
+    .replace(/<[^>]*>/g, '')
+    .replace(/&nbsp;/g, ' ')
+    .trim()
+  return text.length === 0 && !/<img\b/i.test(html)
+}
 
 export default function SubmitArticlePage() {
   const navigate = useNavigate()
@@ -41,7 +52,7 @@ export default function SubmitArticlePage() {
       return
     }
 
-    if (!content.trim()) {
+    if (isHtmlEmpty(content)) {
       alert('Please enter article content.')
       return
     }
@@ -61,7 +72,7 @@ export default function SubmitArticlePage() {
       await saveArticle({
         template: selectedTemplate,
         title: title.trim(),
-        content: content.trim(),
+        content: sanitizeHtml(content),
         imageDataUrl,
         contact: contact.trim(),
       })
@@ -173,12 +184,11 @@ export default function SubmitArticlePage() {
                 maxLength={140}
                 aria-label="Article title"
               />
-              <textarea
-                className="nl-content-input"
-                value={content}
-                onChange={(e) => setContent(e.target.value)}
+              <RichTextEditor
+                content={content}
+                onChange={setContent}
                 placeholder="Write your article (a few sentences)…"
-                rows={8}
+                enableRefine
               />
               <input
                 className="nl-contact-input"
