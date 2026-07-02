@@ -1,7 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { deleteNewsletterApi } from '../../utils/newslettersApi'
-import { useAuth } from '../../contexts/AuthContext'
 import { getChapterMatchKeys, normalizeChapterTitle } from '../../constants/chapters'
 import { useNewsletters } from '../../contexts/NewslettersContext'
 
@@ -16,7 +14,6 @@ function formatShortTitle(dateStr: string): string {
 
 export default function NewslettersPage() {
   const location = useLocation()
-  const { isAuthenticated } = useAuth()
   const { newsletters, searchIndex, sectionIndex, cardPreviews, availableChapters, isIndexBuilding, isLoadingNewsletters } = useNewsletters()
   const [selectedChapter, setSelectedChapter] = useState<string | null>(null)
   const [textQuery, setTextQuery] = useState('')
@@ -530,7 +527,6 @@ export default function NewslettersPage() {
           {!shouldHideGridForInitialChapter && (
           <div className={`grid ${textQuery ? 'search-active' : ''}`}>
             {paged.map((n) => {
-              const isLocal = !n.sourcePath
               const preview = cardPreviews[n.id]
               const cover = preview?.cover || null
               const lead = preview?.chapters?.[0] || null
@@ -538,25 +534,7 @@ export default function NewslettersPage() {
               const maxRest = 3
               const moreCount = Math.max(0, rest.length - maxRest)
               const isSearching = !!textQuery && !!matchSnippets[n.id]
-              
-              const handleDelete = (e: React.MouseEvent) => {
-                e.preventDefault()
-                e.stopPropagation()
-                const confirmed = window.confirm(
-                  `Are you sure you want to delete "${n.title}"? This action cannot be undone.`
-                )
-                if (confirmed) {
-                  void deleteNewsletterApi(n.id)
-                    .then(() => {
-                      window.dispatchEvent(new Event('newsletterPublished'))
-                    })
-                    .catch((error) => {
-                      console.error('Failed to delete newsletter:', error)
-                      alert('Failed to delete newsletter. Please try again.')
-                    })
-                }
-              }
-              
+
               return (
                 <div key={n.id} className="newsletter-card-wrapper">
                   <Link to={`/newsletters/${n.slug}`} className="card newsletter-card">
@@ -606,28 +584,6 @@ export default function NewslettersPage() {
                       <span className="nl-card-cta">Read the issue →</span>
                     </div>
                   </Link>
-                  {isLocal && isAuthenticated && (
-                    <button
-                      onClick={handleDelete}
-                      className="delete-newsletter-btn"
-                      title="Delete newsletter"
-                      style={{
-                        position: 'absolute',
-                        top: 8,
-                        right: 8,
-                        padding: '4px 8px',
-                        background: '#fff',
-                        border: '1px solid #fecaca',
-                        borderRadius: '4px',
-                        cursor: 'pointer',
-                        fontSize: '14px',
-                        color: '#dc2626',
-                        zIndex: 10,
-                      }}
-                    >
-                      🗑️
-                    </button>
-                  )}
                 </div>
               )
             })}

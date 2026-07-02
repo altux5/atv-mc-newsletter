@@ -13,10 +13,15 @@ import {
   extractCoverImageFromHtml,
   extractFirstArticleTitleFromHtml,
   extractSectionSnippets,
-  findHtmlByMonthYearAsync,
   loadHtmlByPathAsync,
+  type SectionSnippet,
 } from '../utils/newsletterHtml'
 import { CANONICAL_CHAPTER_TITLES, normalizeChapterTitle } from '../constants/chapters'
+import { getDraftByIdApi } from '../utils/newslettersApi'
+import { normalizeDraft } from '../utils/localNewsletters'
+import { sanitizeHtml } from '../utils/sanitizeHtml'
+import type { NewsletterDraft } from '../types/newsletter-creation'
+import defaultHeaderImage from '../photos/newsletter image.png'
 
 export type SectionIndex = Record<string, ReturnType<typeof extractSectionSnippets>>
 export type SearchIndex = Record<string, string>
@@ -94,25 +99,112 @@ function buildChapterPreviews(sections: SectionIndex[string]): ChapterPreview[] 
   return out
 }
 
+/** Minimal HTML escaping for text injected into a section snippet. */
+function escapeHtml(s: string): string {
+  return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+}
+
+/** Strip HTML tags to collapsed plain text (browser-only). */
+function htmlToText(html: string): string {
+  if (!html) return ''
+  const div = document.createElement('div')
+  div.innerHTML = html
+  return (div.textContent || '').replace(/\s+/g, ' ').trim()
+}
+
+/**
+ * Build the search/section/preview index entry for a platform-created (DB)
+ * newsletter directly from its stored draft. The .htm extractors don't apply
+ * here because the header image is a base64 data URL and the chapters are
+ * structured editor data rather than parsed HTML.
+ */
+function buildEntryFromDraft(rawDraft: NewsletterDraft): ParsedEntry {
+  const draft = normalizeDraft(rawDraft)
+  const sections: SectionSnippet[] = []
+  const chapters: ChapterPreview[] = []
+  const seenLabels = new Set<string>()
+  const bodyParts: string[] = []
+
+  if (draft.introContent) bodyParts.push(htmlToText(draft.introContent))
+
+  draft.chapters.forEach((chapter, index) => {
+    const rawTitle = (chapter.title ?? '').trim()
+    const label = recognizeChapterLabel(rawTitle) ?? rawTitle
+
+    const articlesHtml = chapter.articles
+      .map((a) => {
+        const parts: string[] = []
+        if (a.title?.trim()) parts.push(`<p><strong>${escapeHtml(a.title.trim())}</strong></p>`)
+        if (a.content?.trim()) parts.push(a.content)
+        return parts.join('')
+      })
+      .filter(Boolean)
+      .join('')
+
+    // Section snippet — powers chapter filtering and the search-result excerpt.
+    if (rawTitle) {
+      sections.push({
+        id: `chapter_${index}`,
+        title: rawTitle,
+        level: 2,
+        html: sanitizeHtml(articlesHtml),
+        text: htmlToText(articlesHtml),
+      })
+    }
+
+    // Body text — powers full-text search.
+    const chapterText = [rawTitle, ...chapter.articles.map((a) => `${a.title ?? ''} ${htmlToText(a.content)}`)]
+      .join(' ')
+      .replace(/\s+/g, ' ')
+      .trim()
+    if (chapterText) bodyParts.push(chapterText)
+
+    // Grid "in this issue" preview — one headline per chapter.
+    if (label && !seenLabels.has(label)) {
+      const firstArticle = chapter.articles.find(
+        (a) => a.title?.trim() || htmlToText(a.content).trim(),
+      )
+      const headline =
+        firstArticle?.title?.trim() || htmlToText(firstArticle?.content ?? '').slice(0, 120).trim()
+      if (headline) {
+        seenLabels.add(label)
+        chapters.push({ chapter: label, article: headline })
+      }
+    }
+  })
+
+  return {
+    sections,
+    body: bodyParts.join(' \n '),
+    preview: {
+      cover: draft.headerImage || defaultHeaderImage,
+      chapters,
+    },
+  }
+}
+
 async function indexOne(n: Newsletter): Promise<ParsedEntry> {
   const cached = parsedHtmlCache.get(n.id)
   if (cached !== undefined) return cached
   let entry: ParsedEntry = null
   try {
-    const date = new Date(n.date)
-    const match = n.sourcePath
-      ? await loadHtmlByPathAsync(n.sourcePath)
-      : await findHtmlByMonthYearAsync(date.getUTCMonth(), date.getUTCFullYear())
-    const html = match?.html
-    if (html) {
-      const sections = extractSectionSnippets(html)
-      entry = {
-        sections,
-        body: extractBodyText(html),
-        preview: {
-          cover: extractCoverImageFromHtml(html),
-          chapters: buildChapterPreviews(sections),
-        },
+    if (!n.sourcePath) {
+      // Platform-created newsletter: build the index from the stored draft.
+      const draft = await getDraftByIdApi(n.id)
+      if (draft) entry = buildEntryFromDraft(draft)
+    } else {
+      const match = await loadHtmlByPathAsync(n.sourcePath)
+      const html = match?.html
+      if (html) {
+        const sections = extractSectionSnippets(html)
+        entry = {
+          sections,
+          body: extractBodyText(html),
+          preview: {
+            cover: extractCoverImageFromHtml(html),
+            chapters: buildChapterPreviews(sections),
+          },
+        }
       }
     }
   } catch {

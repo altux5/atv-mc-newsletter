@@ -4,6 +4,8 @@ import Link from '@tiptap/extension-link'
 import Image from '@tiptap/extension-image'
 import Placeholder from '@tiptap/extension-placeholder'
 import { useEffect, useState } from 'react'
+import Icon from './Icon'
+import aiIcon from '../../icons/ai-16.svg'
 
 const AI_LOADING_MESSAGES = [
   "✨ Polishing your prose...",
@@ -199,7 +201,7 @@ export default function RichTextEditor({
               aria-disabled="true"
               className="ai-refine-button"
             >
-              <span className="ai-refine-icon">✨</span>
+              <Icon src={aiIcon} size={13} className="ai-refine-icon" />
               <span className="ai-refine-text">{refineLabel}</span>
               <span className="ai-refine-sparkle"></span>
             </button>

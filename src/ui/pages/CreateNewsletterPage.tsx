@@ -24,6 +24,13 @@ import defaultHeaderImage from '../../photos/newsletter image.png'
 import logoUrl from '../../logo/Agent-logo.svg'
 import { useAuth } from '../../contexts/AuthContext'
 import { sanitizeHtml } from '../../utils/sanitizeHtml'
+import Icon from '../components/Icon'
+import importDraftIcon from '../../icons/import-draft.svg'
+import previewIcon from '../../icons/preview-16.svg'
+import arrowUpIcon from '../../icons/arrow-up-16.svg'
+import arrowDownIcon from '../../icons/arrow-down-16.svg'
+import deleteForeverIcon from '../../icons/delete-forever-16.svg'
+import importArticleIcon from '../../icons/import-article-16.svg'
 
 // --- Live-canvas display pieces -------------------------------------------
 
@@ -669,10 +676,10 @@ export default function CreateNewsletterPage() {
             <span className="meta nl-saved">Saved {lastSaved.toLocaleTimeString()}</span>
           )}
           <button type="button" onClick={openDraftImport} className="button secondary">
-            📂 Import Draft
+            <Icon src={importDraftIcon} /> Import Draft
           </button>
           <button type="button" onClick={() => setPreviewMode(true)} className="button secondary">
-            👁 Preview
+            <Icon src={previewIcon} /> Preview
           </button>
           <button
             type="button"
@@ -856,7 +863,7 @@ export default function CreateNewsletterPage() {
                   className="button icon"
                   title="Move chapter up"
                 >
-                  ↑
+                  <Icon src={arrowUpIcon} />
                 </button>
                 <button
                   type="button"
@@ -865,7 +872,7 @@ export default function CreateNewsletterPage() {
                   className="button icon"
                   title="Move chapter down"
                 >
-                  ↓
+                  <Icon src={arrowDownIcon} />
                 </button>
                 <button
                   type="button"
@@ -874,7 +881,7 @@ export default function CreateNewsletterPage() {
                   className="button icon danger"
                   title="Delete chapter"
                 >
-                  🗑️
+                  <Icon src={deleteForeverIcon} />
                 </button>
               </div>
             </div>
@@ -911,7 +918,9 @@ export default function CreateNewsletterPage() {
                         className="nl-layout-box nl-import-box"
                         onClick={() => openArticleImport(chapter.id, article.id)}
                       >
-                        <span className="nl-import-glyph" aria-hidden="true">📥</span>
+                        <span className="nl-import-glyph" aria-hidden="true">
+                          <Icon src={importArticleIcon} size={24} />
+                        </span>
                         <span className="nl-layout-name">Import from submitted articles</span>
                       </button>
                     </div>
@@ -1017,7 +1026,7 @@ export default function CreateNewsletterPage() {
                         disabled={chapter.articles.length === 1}
                         onClick={() => deleteArticle(chapter.id, article.id)}
                       >
-                        🗑️
+                        <Icon src={deleteForeverIcon} />
                       </button>
                       <button
                         type="button"
@@ -1210,7 +1219,7 @@ export default function CreateNewsletterPage() {
                         aria-label="Delete draft"
                         onClick={() => handleDeleteDraft(d)}
                       >
-                        🗑️
+                        <Icon src={deleteForeverIcon} />
                       </button>
                     </div>
                   ))}

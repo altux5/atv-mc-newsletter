@@ -6,6 +6,9 @@ import { getDraftByIdApi, deleteNewsletterApi } from '../../utils/newslettersApi
 import type { NewsletterDraft } from '../../types/newsletter-creation'
 import { generateNewsletterBodyHtml } from '../../utils/generateNewsletterHtml'
 import { useAuth } from '../../contexts/AuthContext'
+import Icon from '../components/Icon'
+import editIcon from '../../icons/edit.svg'
+import deleteIcon from '../../icons/delete-16.svg'
 
 export default function NewsletterDetailPage() {
   const { slug } = useParams()
@@ -143,10 +146,10 @@ export default function NewsletterDetailPage() {
         {isLocalNewsletter && isAuthenticated && (
           <div style={{ display: 'flex', gap: 8 }}>
             <Link to={`/newsletters/edit/${newsletter.id}`} className="button" style={{ textDecoration: 'none' }}>
-              ✏️ Edit
+              <Icon src={editIcon} /> Edit
             </Link>
             <button onClick={handleDelete} className="button" style={{ color: '#dc2626', borderColor: '#fecaca' }}>
-              🗑️ Delete
+              <Icon src={deleteIcon} /> Delete
             </button>
           </div>
         )}
