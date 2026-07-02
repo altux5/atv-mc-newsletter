@@ -49,6 +49,15 @@ $patchObj = @{
                         envFrom = @(
                             @{ secretRef = @{ name = 'newsletter-db' } }
                         )
+                        # Newsletter email distribution (SMTP relay authorises by
+                        # allow-listed egress IP, so there is no SMTP user/password).
+                        env     = @(
+                            @{ name = 'MAIL_ENABLED';    value = '1' }
+                            @{ name = 'MAIL_RELAY_HOST';  value = 'mailrelay-internal.infineon.com' }
+                            @{ name = 'MAIL_RELAY_PORT';  value = '25' }
+                            @{ name = 'MAIL_FROM';        value = 'NoReply@infineon.com' }
+                            @{ name = 'PUBLIC_BASE_URL';  value = 'https://atv-mc-newsletter.eu-de-3.icp.infineon.com' }
+                        )
                     }
                 )
             }

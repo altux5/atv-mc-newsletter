@@ -1,5 +1,12 @@
 import { Router, type Request, type Response } from 'express'
+import { randomUUID } from 'crypto'
 import { query } from './db.js'
+import {
+  isMailerEnabled,
+  sendNewsletterToSubscribers,
+  type NewsletterEmail,
+  type Recipient,
+} from './mailer.js'
 
 // REST API backed by PostgreSQL. Mounted under /api by the server entry point.
 //
@@ -276,5 +283,145 @@ dbApi.delete('/articles/:id', async (req: Request, res: Response) => {
     res.status(204).end()
   } catch (error) {
     fail(res, 'DELETE /articles/:id', error)
+  }
+})
+
+// --- subscribers ----------------------------------------------------------
+
+// Deliberately permissive: enough to reject obvious typos, not a full RFC check.
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+
+function normalizeEmail(value: unknown): string | null {
+  if (typeof value !== 'string') return null
+  const email = value.trim().toLowerCase()
+  return EMAIL_RE.test(email) ? email : null
+}
+
+interface SubscriberRow {
+  email: string
+  subscribed_at: Date | string
+}
+
+// Public: a visitor subscribes to the distribution list. Idempotent — an
+// existing (or previously unsubscribed) address is simply re-activated.
+dbApi.post('/subscribers', async (req: Request, res: Response) => {
+  const email = normalizeEmail((req.body ?? {}).email)
+  if (!email) return res.status(400).json({ error: 'A valid email address is required.' })
+  try {
+    await query(
+      `INSERT INTO subscribers (id, email, active, unsubscribe_token, subscribed_at)
+       VALUES ($1, $2, true, $3, now())
+       ON CONFLICT (email) DO UPDATE SET
+         active = true, unsubscribed_at = NULL`,
+      [randomUUID(), email, randomUUID()],
+    )
+    res.status(201).json({ email, subscribed: true })
+  } catch (error) {
+    fail(res, 'POST /subscribers', error)
+  }
+})
+
+// Editor: list active subscribers (no tokens exposed).
+dbApi.get('/subscribers', async (_req: Request, res: Response) => {
+  try {
+    const rows = await query<SubscriberRow>(
+      `SELECT email, subscribed_at FROM subscribers WHERE active = true ORDER BY subscribed_at DESC`,
+    )
+    res.json(
+      rows.map((r) => ({
+        email: r.email,
+        subscribedAt: r.subscribed_at instanceof Date ? r.subscribed_at.toISOString() : r.subscribed_at,
+      })),
+    )
+  } catch (error) {
+    fail(res, 'GET /subscribers', error)
+  }
+})
+
+// Public one-click unsubscribe (from the link in every email). Returns a small
+// HTML confirmation page. The token ensures a recipient can only remove their
+// own address.
+dbApi.get('/subscribers/unsubscribe', async (req: Request, res: Response) => {
+  const email = normalizeEmail(req.query.email)
+  const token = typeof req.query.token === 'string' ? req.query.token : ''
+  const page = (heading: string, body: string, status: number) =>
+    res.status(status).type('html').send(
+      `<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">` +
+        `<title>${heading}</title></head>` +
+        `<body style="font-family:Segoe UI,Arial,sans-serif;background:#f4f5f7;color:#1f2937;display:flex;min-height:100vh;align-items:center;justify-content:center;margin:0;">` +
+        `<div style="background:#fff;border:1px solid #e5e7eb;border-radius:10px;padding:32px 40px;max-width:420px;text-align:center;">` +
+        `<h1 style="font-size:20px;margin:0 0 10px;">${heading}</h1><p style="color:#4b5563;margin:0;">${body}</p></div></body></html>`,
+    )
+
+  if (!email || !token) {
+    return page('Invalid link', 'This unsubscribe link is missing or malformed.', 400)
+  }
+  try {
+    const rows = await query<{ email: string }>(
+      `UPDATE subscribers SET active = false, unsubscribed_at = now()
+       WHERE email = $1 AND unsubscribe_token = $2 AND active = true
+       RETURNING email`,
+      [email, token],
+    )
+    if (rows.length === 0) {
+      return page('Already unsubscribed', 'This address is not on the list, or the link has already been used.', 200)
+    }
+    return page('Unsubscribed', `${email} has been removed from the newsletter list.`, 200)
+  } catch (error) {
+    console.error('[db-api] GET /subscribers/unsubscribe failed:', error)
+    return page('Something went wrong', 'Please try again later.', 500)
+  }
+})
+
+// --- send a published newsletter to the distribution list -----------------
+
+interface SendNewsletterRow {
+  title: string
+  slug: string
+  excerpt: string | null
+  date: string
+}
+
+interface SendRecipientRow {
+  email: string
+  unsubscribe_token: string
+}
+
+// Editor: email a published newsletter to every active subscriber. Returns a
+// per-run summary; individual failures do not fail the request.
+dbApi.post('/newsletters/:id/send', async (req: Request, res: Response) => {
+  if (!isMailerEnabled()) {
+    return res.status(503).json({ error: 'Email distribution is not configured on this server.' })
+  }
+  try {
+    const newsletterRows = await query<SendNewsletterRow>(
+      `SELECT title, slug, excerpt, to_char(date, 'YYYY-MM-DD') AS date
+       FROM newsletters WHERE id = $1`,
+      [req.params.id],
+    )
+    if (newsletterRows.length === 0) return res.status(404).json({ error: 'Newsletter not found' })
+
+    const recipientRows = await query<SendRecipientRow>(
+      `SELECT email, unsubscribe_token FROM subscribers WHERE active = true`,
+    )
+    if (recipientRows.length === 0) {
+      return res.json({ sent: 0, failed: 0, recipients: 0, errors: [] })
+    }
+
+    const newsletter: NewsletterEmail = {
+      title: newsletterRows[0].title,
+      slug: newsletterRows[0].slug,
+      excerpt: newsletterRows[0].excerpt ?? '',
+      date: newsletterRows[0].date,
+    }
+    const recipients: Recipient[] = recipientRows.map((r) => ({
+      email: r.email,
+      unsubscribeToken: r.unsubscribe_token,
+    }))
+
+    const result = await sendNewsletterToSubscribers(newsletter, recipients)
+    res.json({ ...result, recipients: recipients.length })
+  } catch (error) {
+    fail(res, 'POST /newsletters/:id/send', error)
   }
 })

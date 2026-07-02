@@ -7,8 +7,12 @@ import dotenv from 'dotenv'
 import { Agent as UndiciAgent } from 'undici'
 import { dbApi } from './dbApi.js'
 import { ensureSchema } from './db.js'
+import { setupMailer } from './mailer.js'
 
 dotenv.config()
+
+// Initialise the SMTP mailer (no-op / disabled unless MAIL_ENABLED is set).
+setupMailer()
 
 const app = express()
 // Limit is generous because submitted articles embed base64 images.

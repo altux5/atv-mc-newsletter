@@ -2,6 +2,7 @@ import { NavLink, Outlet, useNavigate, useLocation } from 'react-router-dom'
 import logoUrl from '../logo/Agent-logo.svg'
 import { Link } from 'react-router-dom'
 import { useAuth } from '../contexts/AuthContext'
+import SubscribeForm from './components/SubscribeForm'
 
 export default function RootLayout() {
   const { isAuthenticated, isEditor, logout, user } = useAuth()
@@ -77,7 +78,10 @@ export default function RootLayout() {
         <Outlet />
       </main>
       <footer className="app-footer">
-        <div className="container">© {new Date().getFullYear()} Newsletter Hub</div>
+        <div className="container">
+          <SubscribeForm />
+          <div className="app-footer-copy">© {new Date().getFullYear()} Newsletter Hub</div>
+        </div>
       </footer>
     </div>
   )

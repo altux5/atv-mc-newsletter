@@ -5,10 +5,19 @@ import { useAuth } from '../../contexts/AuthContext'
 import { getChapterMatchKeys, normalizeChapterTitle } from '../../constants/chapters'
 import { useNewsletters } from '../../contexts/NewslettersContext'
 
+/** Condense "ATV MC Newsletter - November 2025 edition" down to "November '25". */
+function formatShortTitle(dateStr: string): string {
+  const d = new Date(dateStr)
+  if (isNaN(d.getTime())) return 'Newsletter'
+  const month = d.toLocaleString(undefined, { month: 'long', timeZone: 'UTC' })
+  const yy = String(d.getUTCFullYear() % 100).padStart(2, '0')
+  return `${month} '${yy}`
+}
+
 export default function NewslettersPage() {
   const location = useLocation()
   const { isAuthenticated } = useAuth()
-  const { newsletters, searchIndex, sectionIndex, availableChapters, isIndexBuilding, isLoadingNewsletters } = useNewsletters()
+  const { newsletters, searchIndex, sectionIndex, cardPreviews, availableChapters, isIndexBuilding, isLoadingNewsletters } = useNewsletters()
   const [selectedChapter, setSelectedChapter] = useState<string | null>(null)
   const [textQuery, setTextQuery] = useState('')
   const [selectedMonth, setSelectedMonth] = useState<number | null>(null) // 0-11
@@ -21,7 +30,7 @@ export default function NewslettersPage() {
   })
   // Titles and excerpts are now derived synchronously in the data layer; no runtime overrides needed
   const [page, setPage] = useState(1)
-  const pageSize = 9
+  const pageSize = 4
 
   // Read chapter from query param on mount and when it changes
   useEffect(() => {
@@ -241,18 +250,122 @@ export default function NewslettersPage() {
       <style>{`
         .newsletters-page .heading-row h1 { color: var(--brand); margin: 0; }
         .newsletters-page .heading-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
-        .newsletters-page .layout-with-sidebar { gap: 16px; align-items: flex-start; }
-        .newsletters-page .filters.card { background: #fff; border: 1px solid var(--border-color, #e0e0e0); border-radius: 0; padding: 16px; }
-        .newsletters-page .filters .field { margin-bottom: 12px; }
-        .newsletters-page .filters label { font-weight: 600; }
-        .newsletters-page .content-grid .grid { gap: 16px; }
-        .newsletters-page .newsletter-card { background: #fff; border: 1px solid var(--border-color, #e0e0e0); border-radius: 0; padding: 16px; transition: transform 150ms ease, box-shadow 150ms ease, border-color 150ms ease; }
-        .newsletters-page .newsletter-card:hover { transform: translateY(-2px); box-shadow: 0 4px 16px rgba(0,0,0,0.06); border-color: var(--brand); }
-        .newsletters-page .newsletter-card h3 { margin-top: 0; }
-        .newsletters-page .newsletter-card:hover h3 { color: var(--brand); }
-        .newsletters-page .pill { color: var(--brand); border: 1px solid var(--brand); background: transparent; border-radius: 0; }
+        .newsletters-page .layout-with-sidebar { gap: 20px; align-items: flex-start; }
+
+        /* Filter box — soft card with pill controls */
+        .newsletters-page .filters.card { background: #fff; border: 1px solid #e5e7eb; border-radius: 16px; padding: 18px; box-shadow: 0 1px 2px rgba(0,0,0,0.04); }
+        .newsletters-page .filters .field { margin-bottom: 16px; }
+        .newsletters-page .filters label { font-weight: 600; font-size: 12px; letter-spacing: 0.3px; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+        .newsletters-page .filters input,
+        .newsletters-page .filters select {
+          width: 100%; border-radius: 999px; border: 1px solid #d1d5db; background: #fff;
+          padding: 9px 14px; font-size: 14px; color: var(--text);
+          transition: border-color 150ms ease, box-shadow 150ms ease;
+        }
+        .newsletters-page .filters input:focus,
+        .newsletters-page .filters select:focus { outline: none; border-color: var(--brand); box-shadow: 0 0 0 3px var(--brand-ghost); }
+        .newsletters-page .filters .select-row { display: flex; gap: 8px; }
+        .newsletters-page .filters .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+        .newsletters-page .filters .tag {
+          border-radius: 999px; border: 1px solid #d1d5db; background: #fff; color: var(--muted);
+          padding: 7px 13px; font-size: 13px; font-weight: 600; cursor: pointer;
+          transition: background 150ms ease, color 150ms ease, border-color 150ms ease;
+        }
+        .newsletters-page .filters .tag:hover { border-color: var(--brand); color: var(--brand); }
+        .newsletters-page .filters .tag.on { background: var(--brand); border-color: var(--brand); color: #fff; }
+        .newsletters-page .filters .button {
+          border-radius: 999px; border: 1px solid var(--brand); background: var(--brand); color: #fff;
+          padding: 9px 18px; font-weight: 600; font-size: 14px; cursor: pointer; transition: background 150ms ease;
+        }
+        .newsletters-page .filters .button:hover { background: #086b61; }
+
+        /* Grid — 4 portrait "mini-newsletter" cards per page (2 columns, equal size) */
+        .newsletters-page .content-grid .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: 1fr; gap: 22px; align-items: stretch; }
+        .newsletters-page .content-grid .grid.search-active { grid-template-columns: minmax(0, 1fr); grid-auto-rows: auto; }
+        .newsletters-page .newsletter-card-wrapper { position: relative; height: 100%; min-width: 0; }
+        .newsletters-page .newsletter-card {
+          height: 100%; display: flex; flex-direction: column; min-width: 0;
+          background: #fff; border: 1px solid #e5e7eb; border-radius: 10px; overflow: hidden;
+          color: var(--text); text-decoration: none;
+          box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+          transition: transform 160ms ease, box-shadow 160ms ease;
+        }
+        .newsletters-page .content-grid .grid:not(.search-active) .newsletter-card { min-height: 500px; }
+        .newsletters-page .newsletter-card:hover { transform: translateY(-3px); box-shadow: 0 10px 28px rgba(0,0,0,0.10); }
+
+        /* Cover image with overlaid month title (branded gradient fallback) */
+        .newsletters-page .nl-cover {
+          position: relative; height: 150px; flex-shrink: 0; overflow: hidden;
+          background: linear-gradient(135deg, var(--brand) 0%, #0b5c54 100%);
+        }
+        .newsletters-page .nl-cover img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+        .newsletters-page .nl-cover-scrim { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0) 35%, rgba(0,0,0,0.62) 100%); }
+        .newsletters-page .nl-cover-badge {
+          position: absolute; top: 10px; right: 12px; z-index: 1;
+          background: rgba(255,255,255,0.9); color: var(--text);
+          font-size: 11px; font-weight: 700;
+          padding: 3px 9px; border-radius: 999px;
+        }
+        .newsletters-page .nl-cover-title {
+          position: absolute; left: 14px; right: 14px; bottom: 10px; z-index: 1; margin: 0;
+          color: #fff; font-size: 26px; font-weight: 800; letter-spacing: 0.2px; line-height: 1.1;
+          text-shadow: 0 1px 6px rgba(0,0,0,0.45);
+        }
+
+        /* Card body */
+        .newsletters-page .nl-body { display: flex; flex-direction: column; gap: 10px; padding: 14px 16px; flex: 1; min-height: 0; min-width: 0; }
+
+        /* Top story — the edition's lead headline, replacing the old boilerplate intro */
+        .newsletters-page .nl-top { display: flex; flex-direction: column; gap: 2px; }
+        .newsletters-page .nl-top-kicker { font-size: 10px; font-weight: 800; letter-spacing: 0.8px; text-transform: uppercase; color: #9ca3af; }
+        .newsletters-page .nl-top-chapter { font-size: 12px; font-weight: 800; letter-spacing: 0.3px; color: var(--brand); }
+        .newsletters-page .nl-top-headline {
+          margin: 0; font-size: 15.5px; font-weight: 700; line-height: 1.3; color: #1f2937;
+          display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
+        }
+        .newsletters-page .nl-fallback {
+          margin: 0; font-size: 13px; line-height: 1.55; color: #4b5563;
+          display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden;
+        }
+        .newsletters-page .nl-search-snippet {
+          margin: 0; font-size: 13px; line-height: 1.55; color: #4b5563;
+          display: -webkit-box; -webkit-line-clamp: 6; -webkit-box-orient: vertical; overflow: hidden;
+        }
+        .newsletters-page .nl-search-snippet mark { background: #fff3cd; padding: 0 2px; }
+
+        /* "Also in this issue" — compact table-of-contents */
+        .newsletters-page .nl-toc { display: flex; flex-direction: column; gap: 6px; flex: 1; min-height: 0; min-width: 0; padding-top: 10px; border-top: 1px solid #eef0f2; }
+        .newsletters-page .nl-toc-label { margin: 0; font-size: 10px; font-weight: 800; letter-spacing: 0.8px; text-transform: uppercase; color: #9ca3af; }
+        .newsletters-page .nl-toc-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+        .newsletters-page .nl-toc-list li { display: flex; flex-direction: column; gap: 0; min-width: 0; }
+        .newsletters-page .nl-chapter { font-size: 11px; font-weight: 800; letter-spacing: 0.2px; color: var(--brand); }
+        .newsletters-page .nl-article {
+          font-size: 12.5px; line-height: 1.35; color: #4b5563; min-width: 0;
+          white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+        }
+        .newsletters-page .nl-more { font-size: 11px; font-weight: 700; color: #9ca3af; }
+
+        .newsletters-page .nl-card-cta {
+          margin-top: auto; padding-top: 4px; font-size: 13px; font-weight: 700; color: var(--brand);
+          opacity: 0; transform: translateX(-4px);
+          transition: opacity 150ms ease, transform 150ms ease;
+        }
+        .newsletters-page .newsletter-card:hover .nl-card-cta { opacity: 1; transform: translateX(0); }
+
+        /* Pagination — pill buttons matching the view toggle */
+        .newsletters-page .pagination { display: flex; align-items: center; justify-content: center; gap: 10px; margin-top: 28px; }
+        .newsletters-page .pagination .button {
+          display: inline-flex; align-items: center; gap: 6px;
+          border-radius: 999px; border: 1px solid var(--brand); background: #fff; color: var(--brand);
+          padding: 8px 18px; font-size: 14px; font-weight: 600; cursor: pointer;
+          transition: background 150ms ease, color 150ms ease, border-color 150ms ease;
+        }
+        .newsletters-page .pagination .button:hover:not(:disabled) { background: var(--brand); color: #fff; }
+        .newsletters-page .pagination .button:disabled { opacity: 0.5; cursor: default; border-color: #d1d5db; color: #9ca3af; }
+        .newsletters-page .pagination .page-indicator { margin: 0 4px; font-size: 13px; font-weight: 600; color: var(--muted); }
+
         .newsletters-page .matches-section .match-title-link { color: var(--brand); }
-        .newsletters-page .loading .loading-bar { height: 8px; background: #f3f3f3; border-radius: 0; overflow: hidden; }
+        .newsletters-page .loading .loading-bar { height: 8px; background: #f3f3f3; border-radius: 999px; overflow: hidden; }
         .newsletters-page .loading .loading-bar-inner { height: 100%; width: 40%; background: var(--brand); animation: nlblink 1.2s ease-in-out infinite alternate; }
         @keyframes nlblink { from { width: 25%; } to { width: 55%; } }
         .newsletters-page .index-banner {
@@ -273,6 +386,10 @@ export default function NewslettersPage() {
         @keyframes nlindexpulse {
           from { transform: scale(0.9); opacity: 0.6; }
           to { transform: scale(1.1); opacity: 1; }
+        }
+
+        @media (max-width: 720px) {
+          .newsletters-page .content-grid .grid { grid-template-columns: 1fr; }
         }
       `}</style>
       <div className="heading-row">
@@ -414,6 +531,13 @@ export default function NewslettersPage() {
           <div className={`grid ${textQuery ? 'search-active' : ''}`}>
             {paged.map((n) => {
               const isLocal = !n.sourcePath
+              const preview = cardPreviews[n.id]
+              const cover = preview?.cover || null
+              const lead = preview?.chapters?.[0] || null
+              const rest = preview?.chapters?.slice(1) ?? []
+              const maxRest = 3
+              const moreCount = Math.max(0, rest.length - maxRest)
+              const isSearching = !!textQuery && !!matchSnippets[n.id]
               
               const handleDelete = (e: React.MouseEvent) => {
                 e.preventDefault()
@@ -435,18 +559,51 @@ export default function NewslettersPage() {
               
               return (
                 <div key={n.id} className="newsletter-card-wrapper">
-                  <Link to={`/newsletters/${n.slug}`} className="card newsletter-card" style={{ display: 'block' }}>
-                    <h3>{n.title}</h3>
-                    <p className="meta">{new Date(n.date).toLocaleDateString()}</p>
-                    {textQuery && matchSnippets[n.id] ? (
-                      <p className="query-snippet" dangerouslySetInnerHTML={{ __html: matchSnippets[n.id] }} />
-                    ) : (
-                      <p>{n.excerpt}</p>
-                    )}
-                    <div className="tag-row">
-                      {n.tags.map((t) => (
-                        <span key={t} className="pill">{t}</span>
-                      ))}
+                  <Link to={`/newsletters/${n.slug}`} className="card newsletter-card">
+                    <div className={`nl-cover${cover ? '' : ' no-image'}`}>
+                      {cover && (
+                        <img
+                          src={cover}
+                          alt=""
+                          loading="lazy"
+                          onError={(e) => {
+                            e.currentTarget.style.display = 'none'
+                          }}
+                        />
+                      )}
+                      <div className="nl-cover-scrim" />
+                      <span className="nl-cover-badge">
+                        {new Date(n.date).toLocaleDateString()}
+                      </span>
+                      <h3 className="nl-cover-title">{formatShortTitle(n.date)}</h3>
+                    </div>
+                    <div className="nl-body">
+                      {isSearching ? (
+                        <p className="nl-search-snippet" dangerouslySetInnerHTML={{ __html: matchSnippets[n.id] }} />
+                      ) : lead ? (
+                        <div className="nl-top">
+                          <span className="nl-top-kicker">Top story</span>
+                          <span className="nl-top-chapter">{lead.chapter}</span>
+                          <p className="nl-top-headline">{lead.article}</p>
+                        </div>
+                      ) : (
+                        <p className="nl-fallback">{n.excerpt}</p>
+                      )}
+                      {!isSearching && rest.length > 0 && (
+                        <div className="nl-toc">
+                          <p className="nl-toc-label">Also in this issue</p>
+                          <ul className="nl-toc-list">
+                            {rest.slice(0, maxRest).map((c) => (
+                              <li key={c.chapter}>
+                                <span className="nl-chapter">{c.chapter}</span>
+                                <span className="nl-article">{c.article}</span>
+                              </li>
+                            ))}
+                          </ul>
+                          {moreCount > 0 && <span className="nl-more">+{moreCount} more topic{moreCount > 1 ? 's' : ''}</span>}
+                        </div>
+                      )}
+                      <span className="nl-card-cta">Read the issue →</span>
                     </div>
                   </Link>
                   {isLocal && isAuthenticated && (
@@ -488,9 +645,13 @@ export default function NewslettersPage() {
           )}
           {filtered.length > 0 && (
             <div className="pagination">
-              <button className="button" disabled={page <= 1} onClick={() => setPage((p) => Math.max(1, p - 1))}>Previous</button>
-              <span className="meta" style={{ margin: '0 8px' }}>Page {page} of {totalPages}</span>
-              <button className="button" disabled={page >= totalPages} onClick={() => setPage((p) => Math.min(totalPages, p + 1))}>Next</button>
+              <button className="button" disabled={page <= 1} onClick={() => setPage((p) => Math.max(1, p - 1))}>
+                <span aria-hidden="true">‹</span> Previous
+              </button>
+              <span className="meta page-indicator">Page {page} of {totalPages}</span>
+              <button className="button" disabled={page >= totalPages} onClick={() => setPage((p) => Math.min(totalPages, p + 1))}>
+                Next <span aria-hidden="true">›</span>
+              </button>
             </div>
           )}
         </section>

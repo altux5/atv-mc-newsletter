@@ -13,6 +13,7 @@
   "devDependencies": {
     "@types/express": "^4.17.21",
     "@types/node": "^22.10.1",
+    "@types/nodemailer": "^6.4.24",
     "@types/pg": "^8.11.10",
     "@types/react": "^19.1.10",
     "@types/react-dom": "^19.1.7",
@@ -30,6 +31,7 @@
     "dompurify": "^3.2.6",
     "dotenv": "^16.4.5",
     "express": "^4.21.1",
+    "nodemailer": "^6.10.1",
     "pg": "^8.13.1",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",

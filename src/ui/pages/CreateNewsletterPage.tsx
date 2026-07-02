@@ -14,6 +14,7 @@ import {
   computeAutoTitle,
 } from '../../utils/localNewsletters'
 import { saveDraftApi, getDraftByIdApi, getAllDraftsApi, publishNewsletterApi } from '../../utils/newslettersApi'
+import { sendNewsletterApi } from '../../utils/subscribersApi'
 import RichTextEditor from '../components/RichTextEditor'
 import { generateNewsletterBodyHtml, normalizeButtonUrl } from '../../utils/generateNewsletterHtml'
 import type { SubmittedArticle } from '../../types/article'
@@ -323,11 +324,28 @@ export default function CreateNewsletterPage() {
     if (confirmed) {
       const draftToPublish = { ...draft, status: 'published' as const }
       void publishNewsletterApi(draftToPublish)
-        .then(() => {
+        .then(async (published) => {
           setDraft(draftToPublish)
           // Dispatch custom event to notify other components
           window.dispatchEvent(new Event('newsletterPublished'))
-          alert('Newsletter published successfully!')
+          // Email the new edition to the distribution list. A failure here (or
+          // mail being disabled on the server) must not undo the publish, so it
+          // is reported separately and never rethrown.
+          let mailNote = ''
+          try {
+            const result = await sendNewsletterApi(published.id)
+            if (result.recipients === 0) {
+              mailNote = '\n\nNo subscribers yet, so no emails were sent.'
+            } else if (result.failed > 0) {
+              mailNote = `\n\nEmailed ${result.sent} of ${result.recipients} subscribers (${result.failed} failed).`
+            } else {
+              mailNote = `\n\nEmailed ${result.sent} subscriber${result.sent === 1 ? '' : 's'}.`
+            }
+          } catch (mailError) {
+            console.error('Failed to email subscribers:', mailError)
+            mailNote = '\n\nThe newsletter was published, but subscriber emails could not be sent.'
+          }
+          alert(`Newsletter published successfully!${mailNote}`)
           navigate('/newsletters')
         })
         .catch((error) => {

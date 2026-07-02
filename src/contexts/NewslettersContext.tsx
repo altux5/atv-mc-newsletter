@@ -10,14 +10,21 @@ import {
 import { getNewsletters, getNewslettersAsync, type Newsletter } from '../data/newsletters'
 import {
   extractBodyText,
+  extractCoverImageFromHtml,
+  extractFirstArticleTitleFromHtml,
   extractSectionSnippets,
   findHtmlByMonthYearAsync,
   loadHtmlByPathAsync,
 } from '../utils/newsletterHtml'
-import { CANONICAL_CHAPTER_TITLES } from '../constants/chapters'
+import { CANONICAL_CHAPTER_TITLES, normalizeChapterTitle } from '../constants/chapters'
 
 export type SectionIndex = Record<string, ReturnType<typeof extractSectionSnippets>>
 export type SearchIndex = Record<string, string>
+
+/** A compact "mini-newsletter" summary shown on each grid card. */
+export type ChapterPreview = { chapter: string; article: string }
+export type CardPreview = { cover: string | null; chapters: ChapterPreview[] }
+export type CardPreviewIndex = Record<string, CardPreview>
 
 interface NewslettersContextValue {
   /** Merged list of bundled-archive and database newsletters, newest first. */
@@ -28,6 +35,8 @@ interface NewslettersContextValue {
   searchIndex: SearchIndex
   /** Per-newsletter chapter/section snippets, used for chapter filtering. */
   sectionIndex: SectionIndex
+  /** Per-newsletter cover image + chapter headlines, used to render grid cards. */
+  cardPreviews: CardPreviewIndex
   /** True while the search/section index is being built for the first time. */
   isIndexBuilding: boolean
   /** Fixed list of chapter filter options. */
@@ -44,12 +53,46 @@ const AVAILABLE_CHAPTERS: string[] = [...CANONICAL_CHAPTER_TITLES]
 let cachedNewsletters: Newsletter[] | null = null
 let cachedSectionIndex: SectionIndex | null = null
 let cachedSearchIndex: SearchIndex | null = null
+let cachedCardPreviews: CardPreviewIndex | null = null
 let inFlightNewsletters: Promise<Newsletter[]> | null = null
 
 // Per-newsletter parse cache so that rebuilding the index after new database
 // rows arrive only fetches and parses the newly added newsletters.
-type ParsedEntry = { sections: SectionIndex[string]; body: string } | null
+type ParsedEntry = {
+  sections: SectionIndex[string]
+  body: string
+  preview: CardPreview
+} | null
 const parsedHtmlCache = new Map<string, ParsedEntry>()
+
+/** Map a raw section heading to its canonical, display-ready chapter label. */
+function recognizeChapterLabel(title: string): string | null {
+  const n = normalizeChapterTitle(title)
+  if (!n) return null
+  if (n.includes('aurix')) return 'AURIX™'
+  if (n.includes('traveo')) return 'TRAVEO™'
+  if (n.includes('psoc')) return 'PSOC™ Automotive'
+  if (n.includes('bulletin')) return 'Bulletin Board'
+  if (n.includes('pdh') || n.includes('partner')) return 'PDH & Partners'
+  if (n.includes('ease of use')) return 'Ease of Use'
+  if (n.includes('market') || n.includes('press')) return 'Market News & Press Release'
+  return null
+}
+
+/** Build the ordered "in this issue" list: one article headline per chapter. */
+function buildChapterPreviews(sections: SectionIndex[string]): ChapterPreview[] {
+  const out: ChapterPreview[] = []
+  const seen = new Set<string>()
+  for (const s of sections) {
+    const label = recognizeChapterLabel(s.title)
+    if (!label || seen.has(label)) continue
+    const article = extractFirstArticleTitleFromHtml(s.html, s.title)
+    if (!article) continue
+    seen.add(label)
+    out.push({ chapter: label, article })
+  }
+  return out
+}
 
 async function indexOne(n: Newsletter): Promise<ParsedEntry> {
   const cached = parsedHtmlCache.get(n.id)
@@ -62,7 +105,15 @@ async function indexOne(n: Newsletter): Promise<ParsedEntry> {
       : await findHtmlByMonthYearAsync(date.getUTCMonth(), date.getUTCFullYear())
     const html = match?.html
     if (html) {
-      entry = { sections: extractSectionSnippets(html), body: extractBodyText(html) }
+      const sections = extractSectionSnippets(html)
+      entry = {
+        sections,
+        body: extractBodyText(html),
+        preview: {
+          cover: extractCoverImageFromHtml(html),
+          chapters: buildChapterPreviews(sections),
+        },
+      }
     }
   } catch {
     // Ignore individual failures so the rest of the index still builds.
@@ -81,6 +132,7 @@ export function NewslettersProvider({ children }: { children: ReactNode }) {
   const [isLoadingNewsletters, setIsLoadingNewsletters] = useState<boolean>(cachedNewsletters === null)
   const [sectionIndex, setSectionIndex] = useState<SectionIndex>(() => cachedSectionIndex ?? {})
   const [searchIndex, setSearchIndex] = useState<SearchIndex>(() => cachedSearchIndex ?? {})
+  const [cardPreviews, setCardPreviews] = useState<CardPreviewIndex>(() => cachedCardPreviews ?? {})
   const [isIndexBuilding, setIsIndexBuilding] = useState<boolean>(cachedSectionIndex === null)
 
   const loadNewsletters = useCallback(() => {
@@ -109,6 +161,7 @@ export function NewslettersProvider({ children }: { children: ReactNode }) {
     cachedNewsletters = null
     cachedSectionIndex = null
     cachedSearchIndex = null
+    cachedCardPreviews = null
     inFlightNewsletters = null
     parsedHtmlCache.clear()
     setIsIndexBuilding(true)
@@ -137,20 +190,24 @@ export function NewslettersProvider({ children }: { children: ReactNode }) {
     void (async () => {
       const nextSections: SectionIndex = {}
       const nextSearch: SearchIndex = {}
+      const nextPreviews: CardPreviewIndex = {}
       await Promise.all(
         newsletters.map(async (n) => {
           const entry = await indexOne(n)
           if (entry) {
             nextSections[n.id] = entry.sections
             nextSearch[n.id] = entry.body
+            nextPreviews[n.id] = entry.preview
           }
         })
       )
       if (cancelled) return
       cachedSectionIndex = nextSections
       cachedSearchIndex = nextSearch
+      cachedCardPreviews = nextPreviews
       setSectionIndex(nextSections)
       setSearchIndex(nextSearch)
+      setCardPreviews(nextPreviews)
       setIsIndexBuilding(false)
     })()
     return () => {
@@ -164,11 +221,12 @@ export function NewslettersProvider({ children }: { children: ReactNode }) {
       isLoadingNewsletters,
       searchIndex,
       sectionIndex,
+      cardPreviews,
       isIndexBuilding,
       availableChapters: AVAILABLE_CHAPTERS,
       refresh,
     }),
-    [newsletters, isLoadingNewsletters, searchIndex, sectionIndex, isIndexBuilding, refresh]
+    [newsletters, isLoadingNewsletters, searchIndex, sectionIndex, cardPreviews, isIndexBuilding, refresh]
   )
 
   return <NewslettersContext.Provider value={value}>{children}</NewslettersContext.Provider>

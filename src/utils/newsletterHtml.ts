@@ -263,6 +263,115 @@ export function extractBodyText(htmlDocumentString: string): string {
   }
 }
 
+/**
+ * Picks a representative "cover" image from a newsletter so grid cards have a
+ * visual anchor. Skips logos, social icons, spacers and tiny tracking pixels,
+ * returning the first reasonably-sized content image (typically the masthead
+ * hero). Returns null when nothing suitable is found.
+ */
+export function extractCoverImageFromHtml(htmlDocumentString: string): string | null {
+  try {
+    const sanitized = extractAndSanitizeBodyHtml(htmlDocumentString)
+    const div = document.createElement('div')
+    div.innerHTML = sanitized
+    const imgs = Array.from(div.querySelectorAll('img')) as HTMLImageElement[]
+    const skip =
+      /logo|ifx_logos|spacer|pixel|beacon|tracking|\btrack\b|icon|facebook|twitter|linkedin|youtube|instagram|social|unsub|1x1|blank|transparent|clear\.gif/i
+
+    // Resolve a pixel dimension from a width/height attribute or inline style,
+    // converting Word's in/pt/cm units so we can filter out tiny images.
+    const dim = (img: HTMLElement, attr: 'width' | 'height'): number => {
+      const a = img.getAttribute(attr)
+      if (a && /^\d+(\.\d+)?$/.test(a.trim())) return parseFloat(a)
+      const style = img.getAttribute('style') || ''
+      const m = style.match(new RegExp(attr + '\\s*:\\s*([0-9.]+)(in|pt|px|cm)?', 'i'))
+      if (!m) return 0
+      const v = parseFloat(m[1])
+      const unit = (m[2] || 'px').toLowerCase()
+      if (unit === 'in') return v * 96
+      if (unit === 'pt') return v * (96 / 72)
+      if (unit === 'cm') return v * (96 / 2.54)
+      return v
+    }
+
+    const isHttp = (s: string) => /^https?:\/\//i.test(s)
+
+    // First pass: a properly sized content image (the masthead hero).
+    for (const img of imgs) {
+      const src = (img.getAttribute('src') || '').trim()
+      if (!isHttp(src) || skip.test(src)) continue
+      const w = dim(img, 'width')
+      const h = dim(img, 'height')
+      if ((w && w < 120) || (h && h < 60)) continue
+      return src
+    }
+    // Second pass: any non-logo http image, regardless of declared size.
+    for (const img of imgs) {
+      const src = (img.getAttribute('src') || '').trim()
+      if (isHttp(src) && !skip.test(src)) return src
+    }
+    return null
+  } catch {
+    return null
+  }
+}
+
+// Normalized chapter labels we never want to mistake for an article headline.
+const CHAPTER_LABEL_TEXTS = new Set([
+  'aurix',
+  'traveo',
+  'traveo t2g',
+  'psoc',
+  'psoc automotive',
+  'bulletin board',
+  'pdh and partners',
+  'pdh partners',
+  'ease of use',
+  'market news and press release',
+  'market news',
+  'press release',
+])
+
+function normalizeHeadline(s: string): string {
+  return (s || '')
+    .replace(/\u00a0/g, ' ')
+    .replace(/™|®/g, '')
+    .replace(/&/g, 'and')
+    .replace(/\s+/g, ' ')
+    .trim()
+    .toLowerCase()
+}
+
+/**
+ * Given the inner HTML of a single chapter section, returns the first article
+ * headline within it. Chapter headers use the green brand color (#0A8276); article
+ * headlines are bold black text, so we skip green/heading-equal candidates.
+ * Returns '' when no headline is found.
+ */
+export function extractFirstArticleTitleFromHtml(sectionHtml: string, chapterTitle: string): string {
+  try {
+    const div = document.createElement('div')
+    div.innerHTML = sectionHtml
+    const chapterNorm = normalizeHeadline(chapterTitle)
+    const candidates = Array.from(div.querySelectorAll('b, strong, h1, h2, h3, h4')) as HTMLElement[]
+    for (const el of candidates) {
+      const text = (el.textContent || '').replace(/\s+/g, ' ').trim()
+      if (!text || text.length < 8 || text.length > 160) continue
+      // Skip the green chapter header(s).
+      if (/0a8276/i.test(el.innerHTML) || /0a8276/i.test(el.getAttribute('style') || '')) continue
+      const textNorm = normalizeHeadline(text)
+      if (textNorm === chapterNorm) continue
+      if (CHAPTER_LABEL_TEXTS.has(textNorm)) continue
+      // Skip greetings, sign-offs and generic call-to-action labels.
+      if (/^(dear|hello|hi|welcome|read more|click here|learn more|find out|best regards|kind regards|your atv)/i.test(text)) continue
+      return text
+    }
+    return ''
+  } catch {
+    return ''
+  }
+}
+
 /** Extract the first non-empty paragraph's plain text from the newsletter body. */
 export function extractFirstParagraphText(htmlDocumentString: string): string {
   try {

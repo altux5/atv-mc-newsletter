@@ -39,6 +39,20 @@ CREATE TABLE IF NOT EXISTS newsletter_drafts (
   updated_at timestamptz NOT NULL DEFAULT now()
 );
 
+-- Newsletter distribution list. Visitors subscribe via the public site; a newly
+-- published newsletter is emailed to every active subscriber. `unsubscribe_token`
+-- is a random secret embedded in the one-click unsubscribe link so a recipient
+-- can only remove their own address.
+CREATE TABLE IF NOT EXISTS subscribers (
+  id                text PRIMARY KEY,
+  email             text UNIQUE NOT NULL,
+  active            boolean NOT NULL DEFAULT true,
+  unsubscribe_token text NOT NULL,
+  subscribed_at     timestamptz NOT NULL DEFAULT now(),
+  unsubscribed_at   timestamptz
+);
+
 CREATE INDEX IF NOT EXISTS idx_newsletters_date ON newsletters (date DESC);
 CREATE INDEX IF NOT EXISTS idx_articles_submitted_at ON articles (submitted_at DESC);
 CREATE INDEX IF NOT EXISTS idx_newsletter_drafts_status ON newsletter_drafts (status);
+CREATE INDEX IF NOT EXISTS idx_subscribers_active ON subscribers (active);

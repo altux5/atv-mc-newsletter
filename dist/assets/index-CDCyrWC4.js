@@ -117039,6 +117039,82 @@ function extractBodyText(htmlDocumentString) {
     return htmlDocumentString;
   }
 }
+function extractCoverImageFromHtml(htmlDocumentString) {
+  try {
+    const sanitized = extractAndSanitizeBodyHtml(htmlDocumentString);
+    const div = document.createElement("div");
+    div.innerHTML = sanitized;
+    const imgs = Array.from(div.querySelectorAll("img"));
+    const skip = /logo|ifx_logos|spacer|pixel|beacon|tracking|\btrack\b|icon|facebook|twitter|linkedin|youtube|instagram|social|unsub|1x1|blank|transparent|clear\.gif/i;
+    const dim = (img, attr) => {
+      const a = img.getAttribute(attr);
+      if (a && /^\d+(\.\d+)?$/.test(a.trim())) return parseFloat(a);
+      const style2 = img.getAttribute("style") || "";
+      const m = style2.match(new RegExp(attr + "\\s*:\\s*([0-9.]+)(in|pt|px|cm)?", "i"));
+      if (!m) return 0;
+      const v = parseFloat(m[1]);
+      const unit = (m[2] || "px").toLowerCase();
+      if (unit === "in") return v * 96;
+      if (unit === "pt") return v * (96 / 72);
+      if (unit === "cm") return v * (96 / 2.54);
+      return v;
+    };
+    const isHttp = (s) => /^https?:\/\//i.test(s);
+    for (const img of imgs) {
+      const src = (img.getAttribute("src") || "").trim();
+      if (!isHttp(src) || skip.test(src)) continue;
+      const w = dim(img, "width");
+      const h2 = dim(img, "height");
+      if (w && w < 120 || h2 && h2 < 60) continue;
+      return src;
+    }
+    for (const img of imgs) {
+      const src = (img.getAttribute("src") || "").trim();
+      if (isHttp(src) && !skip.test(src)) return src;
+    }
+    return null;
+  } catch {
+    return null;
+  }
+}
+const CHAPTER_LABEL_TEXTS = /* @__PURE__ */ new Set([
+  "aurix",
+  "traveo",
+  "traveo t2g",
+  "psoc",
+  "psoc automotive",
+  "bulletin board",
+  "pdh and partners",
+  "pdh partners",
+  "ease of use",
+  "market news and press release",
+  "market news",
+  "press release"
+]);
+function normalizeHeadline(s) {
+  return (s || "").replace(/\u00a0/g, " ").replace(/™|®/g, "").replace(/&/g, "and").replace(/\s+/g, " ").trim().toLowerCase();
+}
+function extractFirstArticleTitleFromHtml(sectionHtml, chapterTitle) {
+  try {
+    const div = document.createElement("div");
+    div.innerHTML = sectionHtml;
+    const chapterNorm = normalizeHeadline(chapterTitle);
+    const candidates = Array.from(div.querySelectorAll("b, strong, h1, h2, h3, h4"));
+    for (const el of candidates) {
+      const text2 = (el.textContent || "").replace(/\s+/g, " ").trim();
+      if (!text2 || text2.length < 8 || text2.length > 160) continue;
+      if (/0a8276/i.test(el.innerHTML) || /0a8276/i.test(el.getAttribute("style") || "")) continue;
+      const textNorm = normalizeHeadline(text2);
+      if (textNorm === chapterNorm) continue;
+      if (CHAPTER_LABEL_TEXTS.has(textNorm)) continue;
+      if (/^(dear|hello|hi|welcome|read more|click here|learn more|find out|best regards|kind regards|your atv)/i.test(text2)) continue;
+      return text2;
+    }
+    return "";
+  } catch {
+    return "";
+  }
+}
 function extractFirstMeaningfulParagraphText(htmlDocumentString) {
   try {
     const sanitized = extractAndSanitizeBodyHtml(htmlDocumentString);
@@ -117920,8 +117996,34 @@ const AVAILABLE_CHAPTERS = [...CANONICAL_CHAPTER_TITLES];
 let cachedNewsletters = null;
 let cachedSectionIndex = null;
 let cachedSearchIndex = null;
+let cachedCardPreviews = null;
 let inFlightNewsletters = null;
 const parsedHtmlCache = /* @__PURE__ */ new Map();
+function recognizeChapterLabel(title) {
+  const n = normalizeChapterTitle(title);
+  if (!n) return null;
+  if (n.includes("aurix")) return "AURIX™";
+  if (n.includes("traveo")) return "TRAVEO™";
+  if (n.includes("psoc")) return "PSOC™ Automotive";
+  if (n.includes("bulletin")) return "Bulletin Board";
+  if (n.includes("pdh") || n.includes("partner")) return "PDH & Partners";
+  if (n.includes("ease of use")) return "Ease of Use";
+  if (n.includes("market") || n.includes("press")) return "Market News & Press Release";
+  return null;
+}
+function buildChapterPreviews(sections) {
+  const out = [];
+  const seen2 = /* @__PURE__ */ new Set();
+  for (const s of sections) {
+    const label = recognizeChapterLabel(s.title);
+    if (!label || seen2.has(label)) continue;
+    const article = extractFirstArticleTitleFromHtml(s.html, s.title);
+    if (!article) continue;
+    seen2.add(label);
+    out.push({ chapter: label, article });
+  }
+  return out;
+}
 async function indexOne(n) {
   const cached = parsedHtmlCache.get(n.id);
   if (cached !== void 0) return cached;
@@ -117931,7 +118033,15 @@ async function indexOne(n) {
     const match = n.sourcePath ? await loadHtmlByPathAsync(n.sourcePath) : await findHtmlByMonthYearAsync(date.getUTCMonth(), date.getUTCFullYear());
     const html2 = match?.html;
     if (html2) {
-      entry = { sections: extractSectionSnippets(html2), body: extractBodyText(html2) };
+      const sections = extractSectionSnippets(html2);
+      entry = {
+        sections,
+        body: extractBodyText(html2),
+        preview: {
+          cover: extractCoverImageFromHtml(html2),
+          chapters: buildChapterPreviews(sections)
+        }
+      };
     }
   } catch {
     entry = null;
@@ -117945,6 +118055,7 @@ function NewslettersProvider({ children }) {
   const [isLoadingNewsletters, setIsLoadingNewsletters] = reactExports$1.useState(cachedNewsletters === null);
   const [sectionIndex, setSectionIndex] = reactExports$1.useState(() => cachedSectionIndex ?? {});
   const [searchIndex, setSearchIndex] = reactExports$1.useState(() => cachedSearchIndex ?? {});
+  const [cardPreviews, setCardPreviews] = reactExports$1.useState(() => cachedCardPreviews ?? {});
   const [isIndexBuilding, setIsIndexBuilding] = reactExports$1.useState(cachedSectionIndex === null);
   const loadNewsletters = reactExports$1.useCallback(() => {
     setIsLoadingNewsletters(cachedNewsletters === null);
@@ -117969,6 +118080,7 @@ function NewslettersProvider({ children }) {
     cachedNewsletters = null;
     cachedSectionIndex = null;
     cachedSearchIndex = null;
+    cachedCardPreviews = null;
     inFlightNewsletters = null;
     parsedHtmlCache.clear();
     setIsIndexBuilding(true);
@@ -117990,20 +118102,24 @@ function NewslettersProvider({ children }) {
     void (async () => {
       const nextSections = {};
       const nextSearch = {};
+      const nextPreviews = {};
       await Promise.all(
         newsletters.map(async (n) => {
           const entry = await indexOne(n);
           if (entry) {
             nextSections[n.id] = entry.sections;
             nextSearch[n.id] = entry.body;
+            nextPreviews[n.id] = entry.preview;
           }
         })
       );
       if (cancelled) return;
       cachedSectionIndex = nextSections;
       cachedSearchIndex = nextSearch;
+      cachedCardPreviews = nextPreviews;
       setSectionIndex(nextSections);
       setSearchIndex(nextSearch);
+      setCardPreviews(nextPreviews);
       setIsIndexBuilding(false);
     })();
     return () => {
@@ -118016,11 +118132,12 @@ function NewslettersProvider({ children }) {
       isLoadingNewsletters,
       searchIndex,
       sectionIndex,
+      cardPreviews,
       isIndexBuilding,
       availableChapters: AVAILABLE_CHAPTERS,
       refresh
     }),
-    [newsletters, isLoadingNewsletters, searchIndex, sectionIndex, isIndexBuilding, refresh]
+    [newsletters, isLoadingNewsletters, searchIndex, sectionIndex, cardPreviews, isIndexBuilding, refresh]
   );
   return /* @__PURE__ */ jsxRuntimeExports.jsx(NewslettersContext.Provider, { value, children });
 }
@@ -118030,6 +118147,105 @@ function useNewsletters() {
   return ctx;
 }
 const logoUrl = "/assets/Agent-logo-BNWebEI8.svg";
+class AuthRequiredError extends Error {
+  constructor(message) {
+    super(message);
+    this.name = "AuthRequiredError";
+  }
+}
+async function apiFetch(input, init2) {
+  let res;
+  try {
+    res = await fetch(input, { ...init2, redirect: "manual", credentials: "include" });
+  } catch {
+    throw new AuthRequiredError(
+      "Could not reach the server. Your session may have expired — please refresh the page to sign in from your browser, then try again."
+    );
+  }
+  if (res.type === "opaqueredirect" || res.status === 401 || res.status === 403) {
+    throw new AuthRequiredError(
+      "You need to sign in to do that. Please refresh the page to sign in from your browser, then try again."
+    );
+  }
+  return res;
+}
+async function parseJson(res) {
+  if (!res.ok) {
+    let detail = "";
+    try {
+      const data = await res.json();
+      detail = data?.error ?? "";
+    } catch {
+    }
+    throw new Error(detail || `Request failed (${res.status})`);
+  }
+  return res.json();
+}
+const SUBSCRIBERS = "/api/subscribers";
+const NEWSLETTERS$1 = "/api/newsletters";
+async function subscribeApi(email) {
+  const res = await apiFetch(SUBSCRIBERS, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ email })
+  });
+  await parseJson(res);
+}
+async function sendNewsletterApi(id) {
+  const res = await apiFetch(`${NEWSLETTERS$1}/${encodeURIComponent(id)}/send`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" }
+  });
+  return parseJson(res);
+}
+function SubscribeForm() {
+  const [email, setEmail] = reactExports$1.useState("");
+  const [status, setStatus] = reactExports$1.useState("idle");
+  const [message, setMessage] = reactExports$1.useState("");
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const trimmed = email.trim();
+    if (!trimmed) {
+      setStatus("error");
+      setMessage("Please enter your email address.");
+      return;
+    }
+    setStatus("submitting");
+    setMessage("");
+    try {
+      await subscribeApi(trimmed);
+      setStatus("success");
+      setMessage("You're subscribed! You'll get an email whenever a new newsletter is published.");
+      setEmail("");
+    } catch (error) {
+      setStatus("error");
+      setMessage(error instanceof Error ? error.message : "Could not subscribe. Please try again.");
+    }
+  };
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "subscribe", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "subscribe-copy", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { className: "subscribe-title", children: "Subscribe to the newsletter" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "subscribe-sub", children: "Get an email whenever a new edition is published." })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("form", { className: "subscribe-form", onSubmit: handleSubmit, children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx(
+        "input",
+        {
+          type: "email",
+          className: "subscribe-input",
+          placeholder: "your.name@infineon.com",
+          value: email,
+          onChange: (e) => setEmail(e.target.value),
+          disabled: status === "submitting",
+          "aria-label": "Email address",
+          required: true
+        }
+      ),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "submit", className: "subscribe-button", disabled: status === "submitting", children: status === "submitting" ? "Subscribing…" : "Subscribe" })
+    ] }),
+    message && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: `subscribe-message${status === "error" ? " is-error" : " is-success"}`, role: "status", children: message })
+  ] });
+}
 function RootLayout() {
   const { isAuthenticated, isEditor: isEditor2, logout, user } = useAuth();
   const navigate = useNavigate();
@@ -118064,9 +118280,12 @@ function RootLayout() {
     ] }) }),
     /* @__PURE__ */ jsxRuntimeExports.jsx("main", { className: "container main-content", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Outlet, {}) }),
     /* @__PURE__ */ jsxRuntimeExports.jsx("footer", { className: "app-footer", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "container", children: [
-      "© ",
-      (/* @__PURE__ */ new Date()).getFullYear(),
-      " Newsletter Hub"
+      /* @__PURE__ */ jsxRuntimeExports.jsx(SubscribeForm, {}),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "app-footer-copy", children: [
+        "© ",
+        (/* @__PURE__ */ new Date()).getFullYear(),
+        " Newsletter Hub"
+      ] })
     ] }) })
   ] });
 }
@@ -118897,40 +119116,6 @@ function HomePage() {
     )
   ] });
 }
-class AuthRequiredError extends Error {
-  constructor(message) {
-    super(message);
-    this.name = "AuthRequiredError";
-  }
-}
-async function apiFetch(input, init2) {
-  let res;
-  try {
-    res = await fetch(input, { ...init2, redirect: "manual", credentials: "include" });
-  } catch {
-    throw new AuthRequiredError(
-      "Could not reach the server. Your session may have expired — please refresh the page to sign in from your browser, then try again."
-    );
-  }
-  if (res.type === "opaqueredirect" || res.status === 401 || res.status === 403) {
-    throw new AuthRequiredError(
-      "You need to sign in to do that. Please refresh the page to sign in from your browser, then try again."
-    );
-  }
-  return res;
-}
-async function parseJson(res) {
-  if (!res.ok) {
-    let detail = "";
-    try {
-      const data = await res.json();
-      detail = data?.error ?? "";
-    } catch {
-    }
-    throw new Error(detail || `Request failed (${res.status})`);
-  }
-  return res.json();
-}
 const DRAFTS = "/api/drafts";
 const NEWSLETTERS = "/api/newsletters";
 async function getPublishedNewslettersApi() {
@@ -118989,10 +119174,17 @@ const newslettersApi = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defi
   publishNewsletterApi,
   saveDraftApi
 }, Symbol.toStringTag, { value: "Module" }));
+function formatShortTitle(dateStr) {
+  const d = new Date(dateStr);
+  if (isNaN(d.getTime())) return "Newsletter";
+  const month = d.toLocaleString(void 0, { month: "long", timeZone: "UTC" });
+  const yy = String(d.getUTCFullYear() % 100).padStart(2, "0");
+  return `${month} '${yy}`;
+}
 function NewslettersPage() {
   const location = useLocation();
   const { isAuthenticated } = useAuth();
-  const { newsletters, searchIndex, sectionIndex, availableChapters, isIndexBuilding, isLoadingNewsletters } = useNewsletters();
+  const { newsletters, searchIndex, sectionIndex, cardPreviews, availableChapters, isIndexBuilding, isLoadingNewsletters } = useNewsletters();
   const [selectedChapter, setSelectedChapter] = reactExports$1.useState(null);
   const [textQuery, setTextQuery] = reactExports$1.useState("");
   const [selectedMonth, setSelectedMonth] = reactExports$1.useState(null);
@@ -119004,7 +119196,7 @@ function NewslettersPage() {
     return params.get("chapter");
   });
   const [page, setPage] = reactExports$1.useState(1);
-  const pageSize = 9;
+  const pageSize = 4;
   reactExports$1.useEffect(() => {
     const params = new URLSearchParams(location.search);
     const chapterParam = params.get("chapter");
@@ -119162,18 +119354,122 @@ function NewslettersPage() {
     /* @__PURE__ */ jsxRuntimeExports.jsx("style", { children: `
         .newsletters-page .heading-row h1 { color: var(--brand); margin: 0; }
         .newsletters-page .heading-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
-        .newsletters-page .layout-with-sidebar { gap: 16px; align-items: flex-start; }
-        .newsletters-page .filters.card { background: #fff; border: 1px solid var(--border-color, #e0e0e0); border-radius: 0; padding: 16px; }
-        .newsletters-page .filters .field { margin-bottom: 12px; }
-        .newsletters-page .filters label { font-weight: 600; }
-        .newsletters-page .content-grid .grid { gap: 16px; }
-        .newsletters-page .newsletter-card { background: #fff; border: 1px solid var(--border-color, #e0e0e0); border-radius: 0; padding: 16px; transition: transform 150ms ease, box-shadow 150ms ease, border-color 150ms ease; }
-        .newsletters-page .newsletter-card:hover { transform: translateY(-2px); box-shadow: 0 4px 16px rgba(0,0,0,0.06); border-color: var(--brand); }
-        .newsletters-page .newsletter-card h3 { margin-top: 0; }
-        .newsletters-page .newsletter-card:hover h3 { color: var(--brand); }
-        .newsletters-page .pill { color: var(--brand); border: 1px solid var(--brand); background: transparent; border-radius: 0; }
+        .newsletters-page .layout-with-sidebar { gap: 20px; align-items: flex-start; }
+
+        /* Filter box — soft card with pill controls */
+        .newsletters-page .filters.card { background: #fff; border: 1px solid #e5e7eb; border-radius: 16px; padding: 18px; box-shadow: 0 1px 2px rgba(0,0,0,0.04); }
+        .newsletters-page .filters .field { margin-bottom: 16px; }
+        .newsletters-page .filters label { font-weight: 600; font-size: 12px; letter-spacing: 0.3px; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+        .newsletters-page .filters input,
+        .newsletters-page .filters select {
+          width: 100%; border-radius: 999px; border: 1px solid #d1d5db; background: #fff;
+          padding: 9px 14px; font-size: 14px; color: var(--text);
+          transition: border-color 150ms ease, box-shadow 150ms ease;
+        }
+        .newsletters-page .filters input:focus,
+        .newsletters-page .filters select:focus { outline: none; border-color: var(--brand); box-shadow: 0 0 0 3px var(--brand-ghost); }
+        .newsletters-page .filters .select-row { display: flex; gap: 8px; }
+        .newsletters-page .filters .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+        .newsletters-page .filters .tag {
+          border-radius: 999px; border: 1px solid #d1d5db; background: #fff; color: var(--muted);
+          padding: 7px 13px; font-size: 13px; font-weight: 600; cursor: pointer;
+          transition: background 150ms ease, color 150ms ease, border-color 150ms ease;
+        }
+        .newsletters-page .filters .tag:hover { border-color: var(--brand); color: var(--brand); }
+        .newsletters-page .filters .tag.on { background: var(--brand); border-color: var(--brand); color: #fff; }
+        .newsletters-page .filters .button {
+          border-radius: 999px; border: 1px solid var(--brand); background: var(--brand); color: #fff;
+          padding: 9px 18px; font-weight: 600; font-size: 14px; cursor: pointer; transition: background 150ms ease;
+        }
+        .newsletters-page .filters .button:hover { background: #086b61; }
+
+        /* Grid — 4 portrait "mini-newsletter" cards per page (2 columns, equal size) */
+        .newsletters-page .content-grid .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: 1fr; gap: 22px; align-items: stretch; }
+        .newsletters-page .content-grid .grid.search-active { grid-template-columns: minmax(0, 1fr); grid-auto-rows: auto; }
+        .newsletters-page .newsletter-card-wrapper { position: relative; height: 100%; min-width: 0; }
+        .newsletters-page .newsletter-card {
+          height: 100%; display: flex; flex-direction: column; min-width: 0;
+          background: #fff; border: 1px solid #e5e7eb; border-radius: 10px; overflow: hidden;
+          color: var(--text); text-decoration: none;
+          box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+          transition: transform 160ms ease, box-shadow 160ms ease;
+        }
+        .newsletters-page .content-grid .grid:not(.search-active) .newsletter-card { min-height: 500px; }
+        .newsletters-page .newsletter-card:hover { transform: translateY(-3px); box-shadow: 0 10px 28px rgba(0,0,0,0.10); }
+
+        /* Cover image with overlaid month title (branded gradient fallback) */
+        .newsletters-page .nl-cover {
+          position: relative; height: 150px; flex-shrink: 0; overflow: hidden;
+          background: linear-gradient(135deg, var(--brand) 0%, #0b5c54 100%);
+        }
+        .newsletters-page .nl-cover img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+        .newsletters-page .nl-cover-scrim { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0) 35%, rgba(0,0,0,0.62) 100%); }
+        .newsletters-page .nl-cover-badge {
+          position: absolute; top: 10px; right: 12px; z-index: 1;
+          background: rgba(255,255,255,0.9); color: var(--text);
+          font-size: 11px; font-weight: 700;
+          padding: 3px 9px; border-radius: 999px;
+        }
+        .newsletters-page .nl-cover-title {
+          position: absolute; left: 14px; right: 14px; bottom: 10px; z-index: 1; margin: 0;
+          color: #fff; font-size: 26px; font-weight: 800; letter-spacing: 0.2px; line-height: 1.1;
+          text-shadow: 0 1px 6px rgba(0,0,0,0.45);
+        }
+
+        /* Card body */
+        .newsletters-page .nl-body { display: flex; flex-direction: column; gap: 10px; padding: 14px 16px; flex: 1; min-height: 0; min-width: 0; }
+
+        /* Top story — the edition's lead headline, replacing the old boilerplate intro */
+        .newsletters-page .nl-top { display: flex; flex-direction: column; gap: 2px; }
+        .newsletters-page .nl-top-kicker { font-size: 10px; font-weight: 800; letter-spacing: 0.8px; text-transform: uppercase; color: #9ca3af; }
+        .newsletters-page .nl-top-chapter { font-size: 12px; font-weight: 800; letter-spacing: 0.3px; color: var(--brand); }
+        .newsletters-page .nl-top-headline {
+          margin: 0; font-size: 15.5px; font-weight: 700; line-height: 1.3; color: #1f2937;
+          display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
+        }
+        .newsletters-page .nl-fallback {
+          margin: 0; font-size: 13px; line-height: 1.55; color: #4b5563;
+          display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden;
+        }
+        .newsletters-page .nl-search-snippet {
+          margin: 0; font-size: 13px; line-height: 1.55; color: #4b5563;
+          display: -webkit-box; -webkit-line-clamp: 6; -webkit-box-orient: vertical; overflow: hidden;
+        }
+        .newsletters-page .nl-search-snippet mark { background: #fff3cd; padding: 0 2px; }
+
+        /* "Also in this issue" — compact table-of-contents */
+        .newsletters-page .nl-toc { display: flex; flex-direction: column; gap: 6px; flex: 1; min-height: 0; min-width: 0; padding-top: 10px; border-top: 1px solid #eef0f2; }
+        .newsletters-page .nl-toc-label { margin: 0; font-size: 10px; font-weight: 800; letter-spacing: 0.8px; text-transform: uppercase; color: #9ca3af; }
+        .newsletters-page .nl-toc-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+        .newsletters-page .nl-toc-list li { display: flex; flex-direction: column; gap: 0; min-width: 0; }
+        .newsletters-page .nl-chapter { font-size: 11px; font-weight: 800; letter-spacing: 0.2px; color: var(--brand); }
+        .newsletters-page .nl-article {
+          font-size: 12.5px; line-height: 1.35; color: #4b5563; min-width: 0;
+          white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+        }
+        .newsletters-page .nl-more { font-size: 11px; font-weight: 700; color: #9ca3af; }
+
+        .newsletters-page .nl-card-cta {
+          margin-top: auto; padding-top: 4px; font-size: 13px; font-weight: 700; color: var(--brand);
+          opacity: 0; transform: translateX(-4px);
+          transition: opacity 150ms ease, transform 150ms ease;
+        }
+        .newsletters-page .newsletter-card:hover .nl-card-cta { opacity: 1; transform: translateX(0); }
+
+        /* Pagination — pill buttons matching the view toggle */
+        .newsletters-page .pagination { display: flex; align-items: center; justify-content: center; gap: 10px; margin-top: 28px; }
+        .newsletters-page .pagination .button {
+          display: inline-flex; align-items: center; gap: 6px;
+          border-radius: 999px; border: 1px solid var(--brand); background: #fff; color: var(--brand);
+          padding: 8px 18px; font-size: 14px; font-weight: 600; cursor: pointer;
+          transition: background 150ms ease, color 150ms ease, border-color 150ms ease;
+        }
+        .newsletters-page .pagination .button:hover:not(:disabled) { background: var(--brand); color: #fff; }
+        .newsletters-page .pagination .button:disabled { opacity: 0.5; cursor: default; border-color: #d1d5db; color: #9ca3af; }
+        .newsletters-page .pagination .page-indicator { margin: 0 4px; font-size: 13px; font-weight: 600; color: var(--muted); }
+
         .newsletters-page .matches-section .match-title-link { color: var(--brand); }
-        .newsletters-page .loading .loading-bar { height: 8px; background: #f3f3f3; border-radius: 0; overflow: hidden; }
+        .newsletters-page .loading .loading-bar { height: 8px; background: #f3f3f3; border-radius: 999px; overflow: hidden; }
         .newsletters-page .loading .loading-bar-inner { height: 100%; width: 40%; background: var(--brand); animation: nlblink 1.2s ease-in-out infinite alternate; }
         @keyframes nlblink { from { width: 25%; } to { width: 55%; } }
         .newsletters-page .index-banner {
@@ -119194,6 +119490,10 @@ function NewslettersPage() {
         @keyframes nlindexpulse {
           from { transform: scale(0.9); opacity: 0.6; }
           to { transform: scale(1.1); opacity: 1; }
+        }
+
+        @media (max-width: 720px) {
+          .newsletters-page .content-grid .grid { grid-template-columns: 1fr; }
         }
       ` }),
     /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "heading-row", children: [
@@ -119327,6 +119627,13 @@ function NewslettersPage() {
         !shouldHideGridForInitialChapter && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: `grid ${textQuery ? "search-active" : ""}`, children: [
           paged.map((n) => {
             const isLocal = !n.sourcePath;
+            const preview = cardPreviews[n.id];
+            const cover = preview?.cover || null;
+            const lead = preview?.chapters?.[0] || null;
+            const rest = preview?.chapters?.slice(1) ?? [];
+            const maxRest = 3;
+            const moreCount = Math.max(0, rest.length - maxRest);
+            const isSearching = !!textQuery && !!matchSnippets[n.id];
             const handleDelete2 = (e) => {
               e.preventDefault();
               e.stopPropagation();
@@ -119343,11 +119650,44 @@ function NewslettersPage() {
               }
             };
             return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "newsletter-card-wrapper", children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsxs(Link$1, { to: `/newsletters/${n.slug}`, className: "card newsletter-card", style: { display: "block" }, children: [
-                /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { children: n.title }),
-                /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "meta", children: new Date(n.date).toLocaleDateString() }),
-                textQuery && matchSnippets[n.id] ? /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "query-snippet", dangerouslySetInnerHTML: { __html: matchSnippets[n.id] } }) : /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: n.excerpt }),
-                /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "tag-row", children: n.tags.map((t) => /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "pill", children: t }, t)) })
+              /* @__PURE__ */ jsxRuntimeExports.jsxs(Link$1, { to: `/newsletters/${n.slug}`, className: "card newsletter-card", children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: `nl-cover${cover ? "" : " no-image"}`, children: [
+                  cover && /* @__PURE__ */ jsxRuntimeExports.jsx(
+                    "img",
+                    {
+                      src: cover,
+                      alt: "",
+                      loading: "lazy",
+                      onError: (e) => {
+                        e.currentTarget.style.display = "none";
+                      }
+                    }
+                  ),
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "nl-cover-scrim" }),
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "nl-cover-badge", children: new Date(n.date).toLocaleDateString() }),
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "nl-cover-title", children: formatShortTitle(n.date) })
+                ] }),
+                /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "nl-body", children: [
+                  isSearching ? /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "nl-search-snippet", dangerouslySetInnerHTML: { __html: matchSnippets[n.id] } }) : lead ? /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "nl-top", children: [
+                    /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "nl-top-kicker", children: "Top story" }),
+                    /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "nl-top-chapter", children: lead.chapter }),
+                    /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "nl-top-headline", children: lead.article })
+                  ] }) : /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "nl-fallback", children: n.excerpt }),
+                  !isSearching && rest.length > 0 && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "nl-toc", children: [
+                    /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "nl-toc-label", children: "Also in this issue" }),
+                    /* @__PURE__ */ jsxRuntimeExports.jsx("ul", { className: "nl-toc-list", children: rest.slice(0, maxRest).map((c) => /* @__PURE__ */ jsxRuntimeExports.jsxs("li", { children: [
+                      /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "nl-chapter", children: c.chapter }),
+                      /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "nl-article", children: c.article })
+                    ] }, c.chapter)) }),
+                    moreCount > 0 && /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "nl-more", children: [
+                      "+",
+                      moreCount,
+                      " more topic",
+                      moreCount > 1 ? "s" : ""
+                    ] })
+                  ] }),
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "nl-card-cta", children: "Read the issue →" })
+                ] })
               ] }),
               isLocal && isAuthenticated && /* @__PURE__ */ jsxRuntimeExports.jsx(
                 "button",
@@ -119379,14 +119719,20 @@ function NewslettersPage() {
           ] }) : /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "meta", children: "No newsletters match your search/filters." }))
         ] }),
         filtered.length > 0 && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "pagination", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx("button", { className: "button", disabled: page <= 1, onClick: () => setPage((p) => Math.max(1, p - 1)), children: "Previous" }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "meta", style: { margin: "0 8px" }, children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { className: "button", disabled: page <= 1, onClick: () => setPage((p) => Math.max(1, p - 1)), children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { "aria-hidden": "true", children: "‹" }),
+            " Previous"
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "meta page-indicator", children: [
             "Page ",
             page,
             " of ",
             totalPages
           ] }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("button", { className: "button", disabled: page >= totalPages, onClick: () => setPage((p) => Math.min(totalPages, p + 1)), children: "Next" })
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { className: "button", disabled: page >= totalPages, onClick: () => setPage((p) => Math.min(totalPages, p + 1)), children: [
+            "Next ",
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { "aria-hidden": "true", children: "›" })
+          ] })
         ] })
       ] })
     ] })
@@ -143537,10 +143883,28 @@ function CreateNewsletterPage() {
     );
     if (confirmed) {
       const draftToPublish = { ...draft, status: "published" };
-      void publishNewsletterApi(draftToPublish).then(() => {
+      void publishNewsletterApi(draftToPublish).then(async (published) => {
         setDraft(draftToPublish);
         window.dispatchEvent(new Event("newsletterPublished"));
-        alert("Newsletter published successfully!");
+        let mailNote = "";
+        try {
+          const result = await sendNewsletterApi(published.id);
+          if (result.recipients === 0) {
+            mailNote = "\n\nNo subscribers yet, so no emails were sent.";
+          } else if (result.failed > 0) {
+            mailNote = `
+
+Emailed ${result.sent} of ${result.recipients} subscribers (${result.failed} failed).`;
+          } else {
+            mailNote = `
+
+Emailed ${result.sent} subscriber${result.sent === 1 ? "" : "s"}.`;
+          }
+        } catch (mailError) {
+          console.error("Failed to email subscribers:", mailError);
+          mailNote = "\n\nThe newsletter was published, but subscriber emails could not be sent.";
+        }
+        alert(`Newsletter published successfully!${mailNote}`);
         navigate("/newsletters");
       }).catch((error) => {
         console.error("Failed to publish newsletter:", error);
