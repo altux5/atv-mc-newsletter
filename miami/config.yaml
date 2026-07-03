@@ -120,21 +120,41 @@ routes:
   - path: /api/refine
     service: atv-mc-newsletter
     method: POST
+    roles:
+      - Project Owners
+      - Adminstrators
+      - Developers
+      - Editors
 
   # Newsletter editor page
   - path: /newsletters/create
     service: atv-mc-newsletter
     method: GET
+    roles:
+      - Project Owners
+      - Adminstrators
+      - Developers
+      - Editors
 
   # Newsletter edit page (with ID parameter)
   - path: /newsletters/edit/*
     service: atv-mc-newsletter
     method: ANY
+    roles:
+      - Project Owners
+      - Adminstrators
+      - Developers
+      - Editors
 
   # Admin panel
   - path: /admin/*
     service: atv-mc-newsletter
     method: ANY
+    roles:
+      - Project Owners
+      - Adminstrators
+      - Developers
+      - Editors
 
    # --- Database API: editor-only (Developers) ---------------------------
   # Reviewing/managing submitted articles (NOT submitting — see note below).
