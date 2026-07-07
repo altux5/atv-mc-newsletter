@@ -128614,7 +128614,7 @@ function renderArticleButton(article) {
 }
 function renderArticle$1(article) {
   const titleHtml = article.title ? `<p style="font-size:12pt;font-weight:bold;color:#222;margin:0 0 8px;">${escapeHtml$2(article.title)}</p>` : "";
-  const contactHtml = article.contact ? `<p style="margin:12px 0 0;font-style:italic;font-size:10pt;color:#555;"><strong>Contact:</strong> ${escapeHtml$2(article.contact)}</p>` : "";
+  const contactHtml = article.contact ? `<p style="margin:14px 0 0;font-size:10.5pt;color:#222;"><strong style="color:${BRAND_GREEN$1};">Contact:</strong> <strong>${escapeHtml$2(article.contact)}</strong></p>` : "";
   const body = `<div style="border-radius:3px;">${titleHtml}<div style="font-size:10.5pt;line-height:1.65;color:#333;">${article.content || ""}</div>${contactHtml}${renderArticleButton(article)}</div>`;
   if (article.image && article.template === "portrait") {
     return `
@@ -128646,12 +128646,12 @@ function generateNewsletterBodyHtml(draft) {
            <h2 style="font-size:13.5pt;font-weight:bold;color:${BRAND_GREEN$1};margin:0 0 18px;border-bottom:1px solid #e5e7eb;padding-bottom:8px;">${escapeHtml$2(
       chapter.title
     )}</h2>` : `<a name="chapter_${index}" id="chapter_${index}"></a>`;
-    const articles = chapterArticles$1(chapter).map(renderArticle$1).join('<hr style="border:none;border-top:1px solid #f0f2f4;margin:24px 0;" />');
-    return `<section style="padding:30px 0;">${heading}${articles}</section>`;
+    const articles = chapterArticles$1(chapter).map(renderArticle$1).join('<hr style="border:none;border-top:1px solid #f0f2f4;margin:36px 0;" />');
+    return `<section style="padding:52px 0;">${heading}${articles}</section>`;
   }).join("");
   const bodyHtml = `
     <div style="max-width:800px;margin:0 auto;font-family:${FONT_STACK};color:#333;">
-      <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:20px;padding:0 0 18px;">
+      <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:20px;padding:0 0 34px;">
         <div style="flex:1;min-width:0;">
           <h1 style="font-size:21pt;font-weight:bold;color:${TITLE_GREEN$1};margin:0;line-height:1.2;">${escapeHtml$2(
     title
