@@ -133,6 +133,7 @@ export async function sendTestNewsletterApi(
       title: summary.title,
       slug: summary.slug,
       excerpt: summary.excerpt,
+      date: summary.date,
       emailHtml,
     }),
   })

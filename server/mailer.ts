@@ -119,6 +119,16 @@ function buildReadUrl(baseUrl: string, slug: string): string {
   return `${baseUrl}/newsletters/${encodeURIComponent(slug)}`
 }
 
+// e.g. "September '26 Edition - ATV MC Newsletter". Month and year come from the
+// issue date (set from the draft's month/year), never the free-text title.
+function buildSubject(newsletter: NewsletterEmail): string {
+  const issued = new Date(newsletter.date)
+  if (Number.isNaN(issued.getTime())) return newsletter.title
+  const month = issued.toLocaleString('en-US', { month: 'long', timeZone: 'UTC' })
+  const year = String(issued.getUTCFullYear() % 100).padStart(2, '0')
+  return `${month} '${year} Edition - ATV MC Newsletter`
+}
+
 function renderHtml(newsletter: NewsletterEmail, readUrl: string, unsubscribeUrl: string): string {
   // Full-content email: wrap the pre-rendered newsletter body with a light
   // "view online" header and an unsubscribe footer.
@@ -259,7 +269,7 @@ export async function sendNewsletterToSubscribers(
 
   const result: SendResult = { sent: 0, failed: 0, errors: [] }
   const readUrl = buildReadUrl(config.baseUrl, newsletter.slug)
-  const subject = `New: ${newsletter.title}`
+  const subject = buildSubject(newsletter)
 
   // Embed inline (base64 data URL) images once as CID attachments so they render
   // in clients that block data URIs (Gmail, Outlook). The resulting body +

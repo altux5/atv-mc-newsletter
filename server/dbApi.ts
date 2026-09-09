@@ -536,7 +536,7 @@ dbApi.post('/newsletters/:id/send', async (req: Request, res: Response) => {
       title: row?.title ?? b.title,
       slug: row?.slug ?? (isNonEmptyString(b.slug) ? b.slug : ''),
       excerpt: row?.excerpt ?? (typeof b.excerpt === 'string' ? b.excerpt : ''),
-      date: row?.date ?? new Date().toISOString().slice(0, 10),
+      date: row?.date ?? (isNonEmptyString(b.date) ? b.date : new Date().toISOString().slice(0, 10)),
       bodyHtml: typeof b.emailHtml === 'string' ? b.emailHtml : undefined,
     }
 
