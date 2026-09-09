@@ -5,6 +5,7 @@ import type {
 } from '../types/newsletter-creation'
 import { computeAutoTitle, DEFAULT_SUBTITLE, DEFAULT_FOOTER_HTML } from './localNewsletters'
 import { normalizeButtonUrl } from './generateNewsletterHtml'
+import { ARTICLE_CROP, bakeCrop } from './imageCrop'
 // Imported as data URLs (?inline) so the mail server embeds them as CID
 // attachments and they display in every email client (no remote-image loading,
 // no SVG). PNG/JPG only — email clients do not render SVG.
@@ -23,7 +24,6 @@ import logoDataUrl from '../logo/infineon_logo_color.png?inline'
 const BRAND_GREEN = '#0A8276' // chapter headings + nav bar (matches app --brand)
 const TITLE_GREEN = '#007D6F' // masthead title + tagline (matches website)
 const FONT = "Arial, 'Segoe UI', Tahoma, sans-serif"
-const CONTENT_WIDTH = 760
 
 function escapeHtml(value: string): string {
   return String(value ?? '')
@@ -132,6 +132,42 @@ function renderChapter(chapter: NewsletterChapter): string {
 }
 
 /**
+ * Bake each article image's pan/zoom crop into the pixels. Must be awaited
+ * before {@link generateNewsletterEmailHtml}: the website crops with CSS
+ * background-size/position, which no email client reproduces.
+ */
+export async function prepareDraftForEmail(draft: NewsletterDraft): Promise<NewsletterDraft> {
+  const chapters = await Promise.all(
+    draft.chapters.map(async (chapter) => {
+      const articles = await Promise.all(
+        chapterArticles(chapter).map(async (article) => {
+          if (!article.image) return article
+          const image = await bakeCrop(
+            article.image,
+            ARTICLE_CROP[article.template] ?? ARTICLE_CROP.portrait,
+            article.imageAspect,
+            article.imageZoom,
+            article.imagePosX,
+            article.imagePosY,
+          )
+          // Crop is now in the pixels, so drop the pan/zoom hints.
+          return {
+            ...article,
+            image,
+            imageAspect: undefined,
+            imageZoom: undefined,
+            imagePosX: undefined,
+            imagePosY: undefined,
+          }
+        }),
+      )
+      return { ...chapter, articles }
+    }),
+  )
+  return { ...draft, chapters }
+}
+
+/**
  * Render a newsletter draft as email-safe HTML that mirrors the website design.
  * Intended to be sent to the mail server, which embeds any data-URL images as
  * CID attachments before delivery.
@@ -155,7 +191,7 @@ export function generateNewsletterEmailHtml(draft: NewsletterDraft): string {
   const chapters = draft.chapters.map(renderChapter).join('')
 
   return `
-<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width:${CONTENT_WIDTH}px;margin:0 auto;font-family:${FONT};color:#333333;">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="width:100%;font-family:${FONT};color:#333333;">
   <tr>
     <td style="padding:0 0 18px;">
       <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">

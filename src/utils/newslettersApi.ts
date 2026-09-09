@@ -3,7 +3,7 @@ import type { NewsletterDraft } from '../types/newsletter-creation'
 import type { SendResult } from './subscribersApi'
 import { apiFetch, parseJson } from './apiClient'
 import { draftToNewsletter } from './localNewsletters'
-import { generateNewsletterEmailHtml } from './generateNewsletterEmailHtml'
+import { generateNewsletterEmailHtml, prepareDraftForEmail } from './generateNewsletterEmailHtml'
 
 // API client for newsletter drafts + published newsletters, backed by the
 // database (/api/drafts and /api/newsletters). This mirrors the old
@@ -105,7 +105,9 @@ export async function publishNewsletterApi(draft: NewsletterDraft): Promise<Publ
   // make bundled asset URLs (e.g. the default header image) absolute so email
   // clients can load them. Article/embedded data-URL images are left as-is and
   // embedded as CID attachments by the server.
-  const emailHtml = absolutizeAssetUrls(generateNewsletterEmailHtml(published))
+  const emailHtml = absolutizeAssetUrls(
+    generateNewsletterEmailHtml(await prepareDraftForEmail(published)),
+  )
   const res = await apiFetch(NEWSLETTERS, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -124,7 +126,9 @@ export async function sendTestNewsletterApi(
   email: string,
 ): Promise<SendResult> {
   const summary = draftToNewsletter(draft)
-  const emailHtml = absolutizeAssetUrls(generateNewsletterEmailHtml(draft))
+  const emailHtml = absolutizeAssetUrls(
+    generateNewsletterEmailHtml(await prepareDraftForEmail(draft)),
+  )
   const res = await apiFetch(`${NEWSLETTERS}/${encodeURIComponent(draft.id)}/send`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },

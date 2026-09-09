@@ -174,3 +174,84 @@ export async function cropImageToRatio(
   ctx.drawImage(img, sx, sy, sW, sH, 0, 0, outW, outH)
   return canvas.toDataURL('image/jpeg', quality)
 }
+
+/**
+ * Rasterise the editor's pan/zoom crop into the pixels of a new image. Email
+ * clients cannot reproduce the CSS background crop the website uses, so the
+ * visible region is baked in. Mirrors the maths in {@link articleImageBg}.
+ * Returns `src` unchanged if the image or canvas is unavailable.
+ */
+export async function bakeCrop(
+  src: string,
+  ratio: CropRatio,
+  imageAspect?: number,
+  zoom?: number,
+  posX?: number,
+  posY?: number,
+  quality = 0.82,
+): Promise<string> {
+  if (!src) return src
+  let img: HTMLImageElement
+  try {
+    img = await loadImage(src)
+  } catch {
+    return src
+  }
+  if (!img.width || !img.height) return src
+
+  const frameAspect = ratio.ratioW / ratio.ratioH
+  let outW = ratio.maxW
+  let outH = Math.round(outW / frameAspect)
+  if (outH > ratio.maxH) {
+    outH = ratio.maxH
+    outW = Math.round(outH * frameAspect)
+  }
+
+  // articleImageBg falls back to plain CSS `cover` (ignoring zoom) when the
+  // draft has no stored aspect, so mirror that here.
+  const hasAspect = Boolean(imageAspect && imageAspect > 0)
+  const aspect = hasAspect ? (imageAspect as number) : img.width / img.height
+  const z = hasAspect && zoom && zoom > 0 ? zoom : 1
+
+  let wPct: number
+  let hPct: number
+  if (aspect >= frameAspect) {
+    hPct = 100
+    wPct = (aspect / frameAspect) * 100
+  } else {
+    wPct = 100
+    hPct = (frameAspect / aspect) * 100
+  }
+  wPct *= z
+  hPct *= z
+
+  // Percentages are relative to the frame, exactly as CSS background-size, and
+  // background-position places the overflow according to posX/posY.
+  const drawnW = (outW * wPct) / 100
+  const drawnH = (outH * hPct) / 100
+  const offsetX = (outW - drawnW) * (posX ?? 0.5)
+  const offsetY = (outH - drawnH) * (posY ?? 0.5)
+
+  const scaleX = img.width / drawnW
+  const scaleY = img.height / drawnH
+
+  const canvas = document.createElement('canvas')
+  canvas.width = outW
+  canvas.height = outH
+  const ctx = canvas.getContext('2d')
+  if (!ctx) return src
+  ctx.fillStyle = '#ffffff'
+  ctx.fillRect(0, 0, outW, outH)
+  ctx.drawImage(
+    img,
+    -offsetX * scaleX,
+    -offsetY * scaleY,
+    outW * scaleX,
+    outH * scaleY,
+    0,
+    0,
+    outW,
+    outH,
+  )
+  return canvas.toDataURL('image/jpeg', quality)
+}
