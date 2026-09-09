@@ -51,12 +51,14 @@ $patchObj = @{
                         )
                         # Newsletter email distribution (SMTP relay authorises by
                         # allow-listed egress IP, so there is no SMTP user/password).
+                        # MAIL_FROM_NAME matches the mailbox's GAL display name, since
+                        # Outlook shows the directory name for internal senders.
                         env     = @(
                             @{ name = 'MAIL_ENABLED';    value = '1' }
                             @{ name = 'MAIL_RELAY_HOST';  value = 'mailrelay-internal.infineon.com' }
                             @{ name = 'MAIL_RELAY_PORT';  value = '25' }
-                            @{ name = 'MAIL_FROM';        value = 'NoReply@infineon.com' }
-                            @{ name = 'MAIL_FROM_NAME';   value = 'ATV MC Newsletter-Hub' }
+                            @{ name = 'MAIL_FROM';        value = 'R-IFX-ATVMCnewsletter@infineon.com' }
+                            @{ name = 'MAIL_FROM_NAME';   value = 'ATV MC Newsletter' }
                             @{ name = 'PUBLIC_BASE_URL';  value = 'https://atv-mc-newsletter.eu-de-3.icp.infineon.com' }
                         )
                     }
