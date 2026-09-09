@@ -128804,6 +128804,11 @@ async function getPublishedNewslettersApi() {
   const res = await apiFetch(NEWSLETTERS);
   return parseJson(res);
 }
+async function getPublishedBodyApi(id) {
+  const res = await apiFetch(`${NEWSLETTERS}/${encodeURIComponent(id)}/body`);
+  if (res.status === 404) return null;
+  return parseJson(res);
+}
 async function getAllDraftsApi() {
   const res = await apiFetch(DRAFTS);
   return parseJson(res);
@@ -128857,6 +128862,7 @@ const newslettersApi = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defi
   deleteNewsletterApi,
   getAllDraftsApi,
   getDraftByIdApi,
+  getPublishedBodyApi,
   getPublishedNewslettersApi,
   publishNewsletterApi,
   saveDraftApi
@@ -128958,7 +128964,7 @@ async function indexOne(n) {
   let entry = null;
   try {
     if (!n.sourcePath) {
-      const draft = await getDraftByIdApi(n.id);
+      const draft = await getPublishedBodyApi(n.id);
       if (draft) entry = buildEntryFromDraft(draft);
     } else {
       const match = await loadHtmlByPathAsync(n.sourcePath);
@@ -130589,7 +130595,7 @@ function NewsletterDetailPage() {
     let cancelled = false;
     (async () => {
       if (!newsletter.sourcePath) {
-        const draft = await getDraftByIdApi(newsletter.id);
+        const draft = await getPublishedBodyApi(newsletter.id);
         if (cancelled) return;
         setHtmlString(draft ? generateNewsletterBodyHtml(draft) : null);
         return;
@@ -154274,6 +154280,100 @@ async function markArticleAsImported(id) {
 async function getAvailableArticlesForImport() {
   return getArticles();
 }
+const clamp01 = (n) => Math.min(1, Math.max(0, n));
+const clamp = (n, lo, hi) => Math.min(hi, Math.max(lo, n));
+function articleImageStyle$1(article) {
+  if (!article.image) return {};
+  const bg = articleImageBg(
+    ARTICLE_CROP[article.template],
+    article.imageAspect,
+    article.imageZoom,
+    article.imagePosX,
+    article.imagePosY
+  );
+  return {
+    backgroundImage: `url(${article.image})`,
+    backgroundRepeat: "no-repeat",
+    backgroundPosition: bg.backgroundPosition,
+    backgroundSize: bg.backgroundSize
+  };
+}
+function ArticleImageEditor({
+  article,
+  onUpload,
+  onChange,
+  onRemove
+}) {
+  const frameRef = reactExports$1.useRef(null);
+  const drag = reactExports$1.useRef(null);
+  const zoom = article.imageZoom ?? 1;
+  const onPointerDown = (e) => {
+    if (!article.image) return;
+    frameRef.current?.setPointerCapture(e.pointerId);
+    drag.current = {
+      x: e.clientX,
+      y: e.clientY,
+      posX: article.imagePosX ?? 0.5,
+      posY: article.imagePosY ?? 0.5
+    };
+  };
+  const onPointerMove = (e) => {
+    const d = drag.current;
+    const el = frameRef.current;
+    if (!d || !el) return;
+    const rect = el.getBoundingClientRect();
+    onChange({
+      imagePosX: clamp01(d.posX - (e.clientX - d.x) / rect.width),
+      imagePosY: clamp01(d.posY - (e.clientY - d.y) / rect.height)
+    });
+  };
+  const endDrag = (e) => {
+    drag.current = null;
+    frameRef.current?.releasePointerCapture(e.pointerId);
+  };
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "nl-img-editor", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx(
+      "div",
+      {
+        ref: frameRef,
+        className: `nl-img-frame ${article.image ? "has-image" : ""}`,
+        style: {
+          aspectRatio: aspectRatioCss(ARTICLE_CROP[article.template]),
+          ...articleImageStyle$1(article)
+        },
+        onPointerDown,
+        onPointerMove,
+        onPointerUp: endDrag,
+        onPointerCancel: endDrag,
+        children: article.image ? /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "nl-img-hint", children: "drag to position" }) : /* @__PURE__ */ jsxRuntimeExports.jsxs("label", { className: "article-image-drop", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "📷 Upload" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("input", { type: "file", accept: "image/*", hidden: true, onChange: onUpload })
+        ] })
+      }
+    ),
+    article.image && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "nl-img-controls", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", title: "Zoom out", onClick: () => onChange({ imageZoom: clamp(zoom - 0.2, 1, 3) }), children: "−" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(
+        "input",
+        {
+          type: "range",
+          min: 1,
+          max: 3,
+          step: 0.05,
+          value: zoom,
+          onChange: (e) => onChange({ imageZoom: Number(e.target.value) }),
+          "aria-label": "Zoom"
+        }
+      ),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", title: "Zoom in", onClick: () => onChange({ imageZoom: clamp(zoom + 0.2, 1, 3) }), children: "＋" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("label", { className: "button small secondary nl-img-replace", children: [
+        "Replace",
+        /* @__PURE__ */ jsxRuntimeExports.jsx("input", { type: "file", accept: "image/*", hidden: true, onChange: onUpload })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "button small danger", onClick: onRemove, children: "Remove" })
+    ] })
+  ] });
+}
 const importDraftIcon = "data:image/svg+xml,%3csvg%20width='16'%20height='16'%20viewBox='0%200%2016%2016'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20fill-rule='evenodd'%20clip-rule='evenodd'%20d='M0%200V12H1V1H4.19098L5.19098%203H12V5H13V2H5.80902L4.80902%200H0Z'%20fill='%231D1D1D'/%3e%3cpath%20fill-rule='evenodd'%20clip-rule='evenodd'%20d='M4.1535%206H15.7215L12.3465%2015H0.7785L4.1535%206ZM4.8465%207L2.2215%2014H11.6535L14.2785%207H4.8465Z'%20fill='%231D1D1D'/%3e%3c/svg%3e";
 const previewIcon = "data:image/svg+xml,%3csvg%20width='16'%20height='16'%20viewBox='0%200%2016%2016'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20fill-rule='evenodd'%20clip-rule='evenodd'%20d='M2.98796%204.18741C4.32208%203.00128%206.04577%202%208%202C9.95423%202%2011.6779%203.00128%2013.012%204.18741C14.35%205.37695%2015.3511%206.80003%2015.8705%207.76057L16%208L15.8705%208.23943C15.3511%209.19997%2014.35%2010.6231%2013.012%2011.8126C11.6779%2012.9987%209.95423%2014%208%2014C6.04577%2014%204.32208%2012.9987%202.98796%2011.8126C1.65%2010.6231%200.64889%209.19997%200.129471%208.23943L0%208L0.129471%207.76057C0.64889%206.80003%201.65%205.37695%202.98796%204.18741ZM1.13436%208C1.63746%208.86417%202.51247%2010.0568%203.64348%2011.0624C4.88696%2012.1679%206.38526%2013%208%2013C9.61474%2013%2011.113%2012.1679%2012.3565%2011.0624C13.4875%2010.0569%2014.3625%208.86416%2014.8656%208C14.3625%207.13583%2013.4875%205.94315%2012.3565%204.93759C11.113%203.83206%209.61474%203%208%203C6.38526%203%204.88696%203.83206%203.64348%204.93759C2.51247%205.94315%201.63746%207.13583%201.13436%208Z'%20fill='%231D1D1D'/%3e%3cpath%20fill-rule='evenodd'%20clip-rule='evenodd'%20d='M8%2010C9.10457%2010%2010%209.10457%2010%208C10%206.89543%209.10457%206%208%206C6.89543%206%206%206.89543%206%208C6%209.10457%206.89543%2010%208%2010ZM8%2011C9.65685%2011%2011%209.65685%2011%208C11%206.34315%209.65685%205%208%205C6.34315%205%205%206.34315%205%208C5%209.65685%206.34315%2011%208%2011Z'%20fill='%231D1D1D'/%3e%3c/svg%3e";
 const arrowUpIcon = "data:image/svg+xml,%3csvg%20width='16'%20height='16'%20viewBox='0%200%2016%2016'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20fill-rule='evenodd'%20clip-rule='evenodd'%20d='M7.95711%201L13.6642%206.70711L12.9571%207.41421L8.45711%202.91421V15.2071H7.45711V2.91421L2.95711%207.41421L2.25%206.70711L7.95711%201Z'%20fill='%231D1D1D'%20style='fill:%231D1D1D;fill:color(display-p3%200.1137%200.1137%200.1137);fill-opacity:1;'/%3e%3c/svg%3e";
@@ -154305,8 +154405,6 @@ function CanvasImage({
     /* @__PURE__ */ jsxRuntimeExports.jsx("input", { type: "file", accept: "image/*", hidden: true, onChange: onUpload })
   ] }) });
 }
-const clamp01 = (n) => Math.min(1, Math.max(0, n));
-const clamp = (n, lo, hi) => Math.min(hi, Math.max(lo, n));
 function articleImageStyle(article) {
   if (!article.image) return {};
   const bg = articleImageBg(
@@ -154358,82 +154456,6 @@ function ArticleDisplay({ article }) {
     ] });
   }
   return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "nl-article", children: body });
-}
-function ArticleImageEditor({
-  article,
-  onUpload,
-  onChange,
-  onRemove
-}) {
-  const frameRef = reactExports$1.useRef(null);
-  const drag = reactExports$1.useRef(null);
-  const zoom = article.imageZoom ?? 1;
-  const onPointerDown = (e) => {
-    if (!article.image) return;
-    frameRef.current?.setPointerCapture(e.pointerId);
-    drag.current = {
-      x: e.clientX,
-      y: e.clientY,
-      posX: article.imagePosX ?? 0.5,
-      posY: article.imagePosY ?? 0.5
-    };
-  };
-  const onPointerMove = (e) => {
-    const d = drag.current;
-    const el = frameRef.current;
-    if (!d || !el) return;
-    const rect = el.getBoundingClientRect();
-    onChange({
-      imagePosX: clamp01(d.posX - (e.clientX - d.x) / rect.width),
-      imagePosY: clamp01(d.posY - (e.clientY - d.y) / rect.height)
-    });
-  };
-  const endDrag = (e) => {
-    drag.current = null;
-    frameRef.current?.releasePointerCapture(e.pointerId);
-  };
-  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "nl-img-editor", children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsx(
-      "div",
-      {
-        ref: frameRef,
-        className: `nl-img-frame ${article.image ? "has-image" : ""}`,
-        style: {
-          aspectRatio: aspectRatioCss(ARTICLE_CROP[article.template]),
-          ...articleImageStyle(article)
-        },
-        onPointerDown,
-        onPointerMove,
-        onPointerUp: endDrag,
-        onPointerCancel: endDrag,
-        children: article.image ? /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "nl-img-hint", children: "drag to position" }) : /* @__PURE__ */ jsxRuntimeExports.jsxs("label", { className: "article-image-drop", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "📷 Upload" }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("input", { type: "file", accept: "image/*", hidden: true, onChange: onUpload })
-        ] })
-      }
-    ),
-    article.image && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "nl-img-controls", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", title: "Zoom out", onClick: () => onChange({ imageZoom: clamp(zoom - 0.2, 1, 3) }), children: "−" }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx(
-        "input",
-        {
-          type: "range",
-          min: 1,
-          max: 3,
-          step: 0.05,
-          value: zoom,
-          onChange: (e) => onChange({ imageZoom: Number(e.target.value) }),
-          "aria-label": "Zoom"
-        }
-      ),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", title: "Zoom in", onClick: () => onChange({ imageZoom: clamp(zoom + 0.2, 1, 3) }), children: "＋" }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("label", { className: "button small secondary nl-img-replace", children: [
-        "Replace",
-        /* @__PURE__ */ jsxRuntimeExports.jsx("input", { type: "file", accept: "image/*", hidden: true, onChange: onUpload })
-      ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "button small danger", onClick: onRemove, children: "Remove" })
-    ] })
-  ] });
 }
 const AUTOSAVE_INTERVAL_MS = 6e4;
 function CreateNewsletterPage() {
@@ -154755,11 +154777,12 @@ Emailed ${notify.sent} subscriber${notify.sent === 1 ? "" : "s"}.`;
       content: sanitizeHtml(article.content || ""),
       template: article.template,
       image: article.imageDataUrl || void 0,
-      imageAspect: void 0,
-      imageZoom: 1,
-      imagePosX: 0.5,
-      imagePosY: 0.5,
-      contact: article.contact || ""
+      imageAspect: article.imageAspect,
+      imageZoom: article.imageZoom ?? 1,
+      imagePosX: article.imagePosX ?? 0.5,
+      imagePosY: article.imagePosY ?? 0.5,
+      contact: article.contact || "",
+      button: article.button && article.button.label.trim() && article.button.url.trim() ? { label: article.button.label, url: article.button.url } : void 0
     });
     try {
       await markArticleAsImported(article.id);
@@ -155290,11 +155313,12 @@ function isHtmlEmpty(html2) {
 function SubmitArticlePage() {
   const navigate = useNavigate();
   const [selectedTemplate, setSelectedTemplate] = reactExports$1.useState("portrait");
+  const [chapter, setChapter] = reactExports$1.useState("");
   const [title, setTitle] = reactExports$1.useState("");
   const [content, setContent2] = reactExports$1.useState("");
   const [contact, setContact] = reactExports$1.useState("");
-  const [imageDataUrl, setImageDataUrl] = reactExports$1.useState("");
-  const [imagePreview, setImagePreview] = reactExports$1.useState(null);
+  const [image, setImage] = reactExports$1.useState({});
+  const [button, setButton] = reactExports$1.useState(void 0);
   const [isSubmitting, setIsSubmitting] = reactExports$1.useState(false);
   const handleImageUpload = async (e) => {
     const file = e.target.files?.[0];
@@ -155304,14 +155328,14 @@ function SubmitArticlePage() {
       return;
     }
     try {
-      const cropped = await cropImageToRatio(file, ARTICLE_CROP[selectedTemplate]);
-      setImageDataUrl(cropped);
-      setImagePreview(cropped);
+      const { dataUrl, aspect } = await downscaleImage(file);
+      setImage({ image: dataUrl, imageAspect: aspect, imageZoom: 1, imagePosX: 0.5, imagePosY: 0.5 });
     } catch {
       alert("Could not process that image. Please try another file.");
     }
     e.target.value = "";
   };
+  const removeImage = () => setImage({});
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!title.trim()) {
@@ -155322,7 +155346,7 @@ function SubmitArticlePage() {
       alert("Please enter article content.");
       return;
     }
-    if (!imageDataUrl) {
+    if (!image.image) {
       alert("Please upload an image for your article.");
       return;
     }
@@ -155330,21 +155354,29 @@ function SubmitArticlePage() {
       alert("Please provide your contact information.");
       return;
     }
+    const hasButton = !!(button && button.label.trim() && button.url.trim());
     setIsSubmitting(true);
     try {
       await saveArticle({
         template: selectedTemplate,
         title: title.trim(),
         content: sanitizeHtml(content),
-        imageDataUrl,
-        contact: contact.trim()
+        imageDataUrl: image.image,
+        contact: contact.trim(),
+        chapter: chapter.trim() || void 0,
+        button: hasButton ? { label: button.label.trim(), url: button.url.trim() } : void 0,
+        imageAspect: image.imageAspect,
+        imageZoom: image.imageZoom,
+        imagePosX: image.imagePosX,
+        imagePosY: image.imagePosY
       });
       alert("Article submitted successfully! Thank you for your contribution.");
+      setChapter("");
       setTitle("");
       setContent2("");
       setContact("");
-      setImageDataUrl("");
-      setImagePreview(null);
+      setImage({});
+      setButton(void 0);
       setSelectedTemplate("portrait");
       navigate("/");
     } catch (error) {
@@ -155355,10 +155387,7 @@ function SubmitArticlePage() {
       setIsSubmitting(false);
     }
   };
-  const removeImage = () => {
-    setImageDataUrl("");
-    setImagePreview(null);
-  };
+  const chapterSelectValue = isCanonicalChapterTitle(chapter) ? chapter : chapter.trim() === "" ? "" : "Other...";
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("form", { onSubmit: handleSubmit, className: "nl-editor submit-article-page", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "nl-toolbar", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "nl-toolbar-left", children: [
@@ -155370,8 +155399,41 @@ function SubmitArticlePage() {
         /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "submit", disabled: isSubmitting, className: "button primary", children: isSubmitting ? "Submitting…" : "Submit Article" })
       ] })
     ] }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "nl-hint", children: "Pick a layout, add your image, then write your article — this is how it will look." }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "nl-hint", children: "Pick a chapter and layout, add your image, then write your article — this is how it will look." }),
     /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "nl-canvas submit-canvas", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "nl-article-edit", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "submit-chapter-field", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("label", { className: "submit-field-label", htmlFor: "submit-chapter", children: "Chapter" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs(
+          "select",
+          {
+            id: "submit-chapter",
+            className: "nl-chapter-select",
+            value: chapterSelectValue,
+            onChange: (e) => {
+              if (e.target.value === "Other...") {
+                setChapter(" ");
+              } else {
+                setChapter(e.target.value);
+              }
+            },
+            children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "", children: "Select a chapter…" }),
+              CANONICAL_CHAPTER_TITLES.map((t) => /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: t, children: t }, t)),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "Other...", children: "Other…" })
+            ]
+          }
+        ),
+        chapter !== "" && !isCanonicalChapterTitle(chapter) && /* @__PURE__ */ jsxRuntimeExports.jsx(
+          "input",
+          {
+            className: "nl-chapter-custom",
+            type: "text",
+            value: chapter.trimStart(),
+            onChange: (e) => setChapter(e.target.value),
+            placeholder: "Custom chapter name…"
+          }
+        )
+      ] }),
       /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "nl-article-topbar nl-article-topbar--two", children: ["portrait", "landscape"].map((layout) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
         "button",
         {
@@ -155387,26 +155449,15 @@ function SubmitArticlePage() {
         layout
       )) }),
       /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: `article-layout article-layout--${selectedTemplate}`, children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "article-image-col", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx(
-            "div",
-            {
-              className: "nl-img-frame",
-              style: { aspectRatio: aspectRatioCss(ARTICLE_CROP[selectedTemplate]) },
-              children: imagePreview ? /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: imagePreview, alt: "Article" }) : /* @__PURE__ */ jsxRuntimeExports.jsxs("label", { className: "article-image-drop", children: [
-                /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "📷 Upload" }),
-                /* @__PURE__ */ jsxRuntimeExports.jsx("input", { type: "file", accept: "image/*", hidden: true, onChange: handleImageUpload })
-              ] })
-            }
-          ),
-          imagePreview && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "nl-img-controls", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsxs("label", { className: "button small secondary nl-img-replace", children: [
-              "Replace",
-              /* @__PURE__ */ jsxRuntimeExports.jsx("input", { type: "file", accept: "image/*", hidden: true, onChange: handleImageUpload })
-            ] }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "button small danger", onClick: removeImage, children: "Remove" })
-          ] })
-        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "article-image-col", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+          ArticleImageEditor,
+          {
+            article: { ...image, template: selectedTemplate },
+            onUpload: handleImageUpload,
+            onChange: (updates) => setImage((prev) => ({ ...prev, ...updates })),
+            onRemove: removeImage
+          }
+        ) }),
         /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "article-content-col", children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx(
             "input",
@@ -155437,6 +155488,46 @@ function SubmitArticlePage() {
               onChange: (e) => setContact(e.target.value),
               placeholder: "Contact: Your name, email or phone",
               maxLength: 200
+            }
+          ),
+          button !== void 0 ? /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "nl-article-button-edit", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "nl-article-button-row", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx(
+                "input",
+                {
+                  type: "text",
+                  value: button.label,
+                  onChange: (e) => setButton({ label: e.target.value, url: button.url }),
+                  placeholder: "Button label",
+                  maxLength: 60
+                }
+              ),
+              /* @__PURE__ */ jsxRuntimeExports.jsx(
+                "input",
+                {
+                  type: "text",
+                  value: button.url,
+                  onChange: (e) => setButton({ label: button.label, url: e.target.value }),
+                  placeholder: "Button link (e.g. google.com)"
+                }
+              )
+            ] }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(
+              "button",
+              {
+                type: "button",
+                className: "nl-remove-button-link",
+                onClick: () => setButton(void 0),
+                children: "Remove button"
+              }
+            )
+          ] }) : /* @__PURE__ */ jsxRuntimeExports.jsx(
+            "button",
+            {
+              type: "button",
+              className: "nl-add-button-ghost",
+              onClick: () => setButton({ label: "", url: "" }),
+              children: "＋ Add button to this article"
             }
           )
         ] })
@@ -155520,13 +155611,31 @@ function AdminArticlesPage() {
     ] }),
     /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "articles-grid", children: articles.map((article) => /* @__PURE__ */ jsxRuntimeExports.jsxs("article", { className: "article-review-card", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "article-status-bar", children: [
+        article.chapter && /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "status-badge chapter", children: article.chapter }),
         article.importedToNewsletter && /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "status-badge imported", children: "Imported to Newsletter" }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "submission-date", children: formatDate(article.submittedAt) })
       ] }),
       /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "article-title", children: article.title }),
       /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: `article-preview-layout ${article.template}`, children: [
         /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "article-image-container", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: article.imageDataUrl, alt: article.title }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(
+            "div",
+            {
+              className: "article-image-crop",
+              style: {
+                aspectRatio: aspectRatioCss(ARTICLE_CROP[article.template]),
+                backgroundImage: `url(${article.imageDataUrl})`,
+                backgroundRepeat: "no-repeat",
+                ...articleImageBg(
+                  ARTICLE_CROP[article.template],
+                  article.imageAspect,
+                  article.imageZoom,
+                  article.imagePosX,
+                  article.imagePosY
+                )
+              }
+            }
+          ),
           /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "template-label", children: article.template === "portrait" ? "H600×W200" : "H200×W600" })
         ] }),
         /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "article-content-container", children: [
@@ -155541,7 +155650,17 @@ function AdminArticlesPage() {
             /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: "Contact:" }),
             " ",
             article.contact
-          ] })
+          ] }),
+          article.button && article.button.label.trim() && article.button.url.trim() && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "article-button-preview", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+            "a",
+            {
+              className: "nl-cta",
+              href: normalizeButtonUrl(article.button.url),
+              target: "_blank",
+              rel: "noopener noreferrer",
+              children: article.button.label
+            }
+          ) })
         ] })
       ] }),
       /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "article-actions", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
