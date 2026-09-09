@@ -17,7 +17,7 @@ import {
   type SectionSnippet,
 } from '../utils/newsletterHtml'
 import { CANONICAL_CHAPTER_TITLES, normalizeChapterTitle } from '../constants/chapters'
-import { getDraftByIdApi } from '../utils/newslettersApi'
+import { getPublishedBodyApi } from '../utils/newslettersApi'
 import { normalizeDraft } from '../utils/localNewsletters'
 import { sanitizeHtml } from '../utils/sanitizeHtml'
 import type { NewsletterDraft } from '../types/newsletter-creation'
@@ -190,7 +190,7 @@ async function indexOne(n: Newsletter): Promise<ParsedEntry> {
   try {
     if (!n.sourcePath) {
       // Platform-created newsletter: build the index from the stored draft.
-      const draft = await getDraftByIdApi(n.id)
+      const draft = await getPublishedBodyApi(n.id)
       if (draft) entry = buildEntryFromDraft(draft)
     } else {
       const match = await loadHtmlByPathAsync(n.sourcePath)

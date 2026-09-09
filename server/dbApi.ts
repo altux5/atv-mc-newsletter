@@ -54,6 +54,13 @@ interface ArticleRow {
   content: string
   image_data_url: string | null
   contact: string | null
+  chapter: string | null
+  button_label: string | null
+  button_url: string | null
+  image_aspect: number | null
+  image_zoom: number | null
+  image_pos_x: number | null
+  image_pos_y: number | null
   submitted_at: Date | string
   imported_to_newsletter: boolean
 }
@@ -73,6 +80,10 @@ function mapNewsletter(r: NewsletterRow) {
 
 function mapArticle(r: ArticleRow) {
   const submittedAt = r.submitted_at instanceof Date ? r.submitted_at.toISOString() : r.submitted_at
+  const button =
+    r.button_label || r.button_url
+      ? { label: r.button_label ?? '', url: r.button_url ?? '' }
+      : undefined
   return {
     id: r.id,
     template: r.template,
@@ -80,6 +91,12 @@ function mapArticle(r: ArticleRow) {
     content: r.content,
     imageDataUrl: r.image_data_url ?? '',
     contact: r.contact ?? '',
+    chapter: r.chapter ?? '',
+    button,
+    imageAspect: r.image_aspect ?? undefined,
+    imageZoom: r.image_zoom ?? undefined,
+    imagePosX: r.image_pos_x ?? undefined,
+    imagePosY: r.image_pos_y ?? undefined,
     submittedAt,
     importedToNewsletter: r.imported_to_newsletter,
   }
@@ -88,7 +105,7 @@ function mapArticle(r: ArticleRow) {
 const NEWSLETTER_COLUMNS =
   "id, slug, title, to_char(date, 'YYYY-MM-DD') AS date, excerpt, content, tags, source_path"
 const ARTICLE_COLUMNS =
-  'id, template, title, content, image_data_url, contact, submitted_at, imported_to_newsletter'
+  'id, template, title, content, image_data_url, contact, chapter, button_label, button_url, image_aspect, image_zoom, image_pos_x, image_pos_y, submitted_at, imported_to_newsletter'
 
 // --- newsletters ----------------------------------------------------------
 
@@ -113,6 +130,21 @@ dbApi.get('/newsletters/:id', async (req: Request, res: Response) => {
     res.json(mapNewsletter(rows[0]))
   } catch (error) {
     fail(res, 'GET /newsletters/:id', error)
+  }
+})
+
+// Public read of the full editor body. Unlike GET /drafts/:id (editor-only)
+// this never exposes a draft that has not been published.
+dbApi.get('/newsletters/:id/body', async (req: Request, res: Response) => {
+  try {
+    const rows = await query<{ data: unknown }>(
+      "SELECT data FROM newsletter_drafts WHERE id = $1 AND status = 'published'",
+      [req.params.id],
+    )
+    if (rows.length === 0) return res.status(404).json({ error: 'Not found' })
+    res.json(rows[0].data)
+  } catch (error) {
+    fail(res, 'GET /newsletters/:id/body', error)
   }
 })
 
@@ -288,12 +320,35 @@ dbApi.post('/articles', async (req: Request, res: Response) => {
   if (!isNonEmptyString(b.title) || !isNonEmptyString(b.content)) {
     return res.status(400).json({ error: 'title and content are required' })
   }
+  // Only persist a button when both label and link are provided.
+  const hasButton =
+    b.button && isNonEmptyString(b.button.label) && isNonEmptyString(b.button.url)
+  const buttonLabel = hasButton ? String(b.button.label) : null
+  const buttonUrl = hasButton ? String(b.button.url) : null
+  const num = (v: unknown): number | null => (typeof v === 'number' && Number.isFinite(v) ? v : null)
   try {
     const rows = await query<ArticleRow>(
-      `INSERT INTO articles (id, template, title, content, image_data_url, contact, submitted_at, imported_to_newsletter)
-       VALUES ($1, $2, $3, $4, $5, $6, now(), false)
+      `INSERT INTO articles
+         (id, template, title, content, image_data_url, contact, chapter,
+          button_label, button_url, image_aspect, image_zoom, image_pos_x, image_pos_y,
+          submitted_at, imported_to_newsletter)
+       VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, now(), false)
        RETURNING ${ARTICLE_COLUMNS}`,
-      [genId('article'), b.template, b.title, b.content, b.imageDataUrl ?? null, b.contact ?? null],
+      [
+        genId('article'),
+        b.template,
+        b.title,
+        b.content,
+        b.imageDataUrl ?? null,
+        b.contact ?? null,
+        isNonEmptyString(b.chapter) ? b.chapter : null,
+        buttonLabel,
+        buttonUrl,
+        num(b.imageAspect),
+        num(b.imageZoom),
+        num(b.imagePosX),
+        num(b.imagePosY),
+      ],
     )
     res.status(201).json(mapArticle(rows[0]))
   } catch (error) {

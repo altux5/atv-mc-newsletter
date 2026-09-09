@@ -1,10 +1,12 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import type { ArticleTemplate } from '../../types/article'
+import type { ArticleTemplate, ArticleButton } from '../../types/article'
 import { saveArticle } from '../../utils/articlesApi'
-import { cropImageToRatio, ARTICLE_CROP, aspectRatioCss } from '../../utils/imageCrop'
+import { downscaleImage } from '../../utils/imageCrop'
 import RichTextEditor from '../components/RichTextEditor'
+import ArticleImageEditor from '../components/ArticleImageEditor'
 import { sanitizeHtml } from '../../utils/sanitizeHtml'
+import { CANONICAL_CHAPTER_TITLES, isCanonicalChapterTitle } from '../../constants/chapters'
 
 /** True when rich-text HTML has no visible text and no image. */
 function isHtmlEmpty(html: string): boolean {
@@ -15,14 +17,24 @@ function isHtmlEmpty(html: string): boolean {
   return text.length === 0 && !/<img\b/i.test(html)
 }
 
+/** The pan/zoom image fields kept alongside the full (uncropped) source image. */
+interface ImageState {
+  image?: string
+  imageAspect?: number
+  imageZoom?: number
+  imagePosX?: number
+  imagePosY?: number
+}
+
 export default function SubmitArticlePage() {
   const navigate = useNavigate()
   const [selectedTemplate, setSelectedTemplate] = useState<ArticleTemplate>('portrait')
+  const [chapter, setChapter] = useState('')
   const [title, setTitle] = useState('')
   const [content, setContent] = useState('')
   const [contact, setContact] = useState('')
-  const [imageDataUrl, setImageDataUrl] = useState('')
-  const [imagePreview, setImagePreview] = useState<string | null>(null)
+  const [image, setImage] = useState<ImageState>({})
+  const [button, setButton] = useState<ArticleButton | undefined>(undefined)
   const [isSubmitting, setIsSubmitting] = useState(false)
 
   const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -33,15 +45,17 @@ export default function SubmitArticlePage() {
       return
     }
     try {
-      // Auto-crop to the selected layout ratio so every article image is uniform.
-      const cropped = await cropImageToRatio(file, ARTICLE_CROP[selectedTemplate])
-      setImageDataUrl(cropped)
-      setImagePreview(cropped)
+      // Keep the full (downscaled) image so it can be panned/zoomed; the visible
+      // crop is produced live by articleImageBg() — same as the newsletter editor.
+      const { dataUrl, aspect } = await downscaleImage(file)
+      setImage({ image: dataUrl, imageAspect: aspect, imageZoom: 1, imagePosX: 0.5, imagePosY: 0.5 })
     } catch {
       alert('Could not process that image. Please try another file.')
     }
     e.target.value = ''
   }
+
+  const removeImage = () => setImage({})
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -57,7 +71,7 @@ export default function SubmitArticlePage() {
       return
     }
 
-    if (!imageDataUrl) {
+    if (!image.image) {
       alert('Please upload an image for your article.')
       return
     }
@@ -67,26 +81,35 @@ export default function SubmitArticlePage() {
       return
     }
 
+    const hasButton = !!(button && button.label.trim() && button.url.trim())
+
     setIsSubmitting(true)
     try {
       await saveArticle({
         template: selectedTemplate,
         title: title.trim(),
         content: sanitizeHtml(content),
-        imageDataUrl,
+        imageDataUrl: image.image,
         contact: contact.trim(),
+        chapter: chapter.trim() || undefined,
+        button: hasButton ? { label: button!.label.trim(), url: button!.url.trim() } : undefined,
+        imageAspect: image.imageAspect,
+        imageZoom: image.imageZoom,
+        imagePosX: image.imagePosX,
+        imagePosY: image.imagePosY,
       })
 
       alert('Article submitted successfully! Thank you for your contribution.')
-      
+
       // Reset form
+      setChapter('')
       setTitle('')
       setContent('')
       setContact('')
-      setImageDataUrl('')
-      setImagePreview(null)
+      setImage({})
+      setButton(undefined)
       setSelectedTemplate('portrait')
-      
+
       // Navigate to home or stay on page
       navigate('/')
     } catch (error) {
@@ -98,10 +121,12 @@ export default function SubmitArticlePage() {
     }
   }
 
-  const removeImage = () => {
-    setImageDataUrl('')
-    setImagePreview(null)
-  }
+  // Value shown in the chapter picker: the canonical title, empty, or "Other…".
+  const chapterSelectValue = isCanonicalChapterTitle(chapter)
+    ? chapter
+    : chapter.trim() === ''
+      ? ''
+      : 'Other...'
 
   return (
     <form onSubmit={handleSubmit} className="nl-editor submit-article-page">
@@ -124,11 +149,47 @@ export default function SubmitArticlePage() {
       </div>
 
       <p className="nl-hint">
-        Pick a layout, add your image, then write your article — this is how it will look.
+        Pick a chapter and layout, add your image, then write your article — this is how it will look.
       </p>
 
       <div className="nl-canvas submit-canvas">
         <div className="nl-article-edit">
+          {/* Chapter picker — which section this article belongs to. */}
+          <div className="submit-chapter-field">
+            <label className="submit-field-label" htmlFor="submit-chapter">
+              Chapter
+            </label>
+            <select
+              id="submit-chapter"
+              className="nl-chapter-select"
+              value={chapterSelectValue}
+              onChange={(e) => {
+                if (e.target.value === 'Other...') {
+                  setChapter(' ')
+                } else {
+                  setChapter(e.target.value)
+                }
+              }}
+            >
+              <option value="">Select a chapter…</option>
+              {CANONICAL_CHAPTER_TITLES.map((t) => (
+                <option key={t} value={t}>
+                  {t}
+                </option>
+              ))}
+              <option value="Other...">Other…</option>
+            </select>
+            {chapter !== '' && !isCanonicalChapterTitle(chapter) && (
+              <input
+                className="nl-chapter-custom"
+                type="text"
+                value={chapter.trimStart()}
+                onChange={(e) => setChapter(e.target.value)}
+                placeholder="Custom chapter name…"
+              />
+            )}
+          </div>
+
           {/* Layout choice (same boxes as the newsletter editor) */}
           <div className="nl-article-topbar nl-article-topbar--two">
             {(['portrait', 'landscape'] as ArticleTemplate[]).map((layout) => (
@@ -149,30 +210,12 @@ export default function SubmitArticlePage() {
 
           <div className={`article-layout article-layout--${selectedTemplate}`}>
             <div className="article-image-col">
-              <div
-                className="nl-img-frame"
-                style={{ aspectRatio: aspectRatioCss(ARTICLE_CROP[selectedTemplate]) }}
-              >
-                {imagePreview ? (
-                  <img src={imagePreview} alt="Article" />
-                ) : (
-                  <label className="article-image-drop">
-                    <span>📷 Upload</span>
-                    <input type="file" accept="image/*" hidden onChange={handleImageUpload} />
-                  </label>
-                )}
-              </div>
-              {imagePreview && (
-                <div className="nl-img-controls">
-                  <label className="button small secondary nl-img-replace">
-                    Replace
-                    <input type="file" accept="image/*" hidden onChange={handleImageUpload} />
-                  </label>
-                  <button type="button" className="button small danger" onClick={removeImage}>
-                    Remove
-                  </button>
-                </div>
-              )}
+              <ArticleImageEditor
+                article={{ ...image, template: selectedTemplate }}
+                onUpload={handleImageUpload}
+                onChange={(updates) => setImage((prev) => ({ ...prev, ...updates }))}
+                onRemove={removeImage}
+              />
             </div>
 
             <div className="article-content-col">
@@ -198,6 +241,40 @@ export default function SubmitArticlePage() {
                 placeholder="Contact: Your name, email or phone"
                 maxLength={200}
               />
+              {button !== undefined ? (
+                <div className="nl-article-button-edit">
+                  <div className="nl-article-button-row">
+                    <input
+                      type="text"
+                      value={button.label}
+                      onChange={(e) => setButton({ label: e.target.value, url: button.url })}
+                      placeholder="Button label"
+                      maxLength={60}
+                    />
+                    <input
+                      type="text"
+                      value={button.url}
+                      onChange={(e) => setButton({ label: button.label, url: e.target.value })}
+                      placeholder="Button link (e.g. google.com)"
+                    />
+                  </div>
+                  <button
+                    type="button"
+                    className="nl-remove-button-link"
+                    onClick={() => setButton(undefined)}
+                  >
+                    Remove button
+                  </button>
+                </div>
+              ) : (
+                <button
+                  type="button"
+                  className="nl-add-button-ghost"
+                  onClick={() => setButton({ label: '', url: '' })}
+                >
+                  ＋ Add button to this article
+                </button>
+              )}
             </div>
           </div>
         </div>
@@ -205,4 +282,5 @@ export default function SubmitArticlePage() {
     </form>
   )
 }
+
 

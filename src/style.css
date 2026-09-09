@@ -803,6 +803,24 @@ a { color: var(--text); text-decoration: none; }
   margin: 0 auto;
 }
 
+/* Chapter picker row at the top of the submit-article editor. */
+.submit-chapter-field {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid #eef0f2;
+}
+.submit-field-label {
+  font-size: 11pt;
+  font-weight: 700;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
 .submit-article-page .page-header {
   margin-bottom: 32px;
 }
@@ -1128,8 +1146,9 @@ a { color: var(--text); text-decoration: none; }
 
 .article-status-bar {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
+  gap: 8px;
   margin-bottom: 12px;
   padding-bottom: 12px;
   border-bottom: 1px solid #e5e7eb;
@@ -1148,7 +1167,13 @@ a { color: var(--text); text-decoration: none; }
   color: #166534;
 }
 
+.status-badge.chapter {
+  background: #e0f2f1;
+  color: #0a8276;
+}
+
 .submission-date {
+  margin-left: auto;
   font-size: 12px;
   color: var(--muted);
 }
@@ -1194,6 +1219,17 @@ a { color: var(--text); text-decoration: none; }
   height: auto;
   display: block;
   object-fit: cover;
+}
+
+.article-image-crop {
+  width: 100%;
+  display: block;
+  border-radius: 2px;
+  background-color: #f3f4f6;
+}
+
+.article-button-preview {
+  margin: 4px 0 0 0;
 }
 
 .template-label {

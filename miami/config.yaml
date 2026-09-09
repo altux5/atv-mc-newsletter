@@ -63,6 +63,11 @@ authentication:
     - GET=^/api/newsletters/[^/]+$
     - GET=^/submit-article$
     - GET=^/login$
+        # Published newsletter body (public read; published drafts only)
+    - GET=^/api/newsletters/[^/]+/body$
+    # Subscribe form + unsubscribe link from the emails
+    - POST=^/api/subscribers$
+    - GET=^/api/subscribers/unsubscribe
 
   basicAuth:
     tokenLifespan: 2h
@@ -263,15 +268,29 @@ routes:
   # to the /** catch-all (any authenticated user), so ANY logged-in employee can
   # submit an article, but only Developers can review/delete/import them.
   # Everything else — any authenticated user with a role can access
-  - path: /**
+  # These two match no rule above, so they used to be protected only because the
+  # catch-all required a role. It no longer does, so they need their own rules.
+  - path: /api/newsletters/*/send
+    method: POST
     service: atv-mc-newsletter
-    method: ANY
     roles:
       - Project Owners
       - Adminstrators
       - Developers
       - Editors
-      - Visitors
+  - path: /api/subscribers
+    method: GET
+    service: atv-mc-newsletter
+    roles:
+      - Project Owners
+      - Adminstrators
+      - Developers
+      - Editors
+
+  # Everything else — any authenticated Infineon user, no role required
+  - path: /**
+    service: atv-mc-newsletter
+    method: ANY
 
 # ---------------------------------------------------------------------------
 # CORS

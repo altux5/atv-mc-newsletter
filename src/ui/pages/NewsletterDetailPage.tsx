@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { Link, useParams, useNavigate } from 'react-router-dom'
 import { getNewslettersAsync, type Newsletter } from '../../data/newsletters'
 import { extractAndSanitizeBodyHtml, extractMonthYearFromHtml, findHtmlByMonthYearAsync, loadHtmlByPathAsync, parseMonthYearFromPath } from '../../utils/newsletterHtml'
-import { getDraftByIdApi, deleteNewsletterApi } from '../../utils/newslettersApi'
+import { getPublishedBodyApi, deleteNewsletterApi } from '../../utils/newslettersApi'
 import type { NewsletterDraft } from '../../types/newsletter-creation'
 import { generateNewsletterBodyHtml } from '../../utils/generateNewsletterHtml'
 import { useAuth } from '../../contexts/AuthContext'
@@ -49,7 +49,7 @@ export default function NewsletterDetailPage() {
     ;(async () => {
       // Custom (DB) newsletter: fetch the draft and render its body HTML.
       if (!newsletter.sourcePath) {
-        const draft: NewsletterDraft | null = await getDraftByIdApi(newsletter.id)
+        const draft: NewsletterDraft | null = await getPublishedBodyApi(newsletter.id)
         if (cancelled) return
         setHtmlString(draft ? generateNewsletterBodyHtml(draft) : null)
         return

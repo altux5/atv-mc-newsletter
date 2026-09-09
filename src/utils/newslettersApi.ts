@@ -26,6 +26,16 @@ export async function getPublishedNewslettersApi(): Promise<Newsletter[]> {
   return parseJson<Newsletter[]>(res)
 }
 
+/**
+ * Full editor state of a *published* newsletter. Public read, so visitors
+ * without editor rights can still see the newsletter body.
+ */
+export async function getPublishedBodyApi(id: string): Promise<NewsletterDraft | null> {
+  const res = await apiFetch(`${NEWSLETTERS}/${encodeURIComponent(id)}/body`)
+  if (res.status === 404) return null
+  return parseJson<NewsletterDraft>(res)
+}
+
 // --- drafts (editor-only) --------------------------------------------------
 
 export async function getAllDraftsApi(): Promise<NewsletterDraft[]> {

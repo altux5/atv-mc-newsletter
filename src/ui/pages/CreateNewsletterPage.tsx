@@ -25,6 +25,7 @@ import logoUrl from '../../logo/Agent-logo.svg'
 import { useAuth } from '../../contexts/AuthContext'
 import { sanitizeHtml } from '../../utils/sanitizeHtml'
 import Icon from '../components/Icon'
+import ArticleImageEditor from '../components/ArticleImageEditor'
 import importDraftIcon from '../../icons/import-draft.svg'
 import previewIcon from '../../icons/preview-16.svg'
 import arrowUpIcon from '../../icons/arrow-up-16.svg'
@@ -81,9 +82,6 @@ function CanvasImage({
     </div>
   )
 }
-
-const clamp01 = (n: number) => Math.min(1, Math.max(0, n))
-const clamp = (n: number, lo: number, hi: number) => Math.min(hi, Math.max(lo, n))
 
 /** Background style (cover + pan/zoom) for an article image inside its frame. */
 function articleImageStyle(article: NewsletterArticle): React.CSSProperties {
@@ -152,100 +150,6 @@ function ArticleDisplay({ article }: { article: NewsletterArticle }) {
     )
   }
   return <div className="nl-article">{body}</div>
-}
-
-/** Editable image frame: drag to pan, slider/buttons to zoom, replace/remove. */
-function ArticleImageEditor({
-  article,
-  onUpload,
-  onChange,
-  onRemove,
-}: {
-  article: NewsletterArticle
-  onUpload: (e: React.ChangeEvent<HTMLInputElement>) => void
-  onChange: (updates: Partial<NewsletterArticle>) => void
-  onRemove: () => void
-}) {
-  const frameRef = useRef<HTMLDivElement>(null)
-  const drag = useRef<{ x: number; y: number; posX: number; posY: number } | null>(null)
-  const zoom = article.imageZoom ?? 1
-
-  const onPointerDown = (e: React.PointerEvent) => {
-    if (!article.image) return
-    frameRef.current?.setPointerCapture(e.pointerId)
-    drag.current = {
-      x: e.clientX,
-      y: e.clientY,
-      posX: article.imagePosX ?? 0.5,
-      posY: article.imagePosY ?? 0.5,
-    }
-  }
-  const onPointerMove = (e: React.PointerEvent) => {
-    const d = drag.current
-    const el = frameRef.current
-    if (!d || !el) return
-    const rect = el.getBoundingClientRect()
-    onChange({
-      imagePosX: clamp01(d.posX - (e.clientX - d.x) / rect.width),
-      imagePosY: clamp01(d.posY - (e.clientY - d.y) / rect.height),
-    })
-  }
-  const endDrag = (e: React.PointerEvent) => {
-    drag.current = null
-    frameRef.current?.releasePointerCapture(e.pointerId)
-  }
-
-  return (
-    <div className="nl-img-editor">
-      <div
-        ref={frameRef}
-        className={`nl-img-frame ${article.image ? 'has-image' : ''}`}
-        style={{
-          aspectRatio: aspectRatioCss(ARTICLE_CROP[article.template]),
-          ...articleImageStyle(article),
-        }}
-        onPointerDown={onPointerDown}
-        onPointerMove={onPointerMove}
-        onPointerUp={endDrag}
-        onPointerCancel={endDrag}
-      >
-        {article.image ? (
-          <span className="nl-img-hint">drag to position</span>
-        ) : (
-          <label className="article-image-drop">
-            <span>📷 Upload</span>
-            <input type="file" accept="image/*" hidden onChange={onUpload} />
-          </label>
-        )}
-      </div>
-      {article.image && (
-        <div className="nl-img-controls">
-          <button type="button" title="Zoom out" onClick={() => onChange({ imageZoom: clamp(zoom - 0.2, 1, 3) })}>
-            −
-          </button>
-          <input
-            type="range"
-            min={1}
-            max={3}
-            step={0.05}
-            value={zoom}
-            onChange={(e) => onChange({ imageZoom: Number(e.target.value) })}
-            aria-label="Zoom"
-          />
-          <button type="button" title="Zoom in" onClick={() => onChange({ imageZoom: clamp(zoom + 0.2, 1, 3) })}>
-            ＋
-          </button>
-          <label className="button small secondary nl-img-replace">
-            Replace
-            <input type="file" accept="image/*" hidden onChange={onUpload} />
-          </label>
-          <button type="button" className="button small danger" onClick={onRemove}>
-            Remove
-          </button>
-        </div>
-      )}
-    </div>
-  )
 }
 
 // How often the editor autosaves the current draft (only when something has
@@ -646,11 +550,15 @@ export default function CreateNewsletterPage() {
       content: sanitizeHtml(article.content || ''),
       template: article.template,
       image: article.imageDataUrl || undefined,
-      imageAspect: undefined,
-      imageZoom: 1,
-      imagePosX: 0.5,
-      imagePosY: 0.5,
+      imageAspect: article.imageAspect,
+      imageZoom: article.imageZoom ?? 1,
+      imagePosX: article.imagePosX ?? 0.5,
+      imagePosY: article.imagePosY ?? 0.5,
       contact: article.contact || '',
+      button:
+        article.button && article.button.label.trim() && article.button.url.trim()
+          ? { label: article.button.label, url: article.button.url }
+          : undefined,
     })
     try {
       await markArticleAsImported(article.id)

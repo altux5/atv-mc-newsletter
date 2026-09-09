@@ -25,9 +25,26 @@ CREATE TABLE IF NOT EXISTS articles (
   content                text NOT NULL,
   image_data_url         text,
   contact                text,
+  chapter                text,
+  button_label           text,
+  button_url             text,
+  image_aspect           double precision,
+  image_zoom             double precision,
+  image_pos_x            double precision,
+  image_pos_y            double precision,
   submitted_at           timestamptz NOT NULL DEFAULT now(),
   imported_to_newsletter boolean NOT NULL DEFAULT false
 );
+
+-- Migrations for databases created before the article picker/button/crop fields
+-- existed. ADD COLUMN IF NOT EXISTS keeps ensureSchema() idempotent.
+ALTER TABLE articles ADD COLUMN IF NOT EXISTS chapter      text;
+ALTER TABLE articles ADD COLUMN IF NOT EXISTS button_label text;
+ALTER TABLE articles ADD COLUMN IF NOT EXISTS button_url   text;
+ALTER TABLE articles ADD COLUMN IF NOT EXISTS image_aspect double precision;
+ALTER TABLE articles ADD COLUMN IF NOT EXISTS image_zoom   double precision;
+ALTER TABLE articles ADD COLUMN IF NOT EXISTS image_pos_x  double precision;
+ALTER TABLE articles ADD COLUMN IF NOT EXISTS image_pos_y  double precision;
 
 -- Full newsletter editor state. The whole NewsletterDraft object is stored in `data`;
 -- `status` is duplicated as a column so published drafts can be filtered in SQL.

@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react'
 import type { SubmittedArticle } from '../../types/article'
 import { getArticles, deleteArticle } from '../../utils/articlesApi'
 import { sanitizeHtml } from '../../utils/sanitizeHtml'
+import { ARTICLE_CROP, aspectRatioCss, articleImageBg } from '../../utils/imageCrop'
+import { normalizeButtonUrl } from '../../utils/generateNewsletterHtml'
 
 export default function AdminArticlesPage() {
   const [articles, setArticles] = useState<SubmittedArticle[]>([])
@@ -107,6 +109,9 @@ export default function AdminArticlesPage() {
         {articles.map((article) => (
           <article key={article.id} className="article-review-card">
             <div className="article-status-bar">
+              {article.chapter && (
+                <span className="status-badge chapter">{article.chapter}</span>
+              )}
               {article.importedToNewsletter && (
                 <span className="status-badge imported">Imported to Newsletter</span>
               )}
@@ -117,7 +122,21 @@ export default function AdminArticlesPage() {
 
             <div className={`article-preview-layout ${article.template}`}>
               <div className="article-image-container">
-                <img src={article.imageDataUrl} alt={article.title} />
+                <div
+                  className="article-image-crop"
+                  style={{
+                    aspectRatio: aspectRatioCss(ARTICLE_CROP[article.template]),
+                    backgroundImage: `url(${article.imageDataUrl})`,
+                    backgroundRepeat: 'no-repeat',
+                    ...articleImageBg(
+                      ARTICLE_CROP[article.template],
+                      article.imageAspect,
+                      article.imageZoom,
+                      article.imagePosX,
+                      article.imagePosY,
+                    ),
+                  }}
+                />
                 <span className="template-label">
                   {article.template === 'portrait' ? 'H600×W200' : 'H200×W600'}
                 </span>
@@ -130,6 +149,18 @@ export default function AdminArticlesPage() {
                 <p className="article-contact">
                   <strong>Contact:</strong> {article.contact}
                 </p>
+                {article.button && article.button.label.trim() && article.button.url.trim() && (
+                  <p className="article-button-preview">
+                    <a
+                      className="nl-cta"
+                      href={normalizeButtonUrl(article.button.url)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {article.button.label}
+                    </a>
+                  </p>
+                )}
               </div>
             </div>
 
