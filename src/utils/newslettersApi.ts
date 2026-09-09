@@ -115,6 +115,31 @@ export async function publishNewsletterApi(draft: NewsletterDraft): Promise<Publ
 }
 
 /**
+ * Editor: email a single test copy of the current draft to one address.
+ * Nothing is published and no subscriber is contacted. The server restricts the
+ * recipient to an @infineon.com address.
+ */
+export async function sendTestNewsletterApi(
+  draft: NewsletterDraft,
+  email: string,
+): Promise<SendResult> {
+  const summary = draftToNewsletter(draft)
+  const emailHtml = absolutizeAssetUrls(generateNewsletterEmailHtml(draft))
+  const res = await apiFetch(`${NEWSLETTERS}/${encodeURIComponent(draft.id)}/send`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      testEmail: email,
+      title: summary.title,
+      slug: summary.slug,
+      excerpt: summary.excerpt,
+      emailHtml,
+    }),
+  })
+  return parseJson<SendResult>(res)
+}
+
+/**
  * Delete a custom (DB) newsletter completely: remove both the published
  * summary row and the underlying draft. 404s are ignored so deleting a
  * newsletter that only ever existed as one of the two is still safe.

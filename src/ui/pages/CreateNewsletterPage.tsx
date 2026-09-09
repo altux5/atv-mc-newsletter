@@ -13,7 +13,7 @@ import {
   normalizeDraft,
   computeAutoTitle,
 } from '../../utils/localNewsletters'
-import { saveDraftApi, getDraftByIdApi, getAllDraftsApi, publishNewsletterApi, deleteDraftApi } from '../../utils/newslettersApi'
+import { saveDraftApi, getDraftByIdApi, getAllDraftsApi, publishNewsletterApi, sendTestNewsletterApi, deleteDraftApi } from '../../utils/newslettersApi'
 import RichTextEditor from '../components/RichTextEditor'
 import { generateNewsletterBodyHtml, normalizeButtonUrl } from '../../utils/generateNewsletterHtml'
 import type { SubmittedArticle } from '../../types/article'
@@ -162,6 +162,7 @@ export default function CreateNewsletterPage() {
   const { user } = useAuth()
   const [draft, setDraft] = useState<NewsletterDraft>(createEmptyDraft())
   const [isSaving, setIsSaving] = useState(false)
+  const [isTestSending, setIsTestSending] = useState(false)
   const [lastSaved, setLastSaved] = useState<Date | null>(null)
   const [showArticleImport, setShowArticleImport] = useState(false)
   const [availableArticles, setAvailableArticles] = useState<SubmittedArticle[]>([])
@@ -283,8 +284,7 @@ export default function CreateNewsletterPage() {
     if (!draft.title) {
       alert('Please enter a newsletter title before publishing.')
       return
-    }
-    if (draft.chapters.length === 0 || !draft.chapters[0].title) {
+    }    if (draft.chapters.length === 0 || !draft.chapters[0].title) {
       alert('Please add at least one chapter with a title before publishing.')
       return
     }
@@ -323,10 +323,36 @@ export default function CreateNewsletterPage() {
     }
   }
 
+  const handleTestSend = () => {
+    const email = user?.email
+    if (!email) {
+      alert('Could not determine your email address. Please reload the page to sign in again.')
+      return
+    }
+    if (!draft.title) {
+      alert('Please enter a newsletter title before sending a test.')
+      return
+    }
+    setIsTestSending(true)
+    void sendTestNewsletterApi(draft, email)
+      .then((result) => {
+        if (result.failed > 0) {
+          alert(`Test send failed: ${result.errors[0] ?? 'unknown error'}`)
+        } else {
+          alert(`Test newsletter sent to ${email}. No subscribers were emailed.`)
+        }
+      })
+      .catch((error) => {
+        console.error('Failed to send test newsletter:', error)
+        const message = error instanceof Error ? error.message : 'Failed to send the test email.'
+        alert(message)
+      })
+      .finally(() => setIsTestSending(false))
+  }
+
   const updateDraft = (updates: Partial<NewsletterDraft>) => {
     setDraft((prev) => ({ ...prev, ...updates }))
   }
-
   const updateChapter = (chapterId: string, updates: Partial<NewsletterChapter>) => {
     setDraft((prev) => ({
       ...prev,
@@ -596,6 +622,15 @@ export default function CreateNewsletterPage() {
             className="button secondary"
           >
             {isSaving ? 'Saving…' : 'Save Draft'}
+          </button>
+          <button
+            type="button"
+            onClick={handleTestSend}
+            disabled={isTestSending}
+            className="button secondary"
+            title="Email a test copy to yourself. No subscribers are contacted."
+          >
+            {isTestSending ? 'Sending…' : 'Send Test to Me'}
           </button>
           <button type="button" onClick={handlePublish} className="button primary">
             Publish

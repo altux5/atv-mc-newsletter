@@ -292,6 +292,12 @@ routes:
     service: atv-mc-newsletter
     method: ANY
 
+      # Greedy '*' means this one rule covers GET /api/newsletters/<id> and
+  # /api/newsletters/<id>/body. No roles: both are public reads.
+  - path: /api/newsletters/*
+    method: GET
+    service: atv-mc-newsletter
+
 # ---------------------------------------------------------------------------
 # CORS
 # ---------------------------------------------------------------------------

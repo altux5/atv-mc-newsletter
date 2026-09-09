@@ -56,6 +56,7 @@ $patchObj = @{
                             @{ name = 'MAIL_RELAY_HOST';  value = 'mailrelay-internal.infineon.com' }
                             @{ name = 'MAIL_RELAY_PORT';  value = '25' }
                             @{ name = 'MAIL_FROM';        value = 'NoReply@infineon.com' }
+                            @{ name = 'MAIL_FROM_NAME';   value = 'ATV MC Newsletter-Hub' }
                             @{ name = 'PUBLIC_BASE_URL';  value = 'https://atv-mc-newsletter.eu-de-3.icp.infineon.com' }
                         )
                     }

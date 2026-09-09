@@ -12,6 +12,7 @@ import nodemailer, { type Transporter } from 'nodemailer'
 //   MAIL_RELAY_HOST  e.g. mailrelay-internal.infineon.com
 //   MAIL_RELAY_PORT  e.g. 25
 //   MAIL_FROM        e.g. NoReply@infineon.com
+//   MAIL_FROM_NAME   display name shown in the inbox, e.g. ATV MC Newsletter-Hub
 //   PUBLIC_BASE_URL  public site origin, used to build "read online" and
 //                    unsubscribe links, e.g. https://atv-mc-newsletter....icp.infineon.com
 //
@@ -23,6 +24,7 @@ export interface MailerConfig {
   host: string
   port: number
   from: string
+  fromName: string
   baseUrl: string
 }
 
@@ -56,11 +58,12 @@ function readConfig(): MailerConfig | null {
 
   const host = process.env.MAIL_RELAY_HOST
   const from = process.env.MAIL_FROM
+  const fromName = (process.env.MAIL_FROM_NAME ?? 'ATV MC Newsletter-Hub').trim()
   const port = Number(process.env.MAIL_RELAY_PORT ?? 25)
   const baseUrl = process.env.PUBLIC_BASE_URL ?? ''
 
   if (!host || !from) return null
-  return { host, port, from, baseUrl: baseUrl.replace(/\/+$/, '') }
+  return { host, port, from, fromName, baseUrl: baseUrl.replace(/\/+$/, '') }
 }
 
 /** Initialise the transporter. Idempotent; call once at startup. */
@@ -88,7 +91,7 @@ export function setupMailer(): void {
     maxConnections: 3,
   })
 
-  console.log(`[mailer] Email distribution enabled via ${config.host}:${config.port} (from ${config.from}).`)
+  console.log(`[mailer] Email distribution enabled via ${config.host}:${config.port} (from ${config.fromName} <${config.from}>).`)
 }
 
 export function isMailerEnabled(): boolean {
@@ -268,7 +271,7 @@ export async function sendNewsletterToSubscribers(
     const unsubscribeUrl = buildUnsubscribeUrl(config.baseUrl, recipient)
     try {
       await transporter.sendMail({
-        from: config.from,
+        from: config.fromName ? { name: config.fromName, address: config.from } : config.from,
         to: recipient.email,
         subject,
         text: renderText(emailNewsletter, readUrl, unsubscribeUrl),

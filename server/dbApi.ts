@@ -504,13 +504,19 @@ async function dispatchNewsletterToSubscribers(
   return { ...result, recipients: recipients.length }
 }
 
-// Editor: email a published newsletter to every active subscriber. Kept for
-// manual/administrative re-sends. The normal publish flow does NOT rely on this
-// route (the gateway does not always expose this extra path to the browser);
-// publishing triggers the send server-side via POST /newsletters.
+// Editor: email a published newsletter to every active subscriber, or send a
+// single test copy when `testEmail` is set. Kept for manual/administrative
+// re-sends. The normal publish flow does NOT rely on this route (the gateway
+// does not always expose this extra path to the browser); publishing triggers
+// the send server-side via POST /newsletters.
 dbApi.post('/newsletters/:id/send', async (req: Request, res: Response) => {
   if (!isMailerEnabled()) {
     return res.status(503).json({ error: 'Email distribution is not configured on this server.' })
+  }
+  const b = req.body ?? {}
+  const testEmail = normalizeEmail(b.testEmail)
+  if (testEmail && !testEmail.endsWith('@infineon.com')) {
+    return res.status(400).json({ error: 'Test emails can only be sent to an @infineon.com address.' })
   }
   try {
     const newsletterRows = await query<SendNewsletterRow>(
@@ -518,14 +524,32 @@ dbApi.post('/newsletters/:id/send', async (req: Request, res: Response) => {
        FROM newsletters WHERE id = $1`,
       [req.params.id],
     )
-    if (newsletterRows.length === 0) return res.status(404).json({ error: 'Newsletter not found' })
+    const row = newsletterRows[0]
+    // A test send must work before the newsletter is published, so fall back to
+    // the summary the editor supplies with the request.
+    if (!row && !testEmail) return res.status(404).json({ error: 'Newsletter not found' })
+    if (!row && !isNonEmptyString(b.title)) {
+      return res.status(400).json({ error: 'title is required to test-send an unpublished newsletter' })
+    }
 
-    const result = await dispatchNewsletterToSubscribers({
-      title: newsletterRows[0].title,
-      slug: newsletterRows[0].slug,
-      excerpt: newsletterRows[0].excerpt ?? '',
-      date: newsletterRows[0].date,
-    })
+    const newsletter: NewsletterEmail = {
+      title: row?.title ?? b.title,
+      slug: row?.slug ?? (isNonEmptyString(b.slug) ? b.slug : ''),
+      excerpt: row?.excerpt ?? (typeof b.excerpt === 'string' ? b.excerpt : ''),
+      date: row?.date ?? new Date().toISOString().slice(0, 10),
+      bodyHtml: typeof b.emailHtml === 'string' ? b.emailHtml : undefined,
+    }
+
+    if (testEmail) {
+      // Dummy token: the test copy's unsubscribe link must never remove a real
+      // subscriber, so it deliberately matches no row.
+      const result = await sendNewsletterToSubscribers(newsletter, [
+        { email: testEmail, unsubscribeToken: randomUUID() },
+      ])
+      return res.json({ ...result, recipients: 1 })
+    }
+
+    const result = await dispatchNewsletterToSubscribers(newsletter)
     res.json(result ?? { sent: 0, failed: 0, recipients: 0, errors: [] })
   } catch (error) {
     fail(res, 'POST /newsletters/:id/send', error)
