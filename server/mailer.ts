@@ -39,7 +39,7 @@ export interface NewsletterEmail {
   slug: string
   excerpt: string
   date: string
-  // Pre-rendered email teaser, with the edition's topics and selected previews.
+  // Pre-rendered email teaser with selected previews and a closing invitation slot.
   bodyHtml?: string
 }
 
@@ -136,6 +136,21 @@ export function renderHtml(newsletter: NewsletterEmail, readUrl: string, unsubsc
   const body = newsletter.bodyHtml?.trim() || `
     <h2 style="margin:0 0 12px;font-size:24px;line-height:1.3;color:#007D6F;">${title}</h2>
     <p style="margin:0;font-size:15px;line-height:1.65;color:#374151;">${excerpt}</p>`
+  const closingInvitation = `<table class="email-online-cta" role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+    <tr><td class="email-padding" bgcolor="#e8f4f2" style="background:#e8f4f2;padding:28px 28px 32px;border-top:4px solid #0A8276;">
+      <p style="margin:0 0 10px;font-size:12px;line-height:1.5;font-weight:bold;color:#00695f;">This is just the preview.</p>
+      <h2 style="margin:0 0 12px;font-size:26px;line-height:1.25;color:#007D6F;">Continue on the Newsletter Hub</h2>
+      <p style="margin:0 0 24px;font-size:16px;line-height:1.6;color:#374151;">For the full newsletter, visit the website. Discover all the articles, insights and resources in this edition.</p>
+      <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+        <tr><td align="center" bgcolor="#0A8276" style="background:#0A8276;border:2px solid #0A8276;border-radius:2px;mso-padding-alt:14px 22px;">
+          <a href="${onlineUrl}" target="_blank" style="display:inline-block;padding:14px 22px;font-size:16px;line-height:1.4;font-weight:bold;color:#ffffff;text-decoration:none;mso-padding-alt:0;">Read the full newsletter &rarr;</a>
+        </td></tr>
+      </table>
+    </td></tr>
+  </table>`
+  const invitationSlot = '<!-- newsletter-online-cta -->'
+  const inlineInvitation = body.includes(invitationSlot)
+  const renderedBody = inlineInvitation ? body.replace(invitationSlot, () => closingInvitation) : body
   return `<!DOCTYPE html>
 <html lang="en">
   <head>
@@ -174,21 +189,10 @@ export function renderHtml(newsletter: NewsletterEmail, readUrl: string, unsubsc
             </tr>
             <tr>
               <td class="email-padding" style="padding:32px 36px;">
-                ${body}
+                ${renderedBody}
               </td>
             </tr>
-            <tr>
-              <td class="email-padding" bgcolor="#e8f4f2" style="background:#e8f4f2;padding:32px 36px 36px;border-top:4px solid #0A8276;">
-                <p style="margin:0 0 10px;font-size:12px;line-height:1.5;font-weight:bold;color:#00695f;">CONTINUE ON THE NEWSLETTER HUB</p>
-                <h2 style="margin:0 0 12px;font-size:26px;line-height:1.25;color:#007D6F;">This is just the preview.</h2>
-                <p style="margin:0 0 24px;font-size:16px;line-height:1.6;color:#374151;">For the full newsletter, visit the website. Discover all the articles, insights and resources in this edition.</p>
-                <table role="presentation" cellpadding="0" cellspacing="0" border="0">
-                  <tr><td align="center" bgcolor="#0A8276" style="background:#0A8276;border:2px solid #0A8276;border-radius:2px;mso-padding-alt:14px 22px;">
-                    <a href="${onlineUrl}" target="_blank" style="display:inline-block;padding:14px 22px;font-size:16px;line-height:1.4;font-weight:bold;color:#ffffff;text-decoration:none;mso-padding-alt:0;">Read the full newsletter &rarr;</a>
-                  </td></tr>
-                </table>
-              </td>
-            </tr>
+            ${inlineInvitation ? '' : `<tr><td>${closingInvitation}</td></tr>`}
           </table>
           <!--[if mso]></td></tr></table><![endif]-->
           <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="width:100%;max-width:720px;">

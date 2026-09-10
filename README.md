@@ -6,11 +6,13 @@ Subscriber and test emails are short previews of the full website edition. A lar
 green opening section and a closing invitation both link to the issue's public
 reader URL, built from `PUBLIC_BASE_URL` and its slug.
 
-The email retains the masthead, cover image, every chapter and article title,
-and up to two article previews. Previews use the first two non-empty articles in
+The email retains the masthead, cover image, and up to two article previews under
+"Preview of this edition", without a separate topic list. Previews use the first two non-empty articles in
 newsletter order, with at most 260 characters each and square image thumbnails.
-The introduction is limited to 180 characters. Full articles, contacts and article
-buttons remain on the website; the draft and website content are not shortened.
+Each preview includes its contact name when supplied. The closing website invitation
+appears immediately after the previews, inside the newsletter body and before its footer.
+The introduction is limited to 180 characters. Full articles and article buttons
+remain on the website; the draft and website content are not shortened.
 Unsubscribe links and the internal-use notice remain in the email.
 
 Run `npm run test:email` and `npm run test:email:browser -- --headed` to check the

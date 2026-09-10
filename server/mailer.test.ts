@@ -34,6 +34,18 @@ test('summary-only emails use the same invitations and escape dynamic text and l
   assert.match(html, /Read the full newsletter/)
 })
 
+test('closing invitation fills its slot before the footer with swapped heading sizes', () => {
+  const bodyHtml = '<table><tr><td>Article previews</td></tr><tr><td><!-- newsletter-online-cta --></td></tr><tr><td>Edition footer</td></tr></table>'
+  const html = renderHtml({ ...newsletter, bodyHtml }, readUrl, unsubscribeUrl)
+  assert.equal(html.split(`href="${readUrl}"`).length - 1, 2)
+  assert.equal(html.split('class="email-online-cta"').length - 1, 1)
+  assert.ok(html.indexOf('Article previews') < html.indexOf('This is just the preview.'))
+  assert.ok(html.indexOf('Read the full newsletter') < html.indexOf('Edition footer'))
+  assert.match(html, /<p style="[^"]*font-size:12px[^"]*">This is just the preview\.<\/p>/)
+  assert.match(html, /<h2 style="[^"]*font-size:26px[^"]*">Continue on the Newsletter Hub<\/h2>/)
+  assert.ok(!html.includes('<!-- newsletter-online-cta -->'))
+})
+
 test('plain-text emails also lead and close with the website destination', () => {
   const text = renderText(newsletter, readUrl, unsubscribeUrl)
   assert.equal(text.split(readUrl).length - 1, 2)

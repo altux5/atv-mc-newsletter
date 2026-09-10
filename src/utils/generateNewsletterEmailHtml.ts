@@ -84,18 +84,6 @@ function selectHighlights(draft: NewsletterDraft) {
   }))).filter(({ article, text }) => text || article.image).slice(0, 2)
 }
 
-function renderTopic(chapter: NewsletterChapter): string {
-  const articles = chapterArticles(chapter)
-  if (!chapter.title?.trim() && !articles.some((article) => article.title?.trim())) return ''
-  const titles = articles.filter((article) => article.title?.trim()).map((article) =>
-    `<li style="margin:4px 0;font-size:14px;line-height:1.5;color:#374151;">${escapeHtml(article.title.trim())}</li>`,
-  ).join('')
-  return `<tr><td style="padding:14px 0;border-bottom:1px solid #e5e7eb;">
-    ${chapter.title?.trim() ? `<h3 style="margin:0;font-size:16px;line-height:1.4;color:${BRAND_GREEN};font-family:${FONT};">${escapeHtml(chapter.title.trim())}</h3>` : ''}
-    ${titles ? `<ul style="margin:6px 0 0;padding-left:20px;">${titles}</ul>` : ''}
-  </td></tr>`
-}
-
 function renderHighlight({ chapter, article, text }: ReturnType<typeof selectHighlights>[number]): string {
   return `<tr><td style="padding:20px 0;border-bottom:1px solid #e5e7eb;">
     <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="table-layout:fixed;">
@@ -105,6 +93,7 @@ function renderHighlight({ chapter, article, text }: ReturnType<typeof selectHig
           ${chapter.title?.trim() && article.title?.trim() ? `<p style="margin:0 0 6px;font-size:12px;line-height:1.4;font-weight:bold;color:${BRAND_GREEN};">${escapeHtml(chapter.title.trim())}</p>` : ''}
           <h3 style="margin:0 0 8px;font-size:18px;line-height:1.35;color:#222222;font-family:${FONT};">${escapeHtml(article.title?.trim() || chapter.title?.trim() || 'From this edition')}</h3>
           ${text ? `<p class="email-excerpt" style="margin:0;font-size:14px;line-height:1.65;color:#374151;font-family:${FONT};">${escapeHtml(excerpt(text, 260))}</p>` : ''}
+          ${article.contact?.trim() ? `<p class="email-contact" style="margin:12px 0 0;font-size:13px;line-height:1.5;color:#555555;font-family:${FONT};"><strong>Contact:</strong> ${escapeHtml(article.contact.trim())}</p>` : ''}
         </td>
       </tr>
     </table>
@@ -149,7 +138,7 @@ export async function prepareDraftForEmail(draft: NewsletterDraft): Promise<News
 }
 
 /**
- * Render all topics and at most two short article previews as email-safe HTML.
+ * Render at most two short article previews and their contacts as email-safe HTML.
  * Intended to be sent to the mail server, which embeds any data-URL images as
  * CID attachments before delivery.
  */
@@ -159,7 +148,6 @@ export function generateNewsletterEmailHtml(draft: NewsletterDraft): string {
   const headerImg = draft.headerImage || defaultHeaderImage
   const footer = (draft.footerContent ?? DEFAULT_FOOTER_HTML).trim()
 
-  const topics = draft.chapters.map(renderTopic).join('')
   const highlights = selectHighlights(draft).map(renderHighlight).join('')
   const intro = excerpt(plainText(draft.introContent), 180)
 
@@ -194,21 +182,14 @@ export function generateNewsletterEmailHtml(draft: NewsletterDraft): string {
       ? `<tr><td style="font-size:14px;line-height:1.6;padding:0 0 20px;font-family:${FONT};">${escapeHtml(intro)}</td></tr>`
       : ''
   }
-  ${
-    topics
-      ? `<tr><td style="padding:8px 0 20px;">
-          <h2 style="margin:0;padding:0 0 12px;border-bottom:3px solid ${BRAND_GREEN};font-size:22px;line-height:1.3;color:${TITLE_GREEN};font-family:${FONT};">In this edition</h2>
-          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">${topics}</table>
-        </td></tr>`
-      : ''
-  }
-  ${highlights ? `<tr><td style="padding:8px 0 24px;">
-    <h2 style="margin:0;font-size:22px;line-height:1.3;color:${TITLE_GREEN};font-family:${FONT};">A first look</h2>
+  ${highlights ? `<tr><td class="email-preview-section" style="padding:8px 0 24px;">
+    <h2 style="margin:0;font-size:22px;line-height:1.3;color:${TITLE_GREEN};font-family:${FONT};">Preview of this edition</h2>
     <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">${highlights}</table>
   </td></tr>` : ''}
+  <tr><td><!-- newsletter-online-cta --></td></tr>
   ${
     footer
-      ? `<tr><td style="padding:20px 0 0;border-top:1px solid #e5e7eb;text-align:center;font-size:10.5pt;line-height:1.6;color:#333333;font-family:${FONT};">${footer}</td></tr>`
+      ? `<tr><td class="email-footer" style="padding:24px 0 0;text-align:center;font-size:10.5pt;line-height:1.6;color:#333333;font-family:${FONT};">${footer}</td></tr>`
       : ''
   }
 </table>`.trim()
