@@ -5,6 +5,7 @@ import ipaddr from 'ipaddr.js'
 import { open, type CountryResponse, type Reader } from 'maxmind'
 import { parseAnalyticsEvent } from './analyticsEvents.js'
 import { getAnalyticsReport, storeAnalyticsEvent, type AnalyticsQuery, type VisitorLocation } from './analyticsStore.js'
+import { requireEditor } from './editorAccess.js'
 
 type AnalyticsOptions = {
   enabled: boolean
@@ -80,17 +81,7 @@ export function createAnalyticsApi(query: AnalyticsQuery, options: AnalyticsOpti
       res.status(503).json({ error: 'Analytics storage unavailable.' })
     }
   })
-  router.get('/report', async (req, res) => {
-    if (!options.authUrl || !options.editors.length) return res.status(503).json({ error: 'Analytics editor access is not configured.' })
-    if (!req.headers.cookie) return res.status(401).json({ error: 'Editor sign-in required.' })
-    try {
-      const auth = await fetch(options.authUrl, { headers: { cookie: req.headers.cookie, accept: 'application/json' }, redirect: 'error', signal: AbortSignal.timeout(5000) })
-      if (!auth.ok) return res.status(401).json({ error: 'Editor sign-in required.' })
-      const user = await auth.json() as { email?: unknown }
-      if (typeof user.email !== 'string' || !options.editors.includes(user.email.toLowerCase().trim())) return res.status(403).json({ error: 'Editor access required.' })
-    } catch {
-      return res.status(503).json({ error: 'Unable to verify editor access.' })
-    }
+  router.get('/report', requireEditor(options), async (req, res) => {
     const days = Number(req.query.days ?? 30)
     if (![7, 30, 90].includes(days)) return res.status(400).json({ error: 'Choose 7, 30, or 90 days.' })
     try {

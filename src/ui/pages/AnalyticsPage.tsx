@@ -50,7 +50,7 @@ export default function AnalyticsPage() {
   return (
     <div className="analytics-page" aria-busy={loading}>
       <div className="analytics-heading">
-        <div><p className="analytics-eyebrow">EDITOR WORKSPACE</p><h1>Analytics</h1></div>
+        <h2>Analytics</h2>
         <div className="analytics-controls">
           <label>Period<select aria-label="Analytics period" value={days} onChange={(event) => setDays(Number(event.target.value))}>
             <option value={7}>Last 7 days</option><option value={30}>Last 30 days</option><option value={90}>Last 90 days</option>

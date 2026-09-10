@@ -1,8 +1,16 @@
 # atv-mc-newsletter
 
+## Admin Panel
+
+Editors can open **Admin Panel** from the right-hand navigation. Its in-page
+tabs are **Analytics** and **Subscribers**. Subscriber management includes
+search, status filters, pagination, adding/reactivating addresses and confirmed
+removal from the distribution list. See [Admin Panel setup](docs/admin-panel.md).
+
 ## Analytics
 
-Built-in analytics is available at `/admin/analytics` for editors. Browser
+Built-in analytics is available at `/admin/panel/analytics` for editors;
+the previous `/admin/analytics` link redirects there. Browser
 collection is off by default; when enabled on the server, public-page activity
 is recorded automatically without a consent banner. Browser privacy signals
 are respected. Signed-in editors are excluded across the website, and private

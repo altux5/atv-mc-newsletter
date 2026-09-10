@@ -1,10 +1,26 @@
 import { apiFetch, parseJson } from './apiClient'
+import type { ManagedSubscriber } from '../types/subscriber'
 
 // API client for the newsletter distribution list (/api/subscribers) and for
 // triggering a send of a published newsletter (/api/newsletters/:id/send).
 
 const SUBSCRIBERS = '/api/subscribers'
 const NEWSLETTERS = '/api/newsletters'
+const ADMIN_SUBSCRIBERS = '/api/admin/subscribers'
+
+export async function getManagedSubscribersApi(signal?: AbortSignal): Promise<ManagedSubscriber[]> {
+  return parseJson<ManagedSubscriber[]>(await apiFetch(ADMIN_SUBSCRIBERS, { signal }))
+}
+
+export async function addManagedSubscriberApi(email: string): Promise<ManagedSubscriber> {
+  return parseJson<ManagedSubscriber>(await apiFetch(ADMIN_SUBSCRIBERS, {
+    method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email }),
+  }))
+}
+
+export async function removeManagedSubscriberApi(id: string): Promise<ManagedSubscriber> {
+  return parseJson<ManagedSubscriber>(await apiFetch(`${ADMIN_SUBSCRIBERS}/${encodeURIComponent(id)}`, { method: 'DELETE' }))
+}
 
 export interface Subscriber {
   email: string

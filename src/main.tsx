@@ -1,6 +1,6 @@
 import React from 'react'
 import { createRoot } from 'react-dom/client'
-import { RouterProvider, createBrowserRouter } from 'react-router-dom'
+import { Navigate, RouterProvider, createBrowserRouter } from 'react-router-dom'
 import './style.css'
 import { AuthProvider } from './contexts/AuthContext'
 import { NewslettersProvider } from './contexts/NewslettersContext'
@@ -15,6 +15,8 @@ import AdminArticlesPage from './ui/pages/AdminArticlesPage'
 import LoginPage from './ui/pages/LoginPage'
 import ProtectedRoute from './ui/components/ProtectedRoute'
 import AnalyticsPage from './ui/pages/AnalyticsPage'
+import AdminPanelPage from './ui/pages/AdminPanelPage'
+import SubscribersPage from './ui/pages/SubscribersPage'
 
 const router = createBrowserRouter([
   {
@@ -44,7 +46,16 @@ const router = createBrowserRouter([
       { path: 'submit-article', element: <SubmitArticlePage /> },
       {
         path: 'admin/analytics',
-        element: <ProtectedRoute><AnalyticsPage /></ProtectedRoute>,
+        element: <ProtectedRoute><Navigate to="/admin/panel/analytics" replace /></ProtectedRoute>,
+      },
+      {
+        path: 'admin/panel',
+        element: <ProtectedRoute><AdminPanelPage /></ProtectedRoute>,
+        children: [
+          { index: true, element: <Navigate to="analytics" replace /> },
+          { path: 'analytics', element: <AnalyticsPage /> },
+          { path: 'subscribers', element: <SubscribersPage /> },
+        ],
       },
       {
         path: 'admin/articles',

@@ -1,0 +1,58 @@
+.main-content:has(.admin-panel) { width: min(1100px, calc(100% - 24px)); max-width: 100%; }
+.admin-panel { min-width: 0; letter-spacing: 0; }
+.admin-panel-heading { margin-bottom: 20px; }
+.admin-panel-heading p { margin: 0 0 4px; color: var(--muted); font-size: 12px; }
+.admin-panel-heading h1 { margin: 0; font-size: 30px; }
+.admin-tabs { display: flex; gap: 24px; border-bottom: 1px solid #dce3e1; margin-bottom: 28px; }
+.admin-tabs a { color: var(--muted); padding: 12px 2px; border-bottom: 3px solid transparent; font-size: 16px; font-weight: 600; }
+.admin-tabs a[aria-selected="true"] { color: var(--brand); border-bottom-color: var(--brand); }
+.admin-tabs a:hover { color: var(--brand); }
+.admin-panel :focus-visible { outline: 2px solid var(--brand); outline-offset: 3px; }
+.admin-panel .analytics-heading h2, .subscribers-heading h2 { margin: 0; font-size: 23px; }
+.subscribers-heading { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 10px; margin-bottom: 22px; }
+.subscribers-heading span { color: var(--muted); font-size: 14px; }
+.subscribers-page label { display: grid; gap: 6px; color: var(--muted); font-size: 14px; }
+.subscriber-add { padding-bottom: 24px; border-bottom: 1px solid #dce3e1; }
+.subscriber-add > div { display: flex; gap: 10px; margin-top: 6px; max-width: 650px; }
+.subscribers-page input, .subscribers-page select { min-width: 0; min-height: 42px; border: 1px solid #bfcac7; border-radius: 4px; background: #fff; padding: 9px 12px; color: var(--text); font: inherit; }
+.subscriber-add input { flex: 1; width: 100%; }
+.subscribers-page .button { font: inherit; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; min-height: 40px; }
+.subscribers-page button:disabled { cursor: default; opacity: .55; }
+.subscribers-page .subscriber-primary { color: #fff; background: var(--brand); border-color: var(--brand); white-space: nowrap; }
+.subscriber-filters { display: flex; gap: 16px; align-items: end; margin: 24px 0 18px; }
+.subscriber-filters label:first-child { flex: 1; max-width: 480px; }
+.subscriber-filters label:last-child { min-width: 170px; }
+.subscriber-table-wrap { position: relative; overflow-x: auto; max-width: 100%; }
+.subscribers-page table { width: 100%; border-collapse: collapse; font-size: 14px; }
+.subscribers-page th, .subscribers-page td { padding: 12px 10px; text-align: left; border-bottom: 1px solid #e5ebe9; vertical-align: middle; }
+.subscribers-page th { font-weight: 600; color: var(--muted); background: #f6f8f7; white-space: nowrap; }
+.subscribers-page td:first-child { overflow-wrap: anywhere; min-width: 180px; max-width: 350px; }
+.subscribers-page td:not(:first-child) { white-space: nowrap; }
+.subscribers-page th:last-child, .subscribers-page td:last-child { width: 56px; text-align: right; }
+.subscribers-page tbody tr:hover { background: #f7faf9; }
+.subscriber-status { display: inline-flex; align-items: center; gap: 7px; color: #666; }
+.subscriber-status::before { content: ''; width: 6px; height: 6px; background: #999; border-radius: 50%; }
+.subscriber-status.is-active { color: var(--brand); }
+.subscriber-status.is-active::before { background: var(--brand); }
+.subscriber-remove { width: 36px; height: 36px; display: inline-grid; place-items: center; color: #a72d40; background: transparent; border: 1px solid #e6c8cd; border-radius: 4px; cursor: pointer; }
+.subscriber-remove:hover { background: #fff1f3; }
+.subscriber-pagination, .subscriber-pagination > div { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; }
+.subscriber-pagination { justify-content: space-between; padding: 18px 0; color: var(--muted); font-size: 14px; }
+.subscriber-pagination .button { padding: 6px 10px; }
+.subscriber-state { min-height: 120px; padding: 24px 0; }
+.subscribers-page td.subscriber-empty { text-align: center; padding: 32px 12px; color: var(--muted); }
+.subscriber-notice { padding: 12px 0; color: var(--brand); overflow-wrap: anywhere; }
+.subscriber-error { color: #a72d40; overflow-wrap: anywhere; }
+.subscriber-dialog { width: min(460px, calc(100% - 32px)); max-height: calc(100% - 40px); border: 1px solid #c5ccca; border-radius: 6px; padding: 24px; color: var(--text); background: #fff; }
+.subscriber-dialog::backdrop { background: rgb(0 0 0 / 35%); }
+.subscriber-dialog h2 { margin: 0 0 14px; font-size: 22px; }
+.subscriber-dialog p { line-height: 1.5; overflow-wrap: anywhere; }
+.subscriber-dialog-actions { display: flex; justify-content: flex-end; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+.subscribers-page .subscriber-danger { background: #ad2940; border-color: #ad2940; color: #fff; }
+.admin-visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+@media (max-width: 640px) {
+  .subscriber-add > div, .subscriber-filters { flex-direction: column; align-items: stretch; }
+  .subscriber-filters label:first-child { max-width: none; }
+  .subscriber-pagination { flex-direction: column; align-items: flex-start; }
+  .app-shell:has(.admin-panel) .subscribe-form { flex-basis: auto; min-height: 44px; }
+}

@@ -1,6 +1,7 @@
 # Built-in Analytics
 
-The editor-only page is `/admin/analytics`. It uses the existing Express server
+The editor-only page is `/admin/panel/analytics` inside Admin Panel. The old
+`/admin/analytics` URL redirects there. It uses the existing Express server
 and PostgreSQL database. No external analytics service receives events.
 
 ## What the numbers mean
@@ -109,6 +110,9 @@ public wildcards. The existing gateway configuration was not modified.
 | `POST /api/analytics/events` | Public, same-origin, signed analytics cookie required. |
 | `GET /api/analytics/report` | Editor role only; also verified inside Express. |
 | `/admin/analytics` | Editor role only. |
+| `/admin/panel`, `/admin/panel/analytics`, `/admin/panel/subscribers` | Editor role only. |
+
+See [Admin Panel setup](admin-panel.md) for the protected subscriber API routes.
 
 Do not make `/api/analytics/**` broadly public. Forward Cookie, Origin and
 privacy-signal headers unchanged. Do not cache analytics responses. Keep the
