@@ -5,16 +5,20 @@ import type { ManagedSubscriber } from '../src/types/subscriber.js'
 type SubscriberRow = {
   id: string
   email: string
+  name: string | null
+  department: string | null
   active: boolean
   subscribed_at: Date | string
   unsubscribed_at: Date | string | null
 }
 
-const columns = 'id, email, active, subscribed_at, unsubscribed_at'
+const columns = 'id, email, name, department, active, subscribed_at, unsubscribed_at'
 const timestamp = (value: Date | string) => value instanceof Date ? value.toISOString() : value
 const mapSubscriber = (row: SubscriberRow): ManagedSubscriber => ({
   id: row.id,
   email: row.email,
+  name: row.name,
+  department: row.department,
   active: row.active,
   subscribedAt: timestamp(row.subscribed_at),
   unsubscribedAt: row.unsubscribed_at ? timestamp(row.unsubscribed_at) : null,
@@ -31,13 +35,15 @@ export async function listManagedSubscribers(query: typeof databaseQuery): Promi
   return rows.map(mapSubscriber)
 }
 
-export async function addManagedSubscriber(query: typeof databaseQuery, email: string): Promise<ManagedSubscriber> {
+export async function addManagedSubscriber(query: typeof databaseQuery, email: string, details: Partial<Pick<ManagedSubscriber, 'name' | 'department'>> = {}): Promise<ManagedSubscriber> {
   const rows = await query<SubscriberRow>(
-    `INSERT INTO subscribers (id, email, active, unsubscribe_token, subscribed_at)
-     VALUES ($1, $2, true, $3, now())
-     ON CONFLICT (email) DO UPDATE SET active = true, unsubscribed_at = NULL
+    `INSERT INTO subscribers (id, email, name, department, active, unsubscribe_token, subscribed_at)
+     VALUES ($1, $2, $4, $5, true, $3, now())
+     ON CONFLICT (email) DO UPDATE SET active = true, unsubscribed_at = NULL,
+       name = COALESCE(EXCLUDED.name, subscribers.name),
+       department = COALESCE(EXCLUDED.department, subscribers.department)
      RETURNING ${columns}`,
-    [randomUUID(), email, randomUUID()],
+    [randomUUID(), email, randomUUID(), details.name?.trim() || null, details.department?.trim() || null],
   )
   return mapSubscriber(rows[0])
 }

@@ -19,7 +19,8 @@ editor analytics exclusion still applies throughout the panel and public pages.
 
 The Subscribers tab loads addresses from the existing `subscribers` table. It
 defaults to active recipients; the status filter also shows unsubscribed or all
-addresses. Search matches email addresses case-insensitively. Results are sorted
+addresses. Name and Department / DL are optional columns and entry fields.
+Search matches email, name or department case-insensitively. Results are sorted
 by email and paginated in groups of 25. The current list is loaded in one request,
 which suits the present distribution-list size; use server-side pagination if
 the list grows substantially.
@@ -30,17 +31,25 @@ same ID and original subscription date. As with the existing public subscribe
 endpoint, syntactically valid email addresses are accepted; there is no new
 company-domain restriction. Editors should only add authorized recipients.
 
+Name and department accept up to 200 characters each. Re-adding an existing email
+with nonempty metadata updates those fields; blank or omitted fields preserve
+the current metadata. Distribution lists can have a department/DL label without
+a person's name. Deduplication is by email, not membership of distribution lists:
+overlapping DL membership cannot be inferred from this list.
+
 Removal requires confirmation. It sets `active=false` and records the unsubscribe
 date rather than deleting history. Removed addresses are excluded from subsequent
 newsletter sends; it does not cancel a send already in progress. Existing one-click
 unsubscribe links and the public subscription form remain unchanged. Adding or
 removing addresses does not itself send an email.
 
-Only ID, email, active state and subscription/unsubscription timestamps are
+Only ID, email, name, department, active state and subscription/unsubscription timestamps are
 returned. Unsubscribe tokens are never exposed. Existing database triggers update
 aggregate subscription counts on real status changes; duplicate adds/removals do
-not inflate counts. No additional schema migration is required beyond the existing
-analytics schema. Changing tabs back to Analytics reloads its report.
+not inflate counts. The schema adds nullable `name` and `department` columns with
+`ADD COLUMN IF NOT EXISTS`, so existing email-only rows remain valid. The public
+subscription endpoint does not overwrite these fields. Changing tabs back to
+Analytics reloads its report.
 
 ## Access and Deployment
 
@@ -49,7 +58,7 @@ The management API is separate from the existing public subscription endpoint:
 | Method / path | Behavior |
 | --- | --- |
 | `GET /api/admin/subscribers` | List active and unsubscribed addresses. |
-| `POST /api/admin/subscribers` | Add or reactivate an address; JSON `{ "email": "person@infineon.com" }`. |
+| `POST /api/admin/subscribers` | Add/reactivate or enrich an address; JSON `{ "email": "person@infineon.com", "name": "Example Person", "department": "ATV MC" }`. Only email is required. |
 | `DELETE /api/admin/subscribers/:id` | Remove an address from the active distribution list. |
 
 Every management request verifies the corporate session through the same
@@ -92,4 +101,17 @@ Set `PLAYWRIGHT_PORT` to a free port (for example 5176) if the default test port
 PostgreSQL. They do not read or modify production subscribers. Coverage includes
 add/remove/reactivate, duplicate handling, history, authorization and cross-site
 rejection, search/pagination, empty/error states, expired sessions, keyboard tabs,
-and desktop/mobile layouts.
+name/department preservation and validation, and desktop/mobile layouts.
+
+## One-Time List Import
+
+The supplied September 2026 list was merged into the live database without
+sending mail: 166 source rows became 160 unique email addresses, adding 159 rows
+and enriching one existing row. The two existing addresses outside the supplied
+list were retained, giving 162 active subscribers after import. All 160 imported
+addresses have department labels and 94 have names. Repeated department labels
+for one address were combined, and existing IDs, subscription states, tokens and
+dates were preserved. This import is not run by application startup or deployment.
+The private temporary source file was deleted; no recipient roster is committed
+to Git or embedded in the public frontend. The new columns were added atomically
+with the data import; deploying the updated API/UI exposes them in Admin Panel.

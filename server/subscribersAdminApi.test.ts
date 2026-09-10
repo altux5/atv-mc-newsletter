@@ -47,12 +47,17 @@ test('subscriber administration verifies editor sessions and origin before readi
     authMode = 'normal'
     assert.equal(queries, 0)
     assert.equal((await request('POST', '', { email: 'invalid' })).status, 400)
+    for (const details of [{ name: {} }, { department: 'x'.repeat(201) }, { name: 'line\nbreak' }]) {
+      assert.equal((await request('POST', '', { email: 'person@infineon.com', ...details })).status, 400)
+    }
     assert.equal((await request('POST', '', { email: 'x'.repeat(2500) })).status, 413)
-    const addedResponse = await request('POST', '', { email: ' Person@Infineon.com ' })
+    const addedResponse = await request('POST', '', { email: ' Person@Infineon.com ', name: ' Example Person ', department: ' ATV MC ' })
     assert.equal(addedResponse.status, 200)
-    const added = await addedResponse.json() as { id: string; email: string; active: boolean }
+    const added = await addedResponse.json() as { id: string; email: string; active: boolean; name: string; department: string }
     assert.equal(added.email, 'person@infineon.com')
     assert.equal(added.active, true)
+    assert.equal(added.name, 'Example Person')
+    assert.equal(added.department, 'ATV MC')
     const list = await request()
     assert.equal(list.headers.get('cache-control'), 'no-store')
     assert.deepEqual(await list.json(), [added])

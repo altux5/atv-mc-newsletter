@@ -4,7 +4,7 @@
 
 Editors can open **Admin Panel** from the right-hand navigation. Its in-page
 tabs are **Analytics** and **Subscribers**. Subscriber management includes
-search, status filters, pagination, adding/reactivating addresses and confirmed
+search by email/name/department, status filters, pagination, adding/reactivating addresses and confirmed
 removal from the distribution list. See [Admin Panel setup](docs/admin-panel.md).
 
 ## Analytics

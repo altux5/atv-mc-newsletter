@@ -5,12 +5,13 @@ async function fixture(page: Page) {
   const state = {
     subscribers: Array.from({ length: 27 }, (_, index): ManagedSubscriber => ({
       id: `subscriber-${index}`, email: `reader${String(index).padStart(2, '0')}@infineon.com`, active: true,
+      name: index === 1 ? 'Example Reader' : null, department: index === 1 ? 'ATV MC' : null,
       subscribedAt: '2026-09-01T09:00:00.000Z', unsubscribedAt: null,
     })),
     failList: false, failAdd: false, failRemove: false, expired: false, editor: true,
     listCalls: 0, mutations: [] as { method: string; path: string; body: unknown }[], events: 0,
   }
-  state.subscribers.push({ id: 'inactive', email: 'former@infineon.com', active: false, subscribedAt: '2026-08-01T00:00:00.000Z', unsubscribedAt: '2026-09-01T00:00:00.000Z' })
+  state.subscribers.push({ id: 'inactive', email: 'former@infineon.com', name: null, department: null, active: false, subscribedAt: '2026-08-01T00:00:00.000Z', unsubscribedAt: '2026-09-01T00:00:00.000Z' })
   await page.route('**/oauth2/userinfo', (route) => route.fulfill({ json: { email: state.editor ? 'analytics-test@example.invalid' : 'reader@example.invalid' } }))
   await page.route('**/api/**', async (route) => {
     const request = route.request()
@@ -30,9 +31,11 @@ async function fixture(page: Page) {
       if (request.method() === 'POST') {
         if (state.failAdd) return route.fulfill({ status: 503, json: { error: 'Could not add the subscriber.' } })
         const email = (request.postDataJSON().email as string).trim().toLowerCase()
+        const name = (request.postDataJSON().name as string | null)?.trim() || null
+        const department = (request.postDataJSON().department as string | null)?.trim() || null
         let subscriber = state.subscribers.find((item) => item.email === email)
-        if (subscriber) { subscriber.active = true; subscriber.unsubscribedAt = null }
-        else { subscriber = { id: `added-${state.subscribers.length}`, email, active: true, subscribedAt: '2026-09-10T00:00:00.000Z', unsubscribedAt: null }; state.subscribers.push(subscriber) }
+        if (subscriber) { subscriber.active = true; subscriber.unsubscribedAt = null; subscriber.name = name ?? subscriber.name; subscriber.department = department ?? subscriber.department }
+        else { subscriber = { id: `added-${state.subscribers.length}`, email, name, department, active: true, subscribedAt: '2026-09-10T00:00:00.000Z', unsubscribedAt: null }; state.subscribers.push(subscriber) }
         return route.fulfill({ json: subscriber })
       }
       if (request.method() === 'DELETE') {
@@ -67,6 +70,12 @@ test('admin panel tabs, subscriber add/remove/reactivate, filtering and paginati
   await page.getByLabel('Search subscribers').fill('reader01')
   await expect(page.locator('.subscribers-page tbody tr')).toHaveCount(1)
   await expect(page.getByRole('cell', { name: 'reader01@infineon.com', exact: true })).toBeVisible()
+  await page.getByLabel('Search subscribers').fill('example reader')
+  await expect(page.locator('.subscribers-page tbody tr')).toHaveCount(1)
+  await expect(page.getByRole('cell', { name: 'Example Reader', exact: true })).toBeVisible()
+  await page.getByLabel('Search subscribers').fill('atv mc')
+  await expect(page.locator('.subscribers-page tbody tr')).toHaveCount(1)
+  await expect(page.getByRole('cell', { name: 'ATV MC', exact: true })).toBeVisible()
   await page.getByLabel('Search subscribers').fill('not-present')
   await expect(page.getByText('No matching subscribers.')).toBeVisible()
   await page.getByLabel('Search subscribers').fill('')
@@ -75,13 +84,20 @@ test('admin panel tabs, subscriber add/remove/reactivate, filtering and paginati
   await expect(page.locator('.subscriber-remove')).toHaveCount(0)
 
   await page.getByLabel('Add subscriber', { exact: true }).fill('New.Person@infineon.com')
+  await page.getByLabel('Name (optional)', { exact: true }).fill('New Person')
+  await page.getByLabel('Department / DL (optional)', { exact: true }).fill('ATV MC SPE')
   await page.getByRole('button', { name: 'Add subscriber', exact: true }).click()
   await expect(page.getByRole('status')).toContainText('new.person@infineon.com added')
   await expect(page.getByRole('cell', { name: 'new.person@infineon.com', exact: true })).toBeVisible()
+  await expect(page.getByRole('cell', { name: 'New Person', exact: true })).toBeVisible()
+  await expect(page.getByRole('cell', { name: 'ATV MC SPE', exact: true })).toBeVisible()
+  await expect(page.getByLabel('Name (optional)', { exact: true })).toHaveValue('')
+  await expect(page.getByLabel('Department / DL (optional)', { exact: true })).toHaveValue('')
   await page.getByLabel('Add subscriber', { exact: true }).fill('new.person@infineon.com')
   await page.getByRole('button', { name: 'Add subscriber', exact: true }).click()
   await expect(page.getByRole('status')).toContainText('already subscribed')
   expect(state.subscribers.filter((item) => item.email === 'new.person@infineon.com')).toHaveLength(1)
+  await expect(page.getByRole('cell', { name: 'New Person', exact: true })).toBeVisible()
 
   await page.getByRole('button', { name: 'Remove new.person@infineon.com', exact: true }).click()
   const dialog = page.getByRole('dialog', { name: 'Remove subscriber?' })

@@ -12,9 +12,9 @@ export async function getManagedSubscribersApi(signal?: AbortSignal): Promise<Ma
   return parseJson<ManagedSubscriber[]>(await apiFetch(ADMIN_SUBSCRIBERS, { signal }))
 }
 
-export async function addManagedSubscriberApi(email: string): Promise<ManagedSubscriber> {
+export async function addManagedSubscriberApi(email: string, details: Partial<Pick<ManagedSubscriber, 'name' | 'department'>> = {}): Promise<ManagedSubscriber> {
   return parseJson<ManagedSubscriber>(await apiFetch(ADMIN_SUBSCRIBERS, {
-    method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email }),
+    method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email, ...details }),
   }))
 }
 

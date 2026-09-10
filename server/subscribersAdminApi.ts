@@ -23,8 +23,14 @@ export function createSubscribersAdminApi(query: typeof databaseQuery, options: 
   router.post('/', async (req, res) => {
     const email = normalizeSubscriberEmail(req.body?.email)
     if (!email) return res.status(400).json({ error: 'A valid email address is required (maximum 254 characters).' })
+    for (const field of ['name', 'department']) {
+      const value: unknown = req.body?.[field]
+      if (value != null && (typeof value !== 'string' || value.trim().length > 200 || /[\x00-\x1f\x7f]/.test(value))) {
+        return res.status(400).json({ error: 'Name and department must be text, maximum 200 characters each.' })
+      }
+    }
     try {
-      res.json(await addManagedSubscriber(query, email))
+      res.json(await addManagedSubscriber(query, email, { name: req.body?.name, department: req.body?.department }))
     } catch { res.status(503).json({ error: 'Could not add the subscriber.' }) }
   })
   router.delete('/:id', async (req, res) => {

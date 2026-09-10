@@ -69,6 +69,9 @@ CREATE TABLE IF NOT EXISTS subscribers (
   unsubscribed_at   timestamptz
 );
 
+ALTER TABLE subscribers ADD COLUMN IF NOT EXISTS name text;
+ALTER TABLE subscribers ADD COLUMN IF NOT EXISTS department text;
+
 CREATE INDEX IF NOT EXISTS idx_newsletters_date ON newsletters (date DESC);
 CREATE INDEX IF NOT EXISTS idx_articles_submitted_at ON articles (submitted_at DESC);
 CREATE INDEX IF NOT EXISTS idx_newsletter_drafts_status ON newsletter_drafts (status);
