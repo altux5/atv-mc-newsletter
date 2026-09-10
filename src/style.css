@@ -2122,15 +2122,11 @@ a { color: var(--text); text-decoration: none; }
    Live newsletter canvas (WYSIWYG editor)
    ============================================ */
 .nl-editor {
-  max-width: 980px;
+  max-width: 1100px;
   margin: 0 auto;
 }
 
-/* Sticky action toolbar */
 .nl-toolbar {
-  position: sticky;
-  top: 0;
-  z-index: 20;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -2161,6 +2157,7 @@ a { color: var(--text); text-decoration: none; }
 }
 .nl-saved {
   margin-right: 4px;
+  white-space: nowrap;
 }
 .nl-hint {
   text-align: center;

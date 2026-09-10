@@ -597,7 +597,6 @@ export default function CreateNewsletterPage() {
 
   return (
     <div className="nl-editor">
-      {/* Sticky action toolbar */}
       <div className="nl-toolbar">
         <div className="nl-toolbar-left">
           <button type="button" onClick={() => navigate(-1)} className="button secondary">
