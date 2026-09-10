@@ -11,6 +11,8 @@
     "start": "tsx server/aiProxy.ts",
     "test:analytics": "node --import tsx --test server/analyticsEvents.test.ts server/analyticsStore.test.ts server/analyticsApi.test.ts",
     "test:subscribers": "node --import tsx --test server/subscribersStore.test.ts server/subscribersAdminApi.test.ts",
+    "test:email": "node --import tsx --test server/mailer.test.ts",
+    "test:email:browser": "playwright test tests/newsletter-email.spec.ts",
     "test:analytics:browser": "playwright test",
     "test:local-auth": "node --import tsx --test dev/localAuth.test.ts",
     "typecheck:local-auth": "tsc --noEmit -p dev/tsconfig.json"

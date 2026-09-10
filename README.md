@@ -1,5 +1,22 @@
 # atv-mc-newsletter
 
+## Email Newsletter
+
+Subscriber and test emails are short previews of the full website edition. A large
+green opening section and a closing invitation both link to the issue's public
+reader URL, built from `PUBLIC_BASE_URL` and its slug.
+
+The email retains the masthead, cover image, every chapter and article title,
+and up to two article previews. Previews use the first two non-empty articles in
+newsletter order, with at most 260 characters each and square image thumbnails.
+The introduction is limited to 180 characters. Full articles, contacts and article
+buttons remain on the website; the draft and website content are not shortened.
+Unsubscribe links and the internal-use notice remain in the email.
+
+Run `npm run test:email` and `npm run test:email:browser -- --headed` to check the
+template. Browser tests use sample content, produce HTML and desktop/mobile
+screenshots in the test output directory, and do not send mail.
+
 ## Admin Panel
 
 Editors can open **Admin Panel** from the right-hand navigation. Its in-page

@@ -39,8 +39,7 @@ export interface NewsletterEmail {
   slug: string
   excerpt: string
   date: string
-  // Full, pre-rendered newsletter body HTML (matches the website). When present
-  // the email shows the whole newsletter instead of the short teaser.
+  // Pre-rendered email teaser, with the edition's topics and selected previews.
   bodyHtml?: string
 }
 
@@ -129,78 +128,75 @@ function buildSubject(newsletter: NewsletterEmail): string {
   return `${month} '${year} Edition - ATV MC Newsletter`
 }
 
-function renderHtml(newsletter: NewsletterEmail, readUrl: string, unsubscribeUrl: string): string {
-  // Full-content email: wrap the pre-rendered newsletter body with a light
-  // "view online" header and an unsubscribe footer.
-  //
-  // Outlook renders with Word, which ignores max-width and margin:0 auto, and
-  // drops CSS background on <body>. Centring therefore uses a fixed-width table
-  // inside align="center", and colours use bgcolor attributes.
-  if (newsletter.bodyHtml && newsletter.bodyHtml.trim()) {
-    return `<!DOCTYPE html>
-<html>
-  <body style="margin:0;padding:0;background:#f4f5f7;">
-    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#f4f5f7" style="background:#f4f5f7;">
-      <tr>
-        <td align="center" style="padding:12px 16px;font-family:Arial,Segoe UI,sans-serif;font-size:12px;color:#6b7280;">
-          <a href="${readUrl}" style="color:#0a6ed1;text-decoration:none;">View this newsletter online</a>
-        </td>
-      </tr>
-      <tr>
-        <td align="center">
-          <table role="presentation" width="840" cellpadding="0" cellspacing="0" border="0" bgcolor="#ffffff" style="width:840px;max-width:840px;background:#ffffff;border:1px solid #e5e7eb;">
-            <tr>
-              <td style="padding:28px 20px;">
-                ${newsletter.bodyHtml}
-              </td>
-            </tr>
-          </table>
-        </td>
-      </tr>
-      <tr>
-        <td align="center" style="padding:16px 16px 24px;font-family:Arial,Segoe UI,sans-serif;font-size:12px;line-height:1.6;color:#9ca3af;">
-          You are receiving this because you subscribed to the ATV MC Newsletter.<br/>
-          <a href="${unsubscribeUrl}" style="color:#6b7280;">Unsubscribe</a>
-        </td>
-      </tr>
-    </table>
-  </body>
-</html>`
-  }
-
+export function renderHtml(newsletter: NewsletterEmail, readUrl: string, unsubscribeUrl: string): string {
   const title = escapeHtml(newsletter.title)
   const excerpt = escapeHtml(newsletter.excerpt || 'A new edition of the ATV MC Newsletter is out.')
-  const date = escapeHtml(newsletter.date)
+  const onlineUrl = escapeHtml(readUrl)
+  const optOutUrl = escapeHtml(unsubscribeUrl)
+  const body = newsletter.bodyHtml?.trim() || `
+    <h2 style="margin:0 0 12px;font-size:24px;line-height:1.3;color:#007D6F;">${title}</h2>
+    <p style="margin:0;font-size:15px;line-height:1.65;color:#374151;">${excerpt}</p>`
   return `<!DOCTYPE html>
-<html>
-  <body style="margin:0;padding:0;background:#f4f5f7;font-family:Segoe UI,Arial,sans-serif;color:#1f2937;">
-    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f4f5f7;padding:24px 0;">
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>${title}</title>
+    <style>
+      @media only screen and (max-width:600px) {
+        .email-padding { padding-left:20px !important; padding-right:20px !important; }
+        .email-heading { font-size:28px !important; line-height:1.2 !important; }
+        .email-masthead { display:block !important; width:100% !important; padding:0 !important; text-align:left !important; }
+        .email-logo { margin-top:18px !important; }
+        .email-preview-image { display:block !important; width:100% !important; padding:0 0 14px !important; }
+        .email-preview-image + td { display:block !important; width:100% !important; }
+      }
+    </style>
+  </head>
+  <body style="margin:0;padding:0;background:#f4f5f7;font-family:Arial,'Segoe UI',Tahoma,sans-serif;color:#1f2937;">
+    <div style="display:none;font-size:1px;line-height:1px;color:#f4f5f7;max-height:0;max-width:0;opacity:0;overflow:hidden;mso-hide:all;">${title}. A few highlights inside. Read the full edition on the Newsletter Hub.</div>
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#f4f5f7" style="width:100%;background:#f4f5f7;">
       <tr>
         <td align="center">
-          <table role="presentation" width="600" cellpadding="0" cellspacing="0" style="max-width:600px;background:#ffffff;border:1px solid #e5e7eb;border-radius:10px;overflow:hidden;">
+          <!--[if mso]><table role="presentation" width="720" align="center" cellpadding="0" cellspacing="0" border="0"><tr><td><![endif]-->
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#ffffff" style="width:100%;max-width:720px;background:#ffffff;table-layout:fixed;overflow-wrap:break-word;">
             <tr>
-              <td style="padding:28px 32px 8px;">
-                <p style="margin:0 0 6px;font-size:13px;letter-spacing:.04em;text-transform:uppercase;color:#6b7280;">ATV MC Newsletter Hub</p>
-                <h1 style="margin:0;font-size:22px;line-height:1.3;color:#111827;">${title}</h1>
-                <p style="margin:8px 0 0;font-size:13px;color:#9ca3af;">${date}</p>
+              <td class="email-padding" bgcolor="#0A8276" style="background:#0A8276;padding:32px 36px 36px;">
+                <p style="margin:0 0 16px;font-size:12px;line-height:1.5;font-weight:bold;color:#ffffff;">ATV MC NEWSLETTER HUB</p>
+                <h1 class="email-heading" style="margin:0 0 14px;font-size:34px;line-height:1.15;font-weight:bold;color:#ffffff;">View this newsletter online</h1>
+                <p style="margin:0 0 24px;font-size:16px;line-height:1.6;color:#ffffff;">Every story. Every update. The complete edition, on our website.</p>
+                <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+                  <tr><td align="center" bgcolor="#ffffff" style="background:#ffffff;border:2px solid #ffffff;border-radius:2px;mso-padding-alt:14px 22px;">
+                    <a href="${onlineUrl}" target="_blank" style="display:inline-block;padding:14px 22px;font-size:16px;line-height:1.4;font-weight:bold;color:#00695f;text-decoration:none;mso-padding-alt:0;">Open the full newsletter &rarr;</a>
+                  </td></tr>
+                </table>
               </td>
             </tr>
             <tr>
-              <td style="padding:12px 32px 4px;font-size:15px;line-height:1.6;color:#374151;">
-                <p style="margin:0;">${excerpt}</p>
+              <td class="email-padding" style="padding:32px 36px;">
+                ${body}
               </td>
             </tr>
             <tr>
-              <td style="padding:24px 32px 32px;">
-                <a href="${readUrl}" style="display:inline-block;background:#0a6ed1;color:#ffffff;text-decoration:none;font-size:15px;font-weight:600;padding:12px 22px;border-radius:8px;">Read the newsletter</a>
+              <td class="email-padding" bgcolor="#e8f4f2" style="background:#e8f4f2;padding:32px 36px 36px;border-top:4px solid #0A8276;">
+                <p style="margin:0 0 10px;font-size:12px;line-height:1.5;font-weight:bold;color:#00695f;">CONTINUE ON THE NEWSLETTER HUB</p>
+                <h2 style="margin:0 0 12px;font-size:26px;line-height:1.25;color:#007D6F;">This is just the preview.</h2>
+                <p style="margin:0 0 24px;font-size:16px;line-height:1.6;color:#374151;">For the full newsletter, visit the website. Discover all the articles, insights and resources in this edition.</p>
+                <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+                  <tr><td align="center" bgcolor="#0A8276" style="background:#0A8276;border:2px solid #0A8276;border-radius:2px;mso-padding-alt:14px 22px;">
+                    <a href="${onlineUrl}" target="_blank" style="display:inline-block;padding:14px 22px;font-size:16px;line-height:1.4;font-weight:bold;color:#ffffff;text-decoration:none;mso-padding-alt:0;">Read the full newsletter &rarr;</a>
+                  </td></tr>
+                </table>
               </td>
             </tr>
           </table>
-          <table role="presentation" width="600" cellpadding="0" cellspacing="0" style="max-width:600px;">
+          <!--[if mso]></td></tr></table><![endif]-->
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="width:100%;max-width:720px;">
             <tr>
-              <td style="padding:16px 32px;font-size:12px;line-height:1.6;color:#9ca3af;" align="center">
+              <td style="padding:20px;font-size:12px;line-height:1.6;color:#6b7280;" align="center">
+                For internal use and circulation only.<br/>
                 You are receiving this because you subscribed to the ATV MC Newsletter.<br/>
-                <a href="${unsubscribeUrl}" style="color:#6b7280;">Unsubscribe</a>
+                <a href="${optOutUrl}" style="color:#555555;text-decoration:underline;">Unsubscribe</a>
               </td>
             </tr>
           </table>
@@ -211,18 +207,21 @@ function renderHtml(newsletter: NewsletterEmail, readUrl: string, unsubscribeUrl
 </html>`
 }
 
-function renderText(newsletter: NewsletterEmail, readUrl: string, unsubscribeUrl: string): string {
+export function renderText(newsletter: NewsletterEmail, readUrl: string, unsubscribeUrl: string): string {
   return [
     'ATV MC Newsletter Hub',
     '',
     newsletter.title,
     newsletter.date,
     '',
+    `View this newsletter online: ${readUrl}`,
+    '',
     newsletter.excerpt || 'A new edition of the ATV MC Newsletter is out.',
     '',
-    `Read the newsletter: ${readUrl}`,
+    `For the full newsletter, visit the website: ${readUrl}`,
     '',
     '---',
+    'For internal use and circulation only.',
     'You are receiving this because you subscribed to the ATV MC Newsletter.',
     `Unsubscribe: ${unsubscribeUrl}`,
   ].join('\n')

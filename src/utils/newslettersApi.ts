@@ -101,7 +101,7 @@ export async function publishNewsletterApi(draft: NewsletterDraft): Promise<Publ
   await saveDraftApi(published)
 
   const summary = draftToNewsletter(published)
-  // Render the full newsletter with an email-safe (table-based) layout, then
+  // Render the newsletter teaser with an email-safe (table-based) layout, then
   // make bundled asset URLs (e.g. the default header image) absolute so email
   // clients can load them. Article/embedded data-URL images are left as-is and
   // embedded as CID attachments by the server.

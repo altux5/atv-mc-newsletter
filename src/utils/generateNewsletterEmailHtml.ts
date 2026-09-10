@@ -4,8 +4,7 @@ import type {
   NewsletterArticle,
 } from '../types/newsletter-creation'
 import { computeAutoTitle, DEFAULT_SUBTITLE, DEFAULT_FOOTER_HTML } from './localNewsletters'
-import { normalizeButtonUrl } from './generateNewsletterHtml'
-import { ARTICLE_CROP, bakeCrop } from './imageCrop'
+import { bakeCrop } from './imageCrop'
 // Imported as data URLs (?inline) so the mail server embeds them as CID
 // attachments and they display in every email client (no remote-image loading,
 // no SVG). PNG/JPG only — email clients do not render SVG.
@@ -16,7 +15,7 @@ import logoDataUrl from '../logo/infineon_logo_color.png?inline'
 //
 // The website version (generateNewsletterBodyHtml) uses flexbox, CSS
 // background-image crops and an SVG logo — none of which render in email clients
-// (Outlook/Gmail). This renderer produces the SAME visual design using only
+// (Outlook/Gmail). This renderer produces a short, branded teaser using only
 // email-safe primitives: table layouts, inline styles and real <img> tags. Image
 // `src`s stay as-is (data URLs / absolute URLs); the server embeds data URLs as
 // CID attachments so they display everywhere.
@@ -24,6 +23,7 @@ import logoDataUrl from '../logo/infineon_logo_color.png?inline'
 const BRAND_GREEN = '#0A8276' // chapter headings + nav bar (matches app --brand)
 const TITLE_GREEN = '#007D6F' // masthead title + tagline (matches website)
 const FONT = "Arial, 'Segoe UI', Tahoma, sans-serif"
+const THUMBNAIL_CROP = { ratioW: 1, ratioH: 1, maxW: 248, maxH: 248 }
 
 function escapeHtml(value: string): string {
   return String(value ?? '')
@@ -57,94 +57,75 @@ function chapterArticles(chapter: NewsletterChapter): NewsletterArticle[] {
 function renderImage(src: string, width: number | 'full'): string {
   if (!src) return ''
   if (width === 'full') {
-    return `<img src="${src}" width="100%" style="width:100%;max-width:100%;height:auto;display:block;border:0;border-radius:2px;" alt="" />`
+    return `<img src="${escapeHtml(src)}" width="648" style="width:100%;max-width:100%;height:auto;display:block;border:0;border-radius:2px;" alt="" />`
   }
-  return `<img src="${src}" width="${width}" style="display:block;width:${width}px;max-width:${width}px;height:auto;border:0;border-radius:2px;" alt="" />`
+  return `<img src="${escapeHtml(src)}" width="${width}" style="display:block;width:${width}px;max-width:${width}px;height:auto;border:0;border-radius:2px;" alt="" />`
 }
 
-function renderButton(article: NewsletterArticle): string {
-  const b = article.button
-  if (!b || !b.label.trim() || !b.url.trim()) return ''
-  const url = escapeHtml(normalizeButtonUrl(b.url))
-  return `<table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin:16px 0 0;">
-    <tr><td style="background:${BRAND_GREEN};border-radius:2px;">
-      <a href="${url}" target="_blank" rel="noopener noreferrer" style="display:inline-block;padding:9px 20px;font-family:${FONT};font-size:10.5pt;font-weight:bold;color:#ffffff;text-decoration:none;">${escapeHtml(
-        b.label,
-      )}</a>
-    </td></tr>
-  </table>`
+function plainText(html: string): string {
+  const document = new DOMParser().parseFromString(html || '', 'text/html')
+  document.querySelectorAll('script, style, iframe, object, embed, noscript, template').forEach((element) => element.remove())
+  document.querySelectorAll('p, div, li, h1, h2, h3, h4, h5, h6, br, tr, td').forEach((element) => element.append(' '))
+  return (document.body.textContent || '').replace(/\s+/g, ' ').trim()
 }
 
-function renderArticleBody(article: NewsletterArticle): string {
-  const titleHtml = article.title
-    ? `<p style="font-size:12pt;font-weight:bold;color:#222222;margin:0 0 8px;font-family:${FONT};">${escapeHtml(
-        article.title,
-      )}</p>`
-    : ''
-  const contactHtml = article.contact
-    ? `<p style="margin:12px 0 0;font-style:italic;font-size:10pt;color:#555555;font-family:${FONT};"><strong>Contact:</strong> ${escapeHtml(
-        article.contact,
-      )}</p>`
-    : ''
-  return `${titleHtml}<div style="font-size:10.5pt;line-height:1.65;color:#333333;font-family:${FONT};">${
-    article.content || ''
-  }</div>${contactHtml}${renderButton(article)}`
+function excerpt(text: string, limit: number): string {
+  if (text.length <= limit) return text
+  const shortened = text.slice(0, limit - 3)
+  const boundary = shortened.lastIndexOf(' ')
+  return `${(boundary > 0 ? shortened.slice(0, boundary) : shortened).trimEnd()}...`
 }
 
-function renderArticle(article: NewsletterArticle): string {
-  const hasImage = Boolean(article.image)
-
-  // Portrait: image beside the text (two-column table).
-  if (hasImage && article.template === 'portrait') {
-    return `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
-      <tr>
-        <td width="260" valign="top" style="padding:0 20px 0 0;">${renderImage(article.image as string, 260)}</td>
-        <td valign="top" style="vertical-align:top;">${renderArticleBody(article)}</td>
-      </tr>
-    </table>`
-  }
-
-  // Landscape: full-width image above the text.
-  if (hasImage && article.template === 'landscape') {
-    return `<div><div style="margin:0 0 14px;">${renderImage(
-      article.image as string,
-      'full',
-    )}</div>${renderArticleBody(article)}</div>`
-  }
-
-  // No image.
-  return `<div>${renderArticleBody(article)}</div>`
+function selectHighlights(draft: NewsletterDraft) {
+  return draft.chapters.flatMap((chapter) => chapterArticles(chapter).map((article) => ({
+    chapter,
+    article,
+    text: plainText(article.content),
+  }))).filter(({ article, text }) => text || article.image).slice(0, 2)
 }
 
-function renderChapter(chapter: NewsletterChapter): string {
+function renderTopic(chapter: NewsletterChapter): string {
   const articles = chapterArticles(chapter)
-  const heading = chapter.title?.trim()
-    ? `<h2 style="font-size:13.5pt;font-weight:bold;color:${BRAND_GREEN};margin:0 0 18px;padding:0 0 8px;border-bottom:1px solid #e5e7eb;font-family:${FONT};">${escapeHtml(
-        chapter.title,
-      )}</h2>`
-    : ''
-  const body = articles
-    .map(renderArticle)
-    .join(
-      '<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="border-top:1px solid #f0f2f4;font-size:0;line-height:0;height:24px;">&nbsp;</td></tr></table>',
-    )
-  return `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding:26px 0;">${heading}${body}</td></tr></table>`
+  if (!chapter.title?.trim() && !articles.some((article) => article.title?.trim())) return ''
+  const titles = articles.filter((article) => article.title?.trim()).map((article) =>
+    `<li style="margin:4px 0;font-size:14px;line-height:1.5;color:#374151;">${escapeHtml(article.title.trim())}</li>`,
+  ).join('')
+  return `<tr><td style="padding:14px 0;border-bottom:1px solid #e5e7eb;">
+    ${chapter.title?.trim() ? `<h3 style="margin:0;font-size:16px;line-height:1.4;color:${BRAND_GREEN};font-family:${FONT};">${escapeHtml(chapter.title.trim())}</h3>` : ''}
+    ${titles ? `<ul style="margin:6px 0 0;padding-left:20px;">${titles}</ul>` : ''}
+  </td></tr>`
+}
+
+function renderHighlight({ chapter, article, text }: ReturnType<typeof selectHighlights>[number]): string {
+  return `<tr><td style="padding:20px 0;border-bottom:1px solid #e5e7eb;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="table-layout:fixed;">
+      <tr>
+        ${article.image ? `<td class="email-preview-image" width="144" valign="top" style="width:144px;padding:0 20px 0 0;">${renderImage(article.image, 124)}</td>` : ''}
+        <td valign="top" style="vertical-align:top;">
+          ${chapter.title?.trim() && article.title?.trim() ? `<p style="margin:0 0 6px;font-size:12px;line-height:1.4;font-weight:bold;color:${BRAND_GREEN};">${escapeHtml(chapter.title.trim())}</p>` : ''}
+          <h3 style="margin:0 0 8px;font-size:18px;line-height:1.35;color:#222222;font-family:${FONT};">${escapeHtml(article.title?.trim() || chapter.title?.trim() || 'From this edition')}</h3>
+          ${text ? `<p class="email-excerpt" style="margin:0;font-size:14px;line-height:1.65;color:#374151;font-family:${FONT};">${escapeHtml(excerpt(text, 260))}</p>` : ''}
+        </td>
+      </tr>
+    </table>
+  </td></tr>`
 }
 
 /**
- * Bake each article image's pan/zoom crop into the pixels. Must be awaited
+ * Bake the selected images into square thumbnails, keeping their focal points. Must be awaited
  * before {@link generateNewsletterEmailHtml}: the website crops with CSS
  * background-size/position, which no email client reproduces.
  */
 export async function prepareDraftForEmail(draft: NewsletterDraft): Promise<NewsletterDraft> {
+  const selected = new Set(selectHighlights(draft).map(({ article }) => article.id))
   const chapters = await Promise.all(
     draft.chapters.map(async (chapter) => {
       const articles = await Promise.all(
         chapterArticles(chapter).map(async (article) => {
-          if (!article.image) return article
+          if (!article.image || !selected.has(article.id)) return article
           const image = await bakeCrop(
             article.image,
-            ARTICLE_CROP[article.template] ?? ARTICLE_CROP.portrait,
+            THUMBNAIL_CROP,
             article.imageAspect,
             article.imageZoom,
             article.imagePosX,
@@ -168,7 +149,7 @@ export async function prepareDraftForEmail(draft: NewsletterDraft): Promise<News
 }
 
 /**
- * Render a newsletter draft as email-safe HTML that mirrors the website design.
+ * Render all topics and at most two short article previews as email-safe HTML.
  * Intended to be sent to the mail server, which embeds any data-URL images as
  * CID attachments before delivery.
  */
@@ -178,17 +159,9 @@ export function generateNewsletterEmailHtml(draft: NewsletterDraft): string {
   const headerImg = draft.headerImage || defaultHeaderImage
   const footer = (draft.footerContent ?? DEFAULT_FOOTER_HTML).trim()
 
-  const nav = draft.chapters
-    .filter((c) => c.title?.trim())
-    .map(
-      (c) =>
-        `<span style="color:#ffffff;font-size:11.5pt;font-weight:bold;font-family:${FONT};">${escapeHtml(
-          c.title,
-        )}</span>`,
-    )
-    .join('<span style="color:#ffffff;opacity:0.5;">&nbsp;&nbsp;|&nbsp;&nbsp;</span>')
-
-  const chapters = draft.chapters.map(renderChapter).join('')
+  const topics = draft.chapters.map(renderTopic).join('')
+  const highlights = selectHighlights(draft).map(renderHighlight).join('')
+  const intro = excerpt(plainText(draft.introContent), 180)
 
   return `
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="width:100%;font-family:${FONT};color:#333333;">
@@ -196,10 +169,10 @@ export function generateNewsletterEmailHtml(draft: NewsletterDraft): string {
     <td style="padding:0 0 18px;">
       <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td valign="top" style="vertical-align:top;">
-            <h1 style="font-size:21pt;font-weight:bold;color:${TITLE_GREEN};margin:0;line-height:1.2;font-family:${FONT};">${escapeHtml(
+          <td class="email-masthead" valign="top" style="vertical-align:top;">
+            <h2 style="font-size:24px;font-weight:bold;color:${TITLE_GREEN};margin:0;line-height:1.25;font-family:${FONT};">${escapeHtml(
               title,
-            )}</h1>
+            )}</h2>
             ${
               subtitle
                 ? `<p style="font-size:12pt;font-weight:bold;color:${TITLE_GREEN};margin:8px 0 0;font-family:${FONT};">${escapeHtml(
@@ -208,8 +181,8 @@ export function generateNewsletterEmailHtml(draft: NewsletterDraft): string {
                 : ''
             }
           </td>
-          <td valign="top" align="right" width="170" style="vertical-align:top;padding-left:16px;">
-            <img src="${logoDataUrl}" width="150" alt="Infineon" style="width:150px;max-width:150px;height:auto;display:block;border:0;" />
+          <td class="email-masthead" valign="top" align="right" width="136" style="vertical-align:top;padding-left:16px;">
+            <img class="email-logo" src="${logoDataUrl}" width="120" alt="Infineon" style="width:120px;max-width:120px;height:auto;display:block;border:0;" />
           </td>
         </tr>
       </table>
@@ -217,16 +190,22 @@ export function generateNewsletterEmailHtml(draft: NewsletterDraft): string {
   </tr>
   ${headerImg ? `<tr><td style="padding:0 0 20px;">${renderImage(headerImg, 'full')}</td></tr>` : ''}
   ${
-    draft.introContent
-      ? `<tr><td style="font-size:10.5pt;line-height:1.6;padding:0 0 12px;font-family:${FONT};">${draft.introContent}</td></tr>`
+    intro
+      ? `<tr><td style="font-size:14px;line-height:1.6;padding:0 0 20px;font-family:${FONT};">${escapeHtml(intro)}</td></tr>`
       : ''
   }
   ${
-    nav
-      ? `<tr><td style="padding:0 0 8px;"><table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td align="center" style="background:${BRAND_GREEN};padding:18px 16px;">${nav}</td></tr></table></td></tr>`
+    topics
+      ? `<tr><td style="padding:8px 0 20px;">
+          <h2 style="margin:0;padding:0 0 12px;border-bottom:3px solid ${BRAND_GREEN};font-size:22px;line-height:1.3;color:${TITLE_GREEN};font-family:${FONT};">In this edition</h2>
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">${topics}</table>
+        </td></tr>`
       : ''
   }
-  <tr><td>${chapters}</td></tr>
+  ${highlights ? `<tr><td style="padding:8px 0 24px;">
+    <h2 style="margin:0;font-size:22px;line-height:1.3;color:${TITLE_GREEN};font-family:${FONT};">A first look</h2>
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">${highlights}</table>
+  </td></tr>` : ''}
   ${
     footer
       ? `<tr><td style="padding:20px 0 0;border-top:1px solid #e5e7eb;text-align:center;font-size:10.5pt;line-height:1.6;color:#333333;font-family:${FONT};">${footer}</td></tr>`
