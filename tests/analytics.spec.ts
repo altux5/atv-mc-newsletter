@@ -8,7 +8,11 @@ async function fixture(page: Page, editor: boolean, enabled = true) {
   await page.route('**/api/**', async (route) => {
     const url = new URL(route.request().url())
     if (url.pathname === '/api/analytics/config') return route.fulfill({ json: { enabled } })
-    if (url.pathname === '/api/analytics/session') { sessions.push(route.request().method()); return route.fulfill({ status: 204 }) }
+    if (url.pathname === '/api/analytics/session') {
+      expect(route.request().postData()).toBeNull()
+      sessions.push(route.request().method())
+      return route.fulfill({ status: 204 })
+    }
     if (url.pathname === '/api/analytics/events') { events.push(route.request().postDataJSON()); return route.fulfill({ status: 204 }) }
     if (url.pathname === '/api/analytics/report') {
       const days = Number(url.searchParams.get('days'))
@@ -114,14 +118,14 @@ test('dashboard, period selection, CSV, errors, empty data and responsive layout
   await expect(page.getByText('No website activity recorded in this period.')).toBeVisible()
 })
 
-test('opt-in, newsletter view, clicks, engagement, navigation and withdrawal', async ({ page }) => {
+test('automatic newsletter views, clicks, engagement and navigation without a banner', async ({ page }) => {
   const { events, sessions } = await fixture(page, false)
   await page.goto('/newsletters', { waitUntil: 'domcontentloaded' })
-  await expect(page.getByRole('button', { name: 'Allow analytics' })).toBeVisible()
-  expect(events).toHaveLength(0)
-  expect(sessions).toHaveLength(0)
-  await page.getByRole('button', { name: 'Allow analytics' }).click()
   await expect.poll(() => events.filter((event) => event.type === 'view').length).toBe(1)
+  expect(sessions).toEqual(['POST'])
+  await expect(page.getByRole('button', { name: /Allow analytics|Decline analytics|Analytics privacy settings/ })).toHaveCount(0)
+  await expect(page.getByRole('region', { name: 'Analytics privacy choice' })).toHaveCount(0)
+  expect(await page.evaluate(() => localStorage.getItem('newsletter-analytics-consent-v1'))).toBeNull()
   await page.goto('/newsletters/atv-mc-newsletter-august-26-edition', { waitUntil: 'domcontentloaded' })
   await expect(page.locator('.embedded-newsletter')).toBeVisible()
   await expect.poll(() => events.filter((event) => event.type === 'view' && !!event.newsletterSlug).length).toBe(1)
@@ -137,8 +141,10 @@ test('opt-in, newsletter view, clicks, engagement, navigation and withdrawal', a
   expect(events.find((event) => event.type === 'click')?.target).toBe('link-1')
   await page.getByRole('link', { name: /Back to list/ }).click()
   await expect.poll(() => events.filter((event) => event.type === 'view' && !event.newsletterSlug).length).toBe(2)
-  await page.getByRole('button', { name: 'Analytics privacy settings' }).click()
-  await page.getByRole('button', { name: 'Decline analytics' }).click()
+  await page.evaluate(() => {
+    Object.defineProperty(navigator, 'globalPrivacyControl', { value: true, configurable: true })
+    window.dispatchEvent(new Event('focus'))
+  })
   await expect.poll(() => sessions.includes('DELETE')).toBe(true)
   const count = events.length
   await page.getByRole('navigation').getByRole('link', { name: 'Home', exact: true }).click()
@@ -146,23 +152,53 @@ test('opt-in, newsletter view, clicks, engagement, navigation and withdrawal', a
   expect(events).toHaveLength(count)
 })
 
-test('decline and privacy signals prevent collection; disabled collection shows no prompt', async ({ page }, testInfo) => {
-  const { events } = await fixture(page, false)
+test('automatic collection includes editors on public pages but excludes editor routes', async ({ page }, testInfo) => {
+  const { events, sessions } = await fixture(page, true)
+  await page.goto('/admin/analytics', { waitUntil: 'domcontentloaded' })
+  await expect(page.getByRole('heading', { name: 'Newsletter performance' })).toBeVisible()
+  await expect.poll(() => sessions.includes('POST')).toBe(true)
+  expect(events).toHaveLength(0)
+  await page.getByRole('navigation', { name: 'Main navigation' }).getByRole('link', { name: 'Newsletters', exact: true }).click()
+  await expect.poll(() => events.filter((event) => event.type === 'view').length).toBe(1)
+  expect(events[0].path).toBe('/newsletters')
+  await page.getByRole('navigation', { name: 'Editor navigation' }).getByRole('link', { name: 'Analytics', exact: true }).click()
+  await expect(page.getByRole('heading', { name: 'Newsletter performance' })).toBeVisible()
+  await page.clock.install()
+  await page.clock.runFor(16000)
+  expect(events).toHaveLength(1)
   await page.setViewportSize({ width: 390, height: 844 })
-  await page.goto('/newsletters', { waitUntil: 'domcontentloaded' })
-  await expect(page.getByRole('button', { name: 'Decline analytics' })).toBeVisible()
+  await expect(page.getByRole('button', { name: /Allow analytics|Decline analytics|Analytics privacy settings/ })).toHaveCount(0)
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true)
-  await page.screenshot({ path: testInfo.outputPath('consent-mobile.png') })
-  await page.getByRole('button', { name: 'Decline analytics' }).click()
-  await page.reload()
-  await expect(page.getByRole('button', { name: 'Allow analytics' })).toHaveCount(0)
+  await page.screenshot({ path: testInfo.outputPath('automatic-analytics-mobile.png') })
+})
+
+for (const signal of ['globalPrivacyControl', 'doNotTrack']) {
+  test(`${signal} prevents automatic collection`, async ({ page }) => {
+    const { events, sessions } = await fixture(page, false)
+    await page.addInitScript((name) => Object.defineProperty(navigator, name, { value: name === 'doNotTrack' ? '1' : true }), signal)
+    await page.goto('/submit-article', { waitUntil: 'domcontentloaded' })
+    await expect.poll(() => sessions.includes('DELETE')).toBe(true)
+    await page.clock.install()
+    await page.clock.runFor(16000)
+    expect(sessions.includes('POST')).toBe(false)
+    expect(events).toHaveLength(0)
+    await expect(page.getByRole('button', { name: /Allow analytics|Decline analytics/ })).toHaveCount(0)
+  })
+}
+
+test('disabled collection and session failures never send events', async ({ page }) => {
+  const { events, sessions } = await fixture(page, false, false)
+  await page.goto('/submit-article', { waitUntil: 'domcontentloaded' })
+  await expect(page.getByRole('link', { name: 'Editor Login', exact: true })).toBeVisible()
+  await page.clock.install()
+  await page.clock.runFor(16000)
+  expect(sessions).toHaveLength(0)
   expect(events).toHaveLength(0)
-  await page.evaluate(() => localStorage.clear())
-  await page.addInitScript(() => Object.defineProperty(navigator, 'globalPrivacyControl', { value: true }))
-  await page.reload()
-  await expect(page.getByRole('button', { name: 'Allow analytics' })).toHaveCount(0)
+  await page.route('**/api/analytics/config', (route) => route.fulfill({ json: { enabled: true } }))
+  let attempts = 0
+  await page.route('**/api/analytics/session', (route) => { attempts++; return route.fulfill({ status: 503 }) })
+  await page.reload({ waitUntil: 'domcontentloaded' })
+  await expect.poll(() => attempts).toBeGreaterThan(0)
+  await page.clock.runFor(16000)
   expect(events).toHaveLength(0)
-  await page.route('**/api/analytics/config', (route) => route.fulfill({ json: { enabled: false } }))
-  await page.reload()
-  await expect(page.getByRole('button', { name: 'Analytics privacy settings' })).toHaveCount(0)
 })

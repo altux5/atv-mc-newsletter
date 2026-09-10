@@ -5,7 +5,7 @@ import type { AddressInfo } from 'node:net'
 import express from 'express'
 import { createAnalyticsApi } from './analyticsApi.js'
 
-test('HTTP collection requires opt-in, signed cookie and origin; reports fail closed', async () => {
+test('automatic collection requires a signed cookie and origin; reports fail closed', async () => {
   let writes = 0
   const app = express()
   const auth = express()
@@ -18,19 +18,30 @@ test('HTTP collection requires opt-in, signed cookie and origin; reports fail cl
   const options = { enabled: true, secret: 'test-secret-not-for-production-123456', origin, authUrl: `http://127.0.0.1:${(authServer.address() as AddressInfo).port}/userinfo`, editors: ['editor@example.com'] }
   app.use('/api/analytics', createAnalyticsApi(async () => { writes++; return [{}] }, options))
   app.use('/disabled', createAnalyticsApi(async () => { throw new Error('Must not write') }, { ...options, enabled: false }))
-  const request = (path: string, body?: unknown, cookie = '', requestOrigin = origin) => fetch(`${origin}${path}`, {
-    method: 'POST', headers: { origin: requestOrigin, cookie, 'content-type': 'application/json' }, body: JSON.stringify(body),
+  const request = (path: string, body?: unknown, cookie = '', requestOrigin = origin, headers = {}) => fetch(`${origin}${path}`, {
+    method: 'POST', headers: { origin: requestOrigin, cookie, 'content-type': 'application/json', ...headers }, body: JSON.stringify(body),
   })
   try {
-    assert.equal((await request('/api/analytics/session', { consent: 'granted' }, '', 'https://other.example')).status, 403)
-    assert.equal((await request('/api/analytics/session', {})).status, 403)
-    assert.equal((await request('/disabled/session', { consent: 'granted' })).status, 403)
-    const session = await request('/api/analytics/session', { consent: 'granted' })
+    assert.equal((await request('/api/analytics/session', undefined, '', 'https://other.example')).status, 403)
+    assert.equal((await request('/api/analytics/session', undefined, '', '')).status, 403)
+    assert.equal((await request('/disabled/session')).status, 403)
+    for (const headers of [{ 'sec-gpc': '1' }, { dnt: '1' }]) {
+      const blocked = await request('/api/analytics/session', undefined, '', origin, headers)
+      assert.equal(blocked.status, 403)
+      assert.equal(blocked.headers.get('set-cookie'), null)
+    }
+    const session = await request('/api/analytics/session')
     assert.equal(session.status, 204)
     const cookie = session.headers.get('set-cookie')!.split(';')[0]
     assert.match(session.headers.get('set-cookie')!, /HttpOnly/)
     const id = randomUUID()
     const view = { id, viewId: id, type: 'view', path: '/newsletters' }
+    for (const headers of [{ 'sec-gpc': '1' }, { dnt: '1' }]) {
+      assert.equal((await request('/api/analytics/events', view, cookie, origin, headers)).status, 403)
+    }
+    const resumed = await request('/api/analytics/session', undefined, cookie)
+    assert.equal(resumed.status, 204)
+    assert.equal(resumed.headers.get('set-cookie'), null)
     assert.equal((await request('/api/analytics/events', view)).status, 403)
     assert.equal((await request('/api/analytics/events', view, `${cookie}tampered`)).status, 403)
     assert.equal((await request('/api/analytics/events', { ...view, email: 'private' }, cookie)).status, 400)

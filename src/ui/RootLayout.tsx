@@ -3,7 +3,7 @@ import logoUrl from '../logo/Agent-logo.svg'
 import { Link } from 'react-router-dom'
 import { useAuth } from '../contexts/AuthContext'
 import SubscribeForm from './components/SubscribeForm'
-import { AnalyticsProvider, AnalyticsPreferences, PageAnalytics } from '../contexts/AnalyticsContext'
+import { AnalyticsProvider, PageAnalytics } from '../contexts/AnalyticsContext'
 
 export default function RootLayout() {
   const { isAuthenticated, isEditor, logout, user } = useAuth()
@@ -98,7 +98,6 @@ export default function RootLayout() {
         <div className="container">
           <SubscribeForm />
           <div className="app-footer-copy">© {new Date().getFullYear()} Newsletter Hub</div>
-          <AnalyticsPreferences />
         </div>
       </footer>
     </div>

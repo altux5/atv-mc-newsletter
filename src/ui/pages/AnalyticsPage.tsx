@@ -61,7 +61,7 @@ export default function AnalyticsPage() {
       {loading && <p className="analytics-state" role="status">Loading analytics...</p>}
       {error && <div className="analytics-state" role="alert"><p>{error}</p><button className="button" onClick={() => setRefresh((value) => value + 1)}>Try again</button></div>}
       {report && <>
-        <div className="analytics-status"><span className={report.enabled ? 'analytics-live' : ''}>{report.enabled ? 'Collection enabled' : 'Collection paused'}</span><span>UTC dates · Opted-in browsers · 90-day retention</span></div>
+        <div className="analytics-status"><span className={report.enabled ? 'analytics-live' : ''}>{report.enabled ? 'Collection enabled' : 'Collection paused'}</span><span>UTC dates · Browser estimates · 90-day retention</span></div>
         <dl className="analytics-metrics">
           {[
             ['Unique browsers', number(report.totals.visitors)], ['Page views', number(report.totals.views)],

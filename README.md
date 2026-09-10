@@ -3,7 +3,9 @@
 ## Analytics
 
 Built-in analytics is available at `/admin/analytics` for editors. Browser
-collection is off by default and requires visitor opt-in when enabled.
+collection is off by default; when enabled on the server, public-page activity
+is recorded automatically without a consent banner. Browser privacy signals
+are respected, and private editor routes are not tracked.
 See [Analytics setup and rollout](docs/analytics.md) for metrics, server and
 gateway configuration, GeoIP prerequisites, privacy defaults and test commands.
 

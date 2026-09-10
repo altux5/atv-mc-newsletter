@@ -1,30 +1,11 @@
 import type { AnalyticsEvent } from '../types/analytics'
 
-export const analyticsConsentKey = 'newsletter-analytics-consent-v1'
-export type AnalyticsConsent = 'granted' | 'denied' | null
-
 export function privacySignal(): boolean {
   return navigator.doNotTrack === '1' || (navigator as Navigator & { globalPrivacyControl?: boolean }).globalPrivacyControl === true
 }
 
-export function readAnalyticsConsent(): AnalyticsConsent {
-  try {
-    const saved = JSON.parse(localStorage.getItem(analyticsConsentKey) ?? 'null') as { choice?: string; expires?: number } | null
-    if (!saved || !saved.expires || saved.expires < Date.now()) return null
-    return saved.choice === 'granted' || saved.choice === 'denied' ? saved.choice : null
-  } catch { return null }
-}
-
-export function saveAnalyticsConsent(choice: Exclude<AnalyticsConsent, null>): boolean {
-  try {
-    localStorage.setItem(analyticsConsentKey, JSON.stringify({ choice, expires: Date.now() + 30 * 86400000 }))
-    window.dispatchEvent(new Event('analytics-consent-change'))
-    return true
-  } catch { return false }
-}
-
 export function collectionAllowed(): boolean {
-  return readAnalyticsConsent() === 'granted' && !privacySignal()
+  return !privacySignal()
 }
 
 export function startAnalyticsView(path: string, newsletterSlug?: string, container?: HTMLElement) {

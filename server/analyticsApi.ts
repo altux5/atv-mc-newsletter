@@ -51,7 +51,7 @@ export function createAnalyticsApi(query: AnalyticsQuery, options: AnalyticsOpti
   router.post('/session', (req, res) => {
     if (!sameOrigin(req, res)) return
     if (!enabled) return res.status(403).json({ error: 'Analytics collection is disabled.' })
-    if (req.body?.consent !== 'granted' || req.get('sec-gpc') === '1' || req.get('dnt') === '1') return res.status(403).json({ error: 'Analytics consent required.' })
+    if (req.get('sec-gpc') === '1' || req.get('dnt') === '1') return res.status(403).json({ error: 'Analytics blocked by browser privacy settings.' })
     if (!visitor(req)) {
       const value = `${randomUUID()}.${Date.now() + cookieAge}`
       res.cookie(cookieName, `${value}.${sign(value)}`, { ...cookieOptions, maxAge: cookieAge })
@@ -67,7 +67,8 @@ export function createAnalyticsApi(query: AnalyticsQuery, options: AnalyticsOpti
     if (!sameOrigin(req, res)) return
     if (!enabled) return res.status(403).json({ error: 'Analytics collection is disabled.' })
     const identity = visitor(req)
-    if (!identity || req.get('sec-gpc') === '1' || req.get('dnt') === '1') return res.status(403).json({ error: 'Analytics consent required.' })
+    if (req.get('sec-gpc') === '1' || req.get('dnt') === '1') return res.status(403).json({ error: 'Analytics blocked by browser privacy settings.' })
+    if (!identity) return res.status(403).json({ error: 'Analytics session required.' })
     if (/bot|crawler|spider|headless/i.test(req.get('user-agent') ?? '')) return res.status(204).end()
     const event = parseAnalyticsEvent(req.body)
     if (!event) return res.status(400).json({ error: 'Invalid analytics event.' })
