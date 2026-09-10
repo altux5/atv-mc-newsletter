@@ -1,11 +1,12 @@
-import { useEffect, useMemo, useState } from 'react'
-import { Link, useParams, useNavigate } from 'react-router-dom'
+import { useEffect, useMemo, useRef, useState } from 'react'
+import { Link, useParams, useNavigate, useLocation } from 'react-router-dom'
 import { getNewslettersAsync, type Newsletter } from '../../data/newsletters'
 import { extractAndSanitizeBodyHtml, extractMonthYearFromHtml, findHtmlByMonthYearAsync, loadHtmlByPathAsync, parseMonthYearFromPath } from '../../utils/newsletterHtml'
 import { getPublishedBodyApi, deleteNewsletterApi } from '../../utils/newslettersApi'
 import type { NewsletterDraft } from '../../types/newsletter-creation'
 import { generateNewsletterBodyHtml } from '../../utils/generateNewsletterHtml'
 import { useAuth } from '../../contexts/AuthContext'
+import { useNewsletterAnalytics } from '../../contexts/AnalyticsContext'
 import Icon from '../components/Icon'
 import editIcon from '../../icons/edit.svg'
 import deleteIcon from '../../icons/delete-16.svg'
@@ -13,7 +14,8 @@ import deleteIcon from '../../icons/delete-16.svg'
 export default function NewsletterDetailPage() {
   const { slug } = useParams()
   const navigate = useNavigate()
-  const { isAuthenticated } = useAuth()
+  const { hash } = useLocation()
+  const { isAuthenticated, isEditor } = useAuth()
   const [newsletters, setNewsletters] = useState<Newsletter[] | null>(null)
   const newsletter = useMemo(
     () => (newsletters ? newsletters.find((n) => n.slug === slug) : undefined),
@@ -26,6 +28,20 @@ export default function NewsletterDetailPage() {
   const [sourcePath, setSourcePath] = useState<string | null>(null)
   const [sanitizedHtml, setSanitizedHtml] = useState<string | null>(null)
   const [derivedTitle, setDerivedTitle] = useState<string | null>(null)
+  const [loadedSlug, setLoadedSlug] = useState<string | null>(null)
+  const bodyRef = useRef<HTMLDivElement>(null)
+  useNewsletterAnalytics(newsletter?.slug, loadedSlug === slug && !!sanitizedHtml && !!htmlString, bodyRef)
+
+  useEffect(() => {
+    const match = /^#analytics-link-([1-9][0-9]{0,3})$/.exec(hash)
+    if (!isEditor || !match || loadedSlug !== slug || !sanitizedHtml) return
+    const link = bodyRef.current?.querySelectorAll<HTMLAnchorElement>('a[href]')[Number(match[1]) - 1]
+    if (!link) return
+    link.classList.add('analytics-link-highlight')
+    link.scrollIntoView({ block: 'center' })
+    link.focus({ preventScroll: true })
+    return () => link.classList.remove('analytics-link-highlight')
+  }, [hash, isEditor, sanitizedHtml, loadedSlug, slug])
 
   // Load the merged newsletter list (.htm archive + DB) to resolve this slug.
   useEffect(() => {
@@ -40,6 +56,7 @@ export default function NewsletterDetailPage() {
 
   // Load the body HTML for the resolved newsletter.
   useEffect(() => {
+    setLoadedSlug(null)
     if (!newsletter) {
       setHtmlString(null)
       return
@@ -52,6 +69,7 @@ export default function NewsletterDetailPage() {
         const draft: NewsletterDraft | null = await getPublishedBodyApi(newsletter.id)
         if (cancelled) return
         setHtmlString(draft ? generateNewsletterBodyHtml(draft) : null)
+        setLoadedSlug(newsletter.slug)
         return
       }
 
@@ -63,6 +81,7 @@ export default function NewsletterDetailPage() {
       if (asyncMatch) {
         setHtmlString(asyncMatch.html)
         setSourcePath(asyncMatch.path)
+        setLoadedSlug(newsletter.slug)
       }
     })()
     return () => {
@@ -163,10 +182,10 @@ export default function NewsletterDetailPage() {
       {htmlString && sanitizedHtml ? (
         isLocalNewsletter ? (
           <div className="nl-published-frame">
-            <div className="embedded-newsletter" dangerouslySetInnerHTML={{ __html: sanitizedHtml }} />
+            <div ref={bodyRef} className="embedded-newsletter" dangerouslySetInnerHTML={{ __html: sanitizedHtml }} />
           </div>
         ) : (
-          <div className="embedded-newsletter" dangerouslySetInnerHTML={{ __html: sanitizedHtml }} />
+          <div ref={bodyRef} className="embedded-newsletter" dangerouslySetInnerHTML={{ __html: sanitizedHtml }} />
         )
       ) : (
         <div className="content">

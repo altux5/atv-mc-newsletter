@@ -73,3 +73,49 @@ CREATE INDEX IF NOT EXISTS idx_newsletters_date ON newsletters (date DESC);
 CREATE INDEX IF NOT EXISTS idx_articles_submitted_at ON articles (submitted_at DESC);
 CREATE INDEX IF NOT EXISTS idx_newsletter_drafts_status ON newsletter_drafts (status);
 CREATE INDEX IF NOT EXISTS idx_subscribers_active ON subscribers (active);
+
+CREATE TABLE IF NOT EXISTS analytics_views (
+  id uuid PRIMARY KEY,
+  visitor text NOT NULL,
+  path text NOT NULL,
+  newsletter_slug text,
+  country text NOT NULL DEFAULT 'Unknown',
+  region text NOT NULL DEFAULT 'Unknown',
+  active_seconds integer NOT NULL DEFAULT 0 CHECK (active_seconds BETWEEN 0 AND 7200),
+  scroll_depth integer NOT NULL DEFAULT 0 CHECK (scroll_depth BETWEEN 0 AND 100),
+  created_at timestamptz NOT NULL DEFAULT now()
+);
+CREATE INDEX IF NOT EXISTS idx_analytics_views_created ON analytics_views (created_at);
+CREATE INDEX IF NOT EXISTS idx_analytics_views_newsletter ON analytics_views (newsletter_slug, created_at);
+
+CREATE TABLE IF NOT EXISTS analytics_clicks (
+  id uuid PRIMARY KEY,
+  view_id uuid NOT NULL REFERENCES analytics_views(id) ON DELETE CASCADE,
+  target text NOT NULL,
+  created_at timestamptz NOT NULL DEFAULT now()
+);
+CREATE INDEX IF NOT EXISTS idx_analytics_clicks_view ON analytics_clicks (view_id);
+CREATE INDEX IF NOT EXISTS idx_analytics_clicks_created ON analytics_clicks (created_at);
+
+CREATE TABLE IF NOT EXISTS analytics_subscription_events (
+  id bigint GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  kind text NOT NULL CHECK (kind IN ('added', 'removed')),
+  created_at timestamptz NOT NULL DEFAULT now()
+);
+CREATE INDEX IF NOT EXISTS idx_analytics_subscriptions_created ON analytics_subscription_events (created_at);
+
+CREATE OR REPLACE FUNCTION record_subscription_change() RETURNS trigger LANGUAGE plpgsql AS $$
+BEGIN
+  IF TG_OP = 'INSERT' THEN
+    IF NEW.active THEN
+      INSERT INTO analytics_subscription_events (kind) VALUES ('added');
+    END IF;
+  ELSIF OLD.active IS DISTINCT FROM NEW.active THEN
+    INSERT INTO analytics_subscription_events (kind) VALUES (CASE WHEN NEW.active THEN 'added' ELSE 'removed' END);
+  END IF;
+  RETURN NEW;
+END;
+$$;
+DROP TRIGGER IF EXISTS analytics_subscription_change ON subscribers;
+CREATE TRIGGER analytics_subscription_change AFTER INSERT OR UPDATE OF active ON subscribers
+FOR EACH ROW EXECUTE FUNCTION record_subscription_change();

@@ -14,6 +14,7 @@ import SubmitArticlePage from './ui/pages/SubmitArticlePage'
 import AdminArticlesPage from './ui/pages/AdminArticlesPage'
 import LoginPage from './ui/pages/LoginPage'
 import ProtectedRoute from './ui/components/ProtectedRoute'
+import AnalyticsPage from './ui/pages/AnalyticsPage'
 
 const router = createBrowserRouter([
   {
@@ -41,6 +42,10 @@ const router = createBrowserRouter([
       },
       { path: 'newsletters/:slug', element: <NewsletterDetailPage /> },
       { path: 'submit-article', element: <SubmitArticlePage /> },
+      {
+        path: 'admin/analytics',
+        element: <ProtectedRoute><AnalyticsPage /></ProtectedRoute>,
+      },
       {
         path: 'admin/articles',
         element: (

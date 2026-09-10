@@ -50,7 +50,7 @@ export default function SubscribeForm() {
           aria-label="Email address"
           required
         />
-        <button type="submit" className="subscribe-button" disabled={status === 'submitting'}>
+        <button type="submit" className="subscribe-button" data-analytics-action="subscribe" disabled={status === 'submitting'}>
           {status === 'submitting' ? 'Subscribing…' : 'Subscribe'}
         </button>
       </form>

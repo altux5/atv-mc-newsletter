@@ -8,10 +8,14 @@
     "build": "tsc && vite build",
     "preview": "vite preview",
     "api": "tsx server/aiProxy.ts",
-    "start": "tsx server/aiProxy.ts"
+    "start": "tsx server/aiProxy.ts",
+    "test:analytics": "node --import tsx --test server/analyticsEvents.test.ts server/analyticsStore.test.ts server/analyticsApi.test.ts",
+    "test:analytics:browser": "playwright test"
   },
   "devDependencies": {
+    "@electric-sql/pglite": "^0.5.8",
     "@infineon/design-system-mcp": "^39.34.0",
+    "@playwright/test": "^1.63.0",
     "@types/express": "^4.17.21",
     "@types/node": "^22.10.1",
     "@types/nodemailer": "^6.4.24",
@@ -32,6 +36,9 @@
     "dompurify": "^3.2.6",
     "dotenv": "^16.4.5",
     "express": "^4.21.1",
+    "express-rate-limit": "^8.7.0",
+    "ipaddr.js": "^2.5.0",
+    "maxmind": "^5.0.7",
     "nodemailer": "^6.10.1",
     "pg": "^8.13.1",
     "react": "^19.1.1",

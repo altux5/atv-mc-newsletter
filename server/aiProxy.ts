@@ -6,8 +6,10 @@ import express, { type Request, type Response } from 'express'
 import dotenv from 'dotenv'
 import { Agent as UndiciAgent } from 'undici'
 import { dbApi } from './dbApi.js'
-import { ensureSchema } from './db.js'
+import { ensureSchema, query } from './db.js'
 import { setupMailer } from './mailer.js'
+import { analyticsOptionsFromEnv, createAnalyticsApi } from './analyticsApi.js'
+import { pruneAnalytics } from './analyticsStore.js'
 
 dotenv.config()
 
@@ -15,6 +17,10 @@ dotenv.config()
 setupMailer()
 
 const app = express()
+if (process.env.ANALYTICS_TRUST_PROXY) {
+  app.set('trust proxy', process.env.ANALYTICS_TRUST_PROXY.split(',').map((entry) => entry.trim()))
+}
+app.use('/api/analytics', createAnalyticsApi(query, analyticsOptionsFromEnv()))
 // Limit is generous because submitted articles embed base64 images.
 app.use(express.json({ limit: '15mb' }))
 
@@ -151,7 +157,11 @@ app.listen(port, '0.0.0.0', () => {
 
 // Ensure the database schema exists. Non-fatal: the server still serves the SPA
 // and AI proxy (and returns per-request errors on DB routes) if the DB is down.
-ensureSchema().catch((error) => {
+ensureSchema().then(async () => {
+  const cleanup = () => pruneAnalytics(query).catch(() => console.warn('[analytics] Retention cleanup failed.'))
+  await cleanup()
+  setInterval(() => { void cleanup() }, 6 * 60 * 60 * 1000).unref()
+}).catch((error) => {
   const message = error instanceof Error ? error.message : 'Unknown error'
   console.warn(`[db] schema init skipped: ${message}`)
 })

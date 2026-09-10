@@ -1,5 +1,12 @@
 # atv-mc-newsletter
 
+## Analytics
+
+Built-in analytics is available at `/admin/analytics` for editors. Browser
+collection is off by default and requires visitor opt-in when enabled.
+See [Analytics setup and rollout](docs/analytics.md) for metrics, server and
+gateway configuration, GeoIP prerequisites, privacy defaults and test commands.
+
 ## Authentication Modes
 
 The app supports two frontend auth modes:

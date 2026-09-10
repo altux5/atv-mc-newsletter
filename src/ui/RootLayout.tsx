@@ -3,6 +3,7 @@ import logoUrl from '../logo/Agent-logo.svg'
 import { Link } from 'react-router-dom'
 import { useAuth } from '../contexts/AuthContext'
 import SubscribeForm from './components/SubscribeForm'
+import { AnalyticsProvider, AnalyticsPreferences, PageAnalytics } from '../contexts/AnalyticsContext'
 
 export default function RootLayout() {
   const { isAuthenticated, isEditor, logout, user } = useAuth()
@@ -21,7 +22,9 @@ export default function RootLayout() {
   }
 
   return (
+    <AnalyticsProvider>
     <div className="app-shell">
+      <PageAnalytics />
       <header className={`app-header${hideStickyHeader ? ' editor-route' : ''}`}>
         <div className="container header-inner">
           <Link to="/" className="brand">
@@ -46,7 +49,7 @@ export default function RootLayout() {
             >
               Newsletters
             </NavLink>
-            <NavLink to="/submit-article" className={({ isActive }) => (isActive ? 'active' : '')}>
+            <NavLink to="/submit-article" data-analytics-action="submit-article" className={({ isActive }) => (isActive ? 'active' : '')}>
               Submit Article
             </NavLink>
             {isEditor && (
@@ -56,6 +59,9 @@ export default function RootLayout() {
                 </NavLink>
                 <NavLink to="/newsletters/create" className={({ isActive }) => (isActive ? 'active' : '')}>
                   Create Newsletter
+                </NavLink>
+                <NavLink to="/admin/analytics" className={({ isActive }) => `analytics-nav-link${isActive ? ' active' : ''}`}>
+                  Analytics
                 </NavLink>
               </>
             )}
@@ -92,9 +98,11 @@ export default function RootLayout() {
         <div className="container">
           <SubscribeForm />
           <div className="app-footer-copy">© {new Date().getFullYear()} Newsletter Hub</div>
+          <AnalyticsPreferences />
         </div>
       </footer>
     </div>
+    </AnalyticsProvider>
   )
 }
 
