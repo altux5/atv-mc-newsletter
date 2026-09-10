@@ -36,6 +36,11 @@ a { color: var(--text); text-decoration: none; }
 .header-inner {
   display: flex; align-items: center; gap: 16px; min-height: 80px;
 }
+.header-inner.has-editor-tools {
+  width: 1440px;
+  flex-wrap: wrap;
+  padding-block: 12px;
+}
 .brand { font-weight: 700; letter-spacing: 0.3px; color: var(--brand); display: flex; align-items: center; gap: 10px; font-size: 20px; flex-shrink: 0; white-space: nowrap; }
 .brand img { height: 40px; width: auto; display: block; }
 .nav { display: flex; align-items: center; flex-wrap: nowrap; gap: 2px; flex-shrink: 0; }
@@ -1724,6 +1729,35 @@ a { color: var(--text); text-decoration: none; }
   flex-shrink: 0;
   padding-left: 16px;
   border-left: 1px solid #e5e7eb;
+}
+.nav-auth--editor {
+  gap: 16px;
+  max-width: 100%;
+  min-width: 0;
+}
+.editor-nav {
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  flex-shrink: 1;
+}
+.editor-nav a { padding: 8px; font-size: 14px; }
+.nav-auth--editor .user-chip { flex-shrink: 0; }
+
+@media (max-width: 1280px) {
+  .has-editor-tools .brand { flex-basis: 100%; }
+}
+@media (max-width: 900px) {
+  .nav-auth--editor { flex-wrap: wrap; justify-content: flex-end; }
+}
+@media (max-width: 640px) {
+  .nav-auth--editor {
+    flex-basis: 100%;
+    padding: 12px 0 0;
+    border-left: 0;
+    border-top: 1px solid #e5e7eb;
+    gap: 12px;
+  }
+  .nav-auth--editor .editor-nav { flex-basis: 100%; }
 }
 
 .user-chip {

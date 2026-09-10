@@ -26,12 +26,12 @@ export default function RootLayout() {
     <div className="app-shell">
       <PageAnalytics />
       <header className={`app-header${hideStickyHeader ? ' editor-route' : ''}`}>
-        <div className="container header-inner">
+        <div className={`container header-inner${isEditor ? ' has-editor-tools' : ''}`}>
           <Link to="/" className="brand">
             <img src={logoUrl} alt="Agent logo" />
             <span>ATV MC Newsletter Hub</span>
           </Link>
-          <nav className="nav">
+          <nav className="nav" aria-label="Main navigation">
             <NavLink to="/" end className={({ isActive }) => (isActive ? 'active' : '')}>
               Home
             </NavLink>
@@ -52,21 +52,21 @@ export default function RootLayout() {
             <NavLink to="/submit-article" data-analytics-action="submit-article" className={({ isActive }) => (isActive ? 'active' : '')}>
               Submit Article
             </NavLink>
+          </nav>
+          <div className={`nav-auth${isEditor ? ' nav-auth--editor' : ''}`}>
             {isEditor && (
-              <>
+              <nav className="nav editor-nav" aria-label="Editor navigation">
                 <NavLink to="/admin/articles" className={({ isActive }) => (isActive ? 'active' : '')}>
                   Review Articles
                 </NavLink>
                 <NavLink to="/newsletters/create" className={({ isActive }) => (isActive ? 'active' : '')}>
                   Create Newsletter
                 </NavLink>
-                <NavLink to="/admin/analytics" className={({ isActive }) => `analytics-nav-link${isActive ? ' active' : ''}`}>
+                <NavLink to="/admin/analytics" className={({ isActive }) => (isActive ? 'active' : '')}>
                   Analytics
                 </NavLink>
-              </>
+              </nav>
             )}
-          </nav>
-          <div className="nav-auth">
             {isAuthenticated ? (
               <div className="user-chip">
                 <span className="user-avatar" aria-hidden="true">

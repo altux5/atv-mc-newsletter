@@ -1,6 +1,7 @@
-import { defineConfig } from 'vite'
+import { defineConfig, loadEnv } from 'vite'
 import react from '@vitejs/plugin-react-swc'
 import dotenv from 'dotenv'
+import { localAuthPlugin } from './dev/localAuthPlugin'
 
 dotenv.config()
 
@@ -9,9 +10,12 @@ declare const process: { env: Record<string, string | undefined> }
 const isCiBuild = process.env.VITE_CI_BUILD === '1'
 const proxyPort = process.env.PROXY_PORT || '8788'
 
-export default defineConfig({
-  plugins: [react()],
+export default defineConfig(({ mode }) => ({
+  plugins: [react(), localAuthPlugin(loadEnv(mode, '.', '').MIAMI_CLIENT_ID || 'MIAMI_ATVPRD')],
   server: {
+    host: 'localhost',
+    port: 5174,
+    strictPort: true,
     proxy: {
       '/api': {
         target: `http://localhost:${proxyPort}`,
@@ -44,7 +48,7 @@ export default defineConfig({
     // Disable CSS code splitting to reduce graph
     cssCodeSplit: isCiBuild ? false : undefined,
   },
-})
+}))
 
 
 

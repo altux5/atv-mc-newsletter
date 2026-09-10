@@ -7,17 +7,16 @@ collection is off by default and requires visitor opt-in when enabled.
 See [Analytics setup and rollout](docs/analytics.md) for metrics, server and
 gateway configuration, GeoIP prerequisites, privacy defaults and test commands.
 
-## Authentication Modes
+## Authentication
 
-The app supports two frontend auth modes:
-
-- `local`: local development fallback using username and password from env vars.
-- `miami`: corporate sign-in via MIAMI OIDC endpoints.
+The frontend uses `/oauth2` endpoints in both environments. On the hosted site,
+MIAMI Gateway handles them. During `npm run dev`, a Vite-only OIDC handler provides
+real corporate sign-in on localhost, with no Docker requirement and no changes
+to the deployed gateway. See [Local sign-in](miami/local/README.md).
 
 Set these values in `.env` for a MIAMI-enabled build:
 
 ```env
-VITE_AUTH_MODE=miami
 VITE_EDITOR_EMAILS=editor1@infineon.com,editor2@infineon.com
 VITE_OAUTH_SIGN_IN_PATH=/oauth2/sign_in
 VITE_OAUTH_SIGN_OUT_PATH=/oauth2/sign_out
@@ -26,20 +25,24 @@ VITE_OAUTH_USERINFO_PATH=/oauth2/userinfo
 
 `VITE_EDITOR_EMAILS` is used only for frontend editor UI gating. Real protection of editor routes still needs to be enforced by MIAMI Gateway and RDSP roles.
 
-For local-only development without MIAMI, keep:
+Start the local editor preview:
 
-```env
-VITE_AUTH_MODE=local
-VITE_LOCAL_EDITOR_USERNAME=admin
-VITE_LOCAL_EDITOR_PASSWORD=admin
+```powershell
+npm run dev
 ```
+
+Open `http://localhost:5174`. This callback is already registered for the app's
+public client. Keep `localhost` consistent; `127.0.0.1` is a different hostname.
+There is no password-based local auth bypass; `VITE_AUTH_MODE` and
+`VITE_LOCAL_EDITOR_*` are not used by the current authentication code.
 
 ## MIAMI Setup
 
 Repository templates for MIAMI are provided under `miami`.
 
 - `miami/config.example.yaml`: Helm values for MIAMI Gateway.
-- `miami/local/docker-compose.yml`: local MIAMI sidecar and gateway setup.
+- `miami/local/README.md`: local Node/Vite SSO setup (recommended for UI development).
+- `miami/local/docker-compose.yml`: legacy full gateway container setup, not started by Vite.
 - `miami/README.md`: deployment checklist and placeholders.
 
 Before deploying, replace these placeholders:
@@ -59,7 +62,6 @@ https://atv-mc-newsletter-play-atv-newsletter.eu-at-3.icp.infineon.com/oauth2/ca
 Frontend env values for MIAMI:
 
 ```env
-VITE_AUTH_MODE=miami
 VITE_EDITOR_EMAILS=editor1@infineon.com,editor2@infineon.com
 VITE_OAUTH_SIGN_IN_PATH=/oauth2/sign_in
 VITE_OAUTH_SIGN_OUT_PATH=/oauth2/sign_out

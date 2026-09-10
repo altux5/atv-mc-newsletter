@@ -27,6 +27,59 @@ async function fixture(page: Page, editor: boolean, enabled = true) {
   return { events, sessions }
 }
 
+test('header groups editor navigation beside the account with responsive bounds', async ({ page }, testInfo) => {
+  await fixture(page, true, false)
+  await page.goto('/admin/analytics', { waitUntil: 'domcontentloaded' })
+  const publicNav = page.getByRole('navigation', { name: 'Main navigation', exact: true })
+  const editorNav = page.getByRole('navigation', { name: 'Editor navigation', exact: true })
+  await expect(editorNav).toBeVisible()
+  await expect(publicNav.getByRole('link')).toHaveText(['Home', 'Newsletters', 'Submit Article'])
+  await expect(editorNav.getByRole('link')).toHaveText(['Review Articles', 'Create Newsletter', 'Analytics'])
+  await expect(page.locator('.nav-auth').getByRole('navigation', { name: 'Editor navigation' })).toBeVisible()
+  await expect(page.locator('.nav-auth').getByRole('button', { name: 'Logout' })).toBeVisible()
+  await expect(editorNav.getByRole('link', { name: 'Analytics', exact: true })).toHaveAttribute('aria-current', 'page')
+  for (const width of [1440, 1280, 1024, 768, 390, 320]) {
+    await page.setViewportSize({ width, height: 900 })
+    const bounds = await page.evaluate(() => {
+      const header = document.querySelector('.header-inner')!.getBoundingClientRect()
+      const account = document.querySelector('.nav-auth')!.getBoundingClientRect()
+      const mainNav = document.querySelector('nav[aria-label="Main navigation"]')!.getBoundingClientRect()
+      const controls = [...document.querySelectorAll('.header-inner a, .header-inner button, .user-email')]
+      const clipped = controls.filter((element) => {
+        const rect = element.getBoundingClientRect()
+        return rect.left < 0 || rect.right > document.documentElement.clientWidth || rect.top < header.top || rect.bottom > header.bottom
+      }).map((element) => element.textContent)
+      const overlap = controls.some((element, index) => controls.slice(index + 1).some((other) => {
+        const first = element.getBoundingClientRect()
+        const second = other.getBoundingClientRect()
+        return first.left < second.right && first.right > second.left && first.top < second.bottom && first.bottom > second.top
+      }))
+      return { clipped, overlap, rightGap: header.right - account.right, separated: account.left >= mainNav.right || account.top >= mainNav.bottom }
+    })
+    expect(bounds.clipped, `Clipped controls at ${width}px`).toEqual([])
+    expect(bounds.overlap, `Overlapping controls at ${width}px`).toBe(false)
+    expect(Math.abs(bounds.rightGap)).toBeLessThan(2)
+    expect(bounds.separated).toBe(true)
+    await page.locator('.app-header').screenshot({ path: testInfo.outputPath(`header-${width}.png`) })
+  }
+  await editorNav.getByRole('link', { name: 'Review Articles', exact: true }).click()
+  await expect(page).toHaveURL(/\/admin\/articles$/)
+  await expect(editorNav.getByRole('link', { name: 'Review Articles', exact: true })).toHaveAttribute('aria-current', 'page')
+  await editorNav.getByRole('link', { name: 'Create Newsletter', exact: true }).click()
+  await expect(page).toHaveURL(/\/newsletters\/create$/)
+  await expect(editorNav.getByRole('link', { name: 'Create Newsletter', exact: true })).toHaveAttribute('aria-current', 'page')
+  await publicNav.getByRole('link', { name: 'Newsletters', exact: true }).click()
+  await page.route('**/oauth2/userinfo', (route) => route.fulfill({ json: { email: 'reader@example.invalid' } }))
+  await page.reload({ waitUntil: 'domcontentloaded' })
+  await expect(page.locator('.user-email')).toHaveText('reader@example.invalid')
+  await expect(editorNav).toHaveCount(0)
+  await page.route('**/oauth2/userinfo', (route) => route.fulfill({ status: 401 }))
+  await page.reload({ waitUntil: 'domcontentloaded' })
+  await expect(page.getByRole('link', { name: 'Editor Login', exact: true })).toBeVisible()
+  await expect(editorNav).toHaveCount(0)
+  await expect(publicNav.getByRole('link')).toHaveCount(3)
+})
+
 test('dashboard, period selection, CSV, errors, empty data and responsive layout', async ({ page }, testInfo) => {
   const { events } = await fixture(page, true)
   await page.goto('/admin/analytics', { waitUntil: 'domcontentloaded' })

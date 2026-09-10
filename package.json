@@ -10,7 +10,9 @@
     "api": "tsx server/aiProxy.ts",
     "start": "tsx server/aiProxy.ts",
     "test:analytics": "node --import tsx --test server/analyticsEvents.test.ts server/analyticsStore.test.ts server/analyticsApi.test.ts",
-    "test:analytics:browser": "playwright test"
+    "test:analytics:browser": "playwright test",
+    "test:local-auth": "node --import tsx --test dev/localAuth.test.ts",
+    "typecheck:local-auth": "tsc --noEmit -p dev/tsconfig.json"
   },
   "devDependencies": {
     "@electric-sql/pglite": "^0.5.8",
@@ -23,6 +25,7 @@
     "@types/react": "^19.1.10",
     "@types/react-dom": "^19.1.7",
     "@vitejs/plugin-react-swc": "^4.0.1",
+    "openid-client": "^6.8.8",
     "typescript": "~5.8.3",
     "vite": "^7.1.2"
   },
