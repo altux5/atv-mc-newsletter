@@ -1,11 +1,13 @@
 import { createContext, useContext, useEffect, useState, type ReactNode, type RefObject } from 'react'
 import { useLocation } from 'react-router-dom'
+import { useAuth } from './AuthContext'
 import { privacySignal, startAnalyticsView } from '../utils/analytics'
 import '../ui/analytics.css'
 
 const AnalyticsContext = createContext({ allowed: false })
 
 export function AnalyticsProvider({ children }: { children: ReactNode }) {
+  const { isEditor, isLoading } = useAuth()
   const [enabled, setEnabled] = useState(false)
   const [ready, setReady] = useState(false)
   const [blocked, setBlocked] = useState(privacySignal)
@@ -26,16 +28,16 @@ export function AnalyticsProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     let cancelled = false
     setReady(false)
-    if (!enabled || blocked) {
-      if (blocked) void fetch('/api/analytics/session', { method: 'DELETE', credentials: 'same-origin' }).catch(() => {})
+    if (!enabled || blocked || isEditor || isLoading) {
+      if (blocked || isEditor) void fetch('/api/analytics/session', { method: 'DELETE', credentials: 'same-origin' }).catch(() => {})
       return
     }
     void fetch('/api/analytics/session', { method: 'POST', credentials: 'same-origin' }).then((response) => {
       if (!cancelled) setReady(response.ok)
     }).catch(() => {})
     return () => { cancelled = true }
-  }, [enabled, blocked])
-  const allowed = enabled && ready && !blocked
+  }, [enabled, blocked, isEditor, isLoading])
+  const allowed = enabled && ready && !blocked && !isEditor && !isLoading
   return (
     <AnalyticsContext.Provider value={{ allowed }}>
       {children}

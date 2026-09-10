@@ -152,24 +152,64 @@ test('automatic newsletter views, clicks, engagement and navigation without a ba
   expect(events).toHaveLength(count)
 })
 
-test('automatic collection includes editors on public pages but excludes editor routes', async ({ page }, testInfo) => {
+test('signed-in editors are never tracked, including during delayed authentication', async ({ page }) => {
   const { events, sessions } = await fixture(page, true)
-  await page.goto('/admin/analytics', { waitUntil: 'domcontentloaded' })
-  await expect(page.getByRole('heading', { name: 'Newsletter performance' })).toBeVisible()
-  await expect.poll(() => sessions.includes('POST')).toBe(true)
+  let releaseAuth = () => {}
+  const authReady = new Promise<void>((resolve) => { releaseAuth = resolve })
+  await page.route('**/oauth2/userinfo', async (route) => {
+    await authReady
+    await route.fulfill({ json: { email: 'analytics-test@example.invalid' } })
+  })
+  const configReady = page.waitForResponse('**/api/analytics/config')
+  await page.goto('/newsletters', { waitUntil: 'domcontentloaded' })
+  await configReady
+  await page.clock.install()
+  await page.clock.runFor(2000)
+  expect(sessions.includes('POST')).toBe(false)
   expect(events).toHaveLength(0)
-  await page.getByRole('navigation', { name: 'Main navigation' }).getByRole('link', { name: 'Newsletters', exact: true }).click()
-  await expect.poll(() => events.filter((event) => event.type === 'view').length).toBe(1)
-  expect(events[0].path).toBe('/newsletters')
+  releaseAuth()
+  await expect(page.getByRole('navigation', { name: 'Editor navigation' })).toBeVisible()
+  await expect.poll(() => sessions.includes('DELETE')).toBe(true)
+  expect(sessions.includes('POST')).toBe(false)
+  await page.goto('/newsletters/atv-mc-newsletter-august-26-edition', { waitUntil: 'domcontentloaded' })
+  await expect(page.locator('.embedded-newsletter')).toBeVisible()
+  await expect(page.getByRole('navigation', { name: 'Editor navigation' })).toBeVisible()
+  await page.locator('.embedded-newsletter a[href]').first().evaluate((link) => {
+    link.addEventListener('click', (event) => event.preventDefault(), { once: true })
+    ;(link as HTMLAnchorElement).click()
+  })
+  await page.evaluate(() => window.scrollBy(0, 600))
+  await page.clock.runFor(16000)
+  await page.getByRole('link', { name: /Back to list/ }).click()
+  await page.clock.runFor(16000)
   await page.getByRole('navigation', { name: 'Editor navigation' }).getByRole('link', { name: 'Analytics', exact: true }).click()
   await expect(page.getByRole('heading', { name: 'Newsletter performance' })).toBeVisible()
-  await page.clock.install()
-  await page.clock.runFor(16000)
-  expect(events).toHaveLength(1)
-  await page.setViewportSize({ width: 390, height: 844 })
+  expect(events).toHaveLength(0)
+  expect(sessions.includes('POST')).toBe(false)
   await expect(page.getByRole('button', { name: /Allow analytics|Decline analytics|Analytics privacy settings/ })).toHaveCount(0)
-  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true)
-  await page.screenshot({ path: testInfo.outputPath('automatic-analytics-mobile.png') })
+})
+
+test('automatic tracking continues for non-editors and resumes after editor logout', async ({ page }) => {
+  const { events, sessions } = await fixture(page, false)
+  await page.route('**/oauth2/userinfo', (route) => route.fulfill({ json: { email: 'reader@example.invalid' } }))
+  await page.goto('/submit-article', { waitUntil: 'domcontentloaded' })
+  await expect(page.locator('.user-email')).toHaveText('reader@example.invalid')
+  await expect.poll(() => events.filter((event) => event.type === 'view').length).toBe(1)
+  expect(sessions.filter((method) => method === 'POST')).toHaveLength(1)
+
+  await page.route('**/oauth2/userinfo', (route) => route.fulfill({ json: { email: 'analytics-test@example.invalid' } }))
+  await page.reload({ waitUntil: 'domcontentloaded' })
+  await expect(page.getByRole('navigation', { name: 'Editor navigation' })).toBeVisible()
+  await expect.poll(() => sessions.includes('DELETE')).toBe(true)
+  expect(events).toHaveLength(1)
+  expect(sessions.filter((method) => method === 'POST')).toHaveLength(1)
+
+  await page.route('**/oauth2/userinfo', (route) => route.fulfill({ status: 401 }))
+  await page.reload({ waitUntil: 'domcontentloaded' })
+  await expect(page.getByRole('link', { name: 'Editor Login', exact: true })).toBeVisible()
+  await expect.poll(() => events.filter((event) => event.type === 'view').length).toBe(2)
+  expect(sessions.filter((method) => method === 'POST')).toHaveLength(2)
+  await expect(page.getByRole('button', { name: /Allow analytics|Decline analytics/ })).toHaveCount(0)
 })
 
 for (const signal of ['globalPrivacyControl', 'doNotTrack']) {

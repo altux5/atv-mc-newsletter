@@ -11,8 +11,10 @@ and PostgreSQL database. No external analytics service receives events.
   count one person more than once. This is not a people or account count.
 - Page views: one event per public route visit, including repeat visits. The
   collector only covers Home, the newsletter grid/list, Submit Article and
-  successfully loaded newsletter bodies. All users, including signed-in editors,
-  are counted on public pages. Private editor routes are excluded. Missing newsletters and failed body loads do
+  successfully loaded newsletter bodies. Signed-in editors are excluded on every
+  route, including public pages. Collection waits for the initial authentication
+  check so editors do not generate an initial view before their role is known.
+  Non-editors are still counted automatically. Missing newsletters and failed body loads do
   not count as newsletter views. Browser automation and blocking can affect totals.
 - Newsletter views: opens of archive HTML and database-published editions.
 - Active time: cumulative seconds per open while the document is visible and
@@ -43,8 +45,13 @@ The CSV exports the displayed newsletter ranking, not raw visitor records.
 ## Privacy and defaults
 
 Browser collection is **disabled by default**. When enabled on the server,
-sessions and public-page events start automatically for all visitors without an
-allow/decline banner or stored consent choice. Existing signed identifiers keep
+sessions and public-page events start automatically for non-editor visitors without
+an allow/decline banner or stored consent choice. Once an editor is identified,
+no analytics session is created, no browsing events are sent, and any existing
+analytics cookie is cleared. Signing out allows automatic tracking to resume.
+This excludes editor page views, clicks, active time and scroll depth; it does
+not remove historical events or change operational subscriber counts.
+Existing signed identifiers keep
 their original expiry; they are not renewed on every page. The previous
 `newsletter-analytics-consent-v1` localStorage setting is no longer consulted.
 Global Privacy Control and Do Not Track still suppress sessions and events.
@@ -131,8 +138,9 @@ per identifier, or per socket source before session creation (shared proxies may
    GeoIP database only after that review; otherwise keep Unknown locations.
 5. Enable `ANALYTICS_ENABLED=1`. Verify that a new visitor records a public view
   without a banner, newsletter clicks/engagement appear, privacy signals block
-  collection, and private editor routes generate no events. Public reading by
-  editors is counted too. Confirm existing public and editor routes still work.
+  collection, and signed-in editors generate no events anywhere. Check a delayed
+  authentication response and confirm no early editor view is recorded. Confirm
+  existing public and editor routes still work and visitors resume tracking after logout.
 6. Observe storage growth, database latency, report performance and cleanup logs.
    Disable collection again by setting `ANALYTICS_ENABLED=0`; existing reports remain.
 
@@ -153,7 +161,8 @@ npm run test:analytics:browser -- --headed
 The database tests run PostgreSQL in memory through PGlite; they do not connect
 to OpenShift. Browser tests start Vite on port 5175, use a test-only editor email,
 and intercept API responses. Their numbers are fixtures, not real readership.
-They cover automatic sessions, privacy signals, private-route exclusion, reader events,
+They cover automatic sessions, privacy signals, editor exclusion including delayed
+authentication, tracking after logout, private-route exclusion, reader events,
 date selection, export, error/empty states and desktop/mobile screenshots.
 Microsoft Edge is the default test browser; set `PLAYWRIGHT_CHANNEL` for another
 installed supported channel. This workstation's policy blocks headless Edge,
