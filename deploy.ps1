@@ -10,6 +10,14 @@ if ($branch -ne "deploy-dev") {
     git checkout deploy-dev
 }
 
+# The server enforces editor access with the same allowlist the frontend uses.
+$editorLine = Get-Content .env -ErrorAction SilentlyContinue | Where-Object { $_ -match '^\s*VITE_EDITOR_EMAILS\s*=' } | Select-Object -First 1
+$editorEmails = ($editorLine -replace '^\s*VITE_EDITOR_EMAILS\s*=\s*', '').Trim('"', "'", ' ')
+if (-not $editorEmails) {
+    Write-Host "VITE_EDITOR_EMAILS is missing from .env; editors would be locked out." -ForegroundColor Red
+    exit 1
+}
+
 git add -A
 git commit -m $Message
 git push origin deploy-dev
@@ -60,6 +68,14 @@ $patchObj = @{
                             @{ name = 'MAIL_FROM';        value = 'R-IFX-ATVMCnewsletter@infineon.com' }
                             @{ name = 'MAIL_FROM_NAME';   value = 'ATV MC Newsletter' }
                             @{ name = 'PUBLIC_BASE_URL';  value = 'https://atv-mc-newsletter.eu-de-3.icp.infineon.com' }
+                            @{ name = 'ANALYTICS_EDITOR_EMAILS'; value = $editorEmails }
+                            @{ name = 'ANALYTICS_ENABLED'; value = '1' }
+                            @{ name = 'NODE_EXTRA_CA_CERTS'; value = '/etc/newsletter-trust/ca-bundle.crt' }
+                            @{ name = 'ANALYTICS_SECRET'; valueFrom = @{ secretKeyRef = @{ name = 'newsletter-analytics'; key = 'ANALYTICS_SECRET' } } }
+                        )
+                        # A merge patch replaces the containers list, so the CA mount must be restated.
+                        volumeMounts = @(
+                            @{ name = 'analytics-trusted-ca'; mountPath = '/etc/newsletter-trust'; readOnly = $true }
                         )
                     }
                 )

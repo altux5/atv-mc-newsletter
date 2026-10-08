@@ -1,4 +1,4 @@
-import type { RequestHandler } from 'express'
+import type { Express, RequestHandler } from 'express'
 
 export interface EditorAccessOptions {
   authUrl: string
@@ -35,4 +35,15 @@ export function requireEditor(options: EditorAccessOptions): RequestHandler {
     }
     next()
   }
+}
+
+// The gateway only authenticates, so every editor-only API endpoint must be listed here.
+export function protectEditorRoutes(app: Express, options: EditorAccessOptions): void {
+  const editorOnly = requireEditor(options)
+  app.use('/api/drafts', editorOnly)
+  app.get(['/api/articles', '/api/articles/:id', '/api/subscribers'], editorOnly)
+  app.patch('/api/articles/:id/import', editorOnly)
+  app.put('/api/newsletters/:id', editorOnly)
+  app.delete(['/api/articles/:id', '/api/newsletters/:id'], editorOnly)
+  app.post(['/api/newsletters', '/api/newsletters/:id/send', '/api/refine'], editorOnly)
 }

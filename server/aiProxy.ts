@@ -11,6 +11,7 @@ import { setupMailer } from './mailer.js'
 import { analyticsOptionsFromEnv, createAnalyticsApi } from './analyticsApi.js'
 import { pruneAnalytics } from './analyticsStore.js'
 import { createSubscribersAdminApi } from './subscribersAdminApi.js'
+import { protectEditorRoutes } from './editorAccess.js'
 
 dotenv.config()
 
@@ -24,6 +25,7 @@ if (process.env.ANALYTICS_TRUST_PROXY) {
 const analyticsOptions = analyticsOptionsFromEnv()
 app.use('/api/analytics', createAnalyticsApi(query, analyticsOptions))
 app.use('/api/admin/subscribers', createSubscribersAdminApi(query, analyticsOptions))
+protectEditorRoutes(app, analyticsOptions)
 // Limit is generous because submitted articles embed base64 images.
 app.use(express.json({ limit: '15mb' }))
 
